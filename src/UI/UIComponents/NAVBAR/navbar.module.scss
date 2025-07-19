@@ -23,6 +23,9 @@
 
   position: relative;
 
+  .buttonWrapper {
+  }
+
   .buttonUnderline {
     position: absolute;
     bottom: 0;
@@ -35,6 +38,11 @@
 
     transition: left 0.15s ease;
     pointer-events: none;
+
+    &:hover {
+      background-color: black;
+      height: 10px;
+    }
   }
 }
 

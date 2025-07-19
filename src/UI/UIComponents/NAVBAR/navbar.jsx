@@ -15,7 +15,7 @@ const NavbarButtons = () => {
   const [activeButton, setActiveButton] = useState(0);
   const [hoverButton, setHoverButton] = useState(0);
 
-  const buttons = ["Home", "About", "Contact"];
+  const buttons = [{ Home: "" }, { About: "About" }, { Contact: "./#Contact" }];
 
   return (
     <div className={classes.buttonsWrapper}>
@@ -25,8 +25,11 @@ const NavbarButtons = () => {
           onClick={() => setActiveButton(index)}
           onMouseEnter={() => setHoverButton(index)}
           onMouseLeave={() => setHoverButton(activeButton)}
+          className={classes.buttonWrapper}
         >
-          <NavButton>{button}</NavButton>
+          <NavButton link={Object.values(button)[0]}>
+            {Object.keys(button)}
+          </NavButton>
         </div>
       ))}
       <span

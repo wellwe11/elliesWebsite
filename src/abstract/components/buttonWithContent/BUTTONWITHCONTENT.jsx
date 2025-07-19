@@ -7,6 +7,7 @@ const ButtonWithContent = ({ children, link }) => {
   const navigate = useNavigate();
 
   const handleNaviage = () => {
+    console.log(link);
     navigate(link);
   };
 
