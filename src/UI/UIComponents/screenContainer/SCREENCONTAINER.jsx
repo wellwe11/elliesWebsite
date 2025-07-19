@@ -12,7 +12,7 @@ const ScreenContainer = ({ children }) => {
       <Suspense fallback={<div>Loading...</div>}>
         <div className={classes.widthContainer}>
           <Navbar />
-          <div className={classes.contentWrapper}>
+          <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
             <Routes>
               <Route path="/" element={<MainPage />} />
             </Routes>
