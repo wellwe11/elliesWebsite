@@ -1,9 +1,16 @@
 import classes from "./MAINPAGE.module.scss";
-import ImageWithContent from "../../../../abstract/components/imageWithContent/IMAGE";
+import {
+  ImageWithContent,
+  MainImageWithContent,
+} from "../../../../abstract/components/imageWithContent/IMAGE";
 import { useEffect, useRef, useState } from "react";
 import intersectingRefs from "../../../../abstract/functions/intersectingRefs";
 
 import mainDIsplayImage from "../../../../assets/imageOnWallPlaceholderRepresentation.png";
+import ArrowSVG from "../../../../abstract/components/SVGS/arrowSVG";
+
+const someText =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ";
 
 const MainPageImages = () => {
   const imageRefs = useRef([]);
@@ -21,7 +28,12 @@ const MainPageImages = () => {
           ref={(el) => (imageRefs.current[index] = el)}
           key={index}
         >
-          <ImageWithContent />
+          <ImageWithContent
+            text={someText}
+            textType={"h5"}
+            fontWeight={200}
+            color={"white"}
+          />
         </div>
       ))}
     </div>
@@ -42,7 +54,7 @@ const MainImage = () => {
 
   return (
     <div className={classes.mainImage}>
-      <ImageWithContent
+      <MainImageWithContent
         src={mainDIsplayImage}
         text={
           <div className={classes.mainImageWrapperText}>
