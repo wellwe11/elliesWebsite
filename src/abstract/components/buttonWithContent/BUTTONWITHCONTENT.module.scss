@@ -1,7 +1,23 @@
 .buttonWithContent {
-  background-color: green;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: var(--websiteContainerColor);
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: background-color;
+
+  width: 100%;
 
   .childrenWrapper {
-    background-color: blue;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--fontColor);
+
+    &:hover {
+      color: black;
+    }
   }
 }
