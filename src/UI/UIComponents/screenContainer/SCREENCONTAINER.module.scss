@@ -1,16 +1,17 @@
 .widthContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
-  height: 100%;
   width: 100%;
   max-width: 1500px;
+  min-height: 100vh;
 
   background-color: var(--websiteContainerColor);
 
   .contentWrapper {
+    height: 100%;
     /* All CONTENT (Except unique components, ex: navbar(which should still obide by the general approach of sizes)) will be inside a defined width. This should not match max-screen-width */
     /* contentWrapper styled definitions */
     /* big screens */

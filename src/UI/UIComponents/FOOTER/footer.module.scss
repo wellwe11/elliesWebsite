@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  background-color: var(--websiteContainerColor);
+  background-color: white;
 
   display: flex;
   justify-content: center;
@@ -8,8 +8,6 @@
 
   /* make sure footer is always at the bottom */
   /* !For screens taller than the content! */
-  position: absolute;
-  bottom: 0;
 
   .navContent {
     z-index: 999999;

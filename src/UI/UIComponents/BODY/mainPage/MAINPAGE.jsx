@@ -1,7 +1,10 @@
+import classes from "./MAINPAGE.module.scss";
+import ImageWithContent from "../../../../abstract/components/imageWithContent/IMAGE";
+
 const MainPage = () => {
   return (
-    <div>
-      <h1>this is the main page</h1>
+    <div className={classes.mainPage}>
+      <ImageWithContent />
     </div>
   );
 };
