@@ -1,9 +1,9 @@
 .navbar {
-  background-color: var(--websiteContainerColor);
-
   width: 100%;
   position: sticky;
   top: 0;
+
+  background-color: var(--websiteContainerColor);
 
   display: flex;
   justify-content: center;
@@ -13,4 +13,12 @@
     z-index: 999999;
     background-color: orange;
   }
+}
+
+.buttonsWrapper {
+  background-color: gray;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

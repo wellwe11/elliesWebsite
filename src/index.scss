@@ -8,12 +8,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --websiteContainerColor: rgb(252, 249, 222);
+  --websiteContainerColor: rgb(255, 254, 244);
 }
 
 /* BASIC CSS RESET */
 * {
-  background-color: var(--websiteContainerColor);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -35,7 +34,7 @@ a {
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.5;
-  background-color: #fff;
+  background-color: var(--websiteContainerColor);
   color: #000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
