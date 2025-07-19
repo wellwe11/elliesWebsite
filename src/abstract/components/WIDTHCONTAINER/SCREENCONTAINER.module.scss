@@ -1,0 +1,48 @@
+.widthContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+  max-width: 1500px;
+
+  background-color: var(--websiteContainerColor);
+
+  .contentWrapper {
+    /* All CONTENT (Except unique components, ex: navbar(which should still obide by the general approach of sizes)) will be inside a defined width. This should not match max-screen-width */
+    /* contentWrapper styled definitions */
+    /* big screens */
+    @media screen and (min-width: 1400px) {
+      width: 80vw;
+      max-width: 1400px;
+    }
+
+    /* normal desktop */
+    @media screen and (max-width: 1400px) {
+      width: 80vw;
+      max-width: 1000px;
+    }
+
+    /* normal laptop */
+    @media screen and (max-width: 1024px) {
+      width: 650px;
+    }
+
+    /* tablet */
+    @media screen and (max-width: 800px) {
+      width: 530px;
+    }
+
+    /* tablet small */
+    @media screen and (max-width: 650px) {
+      width: 350px;
+    }
+
+    /* mobile */
+    @media screen and (max-width: 450px) {
+      width: 70vw;
+    }
+  }
+}
