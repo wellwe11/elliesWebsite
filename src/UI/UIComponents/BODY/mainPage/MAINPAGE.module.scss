@@ -53,6 +53,24 @@
     span {
       padding: 5px;
       cursor: pointer;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .arrowContainer {
+        padding-left: 1vw;
+        opacity: 0;
+        transition: opacity 0.5s ease, transform 0.5s ease-out;
+        transform: translateX(-10px);
+      }
+
+      &:hover {
+        .arrowContainer {
+          opacity: 1;
+          transform: translateX(0px);
+        }
+      }
     }
   }
 }

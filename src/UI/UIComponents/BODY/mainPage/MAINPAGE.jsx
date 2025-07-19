@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import intersectingRefs from "../../../../abstract/functions/intersectingRefs";
 
 import mainDIsplayImage from "../../../../assets/imageOnWallPlaceholderRepresentation.png";
-import ArrowSVG from "../../../../abstract/components/SVGS/arrowSVG";
+import ArrowSVG from "../../../../abstract/components/SVGS/arrowSVG/arrowSVG";
 
 const someText =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ";
@@ -41,7 +41,7 @@ const MainPageImages = () => {
 };
 
 const MainImage = () => {
-  const text = ["Image", "Explore", "Discover", "Create"];
+  const text = ["Imagine", "Explore", "Discover", "Create"];
   const [displayText, setDisplayText] = useState(false);
 
   useEffect(() => {
@@ -60,6 +60,7 @@ const MainImage = () => {
           <div className={classes.mainImageWrapperText}>
             {text.map((t, index) => (
               <span
+                key={index}
                 style={{
                   transition: `opacity 1.${index}5s ease-out, blur 1.3s ease`,
                   opacity: displayText ? "1" : "0",
@@ -68,6 +69,9 @@ const MainImage = () => {
                 }}
               >
                 {t}
+                <div className={classes.arrowContainer}>
+                  <ArrowSVG color="white" />
+                </div>
               </span>
             ))}
           </div>

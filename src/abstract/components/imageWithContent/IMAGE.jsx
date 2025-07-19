@@ -1,3 +1,4 @@
+import ArrowSVG from "../SVGS/arrowSVG/arrowSVG";
 import classes from "./IMAGE.module.scss";
 
 export const ImageWithContent = ({
@@ -17,6 +18,7 @@ export const ImageWithContent = ({
       {text && (
         <div className={classes.textArea}>
           <FontType
+            className={classes.fontType}
             style={{ fontWeight: fontWeight, fontSize: fontSize, color: color }}
           >
             {text}
@@ -44,6 +46,7 @@ export const MainImageWithContent = ({
       {text && (
         <div className={classes.textArea}>
           <FontType
+            className={classes.fontType}
             style={{ fontWeight: fontWeight, fontSize: fontSize, color: color }}
           >
             {text}
