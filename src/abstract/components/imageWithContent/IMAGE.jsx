@@ -32,7 +32,7 @@ export const ImageWithContent = ({
     if (activeImage === 0) {
       const timer = setTimeout(() => {
         handleActiveImage();
-      }, 3000);
+      }, 5000);
 
       return () => clearTimeout(timer);
     }
@@ -43,7 +43,7 @@ export const ImageWithContent = ({
 
     const timer = setTimeout(() => {
       handleActiveImage();
-    }, 3000);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, [activeImage, imageIsHovering]);

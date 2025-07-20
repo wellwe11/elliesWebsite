@@ -21,7 +21,7 @@
       object-fit: cover;
       position: absolute;
 
-      transition: opacity 1.5s ease;
+      transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1);
     }
   }
 
@@ -69,7 +69,7 @@
       .fontTypeSpanBio {
         position: absolute;
 
-        transition: top 0.4s ease, opacity 1s ease;
+        transition: top 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
       }
     }
   }
