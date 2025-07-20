@@ -123,30 +123,28 @@ export const ImageWithContent = ({
         className={classes.smallImagesDisplay}
         style={{ order: index % 2 === 0 ? 2 : 1 }}
       >
-        <div className={classes.stickyContainer}>
-          {images.map((image, index) => {
-            return (
-              <div
+        {images.map((image, index) => {
+          return (
+            <div
+              key={index}
+              className={classes.smallImageWithContentWrapper}
+              onClick={() => setActiveImage(index)}
+              style={{
+                outline:
+                  activeImage === index
+                    ? "1px solid black"
+                    : "1px solid rgba(171, 171, 171, 0.365)",
+              }}
+            >
+              <img
+                src={image}
                 key={index}
-                className={classes.smallImageWithContentWrapper}
-                onClick={() => setActiveImage(index)}
-                style={{
-                  outline:
-                    activeImage === index
-                      ? "1px solid black"
-                      : "1px solid rgba(171, 171, 171, 0.365)",
-                }}
-              >
-                <img
-                  src={image}
-                  key={index}
-                  className={classes.smallImageWithContent}
-                  alt=""
-                />
-              </div>
-            );
-          })}
-        </div>
+                className={classes.smallImageWithContent}
+                alt=""
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
