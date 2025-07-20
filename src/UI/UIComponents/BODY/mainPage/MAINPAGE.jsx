@@ -19,15 +19,25 @@ import imageThree from "../../../../assets/exampleImages/blueImageThree.webp";
 const MainPageImages = () => {
   const imageRefs = useRef([]);
   const textRefs = useRef([]);
-  const images = [
-    {
-      images: {
-        imageOne: imageOne,
-        imageTwo: imageTwo,
-        imageThree: imageThree,
-      },
+  const images = {
+    images: {
+      imageOne: imageOne,
+      imageTwo: imageTwo,
+      imageThree: imageThree,
     },
-  ];
+    imagesTwo: {
+      imageOne: imageOne,
+      imageTwo: imageTwo,
+      imageThree: imageThree,
+    },
+    imagesThree: {
+      imageOne: imageOne,
+      imageTwo: imageTwo,
+      imageThree: imageThree,
+    },
+  };
+
+  console.log(Object.entries(images));
 
   useEffect(() => {
     intersectingRefs(imageRefs, classes.imageAnimationOne);
@@ -36,14 +46,14 @@ const MainPageImages = () => {
 
   return (
     <div className={classes.mainPageImages}>
-      {images.map((image, index) => (
+      {Object.entries(images).map(([key, obj], index) => (
         <div
           className={classes.mainPageImage}
           ref={(el) => (imageRefs.current[index] = el)}
-          key={index}
+          key={key}
         >
           <ImageWithContent
-            images={image.images}
+            images={Object.values(obj)}
             designedBy={someTextOne}
             bio={someText}
             textType={"h3"}

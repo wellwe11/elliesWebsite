@@ -22,31 +22,29 @@ export const ImageWithContent = ({
 
   const handleActiveImage = () => {
     if (!imageIsHovering) {
-      setActiveImage((prev) =>
-        prev + 1 <= Object.keys(images)?.length - 1 ? prev + 1 : 0
-      );
+      setActiveImage((prev) => (prev + 1 <= images.length - 1 ? prev + 1 : 0));
     }
   };
 
-  useEffect(() => {
-    if (activeImage === 0) {
-      const timer = setTimeout(() => {
-        handleActiveImage();
-      }, 5000);
+  // useEffect(() => {
+  //   if (activeImage === 0) {
+  //     const timer = setTimeout(() => {
+  //       handleActiveImage();
+  //     }, 5000);
 
-      return () => clearTimeout(timer);
-    }
-  }, []);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    if (imageIsHovering) return;
+  // useEffect(() => {
+  //   if (imageIsHovering) return;
 
-    const timer = setTimeout(() => {
-      handleActiveImage();
-    }, 5000);
+  //   const timer = setTimeout(() => {
+  //     handleActiveImage();
+  //   }, 5000);
 
-    return () => clearTimeout(timer);
-  }, [activeImage, imageIsHovering]);
+  //   return () => clearTimeout(timer);
+  // }, [activeImage, imageIsHovering]);
 
   const handleNavigate = () => {
     setImageClicked(true);
@@ -72,7 +70,7 @@ export const ImageWithContent = ({
       onMouseLeave={() => setImageIsHovering(false)}
     >
       <div className={classes.imageWithContentWrapper} onClick={handleNavigate}>
-        {Object.values(images).map((image, index) => (
+        {images.map((image, index) => (
           <img
             key={index}
             className={classes.imageWithContent}
@@ -117,7 +115,7 @@ export const ImageWithContent = ({
         </div>
       </div>
       <div className={classes.smallImagesDisplay}>
-        {Object.values(images).map((image, index) => {
+        {images.map((image, index) => {
           return (
             <div
               key={index}
