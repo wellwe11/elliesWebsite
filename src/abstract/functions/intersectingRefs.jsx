@@ -16,7 +16,6 @@ const intersectingRefs = (refs, classToAdd) => {
 
   const elements = refs.current || [];
 
-  console.log(elements);
   if (elements) {
     elements.forEach((el) => {
       if (el) observer.observe(el);

@@ -34,7 +34,7 @@ const MainPageImages = () => {
             text={someText}
             textType={"h3"}
             fontWeight={200}
-            color={"white"}
+            color={"black"}
           />
         </div>
       ))}

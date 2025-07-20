@@ -1,26 +1,29 @@
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { Suspense, useEffect, useState } from "react";
+import classes from "./SCREENCONTAINER.module.scss";
+
 import Footer from "../FOOTER/footer";
 import Navbar from "../NAVBAR/navbar";
-import classes from "./SCREENCONTAINER.module.scss";
 import MainPage from "../BODY/mainPage/MAINPAGE";
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Suspense } from "react";
 
 const ScreenContainer = ({ children }) => {
   return (
-    <Router>
-      <Suspense fallback={<div>Loading...</div>}>
-        <div className={classes.widthContainer}>
-          <Navbar />
-          <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
-            <Routes>
-              <Route path="/" element={<MainPage />} />
-            </Routes>
-          </div>
-          <Footer />
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className={classes.widthContainer}>
+        <Navbar />
+        <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
+          <Routes location={location}>
+            <Route path="/" element={<MainPage />} />
+          </Routes>
         </div>
-      </Suspense>
-    </Router>
+        <Footer />
+      </div>
+    </Suspense>
   );
 };
 
