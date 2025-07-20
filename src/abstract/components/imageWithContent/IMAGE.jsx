@@ -11,6 +11,7 @@ export const ImageWithContent = ({
   fontWeight = 300,
   fontSize,
   color = "black",
+  index,
 }) => {
   const FontType = textType;
 
@@ -69,7 +70,11 @@ export const ImageWithContent = ({
       onMouseEnter={() => setImageIsHovering(true)}
       onMouseLeave={() => setImageIsHovering(false)}
     >
-      <div className={classes.imageWithContentWrapper} onClick={handleNavigate}>
+      <div
+        className={classes.imageWithContentWrapper}
+        onClick={handleNavigate}
+        style={{ order: index % 2 === 0 ? 1 : 2 }}
+      >
         {images.map((image, index) => (
           <img
             key={index}
@@ -114,7 +119,10 @@ export const ImageWithContent = ({
           </FontType>
         </div>
       </div>
-      <div className={classes.smallImagesDisplay}>
+      <div
+        className={classes.smallImagesDisplay}
+        style={{ order: index % 2 === 0 ? 2 : 1 }}
+      >
         {images.map((image, index) => {
           return (
             <div
@@ -122,7 +130,10 @@ export const ImageWithContent = ({
               className={classes.smallImageWithContentWrapper}
               onClick={() => setActiveImage(index)}
               style={{
-                outline: activeImage === index ? "1px solid black" : "",
+                outline:
+                  activeImage === index
+                    ? "1px solid black"
+                    : "1px solid rgba(171, 171, 171, 0.365)",
               }}
             >
               <img

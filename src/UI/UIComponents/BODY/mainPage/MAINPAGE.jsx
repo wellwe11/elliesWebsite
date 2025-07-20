@@ -59,6 +59,7 @@ const MainPageImages = () => {
             textType={"h3"}
             fontWeight={200}
             color={"black"}
+            index={index}
           />
         </div>
       ))}
