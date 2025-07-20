@@ -64,9 +64,7 @@ export const ImageWithContent = ({
 
   return (
     <div
-      className={`${classes.imageContainer} ${
-        imageClicked ? classes.imageClicked : ""
-      }`}
+      className={`${classes.imageContainer}`}
       onMouseEnter={() => setImageIsHovering(true)}
       onMouseLeave={() => setImageIsHovering(false)}
     >
@@ -78,7 +76,9 @@ export const ImageWithContent = ({
         {images.map((image, index) => (
           <img
             key={index}
-            className={classes.imageWithContent}
+            className={`${classes.imageWithContent} ${
+              imageClicked ? classes.imageClicked : ""
+            }`}
             alt=""
             src={image}
             style={{
