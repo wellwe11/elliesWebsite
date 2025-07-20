@@ -29,11 +29,30 @@
     /* normal laptop */
     @media screen and (max-width: 1024px) {
       width: 650px;
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 0.9rem;
+      }
     }
 
     /* tablet */
     @media screen and (max-width: 800px) {
       width: 530px;
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 0.8rem;
+      }
     }
 
     /* tablet small */

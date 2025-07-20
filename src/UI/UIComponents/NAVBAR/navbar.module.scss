@@ -12,6 +12,11 @@
   z-index: 999999;
 
   .navContent {
+    .navWrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 }
 
@@ -50,4 +55,12 @@
 
 .button {
   width: 140px;
+}
+
+.logoContainer {
+  cursor: pointer;
+  .logo {
+    font-family: "Pinyon Script", cursive;
+    color: black;
+  }
 }

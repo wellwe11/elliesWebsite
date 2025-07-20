@@ -10,14 +10,16 @@ import mainDIsplayImage from "../../../../assets/imageOnWallPlaceholderRepresent
 import ArrowSVG from "../../../../abstract/components/SVGS/arrowSVG/arrowSVG";
 
 const someText =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ";
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.";
 
 const MainPageImages = () => {
   const imageRefs = useRef([]);
+  const textRefs = useRef([]);
   const images = ["image", "image", "image", "image", "image"];
 
   useEffect(() => {
     intersectingRefs(imageRefs, classes.imageAnimationOne);
+    intersectingRefs(textRefs, classes.hoverFont);
   }, [imageRefs]);
 
   return (
@@ -30,7 +32,7 @@ const MainPageImages = () => {
         >
           <ImageWithContent
             text={someText}
-            textType={"h5"}
+            textType={"h3"}
             fontWeight={200}
             color={"white"}
           />
@@ -77,7 +79,7 @@ const MainImage = () => {
           </div>
         }
         textType="h1"
-        fontSize={"50px"}
+        fontSize={"clamp(1rem, 2vw + 1rem, 3rem)"}
         fontWeight={100}
         color="white"
       />

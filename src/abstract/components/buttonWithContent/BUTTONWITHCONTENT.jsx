@@ -13,7 +13,9 @@ const ButtonWithContent = ({ children, link }) => {
 
   return (
     <button className={classes.buttonWithContent} onClick={handleNaviage}>
-      <div className={classes.childrenWrapper}>{children}</div>
+      <div className={classes.childrenWrapper}>
+        <p>{children}</p>
+      </div>
     </button>
   );
 };

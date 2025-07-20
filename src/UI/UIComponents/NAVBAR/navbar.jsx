@@ -40,11 +40,22 @@ const NavbarButtons = () => {
   );
 };
 
+const NavLogo = () => {
+  return (
+    <div className={classes.logoContainer}>
+      <h1 className={classes.logo}>Elizabets Art</h1>
+    </div>
+  );
+};
+
 const Navbar = () => {
   return (
     <div className={classes.navbar}>
       <div className={classes.navContent}>
-        <div className={screen_classes.contentWrapper}>
+        <div
+          className={`${screen_classes.contentWrapper} ${classes.navWrapper}`}
+        >
+          <NavLogo />
           <NavbarButtons />
         </div>
       </div>
