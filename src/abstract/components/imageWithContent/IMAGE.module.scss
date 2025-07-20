@@ -8,15 +8,20 @@
   display: flex;
   justify-content: space-between;
 
+  cursor: pointer;
+
   .imageWithContentWrapper {
     height: 500px;
     width: 80%;
-    border: 2px solid black;
+    position: relative;
+
     .imageWithContent {
-      background-color: rgba(145, 180, 194, 0.798);
       height: 80%;
       width: 100%;
       object-fit: cover;
+      position: absolute;
+
+      transition: opacity 1.5s ease;
     }
   }
 
@@ -24,26 +29,48 @@
     display: flex;
     flex-direction: column;
     width: 20%;
-
-    border: 1px solid red;
+    padding-left: 10px;
+    cursor: pointer;
 
     .smallImageWithContentWrapper {
-      background-color: green;
       height: 80px;
       width: 100%;
-      border: 2px solid gray;
+      margin-bottom: 1vw;
+
       .smallImageWithContent {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }
 
   .textArea {
+    position: absolute;
+    bottom: 0;
     width: 100%;
     height: 20%;
-
-    overflow: scroll;
+    display: flex;
+    justify-content: space-evenly;
 
     .fontType {
+      height: 100%;
+      width: 50%;
+    }
+
+    .fontTypeBio {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      width: 50%;
+
+      height: 30px;
+      overflow: hidden;
+      .fontTypeSpanBio {
+        position: absolute;
+
+        transition: top 0.4s ease, opacity 1s ease;
+      }
     }
   }
 }
@@ -52,7 +79,7 @@
   width: 100%;
   min-height: 500px;
   position: relative;
-  background-color: rgba(145, 180, 194, 0.798);
+
   img {
     height: 500px;
     width: 100%;
@@ -69,11 +96,11 @@
     width: 30%;
     height: 100%;
 
-    background-color: rgba(145, 180, 194, 0.798);
-
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    background-color: rgba(145, 180, 194, 0.798);
   }
 }
 

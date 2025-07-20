@@ -9,13 +9,25 @@ import intersectingRefs from "../../../../abstract/functions/intersectingRefs";
 import mainDIsplayImage from "../../../../assets/imageOnWallPlaceholderRepresentation.png";
 import ArrowSVG from "../../../../abstract/components/SVGS/arrowSVG/arrowSVG";
 
-const someText =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.";
+const someTextOne = "Lorem ipsum dolor sit amet";
+const someText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+
+import imageOne from "../../../../assets/exampleImages/blueImageOne.jpg";
+import imageTwo from "../../../../assets/exampleImages/blueImageTwo.webp";
+import imageThree from "../../../../assets/exampleImages/blueImageThree.webp";
 
 const MainPageImages = () => {
   const imageRefs = useRef([]);
   const textRefs = useRef([]);
-  const images = ["image", "image", "image", "image", "image"];
+  const images = [
+    {
+      images: {
+        imageOne: imageOne,
+        imageTwo: imageTwo,
+        imageThree: imageThree,
+      },
+    },
+  ];
 
   useEffect(() => {
     intersectingRefs(imageRefs, classes.imageAnimationOne);
@@ -31,7 +43,9 @@ const MainPageImages = () => {
           key={index}
         >
           <ImageWithContent
-            text={someText}
+            images={image.images}
+            designedBy={someTextOne}
+            bio={someText}
             textType={"h3"}
             fontWeight={200}
             color={"black"}

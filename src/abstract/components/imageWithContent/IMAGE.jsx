@@ -4,8 +4,9 @@ import classes from "./IMAGE.module.scss";
 import { useEffect, useState } from "react";
 
 export const ImageWithContent = ({
-  src,
-  text,
+  images,
+  designedBy,
+  bio,
   textType = "h3",
   fontWeight = 300,
   fontSize,
@@ -17,9 +18,14 @@ export const ImageWithContent = ({
 
   const [imageClicked, setImageClicked] = useState(false);
   const [activeImage, setActiveImage] = useState(0);
+  const [imageIsHovering, setImageIsHovering] = useState(false);
 
   const handleActiveImage = () => {
-    setActiveImage((prev) => (prev + 1 <= images.length ? prev + 1 : 0));
+    if (!imageIsHovering) {
+      setActiveImage((prev) =>
+        prev + 1 <= Object.keys(images)?.length - 1 ? prev + 1 : 0
+      );
+    }
   };
 
   useEffect(() => {
@@ -33,14 +39,14 @@ export const ImageWithContent = ({
   }, []);
 
   useEffect(() => {
+    if (imageIsHovering) return;
+
     const timer = setTimeout(() => {
       handleActiveImage();
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, [activeImage]);
-
-  console.log(activeImage);
+  }, [activeImage, imageIsHovering]);
 
   const handleNavigate = () => {
     setImageClicked(true);
@@ -55,40 +61,76 @@ export const ImageWithContent = ({
     }, 500);
   };
 
-  const images = ["image", "image", "image"];
+  const texts = ["this is text one", "this is text two", "this is text three"];
 
   return (
     <div
       className={`${classes.imageContainer} ${
         imageClicked ? classes.imageClicked : ""
       }`}
-      onClick={handleNavigate}
+      onMouseEnter={() => setImageIsHovering(true)}
+      onMouseLeave={() => setImageIsHovering(false)}
     >
-      <div className={classes.imageWithContentWrapper}>
-        <img className={classes.imageWithContent} src={""} alt="" />
-        {text && (
-          <div className={classes.textArea}>
-            <FontType
-              className={classes.fontType}
-              style={{
-                fontWeight: fontWeight,
-                fontSize: fontSize,
-                color: color,
-              }}
-            >
-              {text}
-            </FontType>
-          </div>
-        )}
+      <div className={classes.imageWithContentWrapper} onClick={handleNavigate}>
+        {Object.values(images).map((image, index) => (
+          <img
+            key={index}
+            className={classes.imageWithContent}
+            alt=""
+            src={image}
+            style={{
+              opacity: index === activeImage ? "1" : 0,
+            }}
+          />
+        ))}
+
+        <div className={classes.textArea}>
+          <FontType
+            className={classes.fontType}
+            style={{
+              fontWeight: fontWeight,
+              fontSize: fontSize,
+              color: color,
+            }}
+          >
+            <span className={classes.fontTypeSpan}>{designedBy}</span>
+          </FontType>
+          <FontType className={classes.fontTypeBio}>
+            {texts.map((text, index) => (
+              <span
+                style={{
+                  top:
+                    activeImage > index
+                      ? "30px"
+                      : activeImage < index
+                      ? "-30px"
+                      : "0px",
+                  opacity: activeImage === index ? "1" : "0",
+                }}
+                className={classes.fontTypeSpanBio}
+                key={index}
+              >
+                {text}
+              </span>
+            ))}
+          </FontType>
+        </div>
       </div>
       <div className={classes.smallImagesDisplay}>
-        {images.map((image, index) => {
+        {Object.values(images).map((image, index) => {
           return (
-            <div key={index} className={classes.smallImageWithContentWrapper}>
+            <div
+              key={index}
+              className={classes.smallImageWithContentWrapper}
+              onClick={() => setActiveImage(index)}
+              style={{
+                outline: activeImage === index ? "1px solid black" : "",
+              }}
+            >
               <img
+                src={image}
                 key={index}
                 className={classes.smallImageWithContent}
-                src={""}
                 alt=""
               />
             </div>
