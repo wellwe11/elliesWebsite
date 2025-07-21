@@ -28,8 +28,8 @@ const MainImage = ({ src }) => {
 };
 
 export const MainImageWithContent = ({
+  children,
   src,
-  text,
   fontType,
   fontWeight,
   fontSize,
@@ -45,7 +45,7 @@ export const MainImageWithContent = ({
         fontSize={fontSize}
         color={color}
       >
-        {text}
+        {children}
       </MainText>
     </div>
   );
