@@ -1,0 +1,34 @@
+.mainPageImages {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(2, 45%);
+  height: 100%;
+  width: 100%;
+
+  gap: 5vw;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+
+  overflow: hidden;
+}
+
+.mainPageImage {
+  opacity: 0;
+}
+
+.imageAnimationOne {
+  animation: imagesPopup 0.75s forwards;
+  transition: opacity 1s ease;
+}
+
+@keyframes imagesPopup {
+  from {
+    opacity: 0;
+    transform: translate(0px, 10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}

@@ -1,29 +1,52 @@
+import checkForValidFont from "../../../functions/checkForValidFont";
 import classes from "./mainImageWithContent.module.scss";
+
+const MainText = ({
+  children,
+  fontWeight = 300,
+  fontSize,
+  color = "black",
+  fontType,
+}) => {
+  const FontType = checkForValidFont(fontType);
+  return (
+    <div className={classes.textArea}>
+      <FontType
+        className={classes.fontType}
+        style={{ fontWeight, fontSize, color }}
+      >
+        {children}
+      </FontType>
+    </div>
+  );
+};
+
+const MainImage = ({ src }) => {
+  if (!src) return;
+
+  return <img src={src} alt="" />;
+};
 
 export const MainImageWithContent = ({
   src,
   text,
-  textType = "h3",
-  fontWeight = 300,
+  fontType,
+  fontWeight,
   fontSize,
-  color = "black",
+  color,
 }) => {
-  const FontType = textType;
-
   return (
     <div className={classes.mainImageContainer}>
-      {src && <img src={src} alt="" />}
+      <MainImage src={src} />
 
-      {text && (
-        <div className={classes.textArea}>
-          <FontType
-            className={classes.fontType}
-            style={{ fontWeight: fontWeight, fontSize: fontSize, color: color }}
-          >
-            {text}
-          </FontType>
-        </div>
-      )}
+      <MainText
+        fontType={fontType}
+        fontWeight={fontWeight}
+        fontSize={fontSize}
+        color={color}
+      >
+        {text}
+      </MainText>
     </div>
   );
 };

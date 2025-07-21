@@ -2,6 +2,7 @@ import classes from "./imageWithContent.module.scss";
 
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import checkForValidFont from "../../../functions/checkForValidFont";
 
 const CurrentlyDisplayedImage = ({ images, imageClicked, activeImage }) => {
   if (!images) {
@@ -37,8 +38,7 @@ const TextArea = ({
   if (!texts) return <h1>Loading...</h1>;
 
   // determine what type of font it will be
-  const validFonts = ["h1", "h2", "h3", "h4", "h5", "p", "span"];
-  const FontType = validFonts.includes(fontType) ? fontType : "h3";
+  const FontType = checkForValidFont(fontType);
 
   // bio-text, placed below image, which displays text related to current active image
   const TextThatCorrespondsToActiveImage = texts.map((text, index) => (
@@ -112,7 +112,7 @@ const ImageWithContentWrapper = ({
   indexIsUnEven,
   images,
   activeImage,
-  textType,
+  fontType,
   fontWeight,
   fontSize,
   color,
@@ -150,7 +150,7 @@ const ImageWithContentWrapper = ({
       />
 
       <TextArea
-        textType={textType}
+        fontType={fontType}
         fontWeight={fontWeight}
         fontSize={fontSize}
         color={color}
@@ -165,7 +165,7 @@ export const ImageWithContent = ({
   images,
   designedBy,
   bio,
-  textType,
+  fontType,
   fontWeight,
   fontSize,
   color,
@@ -187,7 +187,7 @@ export const ImageWithContent = ({
         indexIsUnEven={indexIsUnEven}
         images={images}
         activeImage={activeImage}
-        textType={textType}
+        fontType={fontType}
         fontWeight={fontWeight}
         fontSize={fontSize}
         color={color}
