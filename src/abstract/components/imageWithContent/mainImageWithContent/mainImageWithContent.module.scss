@@ -1,0 +1,39 @@
+.mainImageContainer {
+  width: 100%;
+  min-height: 500px;
+  position: relative;
+
+  img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .textArea {
+    position: absolute;
+
+    padding: 2vw;
+
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: rgba(145, 180, 194, 0.798);
+  }
+}
+
+.imageClicked {
+  transition: all 1s ease;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  transform: scale(5);
+}

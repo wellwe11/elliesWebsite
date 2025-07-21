@@ -1,13 +1,12 @@
 import classes from "./MAINPAGE.module.scss";
-import {
-  ImageWithContent,
-  MainImageWithContent,
-} from "../../../../abstract/components/imageWithContent/IMAGE";
+
 import { useEffect, useRef, useState } from "react";
 import intersectingRefs from "../../../../abstract/functions/intersectingRefs";
 
 import mainDIsplayImage from "../../../../assets/imageOnWallPlaceholderRepresentation.png";
 import ArrowSVG from "../../../../abstract/components/SVGS/arrowSVG/arrowSVG";
+import { ImageWithContent } from "../../../../abstract/components/imageWithContent/imageWithContentNormal/imageWithContent";
+import { MainImageWithContent } from "../../../../abstract/components/imageWithContent/mainImageWithContent/mainImageWithContent";
 
 const someTextOne = "Lorem ipsum dolor sit amet";
 const someText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
