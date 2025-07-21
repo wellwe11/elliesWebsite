@@ -33,8 +33,6 @@ const MainPageImages = () => {
     },
   };
 
-  console.log(Object.entries(images));
-
   useEffect(() => {
     intersectingRefs(imageRefs, classes.imageAnimationOne);
     intersectingRefs(textRefs, classes.hoverFont);
