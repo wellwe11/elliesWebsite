@@ -3,6 +3,7 @@ import classes from "./imageWithContent.module.scss";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import checkForValidFont from "../../../functions/checkForValidFont";
+import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
 
 const CurrentlyDisplayedImage = ({ images, imageClicked, activeImage }) => {
   if (!images) {
@@ -24,7 +25,7 @@ const CurrentlyDisplayedImage = ({ images, imageClicked, activeImage }) => {
   ));
 };
 
-const TextArea = ({
+export const TextArea = ({
   fontSize,
   fontWeight = 300,
   fontType,
@@ -40,21 +41,6 @@ const TextArea = ({
   // determine what type of font it will be
   const FontType = checkForValidFont(fontType);
 
-  // bio-text, placed below image, which displays text related to current active image
-  const TextThatCorrespondsToActiveImage = texts.map((text, index) => (
-    <span
-      style={{
-        top:
-          activeImage > index ? "30px" : activeImage < index ? "-30px" : "0px",
-        opacity: activeImage === index ? "1" : "0",
-      }}
-      className={classes.fontTypeSpanBio}
-      key={index}
-    >
-      {text}
-    </span>
-  ));
-
   return (
     <div className={classes.textArea}>
       <FontType
@@ -68,7 +54,10 @@ const TextArea = ({
         <span className={classes.fontTypeSpan}>{designedBy}</span>
       </FontType>
       <FontType className={classes.fontTypeBio}>
-        {texts.length > 0 && TextThatCorrespondsToActiveImage}
+        <TextThatCorrespondsToActiveImage
+          texts={texts}
+          activeImage={activeImage}
+        />
       </FontType>
     </div>
   );
