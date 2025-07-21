@@ -1,7 +1,7 @@
 import classes from "./mainImage.module.scss";
 import { useEffect, useState } from "react";
 
-import mainDIsplayImage from "@assets/imageOnWallPlaceholderRepresentation.png";
+import mainDisplayImage from "@assets/imageOnWallPlaceholderRepresentation.png";
 import ArrowSVG from "@components/SVGS/arrowSVG/arrowSVG";
 import { MainImageWithContent } from "@components/imageWithContent/mainImageWithContent/mainImageWithContent";
 
@@ -18,17 +18,17 @@ const MainImageSpan = ({ children, index }) => {
 
   // smooth opacity transition which isn't entirely synced since its based on parent-elements index which is being mapped
   const spanStyle = {
-    transition: `opacity 1.${index}5s ease-out, blur 1.3s ease`,
+    transition: `opacity ${
+      1 + index * 0.7
+    }s cubic-bezier(0, 0, 0.2, 1), filter ${
+      1 + index * 0.7
+    }s cubic-bezier(0, 0, 0.2, 1)`,
     opacity: displayText ? "1" : "0",
     visibility: displayText ? "visible" : "hidden",
-    filter: displayText ? "blur(0px)" : "blur(5px)",
+    filter: displayText ? "blur(0px)" : "blur(20px)",
   };
 
-  return (
-    <span key={index} style={spanStyle}>
-      {children}
-    </span>
-  );
+  return <span style={spanStyle}>{children}</span>;
 };
 
 const MainImageWrapperText = ({ children }) => {
@@ -58,7 +58,7 @@ const MainImage = () => {
   return (
     <div className={classes.mainImage}>
       <MainImageWithContent
-        src={mainDIsplayImage}
+        src={mainDisplayImage}
         fontSize={"clamp(1rem, 2vw + 1rem, 3rem)"}
         fontWeight={100}
         color="white"
