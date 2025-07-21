@@ -37,8 +37,6 @@ export const MainImageWithContent = ({
 }) => {
   return (
     <div className={classes.mainImageContainer}>
-      <MainImage src={src} />
-
       <MainText
         fontType={fontType}
         fontWeight={fontWeight}
@@ -47,6 +45,7 @@ export const MainImageWithContent = ({
       >
         {children}
       </MainText>
+      <MainImage src={src} />
     </div>
   );
 };

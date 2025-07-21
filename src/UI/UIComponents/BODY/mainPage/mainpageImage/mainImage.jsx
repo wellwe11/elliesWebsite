@@ -18,23 +18,25 @@ const MainImageSpan = ({ children, index }) => {
 
   // smooth opacity transition which isn't entirely synced since its based on parent-elements index which is being mapped
   const spanStyle = {
-    transition: `opacity ${
+    transition: `opacity ${1 + index * 0.7}s cubic-bezier(0, 0, 0, 1), filter ${
       1 + index * 0.7
-    }s cubic-bezier(0, 0, 0.2, 1), filter ${
-      1 + index * 0.7
-    }s cubic-bezier(0, 0, 0.2, 1)`,
+    }s cubic-bezier(0, 0, 0, 1)`,
     opacity: displayText ? "1" : "0",
     visibility: displayText ? "visible" : "hidden",
     filter: displayText ? "blur(0px)" : "blur(20px)",
   };
 
-  return <span style={spanStyle}>{children}</span>;
+  return (
+    <span className={classes.mainImageSpan} style={spanStyle}>
+      {children}
+    </span>
+  );
 };
 
 const MainImageWrapperText = ({ children }) => {
   const arrowRightElement = (
     <div className={classes.arrowContainer}>
-      <ArrowSVG color="white" />
+      <ArrowSVG color="black" />
     </div>
   );
 
@@ -61,7 +63,7 @@ const MainImage = () => {
         src={mainDisplayImage}
         fontSize={"clamp(1rem, 2vw + 1rem, 3rem)"}
         fontWeight={100}
-        color="white"
+        color="black"
       >
         <MainImageWrapperText>{text}</MainImageWrapperText>
       </MainImageWithContent>
