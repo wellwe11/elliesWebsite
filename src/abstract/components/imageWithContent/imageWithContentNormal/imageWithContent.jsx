@@ -5,6 +5,8 @@ import { useState } from "react";
 import checkForValidFont from "@functions/checkForValidFont";
 import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
 
+const VisitTitle = ({}) => {};
+
 export const TextArea = ({
   fontSize,
   fontWeight = 300,
@@ -12,6 +14,7 @@ export const TextArea = ({
   color = "black",
   activeImage,
   designedBy,
+  bio,
 }) => {
   // temp. placeholder text
   const texts = ["this is text one", "this is text two", "this is text three"];
@@ -35,7 +38,7 @@ export const TextArea = ({
       </FontType>
       <FontType className={classes.fontTypeBio}>
         <TextThatCorrespondsToActiveImage
-          texts={texts}
+          texts={bio || texts}
           activeImage={activeImage}
         />
       </FontType>
@@ -79,22 +82,24 @@ export const ImageWithContent = ({
 
   // to navigate to specific ImageWithContent page
   const handleNavigate = () => {
-    setImageClicked(true);
-    setTimeout(() => {
-      if (document.startViewTransition) {
-        document.startViewTransition(() => {
-          navigate("/imagePage");
-        });
-      } else {
-        navigate("/imagePage");
-      }
-    }, 500);
+    if (document.startViewTransition) {
+      document.startViewTransition(() => {
+        navigate("/uniqueImage");
+      });
+    } else {
+      navigate("/uniqueImage");
+    }
   };
 
   return (
     <div className={`${classes.imageContainer}`}>
       <h1>{title || "Title"}</h1>
-      <SmallImagesWithContent images={images} setActiveImage={setActiveImage} />
+      <div onClick={handleNavigate}>
+        <SmallImagesWithContent
+          images={images}
+          setActiveImage={setActiveImage}
+        />
+      </div>
       <TextArea
         fontType={fontType}
         fontWeight={fontWeight}

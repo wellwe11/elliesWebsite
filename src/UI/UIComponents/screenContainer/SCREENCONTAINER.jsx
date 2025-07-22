@@ -5,6 +5,7 @@ import classes from "./SCREENCONTAINER.module.scss";
 import Footer from "../FOOTER/footer";
 import Navbar from "../NAVBAR/navbar";
 import MainPage from "../BODY/mainPage/MAINPAGE";
+import UniqueImage from "../BODY/uniqueImagePage/uniqueImage";
 
 const ScreenContainer = ({ children }) => {
   return (
@@ -14,6 +15,7 @@ const ScreenContainer = ({ children }) => {
         <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
           <Routes location={location}>
             <Route path="/" element={<MainPage />} />
+            <Route path="/uniqueImage" element={<UniqueImage />} />
           </Routes>
         </div>
         <Footer />

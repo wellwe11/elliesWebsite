@@ -37,6 +37,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  font-variation-settings: "wght" 200;
 
   .underlineSpanContainer {
     display: flex;
@@ -52,7 +53,7 @@
       opacity: 0;
       transition: opacity 0.2s cubic-bezier(0.55, 0.05, 0.9, 0.35);
       font-size: 14px;
-      font-weight: 400;
+      font-variation-settings: "wght" 350;
     }
 
     .underlineSpan {

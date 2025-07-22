@@ -71,7 +71,7 @@
     height: 40px;
     width: 40px;
     margin-right: 10px;
-    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   }
 
   .logo {
@@ -88,7 +88,7 @@
 
   &:hover {
     .navLogoImage {
-      transform: rotate(180deg);
+      transform: rotate(40deg);
     }
   }
 }
@@ -114,6 +114,7 @@
     cursor: pointer;
 
     .cartText {
+      font-weight: 300;
     }
   }
 

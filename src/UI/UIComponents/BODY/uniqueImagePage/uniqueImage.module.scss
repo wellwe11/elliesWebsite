@@ -1,0 +1,49 @@
+.uniqueImage {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  scroll-behavior: smooth;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  width: 100%;
+  height: 100vh;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  .uniqueImage::-webkit-scrollbar {
+    display: none;
+  }
+
+  .snapStart {
+    scroll-snap-align: start;
+    flex: 0 0 100vh;
+  }
+}
+
+.uniqueTopSection {
+  display: flex;
+  height: 90vh;
+  width: 100%;
+
+  .uniqueTopLeft {
+    width: 50%;
+    background-color: green;
+  }
+
+  .uniqueTopRight {
+    width: 50%;
+    background-color: aliceblue;
+  }
+}
+
+.topImage {
+  .topImageImage {
+    width: 50%;
+  }
+}
+
+.uniqueInfoSection {
+  color: black;
+  height: 90vh;
+}
