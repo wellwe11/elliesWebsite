@@ -5,26 +5,6 @@ import { useEffect, useState } from "react";
 import checkForValidFont from "../../../functions/checkForValidFont";
 import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
 
-const CurrentlyDisplayedImage = ({ images, imageClicked, activeImage }) => {
-  if (!images) {
-    return <h1>...loading</h1>;
-  }
-
-  return images.map((image, index) => (
-    <img
-      key={index}
-      className={`${classes.imageWithContent} ${
-        imageClicked ? classes.imageClicked : ""
-      }`}
-      alt=""
-      src={image}
-      style={{
-        opacity: index === activeImage ? "1" : 0,
-      }}
-    />
-  ));
-};
-
 export const TextArea = ({
   fontSize,
   fontWeight = 300,
@@ -63,54 +43,38 @@ export const TextArea = ({
   );
 };
 
-const SmallImagesWithContent = ({
-  indexIsEven,
-  images,
-  setActiveImage,
-  activeImage,
-}) => {
-  const blackOutline = "1px solid black";
-  const grayOutline = "1px solid rgba(171, 171, 171, 0.365)";
+const SmallImagesWithContent = ({ images, setActiveImage }) => {
+  const smallImage = (image, index) => {
+    return (
+      <div
+        onMouseEnter={() => setActiveImage(index)}
+        className={classes.smallImageWithContentWrapper}
+      >
+        {/**add image to src to add the actual image */}
+        <img src={image} className={classes.smallImageWithContent} alt="" />
+      </div>
+    );
+  };
 
-  const smallImages = images.map((image, index) => (
-    <div
-      key={index}
-      className={classes.smallImageWithContentWrapper}
-      onClick={() => setActiveImage(index)}
-      style={{
-        outline: activeImage === index ? blackOutline : grayOutline,
-      }}
-    >
-      <img
-        src={image}
-        key={index}
-        className={classes.smallImageWithContent}
-        alt=""
-      />
-    </div>
-  ));
-
-  return (
-    <div className={classes.smallImagesDisplay} style={{ order: indexIsEven }}>
-      {smallImages}
-    </div>
+  const mappedImages = Object.values(images).map((image, index) =>
+    smallImage(image, index)
   );
+
+  return <div className={classes.smallImagesDisplay}>{mappedImages}</div>;
 };
 
-const ImageWithContentWrapper = ({
-  indexIsUnEven,
+export const ImageWithContent = ({
   images,
-  activeImage,
+  designedBy,
+  bio,
   fontType,
   fontWeight,
   fontSize,
   color,
-  designedBy,
 }) => {
-  const navigate = useNavigate();
+  const [activeImage, setActiveImage] = useState(0);
 
-  // change currently dispalyed big image
-  const [imageClicked, setImageClicked] = useState(false);
+  const navigate = useNavigate();
 
   // to navigate to specific ImageWithContent page
   const handleNavigate = () => {
@@ -126,17 +90,11 @@ const ImageWithContentWrapper = ({
     }, 500);
   };
 
+  console.log(activeImage);
+
   return (
-    <div
-      className={classes.imageWithContentWrapper}
-      onClick={handleNavigate}
-      style={{ order: indexIsUnEven }}
-    >
-      <CurrentlyDisplayedImage
-        images={images}
-        imageClicked={imageClicked}
-        activeImage={activeImage}
-      />
+    <div className={`${classes.imageContainer}`}>
+      <SmallImagesWithContent images={images} setActiveImage={setActiveImage} />
 
       <TextArea
         fontType={fontType}
@@ -145,49 +103,6 @@ const ImageWithContentWrapper = ({
         color={color}
         activeImage={activeImage}
         designedBy={designedBy}
-      />
-    </div>
-  );
-};
-
-export const ImageWithContent = ({
-  images,
-  designedBy,
-  bio,
-  fontType,
-  fontWeight,
-  fontSize,
-  color,
-  index,
-}) => {
-  const [activeImage, setActiveImage] = useState(0);
-
-  // Determine if smaller images should be on the left or the right side of the ImageWithContent
-  // because we always want them facing inwards
-  // if index is even (2, 4, 6 etc), order is 1
-  const indexIsEven = index % 2 === 0 ? 2 : 1;
-  // and for ImageWithContent, we do the opposite:
-  // if index is uneven (1, 3, 5 etc), order is 1
-  const indexIsUnEven = index % 2 === 0 ? 1 : 2;
-
-  return (
-    <div className={`${classes.imageContainer}`}>
-      <ImageWithContentWrapper
-        indexIsUnEven={indexIsUnEven}
-        images={images}
-        activeImage={activeImage}
-        fontType={fontType}
-        fontWeight={fontWeight}
-        fontSize={fontSize}
-        color={color}
-        designedBy={designedBy}
-      />
-
-      <SmallImagesWithContent
-        indexIsEven={indexIsEven}
-        images={images}
-        activeImage={activeImage}
-        setActiveImage={setActiveImage}
       />
     </div>
   );
