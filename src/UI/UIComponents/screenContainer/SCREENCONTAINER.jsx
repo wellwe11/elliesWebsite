@@ -18,7 +18,7 @@ const ScreenContainer = ({ children }) => {
             <Route path="/uniqueImage" element={<UniqueImage />} />
           </Routes>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Suspense>
   );

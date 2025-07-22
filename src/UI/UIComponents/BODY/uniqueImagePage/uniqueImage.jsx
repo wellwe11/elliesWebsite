@@ -1,7 +1,7 @@
 import classes from "./uniqueImage.module.scss";
-import { useEffect, useRef, useState } from "react";
 
 import placeholderImage from "@assets/exampleImages/imageExampleThree.jpg";
+import Footer from "../../FOOTER/footer";
 
 const TopImage = () => {
   return (
@@ -40,6 +40,9 @@ const UniqueImage = () => {
       </div>
       <div className={classes.snapStart}>
         <UniqueInfoSection />
+      </div>
+      <div className={classes.snapEnd}>
+        <Footer />
       </div>
     </div>
   );
