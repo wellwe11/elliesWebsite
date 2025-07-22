@@ -42,18 +42,24 @@
     display: flex;
     align-items: center;
     width: 100%;
+    padding-left: 2px;
 
     .arrowContainer {
       height: 20px;
-      padding-left: 0.5vw;
+      width: 20%;
+      padding-left: 0.3vw;
+      margin-top: -3px;
       opacity: 0;
       transition: opacity 0.2s cubic-bezier(0.55, 0.05, 0.9, 0.35);
+      font-size: 14px;
+      font-weight: 400;
     }
 
     .underlineSpan {
       height: 1px;
-      width: 70%;
-      border-radius: 90px;
+      width: 60px;
+
+      border-radius: 9000px;
       background-color: black;
 
       transition: width 0.8s ease;
@@ -62,17 +68,7 @@
 
   &:hover {
     .underlineSpan {
-      width: 50%;
-    }
-
-    .arrowContainer {
-      opacity: 1;
-    }
-  }
-
-  .sectionActive {
-    .underlineSpan {
-      width: 50%;
+      width: 40px;
     }
 
     .arrowContainer {

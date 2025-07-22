@@ -1,7 +1,8 @@
 .fontTypeSpanBio {
   position: absolute;
 
-  transition: top 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+  transition: top 1.2s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.24s cubic-bezier(0.25, 1, 0.5, 1);
   z-index: 1;
 
   overflow-y: auto;

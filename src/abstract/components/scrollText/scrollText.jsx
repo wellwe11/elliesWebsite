@@ -8,9 +8,9 @@ const TextThatCorrespondsToActiveImage = ({ texts, activeImage }) => {
       style={{
         top:
           activeImage > index
-            ? `${2 * index + 50}px`
+            ? `${2 * index + 30}px`
             : activeImage < index
-            ? `${2 * index - 50}px`
+            ? `${2 * index - 30}px`
             : "0px",
         opacity: activeImage === index ? "1" : "0",
       }}

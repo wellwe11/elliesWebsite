@@ -38,7 +38,8 @@ const MainImageSpan = ({ children, index }) => {
 const UnderlineSpan = () => {
   const arrowRightElement = (
     <div className={classes.arrowContainer}>
-      <ArrowSVG color="black" />
+      {/* <ArrowSVG color="black" /> */}
+      explore
     </div>
   );
 

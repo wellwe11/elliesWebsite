@@ -1,10 +1,5 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
-import { Suspense, useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import { Suspense } from "react";
 import classes from "./SCREENCONTAINER.module.scss";
 
 import Footer from "../FOOTER/footer";

@@ -1,7 +1,25 @@
 import classes from "./navbar.module.scss";
+
 import screen_classes from "../screenContainer/SCREENCONTAINER.module.scss";
-import ButtonWithContent from "../../../abstract/components/buttonWithContent/BUTTONWITHCONTENT.jsx";
+import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT.jsx";
+
+import logoImage from "@assets/logo.png";
+
 import { useState } from "react";
+import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
+
+const ShoppingCart = () => {
+  return (
+    <div className={classes.shoppingCart}>
+      <div className={classes.shoppingBagText}>
+        <p className={classes.cartText}>View cart</p>
+      </div>
+      <div className={classes.shoppingBagContainer}>
+        <ShoppingBagSVG />
+      </div>
+    </div>
+  );
+};
 
 const NavButton = ({ children, link }) => {
   return (
@@ -11,11 +29,9 @@ const NavButton = ({ children, link }) => {
   );
 };
 
-const NavbarButtons = () => {
+const NavbarButtons = ({ buttons }) => {
   const [activeButton, setActiveButton] = useState(0);
   const [hoverButton, setHoverButton] = useState(0);
-
-  const buttons = [{ Home: "" }, { About: "About" }, { Contact: "./#Contact" }];
 
   return (
     <div className={classes.buttonsWrapper}>
@@ -43,12 +59,15 @@ const NavbarButtons = () => {
 const NavLogo = () => {
   return (
     <div className={classes.logoContainer}>
-      <h1 className={classes.logo}>Elizabets Art</h1>
+      <img className={classes.navLogoImage} src={logoImage} alt="" />
+      <h1 className={classes.logo}>elisabeth.chloé</h1>
     </div>
   );
 };
 
 const Navbar = () => {
+  const buttons = [{ Home: "" }, { About: "About" }, { Contact: "./#Contact" }];
+
   return (
     <div className={classes.navbar}>
       <div className={classes.navContent}>
@@ -56,7 +75,8 @@ const Navbar = () => {
           className={`${screen_classes.contentWrapper} ${classes.navWrapper}`}
         >
           <NavLogo />
-          <NavbarButtons />
+          <NavbarButtons buttons={buttons} />
+          <ShoppingCart />
         </div>
       </div>
     </div>

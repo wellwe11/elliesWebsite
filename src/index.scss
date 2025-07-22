@@ -1,7 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Pinyon+Script&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Mrs+Saint+Delafield&family=Pinyon+Script&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 
 :root {
-  font-family: "EB Garamond", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
+
   line-height: 1.5;
   font-weight: 400;
 
@@ -10,7 +11,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --websiteContainerColor: rgb(244, 253, 255);
+  --websiteContainerColor: #ffffff;
   --transitionButtonColor: rgb(152, 211, 217);
   --tonedDownContainerColor: rgb(191, 196, 197);
   --pastelBlueColor: rgb(192, 228, 255);
@@ -70,7 +71,7 @@ h4,
 h5,
 h6,
 p {
-  font-family: "Inter Tight", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   padding: 0;
   margin: 0;
 }

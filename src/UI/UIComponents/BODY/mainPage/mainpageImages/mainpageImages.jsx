@@ -3,9 +3,9 @@ import classes from "./mainpageImages.module.scss";
 import intersectingRefs from "@functions/intersectingRefs";
 import { ImageWithContent } from "@components/imageWithContent/imageWithContentNormal/imageWithContent";
 
-import imageOne from "@assets/exampleImages/blueImageOne.png";
-import imageTwo from "@assets/exampleImages/blueImageTwo.png";
-import imageThree from "@assets/exampleImages/blueImageThree.png";
+import imageOne from "@assets/exampleImages/imageExampleOne.jpg";
+import imageTwo from "@assets/exampleImages/imageExampleTwo.jpg";
+import imageThree from "@assets/exampleImages/imageExampleThree.jpg";
 
 import { useEffect, useRef } from "react";
 

@@ -2,7 +2,7 @@ import classes from "./imageWithContent.module.scss";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import checkForValidFont from "../../../functions/checkForValidFont";
+import checkForValidFont from "@functions/checkForValidFont";
 import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
 
 export const TextArea = ({
@@ -51,7 +51,7 @@ const SmallImagesWithContent = ({ images, setActiveImage }) => {
         className={classes.smallImageWithContentWrapper}
       >
         {/**add image to src to add the actual image */}
-        <img src={""} className={classes.smallImageWithContent} alt="" />
+        <img src={image} className={classes.smallImageWithContent} alt="" />
       </div>
     );
   };
