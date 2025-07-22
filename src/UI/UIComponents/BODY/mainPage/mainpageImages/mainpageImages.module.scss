@@ -14,6 +14,7 @@
   padding-bottom: 5vw;
 }
 
+/* animation that makes images fade into view when scrolling to them */
 .imageAnimationOne {
   animation: imagesPopup 0.75s forwards;
   transition: opacity 1s ease;
