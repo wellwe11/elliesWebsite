@@ -73,7 +73,7 @@ const MainImage = () => {
   const [activeImage, setActiveImage] = useState(0);
 
   // current placeholder-texts. In future will be buttons which direct you to sections on front-page
-  const text = ["Collections", "Prints", "Craftstuff", "Blog"];
+  const text = ["Prints", "Paintings", "Collections", "Blog"];
 
   const images = {
     imageOne: mainDisplayImage,

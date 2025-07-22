@@ -1,7 +1,7 @@
 import classes from "./imageWithContent.module.scss";
 
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import checkForValidFont from "../../../functions/checkForValidFont";
 import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
 
@@ -51,7 +51,7 @@ const SmallImagesWithContent = ({ images, setActiveImage }) => {
         className={classes.smallImageWithContentWrapper}
       >
         {/**add image to src to add the actual image */}
-        <img src={image} className={classes.smallImageWithContent} alt="" />
+        <img src={""} className={classes.smallImageWithContent} alt="" />
       </div>
     );
   };
@@ -71,6 +71,7 @@ export const ImageWithContent = ({
   fontWeight,
   fontSize,
   color,
+  title,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
 
@@ -90,12 +91,10 @@ export const ImageWithContent = ({
     }, 500);
   };
 
-  console.log(activeImage);
-
   return (
     <div className={`${classes.imageContainer}`}>
+      <h1>{title || "Title"}</h1>
       <SmallImagesWithContent images={images} setActiveImage={setActiveImage} />
-
       <TextArea
         fontType={fontType}
         fontWeight={fontWeight}

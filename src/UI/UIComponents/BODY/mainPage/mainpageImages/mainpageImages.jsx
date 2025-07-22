@@ -12,16 +12,16 @@ import { useEffect, useRef } from "react";
 const someTextOne = "Lorem ipsum dolor sit amet";
 const someText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
 const images = {
-  imagesOne: {
+  Prints: {
     imageOne: imageOne,
     imageTwo: imageTwo,
     imageThree: imageThree,
   },
-  // imagesTwo: {
-  //   imageOne: imageOne,
-  //   imageTwo: imageTwo,
-  //   imageThree: imageThree,
-  // },
+  Paintings: {
+    imageOne: imageOne,
+    imageTwo: imageTwo,
+    imageThree: imageThree,
+  },
 };
 
 const MainPageImages = () => {
@@ -48,6 +48,7 @@ const MainPageImages = () => {
         fontWeight={200}
         color={"black"}
         index={index}
+        title={key}
       />
     </div>
   ));

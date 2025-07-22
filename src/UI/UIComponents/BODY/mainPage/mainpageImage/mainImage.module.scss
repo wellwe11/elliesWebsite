@@ -26,53 +26,57 @@
   justify-content: space-between;
   align-items: flex-start;
 
-  .mainImageSpan {
-    cursor: pointer;
+  .mainImageWrapper {
+  }
+}
 
-    width: 100%;
-    height: 100%;
+.mainImageSpan {
+  cursor: pointer;
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .underlineSpanContainer {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    width: 100%;
 
-    .underlineSpanContainer {
-      display: flex;
-      align-items: center;
-      width: 100%;
-
-      .arrowContainer {
-        height: 20px;
-        padding-left: 0.5vw;
-        opacity: 0;
-        transition: opacity 0.2s cubic-bezier(0.55, 0.05, 0.9, 0.35);
-      }
-
-      .underlineSpan {
-        height: 1px;
-        width: 70%;
-        border-radius: 90px;
-        background-color: black;
-
-        transition: width 0.8s ease;
-      }
-    }
-    &:hover {
-      .underlineSpan {
-        width: 50%;
-      }
-
-      .arrowContainer {
-        opacity: 1;
-      }
+    .arrowContainer {
+      height: 20px;
+      padding-left: 0.5vw;
+      opacity: 0;
+      transition: opacity 0.2s cubic-bezier(0.55, 0.05, 0.9, 0.35);
     }
 
-    .sectionActive {
-      .underlineSpan {
-        width: 50%;
-      }
+    .underlineSpan {
+      height: 1px;
+      width: 70%;
+      border-radius: 90px;
+      background-color: black;
 
-      .arrowContainer {
-        opacity: 1;
-      }
+      transition: width 0.8s ease;
+    }
+  }
+
+  &:hover {
+    .underlineSpan {
+      width: 50%;
+    }
+
+    .arrowContainer {
+      opacity: 1;
+    }
+  }
+
+  .sectionActive {
+    .underlineSpan {
+      width: 50%;
+    }
+
+    .arrowContainer {
+      opacity: 1;
     }
   }
 }
