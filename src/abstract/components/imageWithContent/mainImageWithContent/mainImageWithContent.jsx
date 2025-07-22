@@ -23,18 +23,7 @@ const MainText = ({
   );
 };
 
-const MainImage = ({ activeImage, src }) => {
-  const [activeAnimation, setActiveAnimation] = useState(false);
-
-  useEffect(() => {
-    setActiveAnimation(true);
-    const timer = setTimeout(() => {
-      setActiveAnimation(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, [activeImage]);
-
+const MainImage = ({ activeImage, images }) => {
   const texts = [
     "this is text one",
     "this is text two",
@@ -49,17 +38,30 @@ const MainImage = ({ activeImage, src }) => {
     "this is title four",
   ];
 
-  if (!src) return;
+  if (!images) return;
 
   return (
     <div className={classes.mainImage}>
-      <img
-        src={src}
-        alt=""
-        className={`${classes.mainImageImg} ${
-          activeAnimation ? classes.mainImageAnimation : ""
-        }`}
-      />
+      <div className={classes.mainImageImgContainer}>
+        {Object.values(images).map((image, index) => (
+          <img
+            src={image}
+            alt=""
+            className={classes.mainImageImg}
+            style={{
+              opacity: index === activeImage ? "1" : "0",
+              transform: index === activeImage ? "scale(1)" : "scale(1.05)",
+              filter: index === activeImage ? "blur(0px)" : "blur(1px)",
+
+              transition:
+                index !== activeImage
+                  ? "transform 0.7s ease-out, opacity 0.7s ease, filter 0.6s ease"
+                  : "opacity 0.55s ease",
+              zIndex: activeImage === index ? 1 : 2,
+            }}
+          />
+        ))}
+      </div>
       <div className={classes.textAreaContainer}>
         <div className={classes.textAreaWrapper}>
           <div className={classes.textAreaTitle}>
@@ -104,7 +106,7 @@ const MainImage = ({ activeImage, src }) => {
 
 export const MainImageWithContent = ({
   children,
-  src,
+  images,
   fontType,
   fontWeight,
   fontSize,
@@ -121,7 +123,7 @@ export const MainImageWithContent = ({
       >
         {children}
       </MainText>
-      <MainImage src={src} activeImage={activeImage} />
+      <MainImage images={images} activeImage={activeImage} />
     </div>
   );
 };

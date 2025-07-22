@@ -84,7 +84,7 @@ const MainImage = () => {
   return (
     <div className={classes.mainImage}>
       <MainImageWithContent
-        src={Object.values(images)[activeImage]}
+        images={images}
         fontSize={"clamp(1rem, 1.5vw + 1rem, 3rem)"}
         fontWeight={100}
         color="black"
