@@ -1,17 +1,20 @@
 import classes from "./uniqueImage.module.scss";
 
-import placeholderImage from "@assets/exampleImages/imageExampleThree.jpg";
-import Footer from "../../FOOTER/footer";
+import placeholderImageOne from "@assets/exampleImages/imageExampleOne.jpg";
+import placeholderImageTwo from "@assets/exampleImages/imageExampleTwo.jpg";
+import placeholderImageThree from "@assets/exampleImages/imageExampleThree.jpg";
 
-import gsap from "gsap";
-import { Observer } from "gsap/Observer";
 import { useEffect, useRef, useState } from "react";
-gsap.registerPlugin(Observer);
+import intersectingRefs from "@functions/intersectingRefs";
 
-const TopImage = () => {
+const TopImage = ({ src }) => {
   return (
     <div className={classes.topImage}>
-      <img className={classes.topImageImage} src={placeholderImage} alt="" />
+      <img
+        className={classes.topImageImage}
+        src={src || placeholderImageThree}
+        alt=""
+      />
     </div>
   );
 };
@@ -89,9 +92,84 @@ const UniqueTopSection = () => {
 };
 
 const UniqueInfoSection = () => {
+  const imageRef = useRef(null);
+  const smallerImagesRef = useRef(null);
+
+  useEffect(() => {
+    const transitionInAnimation = (ref, className) => {
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(className);
+        } else {
+          entry.target.classList.remove(className);
+        }
+      });
+
+      const element = ref.current;
+
+      if (element) {
+        observer.observe(element);
+      }
+
+      return () => {
+        if (element) {
+          observer.unobserve(element);
+        }
+        observer.disconnect();
+      };
+    };
+
+    transitionInAnimation(imageRef, classes.intersectingImage);
+    transitionInAnimation(smallerImagesRef, classes.intersectingSmallerImages);
+  }, []);
+
   return (
     <div className={classes.uniqueInfoSection}>
-      <h1>Info Section</h1>
+      <div className={classes.uniqueInfoLeft}>
+        <div className={classes.uniqueInfoLeftImageContainer}>
+          <img
+            className={classes.uniqueInfoLeftImage}
+            src={placeholderImageTwo}
+            alt=""
+            ref={imageRef}
+          />
+        </div>
+      </div>
+      <div className={classes.uniqueInfoRight}>
+        <div
+          className={classes.uniqueInfoRightImagesWrapper}
+          ref={smallerImagesRef}
+        >
+          <TopImage src={placeholderImageOne} />
+          <TopImage src={placeholderImageTwo} />
+          <TopImage src={placeholderImageThree} />
+        </div>
+        <div className={classes.unqieInfoRightBio}>
+          <div>
+            <h1 className={classes.detailsTitle}>DETAILS</h1>
+          </div>
+          <div className={classes.detailsWrapper}>
+            <h5>Colors</h5>
+            <h5>Red, blue, white</h5>
+          </div>
+          <div className={classes.detailsWrapper}>
+            <h5>Height</h5>
+            <h5>35cm</h5>
+          </div>
+          <div className={classes.detailsWrapper}>
+            <h5>Width</h5>
+            <h5>20cm</h5>
+          </div>
+          <div className={classes.detailsWrapper}>
+            <h5>Type</h5>
+            <h5>Print</h5>
+          </div>
+          <div className={classes.detailsWrapper}>
+            <h5>Amount</h5>
+            <h5>3</h5>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -99,7 +177,7 @@ const UniqueInfoSection = () => {
 const UniqueImage = () => {
   return (
     <div className={classes.uniqueImage}>
-      <section className={classes.snapStart}>
+      <section className={`${classes.snapStart} ${classes.first}`}>
         <UniqueTopSection />
       </section>
       <section className={classes.snapStart}>

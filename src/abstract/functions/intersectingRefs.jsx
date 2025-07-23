@@ -1,7 +1,7 @@
 const intersectingRefs = (refs, classToAdd) => {
   const observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
+      entries?.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(classToAdd);
         } else {
@@ -17,12 +17,12 @@ const intersectingRefs = (refs, classToAdd) => {
   const elements = refs.current || [];
 
   if (elements) {
-    elements.forEach((el) => {
+    elements?.forEach((el) => {
       if (el) observer.observe(el);
     });
 
     return () => {
-      elements.forEach((el) => {
+      elements?.forEach((el) => {
         if (el) observer.unobserve(el);
       });
       observer.disconnect();
