@@ -140,33 +140,45 @@ const UniqueInfoSection = () => {
           className={classes.uniqueInfoRightImagesWrapper}
           ref={smallerImagesRef}
         >
-          <TopImage src={placeholderImageOne} />
-          <TopImage src={placeholderImageTwo} />
-          <TopImage src={placeholderImageThree} />
+          <img
+            className={classes.placeholderImage}
+            src={placeholderImageOne}
+            alt=""
+          />
+          <img
+            className={classes.placeholderImage}
+            src={placeholderImageTwo}
+            alt=""
+          />
+          <img
+            className={classes.placeholderImage}
+            src={placeholderImageThree}
+            alt=""
+          />
         </div>
         <div className={classes.unqieInfoRightBio}>
           <div>
             <h1 className={classes.detailsTitle}>DETAILS</h1>
           </div>
           <div className={classes.detailsWrapper}>
-            <h5>Colors</h5>
-            <h5>Red, blue, white</h5>
+            <h5 className={classes.detailText}>Colors</h5>
+            <h5 className={classes.detailText}>Red, blue, white</h5>
           </div>
           <div className={classes.detailsWrapper}>
-            <h5>Height</h5>
-            <h5>35cm</h5>
+            <h5 className={classes.detailText}>Height</h5>
+            <h5 className={classes.detailText}>35cm</h5>
           </div>
           <div className={classes.detailsWrapper}>
-            <h5>Width</h5>
-            <h5>20cm</h5>
+            <h5 className={classes.detailText}>Width</h5>
+            <h5 className={classes.detailText}>20cm</h5>
           </div>
           <div className={classes.detailsWrapper}>
-            <h5>Type</h5>
-            <h5>Print</h5>
+            <h5 className={classes.detailText}>Type</h5>
+            <h5 className={classes.detailText}>Print</h5>
           </div>
           <div className={classes.detailsWrapper}>
-            <h5>Amount</h5>
-            <h5>3</h5>
+            <h5 className={classes.detailText}>Amount</h5>
+            <h5 className={classes.detailText}>3</h5>
           </div>
         </div>
       </div>
