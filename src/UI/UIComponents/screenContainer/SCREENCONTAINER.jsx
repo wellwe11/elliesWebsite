@@ -17,8 +17,8 @@ const ScreenContainer = ({ children }) => {
             <Route path="/" element={<MainPage />} />
             <Route path="/uniqueImage" element={<UniqueImage />} />
           </Routes>
+          {/* <Footer /> */}
         </div>
-        {/* <Footer /> */}
       </div>
     </Suspense>
   );

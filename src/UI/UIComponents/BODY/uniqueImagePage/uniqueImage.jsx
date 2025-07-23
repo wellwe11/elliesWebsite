@@ -3,19 +3,75 @@ import classes from "./uniqueImage.module.scss";
 import placeholderImage from "@assets/exampleImages/imageExampleThree.jpg";
 import Footer from "../../FOOTER/footer";
 
+import gsap from "gsap";
+import { Observer } from "gsap/Observer";
+import { useEffect, useRef, useState } from "react";
+gsap.registerPlugin(Observer);
+
 const TopImage = () => {
   return (
     <div className={classes.topImage}>
-      {/* <img className={classes.topImageImage} src={placeholderImage} alt="" /> */}
+      <img className={classes.topImageImage} src={placeholderImage} alt="" />
     </div>
   );
 };
 
 const UniqueTopSection = () => {
+  const [transitionIn, setTransitionIn] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTransitionIn(true);
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className={classes.uniqueTopSection}>
       <div className={classes.uniqueTopLeft}>
-        <h1 style={{ color: "black" }}>Hello, this is unique image</h1>
+        <div className={classes.uniqueLeftTitleWrapper}>
+          <div className={classes.uniqueLeftTitle}>
+            <h1
+              className={`${classes.uniqueLeftTitleText} ${classes.first} ${
+                transitionIn ? classes.transitionIn : ""
+              }`}
+              style={{ color: "black" }}
+            >
+              Hello,
+            </h1>
+          </div>
+          <div className={classes.uniqueLeftTitle}>
+            <h1
+              className={`${classes.uniqueLeftTitleText} ${classes.second} ${
+                transitionIn ? classes.transitionIn : ""
+              }`}
+              style={{ color: "black" }}
+            >
+              Hello 2
+            </h1>
+          </div>
+        </div>
+        <div className={classes.bioTextContainer}>
+          <div className={classes.bioTextWrapper}>
+            <h5
+              className={`${classes.bioTitle} ${
+                transitionIn ? classes.transitionIn : ""
+              }`}
+            >
+              consectetuer adipiscing elit.
+            </h5>
+            <h5
+              className={`${classes.bioText} ${
+                transitionIn ? classes.transitionIn : ""
+              }`}
+            >
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+              penatibus et magnis dis parturient montes.
+            </h5>
+          </div>
+        </div>
       </div>
       <div className={classes.uniqueTopRight}>
         <TopImage />
@@ -35,15 +91,12 @@ const UniqueInfoSection = () => {
 const UniqueImage = () => {
   return (
     <div className={classes.uniqueImage}>
-      <div className={classes.snapStart}>
+      <section className={classes.snapStart}>
         <UniqueTopSection />
-      </div>
-      <div className={classes.snapStart}>
+      </section>
+      <section className={classes.snapStart}>
         <UniqueInfoSection />
-      </div>
-      <div className={classes.snapEnd}>
-        <Footer />
-      </div>
+      </section>
     </div>
   );
 };
