@@ -59,7 +59,7 @@ const UniqueTopSection = () => {
               }`}
               style={{ color: "black" }}
             >
-              Hello 2
+              Hello Two
             </h1>
           </div>
         </div>
@@ -94,6 +94,7 @@ const UniqueTopSection = () => {
 const UniqueInfoSection = () => {
   const imageRef = useRef(null);
   const smallerImagesRef = useRef(null);
+  const bioRef = useRef(null);
 
   useEffect(() => {
     const transitionInAnimation = (ref, className) => {
@@ -121,6 +122,7 @@ const UniqueInfoSection = () => {
 
     transitionInAnimation(imageRef, classes.intersectingImage);
     transitionInAnimation(smallerImagesRef, classes.intersectingSmallerImages);
+    transitionInAnimation(bioRef, classes.intersectingSmallerImages);
   }, []);
 
   return (
@@ -156,7 +158,7 @@ const UniqueInfoSection = () => {
             alt=""
           />
         </div>
-        <div className={classes.unqieInfoRightBio}>
+        <div className={classes.unqieInfoRightBio} ref={bioRef}>
           <div>
             <h1 className={classes.detailsTitle}>DETAILS</h1>
           </div>

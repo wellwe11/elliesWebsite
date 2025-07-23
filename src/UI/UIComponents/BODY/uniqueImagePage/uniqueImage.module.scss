@@ -48,6 +48,7 @@
         overflow: hidden;
 
         .uniqueLeftTitleText {
+          font-weight: 200;
           opacity: 0;
           font-size: 100px;
           transform: translateY(150%) scaleY(1.65);
@@ -140,11 +141,11 @@
         height: 100%;
         width: 100%;
         object-fit: contain;
-        transform: scale(1.2) translateY(-50px);
+        transform: scale(1.2) translateY(-100px);
         position: absolute;
         top: 0px;
 
-        transition: transform 0.8s ease-out;
+        transition: transform 0.8s cubic-bezier(0.33, 1, 0.68, 1);
       }
     }
   }
@@ -157,10 +158,10 @@
     justify-content: space-between;
 
     .uniqueInfoRightImagesWrapper {
-      transform: translateY(50px);
+      transform: translateY(70px);
       opacity: 0;
       filter: blur(1px);
-      transition: transform 0.8s ease, opacity 0.3s ease, filter 0.5s ease;
+      transition: transform 1s ease, opacity 0.3s ease, filter 0.5s ease;
 
       max-height: 50%;
       display: flex;
@@ -177,6 +178,10 @@
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
+      transform: translateY(50px);
+      opacity: 0;
+
+      transition: transform 1s ease, opacity 1s ease;
 
       .detailsTitle {
         font-weight: 200;
