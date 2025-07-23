@@ -18,13 +18,21 @@ const TopImage = () => {
 
 const UniqueTopSection = () => {
   const [transitionIn, setTransitionIn] = useState(false);
+  const [transitionTitleIn, setTransitionTitleIn] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setTransitionIn(true);
     }, 800);
 
-    return () => clearTimeout(timer);
+    const timerTwo = setTimeout(() => {
+      setTransitionTitleIn(true);
+    }, 200);
+
+    return () => {
+      clearTimeout(timerTwo);
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
@@ -34,7 +42,7 @@ const UniqueTopSection = () => {
           <div className={classes.uniqueLeftTitle}>
             <h1
               className={`${classes.uniqueLeftTitleText} ${classes.first} ${
-                transitionIn ? classes.transitionIn : ""
+                transitionTitleIn ? classes.transitionIn : ""
               }`}
               style={{ color: "black" }}
             >
@@ -44,7 +52,7 @@ const UniqueTopSection = () => {
           <div className={classes.uniqueLeftTitle}>
             <h1
               className={`${classes.uniqueLeftTitleText} ${classes.second} ${
-                transitionIn ? classes.transitionIn : ""
+                transitionTitleIn ? classes.transitionIn : ""
               }`}
               style={{ color: "black" }}
             >
