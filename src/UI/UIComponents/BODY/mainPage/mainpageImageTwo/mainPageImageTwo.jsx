@@ -9,9 +9,18 @@ import blueImageThree from "@assets/frontPageMainImages/mainImageThree.jpg";
 
 import { useState } from "react";
 
+const ElliesIdea = () => {
+  return (
+    <div className={classes.elliesClass}>
+      <h1>Hello I am ellie</h1>
+    </div>
+  );
+};
+
 const MainPageImageTwo = () => {
   return (
     <div className={classes.MainPageImageTwo}>
+      <ElliesIdea />
       <div className={classes.imagesContainer}>
         <img className={classes.imageExample} src={blueImageTwo} alt="" />
         <img className={classes.imageExample} src={blueImageOne} alt="" />
