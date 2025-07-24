@@ -5,11 +5,15 @@ import MainImage from "./mainpageImage/mainImage";
 import MainPageImages from "./mainpageImages/mainpageImages";
 import Services from "./services/services";
 import { useEffect, useState } from "react";
+import MainPageImageTwo from "./mainpageImageTwo/mainPageImageTwo";
 
 const MainPage = () => {
   return (
     <div>
-      <MainImage />
+      {/* <MainImage /> */
+      /*Ellie doesnt like this example */}
+
+      <MainPageImageTwo />
       <MainPageImages />
       <Services />
     </div>

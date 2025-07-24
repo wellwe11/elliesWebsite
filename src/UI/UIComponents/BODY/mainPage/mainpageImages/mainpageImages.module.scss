@@ -16,18 +16,17 @@
 
 /* animation that makes images fade into view when scrolling to them */
 .imageAnimationOne {
-  animation: imagesPopup 0.75s forwards;
-  transition: opacity 1s ease;
+  animation: imagesPopup 0.5s forwards;
+  opacity: 1;
+  transform-origin: top;
 }
 
 @keyframes imagesPopup {
   from {
-    opacity: 0;
-    transform: translate(0px, 10px);
+    transform: translate(0px, 10px) scaleY(1.05);
   }
 
   to {
-    opacity: 1;
-    transform: translate(0px, 0px);
+    transform: translate(0px, 0px) scaleY(1);
   }
 }

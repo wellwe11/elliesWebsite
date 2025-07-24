@@ -141,7 +141,7 @@
         height: 100%;
         width: 100%;
         object-fit: contain;
-        transform: scale(1.2) translateY(-100px);
+        transform: scale(1.2) translateY(-50px);
         position: absolute;
         top: 0px;
 
@@ -181,7 +181,7 @@
       transform: translateY(50px);
       opacity: 0;
 
-      transition: transform 1s ease, opacity 1s ease;
+      transition: transform 1.2s ease, opacity 1s ease;
 
       .detailsTitle {
         font-weight: 200;

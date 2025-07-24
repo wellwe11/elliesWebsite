@@ -1,3 +1,4 @@
+/* Prototype one */
 .imageAnimationTwo {
   animation: imagesPopup 1.1s forwards;
   transition: opacity 1s ease;
@@ -5,8 +6,7 @@
 
 .mainImage {
   width: 100%;
-  height: 80vh;
-  min-height: 600px;
+  height: clamp(600px, 90vh, 1000px);
 
   opacity: 1;
   position: relative;
@@ -37,7 +37,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  font-variation-settings: "wght" 200;
+  font-variation-settings: "wght" 150;
 
   .underlineSpanContainer {
     display: flex;
@@ -53,7 +53,7 @@
       opacity: 0;
       transition: opacity 0.2s cubic-bezier(0.55, 0.05, 0.9, 0.35);
       font-size: 14px;
-      font-variation-settings: "wght" 350;
+      font-variation-settings: "wght" 250;
     }
 
     .underlineSpan {
@@ -74,6 +74,28 @@
 
     .arrowContainer {
       opacity: 1;
+    }
+  }
+}
+
+/* Prototype two */
+.mainImageTwo {
+  padding-top: 10px;
+  height: 500px;
+  .mainImagesContainer {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .mainImageImg {
+      width: 30%;
+      height: 90%;
+      object-fit: contain;
     }
   }
 }

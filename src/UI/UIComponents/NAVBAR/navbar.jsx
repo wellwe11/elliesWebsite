@@ -8,6 +8,14 @@ import logoImage from "@assets/logo.png";
 import { useState } from "react";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 
+const NavFilters = () => {
+  return (
+    <div>
+      <h5>This is where filters will be</h5>
+    </div>
+  );
+};
+
 const ShoppingCart = () => {
   return (
     <div className={classes.shoppingCart}>
@@ -29,10 +37,13 @@ const NavButton = ({ children, link }) => {
   );
 };
 
-const NavbarButtons = ({ buttons }) => {
-  const [activeButton, setActiveButton] = useState(0);
-  const [hoverButton, setHoverButton] = useState(0);
-
+const NavbarButtons = ({
+  buttons,
+  setActiveButton,
+  setHoverButton,
+  hoverButton,
+  activeButton,
+}) => {
   return (
     <div className={classes.buttonsWrapper}>
       {buttons.map((button, index) => (
@@ -56,6 +67,29 @@ const NavbarButtons = ({ buttons }) => {
   );
 };
 
+const ExtendGallery = ({ hoverButton, setHoverButton, activeButton }) => {
+  const buttons = ["Prints", "Paintings", "Custom"];
+  console.log(activeButton);
+
+  return (
+    <div
+      className={`${classes.pageOptionTextsContainer} ${
+        hoverButton === 1 ? classes.hoverStyle : classes.inactiveStyle
+      }`}
+      onMouseEnter={() => setHoverButton(1)}
+      onMouseLeave={() => setHoverButton(activeButton)}
+    >
+      <div className={classes.pageOptionsWrapper}>
+        {buttons.map((button, index) => (
+          <button key={index} className={classes.pageOptionButton}>
+            <h5 className={classes.pageOptionText}>{button}</h5>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const NavLogo = () => {
   return (
     <div className={classes.logoContainer}>
@@ -66,18 +100,42 @@ const NavLogo = () => {
 };
 
 const Navbar = () => {
-  const buttons = [{ Home: "" }, { About: "About" }, { Contact: "./#Contact" }];
+  const [activeButton, setActiveButton] = useState(0);
+  const [hoverButton, setHoverButton] = useState(0);
+  const buttons = [
+    { Home: "" },
+    { Gallery: "Gallery" },
+    { Contact: "./#Contact" },
+  ];
+
+  const navbarShadowStyle = {
+    boxShadow:
+      hoverButton === 1
+        ? "0 0 6px 1px rgba(0, 0, 0, 0.01), 0 0 0 1px rgba(27, 31, 35, 0.02)"
+        : "",
+  };
 
   return (
-    <div className={classes.navbar}>
+    <div className={classes.navbar} style={navbarShadowStyle}>
       <div className={classes.navContent}>
         <div
           className={`${screen_classes.contentWrapper} ${classes.navWrapper}`}
         >
           <NavLogo />
-          <NavbarButtons buttons={buttons} />
+          <NavbarButtons
+            buttons={buttons}
+            activeButton={activeButton}
+            setActiveButton={setActiveButton}
+            hoverButton={hoverButton}
+            setHoverButton={setHoverButton}
+          />
           <ShoppingCart />
         </div>
+        <ExtendGallery
+          hoverButton={hoverButton}
+          setHoverButton={setHoverButton}
+          activeButton={activeButton}
+        />
       </div>
     </div>
   );

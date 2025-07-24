@@ -55,7 +55,7 @@ const MainImage = ({ activeImage, images }) => {
 
               transition:
                 index !== activeImage
-                  ? "transform 0.3s ease-out, opacity 0.7s ease, filter 0.6s ease"
+                  ? "transform 0.3s ease-out, opacity 1s ease, filter 0.6s ease"
                   : "opacity 0.22s ease",
               zIndex: activeImage === index ? 1 : 2,
             }}

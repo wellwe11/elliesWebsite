@@ -46,6 +46,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 2px;
+  padding-right: 2px;
 
   .smallImageWithContentWrapper {
     width: 30%;
@@ -55,13 +57,13 @@
 
     display: flex;
     background-color: black;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 
     .smallImageWithContent {
       height: clamp(200px, 450px, 40vw);
       width: 100%;
 
       object-fit: cover;
-      border: 0.2px solid rgb(225, 225, 225);
     }
   }
 }

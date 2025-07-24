@@ -1,0 +1,20 @@
+.MainPageImageTwo {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .imagesContainer {
+    height: 90%;
+    width: 100%;
+
+    .imageExample {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}

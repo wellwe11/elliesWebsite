@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 import mainDisplayImage from "@assets/imageOnWallPlaceholderRepresentation.png";
 import mainDisplayImageTwo from "@assets/imageOnWallPlaceholderRepresentationTwo.png";
 
+import mainImageOne from "@assets/frontPageMainImages/mainImageOne.jpg";
+import mainImageTwo from "@assets/frontPageMainImages/mainImageTwo.jpg";
+import mainImageThree from "@assets/frontPageMainImages/mainImageThree.jpg";
+
 import ArrowSVG from "@components/SVGS/arrowSVG/arrowSVG";
 import { MainImageWithContent } from "@components/imageWithContent/mainImageWithContent/mainImageWithContent";
 
@@ -51,7 +55,7 @@ const UnderlineSpan = () => {
   );
 };
 
-const MainImageWrapperText = ({ children, setActiveImage }) => {
+export const MainImageWrapperText = ({ children, setActiveImage }) => {
   return (
     <div className={classes.mainImageWrapperText}>
       {children.map((t, index) => (
@@ -81,7 +85,9 @@ const MainImage = () => {
     imageTwo: mainDisplayImageTwo,
   };
 
-  return (
+  // first idea
+  // ellie didnt like, but i want to continue working on it a bit maybe
+  const prototypeOne = (
     <div className={classes.mainImage}>
       <MainImageWithContent
         images={images}
@@ -96,6 +102,8 @@ const MainImage = () => {
       </MainImageWithContent>
     </div>
   );
+
+  return <>{prototypeOne}</>;
 };
 
 export default MainImage;

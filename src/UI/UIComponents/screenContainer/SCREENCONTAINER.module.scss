@@ -17,7 +17,7 @@
     /* contentWrapper styled definitions */
     /* big screens */
     @media screen and (min-width: 1400px) {
-      width: 80vw;
+      width: 85vw;
       max-width: 1400px;
     }
 
@@ -68,5 +68,7 @@
   }
 
   .paddingClass {
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
