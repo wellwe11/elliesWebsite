@@ -170,6 +170,8 @@
       justify-content: center;
       align-items: center;
 
+      transition: color 0.4s ease;
+
       &:hover {
         .pageOptionText {
           color: black;

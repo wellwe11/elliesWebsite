@@ -1,5 +1,5 @@
 .MainPageImageTwo {
-  height: 100%;
+  height: 400px;
   width: 100%;
 
   display: flex;
@@ -8,13 +8,18 @@
   flex-direction: column;
 
   .imagesContainer {
-    height: 90%;
+    height: 100%;
     width: 100%;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
     .imageExample {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
+      width: 33.333%;
+      height: 101%;
+      object-fit: contain;
     }
   }
 }
