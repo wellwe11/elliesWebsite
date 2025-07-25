@@ -7,6 +7,8 @@ import logoImage from "@assets/logo.png";
 
 import { useState } from "react";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
+import { useNavigate } from "react-router-dom";
+import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 
 const ShoppingCart = () => {
   return (
@@ -85,9 +87,17 @@ const ExtendGallery = ({ hoverButton, setHoverButton, activeButton }) => {
   );
 };
 
-const NavLogo = () => {
+const NavLogo = ({ setActiveButton, setHoverButton }) => {
+  const navigate = handleNavigateSmooth();
   return (
-    <div className={classes.logoContainer}>
+    <div
+      className={classes.logoContainer}
+      onClick={() => {
+        setActiveButton(0);
+        setHoverButton(0);
+        navigate("./");
+      }}
+    >
       <img className={classes.navLogoImage} src={logoImage} alt="" />
       <h1 className={classes.logo}>art & cards co.</h1>
     </div>
@@ -96,6 +106,7 @@ const NavLogo = () => {
 
 const Navbar = () => {
   const [activeButton, setActiveButton] = useState(0);
+  console.log(activeButton);
   const [hoverButton, setHoverButton] = useState(0);
   const buttons = [
     { Home: "" },
@@ -117,7 +128,10 @@ const Navbar = () => {
         <div
           className={`${screen_classes.contentWrapper} ${classes.navWrapper}`}
         >
-          <NavLogo />
+          <NavLogo
+            setActiveButton={setActiveButton}
+            setHoverButton={setHoverButton}
+          />
           <NavbarButtons
             buttons={buttons}
             activeButton={activeButton}
