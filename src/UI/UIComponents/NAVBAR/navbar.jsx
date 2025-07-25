@@ -8,14 +8,6 @@ import logoImage from "@assets/logo.png";
 import { useState } from "react";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 
-const NavFilters = () => {
-  return (
-    <div>
-      <h5>This is where filters will be</h5>
-    </div>
-  );
-};
-
 const ShoppingCart = () => {
   return (
     <div className={classes.shoppingCart}>
@@ -37,6 +29,7 @@ const NavButton = ({ children, link }) => {
   );
 };
 
+// main-buttons
 const NavbarButtons = ({
   buttons,
   setActiveButton,
@@ -44,29 +37,32 @@ const NavbarButtons = ({
   hoverButton,
   activeButton,
 }) => {
+  const mappedButtons = buttons.map((button, index) => (
+    <div
+      key={index}
+      onClick={() => setActiveButton(index)}
+      onMouseEnter={() => setHoverButton(index)}
+      onMouseLeave={() => setHoverButton(activeButton)}
+      className={classes.buttonWrapper}
+    >
+      <NavButton link={Object.values(button)[0]}>
+        {Object.keys(button)}
+      </NavButton>
+    </div>
+  ));
+
   return (
     <div className={classes.buttonsWrapper}>
-      {buttons.map((button, index) => (
-        <div
-          key={index}
-          onClick={() => setActiveButton(index)}
-          onMouseEnter={() => setHoverButton(index)}
-          onMouseLeave={() => setHoverButton(activeButton)}
-          className={classes.buttonWrapper}
-        >
-          <NavButton link={Object.values(button)[0]}>
-            {Object.keys(button)}
-          </NavButton>
-        </div>
-      ))}
+      {mappedButtons}
       <span
         className={classes.buttonUnderline}
-        style={{ left: `${140 * hoverButton}px` }}
-      ></span>
+        style={{ transform: `translateX(${140 * hoverButton}px)` }}
+      />
     </div>
   );
 };
 
+// drop-down menu for when you hover "gallery"
 const ExtendGallery = ({ hoverButton, setHoverButton, activeButton }) => {
   const buttons = ["Prints", "Paintings", "Custom"];
   console.log(activeButton);
@@ -94,7 +90,7 @@ const NavLogo = () => {
   return (
     <div className={classes.logoContainer}>
       <img className={classes.navLogoImage} src={logoImage} alt="" />
-      <h1 className={classes.logo}>elisabeth.chloé</h1>
+      <h1 className={classes.logo}>art & cards co.</h1>
     </div>
   );
 };

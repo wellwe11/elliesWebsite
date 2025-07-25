@@ -1,0 +1,75 @@
+.LogoWithTextPresentation {
+  width: 25%;
+  height: 100px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .imagesWrapper {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title {
+    width: 200px;
+    h1 {
+      padding-top: 10px;
+      font-family: "Mrs Saint Delafield", cursive;
+      font-size: 50px;
+      line-height: 50px;
+      animation: fadeInText 1s ease forwards 1s;
+      opacity: 0;
+    }
+  }
+}
+
+.image {
+  height: 30px;
+  border-radius: 90px;
+
+  &.img0 {
+    transform: rotate(80deg);
+    animation: fadeInImages 1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  }
+
+  &.img1 {
+    transform: rotate(60deg);
+    animation: fadeInImages 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  }
+
+  &.img2 {
+    transform: rotate(40deg);
+    animation: fadeInImages 2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  }
+}
+
+@keyframes fadeInImages {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  80% {
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(00deg);
+  }
+}
+
+@keyframes fadeInText {
+  from {
+    transform: translateX(5px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}

@@ -1,4 +1,6 @@
-import classes from "./mainpageImageTwo.module.scss";
+import classes from "./mainPageTopPresentation.module.scss";
+
+import LogoWithTextPresentation from "./logoWithTextPresentation/logoWithTextPresentation";
 
 import imageExampleOne from "@assets/imageOnWallPlaceholderRepresentation.png";
 import imageExampleTwo from "@assets/imageOnWallPlaceholderRepresentationTwo.png";
@@ -7,28 +9,25 @@ import blueImageOne from "@assets/frontPageMainImages/mainImageOne.jpg";
 import blueImageTwo from "@assets/frontPageMainImages/mainImageTwo.jpg";
 import blueImageThree from "@assets/frontPageMainImages/mainImageThree.jpg";
 
+import welcomeImageOne from "@assets/welcomeImageOne.jpg";
+
+import logoImage from "@assets/logo.png";
+
 import { useState } from "react";
 
-const ElliesIdea = () => {
-  return (
-    <div className={classes.elliesClass}>
-      <h1>Hello I am ellie</h1>
-    </div>
-  );
-};
+const MainPageTopPresentation = () => {
+  const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
-const MainPageImageTwo = () => {
   return (
     <div className={classes.MainPageImageTwo}>
-      <ElliesIdea />
+      <LogoWithTextPresentation images={smallCircleImages} />
       <div className={classes.imagesContainer}>
         <img className={classes.imageExample} src={blueImageTwo} alt="" />
         <img className={classes.imageExample} src={blueImageOne} alt="" />
         <img className={classes.imageExample} src={blueImageThree} alt="" />
-        {/* <img className={classes.imageExample} src={imageExampleOne} alt="" /> */}
       </div>
     </div>
   );
 };
 
-export default MainPageImageTwo;
+export default MainPageTopPresentation;

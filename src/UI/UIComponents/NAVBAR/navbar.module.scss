@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.01), 0 0 0 1px rgba(27, 31, 35, 0.02);
+
   z-index: 999999;
 
   .navContent {
@@ -26,7 +26,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   position: relative;
 
   .buttonWrapper {
@@ -38,26 +37,21 @@
     left: 0;
 
     width: 140px;
-    height: 0.1px;
+    height: 0.5px;
 
     background: var(--navUnderlineColor);
     box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.01),
       0 0 0 1px rgba(27, 31, 35, 0.01);
 
-    transition: left 0.15s ease;
+    transition: transform 0.15s ease;
+
     pointer-events: none;
-
-    border-radius: 9000px;
-
-    &:hover {
-      background-color: black;
-      height: 10px;
-    }
   }
 }
 
 .button {
   width: 140px;
+  height: 100%;
 }
 
 .logoContainer {
@@ -151,6 +145,7 @@
 
   transition: all 0.4s ease;
   box-shadow: 0 6px 6px -6px rgba(0, 0, 0, 0.01), 0 1px 0 rgba(27, 31, 35, 0.02);
+  opacity: 0;
 
   .pageOptionsWrapper {
     height: 100%;
@@ -169,8 +164,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
-      transition: color 0.4s ease;
 
       &:hover {
         .pageOptionText {
@@ -193,6 +186,6 @@
 }
 
 .inactiveStyle {
-  transform: translateY(-100px);
+  transform: translateY(-50px);
   opacity: 1;
 }
