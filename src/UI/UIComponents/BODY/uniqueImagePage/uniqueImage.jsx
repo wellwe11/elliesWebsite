@@ -4,7 +4,6 @@ import placeholderImageOne from "@assets/exampleImages/imageExampleOne.jpg";
 import placeholderImageTwo from "@assets/exampleImages/imageExampleTwo.jpg";
 import placeholderImageThree from "@assets/exampleImages/imageExampleThree.jpg";
 
-import intersectingRefs from "@functions/intersectingRefs";
 import UniqueTopSection from "./uniqueTopSection/uniqueTopSection";
 import UniqueInfoSection from "./uniqueInfoSection/uniqueInfoSection";
 

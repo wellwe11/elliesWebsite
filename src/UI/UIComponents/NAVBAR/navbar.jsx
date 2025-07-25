@@ -65,7 +65,6 @@ const NavbarButtons = ({
 // drop-down menu for when you hover "gallery"
 const ExtendGallery = ({ hoverButton, setHoverButton, activeButton }) => {
   const buttons = ["Prints", "Paintings", "Custom"];
-  console.log(activeButton);
 
   return (
     <div
@@ -104,6 +103,7 @@ const Navbar = () => {
     { Contact: "./#Contact" },
   ];
 
+  // displays line below entire navbar
   const navbarShadowStyle = {
     boxShadow:
       hoverButton === 1
