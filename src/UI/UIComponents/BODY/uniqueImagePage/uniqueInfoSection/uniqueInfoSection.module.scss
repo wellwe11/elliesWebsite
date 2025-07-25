@@ -1,0 +1,95 @@
+.uniqueInfoSection {
+  height: 88vh;
+
+  display: flex;
+  justify-content: space-between;
+
+  .uniqueInfoLeft {
+    height: 100%;
+    width: 50%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .uniqueInfoRight {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.unqieInfoRightBio {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  transform: translateY(50px);
+  opacity: 0;
+
+  transition: transform 1.2s ease, opacity 1s ease;
+
+  .detailsTitle {
+    font-weight: 200;
+    font-size: 40px;
+  }
+
+  .detailsWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.5px solid black;
+
+    .detailText {
+      font-weight: 300;
+    }
+  }
+}
+
+.uniqueInfoLeftImageContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  .uniqueInfoLeftImage {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    transform: scale(1.2) translateY(-50px);
+    position: absolute;
+    top: 0px;
+
+    transition: transform 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+  }
+}
+
+.uniqueInfoRightImagesWrapper {
+  transform: translateY(70px);
+  opacity: 0;
+  filter: blur(1px);
+  transition: transform 1s ease, opacity 0.3s ease, filter 0.5s ease;
+
+  max-height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .placeholderImage {
+    width: 30%;
+    cursor: pointer;
+  }
+}
+
+.intersectingImage {
+  transform: scale(1.2) translateY(0px) !important;
+}
+
+.intersectingSmallerImages {
+  transform: translateY(0px) !important;
+  opacity: 1 !important;
+  filter: blur(0px) !important;
+}

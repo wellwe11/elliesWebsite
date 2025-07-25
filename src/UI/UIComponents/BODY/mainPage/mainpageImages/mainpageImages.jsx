@@ -3,28 +3,9 @@ import classes from "./mainpageImages.module.scss";
 import intersectingRefs from "@functions/intersectingRefs";
 import { ImageWithContent } from "@components/imageWithContent/imageWithContentNormal/imageWithContent";
 
-import imageOne from "@assets/exampleImages/imageExampleOne.jpg";
-import imageTwo from "@assets/exampleImages/imageExampleTwo.jpg";
-import imageThree from "@assets/exampleImages/imageExampleThree.jpg";
-
 import { useEffect, useRef } from "react";
 
-const someTextOne = "Lorem ipsum dolor sit amet";
-const someText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-const images = {
-  Prints: {
-    imageOne: imageOne,
-    imageTwo: imageTwo,
-    imageThree: imageThree,
-  },
-  Paintings: {
-    imageOne: imageOne,
-    imageTwo: imageTwo,
-    imageThree: imageThree,
-  },
-};
-
-const MainPageImages = () => {
+const MainPageImages = ({ images, bio, designedBy }) => {
   const imageRefs = useRef([]);
   const textRefs = useRef([]);
 
@@ -33,27 +14,32 @@ const MainPageImages = () => {
     intersectingRefs(textRefs, classes.hoverFont);
   }, [imageRefs]);
 
-  const imagesEntries = Object.entries(images);
+  const MainPageImages = () => {
+    const imagesEntries = Object.entries(images);
+    return imagesEntries.map(([key, obj], index) => (
+      <div
+        className={classes.mainPageImage}
+        ref={(el) => (imageRefs.current[index] = el)}
+        key={index}
+      >
+        <ImageWithContent
+          images={obj}
+          designedBy={designedBy}
+          bio={bio}
+          fontWeight={200}
+          color={"black"}
+          index={index}
+          title={key}
+        />
+      </div>
+    ));
+  };
 
-  const mappedImagesEntries = imagesEntries.map(([key, obj], index) => (
-    <div
-      className={classes.mainPageImage}
-      ref={(el) => (imageRefs.current[index] = el)}
-      key={key}
-    >
-      <ImageWithContent
-        images={obj}
-        designedBy={someTextOne}
-        bio={someText}
-        fontWeight={200}
-        color={"black"}
-        index={index}
-        title={key}
-      />
+  return (
+    <div className={classes.mainPageImages}>
+      <MainPageImages />
     </div>
-  ));
-
-  return <div className={classes.mainPageImages}>{mappedImagesEntries}</div>;
+  );
 };
 
 export default MainPageImages;

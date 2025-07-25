@@ -17,7 +17,7 @@ const LogoWithTextPresentation = ({ images }) => {
   return (
     <div className={classes.LogoWithTextPresentation}>
       <div className={classes.imagesWrapper}>
-        <MappedCircleImages images={images} />
+        <MappedCircleImages />
       </div>
       <div className={classes.title}>
         <h1>elisabeth chloé</h1>

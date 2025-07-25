@@ -9,18 +9,14 @@ import blueImageOne from "@assets/frontPageMainImages/mainImageOne.jpg";
 import blueImageTwo from "@assets/frontPageMainImages/mainImageTwo.jpg";
 import blueImageThree from "@assets/frontPageMainImages/mainImageThree.jpg";
 
-import welcomeImageOne from "@assets/welcomeImageOne.jpg";
-
 import logoImage from "@assets/logo.png";
 
 import { useState } from "react";
 
-const MainPageTopPresentation = () => {
-  const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
-
+const MainPageTopPresentation = ({ images }) => {
   return (
     <div className={classes.MainPageImageTwo}>
-      <LogoWithTextPresentation images={smallCircleImages} />
+      <LogoWithTextPresentation images={images} />
       <div className={classes.imagesContainer}>
         <img className={classes.imageExample} src={blueImageTwo} alt="" />
         <img className={classes.imageExample} src={blueImageOne} alt="" />
