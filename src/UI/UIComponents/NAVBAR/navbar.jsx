@@ -24,8 +24,9 @@ const ShoppingCart = () => {
 };
 
 const NavButton = ({ children, link }) => {
+  const handleNavigate = handleNavigateSmooth();
   return (
-    <div className={classes.button}>
+    <div className={classes.button} onClick={() => handleNavigate(link)}>
       <ButtonWithContent link={link}>{children}</ButtonWithContent>
     </div>
   );
