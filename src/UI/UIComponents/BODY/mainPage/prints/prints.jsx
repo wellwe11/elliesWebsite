@@ -1,9 +1,10 @@
 import classes from "./prints.module.scss";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import ControlledImage from "@components/controlledImage/controlledImage";
 import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
+import transitionInAnimation from "@functions/transitionAnimation";
 
 const Title = ({ title = "Prints" }) => {
   return (
@@ -38,14 +39,21 @@ const ImagesTexts = ({
 
 const ImagesContainer = ({ images, setActiveImage }) => {
   const currentSection = Object.entries(images);
+  const navigate = handleNavigateSmooth();
+
   const imagesMap = Object.values(images[currentSection[0][0]]);
 
-  const navigate = handleNavigateSmooth();
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    transitionInAnimation(imageRef, "someclass", true);
+  }, [imageRef]);
 
   return (
     <div
       className={classes.imagesContainer}
       onClick={() => navigate("/uniqueImage")}
+      ref={imageRef}
     >
       {imagesMap.map((image, index) => (
         <div
@@ -76,17 +84,3 @@ const Prints = ({ images, texts }) => {
 };
 
 export default Prints;
-
-// const imageRefs = useRef([]);
-// const textRefs = useRef([]);
-
-// useEffect(() => {
-//   intersectingRefs(imageRefs, classes.imageAnimationOne);
-//   intersectingRefs(textRefs, classes.hoverFont);
-// }, [imageRefs]);
-//     <div
-//       className={classes.mainPageImage}
-//       ref={(el) => (imageRefs.current[index] = el)}
-//       key={index}
-//     >
-//       )

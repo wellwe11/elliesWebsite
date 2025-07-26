@@ -54,12 +54,6 @@
   width: 17%;
   background-color: #ebebeb;
 
-  .paintImage {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-  }
-
   &.image0 {
     left: 8.5%;
     top: 21%;
@@ -73,6 +67,12 @@
   &.image2 {
     right: 9.2%;
     top: 21%;
+  }
+
+  .paintImage {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
   }
 }
 

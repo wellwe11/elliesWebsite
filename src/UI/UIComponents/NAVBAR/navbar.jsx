@@ -7,7 +7,6 @@ import logoImage from "@assets/logo.png";
 
 import { useState } from "react";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
-import { useNavigate } from "react-router-dom";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 
 const ShoppingCart = () => {
@@ -67,7 +66,7 @@ const NavbarButtons = ({
 
 // drop-down menu for when you hover "gallery"
 const ExtendGallery = ({ hoverButton, setHoverButton, activeButton }) => {
-  const buttons = ["Prints", "Paintings", "Custom"];
+  const buttons = ["Prints", "Paintings", "Accessories"];
 
   return (
     <div

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import classes from "./uniqueInfoSection.module.scss";
+import transitionInAnimation from "@functions/transitionAnimation";
 
 const InfoSectionBio = ({ details, bioRef }) => {
   const bioTitle = Object.keys(details);
@@ -63,29 +64,6 @@ const UniqueInfoSection = ({ images, textInfo }) => {
   const bioRef = useRef(null);
 
   useEffect(() => {
-    const transitionInAnimation = (ref, className) => {
-      const observer = new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(className);
-        } else {
-          entry.target.classList.remove(className);
-        }
-      });
-
-      const element = ref.current;
-
-      if (element) {
-        observer.observe(element);
-      }
-
-      return () => {
-        if (element) {
-          observer.unobserve(element);
-        }
-        observer.disconnect();
-      };
-    };
-
     transitionInAnimation(imageRef, classes.intersectingImage);
     transitionInAnimation(smallerImagesRef, classes.intersectingSmallerImages);
     transitionInAnimation(bioRef, classes.intersectingSmallerImages);

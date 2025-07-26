@@ -1,9 +1,10 @@
 import classes from "./paintings.module.scss";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import ControlledImage from "@components/controlledImage/controlledImage";
 import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
+import transitionInAnimation from "@functions/transitionAnimation";
 
 const Title = ({ title = "Paintings" }) => {
   return (
@@ -39,13 +40,19 @@ const ImagesTexts = ({
 const ImagesContainer = ({ images, setActiveImage }) => {
   const currentSection = Object.entries(images);
   const imagesMap = Object.values(images[currentSection[0][0]]);
+  const imageRef = useRef(null);
 
   const navigate = handleNavigateSmooth();
+
+  useEffect(() => {
+    transitionInAnimation(imageRef, "someclass", true);
+  }, [imageRef]);
 
   return (
     <div
       className={classes.imagesContainer}
       onClick={() => navigate("/uniqueImage")}
+      ref={imageRef}
     >
       {imagesMap.map((image, index) => (
         <div

@@ -1,5 +1,5 @@
 import classes from "./services.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import wallImage from "@assets/wall.jpg";
 
@@ -25,6 +25,7 @@ const LeftSection = ({ children, setActiveImage }) => {
 const RightSection = ({ imagesShuffle, textsTitles, activeImage, texts }) => {
   // display a set of 3 images
   const currentSetOfImages = imagesShuffle[activeImage];
+
   const mappedImages = currentSetOfImages.map((image, index) => (
     <div
       key={index}

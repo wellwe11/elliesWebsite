@@ -13,6 +13,7 @@ import exampleImageTwo from "@assets/frontPageMainImages/mainImageTwo.jpg";
 import exampleImageThree from "@assets/frontPageMainImages/mainImageThree.jpg";
 import Prints from "./prints/prints";
 import Paintings from "./paintings/paintings";
+import Accessories from "./accessories/accessories";
 
 const prints = {
   Prints: {
@@ -58,19 +59,36 @@ const imagesShuffle = [
   [exampleImageThree, exampleImageOne, exampleImageTwo],
 ];
 
+const categories = {
+  Prints: {
+    image: imageThree,
+  },
+  Paintings: {
+    image: imageTwo,
+  },
+
+  Bookmarks: {
+    image: imageOne,
+  },
+  Stickers: {
+    image: imageTwo,
+  },
+};
+
 const MainPage = () => {
   const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
   return (
     <div>
       <MainPageTopPresentation images={smallCircleImages} />
+      <Accessories categories={categories} />
       <Prints images={prints} texts={texts} />
-      <Paintings images={paintings} texts={texts} />
       <Services
         texts={texts}
         textsTitles={textsTitles}
         buttonNames={buttonNames}
         imagesShuffle={imagesShuffle}
       />
+      <Paintings images={paintings} texts={texts} />
     </div>
   );
 };
