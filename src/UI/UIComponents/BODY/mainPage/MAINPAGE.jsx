@@ -1,8 +1,6 @@
 import classes from "./MAINPAGE.module.scss";
 
-import MainImage from "./mainpageImage/mainImage";
 import MainPageTopPresentation from "./mainPageTopPresentation/mainPageTopPresentation";
-import MainPageImages from "./mainpageImages/mainpageImages";
 import Services from "./services/services";
 
 import imageOne from "@assets/exampleImages/imageExampleOne.jpg";
@@ -13,19 +11,22 @@ import welcomeImageOne from "@assets/welcomeImageOne.jpg";
 import exampleImageOne from "@assets/frontPageMainImages/mainImageOne.jpg";
 import exampleImageTwo from "@assets/frontPageMainImages/mainImageTwo.jpg";
 import exampleImageThree from "@assets/frontPageMainImages/mainImageThree.jpg";
+import Prints from "./prints/prints";
+import Paintings from "./paintings/paintings";
 
-const designedBy = "ELizabet Belova";
-const bio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-const images = {
+const prints = {
   Prints: {
     imageOne: imageOne,
     imageTwo: imageTwo,
     imageThree: imageThree,
   },
+};
+
+const paintings = {
   Paintings: {
-    imageOne: imageOne,
-    imageTwo: imageTwo,
-    imageThree: imageThree,
+    imageOne: imageTwo,
+    imageTwo: imageThree,
+    imageThree: imageOne,
   },
 };
 
@@ -33,7 +34,7 @@ const texts = [
   "this is text one",
   "this is text two",
   "this is text three",
-  "this is text three",
+  "this is text four",
 ];
 
 const textsTitles = [
@@ -61,13 +62,9 @@ const MainPage = () => {
   const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
   return (
     <div>
-      {/* <MainImage /> */
-      /*Ellie doesnt like this example 
-      !! if I enable again, make sure to put props-info IN THIS FILE & pass them as props
-      */}
-
       <MainPageTopPresentation images={smallCircleImages} />
-      <MainPageImages images={images} bio={bio} designedBy={designedBy} />
+      <Prints images={prints} texts={texts} />
+      <Paintings images={paintings} texts={texts} />
       <Services
         texts={texts}
         textsTitles={textsTitles}

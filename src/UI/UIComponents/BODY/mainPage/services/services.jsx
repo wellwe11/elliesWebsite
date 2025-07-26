@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import wallImage from "@assets/wall.jpg";
 
-import { MainImageWrapperText } from "../mainpageImage/mainImage";
+import ButtonWithUnderlineAndUndertext from "@components/buttonWithUnderlineAndUnderText/buttonWithUnderlineAndUndertext";
 import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
 
 // buttons that change the currently displayed set of images
@@ -11,9 +11,12 @@ const LeftSection = ({ children, setActiveImage }) => {
   return (
     <section className={classes.leftSection}>
       <div className={classes.buttonsWrapper}>
-        <MainImageWrapperText fontSize={35} setActiveImage={setActiveImage}>
+        <ButtonWithUnderlineAndUndertext
+          fontSize={35}
+          setActiveImage={setActiveImage}
+        >
           {children}
-        </MainImageWrapperText>
+        </ButtonWithUnderlineAndUndertext>
       </div>
     </section>
   );
@@ -42,19 +45,23 @@ const RightSection = ({ imagesShuffle, textsTitles, activeImage, texts }) => {
   // information displayed below image
   const bioScrollingTitle = (
     <div className={classes.scrollingTextTitle}>
-      <TextThatCorrespondsToActiveImage
-        texts={textsTitles}
-        activeImage={activeImage}
-      />
+      <h3>
+        <TextThatCorrespondsToActiveImage
+          texts={textsTitles}
+          activeImage={activeImage}
+        />
+      </h3>
     </div>
   );
 
   const bioScrollingBio = (
     <div className={classes.scrollingTextBio}>
-      <TextThatCorrespondsToActiveImage
-        texts={texts}
-        activeImage={activeImage}
-      />
+      <p>
+        <TextThatCorrespondsToActiveImage
+          texts={texts}
+          activeImage={activeImage}
+        />
+      </p>
     </div>
   );
 

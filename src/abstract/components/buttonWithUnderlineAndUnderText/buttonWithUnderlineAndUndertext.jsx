@@ -1,15 +1,5 @@
-import classes from "./mainImage.module.scss";
 import { useEffect, useState } from "react";
-
-import mainDisplayImage from "@assets/imageOnWallPlaceholderRepresentation.png";
-import mainDisplayImageTwo from "@assets/imageOnWallPlaceholderRepresentationTwo.png";
-
-import mainImageOne from "@assets/frontPageMainImages/mainImageOne.jpg";
-import mainImageTwo from "@assets/frontPageMainImages/mainImageTwo.jpg";
-import mainImageThree from "@assets/frontPageMainImages/mainImageThree.jpg";
-
-import ArrowSVG from "@components/SVGS/arrowSVG/arrowSVG";
-import { MainImageWithContent } from "@components/imageWithContent/mainImageWithContent/mainImageWithContent";
+import classes from "./buttonWithUnderlineAndUndertext.module.scss";
 
 const MainImageSpan = ({ children, index, fontSize = 30 }) => {
   const [displayText, setDisplayText] = useState(false);
@@ -76,7 +66,7 @@ const UnderlineSpan = ({ fontSize = 30 }) => {
   );
 };
 
-export const MainImageWrapperText = ({
+const ButtonWithUnderlineAndUndertext = ({
   children,
   setActiveImage,
   fontSize,
@@ -86,7 +76,7 @@ export const MainImageWrapperText = ({
       {children.map((t, index) => (
         <div
           key={index}
-          className="mainImageWrapper"
+          className={classes.mainImageWrapper}
           onMouseEnter={() => setActiveImage(index)}
         >
           <MainImageSpan index={index} fontSize={fontSize}>
@@ -99,36 +89,4 @@ export const MainImageWrapperText = ({
   );
 };
 
-const MainImage = () => {
-  const [activeImage, setActiveImage] = useState(0);
-
-  // current placeholder-texts. In future will be buttons which direct you to sections on front-page
-  const text = ["Prints", "Paintings", "Collections", "Blog"];
-
-  const images = {
-    imageOne: mainDisplayImage,
-    imageTwo: mainDisplayImageTwo,
-  };
-
-  // first idea
-  // ellie didnt like, but i want to continue working on it a bit maybe
-  const prototypeOne = (
-    <div className={classes.mainImage}>
-      <MainImageWithContent
-        images={images}
-        fontSize={"clamp(1rem, 1.5vw + 1rem, 3rem)"}
-        fontWeight={100}
-        color="black"
-        activeImage={activeImage}
-      >
-        <MainImageWrapperText setActiveImage={setActiveImage}>
-          {text}
-        </MainImageWrapperText>
-      </MainImageWithContent>
-    </div>
-  );
-
-  return <>{prototypeOne}</>;
-};
-
-export default MainImage;
+export default ButtonWithUnderlineAndUndertext;

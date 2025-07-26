@@ -1,21 +1,3 @@
-/* Prototype one */
-.imageAnimationTwo {
-  animation: imagesPopup 1.1s forwards;
-  transition: opacity 1s ease;
-}
-
-.mainImage {
-  width: 100%;
-  height: clamp(600px, 90vh, 1000px);
-
-  opacity: 1;
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .mainImageWrapperText {
   height: 100%;
   width: 100%;
@@ -82,28 +64,6 @@
 
     .arrowContainer {
       opacity: 1;
-    }
-  }
-}
-
-/* Prototype two */
-.mainImageTwo {
-  padding-top: 10px;
-  height: 500px;
-  .mainImagesContainer {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .mainImageImg {
-      width: 30%;
-      height: 90%;
-      object-fit: contain;
     }
   }
 }
