@@ -11,7 +11,7 @@ import mainImageThree from "@assets/frontPageMainImages/mainImageThree.jpg";
 import ArrowSVG from "@components/SVGS/arrowSVG/arrowSVG";
 import { MainImageWithContent } from "@components/imageWithContent/mainImageWithContent/mainImageWithContent";
 
-const MainImageSpan = ({ children, index }) => {
+const MainImageSpan = ({ children, index, fontSize = 30 }) => {
   const [displayText, setDisplayText] = useState(false);
 
   useEffect(() => {
@@ -30,6 +30,7 @@ const MainImageSpan = ({ children, index }) => {
     opacity: displayText ? "1" : "0",
     visibility: displayText ? "visible" : "hidden",
     filter: displayText ? "blur(0px)" : "blur(20px)",
+    fontSize: fontSize,
   };
 
   return (
@@ -39,9 +40,29 @@ const MainImageSpan = ({ children, index }) => {
   );
 };
 
-const UnderlineSpan = () => {
+const UnderlineSpan = ({ fontSize = 30 }) => {
+  const [updatedFontSize, setUpdatedFontSize] = useState(fontSize);
+
+  const validateFontSize = () => {
+    if (typeof fontSize === "string") {
+      let removeLetters = fontSize.replace(/\D/g, "");
+      return setUpdatedFontSize(+removeLetters);
+    } else {
+      return setUpdatedFontSize(fontSize);
+    }
+  };
+
+  useEffect(() => {
+    validateFontSize();
+  }, [fontSize]);
+
   const arrowRightElement = (
-    <div className={classes.arrowContainer}>
+    <div
+      className={classes.arrowContainer}
+      style={{
+        fontSize: updatedFontSize / 2,
+      }}
+    >
       {/* <ArrowSVG color="black" /> */}
       explore
     </div>
@@ -55,7 +76,11 @@ const UnderlineSpan = () => {
   );
 };
 
-export const MainImageWrapperText = ({ children, setActiveImage }) => {
+export const MainImageWrapperText = ({
+  children,
+  setActiveImage,
+  fontSize,
+}) => {
   return (
     <div className={classes.mainImageWrapperText}>
       {children.map((t, index) => (
@@ -64,9 +89,9 @@ export const MainImageWrapperText = ({ children, setActiveImage }) => {
           className="mainImageWrapper"
           onMouseEnter={() => setActiveImage(index)}
         >
-          <MainImageSpan index={index}>
+          <MainImageSpan index={index} fontSize={fontSize}>
             {t}
-            <UnderlineSpan />
+            <UnderlineSpan fontSize={fontSize} />
           </MainImageSpan>
         </div>
       ))}

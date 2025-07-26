@@ -1,4 +1,4 @@
-.MainPageImageTwo {
+.MainPageTopPresentation {
   height: 100%;
   width: 100%;
 
@@ -21,6 +21,17 @@
     .imageExample {
       width: 33%;
       height: 100%;
+
+      object-fit: cover;
+    }
+  }
+
+  .graciePlaceholderImageWrapper {
+    width: 100%;
+    height: 550px;
+    .graciePlaceholderImage {
+      height: 100%;
+      width: 100%;
 
       object-fit: cover;
     }
