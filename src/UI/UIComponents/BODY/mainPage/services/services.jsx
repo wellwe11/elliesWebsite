@@ -1,74 +1,90 @@
 import classes from "./services.module.scss";
-import wallImage from "@assets/wall.jpg";
-import exampleImageOne from "@assets/frontPageMainImages/mainImageOne.jpg";
-import exampleImageTwo from "@assets/frontPageMainImages/mainImageTwo.jpg";
-import exampleImageThree from "@assets/frontPageMainImages/mainImageThree.jpg";
-import { MainImageWrapperText } from "../mainpageImage/mainImage";
-import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
 import { useState } from "react";
 
-const Services = () => {
-  const [activeImage, setActiveImage] = useState(0);
-  const texts = [
-    "this is text one",
-    "this is text two",
-    "this is text three",
-    "this is text three",
-  ];
+import wallImage from "@assets/wall.jpg";
 
-  const textsTitles = [
-    "this is title one",
-    "this is title two",
-    "this is title three",
-    "this is title four",
-  ];
+import { MainImageWrapperText } from "../mainpageImage/mainImage";
+import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
+
+// buttons that change the currently displayed set of images
+const LeftSection = ({ children, setActiveImage }) => {
+  return (
+    <section className={classes.leftSection}>
+      <div className={classes.buttonsWrapper}>
+        <MainImageWrapperText fontSize={35} setActiveImage={setActiveImage}>
+          {children}
+        </MainImageWrapperText>
+      </div>
+    </section>
+  );
+};
+
+const RightSection = ({ imagesShuffle, textsTitles, activeImage, texts }) => {
+  // display a set of 3 images
+  const currentSetOfImages = imagesShuffle[activeImage];
+  const mappedImages = currentSetOfImages.map((image, index) => (
+    <div
+      key={index}
+      className={`${classes.paintingWrapper} ${classes[`image${index}`]}`}
+    >
+      <img className={classes.paintImage} src={image} alt="" />
+    </div>
+  ));
+
+  // complete image
+  const WallPaperWithPaintings = (
+    <div className={classes.imageWrapper}>
+      <img className={classes.image} src={wallImage} alt="" />
+      {mappedImages}
+    </div>
+  );
+
+  // information displayed below image
+  const bioScrollingTitle = (
+    <div className={classes.scrollingTextTitle}>
+      <TextThatCorrespondsToActiveImage
+        texts={textsTitles}
+        activeImage={activeImage}
+      />
+    </div>
+  );
+
+  const bioScrollingBio = (
+    <div className={classes.scrollingTextBio}>
+      <TextThatCorrespondsToActiveImage
+        texts={texts}
+        activeImage={activeImage}
+      />
+    </div>
+  );
+
+  const scrollingTextContainer = (
+    <div className={classes.rightScrollingText}>
+      {bioScrollingTitle}
+      {bioScrollingBio}
+    </div>
+  );
+
+  return (
+    <section className={classes.rightSection}>
+      {WallPaperWithPaintings}
+      {scrollingTextContainer}
+    </section>
+  );
+};
+
+const Services = ({ texts, textsTitles, buttonNames, imagesShuffle }) => {
+  const [activeImage, setActiveImage] = useState(0);
 
   return (
     <div className={classes.servicesContainer}>
-      <section className={classes.leftSection}>
-        <div className={classes.buttonsWrapper}>
-          <MainImageWrapperText fontSize={35} setActiveImage={setActiveImage}>
-            {[
-              "Water collection",
-              "Pastel collection",
-              "Flower collection",
-              "Summer collection",
-            ]}
-          </MainImageWrapperText>
-        </div>
-      </section>
-      <section className={classes.rightSection}>
-        <div className={classes.imageWrapper}>
-          <img className={classes.image} src={wallImage} alt="" />
-          <div className={`${classes.paintingWrapper} ${classes.one}`}>
-            <img className={classes.paintImage} src={exampleImageOne} alt="" />
-          </div>
-          <div className={`${classes.paintingWrapper} ${classes.two}`}>
-            <img className={classes.paintImage} src={exampleImageTwo} alt="" />
-          </div>
-          <div className={`${classes.paintingWrapper} ${classes.three}`}>
-            <img
-              className={classes.paintImage}
-              src={exampleImageThree}
-              alt=""
-            />
-          </div>
-        </div>
-        <div className={classes.rightScrollingText}>
-          <div className={classes.scrollingTextTitle}>
-            <TextThatCorrespondsToActiveImage
-              texts={textsTitles}
-              activeImage={activeImage}
-            />
-          </div>
-          <div className={classes.scrollingTextBio}>
-            <TextThatCorrespondsToActiveImage
-              texts={texts}
-              activeImage={activeImage}
-            />
-          </div>
-        </div>
-      </section>
+      <LeftSection setActiveImage={setActiveImage}>{buttonNames}</LeftSection>
+      <RightSection
+        texts={texts}
+        textsTitles={textsTitles}
+        imagesShuffle={imagesShuffle}
+        activeImage={activeImage}
+      />
     </div>
   );
 };
