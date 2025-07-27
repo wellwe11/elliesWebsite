@@ -11,6 +11,8 @@
 
     .title {
       font-variation-settings: "wght" 300;
+      padding-bottom: 20px;
+      font-size: 30px;
     }
   }
 }
@@ -48,7 +50,7 @@
         transition: transform 0.4s ease;
 
         &:hover {
-          transform: scale(1.05);
+          transform: scale(1.015);
         }
       }
     }

@@ -93,11 +93,16 @@ const MainPage = () => {
           mainImage={mainImage}
         />
       </section>
-      <SectionSeperationImage margin="5px" />
+      <SectionSeperationImage margin="0px" height="50px" />
       <section>
         <Accessories categories={categories} />
       </section>
-      <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
+      <SectionSeperationImage
+        imgSrc={mainImage}
+        imgAlt={""}
+        margin="25px"
+        height="100px"
+      />
       <section>
         <Prints images={prints} texts={texts} />
       </section>
