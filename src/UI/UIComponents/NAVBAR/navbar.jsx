@@ -134,6 +134,11 @@ const Navbar = () => {
               setHoverButton={setHoverButton}
             />
           </div>
+          <div className={classes.smallNavOpenBtn}>
+            <button>
+              <h1 style={{ color: "black" }}>+</h1>
+            </button>
+          </div>
           <div className={classes.navButtonsWrapper}>
             <NavbarButtons
               buttons={buttons}
@@ -147,13 +152,13 @@ const Navbar = () => {
             <ShoppingCart />
           </div>
         </div>
-        <div className={classes.extendedGalleryWrapper}>
+        {/* <div className={classes.extendedGalleryWrapper}>
           <ExtendGallery
             hoverButton={hoverButton}
             setHoverButton={setHoverButton}
             activeButton={activeButton}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
