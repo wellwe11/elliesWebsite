@@ -29,11 +29,44 @@
   .graciePlaceholderImageWrapper {
     width: 100%;
     height: 550px;
-    .graciePlaceholderImage {
-      height: 100%;
-      width: 100%;
+    overflow: hidden;
+    position: relative;
 
-      object-fit: cover;
+    .mainPageTitleWrapper {
+      overflow: hidden;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      display: flex;
+
+      .mainPageTitle {
+        transform: translateY(100%);
+
+        font-size: clamp(50px, 10vw, 150px);
+        font-variation-settings: "wght" 450;
+
+        color: black;
+
+        text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+          1px 1px 0 white;
+      }
+
+      .mainPageTitlePopUp {
+        transform: translateY(-0%);
+      }
+    }
+
+    .mainImageWrapper {
+      width: 100%;
+      height: 100%;
+
+      .mainImage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 }

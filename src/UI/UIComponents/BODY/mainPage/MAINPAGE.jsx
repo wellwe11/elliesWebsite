@@ -8,12 +8,20 @@ import imageTwo from "@assets/exampleImages/imageExampleTwo.jpg";
 import imageThree from "@assets/exampleImages/imageExampleThree.jpg";
 import welcomeImageOne from "@assets/welcomeImageOne.jpg";
 
+import artCategory from "@assets/categories/artCategory.webp";
+import bookmarksCategory from "@assets/categories/bookmarksCategory.webp";
+import printsCategory from "@assets/categories/printsCategory.webp";
+import stickersCategory from "@assets/categories/stickersCategory.webp";
+
+import mainImage from "@assets/welcomeImage.jpg";
+
 import exampleImageOne from "@assets/frontPageMainImages/mainImageOne.jpg";
 import exampleImageTwo from "@assets/frontPageMainImages/mainImageTwo.jpg";
 import exampleImageThree from "@assets/frontPageMainImages/mainImageThree.jpg";
 import Prints from "./prints/prints";
 import Paintings from "./paintings/paintings";
 import Accessories from "./accessories/accessories";
+import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 
 const prints = {
   Prints: {
@@ -61,17 +69,17 @@ const imagesShuffle = [
 
 const categories = {
   Prints: {
-    image: imageThree,
+    image: printsCategory,
   },
   Paintings: {
-    image: imageTwo,
+    image: artCategory,
   },
 
   Bookmarks: {
-    image: imageOne,
+    image: bookmarksCategory,
   },
   Stickers: {
-    image: imageTwo,
+    image: stickersCategory,
   },
 };
 
@@ -79,16 +87,23 @@ const MainPage = () => {
   const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
   return (
     <div>
-      <MainPageTopPresentation images={smallCircleImages} />
+      <MainPageTopPresentation
+        images={smallCircleImages}
+        mainImage={mainImage}
+      />
       <Accessories categories={categories} />
+      <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
       <Prints images={prints} texts={texts} />
+      <SectionSeperationImage />
       <Services
         texts={texts}
         textsTitles={textsTitles}
         buttonNames={buttonNames}
         imagesShuffle={imagesShuffle}
       />
+      <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
       <Paintings images={paintings} texts={texts} />
+      <SectionSeperationImage />
     </div>
   );
 };

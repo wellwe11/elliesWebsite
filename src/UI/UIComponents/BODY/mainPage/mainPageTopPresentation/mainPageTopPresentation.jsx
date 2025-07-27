@@ -1,21 +1,21 @@
 import classes from "./mainPageTopPresentation.module.scss";
 
 import LogoWithTextPresentation from "./logoWithTextPresentation/logoWithTextPresentation";
+import ControlledImage from "@components/controlledImage/controlledImage";
+import { useEffect, useState } from "react";
 
-import imageExampleOne from "@assets/imageOnWallPlaceholderRepresentation.png";
-import imageExampleTwo from "@assets/imageOnWallPlaceholderRepresentationTwo.png";
+const MainPageTopPresentation = ({ images, mainImage }) => {
+  const [addClass, setAddClass] = useState(false);
+  const text = "Welcome".split("");
 
-import blueImageOne from "@assets/frontPageMainImages/mainImageOne.jpg";
-import blueImageTwo from "@assets/frontPageMainImages/mainImageTwo.jpg";
-import blueImageThree from "@assets/frontPageMainImages/mainImageThree.jpg";
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAddClass(true);
+    }, 500);
 
-import graciePlaceholderImage from "@assets/somePLaceholder.webp";
+    return () => clearTimeout(timer);
+  }, []);
 
-import logoImage from "@assets/logo.png";
-
-import { useState } from "react";
-
-const MainPageTopPresentation = ({ images }) => {
   return (
     <div className={classes.MainPageTopPresentation}>
       <LogoWithTextPresentation images={images} />
@@ -26,11 +26,22 @@ const MainPageTopPresentation = ({ images }) => {
       </div> */}
 
       <div className={classes.graciePlaceholderImageWrapper}>
-        <img
-          className={classes.graciePlaceholderImage}
-          src={graciePlaceholderImage}
-          alt=""
-        />
+        <div className={classes.mainPageTitleWrapper}>
+          {text.map((letter, index) => (
+            <h1
+              key={index}
+              className={`${classes.mainPageTitle} ${
+                addClass ? classes.mainPageTitlePopUp : ""
+              }`}
+              style={{ transition: `all 1.${index}s ease` }}
+            >
+              {letter}
+            </h1>
+          ))}
+        </div>
+        <div className={classes.mainImageWrapper}>
+          <img className={classes.mainImage} src={mainImage} alt={""} />
+        </div>
       </div>
     </div>
   );

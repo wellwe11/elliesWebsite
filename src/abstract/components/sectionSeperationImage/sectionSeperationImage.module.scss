@@ -1,0 +1,15 @@
+.sectionSeperationImageWrapper {
+  width: 100%;
+  height: 100px;
+
+  overflow: hidden;
+
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+  background-color: var(--websiteContainerColor);
+
+  .image {
+    object-fit: contain;
+  }
+}
