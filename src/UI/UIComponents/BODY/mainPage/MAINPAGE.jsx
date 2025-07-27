@@ -20,7 +20,7 @@ import exampleImageTwo from "@assets/frontPageMainImages/mainImageTwo.jpg";
 import exampleImageThree from "@assets/frontPageMainImages/mainImageThree.jpg";
 import Prints from "./prints/prints";
 import Paintings from "./paintings/paintings";
-import Accessories from "./accessories/accessories";
+import Accessories from "./categories/categories";
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 
 const prints = {
@@ -87,23 +87,32 @@ const MainPage = () => {
   const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
   return (
     <div>
-      <MainPageTopPresentation
-        images={smallCircleImages}
-        mainImage={mainImage}
-      />
-      <Accessories categories={categories} />
+      <section>
+        <MainPageTopPresentation
+          images={smallCircleImages}
+          mainImage={mainImage}
+        />
+      </section>
+      <SectionSeperationImage margin="5px" />
+      <section>
+        <Accessories categories={categories} />
+      </section>
       <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
-      <Prints images={prints} texts={texts} />
-      <SectionSeperationImage />
-      <Services
-        texts={texts}
-        textsTitles={textsTitles}
-        buttonNames={buttonNames}
-        imagesShuffle={imagesShuffle}
-      />
+      <section>
+        <Prints images={prints} texts={texts} />
+      </section>
+      <section>
+        <Services
+          texts={texts}
+          textsTitles={textsTitles}
+          buttonNames={buttonNames}
+          imagesShuffle={imagesShuffle}
+        />
+      </section>
+      <section>
+        <Paintings images={paintings} texts={texts} />
+      </section>
       <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
-      <Paintings images={paintings} texts={texts} />
-      <SectionSeperationImage />
     </div>
   );
 };

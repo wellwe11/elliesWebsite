@@ -2,18 +2,12 @@
   width: 100%;
   height: 100%;
 
-  padding-top: 25px;
-  padding-bottom: 25px;
-
   display: flex;
   flex-direction: column;
 
   .accessoriesTitleWrapper {
     height: 100%;
     width: 100%;
-
-    padding-bottom: 20px;
-    padding-top: 20px;
 
     .title {
       font-variation-settings: "wght" 300;
@@ -23,7 +17,6 @@
 
 .titleContainer {
   font-variation-settings: "wght" 300;
-  padding-top: 10px;
 }
 
 .accessoriesContainer {
@@ -43,9 +36,21 @@
     justify-content: center;
 
     cursor: pointer;
+
     .imageWrapper {
       height: 250px;
       width: 100%;
+      overflow: hidden;
+
+      .image {
+        height: 100%;
+        width: 100%;
+        transition: transform 0.4s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
     }
   }
 }

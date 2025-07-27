@@ -1,11 +1,11 @@
 import ControlledImage from "@components/controlledImage/controlledImage";
-import classes from "./accessories.module.scss";
+import classes from "./categories.module.scss";
 
-const AccessoriesTitle = ({ title }) => {
+const AccessoriesTitle = ({ children }) => {
   return (
     <div className={classes.titleContainer}>
       <div className={classes.titleWrapper}>
-        <h2 className={classes.title}>{title}</h2>
+        <h2 className={classes.title}>{children}</h2>
       </div>
     </div>
   );
@@ -19,12 +19,14 @@ const AccessoriesContainer = ({ categories }) => {
       {categoryKeys.map((category, index) => (
         <div className={classes.accessoriesWrapper} key={index}>
           <div className={classes.imageWrapper}>
-            <ControlledImage
-              imageSrc={Object.values(categories[category])}
-              imageAlt=""
-            />
+            <div className={classes.image}>
+              <ControlledImage
+                imageSrc={Object.values(categories[category])}
+                imageAlt=""
+              />
+            </div>
           </div>
-          <AccessoriesTitle title={category} />
+          <AccessoriesTitle>{category}</AccessoriesTitle>
         </div>
       ))}
     </div>
