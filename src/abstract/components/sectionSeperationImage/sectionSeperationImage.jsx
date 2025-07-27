@@ -1,12 +1,7 @@
-import { useEffect, useRef, useState } from "react";
 import classes from "./sectionSeperationImage.module.scss";
+import { useEffect, useRef, useState } from "react";
 
-const SectionSeperationImage = ({
-  imgSrc,
-  imgAlt,
-  margin = "20px",
-  height = "100px",
-}) => {
+const SectionSeperationImage = ({ imgSrc, imgAlt }) => {
   const [marginTop, setMarginTop] = useState(0);
   const [refIsIntersecting, setRefIsIntersecting] = useState(false);
   const sectionRef = useRef();
@@ -58,11 +53,7 @@ const SectionSeperationImage = ({
   }, [refIsIntersecting]);
 
   return (
-    <div
-      ref={sectionRef}
-      className={classes.sectionSeperationImageWrapper}
-      style={{ marginBottom: margin, marginTop: margin, height: height }}
-    >
+    <div ref={sectionRef} className={classes.sectionSeperationImageWrapper}>
       {imgSrc && imgSrc.length > 0 ? (
         <img
           className={classes.image}

@@ -128,24 +128,32 @@ const Navbar = () => {
         <div
           className={`${screen_classes.contentWrapper} ${classes.navWrapper}`}
         >
-          <NavLogo
-            setActiveButton={setActiveButton}
-            setHoverButton={setHoverButton}
-          />
-          <NavbarButtons
-            buttons={buttons}
-            activeButton={activeButton}
-            setActiveButton={setActiveButton}
+          <div className={classes.navLogoWrapper}>
+            <NavLogo
+              setActiveButton={setActiveButton}
+              setHoverButton={setHoverButton}
+            />
+          </div>
+          <div className={classes.navButtonsWrapper}>
+            <NavbarButtons
+              buttons={buttons}
+              activeButton={activeButton}
+              setActiveButton={setActiveButton}
+              hoverButton={hoverButton}
+              setHoverButton={setHoverButton}
+            />
+          </div>
+          <div className={classes.shoppingCartWrapper}>
+            <ShoppingCart />
+          </div>
+        </div>
+        <div className={classes.extendedGalleryWrapper}>
+          <ExtendGallery
             hoverButton={hoverButton}
             setHoverButton={setHoverButton}
+            activeButton={activeButton}
           />
-          <ShoppingCart />
         </div>
-        <ExtendGallery
-          hoverButton={hoverButton}
-          setHoverButton={setHoverButton}
-          activeButton={activeButton}
-        />
       </div>
     </div>
   );

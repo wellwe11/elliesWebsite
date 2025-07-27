@@ -1,6 +1,9 @@
 .LogoWithTextPresentation {
   width: 25%;
-  height: 100px;
+  min-width: 320px;
+
+  height: 7vw;
+  min-height: 50px;
 
   display: flex;
   justify-content: space-between;
@@ -14,12 +17,10 @@
   }
 
   .title {
-    width: 200px;
     h1 {
-      padding-top: 10px;
       font-family: "Mrs Saint Delafield", cursive;
-      font-size: 50px;
-      line-height: 50px;
+      font-size: clamp(40px, 5vw, 50px);
+
       animation: fadeInText 1s ease forwards 1s;
       opacity: 0;
     }
@@ -27,7 +28,7 @@
 }
 
 .image {
-  height: 30px;
+  height: clamp(15px, 5vw, 30px);
   border-radius: 90px;
 
   &.img0 {

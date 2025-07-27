@@ -8,11 +8,6 @@ const MainPageTopPresentation = ({ images, mainImage }) => {
   return (
     <div className={classes.MainPageTopPresentation}>
       <LogoWithTextPresentation images={images} />
-      {/* <div className={classes.imagesContainer}>
-        <img className={classes.imageExample} src={blueImageTwo} alt="" />
-        <img className={classes.imageExample} src={blueImageOne} alt="" />
-        <img className={classes.imageExample} src={blueImageThree} alt="" />
-      </div> */}
 
       <div className={classes.graciePlaceholderImageWrapper}>
         <div className={classes.mainPageTitleWrapper}>

@@ -93,19 +93,25 @@ const MainPage = () => {
           mainImage={mainImage}
         />
       </section>
-      <SectionSeperationImage margin="0px" height="50px" />
+
+      <div
+        className={`${classes.sectionSeperationWrapper} ${classes.lowMargin}`}
+      >
+        <SectionSeperationImage />
+      </div>
+
       <section>
         <Accessories categories={categories} />
       </section>
-      <SectionSeperationImage
-        imgSrc={mainImage}
-        imgAlt={""}
-        margin="25px"
-        height="100px"
-      />
+
+      <div className={classes.sectionSeperationWrapper}>
+        <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
+      </div>
+
       <section>
         <Prints images={prints} texts={texts} />
       </section>
+
       <section>
         <Services
           texts={texts}
@@ -114,10 +120,14 @@ const MainPage = () => {
           imagesShuffle={imagesShuffle}
         />
       </section>
+
       <section>
         <Paintings images={paintings} texts={texts} />
       </section>
-      <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
+
+      <div className={classes.sectionSeperationWrapper}>
+        <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
+      </div>
     </div>
   );
 };
