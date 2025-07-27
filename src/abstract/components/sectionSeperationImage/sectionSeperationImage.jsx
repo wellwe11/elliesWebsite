@@ -38,14 +38,14 @@ const SectionSeperationImage = ({
         if (
           sectionRef.current.getBoundingClientRect().top > 100 &&
           sectionRef.current.getBoundingClientRect().top < 520 &&
-          Math.round(sectionRef.current.getBoundingClientRect().top / 60) !==
+          Math.round(sectionRef.current.getBoundingClientRect().top / 70) !==
             marginTop
         ) {
           console.log(
-            Math.round(sectionRef.current.getBoundingClientRect().top / 60)
+            Math.round(sectionRef.current.getBoundingClientRect().top / 70)
           );
           setMarginTop(
-            Math.round(sectionRef.current.getBoundingClientRect().top / 60)
+            Math.round(sectionRef.current.getBoundingClientRect().top / 70)
           );
         }
       }
