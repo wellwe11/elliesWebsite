@@ -58,7 +58,10 @@ const NavbarButtons = ({
       {mappedButtons}
       <span
         className={classes.buttonUnderline}
-        style={{ transform: `translateX(${140 * hoverButton}px)` }}
+        style={{
+          transform: `translateX(${100 * hoverButton}%)`, // calculate buttons position relevant to currently active button
+          width: `${100 / Object.values(buttons).length}%`, // calculate the buttons width depending on amount of buttons
+        }}
       />
     </div>
   );
@@ -134,11 +137,7 @@ const Navbar = () => {
               setHoverButton={setHoverButton}
             />
           </div>
-          <div className={classes.smallNavOpenBtn}>
-            <button>
-              <h1 style={{ color: "black" }}>+</h1>
-            </button>
-          </div>
+
           <div className={classes.navButtonsWrapper}>
             <NavbarButtons
               buttons={buttons}
@@ -152,13 +151,13 @@ const Navbar = () => {
             <ShoppingCart />
           </div>
         </div>
-        {/* <div className={classes.extendedGalleryWrapper}>
+        <div className={classes.extendedGalleryWrapper}>
           <ExtendGallery
             hoverButton={hoverButton}
             setHoverButton={setHoverButton}
             activeButton={activeButton}
           />
-        </div> */}
+        </div>
       </div>
     </div>
   );
