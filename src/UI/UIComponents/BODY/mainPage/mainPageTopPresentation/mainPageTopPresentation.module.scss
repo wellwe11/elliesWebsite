@@ -38,11 +38,10 @@
       top: 45%;
       left: 50%;
       transform: translate(-50%, -50%);
-
       display: flex;
 
       .mainPageTitle {
-        transform: translateY(100%);
+        opacity: 1;
 
         font-size: clamp(50px, 10vw, 150px);
         font-variation-settings: "wght" 450;
@@ -51,10 +50,6 @@
 
         text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
           1px 1px 0 white;
-      }
-
-      .mainPageTitlePopUp {
-        transform: translateY(-0%);
       }
     }
 
