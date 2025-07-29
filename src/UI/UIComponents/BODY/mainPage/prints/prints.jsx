@@ -7,13 +7,13 @@ import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 import transitionInAnimation from "@functions/transitionAnimation";
 
 const Title = ({ title = "Prints" }) => {
-  return (
-    <div className={classes.titleContainer}>
-      <div className={classes.titleWrapper}>
-        <h1 className={classes.title}>{title}</h1>
-      </div>
+  const titleWrapper = (
+    <div className={classes.titleWrapper}>
+      <h1 className={classes.title}>{title}</h1>
     </div>
   );
+
+  return <div className={classes.titleContainer}>{titleWrapper}</div>;
 };
 
 const ImagesTexts = ({
@@ -21,17 +21,22 @@ const ImagesTexts = ({
   textBioTitle = "Currently just a placeholder text",
   activeImage,
 }) => {
+  const scrollingText = (
+    <p className={classes.textBioBio}>
+      <TextThatCorrespondsToActiveImage
+        texts={texts}
+        activeImage={activeImage}
+      />
+    </p>
+  );
+
+  const bioTitle = <h3 className={classes.textBioTitle}>{textBioTitle}</h3>;
+
   return (
     <div className={classes.imagesTextContainer}>
       <div className={classes.imagesTextWrapper}>
-        <h3 className={classes.textBioTitle}>{textBioTitle}</h3>
-
-        <p className={classes.textBioBio}>
-          <TextThatCorrespondsToActiveImage
-            texts={texts}
-            activeImage={activeImage}
-          />
-        </p>
+        {bioTitle}
+        {scrollingText}
       </div>
     </div>
   );
@@ -41,7 +46,7 @@ const ImagesContainer = ({ images, setActiveImage }) => {
   const currentSection = Object.entries(images);
   const navigate = handleNavigateSmooth();
 
-  const imagesMap = Object.values(images[currentSection[0][0]]);
+  const imagesValues = Object.values(images[currentSection[0][0]]);
 
   const imageRef = useRef(null);
 
@@ -49,24 +54,23 @@ const ImagesContainer = ({ images, setActiveImage }) => {
     transitionInAnimation(imageRef, "someclass", true);
   }, [imageRef]);
 
+  const imagesMap = imagesValues.map((image, index) => (
+    <div
+      key={index}
+      className={classes.imageWrapper}
+      onMouseEnter={() => setActiveImage(index)}
+    >
+      <ControlledImage imageSrc={image} imageAlt={`Print product ${index}`} />
+    </div>
+  ));
+
   return (
     <div
       className={classes.imagesContainer}
       onClick={() => navigate("/uniqueImage")}
       ref={imageRef}
     >
-      {imagesMap.map((image, index) => (
-        <div
-          key={index}
-          className={classes.imageWrapper}
-          onMouseEnter={() => setActiveImage(index)}
-        >
-          <ControlledImage
-            imageSrc={image}
-            imageAlt={`Print product ${index}`}
-          />
-        </div>
-      ))}
+      {imagesMap}
     </div>
   );
 };

@@ -7,13 +7,13 @@ import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 import transitionInAnimation from "@functions/transitionAnimation";
 
 const Title = ({ title = "Paintings" }) => {
-  return (
-    <div className={classes.titleContainer}>
-      <div className={classes.titleWrapper}>
-        <h1 className={classes.title}>{title}</h1>
-      </div>
+  const titleWrapper = (
+    <div className={classes.titleWrapper}>
+      <h1 className={classes.title}>{title}</h1>
     </div>
   );
+
+  return <div className={classes.titleContainer}>{titleWrapper}</div>;
 };
 
 const ImagesTexts = ({
@@ -55,24 +55,23 @@ const ImagesContainer = ({ images, setActiveImage }) => {
     transitionInAnimation(imageRef, "someclass", true);
   }, [imageRef]);
 
+  const mappedImages = imagesMap.map((image, index) => (
+    <div
+      key={index}
+      className={classes.imageWrapper}
+      onMouseEnter={() => setActiveImage(index)}
+    >
+      <ControlledImage imageSrc={image} imageAlt={`Print product ${index}`} />
+    </div>
+  ));
+
   return (
     <div
       className={classes.imagesContainer}
       onClick={() => navigate("/uniqueImage")}
       ref={imageRef}
     >
-      {imagesMap.map((image, index) => (
-        <div
-          key={index}
-          className={classes.imageWrapper}
-          onMouseEnter={() => setActiveImage(index)}
-        >
-          <ControlledImage
-            imageSrc={image}
-            imageAlt={`Print product ${index}`}
-          />
-        </div>
-      ))}
+      {mappedImages}
     </div>
   );
 };

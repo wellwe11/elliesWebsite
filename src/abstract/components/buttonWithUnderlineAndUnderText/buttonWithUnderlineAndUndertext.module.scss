@@ -60,13 +60,13 @@
     border-radius: 9000px;
     background-color: black;
 
-    transition: width 0.8s ease;
+    transition: width 0.4s ease;
   }
 }
 
 .mainImageSpan:hover ~ .underlineSpanContainer {
   .underlineSpan {
-    width: 75px;
+    width: 80px;
   }
 
   .arrowContainer {

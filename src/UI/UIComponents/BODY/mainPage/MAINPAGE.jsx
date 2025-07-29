@@ -112,12 +112,6 @@ const MainPage = () => {
         <Prints images={prints} texts={texts} />
       </section>
 
-      <div
-        className={`${classes.sectionSeperationWrapper} ${classes.lowMargin}`}
-      >
-        <SectionSeperationImage />
-      </div>
-
       <section>
         <Services
           texts={texts}

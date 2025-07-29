@@ -30,14 +30,17 @@
 
 .imagesContainer {
   cursor: pointer;
+
   width: 100%;
+
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
   padding-left: 2px;
   padding-right: 2px;
 
   .imageWrapper {
     width: 30%;
-    height: 100%;
   }
 }
