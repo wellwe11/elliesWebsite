@@ -46,12 +46,6 @@
         width: 100%;
         height: 100%;
       }
-
-      .smallNavOpenBtn {
-        height: 50px;
-        width: 50px;
-        display: none;
-      }
     }
   }
 }
@@ -102,8 +96,8 @@
   align-items: center;
 
   .navLogoImage {
-    height: 40px;
-    width: 40px;
+    height: clamp(20px, 5vw, 40px);
+    width: clamp(20px, 5vw, 40px);
     margin-right: 10px;
     transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   }
@@ -113,6 +107,8 @@
 
     color: black;
     margin-left: 5px;
+
+    font-size: clamp(20px, 3vw, 30px) !important;
   }
 
   &:hover {
@@ -214,32 +210,24 @@
   }
 }
 
-.hoverStyle {
-  transform: translateY(100%);
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.inactiveStyle {
-  transform: translateY(0%);
-  opacity: 1;
-}
-
 @media screen and (max-width: 1024px) {
   .navbar {
+    margin-top: 5px;
     .navContent {
-      height: 100% !important;
+      height: 100%;
 
       .navWrapper {
-        height: 100% !important;
-        display: grid !important;
+        height: 100%;
+        display: grid;
         grid-template-columns: 50% 50%;
 
         .navLogoWrapper {
           grid-row: 1;
           grid-column: 1;
-          width: 100% !important;
-          height: 100% !important;
+          width: 100%;
+          height: 100%;
+
+          justify-self: start;
         }
 
         .navButtonsWrapper {
@@ -258,6 +246,7 @@
         }
 
         .extendedGalleryWrapper {
+          pointer-events: none;
         }
       }
     }
@@ -272,7 +261,7 @@
     align-items: center;
 
     .pageOptionsWrapper {
-      width: 70% !important;
+      width: 80%;
     }
   }
 
@@ -294,6 +283,16 @@
 
   .button {
     width: 100%;
-    background-color: green !important;
   }
+}
+
+.hoverStyle {
+  transform: translateY(100%);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.inactiveStyle {
+  transform: translateY(0%);
+  opacity: 1;
 }

@@ -1,7 +1,7 @@
 import classes from "./services.module.scss";
 import { useEffect, useState } from "react";
 
-import wallImage from "@assets/wall.jpg";
+import wallImage from "@assets/wall.png";
 
 import ButtonWithUnderlineAndUndertext from "@components/buttonWithUnderlineAndUnderText/buttonWithUnderlineAndUndertext";
 import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
@@ -10,20 +10,24 @@ import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText"
 const LeftSection = ({ children, setActiveImage }) => {
   return (
     <section className={classes.leftSection}>
-      <div className={classes.buttonsWrapper}>
-        <ButtonWithUnderlineAndUndertext
-          fontSize={35}
-          setActiveImage={setActiveImage}
+      {children.map((text, index) => (
+        <div
+          className={classes.buttonsWrapper}
+          key={index}
+          onMouseEnter={() => setActiveImage(index)}
         >
-          {children}
-        </ButtonWithUnderlineAndUndertext>
-      </div>
+          <ButtonWithUnderlineAndUndertext index={index} fontSize={"30px"}>
+            {text}
+          </ButtonWithUnderlineAndUndertext>
+        </div>
+      ))}
     </section>
   );
 };
 
 const RightSection = ({ imagesShuffle, textsTitles, activeImage, texts }) => {
   // display a set of 3 images
+  // active image represents the current set of images to display
   const currentSetOfImages = imagesShuffle[activeImage];
 
   const mappedImages = currentSetOfImages.map((image, index) => (
@@ -35,7 +39,7 @@ const RightSection = ({ imagesShuffle, textsTitles, activeImage, texts }) => {
     </div>
   ));
 
-  // complete image
+  // background-image on which the mapped images will be displayed on
   const WallPaperWithPaintings = (
     <div className={classes.imageWrapper}>
       <img className={classes.image} src={wallImage} alt="" />
@@ -84,15 +88,20 @@ const RightSection = ({ imagesShuffle, textsTitles, activeImage, texts }) => {
 const Services = ({ texts, textsTitles, buttonNames, imagesShuffle }) => {
   const [activeImage, setActiveImage] = useState(0);
 
+  console.log(activeImage);
   return (
     <div className={classes.servicesContainer}>
-      <LeftSection setActiveImage={setActiveImage}>{buttonNames}</LeftSection>
-      <RightSection
-        texts={texts}
-        textsTitles={textsTitles}
-        imagesShuffle={imagesShuffle}
-        activeImage={activeImage}
-      />
+      <div className={classes.leftSectionWrapper}>
+        <LeftSection setActiveImage={setActiveImage}>{buttonNames}</LeftSection>
+      </div>
+      <div className={classes.rightSectionWrapper}>
+        <RightSection
+          texts={texts}
+          textsTitles={textsTitles}
+          imagesShuffle={imagesShuffle}
+          activeImage={activeImage}
+        />
+      </div>
     </div>
   );
 };

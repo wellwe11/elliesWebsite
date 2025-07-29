@@ -1,10 +1,7 @@
 .mainImageWrapperText {
-  height: 100%;
-  width: 100%;
   max-height: 400px;
 
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
 
@@ -19,51 +16,60 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  font-variation-settings: "wght" 150;
 
-  .underlineSpanContainer {
+  .mainImageSpanText {
+    font-variation-settings: "wght" 450;
+    font-size: clamp(20px, 2.2vw, 30px);
+    text-shadow: -1.5px -1.5px 0 white, 1.5px -1.5px 0 white,
+      -1.5px 1.5px 0 white, 1.5px 1.5px 0 white;
+  }
+}
+
+.underlineSpanContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100%;
+  padding-left: 2px;
+
+  .arrowContainer {
+    padding-left: 0.3vw;
+    height: 20px;
+    width: fit-content;
+
+    opacity: 0;
+    transition: opacity 0.2s cubic-bezier(0.55, 0.05, 0.9, 0.35);
+
+    margin-top: -5px;
+
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 
-    width: 100%;
-    padding-left: 2px;
-
-    .arrowContainer {
-      height: 20px;
-      width: fit-content;
-      padding-left: 0.3vw;
-
-      opacity: 0;
-      transition: opacity 0.2s cubic-bezier(0.55, 0.05, 0.9, 0.35);
-
-      font-variation-settings: "wght" 250;
-
-      margin-top: -5px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .underlineSpan {
-      height: 1px;
-      width: 100px;
-
-      border-radius: 9000px;
-      background-color: black;
-
-      transition: width 0.8s ease;
+    .arrowRightText {
+      color: black;
+      font-variation-settings: "wght" 450;
     }
   }
 
-  &:hover {
-    .underlineSpan {
-      width: 75px;
-    }
+  .underlineSpan {
+    height: 1.5px;
+    width: 100px;
 
-    .arrowContainer {
-      opacity: 1;
-    }
+    border-radius: 9000px;
+    background-color: black;
+
+    transition: width 0.8s ease;
+  }
+}
+
+.mainImageSpan:hover ~ .underlineSpanContainer {
+  .underlineSpan {
+    width: 75px;
+  }
+
+  .arrowContainer {
+    opacity: 1;
   }
 }

@@ -15,9 +15,9 @@ import stickersCategory from "@assets/categories/stickersCategory.webp";
 
 import mainImage from "@assets/welcomeImage.jpg";
 
-import exampleImageOne from "@assets/frontPageMainImages/mainImageOne.jpg";
-import exampleImageTwo from "@assets/frontPageMainImages/mainImageTwo.jpg";
-import exampleImageThree from "@assets/frontPageMainImages/mainImageThree.jpg";
+import exampleImageOne from "@assets/frontPageMainImages/mainImageOne.png";
+import exampleImageTwo from "@assets/frontPageMainImages/mainImageTwo.png";
+import exampleImageThree from "@assets/frontPageMainImages/mainImageThree.png";
 import Prints from "./prints/prints";
 import Paintings from "./paintings/paintings";
 import Accessories from "./categories/categories";
@@ -111,6 +111,12 @@ const MainPage = () => {
       <section>
         <Prints images={prints} texts={texts} />
       </section>
+
+      <div
+        className={`${classes.sectionSeperationWrapper} ${classes.lowMargin}`}
+      >
+        <SectionSeperationImage />
+      </div>
 
       <section>
         <Services

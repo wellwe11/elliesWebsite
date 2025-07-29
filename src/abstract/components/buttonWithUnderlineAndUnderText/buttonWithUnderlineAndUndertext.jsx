@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import classes from "./buttonWithUnderlineAndUndertext.module.scss";
 
-const MainImageSpan = ({ children, index, fontSize = 30 }) => {
+const MainImageSpan = ({ children, index }) => {
   const [displayText, setDisplayText] = useState(false);
 
   useEffect(() => {
@@ -20,12 +20,11 @@ const MainImageSpan = ({ children, index, fontSize = 30 }) => {
     opacity: displayText ? "1" : "0",
     visibility: displayText ? "visible" : "hidden",
     filter: displayText ? "blur(0px)" : "blur(20px)",
-    fontSize: fontSize,
   };
 
   return (
     <span className={classes.mainImageSpan} style={spanStyle}>
-      {children}
+      <p className={classes.mainImageSpanText}>{children}</p>
     </span>
   );
 };
@@ -47,14 +46,16 @@ const UnderlineSpan = ({ fontSize = 30 }) => {
   }, [fontSize]);
 
   const arrowRightElement = (
-    <div
-      className={classes.arrowContainer}
-      style={{
-        fontSize: updatedFontSize / 2,
-      }}
-    >
+    <div className={classes.arrowContainer}>
       {/* <ArrowSVG color="black" /> */}
-      explore
+      <p
+        className={classes.arrowRightText}
+        style={{
+          fontSize: `${updatedFontSize / 2}px`,
+        }}
+      >
+        explore
+      </p>
     </div>
   );
 
@@ -66,25 +67,15 @@ const UnderlineSpan = ({ fontSize = 30 }) => {
   );
 };
 
-const ButtonWithUnderlineAndUndertext = ({
-  children,
-  setActiveImage,
-  fontSize,
-}) => {
+const ButtonWithUnderlineAndUndertext = ({ children, index, fontSize }) => {
   return (
     <div className={classes.mainImageWrapperText}>
-      {children.map((t, index) => (
-        <div
-          key={index}
-          className={classes.mainImageWrapper}
-          onMouseEnter={() => setActiveImage(index)}
-        >
-          <MainImageSpan index={index} fontSize={fontSize}>
-            {t}
-            <UnderlineSpan fontSize={fontSize} />
-          </MainImageSpan>
-        </div>
-      ))}
+      <div key={index} className={classes.mainImageWrapper}>
+        <MainImageSpan index={index} fontSize={fontSize}>
+          {children}
+        </MainImageSpan>
+        <UnderlineSpan fontSize={fontSize} />
+      </div>
     </div>
   );
 };

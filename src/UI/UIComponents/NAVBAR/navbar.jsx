@@ -39,6 +39,7 @@ const NavbarButtons = ({
   hoverButton,
   activeButton,
 }) => {
+  // navbar buttons
   const mappedButtons = buttons.map((button, index) => (
     <div
       key={index}
@@ -53,23 +54,37 @@ const NavbarButtons = ({
     </div>
   ));
 
+  // thin line below buttons that displays currently hovered button
+  const buttonUnderlinePosition = 100 * hoverButton; // calculate buttons position relevant to currently active button
+  const underlineWidth = 100 / Object.values(buttons).length; // calculate the buttons width depending on amount of buttons
+  const buttonUnderline = (
+    <span
+      className={classes.buttonUnderline}
+      style={{
+        transform: `translateX(${buttonUnderlinePosition}%)`,
+        width: `${underlineWidth}%`,
+      }}
+    />
+  );
+
   return (
     <div className={classes.buttonsWrapper}>
       {mappedButtons}
-      <span
-        className={classes.buttonUnderline}
-        style={{
-          transform: `translateX(${100 * hoverButton}%)`, // calculate buttons position relevant to currently active button
-          width: `${100 / Object.values(buttons).length}%`, // calculate the buttons width depending on amount of buttons
-        }}
-      />
+      {buttonUnderline}
     </div>
   );
 };
 
 // drop-down menu for when you hover "gallery"
 const ExtendGallery = ({ hoverButton, setHoverButton, activeButton }) => {
+  // drop-down buttons
+  // will add future navigateFN
   const buttons = ["Prints", "Paintings", "Accessories"];
+  const mappedButtons = buttons.map((button, index) => (
+    <button key={index} className={classes.pageOptionButton}>
+      <h5 className={classes.pageOptionText}>{button}</h5>
+    </button>
+  ));
 
   return (
     <div
@@ -79,19 +94,14 @@ const ExtendGallery = ({ hoverButton, setHoverButton, activeButton }) => {
       onMouseEnter={() => setHoverButton(1)}
       onMouseLeave={() => setHoverButton(activeButton)}
     >
-      <div className={classes.pageOptionsWrapper}>
-        {buttons.map((button, index) => (
-          <button key={index} className={classes.pageOptionButton}>
-            <h5 className={classes.pageOptionText}>{button}</h5>
-          </button>
-        ))}
-      </div>
+      <div className={classes.pageOptionsWrapper}>{mappedButtons}</div>
     </div>
   );
 };
 
 const NavLogo = ({ setActiveButton, setHoverButton }) => {
   const navigate = handleNavigateSmooth();
+
   return (
     <div
       className={classes.logoContainer}
@@ -109,7 +119,6 @@ const NavLogo = ({ setActiveButton, setHoverButton }) => {
 
 const Navbar = () => {
   const [activeButton, setActiveButton] = useState(0);
-  console.log(activeButton);
   const [hoverButton, setHoverButton] = useState(0);
   const buttons = [
     { Home: "" },
@@ -118,6 +127,7 @@ const Navbar = () => {
   ];
 
   // displays line below entire navbar
+  // classes.navbar
   const navbarShadowStyle = {
     boxShadow:
       hoverButton === 1
@@ -125,39 +135,54 @@ const Navbar = () => {
         : "",
   };
 
+  const navLogoWrapper = (
+    <div className={classes.navLogoWrapper}>
+      <NavLogo
+        setActiveButton={setActiveButton}
+        setHoverButton={setHoverButton}
+      />
+    </div>
+  );
+
+  const navbarButtonsWrapper = (
+    <div className={classes.navButtonsWrapper}>
+      <NavbarButtons
+        buttons={buttons}
+        activeButton={activeButton}
+        setActiveButton={setActiveButton}
+        hoverButton={hoverButton}
+        setHoverButton={setHoverButton}
+      />
+    </div>
+  );
+
+  const shoppingCartWrapper = (
+    <div className={classes.shoppingCartWrapper}>
+      <ShoppingCart />
+    </div>
+  );
+
+  const extendedButtonsWrapper = (
+    <div className={classes.extendedGalleryWrapper}>
+      <ExtendGallery
+        hoverButton={hoverButton}
+        setHoverButton={setHoverButton}
+        activeButton={activeButton}
+      />
+    </div>
+  );
+
   return (
     <div className={classes.navbar} style={navbarShadowStyle}>
       <div className={classes.navContent}>
         <div
           className={`${screen_classes.contentWrapper} ${classes.navWrapper}`}
         >
-          <div className={classes.navLogoWrapper}>
-            <NavLogo
-              setActiveButton={setActiveButton}
-              setHoverButton={setHoverButton}
-            />
-          </div>
-
-          <div className={classes.navButtonsWrapper}>
-            <NavbarButtons
-              buttons={buttons}
-              activeButton={activeButton}
-              setActiveButton={setActiveButton}
-              hoverButton={hoverButton}
-              setHoverButton={setHoverButton}
-            />
-          </div>
-          <div className={classes.shoppingCartWrapper}>
-            <ShoppingCart />
-          </div>
+          {navLogoWrapper}
+          {navbarButtonsWrapper}
+          {shoppingCartWrapper}
         </div>
-        <div className={classes.extendedGalleryWrapper}>
-          <ExtendGallery
-            hoverButton={hoverButton}
-            setHoverButton={setHoverButton}
-            activeButton={activeButton}
-          />
-        </div>
+        {extendedButtonsWrapper}
       </div>
     </div>
   );

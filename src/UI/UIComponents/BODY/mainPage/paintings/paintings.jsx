@@ -21,17 +21,24 @@ const ImagesTexts = ({
   textBioTitle = "Currently just a placeholder text",
   activeImage,
 }) => {
+  // The collection of paintings will have a title/name to describe them
+  const imagesTitle = <h3 className={classes.textBioTitle}>{textBioTitle}</h3>;
+
+  // paintings will have a quick bio about each image which changes depending on what image you hover
+  const scrollingImagesText = (
+    <p className={classes.textBioBio}>
+      <TextThatCorrespondsToActiveImage
+        texts={texts}
+        activeImage={activeImage}
+      />
+    </p>
+  );
+
   return (
     <div className={classes.imagesTextContainer}>
       <div className={classes.imagesTextWrapper}>
-        <h3 className={classes.textBioTitle}>{textBioTitle}</h3>
-
-        <p className={classes.textBioBio}>
-          <TextThatCorrespondsToActiveImage
-            texts={texts}
-            activeImage={activeImage}
-          />
-        </p>
+        {imagesTitle}
+        {scrollingImagesText}
       </div>
     </div>
   );

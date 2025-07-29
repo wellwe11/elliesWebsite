@@ -1,6 +1,8 @@
 import ControlledImage from "@components/controlledImage/controlledImage";
 import classes from "./categories.module.scss";
+import { useEffect, useState } from "react";
 
+// each category has a title. I.e. "Stickers, paintings etc"
 const AccessoriesTitle = ({ children }) => {
   return (
     <div className={classes.titleContainer}>
@@ -12,12 +14,25 @@ const AccessoriesTitle = ({ children }) => {
 };
 
 const AccessoriesContainer = ({ categories }) => {
+  const [categoryWidth, setCategoryWdith] = useState(null);
   const categoryKeys = Object.keys(categories);
+
+  useEffect(() => {
+    if (!categories) return null;
+
+    const calculatedWidth = 100 / categoryKeys.length;
+
+    setCategoryWdith(calculatedWidth - 2);
+  }, [categories]);
 
   return (
     <div className={classes.accessoriesContainer}>
       {categoryKeys.map((category, index) => (
-        <div className={classes.accessoriesWrapper} key={index}>
+        <div
+          className={classes.accessoriesWrapper}
+          key={index}
+          style={{ width: `${categoryWidth}%` }}
+        >
           <div className={classes.imageWrapper}>
             <div className={classes.image}>
               <ControlledImage

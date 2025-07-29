@@ -11,7 +11,7 @@
 
     .title {
       font-variation-settings: "wght" 300;
-      padding-bottom: 20px;
+      padding-bottom: 1vw;
       font-size: 30px;
     }
   }
@@ -26,11 +26,11 @@
   height: 100%;
 
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: space-between;
 
   .accessoriesWrapper {
-    width: fit-content;
+    height: 100%;
 
     display: flex;
     flex-direction: column;
@@ -38,9 +38,10 @@
     justify-content: center;
 
     cursor: pointer;
+    background-color: rgb(189, 189, 189);
 
     .imageWrapper {
-      height: 250px;
+      height: clamp(100px, 10vw, 250px);
       width: 100%;
       overflow: hidden;
 
