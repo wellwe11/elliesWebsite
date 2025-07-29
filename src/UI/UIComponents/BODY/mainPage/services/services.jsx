@@ -30,14 +30,18 @@ const RightSection = ({ imagesShuffle, textsTitles, activeImage, texts }) => {
   // active image represents the current set of images to display
   const currentSetOfImages = imagesShuffle[activeImage];
 
-  const mappedImages = currentSetOfImages.map((image, index) => (
-    <div
-      key={index}
-      className={`${classes.paintingWrapper} ${classes[`image${index}`]}`}
-    >
-      <img className={classes.paintImage} src={image} alt="" />
+  const mappedImages = (
+    <div className={classes.paintingContainer}>
+      {currentSetOfImages.map((image, index) => (
+        <div
+          key={index}
+          className={`${classes.paintingWrapper} ${classes[`image${index}`]}`}
+        >
+          <img className={classes.paintImage} src={image} alt="" />
+        </div>
+      ))}
     </div>
-  ));
+  );
 
   // background-image on which the mapped images will be displayed on
   const WallPaperWithPaintings = (

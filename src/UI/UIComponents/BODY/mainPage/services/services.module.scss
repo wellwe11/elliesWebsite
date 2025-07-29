@@ -1,38 +1,23 @@
 /* Services */
 .servicesContainer {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  max-height: 700px;
-
-  overflow: hidden;
-
+  align-items: stretch;
+  justify-content: space-between;
   width: 100%;
+  height: 60vw;
 
-  padding-bottom: 5vw;
-
-  position: relative;
   // background-color: var(--pastelBlueColor);
-
-  object-fit: cover;
 
   .leftSectionWrapper {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
-    position: absolute;
-    top: 13%;
-    left: 5%;
-    z-index: 100;
-
-    height: 70%;
-    max-height: 600px;
+    flex: 1;
   }
 
   .rightSectionWrapper {
-    width: 100%;
+    width: 70%;
     height: 100%;
 
     display: flex;
@@ -56,9 +41,8 @@
   align-items: center;
 
   .imageWrapper {
-    margin-top: 150px;
     min-width: 100%;
-    height: 100%;
+    height: fit-content;
 
     display: flex;
     align-items: center;
@@ -67,20 +51,16 @@
     position: relative;
 
     .image {
+      object-fit: contain;
     }
   }
 }
 
 /* rightSection */
 .rightScrollingText {
-  width: 100%;
   height: 45px;
+  width: 100%;
   overflow: hidden;
-
-  left: 40%;
-  bottom: 24%;
-
-  position: absolute;
 
   .scrollingTextTitle {
     position: relative;
@@ -94,40 +74,53 @@
 }
 
 /* rightSection */
-.paintingWrapper {
+.paintingContainer {
+  height: 100%;
+  width: 100%;
+
   position: absolute;
-  height: 22%;
-  width: 9%;
 
-  &.image0 {
-    left: 43.5%;
-    top: 33%;
-  }
+  top: 0;
+  right: 0;
 
-  &.image1 {
-    left: 61.5%;
-    top: 33%;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  &.image2 {
-    right: 11.5%;
-    top: 33%;
-  }
+  .paintingWrapper {
+    width: 15%;
+    position: absolute;
 
-  .paintImage {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
+    &.image0 {
+      right: 27%;
+      top: 33%;
+    }
+
+    &.image1 {
+      right: 47.5%;
+      top: 33%;
+    }
+
+    &.image2 {
+      right: 7%;
+      top: 33%;
+    }
+
+    .paintImage {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
   }
 }
 
 /* leftSection */
 .leftSection {
-  height: 100%;
+  height: 60%;
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
 
   .buttonsWrapper {
