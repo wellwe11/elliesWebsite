@@ -1,3 +1,4 @@
+// apply class to ref that is intersecting
 const transitionInAnimation = (ref, className, disconnect = false) => {
   const observer = new IntersectionObserver(([entry]) => {
     if (entry.isIntersecting) {

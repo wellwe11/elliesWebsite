@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
+// smoothly transitions between pages
 const handleNavigateSmooth = () => {
   const navigate = useNavigate();
 

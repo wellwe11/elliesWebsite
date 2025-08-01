@@ -1,7 +1,5 @@
 import classes from "./services.module.scss";
-import { useEffect, useState } from "react";
-
-import wallImage from "@assets/wall.png";
+import { useState } from "react";
 
 import ButtonWithUnderlineAndUndertext from "@components/buttonWithUnderlineAndUnderText/buttonWithUnderlineAndUndertext";
 import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
@@ -25,7 +23,13 @@ const LeftSection = ({ children, setActiveImage }) => {
   );
 };
 
-const RightSection = ({ imagesShuffle, textsTitles, activeImage, texts }) => {
+const RightSection = ({
+  imagesShuffle,
+  textsTitles,
+  activeImage,
+  texts,
+  wallImage,
+}) => {
   // display a set of 3 images
   // active image represents the current set of images to display
   const currentSetOfImages = imagesShuffle[activeImage];
@@ -52,6 +56,7 @@ const RightSection = ({ imagesShuffle, textsTitles, activeImage, texts }) => {
   );
 
   // information displayed below image
+  // title
   const bioScrollingTitle = (
     <div className={classes.scrollingTextTitle}>
       <h3>
@@ -63,6 +68,7 @@ const RightSection = ({ imagesShuffle, textsTitles, activeImage, texts }) => {
     </div>
   );
 
+  // bio
   const bioScrollingBio = (
     <div className={classes.scrollingTextBio}>
       <p>
@@ -89,23 +95,38 @@ const RightSection = ({ imagesShuffle, textsTitles, activeImage, texts }) => {
   );
 };
 
-const Services = ({ texts, textsTitles, buttonNames, imagesShuffle }) => {
+const Services = ({
+  texts,
+  textsTitles,
+  buttonNames,
+  imagesShuffle,
+  wallImage,
+}) => {
+  // current set of images to display. Each number displays a set of 3 images
   const [activeImage, setActiveImage] = useState(0);
 
-  console.log(activeImage);
+  const leftSectionWrapper = (
+    <div className={classes.leftSectionWrapper}>
+      <LeftSection setActiveImage={setActiveImage}>{buttonNames}</LeftSection>
+    </div>
+  );
+
+  const rightSectionWrapper = (
+    <div className={classes.rightSectionWrapper}>
+      <RightSection
+        texts={texts}
+        textsTitles={textsTitles}
+        imagesShuffle={imagesShuffle}
+        activeImage={activeImage}
+        wallImage={wallImage}
+      />
+    </div>
+  );
+
   return (
     <div className={classes.servicesContainer}>
-      <div className={classes.leftSectionWrapper}>
-        <LeftSection setActiveImage={setActiveImage}>{buttonNames}</LeftSection>
-      </div>
-      <div className={classes.rightSectionWrapper}>
-        <RightSection
-          texts={texts}
-          textsTitles={textsTitles}
-          imagesShuffle={imagesShuffle}
-          activeImage={activeImage}
-        />
-      </div>
+      {leftSectionWrapper}
+      {rightSectionWrapper}
     </div>
   );
 };

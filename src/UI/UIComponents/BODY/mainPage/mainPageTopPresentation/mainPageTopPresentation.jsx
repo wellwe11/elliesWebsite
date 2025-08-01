@@ -1,8 +1,6 @@
 import classes from "./mainPageTopPresentation.module.scss";
 
 import LogoWithTextPresentation from "./logoWithTextPresentation/logoWithTextPresentation";
-import ControlledImage from "@components/controlledImage/controlledImage";
-import { useEffect, useState } from "react";
 
 const MainPageTopPresentation = ({ images, mainImage }) => {
   return (

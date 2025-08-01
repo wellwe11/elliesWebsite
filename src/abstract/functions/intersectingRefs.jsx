@@ -1,3 +1,4 @@
+// control several refs
 const intersectingRefs = (refs, classToAdd) => {
   const observer = new IntersectionObserver(
     (entries) => {

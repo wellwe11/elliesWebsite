@@ -20,8 +20,10 @@ import exampleImageTwo from "@assets/frontPageMainImages/mainImageTwo.png";
 import exampleImageThree from "@assets/frontPageMainImages/mainImageThree.png";
 import Prints from "./prints/prints";
 import Paintings from "./paintings/paintings";
-import Accessories from "./categories/categories";
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
+import Categories from "./categories/categories";
+
+import wallImage from "@assets/wall.png";
 
 const prints = {
   Prints: {
@@ -101,7 +103,7 @@ const MainPage = () => {
       </div>
 
       <section>
-        <Accessories categories={categories} />
+        <Categories categories={categories} />
       </section>
 
       <div className={classes.sectionSeperationWrapper}>
@@ -118,6 +120,7 @@ const MainPage = () => {
           textsTitles={textsTitles}
           buttonNames={buttonNames}
           imagesShuffle={imagesShuffle}
+          wallImage={wallImage}
         />
       </section>
 

@@ -1,3 +1,4 @@
+// ButtonWithUnderlineAndUndertext
 .mainImageWrapperText {
   max-height: 400px;
 
@@ -9,6 +10,7 @@
   }
 }
 
+// MainImageSpan
 .mainImageSpan {
   cursor: pointer;
 
@@ -25,6 +27,7 @@
   }
 }
 
+// UnderlineSpan
 .underlineSpanContainer {
   display: flex;
   align-items: center;
@@ -33,7 +36,8 @@
   width: 100%;
   padding-left: 2px;
 
-  .arrowContainer {
+  // buttonHoveringElement
+  .buttonHoveringElement {
     padding-left: 0.3vw;
     height: 20px;
     width: fit-content;
@@ -47,7 +51,7 @@
     align-items: center;
     justify-content: center;
 
-    .arrowRightText {
+    .buttonHoveringText {
       color: black;
       font-variation-settings: "wght" 450;
     }
@@ -64,12 +68,13 @@
   }
 }
 
+// displays explore-text and smaller underline on hover
 .mainImageSpan:hover ~ .underlineSpanContainer {
   .underlineSpan {
     width: 80px;
   }
 
-  .arrowContainer {
+  .buttonHoveringElement {
     opacity: 1;
   }
 }

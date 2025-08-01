@@ -1,6 +1,8 @@
 import classes from "./navbar.module.scss";
 
+// importing screen-sizings to help navbar scale with body
 import screen_classes from "../screenContainer/SCREENCONTAINER.module.scss";
+
 import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT.jsx";
 
 import logoImage from "@assets/logo.png";
@@ -10,23 +12,35 @@ import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 
 const ShoppingCart = () => {
+  // Simple text related to shoppingcart. Text is static and will remain the same.
+  const shoppingBagText = (
+    <div className={classes.shoppingBagText}>
+      <p className={classes.cartText}>View cart</p>
+    </div>
+  );
+
+  // svg-wrapper
+  const shoppingBagSvgWrapper = (
+    <div className={classes.shoppingBagWrapper}>
+      <ShoppingBagSVG />
+    </div>
+  );
+
   return (
     <div className={classes.shoppingCart}>
-      <div className={classes.shoppingBagText}>
-        <p className={classes.cartText}>View cart</p>
-      </div>
-      <div className={classes.shoppingBagContainer}>
-        <ShoppingBagSVG />
-      </div>
+      {shoppingBagText}
+      {shoppingBagSvgWrapper}
     </div>
   );
 };
 
+// a wrapper for each nav-button
 const NavButton = ({ children, link }) => {
   const handleNavigate = handleNavigateSmooth();
   return (
+    // on-click is applied to wrapper to isolate logic from buttonWithContent
     <div className={classes.button} onClick={() => handleNavigate(link)}>
-      <ButtonWithContent link={link}>{children}</ButtonWithContent>
+      <ButtonWithContent>{children}</ButtonWithContent>
     </div>
   );
 };
@@ -40,7 +54,7 @@ const NavbarButtons = ({
   activeButton,
 }) => {
   // navbar buttons
-  const mappedButtons = buttons.map((button, index) => (
+  const mappedNavButtons = buttons.map((button, index) => (
     <div
       key={index}
       onClick={() => setActiveButton(index)}
@@ -69,17 +83,19 @@ const NavbarButtons = ({
 
   return (
     <div className={classes.buttonsWrapper}>
-      {mappedButtons}
+      {mappedNavButtons}
       {buttonUnderline}
     </div>
   );
 };
 
-// drop-down menu for when you hover "gallery"
+// drop-down menu for when you hover "gallery". This will contain
+// buttons to navigate to pages which are related to main-page
+// !! currently not working !! - will add future navigateFN
 const ExtendGallery = ({ hoverButton, setHoverButton, activeButton }) => {
-  // drop-down buttons
-  // will add future navigateFN
+  // drop-down buttons and their corresponding text
   const buttons = ["Prints", "Paintings", "Accessories"];
+
   const mappedButtons = buttons.map((button, index) => (
     <button key={index} className={classes.pageOptionButton}>
       <h5 className={classes.pageOptionText}>{button}</h5>
@@ -126,8 +142,7 @@ const Navbar = () => {
     { Contact: "./#Contact" },
   ];
 
-  // displays line below entire navbar
-  // classes.navbar
+  // displays line below entire navbar (classes.navbar)
   const navbarShadowStyle = {
     boxShadow:
       hoverButton === 1
@@ -135,6 +150,7 @@ const Navbar = () => {
         : "",
   };
 
+  // logo
   const navLogoWrapper = (
     <div className={classes.navLogoWrapper}>
       <NavLogo
@@ -144,6 +160,7 @@ const Navbar = () => {
     </div>
   );
 
+  // main-buttons (home, gallery etc)
   const navbarButtonsWrapper = (
     <div className={classes.navButtonsWrapper}>
       <NavbarButtons
@@ -156,12 +173,14 @@ const Navbar = () => {
     </div>
   );
 
+  // shoppingcart
   const shoppingCartWrapper = (
     <div className={classes.shoppingCartWrapper}>
       <ShoppingCart />
     </div>
   );
 
+  // extended buttons which are dropped-down while hovering Gallery-button
   const extendedButtonsWrapper = (
     <div className={classes.extendedGalleryWrapper}>
       <ExtendGallery

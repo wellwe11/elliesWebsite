@@ -1,11 +1,11 @@
-.accessories {
+.categories {
   width: 100%;
   height: 100%;
 
   display: flex;
   flex-direction: column;
 
-  .accessoriesTitleWrapper {
+  .categoriesTitleWrapper {
     height: 100%;
     width: 100%;
 
@@ -21,7 +21,7 @@
   font-variation-settings: "wght" 300;
 }
 
-.accessoriesContainer {
+.categoriesContainer {
   width: 100%;
   height: 100%;
 
@@ -29,7 +29,7 @@
   align-items: end;
   justify-content: space-between;
 
-  .accessoriesWrapper {
+  .categoriesWrapper {
     height: 100%;
 
     display: flex;

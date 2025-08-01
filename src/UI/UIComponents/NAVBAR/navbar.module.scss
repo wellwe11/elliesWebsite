@@ -1,3 +1,4 @@
+// Navbar
 .navbar {
   position: sticky;
   top: 0;
@@ -13,6 +14,7 @@
   .navContent {
     height: 70px;
     width: 100%;
+
     .navWrapper {
       display: flex;
       justify-content: space-between;
@@ -50,14 +52,19 @@
   }
 }
 
+// NavbarButtons
 .buttonsWrapper {
   z-index: 10000;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   position: relative;
+
   width: 100%;
   height: 100%;
+
   background-color: var(--websiteContainerColor);
 
   .buttonWrapper {
@@ -82,11 +89,13 @@
   }
 }
 
+// NavButton
 .button {
   width: 140px;
   height: 100%;
 }
 
+// NavLogo
 .logoContainer {
   z-index: 10000;
   cursor: pointer;
@@ -118,6 +127,7 @@
   }
 }
 
+// ShoppingCart
 .shoppingCart {
   z-index: 10000;
   width: 33%;
@@ -127,6 +137,7 @@
   overflow: hidden;
   position: relative;
 
+  // shoppingBagText
   .shoppingBagText {
     padding-right: 10px;
 
@@ -144,7 +155,8 @@
     }
   }
 
-  .shoppingBagContainer {
+  // shoppingBagSvgWrapper
+  .shoppingBagWrapper {
     cursor: pointer;
     width: 30px;
     height: 30px;
@@ -160,6 +172,7 @@
   }
 }
 
+// ExtendGallery
 .pageOptionTextsContainer {
   position: absolute;
   left: 0;
@@ -183,6 +196,7 @@
     display: flex;
     justify-content: space-between;
 
+    // mappedButtons
     .pageOptionButton {
       cursor: pointer;
       border: none;

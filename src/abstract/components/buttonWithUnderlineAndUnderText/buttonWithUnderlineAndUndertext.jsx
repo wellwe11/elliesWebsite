@@ -1,29 +1,10 @@
 import { useEffect, useState } from "react";
 import classes from "./buttonWithUnderlineAndUndertext.module.scss";
 
-const MainImageSpan = ({ children, index }) => {
-  const [displayText, setDisplayText] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDisplayText(true);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  // smooth opacity transition which isn't entirely synced since its based on parent-elements index which is being mapped
-  const spanStyle = {
-    transition: `opacity ${1 + index * 0.8}s cubic-bezier(0, 0, 0, 1), filter ${
-      0.5 + index * 0.1
-    }s cubic-bezier(0, 0, 0, 1)`,
-    opacity: displayText ? "1" : "0",
-    visibility: displayText ? "visible" : "hidden",
-    filter: displayText ? "blur(0px)" : "blur(20px)",
-  };
-
+// Span of text for each button
+const MainImageSpan = ({ children }) => {
   return (
-    <span className={classes.mainImageSpan} style={spanStyle}>
+    <span className={classes.mainImageSpan}>
       <p className={classes.mainImageSpanText}>{children}</p>
     </span>
   );
@@ -32,6 +13,8 @@ const MainImageSpan = ({ children, index }) => {
 const UnderlineSpan = ({ fontSize = 30 }) => {
   const [updatedFontSize, setUpdatedFontSize] = useState(fontSize);
 
+  // imports font-size and removes anything except numbers. If prop is '30px', 30 will remain
+  // caveat: fontSize = clamp(30px, 5vw, 50px) will return 30550, which is a size we dont want.
   const validateFontSize = () => {
     if (typeof fontSize === "string") {
       let removeLetters = fontSize.replace(/\D/g, "");
@@ -45,13 +28,14 @@ const UnderlineSpan = ({ fontSize = 30 }) => {
     validateFontSize();
   }, [fontSize]);
 
-  const arrowRightElement = (
-    <div className={classes.arrowContainer}>
+  const buttonHoveringElement = (
+    <div className={classes.buttonHoveringElement}>
+      {/* Currently disabled since text below looks better */}
       {/* <ArrowSVG color="black" /> */}
       <p
-        className={classes.arrowRightText}
+        className={classes.buttonHoveringText}
         style={{
-          fontSize: `${updatedFontSize / 2}px`,
+          fontSize: `${updatedFontSize / 2}px`, // underline will always be smaller than text. Looks better
         }}
       >
         explore
@@ -62,18 +46,16 @@ const UnderlineSpan = ({ fontSize = 30 }) => {
   return (
     <div className={classes.underlineSpanContainer}>
       <div className={classes.underlineSpan}></div>
-      {arrowRightElement}
+      {buttonHoveringElement}
     </div>
   );
 };
 
-const ButtonWithUnderlineAndUndertext = ({ children, index, fontSize }) => {
+const ButtonWithUnderlineAndUndertext = ({ children, fontSize }) => {
   return (
     <div className={classes.mainImageWrapperText}>
-      <div key={index} className={classes.mainImageWrapper}>
-        <MainImageSpan index={index} fontSize={fontSize}>
-          {children}
-        </MainImageSpan>
+      <div className={classes.mainImageWrapper}>
+        <MainImageSpan fontSize={fontSize}>{children}</MainImageSpan>
         <UnderlineSpan fontSize={fontSize} />
       </div>
     </div>

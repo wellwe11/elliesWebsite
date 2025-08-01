@@ -7,18 +7,25 @@ const InfoSectionBio = ({ details, bioRef }) => {
   const bioKeys = Object.keys(details[bioTitle]);
   const bioValues = Object.values(details[bioTitle]);
 
+  // a list of details for set of images. I.e. colors, width, height etc.
+  const mappedBioDetails = bioKeys.map((key, index) => (
+    <div className={classes.detailsWrapper} key={index}>
+      <h5 className={classes.detailText}>{key}</h5>
+      <h5 className={classes.detailText}>{bioValues[index]}</h5>
+    </div>
+  ));
+
+  // a simple title to indicate where the information about the set is
+  const detailsTitle = (
+    <div>
+      <h1 className={classes.detailsTitle}>{bioTitle}</h1>
+    </div>
+  );
+
   return (
     <div className={classes.unqieInfoRightBio} ref={bioRef}>
-      <div>
-        <h1 className={classes.detailsTitle}>{bioTitle}</h1>
-      </div>
-
-      {bioKeys.map((key, index) => (
-        <div className={classes.detailsWrapper} key={index}>
-          <h5 className={classes.detailText}>{key}</h5>
-          <h5 className={classes.detailText}>{bioValues[index]}</h5>
-        </div>
-      ))}
+      {detailsTitle}
+      {mappedBioDetails}
     </div>
   );
 };
@@ -37,20 +44,23 @@ const InfoSectionMainImage = ({ activeImage, imageRef }) => {
 };
 
 const InfoSectionImages = ({ images, setActiveImage, smallerImagesRef }) => {
+  // display all images in the collection, which can be hovered to preview them as bigger
+  const smallImagesPreview = images.map((image, index) => (
+    <img
+      onMouseEnter={() => setActiveImage(index)}
+      className={classes.placeholderImage}
+      key={index}
+      src={image}
+      alt=""
+    />
+  ));
+
   return (
     <div
       className={classes.uniqueInfoRightImagesWrapper}
       ref={smallerImagesRef}
     >
-      {images.map((image, index) => (
-        <img
-          onMouseEnter={() => setActiveImage(index)}
-          className={classes.placeholderImage}
-          key={index}
-          src={image}
-          alt=""
-        />
-      ))}
+      {smallImagesPreview}
     </div>
   );
 };
@@ -69,22 +79,30 @@ const UniqueInfoSection = ({ images, textInfo }) => {
     transitionInAnimation(bioRef, classes.intersectingSmallerImages);
   }, []);
 
+  const leftSectionWrapper = (
+    <div className={classes.uniqueInfoLeft}>
+      <InfoSectionMainImage
+        activeImage={imageArray[activeImage]}
+        imageRef={imageRef}
+      />
+    </div>
+  );
+
+  const rightSectionWrapper = (
+    <div className={classes.uniqueInfoRight}>
+      <InfoSectionImages
+        smallerImagesRef={smallerImagesRef}
+        images={imageArray}
+        setActiveImage={setActiveImage}
+      />
+      <InfoSectionBio details={textInfo} bioRef={bioRef} />
+    </div>
+  );
+
   return (
     <div className={classes.uniqueInfoSection}>
-      <div className={classes.uniqueInfoLeft}>
-        <InfoSectionMainImage
-          activeImage={imageArray[activeImage]}
-          imageRef={imageRef}
-        />
-      </div>
-      <div className={classes.uniqueInfoRight}>
-        <InfoSectionImages
-          smallerImagesRef={smallerImagesRef}
-          images={imageArray}
-          setActiveImage={setActiveImage}
-        />
-        <InfoSectionBio details={textInfo} bioRef={bioRef} />
-      </div>
+      {leftSectionWrapper}
+      {rightSectionWrapper}
     </div>
   );
 };

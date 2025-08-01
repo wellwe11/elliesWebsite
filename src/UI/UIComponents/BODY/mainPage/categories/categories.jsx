@@ -3,7 +3,7 @@ import classes from "./categories.module.scss";
 import { useEffect, useState } from "react";
 
 // each category has a title. I.e. "Stickers, paintings etc"
-const AccessoriesTitle = ({ children }) => {
+const CategoryTitle = ({ children }) => {
   return (
     <div className={classes.titleContainer}>
       <div className={classes.titleWrapper}>
@@ -13,7 +13,7 @@ const AccessoriesTitle = ({ children }) => {
   );
 };
 
-const AccessoriesContainer = ({ categories }) => {
+const CategoryContainer = ({ categories }) => {
   const [categoryWidth, setCategoryWdith] = useState(null);
   const categoryKeys = Object.keys(categories);
 
@@ -26,10 +26,10 @@ const AccessoriesContainer = ({ categories }) => {
   }, [categories]);
 
   return (
-    <div className={classes.accessoriesContainer}>
+    <div className={classes.categoriesContainer}>
       {categoryKeys.map((category, index) => (
         <div
-          className={classes.accessoriesWrapper}
+          className={classes.categoriesWrapper}
           key={index}
           style={{ width: `${categoryWidth}%` }}
         >
@@ -41,22 +41,22 @@ const AccessoriesContainer = ({ categories }) => {
               />
             </div>
           </div>
-          <AccessoriesTitle>{category}</AccessoriesTitle>
+          <CategoryTitle>{category}</CategoryTitle>
         </div>
       ))}
     </div>
   );
 };
 
-const Accessories = ({ categories }) => {
+const Categories = ({ categories }) => {
   return (
-    <section className={classes.accessories}>
-      <div className={classes.accessoriesTitleWrapper}>
+    <section className={classes.categories}>
+      <div className={classes.categoriesTitleWrapper}>
         <h1 className={classes.title}>Explore categories</h1>
       </div>
-      <AccessoriesContainer categories={categories} />
+      <CategoryContainer categories={categories} />
     </section>
   );
 };
 
-export default Accessories;
+export default Categories;

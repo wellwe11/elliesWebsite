@@ -36,16 +36,16 @@
     }
 
     .bioTitle {
-      font-variation-settings: "wght" 250;
+      font-variation-settings: "wght" 450;
       font-size: 0.9rem;
-      padding-bottom: 15px;
+      padding-bottom: 10px;
     }
 
     .bioText {
       font-stretch: condensed;
       text-align: justify;
       max-width: 30ch;
-      font-variation-settings: "wght" 450;
+      font-variation-settings: "wght" 250;
     }
   }
 }
