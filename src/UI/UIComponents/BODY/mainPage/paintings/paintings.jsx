@@ -5,6 +5,7 @@ import ControlledImage from "@components/controlledImage/controlledImage";
 import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 import transitionInAnimation from "@functions/transitionAnimation";
+import WheelOfManyImages from "@components/wheelOfManyImages/wheelOfManyImages";
 
 const Title = ({ title = "Paintings" }) => {
   const titleWrapper = (
@@ -84,6 +85,7 @@ const Paintings = ({ images, texts }) => {
       <Title />
       <ImagesContainer images={images} setActiveImage={setActiveImage} />
       <ImagesTexts texts={texts} activeImage={activeImage} />
+      <WheelOfManyImages />
     </div>
   );
 };
