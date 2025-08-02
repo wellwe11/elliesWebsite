@@ -1,30 +1,31 @@
 import classes from "./MAINPAGE.module.scss";
 
 import MainPageTopPresentation from "./mainPageTopPresentation/mainPageTopPresentation";
-import Services from "./services/services";
 
-import imageOne from "@assets/exampleImages/imageExampleOne.jpg";
-import imageTwo from "@assets/exampleImages/imageExampleTwo.jpg";
-import imageThree from "@assets/exampleImages/imageExampleThree.jpg";
+import mainImage from "@assets/welcomeImage.jpg";
 import welcomeImageOne from "@assets/welcomeImageOne.jpg";
 
+import Categories from "./categories/categories";
 import artCategory from "@assets/categories/artCategory.webp";
 import bookmarksCategory from "@assets/categories/bookmarksCategory.webp";
 import printsCategory from "@assets/categories/printsCategory.webp";
 import stickersCategory from "@assets/categories/stickersCategory.webp";
 
-import mainImage from "@assets/welcomeImage.jpg";
+import Prints from "./prints/prints";
+import Paintings from "./paintings/paintings";
+import imageOne from "@assets/exampleImages/imageExampleOne.jpg";
+import imageTwo from "@assets/exampleImages/imageExampleTwo.jpg";
+import imageThree from "@assets/exampleImages/imageExampleThree.jpg";
 
+import Services from "./services/services";
+import wallImage from "@assets/wall.png";
 import exampleImageOne from "@assets/frontPageMainImages/mainImageOne.png";
 import exampleImageTwo from "@assets/frontPageMainImages/mainImageTwo.png";
 import exampleImageThree from "@assets/frontPageMainImages/mainImageThree.png";
-import Prints from "./prints/prints";
-import Paintings from "./paintings/paintings";
+
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
-import Categories from "./categories/categories";
 
-import wallImage from "@assets/wall.png";
-
+// for prints-section
 const prints = {
   Prints: {
     imageOne: imageOne,
@@ -33,6 +34,7 @@ const prints = {
   },
 };
 
+// for paintings-section
 const paintings = {
   Paintings: {
     imageOne: imageTwo,
@@ -41,13 +43,14 @@ const paintings = {
   },
 };
 
+// placeholder texts for image-information
 const texts = [
   "this is text one",
   "this is text two",
   "this is text three",
   "this is text four",
 ];
-
+// placeholder texts for image-information
 const textsTitles = [
   "this is title one",
   "this is title two",
@@ -55,6 +58,7 @@ const textsTitles = [
   "this is title four",
 ];
 
+// Services buttons names
 const buttonNames = [
   "Water collection",
   "Pastel collection",
@@ -62,6 +66,7 @@ const buttonNames = [
   "Summer collection",
 ];
 
+// Services images
 const imagesShuffle = [
   [exampleImageOne, exampleImageTwo, exampleImageThree],
   [exampleImageTwo, exampleImageThree, exampleImageOne],
@@ -69,6 +74,7 @@ const imagesShuffle = [
   [exampleImageThree, exampleImageOne, exampleImageTwo],
 ];
 
+// Categories section
 const categories = {
   Prints: {
     image: printsCategory,
@@ -87,58 +93,81 @@ const categories = {
 
 const MainPage = () => {
   const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
+
+  // Welcoming image and small animation
+  const topSection = (
+    <section>
+      <MainPageTopPresentation
+        images={smallCircleImages}
+        mainImage={mainImage}
+      />
+    </section>
+  );
+
+  // Clickable images to navigate to filtered products
+  const categoriesSection = (
+    <section>
+      <Categories categories={categories} />
+    </section>
+  );
+
+  // Example-images of prints
+  const printsSection = (
+    <section>
+      <Prints images={prints} texts={texts} />
+    </section>
+  );
+
+  // Realistic image containing different colletions of images to "ikea-style" display them
+  const servicesSection = (
+    <section>
+      <Services
+        texts={texts}
+        textsTitles={textsTitles}
+        buttonNames={buttonNames}
+        imagesShuffle={imagesShuffle}
+        wallImage={wallImage}
+      />
+    </section>
+  );
+
+  // Example-images of paintings
+  const paintingsSection = (
+    <section>
+      <Paintings images={paintings} texts={texts} />
+    </section>
+  );
+
+  // seperates sections with some form of image (currently with a placeholder) and margins
+  const sectionSeperatorWithImage = (
+    <div className={classes.sectionSeperationWrapper}>
+      <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
+    </div>
+  );
+
+  // seperates sections simply with margins and it's own height
+  const sectionSeperatorWithNoImage = (
+    <div className={`${classes.sectionSeperationWrapper} ${classes.lowMargin}`}>
+      <SectionSeperationImage />
+    </div>
+  );
+
   return (
     <div>
-      <section>
-        <MainPageTopPresentation
-          images={smallCircleImages}
-          mainImage={mainImage}
-        />
-      </section>
+      {topSection}
+      {sectionSeperatorWithNoImage}
 
-      <div
-        className={`${classes.sectionSeperationWrapper} ${classes.lowMargin}`}
-      >
-        <SectionSeperationImage />
-      </div>
+      {categoriesSection}
+      {sectionSeperatorWithImage}
 
-      <section>
-        <Categories categories={categories} />
-      </section>
+      {printsSection}
+      {sectionSeperatorWithImage}
 
-      <div className={classes.sectionSeperationWrapper}>
-        <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
-      </div>
+      {servicesSection}
+      {sectionSeperatorWithImage}
 
-      <section>
-        <Prints images={prints} texts={texts} />
-      </section>
-
-      <div className={classes.sectionSeperationWrapper}>
-        <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
-      </div>
-
-      <section>
-        <Services
-          texts={texts}
-          textsTitles={textsTitles}
-          buttonNames={buttonNames}
-          imagesShuffle={imagesShuffle}
-          wallImage={wallImage}
-        />
-      </section>
-
-      <div className={classes.sectionSeperationWrapper}>
-        <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
-      </div>
-
-      <section>
-        <Paintings images={paintings} texts={texts} />
-      </section>
-
-      <div className={classes.sectionSeperationWrapper}>
-        <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
-      </div>
+      {paintingsSection}
+      {sectionSeperatorWithImage}
     </div>
   );
 };

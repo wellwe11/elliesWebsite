@@ -30,6 +30,39 @@ const images = [
   exampleImageThree,
 ]; // 21
 
+const QuickViewImage = ({
+  setDisplayImage,
+  activeImageSrc,
+  setActiveImageSrc,
+}) => {
+  return (
+    <div
+      className={classes.quickViewImage}
+      onClick={() => {
+        setActiveImageSrc(null);
+        setDisplayImage(false);
+      }}
+    >
+      <div className={classes.quickViewImageContainer}>
+        <div className={classes.activeImageWrapper}>
+          <img className={classes.activeImage} src={activeImageSrc} alt="" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const QuickViewButton = ({ setDisplayImage }) => {
+  return (
+    <button
+      className={classes.quickViewButton}
+      onClick={() => setDisplayImage(true)}
+    >
+      <h4 className={classes.quickViewText}>Quick view</h4>
+    </button>
+  );
+};
+
 const NavigationButtons = ({ setMarginLeft, setPrevMarginLeft }) => {
   const [canNavigate, setCanNavigate] = useState(true);
 
@@ -114,7 +147,9 @@ const NavigationButtons = ({ setMarginLeft, setPrevMarginLeft }) => {
   );
 };
 
-const Images = () => {
+const Images = ({ setDisplayImage, setActiveImageSrc }) => {
+  // image that is displayed once you click quick-view button
+
   // clicking left or right decreases or increases marginLeft by 1. This is then translate to marginLeft * 10 %. So 2 = 20%.
   const [marginLeft, setMarginLeft] = useState(0);
 
@@ -140,6 +175,12 @@ const Images = () => {
       {images.map((image, index) => (
         <div key={index} className={classes.imageWrapper}>
           <img className={classes.image} src={image} alt="" />
+          <div
+            className={classes.quickViewButtonWrapper}
+            onClick={() => setActiveImageSrc(image)}
+          >
+            <QuickViewButton setDisplayImage={setDisplayImage} />
+          </div>
         </div>
       ))}
     </div>
@@ -162,12 +203,30 @@ const Images = () => {
 
 // Exception to rules. Needs map to allow for isolated logic which will only be applied to this document
 const WheelOfManyImages = ({ title = "Placeholder title" }) => {
+  // boolean if quick-view has been clicked
+  const [displayImage, setDisplayImage] = useState(false);
+
+  // sorce for which quick-view-image will have if displayImage is true
+  const [activeImageSrc, setActiveImageSrc] = useState(null);
+
   return (
     <div className={classes.WheelOfManyImages}>
       <div>
         <h1>{title}</h1>
       </div>
-      <Images />
+      <Images
+        displayImage={displayImage}
+        setDisplayImage={setDisplayImage}
+        setActiveImageSrc={setActiveImageSrc}
+      />
+
+      {displayImage && (
+        <QuickViewImage
+          setDisplayImage={setDisplayImage}
+          activeImageSrc={activeImageSrc}
+          setActiveImageSrc={setActiveImageSrc}
+        />
+      )}
     </div>
   );
 };
