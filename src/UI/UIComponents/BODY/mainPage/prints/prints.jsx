@@ -5,6 +5,8 @@ import ControlledImage from "@components/controlledImage/controlledImage";
 import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 import transitionInAnimation from "@functions/transitionAnimation";
+import WheelOfManyImages from "@components/wheelOfManyImages/wheelOfManyImages";
+import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 
 const Title = ({ title = "Prints" }) => {
   const titleWrapper = (
@@ -83,6 +85,15 @@ const Prints = ({ images, texts }) => {
       <Title />
       <ImagesContainer images={images} setActiveImage={setActiveImage} />
       <ImagesTexts texts={texts} activeImage={activeImage} />
+      <div className={classes.sectionSeperationImage}>
+        <SectionSeperationImage />
+      </div>
+
+      <WheelOfManyImages />
+
+      <div className={classes.sectionSeperationImage}>
+        <SectionSeperationImage />
+      </div>
     </div>
   );
 };
