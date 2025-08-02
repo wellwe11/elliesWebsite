@@ -24,12 +24,14 @@
 
     .imageWrapper {
       margin-right: 20px;
+      width: 15vw;
+      max-width: 250px;
 
       // for quickViewButton
       position: relative;
       .image {
         height: 100%;
-        min-width: 15vw;
+        width: 100%;
 
         pointer-events: all;
         cursor: pointer;
