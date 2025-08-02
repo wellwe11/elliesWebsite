@@ -108,7 +108,7 @@ const Images = ({}) => {
   const marginLeftStyle = {
     transform: `translateX(${marginLeft}0%)`,
     transition: `${
-      marginLeft === 0 && (prevMarginLeft === 9 || prevMarginLeft === 9)
+      marginLeft === 0 && (prevMarginLeft === -9 || prevMarginLeft === 9)
         ? ""
         : "transform 0.5s ease"
     }`,
