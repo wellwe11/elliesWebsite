@@ -27,6 +27,8 @@ export default App;
  * -- Error: 'Uncaught (in promise) TypeError: Cannot convert undefined or null to object'
  *
  * Implement a button on uniqueImage page to help user navigate down to the details-page
+ *
+ * Services-buttons need to be fixed. Currently, you can hover outside of text and all things except underline text is interactive
  */
 
 /*** RULES FOR PROJECT

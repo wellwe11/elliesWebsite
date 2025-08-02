@@ -90,10 +90,6 @@ const Prints = ({ images, texts }) => {
       </div>
 
       <WheelOfManyImages />
-
-      <div className={classes.sectionSeperationImage}>
-        <SectionSeperationImage />
-      </div>
     </div>
   );
 };

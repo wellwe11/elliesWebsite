@@ -114,6 +114,10 @@ const MainPage = () => {
         <Prints images={prints} texts={texts} />
       </section>
 
+      <div className={classes.sectionSeperationWrapper}>
+        <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
+      </div>
+
       <section>
         <Services
           texts={texts}
@@ -123,6 +127,10 @@ const MainPage = () => {
           wallImage={wallImage}
         />
       </section>
+
+      <div className={classes.sectionSeperationWrapper}>
+        <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
+      </div>
 
       <section>
         <Paintings images={paintings} texts={texts} />

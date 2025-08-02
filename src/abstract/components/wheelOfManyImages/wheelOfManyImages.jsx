@@ -90,18 +90,18 @@ const NavigationButtons = ({ setMarginLeft, setPrevMarginLeft }) => {
 
   // navigate left
   const leftClickButton = (
-    <div className={`${classes.navigationButtonWrapper} ${classes.right}`}>
+    <div className={`${classes.navigationButtonWrapper} ${classes.left}`}>
       <button className={classes.navigationButton} onClick={handleLeftClick}>
-        <h3>←</h3>
+        <h3 className={classes.buttonArrow}>←</h3>
       </button>
     </div>
   );
 
   // navigate right
   const rightClickButton = (
-    <div className={`${classes.navigationButtonWrapper} ${classes.left}`}>
+    <div className={`${classes.navigationButtonWrapper} ${classes.right}`}>
       <button className={classes.navigationButton} onClick={handleRightClick}>
-        <h3>→</h3>
+        <h3 className={classes.buttonArrow}>→</h3>
       </button>
     </div>
   );
@@ -114,7 +114,7 @@ const NavigationButtons = ({ setMarginLeft, setPrevMarginLeft }) => {
   );
 };
 
-const Images = ({}) => {
+const Images = () => {
   // clicking left or right decreases or increases marginLeft by 1. This is then translate to marginLeft * 10 %. So 2 = 20%.
   const [marginLeft, setMarginLeft] = useState(0);
 
@@ -136,10 +136,7 @@ const Images = ({}) => {
 
   // array containing images. They are applied 3 times in the return-statement to visually look like you can scroll forever
   const mappedImages = (
-    <div
-      className={`${classes.imagesWrapper}`}
-      style={{ ...marginLeftStyle, borderLeft: "10px solid black" }}
-    >
+    <div className={`${classes.imagesWrapper}`} style={marginLeftStyle}>
       {images.map((image, index) => (
         <div key={index} className={classes.imageWrapper}>
           <img className={classes.image} src={image} alt="" />
@@ -164,9 +161,12 @@ const Images = ({}) => {
 };
 
 // Exception to rules. Needs map to allow for isolated logic which will only be applied to this document
-const WheelOfManyImages = () => {
+const WheelOfManyImages = ({ title = "Placeholder title" }) => {
   return (
     <div className={classes.WheelOfManyImages}>
+      <div>
+        <h1>{title}</h1>
+      </div>
       <Images />
     </div>
   );

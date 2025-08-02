@@ -13,13 +13,14 @@
 
   pointer-events: none;
 
+  // relative for navigationButtonsContainer
   position: relative;
 
   // mappedImages
   .imagesWrapper {
     display: flex;
 
-    border-left: 10px solid black;
+    will-change: transform;
 
     .imageWrapper {
       margin-right: 20px;
@@ -44,6 +45,7 @@
   width: 100%;
   height: 100%;
 
+  // positioned inside of imagesContainer
   position: absolute;
 
   .navigationButtonWrapper {
@@ -53,9 +55,11 @@
     height: 100%;
 
     &.left {
+      margin-left: 1px;
     }
 
     &.right {
+      margin-right: 1px;
     }
 
     .navigationButton {
@@ -64,6 +68,25 @@
 
       height: 100px;
       width: 50px;
+
+      border: none;
+
+      background-color: white;
+      outline: 0.5px solid black;
+      opacity: 0.94;
+
+      .buttonArrow {
+        color: gray;
+        font-variation-settings: 1000;
+      }
+
+      &:hover {
+        opacity: 1;
+
+        .buttonArrow {
+          color: black;
+        }
+      }
     }
   }
 }
