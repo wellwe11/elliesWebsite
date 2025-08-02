@@ -36,16 +36,39 @@ const QuickViewImage = ({
   setActiveImageSrc,
 }) => {
   return (
-    <div
-      className={classes.quickViewImage}
-      onClick={() => {
-        setActiveImageSrc(null);
-        setDisplayImage(false);
-      }}
-    >
+    <div className={classes.quickViewImage}>
+      <div
+        className={classes.quickViewBackground}
+        onClick={() => {
+          setActiveImageSrc(null);
+          setDisplayImage(false);
+        }}
+      />
+
       <div className={classes.quickViewImageContainer}>
         <div className={classes.activeImageWrapper}>
           <img className={classes.activeImage} src={activeImageSrc} alt="" />
+        </div>
+        <div className={classes.infoSection}>
+          <div className={classes.info}>
+            <h1>info</h1>
+          </div>
+          <div className={classes.price}>
+            <h3>20$</h3>
+          </div>
+          <div className={classes.allImagesExamples}>
+            <img className={classes.imageExample} src={exampleImage} alt="" />
+            <img
+              className={classes.imageExample}
+              src={exampleImageTwo}
+              alt=""
+            />
+            <img
+              className={classes.imageExample}
+              src={exampleImageThree}
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </div>
