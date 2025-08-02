@@ -40,5 +40,5 @@ export default App;
  * Each component is a single, styled component. No mapping, no props which are related to UI/UIComponents. Only one document containing it's own, isolated logic.
  * Exceptions to styling is allowed. I.e., a button, which can have prop "color". This allows you to control color to match different backgrounds, etc.
  *
- *
+ * Add an image for each type-section (prints, paintings) which will display one example with some nice text on the right and an animation with icons
  */

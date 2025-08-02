@@ -5,6 +5,7 @@
 
 .imagesContainer {
   display: flex;
+  justify-content: center;
 
   overflow: hidden;
 
@@ -14,6 +15,8 @@
 
   .imagesWrapper {
     display: flex;
+
+    border-left: 10px solid black;
 
     .imageWrapper {
       margin-right: 20px;
