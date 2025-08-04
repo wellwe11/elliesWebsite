@@ -122,7 +122,6 @@
 
   padding: 1vw;
 
-  background-color: gray;
   pointer-events: all;
   cursor: pointer;
 
@@ -161,11 +160,12 @@
 
   z-index: 10;
 
+  // white background-image that differs pop-up from other elements
   .quickViewBackground {
     cursor: pointer;
     width: 100%;
     height: 100%;
-    z-index: 2;
+
     background-color: rgba(255, 255, 255, 0.388);
   }
 
@@ -176,25 +176,91 @@
     z-index: 100;
 
     max-width: 700px;
+    max-height: 466px;
+    height: 100%;
 
     background-color: white;
-    outline: 2px solid orange;
+    outline: 0.5px solid black;
 
     .activeImageWrapper {
-      width: 50%;
+      flex: 1;
 
       .activeImage {
       }
     }
 
     .infoSection {
+      overflow: scroll;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      width: 50%;
+
+      .info {
+      }
+
+      .price {
+        padding: 10px 0px;
+      }
+
       .allImagesExamples {
         display: flex;
-        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
 
         .imageExample {
           max-width: 250px;
           max-height: 100px;
+
+          padding: 10px;
+
+          cursor: pointer;
+        }
+      }
+
+      .viewProductButton {
+        cursor: pointer;
+        width: 100%;
+        height: 40px;
+
+        .buttonText {
+        }
+      }
+
+      .productDescription {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .buttonDescriptionButton {
+          .buttonDescriptionButtonText {
+          }
+        }
+
+        .descriptionWrapper {
+          overflow: hidden;
+          transition: height 0.4s ease;
+
+          &.open {
+            height: 250px;
+          }
+
+          &.closed {
+            height: 0px;
+          }
+
+          .descriptionText {
+            transition: all 0.4s ease;
+            &.open {
+            }
+
+            &.closed {
+            }
+          }
         }
       }
     }

@@ -50,6 +50,13 @@ body {
   overscroll-behavior: none;
 }
 
+// class to block scrolling --used in wheelOfManyImages.jsx
+body.body--no-scroll {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+
 /* Media elements reset */
 img,
 video {

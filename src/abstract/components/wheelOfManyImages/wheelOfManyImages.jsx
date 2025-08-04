@@ -30,13 +30,28 @@ const images = [
   exampleImageThree,
 ]; // 21
 
+const exampleImages = [
+  exampleImage,
+  exampleImageTwo,
+  exampleImageThree,
+  exampleImageTwo,
+  exampleImage,
+  exampleImageTwo,
+  exampleImageThree,
+  exampleImage,
+  exampleImageTwo,
+];
+
 const QuickViewImage = ({
   setDisplayImage,
   activeImageSrc,
   setActiveImageSrc,
 }) => {
+  const [viewDescription, setViewDescription] = useState(true);
+
   return (
     <div className={classes.quickViewImage}>
+      {/* white background-image that differs pop-up from other elements */}
       <div
         className={classes.quickViewBackground}
         onClick={() => {
@@ -49,25 +64,55 @@ const QuickViewImage = ({
         <div className={classes.activeImageWrapper}>
           <img className={classes.activeImage} src={activeImageSrc} alt="" />
         </div>
+
         <div className={classes.infoSection}>
           <div className={classes.info}>
-            <h1>info</h1>
+            <h1>Title</h1>
           </div>
+
           <div className={classes.price}>
             <h3>20$</h3>
           </div>
+
           <div className={classes.allImagesExamples}>
-            <img className={classes.imageExample} src={exampleImage} alt="" />
-            <img
-              className={classes.imageExample}
-              src={exampleImageTwo}
-              alt=""
-            />
-            <img
-              className={classes.imageExample}
-              src={exampleImageThree}
-              alt=""
-            />
+            {exampleImages.map((image, index) => (
+              <img
+                key={index}
+                className={classes.imageExample}
+                src={image}
+                alt=""
+                onMouseEnter={() => setActiveImageSrc(image)}
+              />
+            ))}
+          </div>
+          <div className={classes.productDescription}>
+            <button
+              className={classes.buttonDescriptionButton}
+              onClick={() => setViewDescription(!viewDescription)}
+            >
+              <h3 className={classes.buttonDescriptionButtonText}>
+                Description
+              </h3>
+            </button>
+            <div
+              className={`${classes.descriptionWrapper} ${
+                viewDescription ? classes.open : classes.closed
+              }`}
+            >
+              <p
+                className={`${classes.descriptionText} ${
+                  viewDescription ? classes.open : classes.closed
+                }`}
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+            <button className={classes.viewProductButton}>
+              <h3 className={classes.buttonText}>Explore item</h3>
+            </button>
           </div>
         </div>
       </div>
@@ -231,6 +276,13 @@ const WheelOfManyImages = ({ title = "Placeholder title" }) => {
 
   // sorce for which quick-view-image will have if displayImage is true
   const [activeImageSrc, setActiveImageSrc] = useState(null);
+
+  useEffect(() => {
+    // if displayImage is true, remove scroll
+
+    console.log(displayImage);
+    document.body.classList.toggle("body--no-scroll", displayImage);
+  }, [displayImage]);
 
   return (
     <div className={classes.WheelOfManyImages}>

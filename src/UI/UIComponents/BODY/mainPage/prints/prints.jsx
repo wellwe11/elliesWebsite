@@ -7,6 +7,7 @@ import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 import transitionInAnimation from "@functions/transitionAnimation";
 import WheelOfManyImages from "@components/wheelOfManyImages/wheelOfManyImages";
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
+import ExploreNewIn from "../../exploreNewIn/exploreNewIn";
 
 const Title = ({ title = "Prints" }) => {
   const titleWrapper = (
@@ -90,6 +91,12 @@ const Prints = ({ images, texts }) => {
       </div>
 
       <WheelOfManyImages />
+
+      <div className={classes.sectionSeperationImage}>
+        <SectionSeperationImage />
+      </div>
+
+      <ExploreNewIn />
     </div>
   );
 };
