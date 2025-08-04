@@ -31,15 +31,15 @@ const images = [
 ]; // 21
 
 const exampleImages = [
-  exampleImage,
+  exampleImageTwo,
   exampleImageTwo,
   exampleImageThree,
   exampleImageTwo,
   exampleImage,
-  exampleImageTwo,
   exampleImageThree,
   exampleImage,
   exampleImageTwo,
+  exampleImage,
 ];
 
 const QuickViewImage = ({
@@ -71,7 +71,7 @@ const QuickViewImage = ({
           </div>
 
           <div className={classes.price}>
-            <h3>20$</h3>
+            <h4>20$</h4>
           </div>
 
           <div className={classes.allImagesExamples}>
@@ -81,7 +81,7 @@ const QuickViewImage = ({
                 className={classes.imageExample}
                 src={image}
                 alt=""
-                onMouseEnter={() => setActiveImageSrc(image)}
+                onClick={() => setActiveImageSrc(image)}
               />
             ))}
           </div>
@@ -91,7 +91,7 @@ const QuickViewImage = ({
               onClick={() => setViewDescription(!viewDescription)}
             >
               <h3 className={classes.buttonDescriptionButtonText}>
-                Description
+                Description {`${viewDescription ? "<" : ">"}`}
               </h3>
             </button>
             <div
@@ -110,9 +110,11 @@ const QuickViewImage = ({
                 nisi ut aliquip ex ea commodo consequat.
               </p>
             </div>
-            <button className={classes.viewProductButton}>
-              <h3 className={classes.buttonText}>Explore item</h3>
-            </button>
+            <div className={classes.viewProductButtonWrapper}>
+              <button className={classes.viewProductButton}>
+                <h3 className={classes.buttonText}>Explore item</h3>
+              </button>
+            </div>
           </div>
         </div>
       </div>

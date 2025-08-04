@@ -156,7 +156,7 @@
   justify-content: center;
   align-items: center;
 
-  border: 1px solid black;
+  border: 0.5px solid gray;
 
   z-index: 10;
 
@@ -171,25 +171,34 @@
 
   .quickViewImageContainer {
     display: flex;
+    justify-content: flex-start;
     position: absolute;
 
     z-index: 100;
 
     max-width: 700px;
-    max-height: 466px;
+    max-height: 500px;
     height: 100%;
 
     background-color: white;
     outline: 0.5px solid black;
 
     .activeImageWrapper {
-      flex: 1;
+      width: 50%;
+      padding: 5px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       .activeImage {
       }
     }
 
     .infoSection {
+      padding: 5px;
+      padding-right: 15px;
+
       overflow: scroll;
 
       display: flex;
@@ -210,6 +219,9 @@
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
+
+        border-bottom: 0.5px solid gray;
+        padding-bottom: 10px;
 
         .imageExample {
           max-width: 250px;
@@ -236,8 +248,20 @@
         flex-direction: column;
         justify-content: space-between;
 
+        padding-top: 20px;
+
         .buttonDescriptionButton {
+          cursor: pointer;
+          border: none;
+          background-color: white;
+
+          padding-bottom: 20px;
+
           .buttonDescriptionButtonText {
+            display: flex;
+
+            font-variation-settings: "wght" 450;
+            padding-bottom: 5px;
           }
         }
 
@@ -254,12 +278,21 @@
           }
 
           .descriptionText {
-            transition: all 0.4s ease;
             &.open {
             }
 
             &.closed {
             }
+          }
+        }
+
+        .viewProductButtonWrapper {
+          border-top: 0.5px solid gray;
+          height: 50px;
+
+          display: flex;
+          align-items: flex-end;
+          .viewProductButton {
           }
         }
       }
