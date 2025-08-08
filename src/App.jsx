@@ -29,6 +29,7 @@ export default App;
  * Implement a button on uniqueImage page to help user navigate down to the details-page
  *
  * Services-buttons need to be fixed. Currently, you can hover outside of text and all things except underline text is interactive
+ * Add an image for each type-section (prints, paintings) which will display one example with some nice text on the right and an animation with icons
  */
 
 /*** RULES FOR PROJECT
@@ -37,10 +38,16 @@ export default App;
  * Each main-component has all imported information. That information is then passed down to children as props
  * Each sub-component then contains the 'main-information' which is passed down to then. Each sub-component is then split, where each child-component handles their own logic such as Object.keys/values, mapping, etc.
  *
- ** ABSTRACT/COMPONENTS
+ ** ABSTRACT/components
  * Contains NO LOGIC OR INFORMATION.
  * Each component is a single, styled component. No mapping, no props which are related to UI/UIComponents. Only one document containing it's own, isolated logic.
  * Exceptions to styling is allowed. I.e., a button, which can have prop "color". This allows you to control color to match different backgrounds, etc.
  *
- * Add an image for each type-section (prints, paintings) which will display one example with some nice text on the right and an animation with icons
+ ** ABSTRACT/fullyComponents
+ * Made to create components which are used on several pages.
+ * Must be abstract to a degree where individual sources and styles can be applied.
+ * -- May/can contain logic such as mapped arrays.
+ * -- May/can contain defined sizes.
+ * Does NOT contain section-information such as titles, background-colors or anything which belongs to a wrapper.
+ * Must obide to wrappers size and be dynamic to wrap correctly in parent-elements
  */

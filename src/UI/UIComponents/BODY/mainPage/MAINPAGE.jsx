@@ -26,13 +26,7 @@ import exampleImageThree from "@assets/frontPageMainImages/mainImageThree.png";
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 
 // for prints-section
-const prints = {
-  Prints: {
-    imageOne: imageOne,
-    imageTwo: imageTwo,
-    imageThree: imageThree,
-  },
-};
+const prints = [imageOne, imageTwo, imageThree];
 
 // for paintings-section
 const paintings = {
@@ -91,6 +85,25 @@ const categories = {
   },
 };
 
+// placeholder images for now
+const wheelImages = [
+  imageTwo,
+  imageThree,
+  imageOne,
+  imageTwo,
+  imageThree,
+  imageOne,
+  imageThree,
+  imageOne,
+  imageTwo,
+  imageThree,
+  imageThree,
+  imageOne,
+  imageTwo,
+  imageOne,
+  imageTwo,
+];
+
 const MainPage = () => {
   const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
@@ -114,7 +127,7 @@ const MainPage = () => {
   // Example-images of prints
   const printsSection = (
     <section>
-      <Prints images={prints} texts={texts} />
+      <Prints wheelImages={wheelImages} images={prints} texts={texts} />
     </section>
   );
 

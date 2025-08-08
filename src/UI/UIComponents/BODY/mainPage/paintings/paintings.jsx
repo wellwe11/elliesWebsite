@@ -5,8 +5,9 @@ import ControlledImage from "@components/controlledImage/controlledImage";
 import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 import transitionInAnimation from "@functions/transitionAnimation";
-import WheelOfManyImages from "@components/wheelOfManyImages/wheelOfManyImages";
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
+
+import WheelOfManyImages from "@fullyComponents/wheelOfManyImages/wheelOfManyImages";
 
 const Title = ({ title = "Paintings" }) => {
   const titleWrapper = (
@@ -78,7 +79,7 @@ const ImagesContainer = ({ images, setActiveImage }) => {
   );
 };
 
-const Paintings = ({ images, texts }) => {
+const Paintings = ({ wheelImages, images, texts }) => {
   const [activeImage, setActiveImage] = useState(0);
 
   return (
@@ -91,7 +92,7 @@ const Paintings = ({ images, texts }) => {
         <SectionSeperationImage />
       </div>
 
-      <WheelOfManyImages />
+      <WheelOfManyImages images={wheelImages} canQuickView={true} />
     </div>
   );
 };

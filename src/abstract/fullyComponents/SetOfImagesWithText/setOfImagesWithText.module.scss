@@ -1,0 +1,36 @@
+// setOfImagesWithText
+.setOfImagesWithText {
+  // imagesMap
+  .imagesContainer {
+    cursor: pointer;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-left: 2px;
+    padding-right: 2px;
+
+    .imageWrapper {
+      width: 30%;
+    }
+  }
+
+  // bioTitle
+  .textBioTitle {
+    height: 50%;
+  }
+
+  // scrollingText
+  .textBioBio {
+    position: relative;
+    height: 50%;
+    overflow: hidden;
+  }
+
+  .imagesTextWrapper {
+    height: 50px;
+  }
+}

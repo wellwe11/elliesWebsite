@@ -1,102 +1,66 @@
 import classes from "./prints.module.scss";
-import { useEffect, useRef, useState } from "react";
 
-import ControlledImage from "@components/controlledImage/controlledImage";
-import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
-import handleNavigateSmooth from "@functions/handleNavigateSmooth";
-import transitionInAnimation from "@functions/transitionAnimation";
-import WheelOfManyImages from "@components/wheelOfManyImages/wheelOfManyImages";
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
-import ExploreNewIn from "../../exploreNewIn/exploreNewIn";
 
-const Title = ({ title = "Prints" }) => {
+import WheelOfManyImages from "@fullyComponents/wheelOfManyImages/wheelOfManyImages";
+import ExploreNewIn from "@fullyComponents/exploreNewIn/exploreNewIn";
+import SetOfimagesWithText from "@fullyComponents/SetOfImagesWithText/setOfImagesWithText";
+
+const Prints = ({ wheelImages, images, texts }) => {
+  // Title for section of prints
   const titleWrapper = (
     <div className={classes.titleWrapper}>
-      <h1 className={classes.title}>{title}</h1>
+      <h1 className={classes.title}>Prints</h1>
     </div>
   );
 
-  return <div className={classes.titleContainer}>{titleWrapper}</div>;
-};
-
-const ImagesTexts = ({
-  texts,
-  textBioTitle = "Currently just a placeholder text",
-  activeImage,
-}) => {
-  const scrollingText = (
-    <p className={classes.textBioBio}>
-      <TextThatCorrespondsToActiveImage
+  // Example section of a collection of prints
+  const setOfExampleCollectionSection = (
+    <section className={classes.exampleCollectionSection}>
+      <SetOfimagesWithText
+        images={images}
         texts={texts}
-        activeImage={activeImage}
+        textBioTitle="This is a placeholder for images in prints"
       />
-    </p>
+    </section>
   );
 
-  const bioTitle = <h3 className={classes.textBioTitle}>{textBioTitle}</h3>;
-
-  return (
-    <div className={classes.imagesTextContainer}>
-      <div className={classes.imagesTextWrapper}>
-        {bioTitle}
-        {scrollingText}
+  // section to view many different collections (1 image per collection) which is clickable
+  const wheelImagesSection = (
+    <section className={classes.wheelImagesSection}>
+      <div>
+        <h1>{"Placeholder title"}</h1>
       </div>
+      <WheelOfManyImages images={wheelImages} canQuickView={true} />
+    </section>
+  );
+
+  // section containing most recently added print together with some text
+  const exploreNewInSection = (
+    <section className={classes.exploreNewInSection}>
+      <ExploreNewIn />
+    </section>
+  );
+
+  // adds space between sections
+  const sectionSeperationImage = (
+    <div className={classes.sectionSeperationImage}>
+      <SectionSeperationImage />
     </div>
   );
-};
-
-const ImagesContainer = ({ images, setActiveImage }) => {
-  const currentSection = Object.entries(images);
-  const navigate = handleNavigateSmooth();
-
-  const imagesValues = Object.values(images[currentSection[0][0]]);
-
-  const imageRef = useRef(null);
-
-  useEffect(() => {
-    transitionInAnimation(imageRef, "someclass", true);
-  }, [imageRef]);
-
-  const imagesMap = imagesValues.map((image, index) => (
-    <div
-      key={index}
-      className={classes.imageWrapper}
-      onMouseEnter={() => setActiveImage(index)}
-    >
-      <ControlledImage imageSrc={image} imageAlt={`Print product ${index}`} />
-    </div>
-  ));
-
-  return (
-    <div
-      className={classes.imagesContainer}
-      onClick={() => navigate("/uniqueImage")}
-      ref={imageRef}
-    >
-      {imagesMap}
-    </div>
-  );
-};
-
-const Prints = ({ images, texts }) => {
-  const [activeImage, setActiveImage] = useState(0);
 
   return (
     <div className={classes.prints}>
-      <Title />
-      <ImagesContainer images={images} setActiveImage={setActiveImage} />
-      <ImagesTexts texts={texts} activeImage={activeImage} />
-      <div className={classes.sectionSeperationImage}>
-        <SectionSeperationImage />
-      </div>
+      {titleWrapper}
 
-      <WheelOfManyImages />
+      {setOfExampleCollectionSection}
+      {sectionSeperationImage}
 
-      <div className={classes.sectionSeperationImage}>
-        <SectionSeperationImage />
-      </div>
+      {wheelImagesSection}
+      {sectionSeperationImage}
 
-      <ExploreNewIn />
+      {/* Currently contains nothing except small text */}
+      {exploreNewInSection}
     </div>
   );
 };
