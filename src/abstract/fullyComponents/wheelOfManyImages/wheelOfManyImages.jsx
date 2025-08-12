@@ -14,8 +14,6 @@ const Images = ({
   setActiveImageSrc,
   canQuickView,
 }) => {
-  // image that is displayed once you click quick-view button
-
   // clicking left or right decreases or increases marginLeft by 1. This is then translate to marginLeft * 10 %. So 2 = 20%.
   const [marginLeft, setMarginLeft] = useState(0);
 
@@ -43,7 +41,7 @@ const Images = ({
           <ControlledImage imageSrc={image} />
           <div
             className={classes.quickViewButtonWrapper}
-            onClick={() => setActiveImageSrc(image)}
+            onClick={() => setActiveImageSrc(index)}
           >
             {canQuickView && (
               <QuickViewButton setDisplayImage={setDisplayImage} />
@@ -82,17 +80,19 @@ const WheelOfManyImages = ({
   images,
   quickViewImages,
   canQuickView, // canQuickView enables quickView button. If not includes, no button appears. Having this false makes displayImage and activeImageSrc none-active
+
+  // activeImageSrc & setActiveImageSrc are NEEDED to fetch the data which is needed to display information such as price, related images etc.
+  // source for which quick-view-image will be if displayImage is true
+  // if dispalyImage === true, setActiveImageSrc to image and display it
+  activeImageSrc,
+  setActiveImageSrc,
 }) => {
   // boolean if quick-view has been clicked
   // if true, display clicked image
   const [displayImage, setDisplayImage] = useState(false);
 
-  // source for which quick-view-image will be if displayImage is true
-  // if dispalyImage === true, setActiveImageSrc to image and display it
-  const [activeImageSrc, setActiveImageSrc] = useState(null);
-
   useEffect(() => {
-    // if displayImage is true, remove scroll
+    // if displayImage is true, remove scroll from body
     document.body.classList.toggle("body--no-scroll", displayImage);
   }, [displayImage]);
 

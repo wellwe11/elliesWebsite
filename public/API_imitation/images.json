@@ -1,0 +1,452 @@
+[
+  {
+    "data": {
+      "image": "./exampleImages/imageExampleOne.jpg",
+      "bioInfo": {
+        "setTitle": "This is a title for this set",
+        "price": 14.99,
+        "images": [
+          {
+            "src": "./exampleImages/imageExampleOne.jpg",
+            "bio": "This is bio about itemOne"
+          },
+          {
+            "src": "./exampleImages/imageExampleTwo.jpg",
+            "bio": "This is bio about itemTwo"
+          },
+          {
+            "src": "./exampleImages/imageExampleThree.jpg",
+            "bio": "This is bio about itemThree"
+          }
+        ]
+      }
+    },
+    "_embedded": {
+      "quickViewData": {
+        "restImages": [
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg"
+        ],
+        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+    }
+  },
+
+  {
+    "data": {
+      "image": "./exampleImages/imageExampleTwo.jpg",
+      "bioInfo": {
+        "setTitle": "This is a title for this set",
+        "price": 24.99,
+        "images": [
+          {
+            "src": "./exampleImages/imageExampleOne.jpg",
+            "bio": "This is bio about itemOne"
+          },
+          {
+            "src": "./exampleImages/imageExampleTwo.jpg",
+            "bio": "This is bio about itemTwo"
+          },
+          {
+            "src": "./exampleImages/imageExampleThree.jpg",
+            "bio": "This is bio about itemThree"
+          }
+        ]
+      }
+    },
+    "_embedded": {
+      "quickViewData": {
+        "restImages": [
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg"
+        ],
+        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+    }
+  },
+
+  {
+    "data": {
+      "image": "./exampleImages/imageExampleTwo.jpg",
+      "bioInfo": {
+        "setTitle": "This is a title for this set",
+        "price": 19.99,
+        "images": [
+          {
+            "src": "./exampleImages/imageExampleOne.jpg",
+            "bio": "This is bio about itemOne"
+          },
+          {
+            "src": "./exampleImages/imageExampleTwo.jpg",
+            "bio": "This is bio about itemTwo"
+          },
+          {
+            "src": "./exampleImages/imageExampleThree.jpg",
+            "bio": "This is bio about itemThree"
+          }
+        ]
+      }
+    },
+    "_embedded": {
+      "quickViewData": {
+        "restImages": [
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg"
+        ],
+        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+    }
+  },
+
+  {
+    "data": {
+      "image": "./exampleImages/imageExampleThree.jpg",
+      "bioInfo": {
+        "setTitle": "This is a title for this set",
+        "price": 19.99,
+        "images": [
+          {
+            "src": "./exampleImages/imageExampleOne.jpg",
+            "bio": "This is bio about itemOne"
+          },
+          {
+            "src": "./exampleImages/imageExampleTwo.jpg",
+            "bio": "This is bio about itemTwo"
+          },
+          {
+            "src": "./exampleImages/imageExampleThree.jpg",
+            "bio": "This is bio about itemThree"
+          }
+        ]
+      }
+    },
+    "_embedded": {
+      "quickViewData": {
+        "restImages": [
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg"
+        ],
+        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+    }
+  },
+
+  {
+    "data": {
+      "image": "./exampleImages/imageExampleTwo.jpg",
+      "bioInfo": {
+        "setTitle": "This is a title for this set",
+        "price": 24.99,
+        "images": [
+          {
+            "src": "./exampleImages/imageExampleOne.jpg",
+            "bio": "This is bio about itemOne"
+          },
+          {
+            "src": "./exampleImages/imageExampleTwo.jpg",
+            "bio": "This is bio about itemTwo"
+          },
+          {
+            "src": "./exampleImages/imageExampleThree.jpg",
+            "bio": "This is bio about itemThree"
+          }
+        ]
+      }
+    },
+    "_embedded": {
+      "quickViewData": {
+        "restImages": [
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg"
+        ],
+        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+    }
+  },
+
+  {
+    "data": {
+      "image": "./exampleImages/imageExampleThree.jpg",
+      "bioInfo": {
+        "setTitle": "This is a title for this set",
+        "price": 14.99,
+        "images": [
+          {
+            "src": "./exampleImages/imageExampleOne.jpg",
+            "bio": "This is bio about itemOne"
+          },
+          {
+            "src": "./exampleImages/imageExampleTwo.jpg",
+            "bio": "This is bio about itemTwo"
+          },
+          {
+            "src": "./exampleImages/imageExampleThree.jpg",
+            "bio": "This is bio about itemThree"
+          }
+        ]
+      }
+    },
+    "_embedded": {
+      "quickViewData": {
+        "restImages": [
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg"
+        ],
+        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+    }
+  },
+
+  {
+    "data": {
+      "image": "./exampleImages/imageExampleOne.jpg",
+      "bioInfo": {
+        "setTitle": "This is a title for this set",
+        "price": 19.99,
+        "images": [
+          {
+            "src": "./exampleImages/imageExampleOne.jpg",
+            "bio": "This is bio about itemOne"
+          },
+          {
+            "src": "./exampleImages/imageExampleTwo.jpg",
+            "bio": "This is bio about itemTwo"
+          },
+          {
+            "src": "./exampleImages/imageExampleThree.jpg",
+            "bio": "This is bio about itemThree"
+          }
+        ]
+      }
+    },
+    "_embedded": {
+      "quickViewData": {
+        "restImages": [
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg"
+        ],
+        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+    }
+  },
+
+  {
+    "data": {
+      "image": "./exampleImages/imageExampleThree.jpg",
+      "bioInfo": {
+        "setTitle": "This is a title for this set",
+        "price": 24.99,
+        "images": [
+          {
+            "src": "./exampleImages/imageExampleOne.jpg",
+            "bio": "This is bio about itemOne"
+          },
+          {
+            "src": "./exampleImages/imageExampleTwo.jpg",
+            "bio": "This is bio about itemTwo"
+          },
+          {
+            "src": "./exampleImages/imageExampleThree.jpg",
+            "bio": "This is bio about itemThree"
+          }
+        ]
+      }
+    },
+    "_embedded": {
+      "quickViewData": {
+        "restImages": [
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg"
+        ],
+        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+    }
+  },
+
+  {
+    "data": {
+      "image": "./exampleImages/imageExampleOne.jpg",
+      "bioInfo": {
+        "setTitle": "This is a title for this set",
+        "price": 19.99,
+        "images": [
+          {
+            "src": "./exampleImages/imageExampleOne.jpg",
+            "bio": "This is bio about itemOne"
+          },
+          {
+            "src": "./exampleImages/imageExampleTwo.jpg",
+            "bio": "This is bio about itemTwo"
+          },
+          {
+            "src": "./exampleImages/imageExampleThree.jpg",
+            "bio": "This is bio about itemThree"
+          }
+        ]
+      }
+    },
+    "_embedded": {
+      "quickViewData": {
+        "restImages": [
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg"
+        ],
+        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+    }
+  },
+
+  {
+    "data": {
+      "image": "./exampleImages/imageExampleTwo.jpg",
+      "bioInfo": {
+        "setTitle": "This is a title for this set",
+        "price": 14.99,
+        "images": [
+          {
+            "src": "./exampleImages/imageExampleOne.jpg",
+            "bio": "This is bio about itemOne"
+          },
+          {
+            "src": "./exampleImages/imageExampleTwo.jpg",
+            "bio": "This is bio about itemTwo"
+          },
+          {
+            "src": "./exampleImages/imageExampleThree.jpg",
+            "bio": "This is bio about itemThree"
+          }
+        ]
+      }
+    },
+    "_embedded": {
+      "quickViewData": {
+        "restImages": [
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg"
+        ],
+        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+    }
+  },
+
+  {
+    "data": {
+      "image": "./exampleImages/imageExampleTwo.jpg",
+      "bioInfo": {
+        "setTitle": "This is a title for this set",
+        "price": 19.99,
+        "images": [
+          {
+            "src": "./exampleImages/imageExampleOne.jpg",
+            "bio": "This is bio about itemOne"
+          },
+          {
+            "src": "./exampleImages/imageExampleTwo.jpg",
+            "bio": "This is bio about itemTwo"
+          },
+          {
+            "src": "./exampleImages/imageExampleThree.jpg",
+            "bio": "This is bio about itemThree"
+          }
+        ]
+      }
+    },
+    "_embedded": {
+      "quickViewData": {
+        "restImages": [
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg",
+          "@assets/exampleImages/imageExampleOne.jpg",
+          "@assets/exampleImages/imageExampleThree.jpg",
+          "@assets/exampleImages/imageExampleTwo.jpg"
+        ],
+        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+    }
+  }
+]

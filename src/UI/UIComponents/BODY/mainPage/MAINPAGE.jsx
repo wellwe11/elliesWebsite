@@ -42,129 +42,6 @@ const quickViewImages = [
   imageThree,
 ];
 
-// temporary object for quickView
-const quickViewObjects = [
-  {
-    // information which is displayed on the front-page
-    genericData: {
-      image: imageOne,
-      bioInfo: {
-        setTitle: "This is a title for this set",
-        price: 19.99,
-        images: [
-          {
-            src: imageOne,
-            bio: "This is bio about itemOne",
-          },
-          {
-            src: imageTwo,
-            bio: "This is bio about itemTwo",
-          },
-          {
-            src: imageThree,
-            bio: "This is bio about itemThree",
-          },
-        ],
-      },
-    },
-
-    // embedded information which will be accessed once a specified request is make. I.e. uniqueImage-page is displayed. Fetch additional data
-    _embedded: {
-      // data fetched when you visit a collection
-      uniqueImageData: {
-        title: ["Hello one", "Hello two"],
-        bio: {
-          title: "This is the title for uniqueImage bio",
-          bio: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.",
-        },
-        details: {
-          colors: ["Red", "Blue", "White"],
-          eight: 35,
-          width: 20,
-          type: "Print or painting - will update",
-          amount: 3,
-        },
-      },
-
-      // quickView data which is accessible on front-page to view smaller amounts of information
-      quickViewData: {
-        restImages: [
-          imageTwo,
-          imageThree,
-          imageOne,
-          imageTwo,
-          imageThree,
-          imageOne,
-          imageTwo,
-          imageThree,
-        ],
-        setDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      },
-    },
-  },
-
-  {
-    // information which is displayed on the front-page
-    genericData: {
-      image: imageOne,
-      bioInfo: {
-        setTitle: "This is a title for this set",
-        price: 19.99,
-        images: [
-          {
-            src: imageOne,
-            bio: "This is bio about itemOne",
-          },
-          {
-            src: imageTwo,
-            bio: "This is bio about itemTwo",
-          },
-          {
-            src: imageThree,
-            bio: "This is bio about itemThree",
-          },
-        ],
-      },
-    },
-
-    // embedded information which will be accessed once a specified request is make. I.e. uniqueImage-page is displayed. Fetch additional data
-    _embedded: {
-      // data fetched when you visit a collection
-      uniqueImageData: {
-        title: ["Hello one", "Hello two"],
-        bio: {
-          title: "This is the title for uniqueImage bio",
-          bio: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.",
-        },
-        details: {
-          colors: ["Red", "Blue", "White"],
-          eight: 35,
-          width: 20,
-          type: "Print or painting - will update",
-          amount: 3,
-        },
-      },
-
-      // quickView data which is accessible on front-page to view smaller amounts of information
-      quickViewData: {
-        restImages: [
-          imageTwo,
-          imageThree,
-          imageOne,
-          imageTwo,
-          imageThree,
-          imageOne,
-          imageTwo,
-          imageThree,
-        ],
-        setDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      },
-    },
-  },
-];
-
 // placeholder texts for image-information
 const texts = [
   "this is text one",
@@ -213,39 +90,37 @@ const categories = {
   },
 };
 
-// placeholder images for now
-const wheelImages = [
-  imageTwo,
-  imageThree,
-  imageOne,
-  imageTwo,
-  imageThree,
-  imageOne,
-  imageThree,
-  imageOne,
-  imageTwo,
-  imageThree,
-  imageThree,
-  imageOne,
-  imageTwo,
-  imageOne,
-  imageTwo,
-];
+// fetch dynamic data
+const imitationFetchGenericData = async () => {
+  try {
+    const response = await fetch("/API_imitation/images.json");
 
-const PrintsSection = () => {
-  // set of images and their sources
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const result = await response.json();
+
+    return result;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
+// wrapper that contains all top-level data for prints
+const PrintsSection = ({ data }) => {
+  // set of images and their sources (this is for the 3-set images which have rolling-text)
   const [printImagesSrc, setPrintImagesSrc] = useState(null);
   // corresponding texts to each image
   const [printImagesText, setPrintImagesText] = useState(null);
 
-  // Generic data fetched
-  const printsData = quickViewObjects.map((obj) => obj?.genericData);
-
   // automated data which finds last image. This is because front-page should represent the most recently added collection, to keep it 'fresh' and nicely updated
-  const mostRecentlyAddedSet = printsData[printsData.length - 1];
+  const mostRecentlyAddedSet = data[data.length - 1];
 
   // sets title
   const setTitle = mostRecentlyAddedSet.bioInfo.setTitle;
+
+  const wheelImages = data.map((obj) => obj.image);
 
   useEffect(() => {
     const sources = [];
@@ -262,13 +137,12 @@ const PrintsSection = () => {
     setPrintImagesText(bios);
   }, []);
 
-  if (printImagesSrc && setPrintImagesSrc) {
+  if (printImagesSrc && printImagesText) {
     return (
       <section>
         <Prints
-          wheelImages={wheelImages}
           images={printImagesSrc}
-          quickViewImages={quickViewImages}
+          wheelImages={wheelImages}
           texts={printImagesText}
           textBioTitle={setTitle}
         />
@@ -279,6 +153,18 @@ const PrintsSection = () => {
 
 const MainPage = () => {
   const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
+
+  const [topLayerData, setTopLayerData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await imitationFetchGenericData();
+      if (data) {
+        setTopLayerData(data);
+      }
+    };
+    fetchData();
+  }, []);
 
   // Welcoming image and small animation
   const topSection = (
@@ -313,12 +199,12 @@ const MainPage = () => {
   // Example-images of paintings
   const paintingsSection = (
     <section>
-      <Paintings
+      {/* <Paintings
         wheelImages={wheelImages}
         images={paintings}
         quickViewImages={quickViewImages}
         texts={texts}
-      />
+      /> */}
     </section>
   );
 
@@ -336,24 +222,26 @@ const MainPage = () => {
     </div>
   );
 
-  return (
-    <div>
-      {topSection}
-      {sectionSeperatorWithNoImage}
+  if (topLayerData) {
+    return (
+      <div>
+        {topSection}
+        {sectionSeperatorWithNoImage}
 
-      {categoriesSection}
-      {sectionSeperatorWithImage}
+        {categoriesSection}
+        {sectionSeperatorWithImage}
 
-      <PrintsSection />
-      {sectionSeperatorWithImage}
+        <PrintsSection data={topLayerData} />
+        {sectionSeperatorWithImage}
 
-      {servicesSection}
-      {sectionSeperatorWithImage}
+        {servicesSection}
+        {sectionSeperatorWithImage}
 
-      {paintingsSection}
-      {sectionSeperatorWithImage}
-    </div>
-  );
+        {paintingsSection}
+        {sectionSeperatorWithImage}
+      </div>
+    );
+  }
 };
 
 export default MainPage;

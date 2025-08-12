@@ -133,7 +133,7 @@ const QuickViewInfo = ({
 // Element containing product-image and product-info
 const QuickViewImage = ({
   activeImageSrc,
-  setActiveImageSrc,
+  setActiveImageSrc, // so smaller images on info-side can change activeImageSrc
   quickViewImages,
 }) => {
   // currentActiveImage is the image which you initially clicked on quickView. It can be changed by clicking then related images (set of smaller images displayed in quickViewInfo)
