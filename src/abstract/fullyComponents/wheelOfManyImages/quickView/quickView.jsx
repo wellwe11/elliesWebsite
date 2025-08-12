@@ -1,23 +1,7 @@
 import classes from "./quickView.module.scss";
 import { useState } from "react";
 
-import exampleImage from "@assets/exampleImages/imageExampleThree.jpg";
-import exampleImageTwo from "@assets/exampleImages/imageExampleTwo.jpg";
-import exampleImageThree from "@assets/exampleImages/imageExampleOne.jpg";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
-
-// currently a set of example-images
-const exampleImages = [
-  exampleImageTwo,
-  exampleImageTwo,
-  exampleImageThree,
-  exampleImageTwo,
-  exampleImage,
-  exampleImageThree,
-  exampleImage,
-  exampleImageTwo,
-  exampleImage,
-];
 
 // If you want to view the actual product, this button takes you to a new page which contains further information and such
 const ViewProductButton = () => {
@@ -86,7 +70,7 @@ const ProductDescription = () => {
 const QuickViewInfo = ({
   title = "Title",
   price = 20,
-  productImages = exampleImages,
+  productImages,
   setActiveImageSrc,
 }) => {
   // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
@@ -147,7 +131,11 @@ const QuickViewInfo = ({
 };
 
 // Element containing product-image and product-info
-const QuickViewImage = ({ activeImageSrc, setActiveImageSrc }) => {
+const QuickViewImage = ({
+  activeImageSrc,
+  setActiveImageSrc,
+  quickViewImages,
+}) => {
   // currentActiveImage is the image which you initially clicked on quickView. It can be changed by clicking then related images (set of smaller images displayed in quickViewInfo)
   const currentActiveImage = (
     <div className={classes.activeImageWrapper}>
@@ -158,7 +146,10 @@ const QuickViewImage = ({ activeImageSrc, setActiveImageSrc }) => {
   return (
     <div className={classes.quickViewImageContainer}>
       {currentActiveImage}
-      <QuickViewInfo setActiveImageSrc={setActiveImageSrc} />
+      <QuickViewInfo
+        setActiveImageSrc={setActiveImageSrc}
+        productImages={quickViewImages}
+      />
     </div>
   );
 };
@@ -169,6 +160,7 @@ export const QuickViewImageContainer = ({
   setDisplayImage,
   activeImageSrc,
   setActiveImageSrc,
+  quickViewImages,
 }) => {
   // white background-image that differs pop-up from the rest of the website
   const WhiteBackgroundPopUp = (
@@ -189,6 +181,7 @@ export const QuickViewImageContainer = ({
       <QuickViewImage
         activeImageSrc={activeImageSrc}
         setActiveImageSrc={setActiveImageSrc}
+        quickViewImages={quickViewImages}
       />
     </div>
   );

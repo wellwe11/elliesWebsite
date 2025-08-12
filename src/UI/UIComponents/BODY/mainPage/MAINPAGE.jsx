@@ -24,18 +24,146 @@ import exampleImageTwo from "@assets/frontPageMainImages/mainImageTwo.png";
 import exampleImageThree from "@assets/frontPageMainImages/mainImageThree.png";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
-
-// for prints-section
-const prints = [imageOne, imageTwo, imageThree];
+import { useEffect, useState } from "react";
 
 // for paintings-section
-const paintings = {
-  Paintings: {
-    imageOne: imageTwo,
-    imageTwo: imageThree,
-    imageThree: imageOne,
+const paintings = [imageOne, imageTwo, imageThree];
+
+// temporary quick-view images for prints & paintings
+const quickViewImages = [
+  imageOne,
+  imageTwo,
+  imageThree,
+  imageOne,
+  imageTwo,
+  imageThree,
+  imageOne,
+  imageTwo,
+  imageThree,
+];
+
+// temporary object for quickView
+const quickViewObjects = [
+  {
+    // information which is displayed on the front-page
+    genericData: {
+      image: imageOne,
+      bioInfo: {
+        setTitle: "This is a title for this set",
+        price: 19.99,
+        images: [
+          {
+            src: imageOne,
+            bio: "This is bio about itemOne",
+          },
+          {
+            src: imageTwo,
+            bio: "This is bio about itemTwo",
+          },
+          {
+            src: imageThree,
+            bio: "This is bio about itemThree",
+          },
+        ],
+      },
+    },
+
+    // embedded information which will be accessed once a specified request is make. I.e. uniqueImage-page is displayed. Fetch additional data
+    _embedded: {
+      // data fetched when you visit a collection
+      uniqueImageData: {
+        title: ["Hello one", "Hello two"],
+        bio: {
+          title: "This is the title for uniqueImage bio",
+          bio: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.",
+        },
+        details: {
+          colors: ["Red", "Blue", "White"],
+          eight: 35,
+          width: 20,
+          type: "Print or painting - will update",
+          amount: 3,
+        },
+      },
+
+      // quickView data which is accessible on front-page to view smaller amounts of information
+      quickViewData: {
+        restImages: [
+          imageTwo,
+          imageThree,
+          imageOne,
+          imageTwo,
+          imageThree,
+          imageOne,
+          imageTwo,
+          imageThree,
+        ],
+        setDescription:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      },
+    },
   },
-};
+
+  {
+    // information which is displayed on the front-page
+    genericData: {
+      image: imageOne,
+      bioInfo: {
+        setTitle: "This is a title for this set",
+        price: 19.99,
+        images: [
+          {
+            src: imageOne,
+            bio: "This is bio about itemOne",
+          },
+          {
+            src: imageTwo,
+            bio: "This is bio about itemTwo",
+          },
+          {
+            src: imageThree,
+            bio: "This is bio about itemThree",
+          },
+        ],
+      },
+    },
+
+    // embedded information which will be accessed once a specified request is make. I.e. uniqueImage-page is displayed. Fetch additional data
+    _embedded: {
+      // data fetched when you visit a collection
+      uniqueImageData: {
+        title: ["Hello one", "Hello two"],
+        bio: {
+          title: "This is the title for uniqueImage bio",
+          bio: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.",
+        },
+        details: {
+          colors: ["Red", "Blue", "White"],
+          eight: 35,
+          width: 20,
+          type: "Print or painting - will update",
+          amount: 3,
+        },
+      },
+
+      // quickView data which is accessible on front-page to view smaller amounts of information
+      quickViewData: {
+        restImages: [
+          imageTwo,
+          imageThree,
+          imageOne,
+          imageTwo,
+          imageThree,
+          imageOne,
+          imageTwo,
+          imageThree,
+        ],
+        setDescription:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      },
+    },
+  },
+];
 
 // placeholder texts for image-information
 const texts = [
@@ -104,6 +232,51 @@ const wheelImages = [
   imageTwo,
 ];
 
+const PrintsSection = () => {
+  // set of images and their sources
+  const [printImagesSrc, setPrintImagesSrc] = useState(null);
+  // corresponding texts to each image
+  const [printImagesText, setPrintImagesText] = useState(null);
+
+  // Generic data fetched
+  const printsData = quickViewObjects.map((obj) => obj?.genericData);
+
+  // automated data which finds last image. This is because front-page should represent the most recently added collection, to keep it 'fresh' and nicely updated
+  const mostRecentlyAddedSet = printsData[printsData.length - 1];
+
+  // sets title
+  const setTitle = mostRecentlyAddedSet.bioInfo.setTitle;
+
+  useEffect(() => {
+    const sources = [];
+    const bios = [];
+
+    // images, their source and related text
+    const printsImages = mostRecentlyAddedSet.bioInfo.images;
+    printsImages.forEach((image) => {
+      sources.push(image.src);
+      bios.push(image.bio);
+    });
+
+    setPrintImagesSrc(sources);
+    setPrintImagesText(bios);
+  }, []);
+
+  if (printImagesSrc && setPrintImagesSrc) {
+    return (
+      <section>
+        <Prints
+          wheelImages={wheelImages}
+          images={printImagesSrc}
+          quickViewImages={quickViewImages}
+          texts={printImagesText}
+          textBioTitle={setTitle}
+        />
+      </section>
+    );
+  }
+};
+
 const MainPage = () => {
   const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
@@ -124,13 +297,6 @@ const MainPage = () => {
     </section>
   );
 
-  // Example-images of prints
-  const printsSection = (
-    <section>
-      <Prints wheelImages={wheelImages} images={prints} texts={texts} />
-    </section>
-  );
-
   // Realistic image containing different colletions of images to "ikea-style" display them
   const servicesSection = (
     <section>
@@ -147,7 +313,12 @@ const MainPage = () => {
   // Example-images of paintings
   const paintingsSection = (
     <section>
-      <Paintings images={paintings} texts={texts} />
+      <Paintings
+        wheelImages={wheelImages}
+        images={paintings}
+        quickViewImages={quickViewImages}
+        texts={texts}
+      />
     </section>
   );
 
@@ -173,7 +344,7 @@ const MainPage = () => {
       {categoriesSection}
       {sectionSeperatorWithImage}
 
-      {printsSection}
+      <PrintsSection />
       {sectionSeperatorWithImage}
 
       {servicesSection}

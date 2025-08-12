@@ -1,21 +1,31 @@
 // setOfImagesWithText
 .setOfImagesWithText {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   // imagesMap
   .imagesContainer {
     cursor: pointer;
 
+    height: 90%;
     width: 100%;
+    overflow: hidden;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    padding-left: 2px;
-    padding-right: 2px;
-
     .imageWrapper {
-      width: 30%;
     }
+  }
+
+  .imagesTextWrapper {
+    height: 10%;
+    min-height: 50px;
   }
 
   // bioTitle
@@ -28,9 +38,5 @@
     position: relative;
     height: 50%;
     overflow: hidden;
-  }
-
-  .imagesTextWrapper {
-    height: 50px;
   }
 }

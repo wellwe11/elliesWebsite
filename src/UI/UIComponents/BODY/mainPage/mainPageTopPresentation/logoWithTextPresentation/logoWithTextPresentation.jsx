@@ -1,9 +1,9 @@
 import classes from "./logoWithTextPresentation.module.scss";
 
 import welcomeImageOne from "@assets/welcomeImageOne.jpg";
-import logoImage from "@assets/logo.png";
 
 const LogoWithTextPresentation = ({ images }) => {
+  // small animated circles that pop up on page-load
   const MappedCircleImages = images.map((image, index) => (
     <img
       key={index}
@@ -12,12 +12,13 @@ const LogoWithTextPresentation = ({ images }) => {
     />
   ));
 
+  // Title that is displayed together with mappedCircleImages
+  const logoTitle = <h1>elisabeth chloé</h1>;
+
   return (
     <div className={classes.LogoWithTextPresentation}>
       <div className={classes.imagesWrapper}>{MappedCircleImages}</div>
-      <div className={classes.title}>
-        <h1>elisabeth chloé</h1>
-      </div>
+      <div className={classes.title}>{logoTitle}</div>
     </div>
   );
 };

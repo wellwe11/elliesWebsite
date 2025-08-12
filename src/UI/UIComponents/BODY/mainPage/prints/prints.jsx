@@ -5,8 +5,18 @@ import SectionSeperationImage from "@components/sectionSeperationImage/sectionSe
 import WheelOfManyImages from "@fullyComponents/wheelOfManyImages/wheelOfManyImages";
 import ExploreNewIn from "@fullyComponents/exploreNewIn/exploreNewIn";
 import SetOfimagesWithText from "@fullyComponents/SetOfImagesWithText/setOfImagesWithText";
+import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 
-const Prints = ({ wheelImages, images, texts }) => {
+const Prints = ({
+  wheelImages,
+  images,
+  quickViewImages,
+  texts,
+  textBioTitle,
+}) => {
+  // if user clicks on any image, will navigate to collection
+  const navigate = handleNavigateSmooth();
+
   // Title for section of prints
   const titleWrapper = (
     <div className={classes.titleWrapper}>
@@ -16,11 +26,14 @@ const Prints = ({ wheelImages, images, texts }) => {
 
   // Example section of a collection of prints
   const setOfExampleCollectionSection = (
-    <section className={classes.exampleCollectionSection}>
+    <section
+      className={classes.exampleCollectionSection}
+      onClick={() => navigate("/uniqueImage")}
+    >
       <SetOfimagesWithText
         images={images}
         texts={texts}
-        textBioTitle="This is a placeholder for images in prints"
+        textBioTitle={textBioTitle || "Please insert a title"}
       />
     </section>
   );
@@ -31,7 +44,11 @@ const Prints = ({ wheelImages, images, texts }) => {
       <div>
         <h1>{"Placeholder title"}</h1>
       </div>
-      <WheelOfManyImages images={wheelImages} canQuickView={true} />
+      <WheelOfManyImages
+        images={wheelImages}
+        quickViewImages={quickViewImages}
+        canQuickView={true}
+      />
     </section>
   );
 

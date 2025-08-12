@@ -74,9 +74,13 @@ const UniqueInfoSection = ({ images, textInfo }) => {
   const bioRef = useRef(null);
 
   useEffect(() => {
-    transitionInAnimation(imageRef, classes.intersectingImage);
-    transitionInAnimation(smallerImagesRef, classes.intersectingSmallerImages);
-    transitionInAnimation(bioRef, classes.intersectingSmallerImages);
+    transitionInAnimation(imageRef, classes.intersectingImage, true);
+    transitionInAnimation(
+      smallerImagesRef,
+      classes.intersectingSmallerImages,
+      true
+    );
+    transitionInAnimation(bioRef, classes.intersectingSmallerImages, true);
   }, []);
 
   const leftSectionWrapper = (

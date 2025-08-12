@@ -1,6 +1,5 @@
 import { useState } from "react";
 import classes from "./setOfImagesWithText.module.scss";
-import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 import ControlledImage from "@components/controlledImage/controlledImage";
 import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
 
@@ -12,19 +11,15 @@ const SetOfimagesWithText = ({
   // changes scrolling text (imagesTexts) below imagesContainer
   const [activeImage, setActiveImage] = useState(0);
 
-  const navigate = handleNavigateSmooth();
-
-  // Mapped images which are a set of 3 images, part of the same collection. Is displayed on front-page
+  // Mapped images which are a set of an object in most cases, part of the same collection. Is displayed on front-page
   const imagesMap = (
-    <div
-      className={classes.imagesContainer}
-      onClick={() => navigate("/uniqueImage")}
-    >
+    <div className={classes.imagesContainer}>
       {images.map((image, index) => (
         <div
           key={index}
           className={classes.imageWrapper}
           onMouseEnter={() => setActiveImage(index)}
+          style={{ width: `calc(${100 / images.length - 3}%)` }}
         >
           <ControlledImage
             imageSrc={image}

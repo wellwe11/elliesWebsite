@@ -5,43 +5,23 @@
   .sectionSeperationImage {
     height: 50px;
   }
-}
 
-.titleContainer {
   .titleWrapper {
     .title {
     }
   }
-}
 
-.imagesTextContainer {
-  height: 50px;
-
-  .imagesTextWrapper {
-    height: 100%;
-
-    .textBioTitle {
-      height: 50%;
-    }
-
-    .textBioBio {
-      position: relative;
-      height: 50%;
-      overflow: hidden;
-    }
+  .exampleCollectionSection {
+    height: 500px;
+    overflow: hidden;
   }
-}
 
-.imagesContainer {
-  cursor: pointer;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding-left: 2px;
-  padding-right: 2px;
+  .wheelImagesSection {
+  }
 
-  .imageWrapper {
-    width: 30%;
-    height: 100%;
+  .exploreNewInSection {
+  }
+
+  .sectionSeperationImage {
   }
 }

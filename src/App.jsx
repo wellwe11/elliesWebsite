@@ -37,6 +37,11 @@ export default App;
  * Each MAIN-COMPONENT (Example: BODY is main-component) contains a set of sub-components, which are sections.
  * Each main-component has all imported information. That information is then passed down to children as props
  * Each sub-component then contains the 'main-information' which is passed down to then. Each sub-component is then split, where each child-component handles their own logic such as Object.keys/values, mapping, etc.
+ * ALL DATA is rendered on top-layer. This is for two reasons:
+ ** Fetching outside components
+ * If data is wrapped inside of a component: React works like so that it first renders the component with all of it's initial information, then re-renders if anything is updated. If data is fetched inside of component, it will intially run with data set to null/undefined. If we render data outside of component, prior to it being built, and simply pass it as promps, we avoid the intial render where no data is rendered.
+ ** One control-panel
+ * Having one place where data is managed and 'played' with simplifies the process of creating abstract components which simply takes promps, and localizes data to fewer files. Like so, errors are more isolated and easier to manage. Logic is also seperated, creating a cleaner and more precise working-environment
  *
  ** ABSTRACT/components
  * Contains NO LOGIC OR INFORMATION.

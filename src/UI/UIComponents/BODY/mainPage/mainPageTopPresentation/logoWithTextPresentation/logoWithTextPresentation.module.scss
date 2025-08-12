@@ -1,5 +1,4 @@
 .LogoWithTextPresentation {
-  width: 25%;
   min-width: 320px;
 
   height: 7vw;
@@ -11,15 +10,20 @@
 
   .imagesWrapper {
     width: 35%;
+    min-width: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
   .title {
+    width: 100%;
+    text-wrap: nowrap;
+
+    padding-left: 10px;
     h1 {
-      font-family: "Mrs Saint Delafield", cursive;
-      font-size: clamp(30px, 5vw, 50px);
+      font-family: "Mrs Saint Delafield", cursive, Arial, sans-serif;
+      font-size: clamp(30px, 5vw, 40px);
 
       animation: fadeInText 1s ease forwards 1s;
       opacity: 0;
@@ -64,12 +68,12 @@
 }
 
 @keyframes fadeInText {
-  from {
+  0% {
     transform: translateX(5px);
     opacity: 0;
   }
 
-  to {
+  100% {
     transform: translateX(0px);
     opacity: 1;
   }

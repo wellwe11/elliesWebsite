@@ -1,98 +1,88 @@
 import classes from "./paintings.module.scss";
-import { useEffect, useRef, useState } from "react";
 
-import ControlledImage from "@components/controlledImage/controlledImage";
-import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
-import handleNavigateSmooth from "@functions/handleNavigateSmooth";
-import transitionInAnimation from "@functions/transitionAnimation";
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 
 import WheelOfManyImages from "@fullyComponents/wheelOfManyImages/wheelOfManyImages";
+import ExploreNewIn from "@fullyComponents/exploreNewIn/exploreNewIn";
+import SetOfimagesWithText from "@fullyComponents/SetOfImagesWithText/setOfImagesWithText";
+import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 
-const Title = ({ title = "Paintings" }) => {
-  const titleWrapper = (
-    <div className={classes.titleWrapper}>
-      <h1 className={classes.title}>{title}</h1>
-    </div>
-  );
-
-  return <div className={classes.titleContainer}>{titleWrapper}</div>;
-};
-
-const ImagesTexts = ({
-  texts,
-  textBioTitle = "Currently just a placeholder text",
-  activeImage,
-}) => {
-  // The collection of paintings will have a title/name to describe them
-  const imagesTitle = <h3 className={classes.textBioTitle}>{textBioTitle}</h3>;
-
-  // paintings will have a quick bio about each image which changes depending on what image you hover
-  const scrollingImagesText = (
-    <p className={classes.textBioBio}>
-      <TextThatCorrespondsToActiveImage
-        texts={texts}
-        activeImage={activeImage}
-      />
-    </p>
-  );
-
+// section to view many different collections (1 image per collection) which is clickable
+const WheelImagesSection = ({ wheelImages, quickViewImages }) => {
   return (
-    <div className={classes.imagesTextContainer}>
-      <div className={classes.imagesTextWrapper}>
-        {imagesTitle}
-        {scrollingImagesText}
+    <section className={classes.wheelImagesSection}>
+      <div>
+        <h1>{"Placeholder title"}</h1>
       </div>
-    </div>
+      <WheelOfManyImages
+        images={wheelImages}
+        quickViewImages={quickViewImages}
+        canQuickView={true}
+      />
+    </section>
   );
 };
 
-const ImagesContainer = ({ images, setActiveImage }) => {
-  const currentSection = Object.entries(images);
-  const imagesMap = Object.values(images[currentSection[0][0]]);
-  const imageRef = useRef(null);
-
+const Paintings = ({
+  wheelImages,
+  images,
+  quickViewImages,
+  texts,
+  textBioTitle,
+}) => {
+  // if user clicks on any image, will navigate to collection
   const navigate = handleNavigateSmooth();
 
-  useEffect(() => {
-    transitionInAnimation(imageRef, "someclass", true);
-  }, [imageRef]);
-
-  const mappedImages = imagesMap.map((image, index) => (
-    <div
-      key={index}
-      className={classes.imageWrapper}
-      onMouseEnter={() => setActiveImage(index)}
-    >
-      <ControlledImage imageSrc={image} imageAlt={`Print product ${index}`} />
-    </div>
-  ));
-
-  return (
-    <div
-      className={classes.imagesContainer}
-      onClick={() => navigate("/uniqueImage")}
-      ref={imageRef}
-    >
-      {mappedImages}
+  // Title for section of prints
+  const titleWrapper = (
+    <div className={classes.titleWrapper}>
+      <h1 className={classes.title}>Paintings</h1>
     </div>
   );
-};
 
-const Paintings = ({ wheelImages, images, texts }) => {
-  const [activeImage, setActiveImage] = useState(0);
+  // Example section of a collection of prints
+  const setOfExampleCollectionSection = (
+    <section
+      className={classes.exampleCollectionSection}
+      onClick={() => navigate("/uniqueImage")}
+    >
+      <SetOfimagesWithText
+        images={images}
+        texts={texts}
+        textBioTitle={textBioTitle || "Please insert a title"}
+      />
+    </section>
+  );
+
+  // section containing most recently added print together with some text
+  const exploreNewInSection = (
+    <section className={classes.exploreNewInSection}>
+      <ExploreNewIn />
+    </section>
+  );
+
+  // adds space between sections
+  const sectionSeperationImage = (
+    <div className={classes.sectionSeperationImage}>
+      <SectionSeperationImage />
+    </div>
+  );
 
   return (
     <div className={classes.paintings}>
-      <Title />
-      <ImagesContainer images={images} setActiveImage={setActiveImage} />
-      <ImagesTexts texts={texts} activeImage={activeImage} />
+      {titleWrapper}
 
-      <div className={classes.sectionSeperationImage}>
-        <SectionSeperationImage />
-      </div>
+      {setOfExampleCollectionSection}
+      {sectionSeperationImage}
 
-      <WheelOfManyImages images={wheelImages} canQuickView={true} />
+      <WheelImagesSection
+        wheelImages={wheelImages}
+        quickViewImages={quickViewImages}
+      />
+      {sectionSeperationImage}
+
+      {/* Currently contains nothing except small text */}
+      {exploreNewInSection}
     </div>
   );
 };
