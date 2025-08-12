@@ -9,38 +9,26 @@ import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 import { useEffect, useState } from "react";
 
 // section to view many different collections (1 image per collection) which is clickable
-const WheelImagesSection = ({ wheelImages }) => {
+const WheelImagesSection = ({ data }) => {
   // If quickView is clicked (to display info about image), activeImageSrc is data fetched for that specific item
   const [activeImageSrc, setActiveImageSrc] = useState(null);
-  const [quickViewImages, setQuickViewImages] = useState(null);
+
+  const [activeQuickViewData, setActiveQuickViewData] = useState(null);
+
+  const embeddedData = data.map((obj) => obj._embedded);
+
+  // mapped objects using their 'representive-image'
+  const wheelImages = data.map((obj) => obj.image);
 
   useEffect(() => {
-    if (!activeImageSrc) setQuickViewImages(null);
-
-    const fetchImages = async () => {
-      try {
-        const response = await fetch("/API_imitation/images.json");
-
-        if (!response.ok) {
-          throw new Error(`Reponse status ${response.status}`);
-        }
-
-        const result = await response.json();
-
-        console.log(result);
-
-        const imageSources = result.map((obj) => obj.image);
-
-        setQuickViewImages(imageSources);
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
-
-    fetchImages();
+    if (!activeImageSrc) {
+      setActiveQuickViewData(null);
+    } else {
+      setActiveQuickViewData(embeddedData[activeImageSrc]);
+    }
   }, [activeImageSrc]);
 
-  console.log(activeImageSrc);
+  console.log(activeQuickViewData);
 
   return (
     <section className={classes.wheelImagesSection}>
@@ -49,22 +37,48 @@ const WheelImagesSection = ({ wheelImages }) => {
       </div>
       <WheelOfManyImages
         images={wheelImages}
-        quickViewImages={quickViewImages}
-        canQuickView={true}
         activeImageSrc={activeImageSrc}
         setActiveImageSrc={setActiveImageSrc}
+        canQuickView={true}
+        quickViewImages={activeQuickViewData?.restImages}
+        quickViewTitle={"some title"}
+        quickViewPrice={activeQuickViewData?.price}
+        quickViewBio={activeQuickViewData?.setDescription}
       />
     </section>
   );
 };
 
-const Prints = ({
-  wheelImages,
-  images,
-  quickViewImages,
-  texts,
-  textBioTitle,
-}) => {
+const Prints = ({ data }) => {
+  // set of images and their sources (this is for the 3-set images which have rolling-text)
+  const [printImagesSrc, setPrintImagesSrc] = useState(null);
+  // corresponding texts to each image
+  const [printImagesText, setPrintImagesText] = useState(null);
+
+  // automated data which finds last image. This is because front-page should represent the most recently added collection, to keep it 'fresh' and nicely updated
+  const mostRecentlyAddedSet = data[data.length - 1];
+
+  // sets title
+  const textBioTitle = mostRecentlyAddedSet.bioInfo.setTitle;
+
+  useEffect(() => {
+    if (!mostRecentlyAddedSet) return;
+
+    const sources = [];
+    const bios = [];
+
+    // images, their source and related text
+    const printsImages = mostRecentlyAddedSet.bioInfo.images;
+
+    printsImages.forEach((image) => {
+      sources.push(image.src);
+      bios.push(image.bio);
+    });
+
+    setPrintImagesSrc(sources);
+    setPrintImagesText(bios);
+  }, [data]);
+
   // if user clicks on any image, will navigate to collection
   const navigate = handleNavigateSmooth();
 
@@ -82,8 +96,8 @@ const Prints = ({
       onClick={() => navigate("/uniqueImage")}
     >
       <SetOfimagesWithText
-        images={images}
-        texts={texts}
+        images={printImagesSrc}
+        texts={printImagesText}
         textBioTitle={textBioTitle || "Please insert a title"}
       />
     </section>
@@ -103,23 +117,23 @@ const Prints = ({
     </div>
   );
 
-  return (
-    <div className={classes.prints}>
-      {titleWrapper}
+  if (printImagesSrc && printImagesText) {
+    return (
+      <div className={classes.prints}>
+        {titleWrapper}
 
-      {setOfExampleCollectionSection}
-      {sectionSeperationImage}
+        {setOfExampleCollectionSection}
+        {sectionSeperationImage}
 
-      <WheelImagesSection
-        wheelImages={wheelImages}
-        quickViewImages={quickViewImages}
-      />
-      {sectionSeperationImage}
+        <WheelImagesSection data={data} />
 
-      {/* Currently contains nothing except small text */}
-      {exploreNewInSection}
-    </div>
-  );
+        {sectionSeperationImage}
+
+        {/* Currently contains nothing except small text */}
+        {exploreNewInSection}
+      </div>
+    );
+  }
 };
 
 export default Prints;

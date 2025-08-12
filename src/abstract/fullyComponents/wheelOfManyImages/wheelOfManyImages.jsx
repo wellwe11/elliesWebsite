@@ -78,8 +78,11 @@ const Images = ({
 // Exception to rules. Needs map to allow for isolated logic which will only be applied to this document
 const WheelOfManyImages = ({
   images,
-  quickViewImages,
   canQuickView, // canQuickView enables quickView button. If not includes, no button appears. Having this false makes displayImage and activeImageSrc none-active
+  quickViewImages,
+  quickViewTitle,
+  quickViewPrice,
+  quickViewBio,
 
   // activeImageSrc & setActiveImageSrc are NEEDED to fetch the data which is needed to display information such as price, related images etc.
   // source for which quick-view-image will be if displayImage is true
@@ -105,12 +108,15 @@ const WheelOfManyImages = ({
         canQuickView={canQuickView}
       />
 
-      {displayImage && (
+      {activeImageSrc && (
         <QuickViewImageContainer
           setDisplayImage={setDisplayImage}
           activeImageSrc={activeImageSrc}
           setActiveImageSrc={setActiveImageSrc}
           quickViewImages={quickViewImages}
+          quickViewTitle={quickViewTitle}
+          quickViewPrice={quickViewPrice}
+          quickViewBio={quickViewBio}
         />
       )}
     </div>

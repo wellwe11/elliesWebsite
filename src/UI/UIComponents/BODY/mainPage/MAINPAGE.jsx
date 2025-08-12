@@ -90,6 +90,8 @@ const categories = {
   },
 };
 
+const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
+
 // fetch dynamic data
 const imitationFetchGenericData = async () => {
   try {
@@ -107,53 +109,7 @@ const imitationFetchGenericData = async () => {
   }
 };
 
-// wrapper that contains all top-level data for prints
-const PrintsSection = ({ data }) => {
-  // set of images and their sources (this is for the 3-set images which have rolling-text)
-  const [printImagesSrc, setPrintImagesSrc] = useState(null);
-  // corresponding texts to each image
-  const [printImagesText, setPrintImagesText] = useState(null);
-
-  // automated data which finds last image. This is because front-page should represent the most recently added collection, to keep it 'fresh' and nicely updated
-  const mostRecentlyAddedSet = data[data.length - 1];
-
-  // sets title
-  const setTitle = mostRecentlyAddedSet.bioInfo.setTitle;
-
-  const wheelImages = data.map((obj) => obj.image);
-
-  useEffect(() => {
-    const sources = [];
-    const bios = [];
-
-    // images, their source and related text
-    const printsImages = mostRecentlyAddedSet.bioInfo.images;
-    printsImages.forEach((image) => {
-      sources.push(image.src);
-      bios.push(image.bio);
-    });
-
-    setPrintImagesSrc(sources);
-    setPrintImagesText(bios);
-  }, []);
-
-  if (printImagesSrc && printImagesText) {
-    return (
-      <section>
-        <Prints
-          images={printImagesSrc}
-          wheelImages={wheelImages}
-          texts={printImagesText}
-          textBioTitle={setTitle}
-        />
-      </section>
-    );
-  }
-};
-
 const MainPage = () => {
-  const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
-
   const [topLayerData, setTopLayerData] = useState(null);
 
   useEffect(() => {
@@ -180,6 +136,13 @@ const MainPage = () => {
   const categoriesSection = (
     <section>
       <Categories categories={categories} />
+    </section>
+  );
+
+  // wrapper that contains all top-level data for prints
+  const printSection = (
+    <section>
+      <Prints data={topLayerData} />
     </section>
   );
 
@@ -231,7 +194,7 @@ const MainPage = () => {
         {categoriesSection}
         {sectionSeperatorWithImage}
 
-        <PrintsSection data={topLayerData} />
+        {printSection}
         {sectionSeperatorWithImage}
 
         {servicesSection}

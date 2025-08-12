@@ -15,7 +15,7 @@ const ViewProductButton = () => {
 };
 
 // Product will have a short description and this button is a boolean to display it or to hide the description
-const ProductDescription = () => {
+const ProductDescription = ({ bio }) => {
   const [viewDescription, setViewDescription] = useState(true);
 
   // actual button which is always displayed
@@ -49,10 +49,7 @@ const ProductDescription = () => {
           viewDescription ? classes.open : classes.closed
         }`}
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
+        {bio}
       </p>
     </div>
   );
@@ -70,12 +67,11 @@ const ProductDescription = () => {
 const QuickViewInfo = ({
   title = "Title",
   price = 20,
+  bio,
   productImages,
-  setActiveImageSrc,
+  activeImageIndex,
+  setActiveImageIndex,
 }) => {
-  // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
-
   // which product is currently displayed
   const infoProductTitle = (
     <div className={classes.info}>
@@ -93,14 +89,13 @@ const QuickViewInfo = ({
   // a set of smaller images related to product. This handles the activeImageIndex
   const allImagesRelatedToQuickViewImage = (
     <div className={classes.allImagesExamples}>
-      {productImages.map((image, index) => (
+      {productImages?.map((image, index) => (
         <img
           key={index}
           className={classes.imageExample}
           src={image}
           alt=""
           onClick={() => {
-            setActiveImageSrc(image);
             setActiveImageIndex(index);
           }}
         />
@@ -125,21 +120,29 @@ const QuickViewInfo = ({
         {currentImageBioText}
         {allImagesRelatedToQuickViewImage}
       </div>
-      <ProductDescription />
+      <ProductDescription bio={bio} />
     </div>
   );
 };
 
 // Element containing product-image and product-info
 const QuickViewImage = ({
-  activeImageSrc,
-  setActiveImageSrc, // so smaller images on info-side can change activeImageSrc
   quickViewImages,
+  quickViewTitle,
+  quickViewPrice,
+  quickViewBio,
 }) => {
+  // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
   // currentActiveImage is the image which you initially clicked on quickView. It can be changed by clicking then related images (set of smaller images displayed in quickViewInfo)
   const currentActiveImage = (
     <div className={classes.activeImageWrapper}>
-      <img className={classes.activeImage} src={activeImageSrc} alt="" />
+      <img
+        className={classes.activeImage}
+        src={quickViewImages?.[activeImageIndex]}
+        alt=""
+      />
     </div>
   );
 
@@ -147,8 +150,12 @@ const QuickViewImage = ({
     <div className={classes.quickViewImageContainer}>
       {currentActiveImage}
       <QuickViewInfo
-        setActiveImageSrc={setActiveImageSrc}
         productImages={quickViewImages}
+        title={quickViewTitle}
+        price={quickViewPrice}
+        bio={quickViewBio}
+        activeImageIndex={activeImageIndex}
+        setActiveImageIndex={setActiveImageIndex}
       />
     </div>
   );
@@ -161,6 +168,9 @@ export const QuickViewImageContainer = ({
   activeImageSrc,
   setActiveImageSrc,
   quickViewImages,
+  quickViewTitle,
+  quickViewPrice,
+  quickViewBio,
 }) => {
   // white background-image that differs pop-up from the rest of the website
   const WhiteBackgroundPopUp = (
@@ -182,6 +192,9 @@ export const QuickViewImageContainer = ({
         activeImageSrc={activeImageSrc}
         setActiveImageSrc={setActiveImageSrc}
         quickViewImages={quickViewImages}
+        quickViewTitle={quickViewTitle}
+        quickViewPrice={quickViewPrice}
+        quickViewBio={quickViewBio}
       />
     </div>
   );
