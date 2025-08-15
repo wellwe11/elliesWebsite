@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import classes from "./uniqueInfoSection.module.scss";
 import transitionInAnimation from "@functions/transitionAnimation";
 
-const InfoSectionBio = ({ details, bioRef }) => {
-  const bioTitle = Object.keys(details);
-  const bioKeys = Object.keys(details[bioTitle]);
-  const bioValues = Object.values(details[bioTitle]);
+const InfoSectionBio = ({ details, title, bioRef }) => {
+  console.log(details);
+  const bioKeys = Object.keys(details);
+  const bioValues = Object.values(details);
 
   // a list of details for set of images. I.e. colors, width, height etc.
   const mappedBioDetails = bioKeys.map((key, index) => (
@@ -18,7 +18,7 @@ const InfoSectionBio = ({ details, bioRef }) => {
   // a simple title to indicate where the information about the set is
   const detailsTitle = (
     <div>
-      <h1 className={classes.detailsTitle}>{bioTitle}</h1>
+      <h1 className={classes.detailsTitle}>{title}</h1>
     </div>
   );
 
@@ -44,6 +44,7 @@ const InfoSectionMainImage = ({ activeImage, imageRef }) => {
 };
 
 const InfoSectionImages = ({ images, setActiveImage, smallerImagesRef }) => {
+  console.log(images);
   // display all images in the collection, which can be hovered to preview them as bigger
   const smallImagesPreview = images.map((image, index) => (
     <img
@@ -65,9 +66,8 @@ const InfoSectionImages = ({ images, setActiveImage, smallerImagesRef }) => {
   );
 };
 
-const UniqueInfoSection = ({ images, textInfo }) => {
+const UniqueInfoSection = ({ images, textInfo, setTitle }) => {
   const [activeImage, setActiveImage] = useState(0);
-  const imageArray = [images.imageOne, images.imageTwo, images.imageThree];
 
   const imageRef = useRef(null);
   const smallerImagesRef = useRef(null);
@@ -86,7 +86,7 @@ const UniqueInfoSection = ({ images, textInfo }) => {
   const leftSectionWrapper = (
     <div className={classes.uniqueInfoLeft}>
       <InfoSectionMainImage
-        activeImage={imageArray[activeImage]}
+        activeImage={images[activeImage]}
         imageRef={imageRef}
       />
     </div>
@@ -96,10 +96,10 @@ const UniqueInfoSection = ({ images, textInfo }) => {
     <div className={classes.uniqueInfoRight}>
       <InfoSectionImages
         smallerImagesRef={smallerImagesRef}
-        images={imageArray}
+        images={images}
         setActiveImage={setActiveImage}
       />
-      <InfoSectionBio details={textInfo} bioRef={bioRef} />
+      <InfoSectionBio details={textInfo} title={setTitle} bioRef={bioRef} />
     </div>
   );
 

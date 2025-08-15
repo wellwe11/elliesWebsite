@@ -9,57 +9,47 @@ import UniqueInfoSection from "./uniqueInfoSection/uniqueInfoSection";
 import { useContext } from "react";
 import UniqueImageContext from "../uniqueImageContext";
 
-const info = {
-  images: {
-    imageOne: placeholderImageOne,
-    imageTwo: placeholderImageTwo,
-    imageThree: placeholderImageThree,
-  },
-
-  uniqueTopSection: {
-    title: {
-      title: "Hello,",
-      bio: "Hello Two",
-    },
-
-    bio: {
-      title: "consectetuer adipiscing elit.",
-      bio: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.",
-    },
-  },
-
-  uniqueBottomSection: {
-    DETAILS: {
-      Colors: ["Red", "Blue", "White"],
-      Height: "35cm",
-      Width: "20cm",
-      Type: "Print",
-      Amount: 3,
-    },
-  },
-};
-
 const UniqueImage = () => {
   const { uniqueImage } = useContext(UniqueImageContext);
 
   console.log(uniqueImage);
 
-  return (
-    <div className={classes.uniqueImage}>
-      <section className={`${classes.snapStart} ${classes.first}`}>
-        <UniqueTopSection
-          images={info.images}
-          textInfo={info.uniqueTopSection}
-        />
-      </section>
-      <section className={classes.snapStart}>
-        <UniqueInfoSection
-          images={info.images}
-          textInfo={info.uniqueBottomSection}
-        />
-      </section>
-    </div>
-  );
+  if (uniqueImage) {
+    const title = {
+      title: "Hello,",
+      bio: "Hello Two",
+    };
+    const topImage = uniqueImage.image;
+    const topBio = {
+      title: "consectetuer adipiscing elit.",
+      bio: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.",
+    };
+
+    const productName = uniqueImage.bioInfo.setTitle;
+    const details = uniqueImage._embedded.details;
+    const extendedDetailsImages = uniqueImage.bioInfo.images.map(
+      (image) => image.src
+    );
+
+    return (
+      <div className={classes.uniqueImage}>
+        <section className={`${classes.snapStart} ${classes.first}`}>
+          <UniqueTopSection
+            topImage={topImage}
+            textInfo={topBio}
+            titleInfo={title}
+          />
+        </section>
+        <section className={classes.snapStart}>
+          <UniqueInfoSection
+            images={extendedDetailsImages}
+            textInfo={details}
+            setTitle={productName}
+          />
+        </section>
+      </div>
+    );
+  }
 };
 
 export default UniqueImage;

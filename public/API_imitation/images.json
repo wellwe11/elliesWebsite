@@ -21,7 +21,14 @@
       },
 
       "_embedded": {
-        "price": 14.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleOne.jpg",
@@ -41,6 +48,7 @@
 
     {
       "image": "./exampleImages/imageExampleTwo.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -60,7 +68,14 @@
       },
 
       "_embedded": {
-        "price": 24.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 24.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleThree.jpg",
@@ -79,6 +94,7 @@
 
     {
       "image": "./exampleImages/imageExampleTwo.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -98,7 +114,14 @@
       },
 
       "_embedded": {
-        "price": 19.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleThree.jpg",
@@ -117,6 +140,7 @@
 
     {
       "image": "./exampleImages/imageExampleThree.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -136,7 +160,14 @@
       },
 
       "_embedded": {
-        "price": 19.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleThree.jpg",
@@ -156,6 +187,7 @@
 
     {
       "image": "./exampleImages/imageExampleTwo.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -175,7 +207,14 @@
       },
 
       "_embedded": {
-        "price": 24.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 24.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg",
@@ -194,6 +233,7 @@
 
     {
       "image": "./exampleImages/imageExampleThree.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -213,7 +253,14 @@
       },
 
       "_embedded": {
-        "price": 14.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleOne.jpg",
@@ -232,6 +279,7 @@
 
     {
       "image": "./exampleImages/imageExampleOne.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -251,7 +299,14 @@
       },
 
       "_embedded": {
-        "price": 19.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg",
@@ -270,6 +325,7 @@
 
     {
       "image": "./exampleImages/imageExampleThree.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -289,7 +345,14 @@
       },
 
       "_embedded": {
-        "price": 24.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 24.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg",
@@ -308,6 +371,7 @@
 
     {
       "image": "./exampleImages/imageExampleOne.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -327,7 +391,14 @@
       },
 
       "_embedded": {
-        "price": 19.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleThree.jpg",
@@ -346,6 +417,7 @@
 
     {
       "image": "./exampleImages/imageExampleTwo.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -365,7 +437,14 @@
       },
 
       "_embedded": {
-        "price": 14.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg",
@@ -384,6 +463,7 @@
 
     {
       "image": "./exampleImages/imageExampleTwo.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -403,7 +483,14 @@
       },
 
       "_embedded": {
-        "price": 19.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleTwo.jpg",
@@ -423,6 +510,7 @@
   "prints": [
     {
       "image": "./exampleImages/imageExampleOne.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -442,7 +530,14 @@
       },
 
       "_embedded": {
-        "price": 14.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleOne.jpg",
@@ -462,6 +557,7 @@
 
     {
       "image": "./exampleImages/imageExampleTwo.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -481,7 +577,14 @@
       },
 
       "_embedded": {
-        "price": 24.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 24.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleThree.jpg",
@@ -500,6 +603,7 @@
 
     {
       "image": "./exampleImages/imageExampleTwo.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -519,7 +623,14 @@
       },
 
       "_embedded": {
-        "price": 19.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleThree.jpg",
@@ -538,6 +649,7 @@
 
     {
       "image": "./exampleImages/imageExampleThree.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -557,7 +669,14 @@
       },
 
       "_embedded": {
-        "price": 19.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleThree.jpg",
@@ -577,6 +696,7 @@
 
     {
       "image": "./exampleImages/imageExampleTwo.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -596,7 +716,14 @@
       },
 
       "_embedded": {
-        "price": 24.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 24.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg",
@@ -615,6 +742,7 @@
 
     {
       "image": "./exampleImages/imageExampleThree.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -634,7 +762,14 @@
       },
 
       "_embedded": {
-        "price": 14.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleOne.jpg",
@@ -653,6 +788,7 @@
 
     {
       "image": "./exampleImages/imageExampleOne.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -672,7 +808,14 @@
       },
 
       "_embedded": {
-        "price": 19.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg",
@@ -691,6 +834,7 @@
 
     {
       "image": "./exampleImages/imageExampleThree.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -710,7 +854,14 @@
       },
 
       "_embedded": {
-        "price": 24.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 24.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg",
@@ -729,6 +880,7 @@
 
     {
       "image": "./exampleImages/imageExampleOne.jpg",
+
       "bioInfo": {
         "setName": "CollectionSet RandomName Nine",
         "setTitle": "This is a title for this set",
@@ -748,9 +900,15 @@
           }
         ]
       },
-
       "_embedded": {
-        "price": 19.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "type": "Print",
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "price": 19.99
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleThree.jpg",
@@ -769,6 +927,7 @@
 
     {
       "image": "./exampleImages/imageExampleTwo.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -788,7 +947,14 @@
       },
 
       "_embedded": {
-        "price": 14.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg",
@@ -807,6 +973,7 @@
 
     {
       "image": "./exampleImages/imageExampleTwo.jpg",
+
       "bioInfo": {
         "setTitle": "This is a title for this set",
         "images": [
@@ -826,7 +993,14 @@
       },
 
       "_embedded": {
-        "price": 19.99,
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 20,
+          "amount": 3,
+          "type": "Print"
+        },
         "restImages": [
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleTwo.jpg",
