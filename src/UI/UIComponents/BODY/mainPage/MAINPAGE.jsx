@@ -13,65 +13,11 @@ import stickersCategory from "@assets/categories/stickersCategory.webp";
 
 import Prints from "./prints/prints";
 import Paintings from "./paintings/paintings";
-import imageOne from "@assets/exampleImages/imageExampleOne.jpg";
-import imageTwo from "@assets/exampleImages/imageExampleTwo.jpg";
-import imageThree from "@assets/exampleImages/imageExampleThree.jpg";
 
 import Services from "./services/services";
-import wallImage from "@assets/wall.png";
-import exampleImageOne from "@assets/frontPageMainImages/mainImageOne.png";
-import exampleImageTwo from "@assets/frontPageMainImages/mainImageTwo.png";
-import exampleImageThree from "@assets/frontPageMainImages/mainImageThree.png";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 import { useEffect, useState } from "react";
-
-// for paintings-section
-const paintings = [imageOne, imageTwo, imageThree];
-
-// temporary quick-view images for prints & paintings
-const quickViewImages = [
-  imageOne,
-  imageTwo,
-  imageThree,
-  imageOne,
-  imageTwo,
-  imageThree,
-  imageOne,
-  imageTwo,
-  imageThree,
-];
-
-// placeholder texts for image-information
-const texts = [
-  "this is text one",
-  "this is text two",
-  "this is text three",
-  "this is text four",
-];
-// placeholder texts for image-information
-const textsTitles = [
-  "this is title one",
-  "this is title two",
-  "this is title three",
-  "this is title four",
-];
-
-// Services buttons names
-const buttonNames = [
-  "Water collection",
-  "Pastel collection",
-  "Flower collection",
-  "Summer collection",
-];
-
-// Services images
-const imagesShuffle = [
-  [exampleImageOne, exampleImageTwo, exampleImageThree],
-  [exampleImageTwo, exampleImageThree, exampleImageOne],
-  [exampleImageOne, exampleImageTwo, exampleImageThree],
-  [exampleImageThree, exampleImageOne, exampleImageTwo],
-];
 
 // Categories section
 const categories = {
@@ -93,10 +39,10 @@ const categories = {
 const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
 // fetch dynamic data
-const imitationFetchGenericData = async () => {
+const imitationFetchGenericData = async (link) => {
   try {
     // json containing all info
-    const response = await fetch("/API_imitation/images.json");
+    const response = await fetch(link);
 
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
@@ -112,12 +58,19 @@ const imitationFetchGenericData = async () => {
 
 const MainPage = () => {
   const [topLayerData, setTopLayerData] = useState(null);
+  const [serviceData, setServiceData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await imitationFetchGenericData();
-      if (data) {
-        setTopLayerData(data);
+      const imagesLink = "/API_imitation/images.json";
+      const servicesLink = "/API_imitation/services.json";
+
+      const dataImages = await imitationFetchGenericData(imagesLink);
+      const dataLink = await imitationFetchGenericData(servicesLink);
+
+      if (dataImages && dataLink) {
+        setTopLayerData(dataImages);
+        setServiceData(dataLink);
       }
     };
     fetchData();
@@ -140,30 +93,28 @@ const MainPage = () => {
     </section>
   );
 
+  // data for prints
+  const topLayerDataPrints = topLayerData?.prints;
   // wrapper that contains all top-level data for prints
   const printSection = (
     <section>
-      <Prints data={topLayerData} />
+      <Prints data={topLayerDataPrints} />
     </section>
   );
 
   // Realistic image containing different colletions of images to "ikea-style" display them
   const servicesSection = (
     <section>
-      <Services
-        texts={texts}
-        textsTitles={textsTitles}
-        buttonNames={buttonNames}
-        imagesShuffle={imagesShuffle}
-        wallImage={wallImage}
-      />
+      <Services data={serviceData} />
     </section>
   );
 
+  // data for paintings
+  const topLayerDataPaintings = topLayerData?.paintings;
   // Example-images of paintings
   const paintingsSection = (
     <section>
-      <Paintings data={topLayerData} />
+      <Paintings data={topLayerDataPaintings} />
     </section>
   );
 
