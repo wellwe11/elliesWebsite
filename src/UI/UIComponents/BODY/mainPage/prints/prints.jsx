@@ -8,7 +8,7 @@ import SetOfimagesWithText from "@fullyComponents/SetOfImagesWithText/setOfImage
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 import { useEffect, useState } from "react";
 
-// Example section of a collection of prints
+// Example section of a collection of prints - 3 images with scrolling text below as bio
 const SetOfExampleCollectionSection = ({ data }) => {
   // if user clicks on any image, will navigate to collection
   const navigate = handleNavigateSmooth();
@@ -27,6 +27,7 @@ const SetOfExampleCollectionSection = ({ data }) => {
   useEffect(() => {
     if (!mostRecentlyAddedSet) return;
 
+    // local arrays that will contain fetched data related to SetOfExampleCollectionSection
     const sources = [];
     const bios = [];
 

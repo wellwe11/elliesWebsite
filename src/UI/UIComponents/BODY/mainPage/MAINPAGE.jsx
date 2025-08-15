@@ -163,12 +163,7 @@ const MainPage = () => {
   // Example-images of paintings
   const paintingsSection = (
     <section>
-      {/* <Paintings
-        wheelImages={wheelImages}
-        images={paintings}
-        quickViewImages={quickViewImages}
-        texts={texts}
-      /> */}
+      <Paintings data={topLayerData} />
     </section>
   );
 
