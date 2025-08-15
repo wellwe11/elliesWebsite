@@ -2,12 +2,18 @@ import classes from "./quickView.module.scss";
 import { useState } from "react";
 
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
+import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 
 // If you want to view the actual product, this button takes you to a new page which contains further information and such
 const ViewProductButton = () => {
+  const navigate = handleNavigateSmooth();
+
   return (
     <div className={classes.viewProductButtonWrapper}>
-      <button className={classes.viewProductButton}>
+      <button
+        className={classes.viewProductButton}
+        onClick={() => navigate(`uniqueImage`)}
+      >
         <h3 className={classes.buttonText}>Explore item</h3>
       </button>
     </div>

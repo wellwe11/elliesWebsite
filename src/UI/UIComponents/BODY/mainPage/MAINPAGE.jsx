@@ -1,7 +1,6 @@
 import classes from "./MAINPAGE.module.scss";
 
 import MainPageTopPresentation from "./mainPageTopPresentation/mainPageTopPresentation";
-
 import mainImage from "@assets/welcomeImage.jpg";
 import welcomeImageOne from "@assets/welcomeImageOne.jpg";
 
@@ -13,11 +12,9 @@ import stickersCategory from "@assets/categories/stickersCategory.webp";
 
 import Prints from "./prints/prints";
 import Paintings from "./paintings/paintings";
-
 import Services from "./services/services";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
-import { useEffect, useState } from "react";
 
 // Categories section
 const categories = {
@@ -38,44 +35,7 @@ const categories = {
 
 const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
-// fetch dynamic data
-const imitationFetchGenericData = async (link) => {
-  try {
-    // json containing all info
-    const response = await fetch(link);
-
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
-
-    const result = await response.json();
-
-    return result;
-  } catch (error) {
-    console.error(error.message);
-  }
-};
-
-const MainPage = () => {
-  const [topLayerData, setTopLayerData] = useState(null);
-  const [serviceData, setServiceData] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const imagesLink = "/API_imitation/images.json";
-      const servicesLink = "/API_imitation/services.json";
-
-      const dataImages = await imitationFetchGenericData(imagesLink);
-      const dataLink = await imitationFetchGenericData(servicesLink);
-
-      if (dataImages && dataLink) {
-        setTopLayerData(dataImages);
-        setServiceData(dataLink);
-      }
-    };
-    fetchData();
-  }, []);
-
+const MainPage = ({ topLayerData, serviceData }) => {
   // Welcoming image and small animation
   const topSection = (
     <section>

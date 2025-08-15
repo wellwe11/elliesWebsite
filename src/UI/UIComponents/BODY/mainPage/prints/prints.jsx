@@ -6,10 +6,13 @@ import WheelOfManyImages from "@fullyComponents/wheelOfManyImages/wheelOfManyIma
 import ExploreNewIn from "@fullyComponents/exploreNewIn/exploreNewIn";
 import SetOfimagesWithText from "@fullyComponents/SetOfImagesWithText/setOfImagesWithText";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import UniqueImageContext from "../../uniqueImageContext";
 
 // Example section of a collection of prints - 3 images with scrolling text below as bio
 const SetOfExampleCollectionSection = ({ data }) => {
+  const { setUniqueImage } = useContext(UniqueImageContext);
+
   // if user clicks on any image, will navigate to collection
   const navigate = handleNavigateSmooth();
 
@@ -47,7 +50,10 @@ const SetOfExampleCollectionSection = ({ data }) => {
     return (
       <section
         className={classes.exampleCollectionSection}
-        onClick={() => navigate("/uniqueImage")}
+        onClick={() => {
+          setUniqueImage(mostRecentlyAddedSet);
+          navigate("/uniqueImage");
+        }}
       >
         <SetOfimagesWithText
           images={printImagesSrc}
@@ -61,6 +67,8 @@ const SetOfExampleCollectionSection = ({ data }) => {
 
 // section to view many different collections (1 image per collection) which is clickable
 const WheelImagesSection = ({ data }) => {
+  const { setUniqueImage } = useContext(UniqueImageContext);
+
   // If quickView is clicked (to display info about image), activeImageSrc is data fetched for that specific item
   const [activeImageSrc, setActiveImageSrc] = useState(null);
 
@@ -77,6 +85,7 @@ const WheelImagesSection = ({ data }) => {
     if (!activeImageSrc) setActiveQuickViewData(null);
 
     setActiveQuickViewData(embeddedData[activeImageSrc]);
+    setUniqueImage(data[activeImageSrc]);
   }, [activeImageSrc]);
 
   return (

@@ -6,6 +6,8 @@ import placeholderImageThree from "@assets/exampleImages/imageExampleThree.jpg";
 
 import UniqueTopSection from "./uniqueTopSection/uniqueTopSection";
 import UniqueInfoSection from "./uniqueInfoSection/uniqueInfoSection";
+import { useContext } from "react";
+import UniqueImageContext from "../uniqueImageContext";
 
 const info = {
   images: {
@@ -38,6 +40,10 @@ const info = {
 };
 
 const UniqueImage = () => {
+  const { uniqueImage } = useContext(UniqueImageContext);
+
+  console.log(uniqueImage);
+
   return (
     <div className={classes.uniqueImage}>
       <section className={`${classes.snapStart} ${classes.first}`}>
