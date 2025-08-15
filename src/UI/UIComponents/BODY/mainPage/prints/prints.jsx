@@ -8,48 +8,11 @@ import SetOfimagesWithText from "@fullyComponents/SetOfImagesWithText/setOfImage
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 import { useEffect, useState } from "react";
 
-// section to view many different collections (1 image per collection) which is clickable
-const WheelImagesSection = ({ data }) => {
-  // If quickView is clicked (to display info about image), activeImageSrc is data fetched for that specific item
-  const [activeImageSrc, setActiveImageSrc] = useState(null);
+// Example section of a collection of prints
+const SetOfExampleCollectionSection = ({ data }) => {
+  // if user clicks on any image, will navigate to collection
+  const navigate = handleNavigateSmooth();
 
-  const [activeQuickViewData, setActiveQuickViewData] = useState(null);
-
-  const embeddedData = data.map((obj) => obj._embedded);
-
-  // mapped objects using their 'representive-image'
-  const wheelImages = data.map((obj) => obj.image);
-
-  useEffect(() => {
-    if (!activeImageSrc) {
-      setActiveQuickViewData(null);
-    } else {
-      setActiveQuickViewData(embeddedData[activeImageSrc]);
-    }
-  }, [activeImageSrc]);
-
-  console.log(activeQuickViewData);
-
-  return (
-    <section className={classes.wheelImagesSection}>
-      <div>
-        <h1>{"Placeholder title"}</h1>
-      </div>
-      <WheelOfManyImages
-        images={wheelImages}
-        activeImageSrc={activeImageSrc}
-        setActiveImageSrc={setActiveImageSrc}
-        canQuickView={true}
-        quickViewImages={activeQuickViewData?.restImages}
-        quickViewTitle={"some title"}
-        quickViewPrice={activeQuickViewData?.price}
-        quickViewBio={activeQuickViewData?.setDescription}
-      />
-    </section>
-  );
-};
-
-const Prints = ({ data }) => {
   // set of images and their sources (this is for the 3-set images which have rolling-text)
   const [printImagesSrc, setPrintImagesSrc] = useState(null);
   // corresponding texts to each image
@@ -79,28 +42,67 @@ const Prints = ({ data }) => {
     setPrintImagesText(bios);
   }, [data]);
 
-  // if user clicks on any image, will navigate to collection
-  const navigate = handleNavigateSmooth();
+  if (printImagesSrc && printImagesText) {
+    return (
+      <section
+        className={classes.exampleCollectionSection}
+        onClick={() => navigate("/uniqueImage")}
+      >
+        <SetOfimagesWithText
+          images={printImagesSrc}
+          texts={printImagesText}
+          textBioTitle={textBioTitle || "Please insert a title"}
+        />
+      </section>
+    );
+  }
+};
 
+// section to view many different collections (1 image per collection) which is clickable
+const WheelImagesSection = ({ data }) => {
+  // If quickView is clicked (to display info about image), activeImageSrc is data fetched for that specific item
+  const [activeImageSrc, setActiveImageSrc] = useState(null);
+
+  // information displayed once you click quickview
+  const [activeQuickViewData, setActiveQuickViewData] = useState(null);
+
+  // extended data which is used by extended components (interactive components which only need data once they're interacted with)
+  const embeddedData = data.map((obj) => obj._embedded);
+
+  // mapped objects using their 'representive-image'
+  const wheelImages = data.map((obj) => obj.image);
+
+  useEffect(() => {
+    if (!activeImageSrc) setActiveQuickViewData(null);
+
+    setActiveQuickViewData(embeddedData[activeImageSrc]);
+  }, [activeImageSrc]);
+
+  return (
+    <section className={classes.wheelImagesSection}>
+      <div>
+        <h1>{"Placeholder title"}</h1>
+      </div>
+      <WheelOfManyImages
+        images={wheelImages}
+        activeImageSrc={activeImageSrc}
+        setActiveImageSrc={setActiveImageSrc}
+        canQuickView={true}
+        quickViewImages={activeQuickViewData?.restImages}
+        quickViewTitle={"some title"}
+        quickViewPrice={activeQuickViewData?.price}
+        quickViewBio={activeQuickViewData?.setDescription}
+      />
+    </section>
+  );
+};
+
+const Prints = ({ data }) => {
   // Title for section of prints
   const titleWrapper = (
     <div className={classes.titleWrapper}>
       <h1 className={classes.title}>Prints</h1>
     </div>
-  );
-
-  // Example section of a collection of prints
-  const setOfExampleCollectionSection = (
-    <section
-      className={classes.exampleCollectionSection}
-      onClick={() => navigate("/uniqueImage")}
-    >
-      <SetOfimagesWithText
-        images={printImagesSrc}
-        texts={printImagesText}
-        textBioTitle={textBioTitle || "Please insert a title"}
-      />
-    </section>
   );
 
   // section containing most recently added print together with some text
@@ -117,23 +119,20 @@ const Prints = ({ data }) => {
     </div>
   );
 
-  if (printImagesSrc && printImagesText) {
-    return (
-      <div className={classes.prints}>
-        {titleWrapper}
+  return (
+    <div className={classes.prints}>
+      {titleWrapper}
 
-        {setOfExampleCollectionSection}
-        {sectionSeperationImage}
+      <SetOfExampleCollectionSection data={data} />
+      {sectionSeperationImage}
 
-        <WheelImagesSection data={data} />
+      <WheelImagesSection data={data} />
+      {sectionSeperationImage}
 
-        {sectionSeperationImage}
-
-        {/* Currently contains nothing except small text */}
-        {exploreNewInSection}
-      </div>
-    );
-  }
+      {/* Currently contains nothing except small text */}
+      {exploreNewInSection}
+    </div>
+  );
 };
 
 export default Prints;

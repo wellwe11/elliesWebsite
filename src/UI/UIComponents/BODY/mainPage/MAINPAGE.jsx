@@ -95,6 +95,7 @@ const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 // fetch dynamic data
 const imitationFetchGenericData = async () => {
   try {
+    // json containing all info
     const response = await fetch("/API_imitation/images.json");
 
     if (!response.ok) {

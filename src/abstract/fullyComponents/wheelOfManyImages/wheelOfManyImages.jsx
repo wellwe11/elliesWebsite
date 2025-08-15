@@ -108,7 +108,7 @@ const WheelOfManyImages = ({
         canQuickView={canQuickView}
       />
 
-      {activeImageSrc && (
+      {typeof activeImageSrc === "number" && ( // check if typeof number is true. Previously, was simply set to check if it is true, but this became falsey when number was 0. Not sure why, but this solution works for now
         <QuickViewImageContainer
           setDisplayImage={setDisplayImage}
           activeImageSrc={activeImageSrc}
