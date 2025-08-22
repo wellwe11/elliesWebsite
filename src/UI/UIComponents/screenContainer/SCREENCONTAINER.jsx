@@ -31,7 +31,7 @@ const ScreenContainer = () => {
         const assignIds = Object.fromEntries(
           dataImagesEntries.map(([key, arr]) => [
             key,
-            arr.map((item, index) => ({ ...item, id: index })),
+            arr.map((item, index) => ({ ...item, id: +index })),
           ])
         );
 

@@ -26,7 +26,7 @@ const SetOfExampleCollectionSection = ({ data }) => {
   const mostRecentlyAddedSet = data[data.length - 1];
 
   // sets title
-  const textBioTitle = mostRecentlyAddedSet.bioInfo.setTitle;
+  const textBioTitle = mostRecentlyAddedSet._embedded.setTitle;
 
   useEffect(() => {
     if (!mostRecentlyAddedSet) return;
@@ -36,7 +36,7 @@ const SetOfExampleCollectionSection = ({ data }) => {
     const bios = [];
 
     // images, their source and related text
-    const paintingsImages = mostRecentlyAddedSet.bioInfo.images;
+    const paintingsImages = mostRecentlyAddedSet.images;
 
     paintingsImages.forEach((image) => {
       sources.push(image.src);
@@ -79,18 +79,19 @@ const WheelImagesSection = ({ data }) => {
   // extended data which is used by extended components (interactive components which only need data once they're interacted with)
   const embeddedData = data.map((obj) => obj._embedded);
 
-  console.log(activeQuickViewData?.details.setDescription);
-
   // mapped objects using their 'representive-image'
   const wheelImages = data.map((obj) => obj.image);
 
   useEffect(() => {
     if (!activeImageSrc) setActiveQuickViewData(null);
 
+    console.log(embeddedData[activeImageSrc]);
     setActiveQuickViewData(embeddedData[activeImageSrc]);
 
     setUniqueImage(data[activeImageSrc]);
   }, [activeImageSrc]);
+
+  console.log(uniqueImage);
 
   return (
     <section className={classes.wheelImagesSection}>
@@ -103,9 +104,9 @@ const WheelImagesSection = ({ data }) => {
         setActiveImageSrc={setActiveImageSrc}
         canQuickView={true}
         quickViewImages={activeQuickViewData?.restImages}
-        quickViewTitle={"some title"}
+        quickViewTitle={activeQuickViewData?.setTitle}
         quickViewPrice={activeQuickViewData?.details.price}
-        quickViewBio={activeQuickViewData?.details.setDescription}
+        quickViewBio={activeQuickViewData?.setDescription}
       />
     </section>
   );

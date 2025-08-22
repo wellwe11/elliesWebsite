@@ -29,7 +29,6 @@ const ViewProductButton = () => {
 // Product will have a short description and this button is a boolean to display it or to hide the description
 const ProductDescription = ({ bio }) => {
   const [viewDescription, setViewDescription] = useState(true);
-  console.log(bio);
 
   // actual button which is always displayed
   const expandDescriptionButton = (

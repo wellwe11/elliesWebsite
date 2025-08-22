@@ -1,15 +1,11 @@
 import classes from "./uniqueTopSection.module.scss";
-import placeholderImageThree from "@assets/exampleImages/imageExampleThree.jpg";
 
 // One big image that is showing you an example of the currently displayed art-piece
 const TopImage = ({ image }) => {
+  console.log(image);
   return (
     <div className={classes.topImage}>
-      <img
-        className={classes.topImageImage}
-        src={image || placeholderImageThree}
-        alt=""
-      />
+      <img className={classes.topImageImage} src={image} alt="" />
     </div>
   );
 };
