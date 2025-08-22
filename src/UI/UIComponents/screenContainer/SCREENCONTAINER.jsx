@@ -24,7 +24,21 @@ const ScreenContainer = () => {
       const dataLink = await tryFetchFn(servicesLink);
 
       if (dataImages && dataLink) {
-        setTopLayerData(dataImages);
+        // entries to be able to map the dataImages
+        const dataImagesEntries = Object.entries(dataImages);
+        // new array which adds an id to each object. Each object has an id attached to it, which is it's index on the fetched object.
+        // Later when we need to access this object, for example, if user is on uniqueImage page, it can directly find the matching object due to it's ID.
+        const assignIds = Object.fromEntries(
+          dataImagesEntries.map(([key, arr]) => [
+            key,
+            arr.map((item, index) => ({ ...item, id: index })),
+          ])
+        );
+
+        if (assignIds) {
+          setTopLayerData(assignIds);
+        }
+
         setServiceData(dataLink);
       }
     };
@@ -51,7 +65,10 @@ const ScreenContainer = () => {
                   )
                 }
               />
-              <Route path="/uniqueImage" element={<UniqueImage />} />
+              <Route
+                path="/uniqueImage/:type/:id"
+                element={topLayerData && <UniqueImage data={topLayerData} />}
+              />
             </Routes>
           </UniqueImageContext.Provider>
           {/* <Footer /> */}

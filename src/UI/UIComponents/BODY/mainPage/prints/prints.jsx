@@ -84,8 +84,8 @@ const WheelImagesSection = ({ data }) => {
   useEffect(() => {
     if (!activeImageSrc) setActiveQuickViewData(null);
 
-    setActiveQuickViewData(embeddedData[activeImageSrc]);
     setUniqueImage(data[activeImageSrc]);
+    setActiveQuickViewData(embeddedData[activeImageSrc]);
   }, [activeImageSrc]);
 
   return (

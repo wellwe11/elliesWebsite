@@ -22,12 +22,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "paintings"
         },
         "restImages": [
           "./exampleImages/imageExampleThree.jpg",
@@ -41,8 +41,51 @@
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg",
           "./exampleImages/imageExampleThree.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
+      }
+    },
+    {
+      "image": "./exampleImages/imageExampleOne.jpg",
+      "bioInfo": {
+        "setTitle": "This is a title for this set",
+        "images": [
+          {
+            "src": "./exampleImages/imageExampleOne.jpg",
+            "bio": "This is bio about itemOne"
+          },
+          {
+            "src": "./exampleImages/imageExampleTwo.jpg",
+            "bio": "This is bio about itemTwo"
+          },
+          {
+            "src": "./exampleImages/imageExampleThree.jpg",
+            "bio": "This is bio about itemThree"
+          }
+        ]
+      },
+
+      "_embedded": {
+        "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
+          "colors": ["Red", "Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "amount": 3,
+          "type": "paintings"
+        },
+        "restImages": [
+          "./exampleImages/imageExampleThree.jpg",
+          "./exampleImages/imageExampleOne.jpg",
+          "./exampleImages/imageExampleOne.jpg",
+          "./exampleImages/imageExampleTwo.jpg",
+          "./exampleImages/imageExampleOne.jpg",
+          "./exampleImages/imageExampleThree.jpg",
+
+          "./exampleImages/imageExampleTwo.jpg",
+          "./exampleImages/imageExampleOne.jpg",
+          "./exampleImages/imageExampleTwo.jpg",
+          "./exampleImages/imageExampleThree.jpg"
+        ]
       }
     },
 
@@ -69,12 +112,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 24.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "paintings"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -87,8 +130,7 @@
           "./exampleImages/imageExampleTwo.jpg",
           "./exampleImages/imageExampleTwo.jpg",
           "./exampleImages/imageExampleThree.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -115,12 +157,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "paintings"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -133,8 +175,7 @@
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleTwo.jpg",
           "./exampleImages/imageExampleTwo.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -161,12 +202,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "paintings"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -180,8 +221,7 @@
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -208,12 +248,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 24.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "paintings"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -226,8 +266,7 @@
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg",
           "./exampleImages/imageExampleThree.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -254,12 +293,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "paintings"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -272,8 +311,7 @@
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleTwo.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -300,12 +338,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "paintings"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -318,8 +356,7 @@
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -346,12 +383,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 24.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "paintings"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -364,8 +401,7 @@
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -392,12 +428,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "paintings"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -410,8 +446,7 @@
           "./exampleImages/imageExampleTwo.jpg",
           "./exampleImages/imageExampleTwo.jpg",
           "./exampleImages/imageExampleThree.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -438,12 +473,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "paintings"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -456,8 +491,7 @@
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleTwo.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -484,12 +518,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "paintings"
         },
         "restImages": [
           "./exampleImages/imageExampleThree.jpg",
@@ -502,11 +536,11 @@
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleTwo.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     }
   ],
+
   "prints": [
     {
       "image": "./exampleImages/imageExampleOne.jpg",
@@ -531,12 +565,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "prints"
         },
         "restImages": [
           "./exampleImages/imageExampleThree.jpg",
@@ -550,8 +584,52 @@
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg",
           "./exampleImages/imageExampleThree.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
+      }
+    },
+    {
+      "image": "./exampleImages/imageExampleOne.jpg",
+
+      "bioInfo": {
+        "setTitle": "This is a title for this set",
+        "images": [
+          {
+            "src": "./exampleImages/imageExampleOne.jpg",
+            "bio": "This is bio about itemOne"
+          },
+          {
+            "src": "./exampleImages/imageExampleTwo.jpg",
+            "bio": "This is bio about itemTwo"
+          },
+          {
+            "src": "./exampleImages/imageExampleThree.jpg",
+            "bio": "This is bio about itemThree"
+          }
+        ]
+      },
+
+      "_embedded": {
+        "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
+          "colors": ["Red", "Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "amount": 3,
+          "type": "prints"
+        },
+        "restImages": [
+          "./exampleImages/imageExampleThree.jpg",
+          "./exampleImages/imageExampleOne.jpg",
+          "./exampleImages/imageExampleOne.jpg",
+          "./exampleImages/imageExampleTwo.jpg",
+          "./exampleImages/imageExampleOne.jpg",
+          "./exampleImages/imageExampleThree.jpg",
+
+          "./exampleImages/imageExampleTwo.jpg",
+          "./exampleImages/imageExampleOne.jpg",
+          "./exampleImages/imageExampleTwo.jpg",
+          "./exampleImages/imageExampleThree.jpg"
+        ]
       }
     },
 
@@ -578,12 +656,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 24.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "prints"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -596,8 +674,7 @@
           "./exampleImages/imageExampleTwo.jpg",
           "./exampleImages/imageExampleTwo.jpg",
           "./exampleImages/imageExampleThree.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -624,12 +701,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "prints"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -642,8 +719,7 @@
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleTwo.jpg",
           "./exampleImages/imageExampleTwo.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -670,12 +746,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "prints"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -689,8 +765,7 @@
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -717,12 +792,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 24.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "prints"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -735,8 +810,7 @@
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg",
           "./exampleImages/imageExampleThree.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -763,12 +837,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "prints"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -781,8 +855,7 @@
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleTwo.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -809,12 +882,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "prints"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -827,8 +900,7 @@
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -855,12 +927,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 24.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "prints"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -873,8 +945,7 @@
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleTwo.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -902,10 +973,10 @@
       },
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
-          "type": "Print",
+          "type": "prints",
           "height": 35,
-          "width": 20,
           "amount": 3,
           "price": 19.99
         },
@@ -920,8 +991,7 @@
           "./exampleImages/imageExampleTwo.jpg",
           "./exampleImages/imageExampleTwo.jpg",
           "./exampleImages/imageExampleThree.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -948,12 +1018,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "prints"
         },
         "restImages": [
           "./exampleImages/imageExampleOne.jpg",
@@ -966,8 +1036,7 @@
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleTwo.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     },
 
@@ -994,12 +1063,12 @@
 
       "_embedded": {
         "details": {
+          "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank you.",
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 20,
           "amount": 3,
-          "type": "Print"
+          "type": "prints"
         },
         "restImages": [
           "./exampleImages/imageExampleThree.jpg",
@@ -1012,8 +1081,7 @@
           "./exampleImages/imageExampleOne.jpg",
           "./exampleImages/imageExampleThree.jpg",
           "./exampleImages/imageExampleTwo.jpg"
-        ],
-        "setDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        ]
       }
     }
   ]

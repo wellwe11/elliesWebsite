@@ -1,18 +1,24 @@
 import classes from "./uniqueImage.module.scss";
 
-import placeholderImageOne from "@assets/exampleImages/imageExampleOne.jpg";
-import placeholderImageTwo from "@assets/exampleImages/imageExampleTwo.jpg";
-import placeholderImageThree from "@assets/exampleImages/imageExampleThree.jpg";
-
 import UniqueTopSection from "./uniqueTopSection/uniqueTopSection";
 import UniqueInfoSection from "./uniqueInfoSection/uniqueInfoSection";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import UniqueImageContext from "../uniqueImageContext";
+import { useLocation, useParams } from "react-router-dom";
 
-const UniqueImage = () => {
-  const { uniqueImage } = useContext(UniqueImageContext);
+const UniqueImage = ({ data }) => {
+  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
+  const { key, hash } = useLocation();
+  const { type, id } = useParams();
 
-  console.log(uniqueImage);
+  useEffect(() => {
+    // if user refreshes page, uniqueImage wont be set (no previous interaction with the front-page). But the correct product still needy to be displayed
+    if (!uniqueImage) {
+      // create a function that goes through whole api and finds correct id and maybe a matching type to prevent errors for same id's
+    }
+    console.log(data, type, id);
+    console.log(data?.[type]);
+  }, []);
 
   if (uniqueImage) {
     const title = {

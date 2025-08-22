@@ -20,6 +20,11 @@ function App() {
 export default App;
 
 /** TODO LIST
+ * Ok so, I have previously implmeneted a useContext for products & uniqueImage-page. I need to remove this, and add a link which contains an id, and pull information based on the link.
+ * The reason for this is that when you want to send the link to someone, or reload the page etc. you need to have a designated id to send (link that is linked to that specific product)
+ * Keep the useContext for the cart - Adding cart-items should be usable across website
+ *
+ *
  * Currently, navbar can be hovered and the extended portion will be displayed,
  * without actually hovering a button. Needs to be fixed
  *
@@ -30,6 +35,7 @@ export default App;
  *
  * Services-buttons need to be fixed. Currently, you can hover outside of text and all things except underline text is interactive
  * Add an image for each type-section (prints, paintings) which will display one example with some nice text on the right and an animation with icons
+ *
  */
 
 /*** RULES FOR PROJECT

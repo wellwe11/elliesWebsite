@@ -68,7 +68,7 @@ const SetOfExampleCollectionSection = ({ data }) => {
 
 // section to view many different collections (1 image per collection) which is clickable
 const WheelImagesSection = ({ data }) => {
-  const { setUniqueImage } = useContext(UniqueImageContext);
+  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
 
   // If quickView is clicked (to display info about image), activeImageSrc is data fetched for that specific item
   const [activeImageSrc, setActiveImageSrc] = useState(null);
@@ -79,6 +79,8 @@ const WheelImagesSection = ({ data }) => {
   // extended data which is used by extended components (interactive components which only need data once they're interacted with)
   const embeddedData = data.map((obj) => obj._embedded);
 
+  console.log(activeQuickViewData?.details.setDescription);
+
   // mapped objects using their 'representive-image'
   const wheelImages = data.map((obj) => obj.image);
 
@@ -86,6 +88,7 @@ const WheelImagesSection = ({ data }) => {
     if (!activeImageSrc) setActiveQuickViewData(null);
 
     setActiveQuickViewData(embeddedData[activeImageSrc]);
+
     setUniqueImage(data[activeImageSrc]);
   }, [activeImageSrc]);
 
@@ -101,8 +104,8 @@ const WheelImagesSection = ({ data }) => {
         canQuickView={true}
         quickViewImages={activeQuickViewData?.restImages}
         quickViewTitle={"some title"}
-        quickViewPrice={activeQuickViewData?.price}
-        quickViewBio={activeQuickViewData?.setDescription}
+        quickViewPrice={activeQuickViewData?.details.price}
+        quickViewBio={activeQuickViewData?.details.setDescription}
       />
     </section>
   );

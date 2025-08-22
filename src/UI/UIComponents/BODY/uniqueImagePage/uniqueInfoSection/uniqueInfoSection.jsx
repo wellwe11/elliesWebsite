@@ -3,7 +3,6 @@ import classes from "./uniqueInfoSection.module.scss";
 import transitionInAnimation from "@functions/transitionAnimation";
 
 const InfoSectionBio = ({ details, title, bioRef }) => {
-  console.log(details);
   const bioKeys = Object.keys(details);
   const bioValues = Object.values(details);
 
@@ -44,7 +43,6 @@ const InfoSectionMainImage = ({ activeImage, imageRef }) => {
 };
 
 const InfoSectionImages = ({ images, setActiveImage, smallerImagesRef }) => {
-  console.log(images);
   // display all images in the collection, which can be hovered to preview them as bigger
   const smallImagesPreview = images.map((image, index) => (
     <img

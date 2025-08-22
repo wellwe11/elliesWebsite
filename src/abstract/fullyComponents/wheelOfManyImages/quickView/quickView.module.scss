@@ -143,6 +143,7 @@
 // ProductDescription
 .productDescription {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -207,6 +208,7 @@
 .viewProductButtonWrapper {
   border-top: 0.5px solid gray;
   height: 50px;
+  width: 100%;
 
   display: flex;
   align-items: flex-end;

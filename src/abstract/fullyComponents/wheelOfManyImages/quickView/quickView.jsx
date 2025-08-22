@@ -1,18 +1,24 @@
 import classes from "./quickView.module.scss";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
+import UniqueImageContext from "../../../../UI/UIComponents/BODY/uniqueImageContext";
 
 // If you want to view the actual product, this button takes you to a new page which contains further information and such
 const ViewProductButton = () => {
   const navigate = handleNavigateSmooth();
 
+  const { uniqueImage } = useContext(UniqueImageContext);
+
+  const linkId = uniqueImage?.id;
+  const linkType = uniqueImage?._embedded.details.type;
+
   return (
     <div className={classes.viewProductButtonWrapper}>
       <button
         className={classes.viewProductButton}
-        onClick={() => navigate(`uniqueImage`)}
+        onClick={() => navigate(`uniqueImage/${linkType}/${linkId}`)}
       >
         <h3 className={classes.buttonText}>Explore item</h3>
       </button>
@@ -23,6 +29,7 @@ const ViewProductButton = () => {
 // Product will have a short description and this button is a boolean to display it or to hide the description
 const ProductDescription = ({ bio }) => {
   const [viewDescription, setViewDescription] = useState(true);
+  console.log(bio);
 
   // actual button which is always displayed
   const expandDescriptionButton = (
