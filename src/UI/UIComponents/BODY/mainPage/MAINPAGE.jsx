@@ -105,7 +105,7 @@ const MainPage = ({ topLayerData, serviceData }) => {
         {sectionSeperatorWithImage}
 
         {servicesSection}
-        {sectionSeperatorWithImage}
+        {sectionSeperatorWithNoImage}
 
         {paintingsSection}
         {sectionSeperatorWithImage}

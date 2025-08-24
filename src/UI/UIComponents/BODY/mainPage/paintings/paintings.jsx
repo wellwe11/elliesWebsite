@@ -115,20 +115,6 @@ const WheelImagesSection = ({ data }) => {
 };
 
 const Paintings = ({ data }) => {
-  // Title for section of paintings
-  const titleWrapper = (
-    <div className={classes.titleWrapper}>
-      <h1 className={classes.title}>Paintings</h1>
-    </div>
-  );
-
-  // section containing most recently added print together with some text
-  const exploreNewInSection = (
-    <section className={classes.exploreNewInSection}>
-      <ExploreNewIn />
-    </section>
-  );
-
   // adds space between sections
   const sectionSeperationImage = (
     <div className={classes.sectionSeperationImage}>
@@ -138,16 +124,11 @@ const Paintings = ({ data }) => {
 
   return (
     <div className={classes.paintings}>
-      {titleWrapper}
-
       <SetOfExampleCollectionSection data={data} />
       {sectionSeperationImage}
 
       <WheelImagesSection data={data} />
       {sectionSeperationImage}
-
-      {/* Currently contains nothing except small text */}
-      {exploreNewInSection}
     </div>
   );
 };

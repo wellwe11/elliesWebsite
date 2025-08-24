@@ -1,22 +1,21 @@
 {
   "paintings": [
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
+      "image": "/serviceImages/collections/mainImageOne.png",
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
-          "bio": "This is bio about itemTwo"
+          "src": "/serviceImages/collections/mainImageTwo.png",
+          "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "This is bio about itemThree"
+          "src": "/serviceImages/collections/mainImageThree.png",
+          "bio": "This is bio about itemThreeqwdf"
         }
       ],
-
       "_embedded": {
         "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
@@ -43,23 +42,21 @@
       }
     },
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
-
+      "image": "/serviceImages/collections/mainImageTwo.png",
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
-          "bio": "This is bio about itemTwo"
+          "src": "/serviceImages/collections/mainImageTwo.png",
+          "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "This is bio about itemThree"
+          "src": "/serviceImages/collections/mainImageThree.png",
+          "bio": "This is bio about itemThreeqwdf"
         }
       ],
-
       "_embedded": {
         "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
@@ -88,23 +85,21 @@
     },
 
     {
-      "image": "/exampleImages/imageExampleTwo.jpg",
-
+      "image": "/serviceImages/collections/mainImageThree.png",
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
-          "bio": "This is bio about itemTwo"
+          "src": "/serviceImages/collections/mainImageTwo.png",
+          "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "This is bio about itemThree"
+          "src": "/serviceImages/collections/mainImageThree.png",
+          "bio": "This is bio about itemThreeqwdf"
         }
       ],
-
       "_embedded": {
         "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
@@ -132,23 +127,21 @@
     },
 
     {
-      "image": "/exampleImages/imageExampleTwo.jpg",
-
+      "image": "/serviceImages/collections/mainImageOne.png",
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
-          "bio": "This is bio about itemTwo"
+          "src": "/serviceImages/collections/mainImageTwo.png",
+          "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "This is bio about itemThree"
+          "src": "/serviceImages/collections/mainImageThree.png",
+          "bio": "This is bio about itemThreeqwdf"
         }
       ],
-
       "_embedded": {
         "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
@@ -176,23 +169,21 @@
     },
 
     {
-      "image": "/exampleImages/imageExampleThree.jpg",
-
+      "image": "/serviceImages/collections/mainImageThree.png",
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
-          "bio": "This is bio about itemTwo"
+          "src": "/serviceImages/collections/mainImageTwo.png",
+          "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "This is bio about itemThree"
+          "src": "/serviceImages/collections/mainImageThree.png",
+          "bio": "This is bio about itemThreeqwdf"
         }
       ],
-
       "_embedded": {
         "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
@@ -221,23 +212,21 @@
     },
 
     {
-      "image": "/exampleImages/imageExampleTwo.jpg",
-
+      "image": "/serviceImages/collections/mainImageTwo.png",
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
-          "bio": "This is bio about itemTwo"
+          "src": "/serviceImages/collections/mainImageTwo.png",
+          "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "This is bio about itemThree"
+          "src": "/serviceImages/collections/mainImageThree.png",
+          "bio": "This is bio about itemThreeqwdf"
         }
       ],
-
       "_embedded": {
         "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
@@ -265,23 +254,21 @@
     },
 
     {
-      "image": "/exampleImages/imageExampleThree.jpg",
-
+      "image": "/serviceImages/collections/mainImageOne.png",
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
-          "bio": "This is bio about itemTwo"
+          "src": "/serviceImages/collections/mainImageTwo.png",
+          "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "This is bio about itemThree"
+          "src": "/serviceImages/collections/mainImageThree.png",
+          "bio": "This is bio about itemThreeqwdf"
         }
       ],
-
       "_embedded": {
         "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
@@ -309,23 +296,21 @@
     },
 
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
-
+      "image": "/serviceImages/collections/mainImageTwo.png",
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
-          "bio": "This is bio about itemTwo"
+          "src": "/serviceImages/collections/mainImageTwo.png",
+          "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "This is bio about itemThree"
+          "src": "/serviceImages/collections/mainImageThree.png",
+          "bio": "This is bio about itemThreeqwdf"
         }
       ],
-
       "_embedded": {
         "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
@@ -353,23 +338,21 @@
     },
 
     {
-      "image": "/exampleImages/imageExampleThree.jpg",
-
+      "image": "/serviceImages/collections/mainImageTwo.png",
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
-          "bio": "This is bio about itemTwo"
+          "src": "/serviceImages/collections/mainImageTwo.png",
+          "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "This is bio about itemThree"
+          "src": "/serviceImages/collections/mainImageThree.png",
+          "bio": "This is bio about itemThreeqwdf"
         }
       ],
-
       "_embedded": {
         "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
@@ -397,23 +380,21 @@
     },
 
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
-
+      "image": "/serviceImages/collections/mainImageOne.png",
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
-          "bio": "This is bio about itemTwo"
+          "src": "/serviceImages/collections/mainImageTwo.png",
+          "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "This is bio about itemThree"
+          "src": "/serviceImages/collections/mainImageThree.png",
+          "bio": "This is bio about itemThreeqwdf"
         }
       ],
-
       "_embedded": {
         "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
@@ -441,23 +422,21 @@
     },
 
     {
-      "image": "/exampleImages/imageExampleTwo.jpg",
-
+      "image": "/serviceImages/collections/mainImageThree.png",
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "image": "//serviceImages/collections/mainImageOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
+          "image": "//serviceImages/collections/mainImageTwo.jpg",
           "bio": "This is bio about itemTwo"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
+          "image": "//serviceImages/collections/mainImageThree.jpg",
           "bio": "This is bio about itemThree"
         }
       ],
-
       "_embedded": {
         "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
@@ -485,23 +464,21 @@
     },
 
     {
-      "image": "/exampleImages/imageExampleTwo.jpg",
-
+      "image": "/serviceImages/collections/mainImageTwo.png",
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
-          "bio": "This is bio about itemTwo"
+          "src": "/serviceImages/collections/mainImageTwo.png",
+          "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "This is bio about itemThree"
+          "src": "/serviceImages/collections/mainImageThree.png",
+          "bio": "This is bio about itemThreeqwdf"
         }
       ],
-
       "_embedded": {
         "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",

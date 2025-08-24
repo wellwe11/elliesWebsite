@@ -142,10 +142,10 @@ const Prints = ({ data }) => {
       {exploreNewInSection}
       {titleWrapper}
 
-      <SetOfExampleCollectionSection data={data} />
+      <WheelImagesSection data={data} />
       {sectionSeperationImage}
 
-      <WheelImagesSection data={data} />
+      <SetOfExampleCollectionSection data={data} />
       {sectionSeperationImage}
     </div>
   );
