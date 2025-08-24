@@ -10,8 +10,8 @@ import ControlledImage from "@components/controlledImage/controlledImage";
 
 const Images = ({
   images,
+  activeImageProps: { setActiveImageSrc },
   setDisplayImage,
-  setActiveImageSrc,
   canQuickView,
 }) => {
   // clicking left or right decreases or increases marginLeft by 1. This is then translate to marginLeft * 10 %. So 2 = 20%.
@@ -79,20 +79,19 @@ const Images = ({
 const WheelOfManyImages = ({
   images,
   canQuickView, // canQuickView enables quickView button. If not includes, no button appears. Having this false makes displayImage and activeImageSrc none-active
-  quickViewImages,
-  quickViewTitle,
-  quickViewPrice,
-  quickViewBio,
+  quickViewProps, // props containing information for quickView, such as title, bio, price
 
   // activeImageSrc & setActiveImageSrc are NEEDED to fetch the data which is needed to display information such as price, related images etc.
   // source for which quick-view-image will be if displayImage is true
   // if dispalyImage === true, setActiveImageSrc to image and display it
-  activeImageSrc,
-  setActiveImageSrc,
+  activeImageProps,
 }) => {
   // boolean if quick-view has been clicked
   // if true, display clicked image
   const [displayImage, setDisplayImage] = useState(false);
+
+  // used to check if typeOf activeImageSrc === "number" later in return
+  const { activeImageSrc } = activeImageProps;
 
   useEffect(() => {
     // if displayImage is true, remove scroll from body
@@ -104,19 +103,15 @@ const WheelOfManyImages = ({
       <Images
         images={images}
         setDisplayImage={setDisplayImage}
-        setActiveImageSrc={setActiveImageSrc}
+        activeImageProps={activeImageProps}
         canQuickView={canQuickView}
       />
 
       {typeof activeImageSrc === "number" && ( // check if typeof number is true. Previously, was simply set to check if it is true, but this became falsey when number was 0. Not sure why, but this solution works for now
         <QuickViewImageContainer
           setDisplayImage={setDisplayImage}
-          activeImageSrc={activeImageSrc}
-          setActiveImageSrc={setActiveImageSrc}
-          quickViewImages={quickViewImages}
-          quickViewTitle={quickViewTitle}
-          quickViewPrice={quickViewPrice}
-          quickViewBio={quickViewBio}
+          activeImageProps={activeImageProps}
+          quickViewProps={quickViewProps}
         />
       )}
     </div>

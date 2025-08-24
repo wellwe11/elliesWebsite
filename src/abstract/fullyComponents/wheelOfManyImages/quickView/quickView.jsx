@@ -77,10 +77,7 @@ const ProductDescription = ({ bio }) => {
 
 // Element containing information & further info about the product, such as other images, price, name, description
 const QuickViewInfo = ({
-  title = "Title",
-  price = 20,
-  bio,
-  productImages,
+  quickViewProps: { title = "Title", price = 20, bio, quickViewImages },
   activeImageIndex,
   setActiveImageIndex,
 }) => {
@@ -101,7 +98,7 @@ const QuickViewInfo = ({
   // a set of smaller images related to product. This handles the activeImageIndex
   const allImagesRelatedToQuickViewImage = (
     <div className={classes.allImagesExamples}>
-      {productImages?.map((image, index) => (
+      {quickViewImages?.map((image, index) => (
         <img
           key={index}
           className={classes.imageExample}
@@ -138,15 +135,12 @@ const QuickViewInfo = ({
 };
 
 // Element containing product-image and product-info
-const QuickViewImage = ({
-  quickViewImages,
-  quickViewTitle,
-  quickViewPrice,
-  quickViewBio,
-}) => {
+const QuickViewImage = ({ quickViewProps }) => {
   // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
+  // destructure to access images for currentActiveImage
+  const { quickViewImages } = quickViewProps;
   // currentActiveImage is the image which you initially clicked on quickView. It can be changed by clicking then related images (set of smaller images displayed in quickViewInfo)
   const currentActiveImage = (
     <div className={classes.activeImageWrapper}>
@@ -162,10 +156,7 @@ const QuickViewImage = ({
     <div className={classes.quickViewImageContainer}>
       {currentActiveImage}
       <QuickViewInfo
-        productImages={quickViewImages}
-        title={quickViewTitle}
-        price={quickViewPrice}
-        bio={quickViewBio}
+        quickViewProps={quickViewProps}
         activeImageIndex={activeImageIndex}
         setActiveImageIndex={setActiveImageIndex}
       />
@@ -177,12 +168,10 @@ const QuickViewImage = ({
 // Will always be positonined fixed in middle of the screen.
 export const QuickViewImageContainer = ({
   setDisplayImage,
-  activeImageSrc,
-  setActiveImageSrc,
-  quickViewImages,
-  quickViewTitle,
-  quickViewPrice,
-  quickViewBio,
+
+  activeImageProps: { setActiveImageSrc },
+
+  quickViewProps,
 }) => {
   // white background-image that differs pop-up from the rest of the website
   const WhiteBackgroundPopUp = (
@@ -200,14 +189,7 @@ export const QuickViewImageContainer = ({
   return (
     <div className={classes.quickViewImage}>
       {WhiteBackgroundPopUp}
-      <QuickViewImage
-        activeImageSrc={activeImageSrc}
-        setActiveImageSrc={setActiveImageSrc}
-        quickViewImages={quickViewImages}
-        quickViewTitle={quickViewTitle}
-        quickViewPrice={quickViewPrice}
-        quickViewBio={quickViewBio}
-      />
+      <QuickViewImage quickViewProps={quickViewProps} />
     </div>
   );
 };

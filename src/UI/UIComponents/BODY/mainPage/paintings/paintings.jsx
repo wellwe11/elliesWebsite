@@ -68,7 +68,7 @@ const SetOfExampleCollectionSection = ({ data }) => {
 
 // section to view many different collections (1 image per collection) which is clickable
 const WheelImagesSection = ({ data }) => {
-  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
+  const { setUniqueImage } = useContext(UniqueImageContext);
 
   // If quickView is clicked (to display info about image), activeImageSrc is data fetched for that specific item
   const [activeImageSrc, setActiveImageSrc] = useState(null);
@@ -96,14 +96,15 @@ const WheelImagesSection = ({ data }) => {
         <h1>{"Placeholder title"}</h1>
       </div>
       <WheelOfManyImages
-        images={wheelImages}
-        activeImageSrc={activeImageSrc}
-        setActiveImageSrc={setActiveImageSrc}
         canQuickView={true}
-        quickViewImages={activeQuickViewData?.restImages}
-        quickViewTitle={activeQuickViewData?.setTitle}
-        quickViewPrice={activeQuickViewData?.details.price}
-        quickViewBio={activeQuickViewData?.setDescription}
+        images={wheelImages}
+        activeImageProps={{ activeImageSrc, setActiveImageSrc }}
+        quickViewProps={{
+          quickViewImages: activeQuickViewData?.restImages,
+          title: activeQuickViewData?.setTitle,
+          price: activeQuickViewData?.details.price,
+          bio: activeQuickViewData?.setDescription,
+        }}
       />
     </section>
   );
