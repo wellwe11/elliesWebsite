@@ -85,13 +85,10 @@ const WheelImagesSection = ({ data }) => {
   useEffect(() => {
     if (!activeImageSrc) setActiveQuickViewData(null);
 
-    console.log(embeddedData[activeImageSrc]);
     setActiveQuickViewData(embeddedData[activeImageSrc]);
 
     setUniqueImage(data[activeImageSrc]);
   }, [activeImageSrc]);
-
-  console.log(uniqueImage);
 
   return (
     <section className={classes.wheelImagesSection}>

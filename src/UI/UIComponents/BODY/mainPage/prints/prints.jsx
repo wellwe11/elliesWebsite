@@ -1,4 +1,7 @@
 import classes from "./prints.module.scss";
+import { useContext, useEffect, useState } from "react";
+
+import UniqueImageContext from "../../uniqueImageContext";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 
@@ -6,8 +9,6 @@ import WheelOfManyImages from "@fullyComponents/wheelOfManyImages/wheelOfManyIma
 import ExploreNewIn from "@fullyComponents/exploreNewIn/exploreNewIn";
 import SetOfimagesWithText from "@fullyComponents/SetOfImagesWithText/setOfImagesWithText";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
-import { useContext, useEffect, useState } from "react";
-import UniqueImageContext from "../../uniqueImageContext";
 
 // Example section of a collection of prints - 3 images with scrolling text below as bio
 const SetOfExampleCollectionSection = ({ data }) => {
@@ -21,11 +22,11 @@ const SetOfExampleCollectionSection = ({ data }) => {
   // corresponding texts to each image
   const [printImagesText, setPrintImagesText] = useState(null);
 
-  // automated data which finds last image. This is because front-page should represent the most recently added collection, to keep it 'fresh' and nicely updated
+  // automated data which finds last set-images. This is because front-page should represent the most recently added collection, to keep it 'fresh' and nicely updated
   const mostRecentlyAddedSet = data[data.length - 1];
 
   // sets title
-  const textBioTitle = mostRecentlyAddedSet.bioInfo.setTitle;
+  const textBioTitle = mostRecentlyAddedSet._embedded.setTitle;
 
   useEffect(() => {
     if (!mostRecentlyAddedSet) return;
@@ -35,7 +36,7 @@ const SetOfExampleCollectionSection = ({ data }) => {
     const bios = [];
 
     // images, their source and related text
-    const printsImages = mostRecentlyAddedSet.bioInfo.images;
+    const printsImages = mostRecentlyAddedSet.images;
 
     printsImages.forEach((image) => {
       sources.push(image.src);
@@ -67,7 +68,7 @@ const SetOfExampleCollectionSection = ({ data }) => {
 
 // section to view many different collections (1 image per collection) which is clickable
 const WheelImagesSection = ({ data }) => {
-  const { setUniqueImage } = useContext(UniqueImageContext);
+  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
 
   // If quickView is clicked (to display info about image), activeImageSrc is data fetched for that specific item
   const [activeImageSrc, setActiveImageSrc] = useState(null);
@@ -84,8 +85,9 @@ const WheelImagesSection = ({ data }) => {
   useEffect(() => {
     if (!activeImageSrc) setActiveQuickViewData(null);
 
-    setUniqueImage(data[activeImageSrc]);
     setActiveQuickViewData(embeddedData[activeImageSrc]);
+
+    setUniqueImage(data[activeImageSrc]);
   }, [activeImageSrc]);
 
   return (

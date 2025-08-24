@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import classes from "./uniqueInfoSection.module.scss";
 import transitionInAnimation from "@functions/transitionAnimation";
 
-const InfoSectionBio = ({ details, title, bioRef }) => {
+const InfoSectionBio = ({ details, bioRef }) => {
   const bioKeys = Object.keys(details);
   const bioValues = Object.values(details);
 
@@ -17,7 +17,7 @@ const InfoSectionBio = ({ details, title, bioRef }) => {
   // a simple title to indicate where the information about the set is
   const detailsTitle = (
     <div>
-      <h1 className={classes.detailsTitle}>{title}</h1>
+      <h1 className={classes.detailsTitle}>DETAILS</h1>
     </div>
   );
 
@@ -64,7 +64,7 @@ const InfoSectionImages = ({ images, setActiveImage, smallerImagesRef }) => {
   );
 };
 
-const UniqueInfoSection = ({ images, textInfo, setTitle }) => {
+const UniqueInfoSection = ({ images, textInfo }) => {
   const [activeImage, setActiveImage] = useState(0);
 
   const imageRef = useRef(null);
@@ -97,7 +97,7 @@ const UniqueInfoSection = ({ images, textInfo, setTitle }) => {
         images={images}
         setActiveImage={setActiveImage}
       />
-      <InfoSectionBio details={textInfo} title={setTitle} bioRef={bioRef} />
+      <InfoSectionBio details={textInfo} bioRef={bioRef} />
     </div>
   );
 

@@ -2,7 +2,6 @@ import classes from "./uniqueTopSection.module.scss";
 
 // One big image that is showing you an example of the currently displayed art-piece
 const TopImage = ({ image }) => {
-  console.log(image);
   return (
     <div className={classes.topImage}>
       <img className={classes.topImageImage} src={image} alt="" />
@@ -12,11 +11,7 @@ const TopImage = ({ image }) => {
 
 // Text is split into 2 sections. This allows
 // the text to transition 'un-evenly', giving a nicer
-const UniqueTopSectionTitle = ({ titleInfo }) => {
-  // transition-effect.
-  const titleOne = titleInfo.title;
-  const titleTwo = titleInfo.bio;
-
+const UniqueTopSectionTitle = ({ titleInfo: { titleOne, titleTwo } }) => {
   // Title one. Transitions first
   const titleTextOne = (
     <div className={classes.uniqueLeftTitle}>
@@ -45,12 +40,10 @@ const UniqueTopSectionTitle = ({ titleInfo }) => {
 
 // A small container of text containing some bio about the collection
 // title. Example: "Elegant red-rose collection"
-const UniqueTopSectionBio = ({ textInfo }) => {
-  const bioTitle = textInfo.title;
+const UniqueTopSectionBio = ({ textInfo: { bioTitle, bioText } }) => {
   const bioTextTitle = <h5 className={classes.bioTitle}>{bioTitle}</h5>;
 
   // bio. Some catchy text
-  const bioText = textInfo.bio;
   const bioTextBio = <h5 className={classes.bioText}>{bioText}</h5>;
 
   return (

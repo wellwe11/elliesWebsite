@@ -57,7 +57,9 @@ const MainPage = ({ topLayerData, serviceData }) => {
   const topLayerDataPrints = topLayerData?.prints;
   // wrapper that contains all top-level data for prints
   const printSection = (
-    <section>{/* <Prints data={topLayerDataPrints} /> */}</section>
+    <section>
+      <Prints data={topLayerDataPrints} />
+    </section>
   );
 
   // Realistic image containing different colletions of images to "ikea-style" display them
