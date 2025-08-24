@@ -25,6 +25,10 @@ const SetOfExampleCollectionSection = ({ data }) => {
   // automated data which finds last image. This is because front-page should represent the most recently added collection, to keep it 'fresh' and nicely updated
   const mostRecentlyAddedSet = data[data.length - 1];
 
+  const linkId = mostRecentlyAddedSet?.id;
+
+  const linkType = mostRecentlyAddedSet?._embedded.details.type;
+
   // sets title
   const textBioTitle = mostRecentlyAddedSet._embedded.setTitle;
 
@@ -53,7 +57,7 @@ const SetOfExampleCollectionSection = ({ data }) => {
         className={classes.exampleCollectionSection}
         onClick={() => {
           setUniqueImage(mostRecentlyAddedSet);
-          navigate("/uniqueImage");
+          navigate(`uniqueImage/${linkType}/${linkId}`);
         }}
       >
         <SetOfimagesWithText

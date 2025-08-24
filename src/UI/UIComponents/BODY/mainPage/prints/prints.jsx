@@ -25,6 +25,10 @@ const SetOfExampleCollectionSection = ({ data }) => {
   // automated data which finds last set-images. This is because front-page should represent the most recently added collection, to keep it 'fresh' and nicely updated
   const mostRecentlyAddedSet = data[data.length - 1];
 
+  const linkId = mostRecentlyAddedSet?.id;
+
+  const linkType = mostRecentlyAddedSet?._embedded.details.type;
+
   // sets title
   const textBioTitle = mostRecentlyAddedSet._embedded.setTitle;
 
@@ -53,7 +57,7 @@ const SetOfExampleCollectionSection = ({ data }) => {
         className={classes.exampleCollectionSection}
         onClick={() => {
           setUniqueImage(mostRecentlyAddedSet);
-          navigate("/uniqueImage");
+          navigate(`uniqueImage/${linkType}/${linkId}`);
         }}
       >
         <SetOfimagesWithText
@@ -114,7 +118,7 @@ const Prints = ({ data }) => {
   // Title for section of prints
   const titleWrapper = (
     <div className={classes.titleWrapper}>
-      <h1 className={classes.title}>Prints</h1>
+      <h1 className={classes.title}>Explore prints</h1>
     </div>
   );
 
@@ -134,6 +138,8 @@ const Prints = ({ data }) => {
 
   return (
     <div className={classes.prints}>
+      {/* Currently contains nothing except small text */}
+      {exploreNewInSection}
       {titleWrapper}
 
       <SetOfExampleCollectionSection data={data} />
@@ -141,9 +147,6 @@ const Prints = ({ data }) => {
 
       <WheelImagesSection data={data} />
       {sectionSeperationImage}
-
-      {/* Currently contains nothing except small text */}
-      {exploreNewInSection}
     </div>
   );
 };

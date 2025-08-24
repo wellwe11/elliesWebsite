@@ -20,6 +20,8 @@ function App() {
 export default App;
 
 /** TODO LIST
+ *
+ * ** BUGS **
  * Currently, navbar can be hovered and the extended portion will be displayed,
  * without actually hovering a button. Needs to be fixed
  *
@@ -27,9 +29,19 @@ export default App;
  * -- Error: 'Uncaught (in promise) TypeError: Cannot convert undefined or null to object'
  *
  * Implement a button on uniqueImage page to help user navigate down to the details-page
+ * Implement a add to cart on uniqueImage page
  *
  * Services-buttons need to be fixed. Currently, you can hover outside of text and all things except underline text is interactive
  * Add an image for each type-section (prints, paintings) which will display one example with some nice text on the right and an animation with icons
+ *
+ * navBar icon-animation (the blue/white circle) resets when you click it. Either, remove this, or add a spin-animation (360 spin) to click.
+ *
+ *
+ *
+ * ** NEW COMPONENTS **
+ * Create an instagram section - this should be a spinning wheel that simply has images from ellies instagram-page, and when clicked, takes you to ellies instagram
+ * Create a 'new-in' component, which is a stand-alone component. Not related to prints/paintings sections. It simply displays something with a nice animation.
+ * Contact us section above footer
  *
  */
 

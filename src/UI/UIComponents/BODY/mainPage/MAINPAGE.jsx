@@ -18,17 +18,17 @@ import SectionSeperationImage from "@components/sectionSeperationImage/sectionSe
 
 // Categories section
 const categories = {
-  Prints: {
+  prints: {
     image: printsCategory,
   },
-  Paintings: {
+  paintings: {
     image: artCategory,
   },
 
-  Bookmarks: {
+  bookmarks: {
     image: bookmarksCategory,
   },
-  Stickers: {
+  stickers: {
     image: stickersCategory,
   },
 };
@@ -99,7 +99,7 @@ const MainPage = ({ topLayerData, serviceData }) => {
         {sectionSeperatorWithNoImage}
 
         {categoriesSection}
-        {sectionSeperatorWithImage}
+        {sectionSeperatorWithNoImage}
 
         {printSection}
         {sectionSeperatorWithImage}
