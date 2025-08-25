@@ -115,13 +115,6 @@ const WheelImagesSection = ({ data }) => {
 };
 
 const Prints = ({ data }) => {
-  // Title for section of prints
-  const titleWrapper = (
-    <div className={classes.titleWrapper}>
-      <h1 className={classes.title}>Explore prints</h1>
-    </div>
-  );
-
   // section containing most recently added print together with some text
   const exploreNewInSection = (
     <section className={classes.exploreNewInSection}>
@@ -140,13 +133,12 @@ const Prints = ({ data }) => {
     <div className={classes.prints}>
       {/* Currently contains nothing except small text */}
       {exploreNewInSection}
-      {titleWrapper}
+      {sectionSeperationImage}
 
       <WheelImagesSection data={data} />
       {sectionSeperationImage}
 
       <SetOfExampleCollectionSection data={data} />
-      {sectionSeperationImage}
     </div>
   );
 };

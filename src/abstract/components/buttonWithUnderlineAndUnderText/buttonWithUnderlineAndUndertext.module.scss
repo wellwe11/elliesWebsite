@@ -69,7 +69,8 @@
 }
 
 // displays explore-text and smaller underline on hover
-.mainImageSpan:hover ~ .underlineSpanContainer {
+.mainImageWrapperText:hover .underlineSpanContainer {
+  cursor: pointer;
   .underlineSpan {
     width: 80px;
   }
