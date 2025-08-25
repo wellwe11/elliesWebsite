@@ -15,6 +15,7 @@ import Paintings from "./paintings/paintings";
 import Services from "./services/services";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
+import NewIn from "./newIn/newIn";
 
 // Categories section
 const categories = {
@@ -38,7 +39,7 @@ const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 const MainPage = ({ topLayerData, serviceData }) => {
   // Welcoming image and small animation
   const topSection = (
-    <section>
+    <section className={classes.topSection}>
       <MainPageTopPresentation
         images={smallCircleImages}
         mainImage={mainImage}
@@ -48,7 +49,7 @@ const MainPage = ({ topLayerData, serviceData }) => {
 
   // Clickable images to navigate to filtered products
   const categoriesSection = (
-    <section>
+    <section className={classes.categoriesSection}>
       <Categories categories={categories} />
     </section>
   );
@@ -57,14 +58,14 @@ const MainPage = ({ topLayerData, serviceData }) => {
   const topLayerDataPrints = topLayerData?.prints;
   // wrapper that contains all top-level data for prints
   const printSection = (
-    <section>
+    <section className={classes.printSection}>
       <Prints data={topLayerDataPrints} />
     </section>
   );
 
   // Realistic image containing different colletions of images to "ikea-style" display them
   const servicesSection = (
-    <section>
+    <section className={classes.serviceSection}>
       <Services data={serviceData} />
     </section>
   );
@@ -73,8 +74,14 @@ const MainPage = ({ topLayerData, serviceData }) => {
   const topLayerDataPaintings = topLayerData?.paintings;
   // Example-images of paintings
   const paintingsSection = (
-    <section>
+    <section className={classes.paintingSection}>
       <Paintings data={topLayerDataPaintings} />
+    </section>
+  );
+
+  const newInSection = (
+    <section className={classes.newInSection}>
+      <NewIn />
     </section>
   );
 
@@ -104,8 +111,11 @@ const MainPage = ({ topLayerData, serviceData }) => {
         {printSection}
         {sectionSeperatorWithImage}
 
+        {/* {newInSection}
+        {sectionSeperatorWithImage} */}
+
         {servicesSection}
-        {sectionSeperatorWithNoImage}
+        {sectionSeperatorWithImage}
 
         {paintingsSection}
         {sectionSeperatorWithImage}

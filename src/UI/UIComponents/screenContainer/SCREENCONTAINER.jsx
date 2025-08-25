@@ -9,6 +9,7 @@ import UniqueImage from "../BODY/uniqueImagePage/uniqueImage";
 import tryFetchFn from "@functions/tryFetchFn";
 
 import UniqueImageContext from "../BODY/uniqueImageContext";
+import Gallery from "../BODY/gallery/GALLERY";
 
 const ScreenContainer = () => {
   const [topLayerData, setTopLayerData] = useState(null);
@@ -45,6 +46,8 @@ const ScreenContainer = () => {
     fetchData();
   }, []);
 
+  if (!topLayerData) return <h1>...loading</h1>;
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className={classes.widthContainer}>
@@ -65,9 +68,20 @@ const ScreenContainer = () => {
                   )
                 }
               />
+
               <Route
                 path="/uniqueImage/:type/:id"
-                element={topLayerData && <UniqueImage data={topLayerData} />}
+                element={<UniqueImage data={topLayerData} />}
+              />
+
+              <Route
+                path="/gallery"
+                element={<Gallery data={topLayerData} />}
+              />
+
+              <Route
+                path="/gallery:category"
+                element={<Gallery data={topLayerData} />}
               />
             </Routes>
           </UniqueImageContext.Provider>
