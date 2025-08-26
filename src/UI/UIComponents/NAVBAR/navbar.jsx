@@ -89,41 +89,6 @@ const NavbarButtons = ({
   );
 };
 
-// drop-down menu for when you hover "gallery". This will contain
-// buttons to navigate to pages which are related to main-page
-// !! currently not working !! - will add future navigateFN
-const ExtendGallery = ({ hoverButton, setHoverButton, activeButton }) => {
-  const navigate = handleNavigateSmooth();
-  // drop-down buttons and their corresponding text
-  const buttons = ["Prints", "Paintings", "Accessories"];
-
-  const mappedButtons = buttons.map((button, index) => (
-    <button
-      onClick={() => navigate(`./gallery/${button.toLowerCase()}`)}
-      key={index}
-      className={classes.pageOptionButton}
-    >
-      <h5 className={classes.pageOptionText}>{button}</h5>
-    </button>
-  ));
-
-  return (
-    <div
-      className={`${classes.pageOptionTextsContainer} ${
-        activeButton !== 1 && hoverButton === 1 // if user is hovering while being on a page that doesnt expand navbar
-          ? classes.hoverStyle // expand navbar
-          : activeButton === 1 // else if user is on page that does expand
-          ? classes.hoverStyle // expand navbar
-          : classes.inactiveStyle // else close navbar
-      }`}
-      onMouseEnter={() => setHoverButton(1)}
-      onMouseLeave={() => setHoverButton(activeButton)}
-    >
-      <div className={classes.pageOptionsWrapper}>{mappedButtons}</div>
-    </div>
-  );
-};
-
 const NavLogo = ({ setActiveButton, setHoverButton }) => {
   const navigate = handleNavigateSmooth();
 
@@ -189,17 +154,6 @@ const Navbar = () => {
     </div>
   );
 
-  // extended buttons which are dropped-down while hovering Gallery-button
-  const extendedButtonsWrapper = (
-    <div className={classes.extendedGalleryWrapper}>
-      <ExtendGallery
-        hoverButton={hoverButton}
-        setHoverButton={setHoverButton}
-        activeButton={activeButton}
-      />
-    </div>
-  );
-
   return (
     <div className={classes.navbar} style={navbarShadowStyle}>
       <div className={classes.navContent}>
@@ -210,7 +164,6 @@ const Navbar = () => {
           {navbarButtonsWrapper}
           {shoppingCartWrapper}
         </div>
-        {extendedButtonsWrapper}
       </div>
     </div>
   );

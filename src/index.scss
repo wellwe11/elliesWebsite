@@ -11,13 +11,22 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --websiteContainerColor: #f7f7f7;
+  --websiteContainerColor: var(--c-white);
+
   --transitionButtonColor: rgb(152, 211, 217);
   --tonedDownContainerColor: rgb(191, 196, 197);
   --pastelBlueColor: rgb(143, 172, 193);
 
   --fontColor: rgb(79, 79, 79);
   --navUnderlineColor: rgb(142, 142, 142);
+
+  --c-white: #fff;
+  --c-grey: var(--c-grey-400);
+  --c-grey-500: #616161;
+  --c-grey-400: #757575;
+  --c-grey-300: #cbcccd;
+  --c-grey-200: #ecebea;
+  --c-grey-100: #f8f8f8;
 }
 
 /* BASIC CSS RESET */

@@ -96,8 +96,8 @@ const WheelImagesSection = ({ data }) => {
 
   return (
     <section className={classes.wheelImagesSection}>
-      <div>
-        <h1>{"Placeholder title"}</h1>
+      <div className={classes.titleContainer}>
+        <h1 className={classes.title}>{"Dive into prints"}</h1>
       </div>
       <WheelOfManyImages
         canQuickView={true}
