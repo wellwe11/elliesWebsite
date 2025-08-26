@@ -2,25 +2,51 @@ import { useEffect, useState } from "react";
 import classes from "./GALLERY.module.scss";
 
 const Products = ({ products, filter }) => {
-  const mappedProducts = (
-    <div className={classes.productsContainer}>
-      {products.map((product, index) => (
-        <div key={index} className={classes.productWrapper}>
-          <img src={product.image} alt="" />
-        </div>
-      ))}
+  const displayedProducts = (
+    filter
+      ? // if filter is active, find matching objects
+        products.filter((obj) => obj?._embedded.details.type === filter)
+      : // else display all objects
+        products
+  ).map((product, index) => (
+    <div key={index} className={classes.productWrapper}>
+      <img src={product.image} alt="" />
+    </div>
+  ));
+
+  return (
+    <div className={classes.products}>
+      <div className={classes.productsContainer}>{displayedProducts}</div>
     </div>
   );
-
-  return <div className={classes.products}>{mappedProducts}</div>;
 };
 
-const FilterSideBar = ({ filter, setFilter }) => {
-  return (
-    <div className={classes.filterSideBar}>
-      <h1>This is sidebar</h1>
-    </div>
+const FilterSideBar = ({ data, filter, setFilter }) => {
+  // if user clicks on the same filter as currently active, it de-selects filter
+  const handleFilter = (e) => (!filter ? setFilter(e) : setFilter(null));
+
+  // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
+  const dataKeys = Object.keys(data);
+  const filterList = (
+    <ul>
+      {dataKeys.map((key, index) => (
+        <li key={index}>
+          <label>
+            <input
+              type="radio"
+              name="key-choices"
+              checked={filter === key}
+              onChange={() => setFilter(key)}
+              onClick={() => handleFilter(key)}
+            />
+            {key}
+          </label>
+        </li>
+      ))}
+    </ul>
   );
+
+  return <div className={classes.filterSideBar}>{filterList}</div>;
 };
 
 const Gallery = ({ data }) => {
@@ -44,11 +70,9 @@ const Gallery = ({ data }) => {
     setFlattedData(flattedData);
   }, [data]);
 
-  console.log(flattedData);
-
   const filterSideBarWrapper = (
     <div className={classes.filterSideBarWrapper}>
-      <FilterSideBar filter={filter} setFilter={setFilter} />
+      <FilterSideBar data={data} filter={filter} setFilter={setFilter} />
     </div>
   );
 
