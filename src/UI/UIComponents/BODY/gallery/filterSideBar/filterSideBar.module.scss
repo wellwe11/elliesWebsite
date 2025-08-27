@@ -1,0 +1,20 @@
+.filterSideBar {
+  background-color: gray;
+  height: 100%;
+
+  position: relative;
+
+  .filterUl {
+    position: sticky;
+    top: 60px;
+    .filterLi {
+      .filterLabel {
+        cursor: pointer;
+
+        .filterInput {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
