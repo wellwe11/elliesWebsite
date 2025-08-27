@@ -1,38 +1,64 @@
 import { useEffect, useState } from "react";
 import classes from "./GALLERY.module.scss";
 
+// buttons that change pages, or rather, changes the index in which products can be displayed
 const PageSelector = ({ page, setPage, products }) => {
-  const handlePage = (type) => {
-    if (type === "increment") {
-      if (page * 9 <= products?.length) {
-        setPage((prev) => prev + 1);
-      }
-    } else if (type === "decrement") {
-      setPage((prev) => (prev > 0 ? prev - 1 : 0));
-    } else {
-      console.log("alex e inte smart hihi");
+  const pageNumber = +page + 1; // pages are 0-indexed, but are shown as 1-indexed because page 1 fits better than page 0 as initial page
+  const maxPage = Math.ceil(products?.length / 9 - 1); // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
+
+  // change page forward
+  const increment = () => {
+    // if next page can contain products
+    if (page < maxPage) {
+      setPage((prev) => prev + 1);
+    }
+  };
+
+  // change page backwards
+  const decrement = () => {
+    // prevent page from going below 0
+    if (page > 0) {
+      setPage((prev) => prev - 1);
     }
   };
 
   return (
     <div>
-      <button onClick={() => handlePage("decrement")}>{"<"}</button>
-      {+page + 1}
-      <button onClick={() => handlePage("increment")}>{">"}</button>
+      <button onClick={decrement} disabled={page === 0}>
+        {"<"}
+      </button>
+      {pageNumber}
+      <button onClick={increment} disabled={page === maxPage}>
+        {">"}
+      </button>
     </div>
   );
 };
 
-const Products = ({ products }) => {
+const Products = ({ products, page }) => {
+  // minImages displays the absolute minimum of index which is allowed to be shown on each page
+  // page starts on 0, goes to 1, 2, 3 etc.
+  // First image is then current page * 9.
+  // So, 0, 8, 18 etc.
+  const minImages = page * 9;
+
+  // maxPage displays absolute maximum index that is displayed on current page
+  // so, 8, 17, 26 etc.
+  const maxPage = minImages + 8;
+
+  const mappedProductImages = products.map(
+    (product, index) =>
+      index >= minImages &&
+      index <= maxPage && (
+        <div key={index} className={classes.productWrapper}>
+          <img src={product.image} alt="" />
+        </div>
+      )
+  );
+
   return (
     <div className={classes.products}>
-      <div className={classes.productsContainer}>
-        {products.map((product, index) => (
-          <div key={index} className={classes.productWrapper}>
-            <img src={product.image} alt="" />
-          </div>
-        ))}
-      </div>
+      <div className={classes.productsContainer}>{mappedProductImages}</div>
     </div>
   );
 };
@@ -44,7 +70,7 @@ const FilterSideBar = ({ data, filter, setFilter }) => {
   // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
   const dataKeys = Object.keys(data);
   const filterList = (
-    <ul>
+    <ul className={classes.filterSideBarUL}>
       {dataKeys.map((key, index) => (
         <li key={index}>
           <label>
@@ -66,52 +92,22 @@ const FilterSideBar = ({ data, filter, setFilter }) => {
 };
 
 const Gallery = ({ data }) => {
+  // all types (paintings, prints, accessories are 'flattened')
+  // Works like a parent-variable. Always contains an array of all data, and never changes.
   const [flattedData, setFlattedData] = useState(null);
-  const [productsOnPage, setProductsOnPage] = useState(null);
-  const [filter, setFilter] = useState(null);
-  const [page, setPage] = useState(0);
+
+  // filtered data
+  // is a sub-variable to flattedData. Inherits flattedData unless theres a current filter active
   const [filteredData, setFilteredData] = useState(null);
 
-  useEffect(() => {
-    if (!flattedData) return;
+  // filter-boolean - when active, changes filteredData to matching objects
+  const [filter, setFilter] = useState(null);
 
-    // minImages displays the absolute minimum of index which is allowed to be shown on each page
-    // page starts on 0, goes to 1, 2, 3 etc.
-    // First image is then current page * 9.
-    // So, 0, 8, 18 etc.
-    const minImages = page * 9;
+  // active page
+  const [page, setPage] = useState(0);
 
-    // maxPage displays absolute maximum index that is displayed on current page
-    // so, 8, 17, 26 etc.
-    const maxPage = minImages + 8;
-
-    console.log(filter);
-    if (filteredData && filter) {
-      const imagesOnPage = filteredData.filter(
-        (_, index) => index >= minImages && index <= maxPage
-      );
-
-      setProductsOnPage(imagesOnPage);
-    } else {
-      const imagesOnPage = flattedData.filter(
-        (_, index) => index >= minImages && index <= maxPage
-      );
-
-      setProductsOnPage(imagesOnPage);
-    }
-  }, [flattedData, page, filter, filteredData]);
-
-  useEffect(() => {
-    setPage(0);
-    if (!filter) return;
-
-    const filterArr = flattedData.filter(
-      (obj) => obj?._embedded.details.type === filter
-    );
-
-    setFilteredData(filterArr);
-  }, [filter, flattedData]);
-
+  // effect that flattens data out to allow items to be displayed in 'random' order with no filters
+  // runs only once, when data initially is loaded (on page-laod)
   useEffect(() => {
     if (!data) return;
 
@@ -123,13 +119,29 @@ const Gallery = ({ data }) => {
     };
 
     const flattedData = flatData(data);
-
     if (!flattedData) return;
-
     setFlattedData(flattedData);
   }, [data]);
 
-  if (!productsOnPage)
+  // effect filters items based on active filter (if there is one)
+  useEffect(() => {
+    // resets page whenever filter is changed
+    setPage(0);
+
+    // filteredData is always active.
+    // If no filter is active, filteredData becomes flattedData
+    if (!filter) {
+      setFilteredData(flattedData);
+    } else {
+      // if a filter is active, filters data & changes filteredData to matching objects
+      const filterArr = flattedData.filter(
+        (obj) => obj?._embedded.details.type === filter
+      );
+      setFilteredData(filterArr);
+    }
+  }, [filter, flattedData]);
+
+  if (!filteredData)
     return (
       <div>
         <h1>loading..</h1>
@@ -144,13 +156,13 @@ const Gallery = ({ data }) => {
 
   const productsWrapper = (
     <div className={classes.productsWrapper}>
-      <Products products={productsOnPage} />
+      <Products products={filteredData} page={page} />
     </div>
   );
 
   const pageWrapper = (
     <div className={classes.pageWrapper}>
-      <PageSelector products={productsOnPage} page={page} setPage={setPage} />
+      <PageSelector products={filteredData} page={page} setPage={setPage} />
     </div>
   );
 
