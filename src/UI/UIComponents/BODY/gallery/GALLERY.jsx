@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import classes from "./GALLERY.module.scss";
 
 // buttons that change pages, or rather, changes the index in which products can be displayed
@@ -83,11 +83,10 @@ const FilterSideBar = ({ data, filter, setFilter }) => {
         <li key={index}>
           <label>
             <input
-              type="radio"
+              type="checkbox"
               name="key-choices"
               checked={filter === key}
-              onClick={() => handleFilter(key)}
-              onChange={() => setFilter(key)}
+              onChange={() => handleFilter(key)}
             />
             {key}
           </label>
@@ -104,15 +103,18 @@ const Gallery = ({ data }) => {
   // Works like a parent-variable. Always contains an array of all data, and never changes.
   const [flattedData, setFlattedData] = useState(null);
 
-  // filtered data
-  // is a sub-variable to flattedData. Inherits flattedData unless theres a current filter active
-  const [filteredData, setFilteredData] = useState(null);
-
   // filter-boolean - when active, changes filteredData to matching objects
   const [filter, setFilter] = useState(null);
 
   // active page
   const [page, setPage] = useState(0);
+
+  // Filtered data based on current filter
+  const filteredData = useMemo(() => {
+    if (!filter) return flattedData;
+
+    return flattedData.filter((obj) => obj?._embedded.details.type === filter);
+  }, [filter, flattedData]);
 
   // effect that flattens data out to allow items to be displayed in 'random' order with no filters
   // runs only once, when data initially is loaded (on page-laod)
@@ -131,23 +133,9 @@ const Gallery = ({ data }) => {
     setFlattedData(flattedData);
   }, [data]);
 
-  // effect filters items based on active filter (if there is one)
   useEffect(() => {
-    // resets page whenever filter is changed
     setPage(0);
-
-    // filteredData is always active.
-    // If no filter is active, filteredData becomes flattedData
-    if (!filter) {
-      setFilteredData(flattedData);
-    } else {
-      // if a filter is active, filters data & changes filteredData to matching objects
-      const filterArr = flattedData.filter(
-        (obj) => obj?._embedded.details.type === filter
-      );
-      setFilteredData(filterArr);
-    }
-  }, [filter, flattedData]);
+  }, [filter]);
 
   if (!filteredData)
     return (
