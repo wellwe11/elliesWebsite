@@ -4,7 +4,7 @@ import classes from "./GALLERY.module.scss";
 // buttons that change pages, or rather, changes the index in which products can be displayed
 const PageSelector = ({ page, setPage, products }) => {
   const pageNumber = +page + 1; // pages are 0-indexed, but are shown as 1-indexed because page 1 fits better than page 0 as initial page
-  const maxPage = Math.ceil(products?.length / 9 - 1); // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
+  const maxPage = Math.ceil(products?.length / 9) - 1; // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
 
   // change page forward
   const increment = () => {
@@ -24,11 +24,19 @@ const PageSelector = ({ page, setPage, products }) => {
 
   return (
     <div>
-      <button onClick={decrement} disabled={page === 0}>
+      <button
+        onClick={decrement}
+        disabled={page === 0}
+        aria-label="Previous page"
+      >
         {"<"}
       </button>
       {pageNumber}
-      <button onClick={increment} disabled={page === maxPage}>
+      <button
+        onClick={increment}
+        disabled={page === maxPage}
+        aria-label="Next page"
+      >
         {">"}
       </button>
     </div>
@@ -40,21 +48,20 @@ const Products = ({ products, page }) => {
   // page starts on 0, goes to 1, 2, 3 etc.
   // First image is then current page * 9.
   // So, 0, 8, 18 etc.
-  const minImages = page * 9;
+  const start = page * 9;
 
   // maxPage displays absolute maximum index that is displayed on current page
   // so, 8, 17, 26 etc.
-  const maxPage = minImages + 8;
+  const end = start + 9;
 
-  const mappedProductImages = products.map(
-    (product, index) =>
-      index >= minImages &&
-      index <= maxPage && (
-        <div key={index} className={classes.productWrapper}>
-          <img src={product.image} alt="" />
-        </div>
-      )
-  );
+  // slices only visible objects
+  const displayedProducts = products.slice(start, end);
+
+  const mappedProductImages = displayedProducts.map((product, index) => (
+    <div key={index} className={classes.productWrapper}>
+      <img src={product.image} alt="" />
+    </div>
+  ));
 
   return (
     <div className={classes.products}>
@@ -65,7 +72,8 @@ const Products = ({ products, page }) => {
 
 const FilterSideBar = ({ data, filter, setFilter }) => {
   // if user clicks on the same filter as currently active, it de-selects filter
-  const handleFilter = (e) => (!filter ? setFilter(e) : setFilter(null));
+  const handleFilter = (key) =>
+    setFilter((prev) => (prev === key ? null : key));
 
   // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
   const dataKeys = Object.keys(data);
@@ -78,8 +86,8 @@ const FilterSideBar = ({ data, filter, setFilter }) => {
               type="radio"
               name="key-choices"
               checked={filter === key}
-              onChange={() => setFilter(key)}
               onClick={() => handleFilter(key)}
+              onChange={() => setFilter(key)}
             />
             {key}
           </label>
