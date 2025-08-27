@@ -6,6 +6,10 @@ const PageSelector = ({ page, setPage, products }) => {
   const pageNumber = +page + 1; // pages are 0-indexed, but are shown as 1-indexed because page 1 fits better than page 0 as initial page
   const maxPage = Math.ceil(products?.length / 9) - 1; // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
 
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [page]);
+
   // change page forward
   const increment = () => {
     // if next page can contain products
@@ -22,23 +26,72 @@ const PageSelector = ({ page, setPage, products }) => {
     }
   };
 
+  // creates a dynamic array which displays current set of pages (always pageNumber-1, pageNumber, pageNumber+1)
+  // also allows a div-underline to display the active page
+  const getPageWindow = (page, max) => {
+    const start = Math.max(1, Math.min(page - 1, max - 2)); // ensures window doesn't overflow
+    const end = Math.min(max, start + 2);
+    const arr = [];
+    for (let i = start; i <= end; i++) arr.push(i);
+    return arr;
+  };
+
+  const someArr = getPageWindow(pageNumber, maxPage);
+
+  const currentPageNumber = (
+    <div className={classes.currentPageWrapper}>
+      {someArr.map((arrNr, index) => (
+        <button
+          key={index}
+          className={classes.pageSelectorButton}
+          style={{ gridColumn: +index + 1 }}
+          onClick={() => setPage(+arrNr)}
+        >
+          <p className={classes.btnText}>{+arrNr}</p>
+
+          {
+            // makes it so that underline is correctly displaying current page
+            pageNumber === arrNr && <div className={classes.underline} />
+          }
+        </button>
+      ))}
+    </div>
+  );
+
+  const leftButton = (
+    <button
+      className={classes.pageSelectorButton}
+      onClick={decrement}
+      disabled={page === 0}
+      aria-label="Previous page"
+    >
+      <p className={classes.buttonText}>Previous</p>
+    </button>
+  );
+
+  const rightButton = (
+    <button
+      className={classes.pageSelectorButton}
+      onClick={increment}
+      disabled={page === maxPage - 1}
+      aria-label="Next page"
+    >
+      <p className={classes.buttonText}>Next</p>
+    </button>
+  );
+
+  const backToZeroButton = (
+    <button className={classes.pageSelectorButton} onClick={() => setPage(0)}>
+      <p className={classes.buttonText}>1</p>
+    </button>
+  );
+
   return (
-    <div>
-      <button
-        onClick={decrement}
-        disabled={page === 0}
-        aria-label="Previous page"
-      >
-        {"<"}
-      </button>
-      {pageNumber}
-      <button
-        onClick={increment}
-        disabled={page === maxPage}
-        aria-label="Next page"
-      >
-        {">"}
-      </button>
+    <div className={classes.pageSelector}>
+      {backToZeroButton}
+      {leftButton}
+      {currentPageNumber}
+      {rightButton}
     </div>
   );
 };
@@ -122,17 +175,13 @@ const Gallery = ({ data }) => {
     if (!data) return;
 
     // since objects are all stored in varius arrays, we flatten them and sort them based on id
-    const flatData = (data) => {
-      return Object.values(data)
-        .flat()
-        .sort((a, b) => a.id - b.id);
-    };
-
-    const flattedData = flatData(data);
-    if (!flattedData) return;
-    setFlattedData(flattedData);
+    const flatData = Object.values(data)
+      .flat()
+      .sort((a, b) => a.id - b.id);
+    setFlattedData(flatData);
   }, [data]);
 
+  // resets page when filter changes
   useEffect(() => {
     setPage(0);
   }, [filter]);
