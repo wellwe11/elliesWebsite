@@ -4,7 +4,7 @@ import classes from "./GALLERY.module.scss";
 // buttons that change pages, or rather, changes the index in which products can be displayed
 const PageSelector = ({ page, setPage, products }) => {
   const pageNumber = +page + 1; // pages are 0-indexed, but are shown as 1-indexed because page 1 fits better than page 0 as initial page
-  const maxPage = Math.ceil(products?.length / 9) - 1; // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
+  const maxPage = Math.ceil(products?.length / 9); // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -31,7 +31,9 @@ const PageSelector = ({ page, setPage, products }) => {
   const getPageWindow = (page, max) => {
     const start = Math.max(1, Math.min(page - 1, max - 2)); // ensures window doesn't overflow
     const end = Math.min(max, start + 2);
+
     const arr = [];
+
     for (let i = start; i <= end; i++) arr.push(i);
     return arr;
   };
