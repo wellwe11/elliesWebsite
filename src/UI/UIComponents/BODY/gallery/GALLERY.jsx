@@ -45,7 +45,7 @@ const PageSelector = ({ page, setPage, products }) => {
           key={index}
           className={classes.pageSelectorButton}
           style={{ gridColumn: +index + 1 }}
-          onClick={() => setPage(+arrNr)}
+          onClick={() => setPage(+arrNr - 1)}
         >
           <p className={classes.btnText}>{+arrNr}</p>
 
