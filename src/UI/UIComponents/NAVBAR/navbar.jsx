@@ -7,9 +7,10 @@ import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT.j
 
 import logoImage from "@assets/logo.png";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
+import { useLocation } from "react-router-dom";
 
 const ShoppingCart = () => {
   // Simple text related to shoppingcart. Text is static and will remain the same.
@@ -53,8 +54,15 @@ const NavbarButtons = ({
   hoverButton,
   activeButton,
 }) => {
+  const buttonKeys = Object.keys(buttons);
+
+  // make all navbar buttons texts start with a capital letter
+  const buttonNamesWithFirstLetterCapital = Object.keys(buttons).map(
+    (key) => key.slice(0, 1).toUpperCase() + key.slice(1)
+  );
+
   // navbar buttons
-  const mappedNavButtons = buttons.map((button, index) => (
+  const mappedNavButtons = buttonKeys.map((_, index) => (
     <div
       key={index}
       onClick={() => setActiveButton(index)}
@@ -62,8 +70,8 @@ const NavbarButtons = ({
       onMouseLeave={() => setHoverButton(activeButton)}
       className={classes.buttonWrapper}
     >
-      <NavButton link={Object.values(button)[0]}>
-        {Object.keys(button)}
+      <NavButton link={Object.values(buttons)[index]}>
+        {buttonNamesWithFirstLetterCapital[index]}
       </NavButton>
     </div>
   ));
@@ -110,19 +118,35 @@ const NavLogo = ({ setActiveButton, setHoverButton }) => {
 const Navbar = () => {
   const [activeButton, setActiveButton] = useState(0);
   const [hoverButton, setHoverButton] = useState(0);
-  const buttons = [
-    { Home: "" },
-    { Gallery: "gallery/page#1" },
-    { Contact: "./#contact" },
-  ];
-
-  // displays line below entire navbar (classes.navbar)
-  const navbarShadowStyle = {
-    boxShadow:
-      hoverButton === 1
-        ? "0 0 6px 1px rgba(0, 0, 0, 0.01), 0 0 0 1px rgba(27, 31, 35, 0.02)"
-        : "",
+  const { pathname } = useLocation();
+  const buttons = {
+    home: "",
+    gallery: "gallery/page#1",
+    contact: "./#contact",
   };
+
+  const [loadTab, setLoadTab] = useState(false);
+
+  // useEffect which searches for the currently active tab
+  useEffect(() => {
+    // find active tab
+    // split names of tabs
+    const buttonsKeys = Object.keys(buttons);
+
+    // split current link
+    const splittedPathName = pathname.split("/");
+
+    // find if any buttonKeys exist inside of url
+    buttonsKeys.forEach((btn, index) => {
+      if (splittedPathName.includes(btn)) {
+        // if yes, change index to that
+        setActiveButton(index);
+        setHoverButton(index);
+      }
+    });
+
+    setLoadTab(true);
+  }, []);
 
   // logo
   const navLogoWrapper = (
@@ -154,8 +178,9 @@ const Navbar = () => {
     </div>
   );
 
+  if (!loadTab) return <div />;
   return (
-    <div className={classes.navbar} style={navbarShadowStyle}>
+    <div className={classes.navbar}>
       <div className={classes.navContent}>
         <div
           className={`${screen_classes.contentWrapper} ${classes.navWrapper}`}
