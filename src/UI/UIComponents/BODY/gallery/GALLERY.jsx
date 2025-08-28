@@ -13,45 +13,34 @@ const Gallery = ({ data }) => {
   const [flattedData, setFlattedData] = useState(null);
 
   const { category, id } = useParams();
-  const { hash } = useLocation();
+  const { hash, pathname } = useLocation();
+
+  const navigate = handleNavigateSmooth();
 
   // filter-boolean - when active, changes filteredData to matching objects
   const [filter, setFilter] = useState(null);
 
   // active page
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
 
-  const navigate = handleNavigateSmooth();
-
-  // effect handling all type of link-forms
   useEffect(() => {
-    // this is the complete link for the gallery page - it updates to always contain an id, and the page.
+    const pageNumber = +hash.replace(/\D/g, "") || 1;
+
+    if (id) {
+      setFilter(category);
+    }
+    setPage(pageNumber);
+  }, []);
+
+  useEffect(() => {
+    if (!filter) {
+      navigate(`/gallery/page#${+page}`);
+    }
 
     if (filter) {
-      navigate(`/gallery/${filter}/page#${page + 1}`);
-    } else {
-      navigate(`/gallery/page#${page + 1}`);
+      navigate(`/gallery/${filter}/page#${+page}`);
     }
-  }, [filter, page]);
-
-  useEffect(() => {
-    console.log([category, id, hash], [filter, page]);
-  }, [category, id, hash]);
-
-  useEffect(() => {
-    if (!hash) return;
-    const makeHashNumber = +hash.replace(/\D/g, "");
-    setPage(makeHashNumber - 1);
-
-    if (id && hash) {
-      setFilter(category);
-      navigate(`/gallery/${category}/page${hash}`);
-    }
-
-    if (!id && hash) {
-      navigate(`/gallery/page${hash}`);
-    }
-  }, []);
+  }, [filter, page, hash]);
 
   // Filtered data based on current filter
   const filteredData = useMemo(() => {
@@ -86,6 +75,7 @@ const Gallery = ({ data }) => {
         filter={filter}
         setFilter={setFilter}
         setPage={setPage}
+        page={page}
       />
     </div>
   );

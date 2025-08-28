@@ -4,7 +4,7 @@
     height: 75vw;
     display: grid;
     align-content: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);

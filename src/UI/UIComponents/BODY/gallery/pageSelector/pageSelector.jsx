@@ -21,11 +21,7 @@ const RightButton = ({ setPage, page, maxPage }) => {
   };
 
   const rightButton = (
-    <NavButton
-      onClick={increment}
-      disabled={page === maxPage - 1}
-      label={"Next"}
-    />
+    <NavButton onClick={increment} disabled={page === maxPage} label={"Next"} />
   );
 
   return rightButton;
@@ -41,14 +37,14 @@ const LeftButton = ({ page, setPage }) => {
   };
 
   const leftButton = (
-    <NavButton onClick={decrement} disabled={page === 0} label={"Previous"} />
+    <NavButton onClick={decrement} disabled={page === 1} label={"Previous"} />
   );
 
   return leftButton;
 };
 
 const PageNumbers = ({ page, setPage, maxPage }) => {
-  const pageNumber = +page + 1; // pages are 0-indexed, but are shown as 1-indexed because page 1 fits better than page 0 as initial page
+  const pageNumber = +page; // pages are 0-indexed, but are shown as 1-indexed because page 1 fits better than page 0 as initial page
 
   // creates a dynamic array which displays current set of pages (always pageNumber-1, pageNumber, pageNumber+1)
   // also allows a div-underline to display the active page
@@ -59,6 +55,7 @@ const PageNumbers = ({ page, setPage, maxPage }) => {
     const arr = [];
 
     for (let i = start; i <= end; i++) arr.push(i);
+
     return arr;
   };
 
@@ -91,12 +88,12 @@ const PageNumbers = ({ page, setPage, maxPage }) => {
 };
 
 const BackToZeroButton = ({ setPage }) => (
-  <NavButton onClick={() => setPage(0)} label={1} />
+  <NavButton onClick={() => setPage(1)} label={1} />
 );
 
 // buttons that change pages, or rather, changes the index in which products can be displayed
 const PageSelector = ({ page, setPage, products }) => {
-  const maxPage = Math.ceil(products?.length / 9); // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
+  const maxPage = Math.ceil(products?.length / 9) - 1; // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
 
   useEffect(() => {
     window.scrollTo({ top: 0 });

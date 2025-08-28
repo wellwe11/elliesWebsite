@@ -5,7 +5,8 @@ const Products = ({ products, page }) => {
   // page starts on 0, goes to 1, 2, 3 etc.
   // First image is then current page * 9.
   // So, 0, 8, 18 etc.
-  const start = page * 9;
+
+  const start = (page - 1) * 9;
 
   // maxPage displays absolute maximum index that is displayed on current page
   // so, 8, 17, 26 etc.
