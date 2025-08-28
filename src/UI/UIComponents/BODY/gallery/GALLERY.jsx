@@ -15,8 +15,6 @@ const Gallery = ({ data }) => {
   const { category, id } = useParams();
   const { hash } = useLocation();
 
-  console.log(category, id, hash);
-
   // filter-boolean - when active, changes filteredData to matching objects
   const [filter, setFilter] = useState(null);
 
@@ -28,16 +26,22 @@ const Gallery = ({ data }) => {
   // effect handling all type of link-forms
   useEffect(() => {
     // this is the complete link for the gallery page - it updates to always contain an id, and the page.
+
     if (filter) {
-      navigate(`/gallery/${filter}/page#${page}`);
+      navigate(`/gallery/${filter}/page#${page + 1}`);
+    } else {
+      navigate(`/gallery/page#${page + 1}`);
     }
-    if (!filter) navigate(`/gallery/page#${page}`);
-  }, [page, filter, hash]);
+  }, [filter, page]);
+
+  useEffect(() => {
+    console.log([category, id, hash], [filter, page]);
+  }, [category, id, hash]);
 
   useEffect(() => {
     if (!hash) return;
     const makeHashNumber = +hash.replace(/\D/g, "");
-    setPage(makeHashNumber);
+    setPage(makeHashNumber - 1);
 
     if (id && hash) {
       setFilter(category);
