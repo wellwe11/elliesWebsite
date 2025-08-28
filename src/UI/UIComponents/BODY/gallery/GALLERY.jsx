@@ -14,17 +14,18 @@ const Gallery = ({ data }) => {
 
   const { category, id } = useParams();
   const { hash, pathname } = useLocation();
+  const pageNumber = +hash.replace(/\D/g, "") || 1;
 
   const navigate = handleNavigateSmooth();
 
   // filter-boolean - when active, changes filteredData to matching objects
-  const [filter, setFilter] = useState(null);
+  const [filter, setFilter] = useState(id ? category : null);
 
   // active page
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(pageNumber || 1);
 
   useEffect(() => {
-    const pageNumber = +hash.replace(/\D/g, "") || 1;
+    if (filter && page) return;
 
     if (id) {
       setFilter(category);
@@ -44,6 +45,7 @@ const Gallery = ({ data }) => {
 
   // Filtered data based on current filter
   const filteredData = useMemo(() => {
+    if (!flattedData) return;
     if (!filter) return flattedData;
 
     return flattedData.filter((obj) => obj?._embedded.details.type === filter);
