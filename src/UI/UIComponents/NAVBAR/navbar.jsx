@@ -112,7 +112,7 @@ const Navbar = () => {
   const [hoverButton, setHoverButton] = useState(0);
   const buttons = [
     { Home: "" },
-    { Gallery: "gallery" },
+    { Gallery: "gallery/page#0" },
     { Contact: "./#contact" },
   ];
 

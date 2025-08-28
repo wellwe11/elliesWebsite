@@ -4,17 +4,50 @@ import classes from "./GALLERY.module.scss";
 import PageSelector from "./pageSelector/pageSelector";
 import FilterSideBar from "./filterSideBar/filterSideBar";
 import Products from "./products/products";
+import { useLocation, useParams } from "react-router-dom";
+import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 
 const Gallery = ({ data }) => {
   // all types (paintings, prints, accessories are 'flattened')
   // Works like a parent-variable. Always contains an array of all data, and never changes.
   const [flattedData, setFlattedData] = useState(null);
 
+  const { category, id } = useParams();
+  const { hash } = useLocation();
+
+  console.log(category, id, hash);
+
   // filter-boolean - when active, changes filteredData to matching objects
   const [filter, setFilter] = useState(null);
 
   // active page
   const [page, setPage] = useState(0);
+
+  const navigate = handleNavigateSmooth();
+
+  // effect handling all type of link-forms
+  useEffect(() => {
+    // this is the complete link for the gallery page - it updates to always contain an id, and the page.
+    if (filter) {
+      navigate(`/gallery/${filter}/page#${page}`);
+    }
+    if (!filter) navigate(`/gallery/page#${page}`);
+  }, [page, filter, hash]);
+
+  useEffect(() => {
+    if (!hash) return;
+    const makeHashNumber = +hash.replace(/\D/g, "");
+    setPage(makeHashNumber);
+
+    if (id && hash) {
+      setFilter(category);
+      navigate(`/gallery/${category}/page${hash}`);
+    }
+
+    if (!id && hash) {
+      navigate(`/gallery/page${hash}`);
+    }
+  }, []);
 
   // Filtered data based on current filter
   const filteredData = useMemo(() => {
@@ -35,11 +68,6 @@ const Gallery = ({ data }) => {
     setFlattedData(flatData);
   }, [data]);
 
-  // resets page when filter changes
-  useEffect(() => {
-    setPage(0);
-  }, [filter]);
-
   if (!filteredData)
     return (
       <div>
@@ -49,7 +77,12 @@ const Gallery = ({ data }) => {
 
   const filterSideBarWrapper = (
     <div className={classes.filterSideBarWrapper}>
-      <FilterSideBar data={data} filter={filter} setFilter={setFilter} />
+      <FilterSideBar
+        data={data}
+        filter={filter}
+        setFilter={setFilter}
+        setPage={setPage}
+      />
     </div>
   );
 

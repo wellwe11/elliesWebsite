@@ -16,7 +16,7 @@ const Products = ({ products, page }) => {
 
   const mappedProductImages = displayedProducts.map((product, index) => (
     <div key={index} className={classes.productWrapper}>
-      <img src={product.image} alt="" />
+      <img className={classes.productImage} src={product.image} alt="" />
     </div>
   ));
 

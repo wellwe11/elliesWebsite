@@ -75,12 +75,7 @@ const ScreenContainer = () => {
               />
 
               <Route
-                path="/gallery"
-                element={<Gallery data={topLayerData} />}
-              />
-
-              <Route
-                path="/gallery:category"
+                path="/gallery/:category?/:id?"
                 element={<Gallery data={topLayerData} />}
               />
             </Routes>

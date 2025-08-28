@@ -1,18 +1,30 @@
 .products {
+  min-height: 700px;
+  height: fit-content;
   .productsContainer {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 
-    flex-wrap: wrap;
     gap: 30px;
+
+    padding-left: 10px;
   }
 }
 
 .productWrapper {
   background-color: #f8f8f8;
-  padding: 50px;
-  width: 30%;
+  padding: 20%;
+
+  width: 100%;
+  height: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .productImage {
+    height: 100%;
+    width: 100%;
+  }
 }
