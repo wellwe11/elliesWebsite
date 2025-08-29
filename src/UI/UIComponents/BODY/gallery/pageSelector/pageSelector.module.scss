@@ -4,17 +4,19 @@
   justify-content: space-between;
   align-items: center;
 
-  margin-right: 25px;
+  padding: 10px 20px;
 
-  background-color: orange;
+  background-color: var(--c-grey-200);
+
+  border-radius: 100px;
+
+  width: 200px;
 }
 
 // PageNumbers
 .currentPageWrapper {
-  min-width: 50px;
-  width: 100%;
+  width: 100px;
   height: 100%;
-  background-color: green;
 
   display: grid;
   justify-content: space-evenly;
@@ -26,19 +28,55 @@
 // LeftButton
 // all numbered buttons (1, 2, 3...)
 .pageSelectorButton {
-  background-color: none;
   border: none;
   outline: none;
 
+  background-color: var(--c-grey-200);
+
   cursor: pointer;
+
+  position: relative;
   .btnText {
     width: 100%;
+    color: black;
+    z-index: 2;
   }
+
   .underline {
-    height: 2px;
+    box-sizing: border-box;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
     width: 100%;
-    background-color: black;
+
+    border-radius: 100px;
+
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+    outline: 1px solid black;
+    opacity: 30%;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 50%;
+    }
   }
+}
+
+.backToZeroButtonWrapper {
+  padding-left: 10px;
+}
+
+.leftButtonWrapper {
+  height: 30px;
+}
+
+.rightButtonWrapper {
+  height: 30px;
+  transform: rotateY(180deg);
 }
 
 // BackToZeroButton

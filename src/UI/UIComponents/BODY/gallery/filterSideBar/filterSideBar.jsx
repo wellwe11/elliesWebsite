@@ -6,8 +6,6 @@ const FilterSideBar = ({ data, filter, setFilter, setPage }) => {
 
   const dataKeys = Object.keys(data); // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
 
-  console.log(filter);
-
   return (
     <div className={classes.filterSideBar}>
       <ul className={classes.filterUl}>

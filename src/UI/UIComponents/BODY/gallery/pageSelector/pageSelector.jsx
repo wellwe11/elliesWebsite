@@ -1,3 +1,4 @@
+import ArrowRoundEdgesSVG from "@components/SVGS/arrowRoundEdgesSVG/arrowRoundEdgesSVG";
 import classes from "./pageSelector.module.scss";
 import { useEffect, useMemo } from "react";
 
@@ -22,7 +23,15 @@ const RightButton = ({ setPage, page, maxPage }) => {
   };
 
   const rightButton = (
-    <NavButton onClick={increment} disabled={page === maxPage} label={"Next"} />
+    <NavButton
+      onClick={increment}
+      disabled={page === maxPage}
+      label={
+        <div className={classes.rightButtonWrapper}>
+          <ArrowRoundEdgesSVG />
+        </div>
+      }
+    />
   );
 
   return rightButton;
@@ -38,7 +47,15 @@ const LeftButton = ({ page, setPage }) => {
   };
 
   const leftButton = (
-    <NavButton onClick={decrement} disabled={page === 1} label={"Previous"} />
+    <NavButton
+      onClick={decrement}
+      disabled={page === 1}
+      label={
+        <div className={classes.leftButtonWrapper}>
+          <ArrowRoundEdgesSVG />
+        </div>
+      }
+    />
   );
 
   return leftButton;
@@ -73,7 +90,7 @@ const PageNumbers = ({ page, setPage, maxPage }) => {
           key={index}
           className={classes.pageSelectorButton}
           style={{ gridColumn: +index + 1 }}
-          onClick={() => setPage(+arrNr - 1)} // changes current page if you click a number (and not previous/next)
+          onClick={() => setPage(+arrNr)} // changes current page if you click a number (and not previous/next)
         >
           <p className={classes.btnText}>{+arrNr}</p>
 
@@ -88,9 +105,18 @@ const PageNumbers = ({ page, setPage, maxPage }) => {
   return currentPageNumber;
 };
 
-const BackToZeroButton = ({ setPage }) => (
-  <NavButton onClick={() => setPage(1)} label={1} />
-);
+const BackToZeroButton = ({ setPage, page }) => {
+  const backToZeroStyle = {
+    display: page > 2 ? "block" : "none",
+    paddingLeft: page > 2 ? "10px" : "0px",
+  };
+
+  return (
+    <div className={classes.backToZeroButtonWrapper} style={backToZeroStyle}>
+      <NavButton onClick={() => setPage(1)} label={1 + "..."} />
+    </div>
+  );
+};
 
 // buttons that change pages, or rather, changes the index in which products can be displayed
 const PageSelector = ({ page, setPage, products }) => {
@@ -102,8 +128,8 @@ const PageSelector = ({ page, setPage, products }) => {
 
   return (
     <div className={classes.pageSelector}>
-      <BackToZeroButton setPage={setPage} />
       <LeftButton page={page} setPage={setPage} />
+      <BackToZeroButton setPage={setPage} page={page} />
       <PageNumbers page={page} setPage={setPage} maxPage={maxPage} />
       <RightButton setPage={setPage} page={page} maxPage={maxPage} />
     </div>

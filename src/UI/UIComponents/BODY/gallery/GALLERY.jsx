@@ -42,6 +42,8 @@ const Gallery = ({ data }) => {
     if (filter) {
       navigate(`/gallery/${filter}/page#${+page}`); // if filter, navigate to filter and then corresponding page
     }
+
+    window.scrollTo({ top: 0 }); // always reset to top of window
   }, [filter, page, hash]);
 
   // Filters data based on current filter
