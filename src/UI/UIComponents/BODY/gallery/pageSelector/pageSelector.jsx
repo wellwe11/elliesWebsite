@@ -1,6 +1,7 @@
 import classes from "./pageSelector.module.scss";
 import { useEffect, useMemo } from "react";
 
+// abstract button component which has the same structure & classes for all nav-buttons
 const NavButton = ({ onClick, disabled, label }) => (
   <button
     className={classes.pageSelectorButton}
@@ -62,8 +63,9 @@ const PageNumbers = ({ page, setPage, maxPage }) => {
   const pagesArr = useMemo(
     () => getPageWindow(pageNumber, maxPage),
     [pageNumber, maxPage]
-  );
+  ); // useMemos the 3 active buttons
 
+  // array displaying pagesArr
   const currentPageNumber = (
     <div className={classes.currentPageWrapper}>
       {pagesArr.map((arrNr, index) => (
@@ -71,13 +73,12 @@ const PageNumbers = ({ page, setPage, maxPage }) => {
           key={index}
           className={classes.pageSelectorButton}
           style={{ gridColumn: +index + 1 }}
-          onClick={() => setPage(+arrNr - 1)}
+          onClick={() => setPage(+arrNr - 1)} // changes current page if you click a number (and not previous/next)
         >
           <p className={classes.btnText}>{+arrNr}</p>
 
           {
-            // makes it so that underline is correctly displaying current page
-            pageNumber === arrNr && <div className={classes.underline} />
+            pageNumber === arrNr && <div className={classes.underline} /> // underline div which displays the currently number relative to page
           }
         </button>
       ))}
@@ -93,7 +94,7 @@ const BackToZeroButton = ({ setPage }) => (
 
 // buttons that change pages, or rather, changes the index in which products can be displayed
 const PageSelector = ({ page, setPage, products }) => {
-  const maxPage = Math.ceil(products?.length / 9) - 1; // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
+  const maxPage = Math.ceil(products?.length / 9); // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
 
   useEffect(() => {
     window.scrollTo({ top: 0 });

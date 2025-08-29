@@ -1,14 +1,10 @@
-import { useEffect } from "react";
 import classes from "./filterSideBar.module.scss";
-import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 
-const FilterSideBar = ({ data, filter, setFilter, setPage, page }) => {
-  // if user clicks on the same filter as currently active, it de-selects filter
+const FilterSideBar = ({ data, filter, setFilter, setPage }) => {
   const handleFilter = (key) =>
-    setFilter((prev) => (prev === key ? null : key));
+    setFilter((prev) => (prev === key ? null : key)); // if user clicks on the same filter as currently active, it de-selects filter
 
-  // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
-  const dataKeys = Object.keys(data);
+  const dataKeys = Object.keys(data); // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
 
   return (
     <div className={classes.filterSideBar}>

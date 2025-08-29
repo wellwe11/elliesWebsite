@@ -1,3 +1,4 @@
+// Gallery
 .gallery {
   .galleryTop {
     width: 100%;
@@ -8,13 +9,17 @@
     margin-top: 50px;
   }
 
+  // filterSideBarWrapper
   .filterSideBarWrapper {
     width: 30%;
   }
 
+  // productsWrapper
   .productsWrapper {
     width: 70%;
   }
+
+  // pageWrapper
   .pageWrapper {
     display: flex;
     justify-content: center;

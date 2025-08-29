@@ -12,43 +12,44 @@ const Gallery = ({ data }) => {
   // Works like a parent-variable. Always contains an array of all data, and never changes.
   const [flattedData, setFlattedData] = useState(null);
 
-  const { category, id } = useParams();
-  const { hash, pathname } = useLocation();
-  const pageNumber = +hash.replace(/\D/g, "") || 1;
-
+  // route
+  const { category, id } = useParams(); // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
+  const { hash } = useLocation(); // page-number
   const navigate = handleNavigateSmooth();
 
-  // filter-boolean - when active, changes filteredData to matching objects
-  const [filter, setFilter] = useState(id ? category : null);
+  const pageNumber = +hash.replace(/\D/g, "") || 1; // remove hash or anything else that comes with the current page
 
-  // active page
-  const [page, setPage] = useState(pageNumber || 1);
+  // state
+  const [filter, setFilter] = useState(id ? category : null); // filter-boolean - when active, changes filteredData to matching objects
+  const [page, setPage] = useState(pageNumber); // active page
 
+  // initial useEffect - updates correct url on load
   useEffect(() => {
-    if (filter && page) return;
+    if (filter && page) return; // if filter and page is active, do not set filter or page to anything new
 
     if (id) {
-      setFilter(category);
+      setFilter(category); // if id (category & pagenumber)
     }
-    setPage(pageNumber);
+    setPage(pageNumber); // pagenumber based on hash
   }, []);
 
+  // if filter or page updates
   useEffect(() => {
     if (!filter) {
-      navigate(`/gallery/page#${+page}`);
+      navigate(`/gallery/page#${+page}`); // if no filter, navigate to correct page
     }
 
     if (filter) {
-      navigate(`/gallery/${filter}/page#${+page}`);
+      navigate(`/gallery/${filter}/page#${+page}`); // if filter, navigate to filter and then corresponding page
     }
   }, [filter, page, hash]);
 
-  // Filtered data based on current filter
+  // Filters data based on current filter
   const filteredData = useMemo(() => {
-    if (!flattedData) return;
-    if (!filter) return flattedData;
+    if (!flattedData) return; // only works if data has been platted
+    if (!filter) return flattedData; // if no filter, return unfilted data
 
-    return flattedData.filter((obj) => obj?._embedded.details.type === filter);
+    return flattedData.filter((obj) => obj?._embedded.details.type === filter); // otherwise, filter data based on active filter
   }, [filter, flattedData]);
 
   // effect that flattens data out to allow items to be displayed in 'random' order with no filters
@@ -56,8 +57,7 @@ const Gallery = ({ data }) => {
   useEffect(() => {
     if (!data) return;
 
-    // since objects are all stored in varius arrays, we flatten them and sort them based on id
-    const flatData = Object.values(data)
+    const flatData = Object.values(data) // since fetched data-objects are all stored in varius arrays, we flatten them and sort them based on id
       .flat()
       .sort((a, b) => a.id - b.id);
     setFlattedData(flatData);
@@ -77,7 +77,6 @@ const Gallery = ({ data }) => {
         filter={filter}
         setFilter={setFilter}
         setPage={setPage}
-        page={page}
       />
     </div>
   );
