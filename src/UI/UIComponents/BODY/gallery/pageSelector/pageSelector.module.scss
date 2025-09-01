@@ -6,11 +6,9 @@
 
   padding: 10px 20px;
 
-  background-color: var(--c-grey-200);
+  background-color: var(--c-grey-100);
 
-  border-radius: 100px;
-
-  width: 200px;
+  width: 250px;
 }
 
 // PageNumbers
@@ -31,15 +29,18 @@
   border: none;
   outline: none;
 
-  background-color: var(--c-grey-200);
+  background-color: var(--c-grey-100);
 
   cursor: pointer;
 
   position: relative;
   .btnText {
     width: 100%;
-    color: black;
-    z-index: 2;
+    color: var(--c-text-black);
+
+    transition: filter 0.4s ease;
+
+    filter: opacity(60%);
   }
 
   .underline {
@@ -57,11 +58,17 @@
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.3);
     outline: 1px solid black;
-    opacity: 30%;
-    transition: opacity 0.2s ease;
+    transition: filter 0.2s ease;
 
-    &:hover {
-      opacity: 50%;
+    filter: opacity(40%);
+  }
+
+  &:hover {
+    .btnText {
+      filter: opacity(100%);
+    }
+    .underline {
+      filter: opacity(50%);
     }
   }
 }
@@ -80,5 +87,5 @@
 }
 
 // BackToZeroButton
-.pageSelectorButton {
+.pageSelectorButtonWrapper {
 }

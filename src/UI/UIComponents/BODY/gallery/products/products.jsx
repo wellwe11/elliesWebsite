@@ -1,6 +1,61 @@
 import classes from "./products.module.scss";
 
+const ProductBio = ({ bioData }) => {
+  console.log(bioData);
+
+  /**
+   *
+   * Type
+   * SetName (if any)
+   * Price
+   */
+
+  const type = bioData.details.type;
+  const Type = (
+    <div className={classes.type}>
+      <h4 className={classes.bioText}>{type}</h4>
+    </div>
+  );
+
+  const name = bioData.setTitle;
+  const Name = (
+    <div className={classes.name}>
+      <h4 className={classes.bioText}>{name}</h4>
+    </div>
+  );
+
+  // for future implementation - locate user, find accurate currency, convert euro price to respecive currency
+  // need api to save users ip so currency stays
+  // need option for manually changing currency
+  // const typeOfCurrency = "euro or dollar or something"
+  const price = bioData.details.price;
+  const Price = (
+    <div className={classes.price}>
+      <h4 className={classes.bioText}>{price + "€"}</h4>
+    </div>
+  );
+
+  const addToCartButton = (
+    <button className={classes.addToCartButton}>
+      <h4 className={classes.bioText}>Add to cart</h4>
+    </button>
+  );
+
+  return (
+    <div className={classes.productBioSection}>
+      <div className={classes.productBio}>
+        {Name}
+        {Type}
+        {Price}
+      </div>
+      {addToCartButton}
+    </div>
+  );
+};
+
 const Products = ({ products, page }) => {
+  console.log(products);
+
   // minImages displays the absolute minimum of index which is allowed to be shown on each page
   // page starts on 0, goes to 1, 2, 3 etc.
 
@@ -15,7 +70,10 @@ const Products = ({ products, page }) => {
 
   const mappedProductImages = displayedProducts.map((product, index) => (
     <div key={index} className={classes.productWrapper}>
-      <img className={classes.productImage} src={product.image} alt="" />
+      <div className={classes.productImageWrapper}>
+        <img className={classes.productImage} src={product.image} alt="" />
+      </div>
+      <ProductBio bioData={product?._embedded} />
     </div>
   ));
 

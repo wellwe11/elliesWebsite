@@ -3,15 +3,18 @@ import classes from "./pageSelector.module.scss";
 import { useEffect, useMemo } from "react";
 
 // abstract button component which has the same structure & classes for all nav-buttons
-const NavButton = ({ onClick, disabled, label }) => (
-  <button
-    className={classes.pageSelectorButton}
-    onClick={onClick}
-    disabled={disabled}
-  >
-    <p className={classes.buttonText}>{label}</p>
-  </button>
-);
+const NavButton = ({ onClick, disabled, label }) => {
+  const isString = typeof label === "string";
+  return (
+    <button
+      className={classes.pageSelectorButton}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {isString ? <p className={classes.buttonText}>{label}</p> : label}
+    </button>
+  );
+};
 
 // change page forward - increment page
 const RightButton = ({ setPage, page, maxPage }) => {
@@ -113,7 +116,13 @@ const BackToZeroButton = ({ setPage, page }) => {
 
   return (
     <div className={classes.backToZeroButtonWrapper} style={backToZeroStyle}>
-      <NavButton onClick={() => setPage(1)} label={1 + "..."} />
+      <button
+        onClick={() => setPage(1)}
+        style={backToZeroStyle}
+        className={classes.pageSelectorButton}
+      >
+        <p className={classes.btnText}>1...</p>
+      </button>
     </div>
   );
 };

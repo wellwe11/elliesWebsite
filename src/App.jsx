@@ -24,7 +24,6 @@ export default App;
  * ** BUGS **
  * sectionSeperationImage is currently buggy - snaps to a position when entering the screen. Does not smoothly transition in
  *
- * navbar doesnt display correct button thats active after refreshing page
  *
  * ** ADD TO COMPONENTS **
  * Implement a button on uniqueImage page to help user navigate down to the details-page
@@ -37,6 +36,14 @@ export default App;
  * Create a 'new-in' component, which is a stand-alone component. Not related to prints/paintings sections. It simply displays something with a nice animation. (this should seperate prints & paintings)
  * Contact us section above footer
  *
+ * Gallery-images should display the following:
+ * Type
+ * SetName (if any)
+ * Price
+ *
+ * On hover: display quickview & change image for product
+ *
+ * on click: take to product-page
  */
 
 /*** RULES FOR PROJECT

@@ -7,10 +7,56 @@ import Products from "./products/products";
 import { useLocation, useParams } from "react-router-dom";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 
+const FilterSideBarWrapperComponent = ({
+  data,
+  state: { setFilter, filter, setPage },
+}) => {
+  const handleFilter = (key) =>
+    setFilter((prev) => (prev === key ? null : key)); // if user clicks on the same filter as currently active, it de-selects filter
+
+  const dataKeys = Object.keys(data); // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
+
+  const filterSideBarWrapper = (
+    <div className={classes.filterSideBarWrapper}>
+      <FilterSideBar
+        dataKeys={dataKeys}
+        handleFilter={handleFilter}
+        state={{ filter, setPage }}
+      />
+    </div>
+  );
+
+  return filterSideBarWrapper;
+};
+
+const ProductsWrapperComponent = ({ filteredData, state: { page } }) => {
+  const productsWrapper = (
+    <div className={classes.productsWrapper}>
+      <Products products={filteredData} page={page} />
+    </div>
+  );
+  return productsWrapper;
+};
+
+const PageWrapperComponent = ({ filteredData, state: { page, setPage } }) => {
+  const pageWrapper = (
+    <div className={classes.pageWrapper}>
+      <PageSelector products={filteredData} page={page} setPage={setPage} />
+    </div>
+  );
+
+  return pageWrapper;
+};
+
 const Gallery = ({ data }) => {
   // all types (paintings, prints, accessories are 'flattened')
   // Works like a parent-variable. Always contains an array of all data, and never changes.
   const [flattedData, setFlattedData] = useState(null);
+
+  /**
+   * route: {category, id, hash, navigate, pageNumber}
+   * state: {filter, setFilter, page, setPage}
+   */
 
   // route
   const { category, id } = useParams(); // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
@@ -22,6 +68,14 @@ const Gallery = ({ data }) => {
   // state
   const [filter, setFilter] = useState(id ? category : null); // filter-boolean - when active, changes filteredData to matching objects
   const [page, setPage] = useState(pageNumber); // active page
+
+  // object to simplify props to send to child-components
+  const state = {
+    filter,
+    setFilter,
+    page,
+    setPage,
+  };
 
   // initial useEffect - updates correct url on load
   useEffect(() => {
@@ -72,36 +126,13 @@ const Gallery = ({ data }) => {
       </div>
     );
 
-  const filterSideBarWrapper = (
-    <div className={classes.filterSideBarWrapper}>
-      <FilterSideBar
-        data={data}
-        filter={filter}
-        setFilter={setFilter}
-        setPage={setPage}
-      />
-    </div>
-  );
-
-  const productsWrapper = (
-    <div className={classes.productsWrapper}>
-      <Products products={filteredData} page={page} />
-    </div>
-  );
-
-  const pageWrapper = (
-    <div className={classes.pageWrapper}>
-      <PageSelector products={filteredData} page={page} setPage={setPage} />
-    </div>
-  );
-
   return (
     <div className={classes.gallery}>
       <div className={classes.galleryTop}>
-        {filterSideBarWrapper}
-        {productsWrapper}
+        <FilterSideBarWrapperComponent data={data} state={state} />
+        <ProductsWrapperComponent filteredData={filteredData} state={state} />
       </div>
-      {pageWrapper}
+      <PageWrapperComponent filteredData={filteredData} state={state} />
     </div>
   );
 };

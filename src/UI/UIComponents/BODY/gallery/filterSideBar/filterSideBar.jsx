@@ -1,11 +1,15 @@
 import classes from "./filterSideBar.module.scss";
 
-const FilterSideBar = ({ data, filter, setFilter, setPage }) => {
-  const handleFilter = (key) =>
-    setFilter((prev) => (prev === key ? null : key)); // if user clicks on the same filter as currently active, it de-selects filter
+/**
+ * route: {category, id, hash, navigate, pageNumber}
+ * state: {filter, setFilter, page, setPage}
+ */
 
-  const dataKeys = Object.keys(data); // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
-
+const FilterSideBar = ({
+  dataKeys,
+  handleFilter,
+  state: { filter, setPage },
+}) => {
   return (
     <div className={classes.filterSideBar}>
       <ul className={classes.filterUl}>
