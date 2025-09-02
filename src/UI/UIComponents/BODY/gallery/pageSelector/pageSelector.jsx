@@ -68,7 +68,7 @@ const PageNumbers = ({ page, setPage, maxPage }) => {
   const pageNumber = +page; // pages are 0-indexed, but are shown as 1-indexed because page 1 fits better than page 0 as initial page
 
   // creates a dynamic array which displays current set of pages (always pageNumber-1, pageNumber, pageNumber+1)
-  // also allows a div-underline to display the active page
+  // also allows a border to be displayed for the active page
   const getPageWindow = (page, max) => {
     const start = Math.max(1, Math.min(page - 1, max - 2)); // ensures window doesn't overflow
     const end = Math.min(max, start + 2);
@@ -85,6 +85,10 @@ const PageNumbers = ({ page, setPage, maxPage }) => {
     [pageNumber, maxPage]
   ); // useMemos the 3 active buttons
 
+  const activePageUnderline = {
+    borderBottom: "1px solid var(--c-text-black)",
+  };
+
   // array displaying pagesArr
   const currentPageNumber = (
     <div className={classes.currentPageWrapper}>
@@ -92,14 +96,17 @@ const PageNumbers = ({ page, setPage, maxPage }) => {
         <button
           key={index}
           className={classes.pageSelectorButton}
-          style={{ gridColumn: +index + 1 }}
+          style={{
+            gridColumn: +index + 1,
+          }}
           onClick={() => setPage(+arrNr)} // changes current page if you click a number (and not previous/next)
         >
-          <p className={classes.btnText}>{+arrNr}</p>
-
-          {
-            pageNumber === arrNr && <div className={classes.underline} /> // underline div which displays the currently number relative to page
-          }
+          <p
+            className={classes.btnText}
+            style={pageNumber === arrNr ? activePageUnderline : {}}
+          >
+            {+arrNr}
+          </p>
         </button>
       ))}
     </div>

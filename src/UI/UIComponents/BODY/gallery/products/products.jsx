@@ -1,3 +1,4 @@
+import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import classes from "./products.module.scss";
 
 const ProductBio = ({ bioData }) => {
@@ -10,7 +11,9 @@ const ProductBio = ({ bioData }) => {
    * Price
    */
 
-  const type = bioData.details.type;
+  const type =
+    bioData.details.type.slice(0, 1).toUpperCase() +
+    bioData.details.type.slice(1);
   const Type = (
     <div className={classes.type}>
       <h4 className={classes.bioText}>{type}</h4>
@@ -37,6 +40,9 @@ const ProductBio = ({ bioData }) => {
 
   const addToCartButton = (
     <button className={classes.addToCartButton}>
+      <div className={classes.shoppingBagSVGWrapper}>
+        <ShoppingBagSVG />
+      </div>
       <h4 className={classes.bioText}>Add to cart</h4>
     </button>
   );
@@ -44,8 +50,10 @@ const ProductBio = ({ bioData }) => {
   return (
     <div className={classes.productBioSection}>
       <div className={classes.productBio}>
-        {Name}
-        {Type}
+        <div className={classes.bioTopSection}>
+          {Name}
+          {Type}
+        </div>
         {Price}
       </div>
       {addToCartButton}

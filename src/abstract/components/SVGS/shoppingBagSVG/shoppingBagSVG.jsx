@@ -5,18 +5,23 @@ const ShoppingBagSVG = () => {
     <div className={classes.shoppingBagSVG}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="48"
-        height="48"
+        width="160"
+        height="160"
         viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        role="img"
+        ariaLabelledby="title"
       >
-        <path d="M6 7h12l1 13H5L6 7z" />
+        <g
+          fill="none"
+          stroke="#000"
+          strokeWidth="1.1"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M6 8.5h12v10a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 18.5v-10z" />
 
-        <path d="M9 7V5a3 3 0 0 1 6 0v2" />
+          <path d="M9 8.5V6.25a3 3 0 0 1 6 0V8.5" />
+        </g>
       </svg>
     </div>
   );

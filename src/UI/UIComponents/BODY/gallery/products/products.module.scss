@@ -15,10 +15,6 @@
 
 // mappedProductsImages
 .productWrapper {
-  background-color: var(--c-grey-100);
-
-  border: 2vw solid var(--c-grey-100);
-
   overflow: hidden;
 
   display: flex;
@@ -29,6 +25,7 @@
   .productImageWrapper {
     height: 60%;
     width: 100%;
+    background-color: var(--c-grey-100);
 
     .productImage {
       width: 100%;
@@ -36,66 +33,84 @@
       object-fit: contain;
       object-position: center;
 
-      background-color: white;
-
-      padding: 10px;
+      padding: 10%;
     }
   }
 }
 
 .productBioSection {
   width: 100%;
-  height: 40%;
+  height: 30%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
   .productBio {
-    height: 80%;
+    height: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     text-align: center;
 
-    .name {
-      padding: 0.5vw;
+    .bioTopSection {
+      height: 70%;
 
-      .bioText {
-        font-variation-settings: "wght" 550;
-        font-size: clamp(12px, 0.8vw, 14px) !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .name {
+        .bioText {
+          font-variation-settings: "wght" 550;
+          font-size: clamp(8px, 1.2vw, 20px) !important;
+        }
       }
-    }
 
-    .type {
-      padding: 0.5vw;
-
-      .bioText {
-        font-size: clamp(14px, 1vw, 15px) !important;
-        font-variation-settings: "wght" 450;
+      .type {
+        .bioText {
+          font-size: clamp(8px, 0.9vw, 14px) !important;
+          font-variation-settings: "wght" 450;
+        }
       }
     }
 
     .price {
-      padding: 0.5vw;
-
       .bioText {
+        font-size: clamp(8px, 1.1vw, 16px) !important;
         font-variation-settings: "wght" 650;
-        font-size: clamp(12px, 1.1vw, 16px) !important;
+        padding-bottom: 5%;
       }
     }
   }
 
   .addToCartButton {
-    width: 100%;
-    height: 20%;
-
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--websiteContainerColor);
+    width: 100%;
+    flex: 1;
 
     cursor: pointer;
+    transition: background-color 0.4s ease;
+
+    &:hover {
+      background-color: var(--c-grey-100);
+    }
+
+    .shoppingBagSVGWrapper {
+      height: 20px;
+      padding-right: 0.5vw;
+    }
 
     .bioText {
+      padding-left: 0.5vw;
+      font-size: clamp(8px, 1.1vw, 16px) !important;
       font-variation-settings: "wght" 450;
     }
   }

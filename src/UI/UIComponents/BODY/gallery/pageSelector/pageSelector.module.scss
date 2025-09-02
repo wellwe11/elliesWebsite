@@ -35,7 +35,8 @@
 
   position: relative;
   .btnText {
-    width: 100%;
+    width: 70%;
+    height: 95%;
     color: var(--c-text-black);
 
     transition: filter 0.4s ease;
@@ -43,32 +44,9 @@
     filter: opacity(60%);
   }
 
-  .underline {
-    box-sizing: border-box;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    height: 100%;
-    width: 100%;
-
-    border-radius: 100px;
-
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.3);
-    outline: 1px solid black;
-    transition: filter 0.2s ease;
-
-    filter: opacity(40%);
-  }
-
   &:hover {
     .btnText {
       filter: opacity(100%);
-    }
-    .underline {
-      filter: opacity(50%);
     }
   }
 }
