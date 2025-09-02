@@ -18,7 +18,7 @@ const ViewProductButton = () => {
     <div className={classes.viewProductButtonWrapper}>
       <button
         className={classes.viewProductButton}
-        onClick={() => navigate(`uniqueImage/${linkType}/${linkId}`)}
+        onClick={() => navigate(`/uniqueImage/${linkType}/${linkId}`)}
       >
         <h3 className={classes.buttonText}>Explore item</h3>
       </button>

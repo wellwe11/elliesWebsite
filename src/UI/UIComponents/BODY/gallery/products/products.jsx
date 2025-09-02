@@ -4,7 +4,8 @@ import {
   QuickViewButton,
   QuickViewImageContainer,
 } from "@fullyComponents/wheelOfManyImages/quickView/quickView";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import UniqueImageContext from "../../uniqueImageContext";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ bioData }) => {
@@ -59,9 +60,7 @@ const ProductBio = ({ bioData }) => {
   );
 };
 
-const QuickViewButtonComponent = ({ product, setDisplayImage }) => {
-  console.log(product);
-
+const QuickViewButtonComponent = ({ setDisplayImage }) => {
   const quickViewButtonWrapper = (
     <div className={classes.quickViewButtonWrapper}>
       <QuickViewButton setDisplayImage={setDisplayImage} />
@@ -75,12 +74,44 @@ const QuickViewButtonComponent = ({ product, setDisplayImage }) => {
   );
 };
 
+const QuickViewComponent = ({ setDisplayImage, quickViewProps }) => {
+  const [activeImageSrc, setActiveImageSrc] = useState(null);
+  // information displayed once you click quickview
+  const [activeQuickViewData, setActiveQuickViewData] = useState(null);
+
+  const { uniqueImage } = useContext(UniqueImageContext);
+
+  console.log(uniqueImage);
+
+  useEffect(() => {
+    if (!activeImageSrc) setActiveQuickViewData(null);
+
+    setActiveQuickViewData(uniqueImage._embedded);
+  }, [uniqueImage]);
+
+  if (activeQuickViewData) {
+    console.log(activeQuickViewData);
+    return (
+      <div className={classes.quickViewImageContainerWrapper}>
+        <QuickViewImageContainer
+          setDisplayImage={setDisplayImage}
+          activeImageProps={{ activeImageSrc, setActiveImageSrc }}
+          quickViewProps={{
+            quickViewImages: activeQuickViewData?.restImages,
+            title: activeQuickViewData?.setTitle,
+            price: activeQuickViewData?.details.price,
+            bio: activeQuickViewData?.setDescription,
+          }}
+        />
+      </div>
+    );
+  }
+};
+
 const ProductComponent = ({ products, page }) => {
   const [displayImage, setDisplayImage] = useState(false);
-  const [activeImageSrc, setActiveImageSrc] = useState(null);
 
-  const activeImageProps = { activeImageSrc, setActiveImageSrc };
-  const quickViewProps = {};
+  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
 
   // start displays the absolute minimum of index which is allowed to be shown on each page
   // page starts on 0, goes to 1, 2, 3 etc.
@@ -98,27 +129,23 @@ const ProductComponent = ({ products, page }) => {
     <div key={index} className={classes.productWrapper}>
       <div className={classes.productImageWrapper}>
         <img className={classes.productImage} src={product.image} alt="" />
-        <div className={classes.quickViewButtonComponentWrapper}>
-          <QuickViewButtonComponent
-            product={product}
-            setDisplayImage={setDisplayImage}
-          />
+        <div
+          className={classes.quickViewButtonComponentWrapper}
+          onClick={() => setUniqueImage(displayedProducts[index])}
+        >
+          <QuickViewButtonComponent setDisplayImage={setDisplayImage} />
         </div>
       </div>
       <ProductBio bioData={product?._embedded} />
-      {displayImage && (
-        <div className={classes.quickViewImageContainerWrapper}>
-          <QuickViewImageContainer
-            setDisplayImage={setDisplayImage}
-            activeImageProps={activeImageProps}
-            quickViewProps={quickViewProps}
-          />
-        </div>
-      )}
     </div>
   ));
 
-  return mappedProductImages;
+  return (
+    <>
+      {mappedProductImages}
+      {displayImage && <QuickViewComponent setDisplayImage={setDisplayImage} />}
+    </>
+  );
 };
 
 const Products = ({ products, page }) => {
