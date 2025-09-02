@@ -1,16 +1,8 @@
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import classes from "./products.module.scss";
 
+// element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ bioData }) => {
-  console.log(bioData);
-
-  /**
-   *
-   * Type
-   * SetName (if any)
-   * Price
-   */
-
   const type =
     bioData.details.type.slice(0, 1).toUpperCase() +
     bioData.details.type.slice(1);
@@ -20,7 +12,7 @@ const ProductBio = ({ bioData }) => {
     </div>
   );
 
-  const name = bioData.setTitle;
+  const name = bioData.setTitle; // collections name
   const Name = (
     <div className={classes.name}>
       <h4 className={classes.bioText}>{name}</h4>
@@ -31,13 +23,14 @@ const ProductBio = ({ bioData }) => {
   // need api to save users ip so currency stays
   // need option for manually changing currency
   // const typeOfCurrency = "euro or dollar or something"
-  const price = bioData.details.price;
+  const price = bioData.details.price; // fixed price which is based on euro
   const Price = (
     <div className={classes.price}>
       <h4 className={classes.bioText}>{price + "€"}</h4>
     </div>
   );
 
+  // button which will be adding object to a context containing the cart-information.
   const addToCartButton = (
     <button className={classes.addToCartButton}>
       <div className={classes.shoppingBagSVGWrapper}>
@@ -62,20 +55,19 @@ const ProductBio = ({ bioData }) => {
 };
 
 const Products = ({ products, page }) => {
-  console.log(products);
-
-  // minImages displays the absolute minimum of index which is allowed to be shown on each page
+  // start displays the absolute minimum of index which is allowed to be shown on each page
   // page starts on 0, goes to 1, 2, 3 etc.
 
   const start = (page - 1) * 9; // First image is then current (page - 1) * 9. -1 because pages are not based on index, but index + 1 (to avoid page being displayed as 0)
   // So, 0, 8, 18 etc.
 
-  const end = start + 9; // maxPage displays absolute maximum index that is displayed on current page
+  const end = start + 9; // end displays absolute maximum index that is displayed on current page
   // so, 8, 17, 26 etc.
 
   // slices only visible objects
   const displayedProducts = products.slice(start, end);
 
+  // map only visible objects to display them as 'pages' which can be navigated by user
   const mappedProductImages = displayedProducts.map((product, index) => (
     <div key={index} className={classes.productWrapper}>
       <div className={classes.productImageWrapper}>

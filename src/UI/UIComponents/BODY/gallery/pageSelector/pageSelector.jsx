@@ -85,6 +85,7 @@ const PageNumbers = ({ page, setPage, maxPage }) => {
     [pageNumber, maxPage]
   ); // useMemos the 3 active buttons
 
+  // style for when the current page is displayed
   const activePageUnderline = {
     borderBottom: "1px solid var(--c-text-black)",
   };
