@@ -9,7 +9,7 @@ const ShoppingBagSVG = () => {
         height="160"
         viewBox="0 0 24 24"
         role="img"
-        ariaLabelledby="title"
+        aria-labelledby="title"
       >
         <g
           fill="none"
