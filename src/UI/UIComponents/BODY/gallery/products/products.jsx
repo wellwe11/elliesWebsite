@@ -62,58 +62,30 @@ const ProductBio = ({ bioData }) => {
   );
 };
 
-const QuickViewButtonComponent = ({ setDisplayImage }) => {
-  const quickViewButtonWrapper = (
-    <div className={classes.quickViewButtonWrapper}>
-      <QuickViewButton setDisplayImage={setDisplayImage} />
-    </div>
-  );
+const QuickViewComponent = () => {
+  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
 
-  return (
-    <div className={classes.quickViewButtonComponent}>
-      {quickViewButtonWrapper}
-    </div>
-  );
-};
+  if (uniqueImage) {
+    const uniqueViewEmbedded = uniqueImage._embedded;
 
-const QuickViewComponent = ({ setDisplayImage }) => {
-  const [activeImageSrc, setActiveImageSrc] = useState(null);
-  // information displayed once you click quickview
-  const [activeQuickViewData, setActiveQuickViewData] = useState(null);
+    const quickViewProps = {
+      quickViewImages: uniqueViewEmbedded?.restImages,
+      title: uniqueViewEmbedded?.setTitle,
+      price: uniqueViewEmbedded?.details.price,
+      bio: uniqueViewEmbedded?.setDescription,
+      close: () => setUniqueImage(null),
+    };
 
-  const { uniqueImage } = useContext(UniqueImageContext);
-
-  console.log(uniqueImage);
-
-  useEffect(() => {
-    if (!activeImageSrc) setActiveQuickViewData(null);
-
-    setActiveQuickViewData(uniqueImage._embedded);
-  }, [uniqueImage]);
-
-  if (activeQuickViewData) {
-    console.log(activeQuickViewData);
     return (
       <div className={classes.quickViewImageContainerWrapper}>
-        <QuickViewImageContainer
-          setDisplayImage={setDisplayImage}
-          activeImageProps={{ activeImageSrc, setActiveImageSrc }}
-          quickViewProps={{
-            quickViewImages: activeQuickViewData?.restImages,
-            title: activeQuickViewData?.setTitle,
-            price: activeQuickViewData?.details.price,
-            bio: activeQuickViewData?.setDescription,
-          }}
-        />
+        <QuickViewImageContainer quickViewProps={quickViewProps} />
       </div>
     );
   }
 };
 
 const ProductComponent = ({ products, page }) => {
-  const [displayImage, setDisplayImage] = useState(false);
-
-  const { setUniqueImage } = useContext(UniqueImageContext);
+  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
 
   // start displays the absolute minimum of index which is allowed to be shown on each page
   // page starts on 0, goes to 1, 2, 3 etc.
@@ -133,12 +105,9 @@ const ProductComponent = ({ products, page }) => {
         <img className={classes.productImage} src={product.image} alt="" />
         <div
           className={classes.quickViewButtonComponentWrapper}
-          onClick={() => {
-            setUniqueImage(displayedProducts[index]);
-            setDisplayImage(true);
-          }}
+          onClick={() => setUniqueImage(product)}
         >
-          <QuickViewButtonComponent setDisplayImage={setDisplayImage} />
+          <QuickViewButton />
         </div>
       </div>
       <ProductBio bioData={product?._embedded} />
@@ -148,7 +117,7 @@ const ProductComponent = ({ products, page }) => {
   return (
     <>
       {mappedProductImages}
-      {displayImage && <QuickViewComponent setDisplayImage={setDisplayImage} />}
+      {uniqueImage && <QuickViewComponent />}
     </>
   );
 };

@@ -24,6 +24,10 @@ export default App;
  * ** BUGS **
  * sectionSeperationImage is currently buggy - snaps to a position when entering the screen. Does not smoothly transition in
  *
+ * Home-page, quick-view buttons do not scale with the websites site; remove the quick-view scaling on gallery-page and make it scale simply on the initial file: quickViewButton
+ *
+ * Something fishy is going on with the link - When you go to a category, and you want to click 'back' with your browser, it doesnt work
+ *
  *
  * ** ADD TO COMPONENTS **
  * Implement a button on uniqueImage page to help user navigate down to the details-page

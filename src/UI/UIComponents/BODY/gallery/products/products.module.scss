@@ -63,15 +63,18 @@
   .quickViewButtonComponentWrapper {
     border: 1px solid black;
 
-    width: 10vw;
+    min-height: 3vw;
+    width: 80%;
 
-    background-color: white;
+    background-color: orange;
 
     display: flex;
     justify-content: center;
     align-items: center;
     transition: transform 0.2s ease, opacity 0.1s ease;
     opacity: 0;
+
+    pointer-events: auto;
 
     // hover applies also to button, otherwise, button will close as the initial trigger is frm hovering it's sibling-element, which button will eventually cover partially
     &:hover {
@@ -169,20 +172,5 @@
       font-size: clamp(8px, 1.1vw, 16px) !important;
       font-variation-settings: "wght" 450;
     }
-  }
-}
-
-.quickViewButtonComponent {
-  max-height: 3.5vw;
-  overflow: hidden;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .quickViewButtonWrapper {
-  }
-
-  .quickViewImageContainerWrapper {
   }
 }

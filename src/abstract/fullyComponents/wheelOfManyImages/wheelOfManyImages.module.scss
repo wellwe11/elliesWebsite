@@ -38,6 +38,7 @@
         bottom: 20px;
         left: 10%;
 
+        height: 3vw;
         width: 80%;
 
         display: flex;
@@ -46,6 +47,8 @@
 
         transform: translateY(100px);
         transition: transform 0.2s ease;
+
+        border: 1px solid black;
       }
 
       &:hover {

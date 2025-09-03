@@ -166,13 +166,7 @@ const QuickViewImage = ({ quickViewProps }) => {
 
 // Element containing QuickViewImage & QuickViewInfo, as well as a faded background.
 // Will always be positonined fixed in middle of the screen.
-export const QuickViewImageContainer = ({
-  setDisplayImage,
-
-  activeImageProps: { setActiveImageSrc },
-
-  quickViewProps,
-}) => {
+export const QuickViewImageContainer = ({ quickViewProps }) => {
   // white background-image that differs pop-up from the rest of the website
   const WhiteBackgroundPopUp = (
     <div
@@ -180,8 +174,7 @@ export const QuickViewImageContainer = ({
       // If you click on the white background it will close current quick-view window
       onClick={() => {
         // resets information & closes current product if user clicks outside
-        setActiveImageSrc(null);
-        setDisplayImage(false);
+        quickViewProps?.close();
       }}
     />
   );
@@ -196,12 +189,13 @@ export const QuickViewImageContainer = ({
 
 // Button which pops up on hovering an image. Clicking it will display QuickViewImageContainer.
 // Button is positioned absolute, so will awlays be relative to parent-element which needs to be set to a wrapper
-export const QuickViewButton = ({ setDisplayImage }) => {
-  return (
-    <button
-      className={classes.quickViewButton}
-      onClick={() => setDisplayImage(true)}
-    >
+export const QuickViewButton = ({ onClick }) => {
+  return onClick ? (
+    <button className={classes.quickViewButton} onClick={onClick}>
+      <h4 className={classes.quickViewText}>Quick view</h4>
+    </button>
+  ) : (
+    <button className={classes.quickViewButton}>
       <h4 className={classes.quickViewText}>Quick view</h4>
     </button>
   );
