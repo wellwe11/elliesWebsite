@@ -7,16 +7,17 @@
 
   border: none;
 
-  background-color: white;
-
   transition: background-color 0.4s ease;
 
-  .quickViewText {
-    color: black;
-    font-weight: 200;
-  }
+  background-color: var(--websiteContainerColor);
+  border: 0.5px solid gray;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
   &:hover {
-    background-color: var(--websiteContainerColor);
+    background-color: var(--c-grey-100);
   }
 }

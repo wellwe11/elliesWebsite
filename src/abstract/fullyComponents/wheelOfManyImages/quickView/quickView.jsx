@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 import UniqueImageContext from "../../../../UI/UIComponents/BODY/uniqueImageContext";
+import WhiteButtonCenterText from "@components/whiteButtonCenterText/WHITEBUTTONCENTERTEXT";
 
 // If you want to view the actual product, this button takes you to a new page which contains further information and such
 const ViewProductButton = () => {
@@ -16,12 +17,10 @@ const ViewProductButton = () => {
 
   return (
     <div className={classes.viewProductButtonWrapper}>
-      <button
-        className={classes.viewProductButton}
+      <WhiteButtonCenterText
+        text={<h3 className={classes.buttonText}>Explore item</h3>}
         onClick={() => navigate(`/uniqueImage/${linkType}/${linkId}`)}
-      >
-        <h3 className={classes.buttonText}>Explore item</h3>
-      </button>
+      />
     </div>
   );
 };
@@ -32,7 +31,7 @@ const ProductDescription = ({ bio }) => {
 
   // actual button which is always displayed
   const expandDescriptionButton = (
-    <button
+    <div
       className={classes.buttonDescriptionButton}
       onClick={() => setViewDescription(!viewDescription)}
     >
@@ -46,7 +45,7 @@ const ProductDescription = ({ bio }) => {
           <ArrowNoBodySVG />
         </div>
       </h3>
-    </button>
+    </div>
   );
 
   // text which will be hidden or displayed depending on expandDescriptionButton
@@ -166,7 +165,9 @@ const QuickViewImage = ({ quickViewProps }) => {
 
 // Element containing QuickViewImage & QuickViewInfo, as well as a faded background.
 // Will always be positonined fixed in middle of the screen.
-export const QuickViewImageContainer = ({ quickViewProps, onClick }) => {
+export const QuickViewImageContainer = ({ onClick }) => {
+  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
+
   // white background-image that differs pop-up from the rest of the website
   const WhiteBackgroundPopUp = (
     <div
@@ -176,10 +177,21 @@ export const QuickViewImageContainer = ({ quickViewProps, onClick }) => {
     />
   );
 
-  return (
-    <div className={classes.quickViewImage}>
-      {WhiteBackgroundPopUp}
-      <QuickViewImage quickViewProps={quickViewProps} />
-    </div>
-  );
+  if (uniqueImage) {
+    const uniqueViewEmbedded = uniqueImage?._embedded;
+
+    const quickViewProps = {
+      quickViewImages: uniqueViewEmbedded?.restImages,
+      title: uniqueViewEmbedded?.setTitle,
+      price: uniqueViewEmbedded?.details.price,
+      bio: uniqueViewEmbedded?.setDescription,
+    };
+
+    return (
+      <div className={classes.quickViewImage}>
+        {WhiteBackgroundPopUp}
+        <QuickViewImage quickViewProps={quickViewProps} />
+      </div>
+    );
+  }
 };

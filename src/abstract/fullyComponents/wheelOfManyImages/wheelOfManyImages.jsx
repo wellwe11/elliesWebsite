@@ -1,17 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import classes from "./wheelOfManyImages.module.scss";
 
 import { QuickViewImageContainer } from "./quickView/quickView";
 import QuickViewButton from "@components/whiteButtonCenterText/WHITEBUTTONCENTERTEXT";
 import NavigationButtons from "./navigationButtons/navigationButtons";
 import ControlledImage from "@components/controlledImage/controlledImage";
+import UniqueImageContext from "../../../UI/UIComponents/BODY/uniqueImageContext";
 
-const Images = ({
-  images,
-  activeImageProps: { setActiveImageSrc },
-  setDisplayImage,
-  canQuickView,
-}) => {
+const Images = ({ data, canQuickView }) => {
+  // mapped objects using their 'representive-image'
+  const wheelImages = data?.map((obj) => obj.image);
+
   // clicking left or right decreases or increases marginLeft by 1. This is then translate to marginLeft * 10 %. So 2 = 20%.
   const [marginLeft, setMarginLeft] = useState(0);
 
@@ -31,20 +30,22 @@ const Images = ({
     }`,
   };
 
+  const { setUniqueImage } = useContext(UniqueImageContext);
+
   // array containing images
   const mappedImages = (
     <div className={`${classes.imagesWrapper}`} style={marginLeftStyle}>
-      {images?.map((image, index) => (
+      {wheelImages?.map((image, index) => (
         <div key={index} className={classes.imageWrapper}>
           <ControlledImage imageSrc={image} />
-          <div
-            className={classes.quickViewButtonWrapper}
-            onClick={() => setActiveImageSrc(index)}
-          >
-            {canQuickView && (
-              <QuickViewButton setDisplayImage={setDisplayImage} />
-            )}
-          </div>
+          {canQuickView && (
+            <div
+              className={classes.quickViewButtonWrapper}
+              onClick={() => setUniqueImage(data[index])}
+            >
+              <QuickViewButton text={"Quick view"} />
+            </div>
+          )}
         </div>
       ))}
     </div>
@@ -75,42 +76,17 @@ const Images = ({
 
 // Exception to rules. Needs map to allow for isolated logic which will only be applied to this document
 const WheelOfManyImages = ({
-  images,
+  data,
   canQuickView, // canQuickView enables quickView button. If not includes, no button appears. Having this false makes displayImage and activeImageSrc none-active
-  quickViewProps, // props containing information for quickView, such as title, bio, price
-
-  // activeImageSrc & setActiveImageSrc are NEEDED to fetch the data which is needed to display information such as price, related images etc.
-  // source for which quick-view-image will be if displayImage is true
-  // if dispalyImage === true, setActiveImageSrc to image and display it
-  activeImageProps,
 }) => {
-  // boolean if quick-view has been clicked
-  // if true, display clicked image
-  const [displayImage, setDisplayImage] = useState(false);
-
-  // used to check if typeOf activeImageSrc === "number" later in return
-  const { activeImageSrc } = activeImageProps;
-
-  useEffect(() => {
-    // if displayImage is true, remove scroll from body
-    document.body.classList.toggle("body--no-scroll", displayImage);
-  }, [displayImage]);
+  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
 
   return (
     <div className={classes.WheelOfManyImages}>
-      <Images
-        images={images}
-        setDisplayImage={setDisplayImage}
-        activeImageProps={activeImageProps}
-        canQuickView={canQuickView}
-      />
+      <Images data={data} canQuickView={canQuickView} />
 
-      {typeof activeImageSrc === "number" && ( // check if typeof number is true. Previously, was simply set to check if it is true, but this became falsey when number was 0. Not sure why, but this solution works for now
-        <QuickViewImageContainer
-          setDisplayImage={setDisplayImage}
-          activeImageProps={activeImageProps}
-          quickViewProps={quickViewProps}
-        />
+      {uniqueImage && (
+        <QuickViewImageContainer onClick={() => setUniqueImage(null)} />
       )}
     </div>
   );

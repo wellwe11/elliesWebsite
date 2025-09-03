@@ -3,7 +3,7 @@ import classes from "./products.module.scss";
 import { QuickViewImageContainer } from "@fullyComponents/wheelOfManyImages/quickView/quickView";
 
 import QuickViewButton from "@components/whiteButtonCenterText/WHITEBUTTONCENTERTEXT";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import UniqueImageContext from "../../uniqueImageContext";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
