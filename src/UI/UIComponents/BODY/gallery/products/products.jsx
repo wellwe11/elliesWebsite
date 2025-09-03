@@ -1,10 +1,9 @@
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import classes from "./products.module.scss";
-import {
-  QuickViewButton,
-  QuickViewImageContainer,
-} from "@fullyComponents/wheelOfManyImages/quickView/quickView";
-import { useContext, useEffect, useState } from "react";
+import { QuickViewImageContainer } from "@fullyComponents/wheelOfManyImages/quickView/quickView";
+
+import QuickViewButton from "@components/whiteButtonCenterText/WHITEBUTTONCENTERTEXT";
+import { useContext } from "react";
 import UniqueImageContext from "../../uniqueImageContext";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
@@ -109,7 +108,11 @@ const ProductComponent = ({ products, page }) => {
           className={classes.quickViewButtonComponentWrapper}
           onClick={() => setUniqueImage(product)}
         >
-          <QuickViewButton />
+          {
+            // Button which pops up on hovering an image. Clicking it will display QuickViewImageContainer.
+            // Button is positioned absolute, so will awlays be relative to parent-element which needs to be set to a wrapper
+          }
+          <QuickViewButton text={"Quick view"} />
         </div>
       </div>
       <ProductBio bioData={product?._embedded} />

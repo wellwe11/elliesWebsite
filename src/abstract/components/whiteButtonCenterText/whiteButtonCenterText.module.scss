@@ -1,0 +1,22 @@
+.quickViewButton {
+  width: 100%;
+  height: 100%;
+
+  pointer-events: all;
+  cursor: pointer;
+
+  border: none;
+
+  background-color: white;
+
+  transition: background-color 0.4s ease;
+
+  .quickViewText {
+    color: black;
+    font-weight: 200;
+  }
+
+  &:hover {
+    background-color: var(--websiteContainerColor);
+  }
+}

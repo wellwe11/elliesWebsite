@@ -183,17 +183,3 @@ export const QuickViewImageContainer = ({ quickViewProps, onClick }) => {
     </div>
   );
 };
-
-// Button which pops up on hovering an image. Clicking it will display QuickViewImageContainer.
-// Button is positioned absolute, so will awlays be relative to parent-element which needs to be set to a wrapper
-export const QuickViewButton = ({ onClick }) => {
-  return onClick ? (
-    <button className={classes.quickViewButton} onClick={onClick}>
-      <h4 className={classes.quickViewText}>Quick view</h4>
-    </button>
-  ) : (
-    <button className={classes.quickViewButton}>
-      <h4 className={classes.quickViewText}>Quick view</h4>
-    </button>
-  );
-};

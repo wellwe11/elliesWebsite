@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import classes from "./wheelOfManyImages.module.scss";
 
-import {
-  QuickViewButton,
-  QuickViewImageContainer,
-} from "./quickView/quickView";
+import { QuickViewImageContainer } from "./quickView/quickView";
+import QuickViewButton from "@components/whiteButtonCenterText/WHITEBUTTONCENTERTEXT";
 import NavigationButtons from "./navigationButtons/navigationButtons";
 import ControlledImage from "@components/controlledImage/controlledImage";
 
