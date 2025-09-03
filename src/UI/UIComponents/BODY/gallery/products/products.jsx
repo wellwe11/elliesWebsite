@@ -73,12 +73,14 @@ const QuickViewComponent = () => {
       title: uniqueViewEmbedded?.setTitle,
       price: uniqueViewEmbedded?.details.price,
       bio: uniqueViewEmbedded?.setDescription,
-      close: () => setUniqueImage(null),
     };
 
     return (
       <div className={classes.quickViewImageContainerWrapper}>
-        <QuickViewImageContainer quickViewProps={quickViewProps} />
+        <QuickViewImageContainer
+          quickViewProps={quickViewProps}
+          onClick={() => setUniqueImage(null)}
+        />
       </div>
     );
   }

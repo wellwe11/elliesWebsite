@@ -166,16 +166,13 @@ const QuickViewImage = ({ quickViewProps }) => {
 
 // Element containing QuickViewImage & QuickViewInfo, as well as a faded background.
 // Will always be positonined fixed in middle of the screen.
-export const QuickViewImageContainer = ({ quickViewProps }) => {
+export const QuickViewImageContainer = ({ quickViewProps, onClick }) => {
   // white background-image that differs pop-up from the rest of the website
   const WhiteBackgroundPopUp = (
     <div
       className={classes.quickViewBackground}
       // If you click on the white background it will close current quick-view window
-      onClick={() => {
-        // resets information & closes current product if user clicks outside
-        quickViewProps?.close();
-      }}
+      onClick={onClick}
     />
   );
 
