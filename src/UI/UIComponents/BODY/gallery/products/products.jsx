@@ -9,16 +9,18 @@ import UniqueImageContext from "../../uniqueImageContext";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ bioData }) => {
+  // I.e. Paintings, Prints etc.
   const type =
     bioData.details.type.slice(0, 1).toUpperCase() +
-    bioData.details.type.slice(1);
+    bioData.details.type.slice(1); // Starts with uppercase
+
   const Type = (
     <div className={classes.type}>
       <h4 className={classes.bioText}>{type}</h4>
     </div>
   );
 
-  const name = bioData.setTitle; // collections name
+  const name = bioData.setTitle; // collections/sets name - I.e. spring-collection, pastel-blue bookmarks collection, etc.
   const Name = (
     <div className={classes.name}>
       <h4 className={classes.bioText}>{name}</h4>
@@ -74,7 +76,7 @@ const QuickViewButtonComponent = ({ setDisplayImage }) => {
   );
 };
 
-const QuickViewComponent = ({ setDisplayImage, quickViewProps }) => {
+const QuickViewComponent = ({ setDisplayImage }) => {
   const [activeImageSrc, setActiveImageSrc] = useState(null);
   // information displayed once you click quickview
   const [activeQuickViewData, setActiveQuickViewData] = useState(null);
@@ -111,7 +113,7 @@ const QuickViewComponent = ({ setDisplayImage, quickViewProps }) => {
 const ProductComponent = ({ products, page }) => {
   const [displayImage, setDisplayImage] = useState(false);
 
-  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
+  const { setUniqueImage } = useContext(UniqueImageContext);
 
   // start displays the absolute minimum of index which is allowed to be shown on each page
   // page starts on 0, goes to 1, 2, 3 etc.
@@ -131,7 +133,10 @@ const ProductComponent = ({ products, page }) => {
         <img className={classes.productImage} src={product.image} alt="" />
         <div
           className={classes.quickViewButtonComponentWrapper}
-          onClick={() => setUniqueImage(displayedProducts[index])}
+          onClick={() => {
+            setUniqueImage(displayedProducts[index]);
+            setDisplayImage(true);
+          }}
         >
           <QuickViewButtonComponent setDisplayImage={setDisplayImage} />
         </div>

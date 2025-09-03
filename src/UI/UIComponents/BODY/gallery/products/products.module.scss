@@ -10,12 +10,17 @@
     grid-template-rows: repeat(3, 1fr);
 
     gap: 2vw;
+
+    @media screen and (max-width: 1024px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
   }
 }
 
 // mappedProductsImages
 .productWrapper {
-  cursor: pointer;
   overflow: hidden;
 
   display: flex;
@@ -24,6 +29,7 @@
   align-items: center;
 
   .productImageWrapper {
+    cursor: pointer;
     height: 70%;
     width: 100%;
     background-color: var(--c-grey-100);
@@ -43,20 +49,38 @@
       object-position: center;
 
       padding: 10%;
+
+      &:hover ~ .quickViewButtonComponentWrapper {
+        transform: translateY(-150%);
+        opacity: 1;
+      }
     }
+  }
+  @media screen and (max-width: 1024px) {
+    width: 45%;
   }
 
   .quickViewButtonComponentWrapper {
-    width: 70%;
+    border: 1px solid black;
+
+    width: 10vw;
+
+    background-color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: transform 0.2s ease, opacity 0.1s ease;
     opacity: 0;
+
+    // hover applies also to button, otherwise, button will close as the initial trigger is frm hovering it's sibling-element, which button will eventually cover partially
+    &:hover {
+      transform: translateY(-150%);
+      opacity: 1;
+    }
   }
 
   &:hover {
-    .quickViewButtonComponentWrapper {
-      transform: translateY(-120%);
-      opacity: 1;
-    }
   }
 }
 
@@ -93,8 +117,16 @@
 
       .type {
         .bioText {
+          color: var(--c-text-200);
           font-size: clamp(8px, 0.9vw, 14px) !important;
           font-variation-settings: "wght" 450;
+          cursor: pointer;
+
+          z-index: 2;
+
+          &:hover {
+            color: var(--c-text-black);
+          }
         }
       }
     }
@@ -141,6 +173,13 @@
 }
 
 .quickViewButtonComponent {
+  max-height: 3.5vw;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   .quickViewButtonWrapper {
   }
 
