@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 
 import classes from "./GALLERY.module.scss";
 import PageSelector from "./pageSelector/pageSelector";
@@ -6,6 +6,7 @@ import FilterSideBar from "./filterSideBar/filterSideBar";
 import Products from "./products/products";
 import { useLocation, useParams } from "react-router-dom";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
+import UniqueImageContext from "../uniqueImageContext";
 
 const FilterSideBarWrapperComponent = ({
   data,
@@ -49,6 +50,8 @@ const PageWrapperComponent = ({ filteredData, state: { page, setPage } }) => {
 };
 
 const Gallery = ({ data }) => {
+  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
+
   // all types (paintings, prints, accessories are 'flattened')
   // Works like a parent-variable. Always contains an array of all data, and never changes.
   const [flattedData, setFlattedData] = useState(null);
@@ -77,28 +80,29 @@ const Gallery = ({ data }) => {
     setPage,
   };
 
-  // initial useEffect - updates correct url on load
-  useEffect(() => {
-    if (filter && page) return; // if filter and page is active, do not set filter or page to anything new
+  // // initial useEffect - updates correct url on load
+  // useEffect(() => {
+  //   if (filter && page) return; // if filter and page is active, do not set filter or page to anything new
 
-    if (id) {
-      setFilter(category); // if id (category & pagenumber)
-    }
-    setPage(pageNumber); // pagenumber based on hash
-  }, []);
+  //   if (id) {
+  //     setFilter(category); // if id (category & pagenumber)
+  //   }
+  //   setPage(pageNumber); // pagenumber based on hash
+  //   // setUniqueImage(null);
+  // }, []);
 
-  // if filter or page updates
-  useEffect(() => {
-    if (!filter) {
-      navigate(`/gallery/page#${+page}`); // if no filter, navigate to correct page
-    }
+  // // if filter or page updates
+  // useEffect(() => {
+  //   if (!filter) {
+  //     navigate(`/gallery/page#${+page}`); // if no filter, navigate to correct page
+  //   }
 
-    if (filter) {
-      navigate(`/gallery/${filter}/page#${+page}`); // if filter, navigate to filter and then corresponding page
-    }
+  //   if (filter) {
+  //     navigate(`/gallery/${filter}/page#${+page}`); // if filter, navigate to filter and then corresponding page
+  //   }
 
-    window.scrollTo({ top: 0 }); // always reset to top of window
-  }, [filter, page, hash]);
+  //   window.scrollTo({ top: 0 }); // always reset to top of window
+  // }, [filter, page, hash]);
 
   // Filters data based on current filter
   const filteredData = useMemo(() => {

@@ -6,8 +6,11 @@ import QuickViewButton from "@components/whiteButtonCenterText/WHITEBUTTONCENTER
 import NavigationButtons from "./navigationButtons/navigationButtons";
 import ControlledImage from "@components/controlledImage/controlledImage";
 import UniqueImageContext from "../../../UI/UIComponents/BODY/uniqueImageContext";
+import { useNavigate } from "react-router-dom";
 
 const Images = ({ data, canQuickView }) => {
+  const { setUniqueImage } = useContext(UniqueImageContext);
+
   // mapped objects using their 'representive-image'
   const wheelImages = data?.map((obj) => obj.image);
 
@@ -30,8 +33,7 @@ const Images = ({ data, canQuickView }) => {
     }`,
   };
 
-  const { setUniqueImage } = useContext(UniqueImageContext);
-
+  const navigate = useNavigate();
   // array containing images
   const mappedImages = (
     <div className={`${classes.imagesWrapper}`} style={marginLeftStyle}>
@@ -39,11 +41,18 @@ const Images = ({ data, canQuickView }) => {
         <div key={index} className={classes.imageWrapper}>
           <ControlledImage imageSrc={image} />
           {canQuickView && (
-            <div
-              className={classes.quickViewButtonWrapper}
-              onClick={() => setUniqueImage(data[index])}
-            >
-              <QuickViewButton text={"Quick view"} />
+            <div className={classes.quickViewButtonWrapper}>
+              <QuickViewButton
+                text={"Quick view"}
+                onClick={() => {
+                  navigate(
+                    `/preview/${data[index]._embedded.details.type}/${data[index]?.id}`,
+                    {
+                      state: { backgroundLocation: location.pathname },
+                    }
+                  );
+                }}
+              />
             </div>
           )}
         </div>

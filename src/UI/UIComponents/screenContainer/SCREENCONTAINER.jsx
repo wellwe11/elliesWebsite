@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, useEffect, useState } from "react";
 import classes from "./SCREENCONTAINER.module.scss";
 
@@ -10,11 +10,17 @@ import tryFetchFn from "@functions/tryFetchFn";
 
 import UniqueImageContext from "../BODY/uniqueImageContext";
 import Gallery from "../BODY/gallery/GALLERY";
+import { QuickViewImageContainer } from "@fullyComponents/wheelOfManyImages/quickView/quickView";
 
 const ScreenContainer = () => {
-  const [topLayerData, setTopLayerData] = useState(null);
-  const [serviceData, setServiceData] = useState(null);
-  const [uniqueImage, setUniqueImage] = useState(null);
+  const [topLayerData, setTopLayerData] = useState(null); // fetched data with id added
+  const [serviceData, setServiceData] = useState(null); // Services data
+  const [uniqueImage, setUniqueImage] = useState(null); // context for whichever product is in focus
+
+  const location = useLocation();
+  const state = location.state;
+
+  console.log(location, state);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,7 +60,7 @@ const ScreenContainer = () => {
         <Navbar />
         <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
           <UniqueImageContext.Provider value={{ uniqueImage, setUniqueImage }}>
-            <Routes location={location}>
+            <Routes location={state?.backgroundLocation || location}>
               <Route
                 path="/"
                 element={
@@ -79,8 +85,18 @@ const ScreenContainer = () => {
                 element={<Gallery data={topLayerData} />}
               />
             </Routes>
+
+            {state?.backgroundLocation && (
+              <Routes>
+                <Route
+                  path="/:tab?/preview/:type/:id"
+                  element={<QuickViewImageContainer />}
+                />
+              </Routes>
+            )}
           </UniqueImageContext.Provider>
-          {/* <Footer /> */}
+          {/* <Footer /> */
+          /** Currently inactive because it doesnt work with uniqueImage-page */}
         </div>
       </div>
     </Suspense>

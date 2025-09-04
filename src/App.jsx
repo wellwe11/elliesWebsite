@@ -28,6 +28,10 @@ export default App;
  *
  * Something fishy is going on with the link - When you go to a category, and you want to click 'back' with your browser, it doesnt work
  *
+ * When switching between pages, (except navigating to uniqueImagePage) uniqueImageContext needs to reset. Currently it doesnt, because of this, the quickView window is open when switching pages.
+ *
+ * Remove scroll from white-background on which is up when quickView window is open
+ *
  *
  * ** ADD TO COMPONENTS **
  * Implement a button on uniqueImage page to help user navigate down to the details-page
@@ -35,19 +39,23 @@ export default App;
  *
  * navBar icon-animation (the blue/white circle) resets when you click it. Either, remove this, or add a spin-animation (360 spin) to click.
  *
+ * * On hover: display quickview & change image for product
+ *
+ * on click: take to product-page
+ *
+ * remake whiteButtonCenterText to a quickViewImage, which has a quickViewButton. Then you can map that specific component in wheelOfManyImages for example, or use it as a single component for Gallery
+ *
  * ** NEW COMPONENTS **
  * Create an instagram section - this should be a spinning wheel that simply has images from ellies instagram-page, and when clicked, takes you to ellies instagram
  * Create a 'new-in' component, which is a stand-alone component. Not related to prints/paintings sections. It simply displays something with a nice animation. (this should seperate prints & paintings)
  * Contact us section above footer
  *
- * Gallery-images should display the following:
- * Type
- * SetName (if any)
- * Price
+ * Shopping-cart page
+ * -- shopping-cart sidebar
  *
- * On hover: display quickview & change image for product
+ * Loading page (if data not loaded)
+ * Error page (if page not found)
  *
- * on click: take to product-page
  */
 
 /*** RULES FOR PROJECT

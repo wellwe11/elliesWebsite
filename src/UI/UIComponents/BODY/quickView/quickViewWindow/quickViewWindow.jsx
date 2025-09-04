@@ -1,11 +1,10 @@
-import classes from "./quickView.module.scss";
+import classes from "./quickViewWindow.module.scss";
 import { useContext, useState } from "react";
 
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
-import handleNavigateSmooth from "@functions/handleNavigateSmooth";
-import UniqueImageContext from "../../../../UI/UIComponents/BODY/uniqueImageContext";
 import WhiteButtonCenterText from "@components/whiteButtonCenterText/WHITEBUTTONCENTERTEXT";
-import { useNavigate } from "react-router-dom";
+import handleNavigateSmooth from "@functions/handleNavigateSmooth";
+import UniqueImageContext from "./uniqueImageContext";
 
 // If you want to view the actual product, this button takes you to a new page which contains further information and such
 const ViewProductButton = () => {
@@ -166,40 +165,36 @@ const QuickViewImage = ({ quickViewProps }) => {
 
 // Element containing QuickViewImage & QuickViewInfo, as well as a faded background.
 // Will always be positonined fixed in middle of the screen.
-export const QuickViewImageContainer = () => {
+const QuickViewImageContainer = ({ onClick }) => {
+  console.log("asd im alive motherufcker");
   const { uniqueImage } = useContext(UniqueImageContext);
-
-  const navigate = useNavigate();
 
   // white background-image that differs pop-up from the rest of the website
   const WhiteBackgroundPopUp = (
     <div
       className={classes.quickViewBackground}
       // If you click on the white background it will close current quick-view window
-      onClick={() => navigate(-1)}
+      onClick={onClick}
     />
   );
 
-  const uniqueViewEmbedded = uniqueImage?._embedded;
+  if (uniqueImage) {
+    const uniqueViewEmbedded = uniqueImage?._embedded;
 
-  // const quickViewProps = {
-  //   quickViewImages: uniqueViewEmbedded?.restImages,
-  //   title: uniqueViewEmbedded?.setTitle,
-  //   price: uniqueViewEmbedded?.details.price,
-  //   bio: uniqueViewEmbedded?.setDescription,
-  // };
+    const quickViewProps = {
+      quickViewImages: uniqueViewEmbedded?.restImages,
+      title: uniqueViewEmbedded?.setTitle,
+      price: uniqueViewEmbedded?.details.price,
+      bio: uniqueViewEmbedded?.setDescription,
+    };
 
-  const quickViewProps = {
-    quickViewImages: [],
-    title: "example title",
-    price: "example price",
-    bio: "example bio asdnasdlkmasdlkasmfla sfl kasf asf akf ajsflja sfjasf aslfj asf jas",
-  };
-
-  return (
-    <div className={classes.quickViewImage}>
-      {WhiteBackgroundPopUp}
-      <QuickViewImage quickViewProps={quickViewProps} />
-    </div>
-  );
+    return (
+      <div className={classes.quickViewImage}>
+        {WhiteBackgroundPopUp}
+        <QuickViewImage quickViewProps={quickViewProps} />
+      </div>
+    );
+  }
 };
+
+export default QuickViewImageContainer;

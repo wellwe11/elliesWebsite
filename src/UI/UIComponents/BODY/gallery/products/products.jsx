@@ -3,8 +3,10 @@ import classes from "./products.module.scss";
 import { QuickViewImageContainer } from "@fullyComponents/wheelOfManyImages/quickView/quickView";
 
 import QuickViewButton from "@components/whiteButtonCenterText/WHITEBUTTONCENTERTEXT";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import UniqueImageContext from "../../uniqueImageContext";
+import handleNavigateSmooth from "@functions/handleNavigateSmooth";
+import { useNavigate } from "react-router-dom";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ bioData }) => {
@@ -99,20 +101,31 @@ const ProductComponent = ({ products, page }) => {
   // slices only visible objects
   const displayedProducts = products.slice(start, end);
 
+  const navigate = useNavigate();
+
+  console.log(products);
+
   // map only visible objects to display them as 'pages' which can be navigated by user
   const mappedProductImages = displayedProducts.map((product, index) => (
     <div key={index} className={classes.productWrapper}>
       <div className={classes.productImageWrapper}>
         <img className={classes.productImage} src={product.image} alt="" />
-        <div
-          className={classes.quickViewButtonComponentWrapper}
-          onClick={() => setUniqueImage(product)}
-        >
+        <div className={classes.quickViewButtonComponentWrapper}>
           {
             // Button which pops up on hovering an image. Clicking it will display QuickViewImageContainer.
             // Button is positioned absolute, so will awlays be relative to parent-element which needs to be set to a wrapper
           }
-          <QuickViewButton text={"Quick view"} />
+          <QuickViewButton
+            text={"Quick view"}
+            onClick={() => {
+              navigate(
+                `/gallery/preview/${product._embedded.details.type}/${product?.id}`,
+                {
+                  state: { backgroundLocation: location.pathname },
+                }
+              );
+            }}
+          />
         </div>
       </div>
       <ProductBio bioData={product?._embedded} />
