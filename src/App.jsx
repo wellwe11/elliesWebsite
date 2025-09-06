@@ -37,6 +37,9 @@ export default App;
  *
  * Remove scroll from white-background on which is up when quickView window is open
  *
+ * Clicking home/gallery should navigate to top window if clicked again
+ * Clicking gallery again while on page 2 should navigate back to page 1
+ *
  *
  * ** ADD TO COMPONENTS **
  * Implement a button on uniqueImage page to help user navigate down to the details-page

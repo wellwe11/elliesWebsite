@@ -32,28 +32,6 @@
 
       // for quickViewButton
       position: relative;
-
-      .quickViewButtonWrapper {
-        position: absolute;
-        bottom: 20px;
-        left: 10%;
-
-        height: 3vw;
-        width: 80%;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        transform: translateY(100px);
-        transition: transform 0.2s ease;
-      }
-
-      &:hover {
-        .quickViewButtonWrapper {
-          transform: translateY(0px);
-        }
-      }
     }
   }
 }
