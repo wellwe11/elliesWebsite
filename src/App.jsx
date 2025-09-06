@@ -25,6 +25,7 @@ export default App;
  * CLEAN CSS FILES FROM CLASSES WHICH DONT BELONG THERE (HAVE BEEN MOVED)
  * Fix uniqueImage-page so that it takes information from params!
  * Change products so it uses a route-system to change filters. Essentially, change inline-pages
+ * FIX PAINTINGS-SECTION AND PRINTS-SECTION FOR QUICKVIEW
  *
  * ** BUGS **
  * sectionSeperationImage is currently buggy - snaps to a position when entering the screen. Does not smoothly transition in
