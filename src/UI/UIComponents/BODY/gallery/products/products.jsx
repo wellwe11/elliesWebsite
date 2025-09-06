@@ -1,12 +1,12 @@
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import classes from "./products.module.scss";
-import { QuickViewImageContainer } from "@fullyComponents/wheelOfManyImages/quickView/quickView";
 
 import QuickViewButton from "@components/whiteButtonCenterText/WHITEBUTTONCENTERTEXT";
 import { useContext } from "react";
 import UniqueImageContext from "../../uniqueImageContext";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 import { useNavigate } from "react-router-dom";
+import QuickView from "@fullyComponents/quickView/quickView";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ bioData }) => {
@@ -63,7 +63,7 @@ const ProductBio = ({ bioData }) => {
   );
 };
 
-const QuickViewComponent = () => {
+const QuickViewComponent = ({ data }) => {
   const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
 
   if (uniqueImage) {
@@ -79,7 +79,7 @@ const QuickViewComponent = () => {
     return (
       <div className={classes.quickViewImageContainerWrapper}>
         <QuickViewImageContainer
-          quickViewProps={quickViewProps}
+          data={data}
           onClick={() => setUniqueImage(null)}
         />
       </div>
@@ -88,8 +88,6 @@ const QuickViewComponent = () => {
 };
 
 const ProductComponent = ({ products, page }) => {
-  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
-
   // start displays the absolute minimum of index which is allowed to be shown on each page
   // page starts on 0, goes to 1, 2, 3 etc.
   const start = (page - 1) * 9; // First image is then current (page - 1) * 9. -1 because pages are not based on index, but index + 1 (to avoid page being displayed as 0)
@@ -101,43 +99,20 @@ const ProductComponent = ({ products, page }) => {
   // slices only visible objects
   const displayedProducts = products.slice(start, end);
 
-  const navigate = useNavigate();
-
-  console.log(products);
-
   // map only visible objects to display them as 'pages' which can be navigated by user
   const mappedProductImages = displayedProducts.map((product, index) => (
     <div key={index} className={classes.productWrapper}>
-      <div className={classes.productImageWrapper}>
-        <img className={classes.productImage} src={product.image} alt="" />
-        <div className={classes.quickViewButtonComponentWrapper}>
-          {
-            // Button which pops up on hovering an image. Clicking it will display QuickViewImageContainer.
-            // Button is positioned absolute, so will awlays be relative to parent-element which needs to be set to a wrapper
-          }
-          <QuickViewButton
-            text={"Quick view"}
-            onClick={() => {
-              navigate(
-                `/gallery/preview/${product._embedded.details.type}/${product?.id}`,
-                {
-                  state: { backgroundLocation: location.pathname },
-                }
-              );
-            }}
-          />
-        </div>
-      </div>
+      <QuickView
+        src={product.image}
+        productType={product._embedded.details.type}
+        productId={product?.id}
+      />
+
       <ProductBio bioData={product?._embedded} />
     </div>
   ));
 
-  return (
-    <>
-      {mappedProductImages}
-      {uniqueImage && <QuickViewComponent />}
-    </>
-  );
+  return <>{mappedProductImages}</>;
 };
 
 const Products = ({ products, page }) => {

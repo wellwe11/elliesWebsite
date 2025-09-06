@@ -1,11 +1,11 @@
-import classes from "./quickViewWindow.module.scss";
-import { useContext, useState } from "react";
+import classes from "./quickViewImage.module.scss";
+import { useContext, useEffect, useState } from "react";
 
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
-import WhiteButtonCenterText from "@components/whiteButtonCenterText/WHITEBUTTONCENTERTEXT";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
-import UniqueImageContext from "./uniqueImageContext";
-import { useParams } from "react-router-dom";
+import UniqueImageContext from "../../../../UI/UIComponents/BODY/uniqueImageContext";
+import WhiteButtonCenterText from "@components/whiteButtonCenterText/WHITEBUTTONCENTERTEXT";
+import { useNavigate, useParams } from "react-router-dom";
 
 // If you want to view the actual product, this button takes you to a new page which contains further information and such
 const ViewProductButton = () => {
@@ -166,36 +166,82 @@ const QuickViewImage = ({ quickViewProps }) => {
 
 // Element containing QuickViewImage & QuickViewInfo, as well as a faded background.
 // Will always be positonined fixed in middle of the screen.
-const QuickViewImageContainer = ({ onClick }) => {
-  console.log("asd im alive motherufcker");
-  const { uniqueImage } = useContext(UniqueImageContext);
+const QuickViewImageContainer = ({ data }) => {
+  // Object which will be displayed ocne user clicks quickview
+  const [quickViewObj, setQuickViewObj] = useState(null);
+  const [loadingText, setLoadingText] = useState("loading...");
+
+  // navigates to a backgroundLocation
+  const navigate = useNavigate();
+  const params = useParams();
+
+  // gets correct object type & info to find the correct object
+  const tabType = params?.type;
+  const productId = +params?.id;
+
+  useEffect(() => {
+    if (!data) return;
+
+    // finds matching obj
+    const foundObj = data[tabType].find((a) => +a.id === productId);
+
+    // tries to find obj quickly
+    setTimeout(() => {
+      if (foundObj) {
+        setQuickViewObj(foundObj);
+      }
+    }, 1500);
+
+    // if not found, spends more time
+    if (!quickViewObj) {
+      setTimeout(() => {
+        setLoadingText("Need more time to find object...");
+        setTimeout(() => {
+          if (foundObj) {
+            setQuickViewObj(foundObj);
+          }
+        }, 1500);
+      }, 6000);
+    }
+
+    // if no item is found by 10 seconds, navigates to error-page (which will be made specifically for not finding products in future)
+    setTimeout(() => {
+      if (!foundObj) navigate("/Error");
+    }, 10000);
+  }, [data]);
 
   // white background-image that differs pop-up from the rest of the website
   const WhiteBackgroundPopUp = (
     <div
       className={classes.quickViewBackground}
       // If you click on the white background it will close current quick-view window
-      onClick={onClick}
+      onClick={() => navigate(-1)} // navigates pages -1; previous page.
     />
   );
 
-  if (uniqueImage) {
-    const uniqueViewEmbedded = uniqueImage?._embedded;
-
-    const quickViewProps = {
-      quickViewImages: uniqueViewEmbedded?.restImages,
-      title: uniqueViewEmbedded?.setTitle,
-      price: uniqueViewEmbedded?.details.price,
-      bio: uniqueViewEmbedded?.setDescription,
-    };
-
+  if (!quickViewObj)
     return (
       <div className={classes.quickViewImage}>
         {WhiteBackgroundPopUp}
-        <QuickViewImage quickViewProps={quickViewProps} />
+        <h1 className={classes.loadingText}>{loadingText}</h1>
       </div>
     );
-  }
+
+  const uniqueViewEmbedded = quickViewObj?._embedded;
+
+  const quickViewProps = {
+    quickViewImages: uniqueViewEmbedded?.restImages,
+    title: uniqueViewEmbedded?.setTitle,
+    price: uniqueViewEmbedded?.details.price,
+    bio: uniqueViewEmbedded?.setDescription,
+  };
+
+  return (
+    <div className={classes.quickViewImage}>
+      {WhiteBackgroundPopUp}
+      <QuickViewImage quickViewProps={quickViewProps} />
+    </div>
+  );
 };
 
 export default QuickViewImageContainer;

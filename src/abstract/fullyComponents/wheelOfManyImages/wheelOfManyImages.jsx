@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
 import classes from "./wheelOfManyImages.module.scss";
 
-import { QuickViewImageContainer } from "./quickView/quickView";
 import QuickViewButton from "@components/whiteButtonCenterText/WHITEBUTTONCENTERTEXT";
 import NavigationButtons from "./navigationButtons/navigationButtons";
 import ControlledImage from "@components/controlledImage/controlledImage";
 import UniqueImageContext from "../../../UI/UIComponents/BODY/uniqueImageContext";
-import { useNavigate } from "react-router-dom";
+
+import QuickView from "@fullyComponents/quickView/quickView";
 
 const Images = ({ data, canQuickView }) => {
   const { setUniqueImage } = useContext(UniqueImageContext);
@@ -33,28 +33,16 @@ const Images = ({ data, canQuickView }) => {
     }`,
   };
 
-  const navigate = useNavigate();
   // array containing images
   const mappedImages = (
     <div className={`${classes.imagesWrapper}`} style={marginLeftStyle}>
       {wheelImages?.map((image, index) => (
         <div key={index} className={classes.imageWrapper}>
-          <ControlledImage imageSrc={image} />
-          {canQuickView && (
-            <div className={classes.quickViewButtonWrapper}>
-              <QuickViewButton
-                text={"Quick view"}
-                onClick={() => {
-                  navigate(
-                    `/preview/${data[index]._embedded.details.type}/${data[index]?.id}`,
-                    {
-                      state: { backgroundLocation: location.pathname },
-                    }
-                  );
-                }}
-              />
-            </div>
-          )}
+          <QuickView
+            src={image}
+            productType={data[index]._embedded.details.type}
+            productId={data[index]?.id}
+          />
         </div>
       ))}
     </div>
@@ -88,15 +76,9 @@ const WheelOfManyImages = ({
   data,
   canQuickView, // canQuickView enables quickView button. If not includes, no button appears. Having this false makes displayImage and activeImageSrc none-active
 }) => {
-  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
-
   return (
     <div className={classes.WheelOfManyImages}>
       <Images data={data} canQuickView={canQuickView} />
-
-      {uniqueImage && (
-        <QuickViewImageContainer onClick={() => setUniqueImage(null)} />
-      )}
     </div>
   );
 };
