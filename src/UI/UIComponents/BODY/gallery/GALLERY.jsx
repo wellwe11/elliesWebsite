@@ -1,12 +1,10 @@
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import classes from "./GALLERY.module.scss";
 import PageSelector from "./pageSelector/pageSelector";
 import FilterSideBar from "./filterSideBar/filterSideBar";
 import Products from "./products/products";
 import { useLocation, useParams } from "react-router-dom";
-import handleNavigateSmooth from "@functions/handleNavigateSmooth";
-import UniqueImageContext from "../uniqueImageContext";
 
 const FilterSideBarWrapperComponent = ({
   data,
@@ -50,8 +48,6 @@ const PageWrapperComponent = ({ filteredData, state: { page, setPage } }) => {
 };
 
 const Gallery = ({ data }) => {
-  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
-
   // all types (paintings, prints, accessories are 'flattened')
   // Works like a parent-variable. Always contains an array of all data, and never changes.
   const [flattedData, setFlattedData] = useState(null);
@@ -64,7 +60,6 @@ const Gallery = ({ data }) => {
   // route
   const { category, id } = useParams(); // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
   const { hash } = useLocation(); // page-number
-  const navigate = handleNavigateSmooth();
 
   const pageNumber = +hash.replace(/\D/g, "") || 1; // remove hash or anything else that comes with the current page
 

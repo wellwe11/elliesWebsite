@@ -21,6 +21,11 @@ export default App;
 
 /** TODO LIST
  *
+ * TODO NOW!
+ * CLEAN CSS FILES FROM CLASSES WHICH DONT BELONG THERE (HAVE BEEN MOVED)
+ * Fix uniqueImage-page so that it takes information from params!
+ * Change products so it uses a route-system to change filters. Essentially, change inline-pages
+ *
  * ** BUGS **
  * sectionSeperationImage is currently buggy - snaps to a position when entering the screen. Does not smoothly transition in
  *

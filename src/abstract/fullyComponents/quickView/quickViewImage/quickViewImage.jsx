@@ -4,8 +4,9 @@ import { useContext, useEffect, useState } from "react";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 import UniqueImageContext from "../../../../UI/UIComponents/BODY/uniqueImageContext";
-import WhiteButtonCenterText from "@components/whiteButtonCenterText/WHITEBUTTONCENTERTEXT";
+
 import { useNavigate, useParams } from "react-router-dom";
+import QuickViewButton from "../quickViewButton/quickViewButton";
 
 // If you want to view the actual product, this button takes you to a new page which contains further information and such
 const ViewProductButton = () => {
@@ -18,7 +19,7 @@ const ViewProductButton = () => {
 
   return (
     <div className={classes.viewProductButtonWrapper}>
-      <WhiteButtonCenterText
+      <QuickViewButton
         text={<h3 className={classes.buttonText}>Explore item</h3>}
         onClick={() => navigate(`/uniqueImage/${linkType}/${linkId}`)}
       />

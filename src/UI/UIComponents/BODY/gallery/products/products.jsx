@@ -1,11 +1,6 @@
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import classes from "./products.module.scss";
 
-import QuickViewButton from "@components/whiteButtonCenterText/WHITEBUTTONCENTERTEXT";
-import { useContext } from "react";
-import UniqueImageContext from "../../uniqueImageContext";
-import handleNavigateSmooth from "@functions/handleNavigateSmooth";
-import { useNavigate } from "react-router-dom";
 import QuickView from "@fullyComponents/quickView/quickView";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
@@ -63,30 +58,6 @@ const ProductBio = ({ bioData }) => {
   );
 };
 
-const QuickViewComponent = ({ data }) => {
-  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
-
-  if (uniqueImage) {
-    const uniqueViewEmbedded = uniqueImage._embedded;
-
-    const quickViewProps = {
-      quickViewImages: uniqueViewEmbedded?.restImages,
-      title: uniqueViewEmbedded?.setTitle,
-      price: uniqueViewEmbedded?.details.price,
-      bio: uniqueViewEmbedded?.setDescription,
-    };
-
-    return (
-      <div className={classes.quickViewImageContainerWrapper}>
-        <QuickViewImageContainer
-          data={data}
-          onClick={() => setUniqueImage(null)}
-        />
-      </div>
-    );
-  }
-};
-
 const ProductComponent = ({ products, page }) => {
   // start displays the absolute minimum of index which is allowed to be shown on each page
   // page starts on 0, goes to 1, 2, 3 etc.
@@ -112,7 +83,7 @@ const ProductComponent = ({ products, page }) => {
     </div>
   ));
 
-  return <>{mappedProductImages}</>;
+  return mappedProductImages;
 };
 
 const Products = ({ products, page }) => {

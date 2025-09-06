@@ -1,16 +1,11 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import classes from "./wheelOfManyImages.module.scss";
 
-import QuickViewButton from "@components/whiteButtonCenterText/WHITEBUTTONCENTERTEXT";
 import NavigationButtons from "./navigationButtons/navigationButtons";
-import ControlledImage from "@components/controlledImage/controlledImage";
-import UniqueImageContext from "../../../UI/UIComponents/BODY/uniqueImageContext";
 
 import QuickView from "@fullyComponents/quickView/quickView";
 
-const Images = ({ data, canQuickView }) => {
-  const { setUniqueImage } = useContext(UniqueImageContext);
-
+const Images = ({ data }) => {
   // mapped objects using their 'representive-image'
   const wheelImages = data?.map((obj) => obj.image);
 
