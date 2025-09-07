@@ -7,11 +7,10 @@ import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT.j
 
 import logoImage from "@assets/logo.png";
 
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 import { useLocation } from "react-router-dom";
-import UniqueImageContext from "../BODY/uniqueImageContext";
 
 const ShoppingCart = () => {
   // Simple text related to shoppingcart. Text is static and will remain the same.
@@ -122,7 +121,7 @@ const Navbar = () => {
   const { pathname } = useLocation();
   const buttons = {
     home: "",
-    gallery: "gallery/page#1",
+    gallery: "gallery#1",
     contact: "./#contact",
   };
 

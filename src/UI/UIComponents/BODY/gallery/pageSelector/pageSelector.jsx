@@ -1,6 +1,7 @@
 import ArrowRoundEdgesSVG from "@components/SVGS/arrowRoundEdgesSVG/arrowRoundEdgesSVG";
 import classes from "./pageSelector.module.scss";
 import { useEffect, useMemo } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 // abstract button component which has the same structure & classes for all nav-buttons
 const NavButton = ({ onClick, disabled, label }) => {
@@ -17,15 +18,15 @@ const NavButton = ({ onClick, disabled, label }) => {
 };
 
 // change page forward - increment page
-const RightButton = ({ setPage, page, maxPage }) => {
+const RightButton = ({ page, maxPage, navigate }) => {
   const increment = () => {
     // if next page can contain products
     if (page < maxPage) {
-      setPage((prev) => prev + 1);
+      navigate({ hash: `${page + 1}` });
     }
   };
 
-  const rightButton = (
+  return (
     <NavButton
       onClick={increment}
       disabled={page === maxPage}
@@ -36,20 +37,18 @@ const RightButton = ({ setPage, page, maxPage }) => {
       }
     />
   );
-
-  return rightButton;
 };
 
 // change page backwards - decrement page
-const LeftButton = ({ page, setPage }) => {
+const LeftButton = ({ page, navigate }) => {
   const decrement = () => {
     // prevent page from going below 0
     if (page > 0) {
-      setPage((prev) => prev - 1);
+      navigate({ hash: `${page - 1}` });
     }
   };
 
-  const leftButton = (
+  return (
     <NavButton
       onClick={decrement}
       disabled={page === 1}
@@ -60,11 +59,9 @@ const LeftButton = ({ page, setPage }) => {
       }
     />
   );
-
-  return leftButton;
 };
 
-const PageNumbers = ({ page, setPage, maxPage }) => {
+const PageNumbers = ({ page, maxPage, navigate }) => {
   const pageNumber = +page; // pages are 0-indexed, but are shown as 1-indexed because page 1 fits better than page 0 as initial page
 
   // creates a dynamic array which displays current set of pages (always pageNumber-1, pageNumber, pageNumber+1)
@@ -100,7 +97,7 @@ const PageNumbers = ({ page, setPage, maxPage }) => {
           style={{
             gridColumn: +index + 1,
           }}
-          onClick={() => setPage(+arrNr)} // changes current page if you click a number (and not previous/next)
+          onClick={() => navigate({ hash: `${+arrNr}` })} // changes current page if you click a number (and not previous/next)
         >
           <p
             className={classes.btnText}
@@ -116,7 +113,7 @@ const PageNumbers = ({ page, setPage, maxPage }) => {
   return currentPageNumber;
 };
 
-const BackToZeroButton = ({ setPage, page }) => {
+const BackToZeroButton = ({ page, navigate }) => {
   const backToZeroStyle = {
     display: page > 2 ? "block" : "none",
     paddingLeft: page > 2 ? "10px" : "0px",
@@ -125,7 +122,7 @@ const BackToZeroButton = ({ setPage, page }) => {
   return (
     <div className={classes.backToZeroButtonWrapper} style={backToZeroStyle}>
       <button
-        onClick={() => setPage(1)}
+        onClick={() => navigate({ hash: `${1}` })}
         style={backToZeroStyle}
         className={classes.pageSelectorButton}
       >
@@ -136,19 +133,25 @@ const BackToZeroButton = ({ setPage, page }) => {
 };
 
 // buttons that change pages, or rather, changes the index in which products can be displayed
-const PageSelector = ({ page, setPage, products }) => {
+const PageSelector = ({ products }) => {
+  const navigate = useNavigate();
+  const { hash } = useLocation();
+
+  const pageNumber = +hash.replace(/\D/g, "") || 1; // remove hash or anything else that comes with the current page
   const maxPage = Math.ceil(products?.length / 9); // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
+
+  console.log(pageNumber);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
-  }, [page]);
+  }, [hash]);
 
   return (
     <div className={classes.pageSelector}>
-      <LeftButton page={page} setPage={setPage} />
-      <BackToZeroButton setPage={setPage} page={page} />
-      <PageNumbers page={page} setPage={setPage} maxPage={maxPage} />
-      <RightButton setPage={setPage} page={page} maxPage={maxPage} />
+      <LeftButton page={pageNumber} navigate={navigate} />
+      <BackToZeroButton page={pageNumber} navigate={navigate} />
+      <PageNumbers page={pageNumber} maxPage={maxPage} navigate={navigate} />
+      <RightButton page={pageNumber} maxPage={maxPage} navigate={navigate} />
     </div>
   );
 };

@@ -2,6 +2,7 @@ import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import classes from "./products.module.scss";
 
 import QuickView from "@fullyComponents/quickView/quickView";
+import { useLocation, useParams } from "react-router-dom";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ bioData }) => {
@@ -58,10 +59,13 @@ const ProductBio = ({ bioData }) => {
   );
 };
 
-const ProductComponent = ({ products, page }) => {
+const ProductComponent = ({ products }) => {
+  const { hash } = useLocation();
+  const pageNumber = +hash.replace(/\D/g, "") || 1; // remove hash or anything else that comes with the current page
+
   // start displays the absolute minimum of index which is allowed to be shown on each page
   // page starts on 0, goes to 1, 2, 3 etc.
-  const start = (page - 1) * 9; // First image is then current (page - 1) * 9. -1 because pages are not based on index, but index + 1 (to avoid page being displayed as 0)
+  const start = (pageNumber - 1) * 9; // First image is then current (page - 1) * 9. -1 because pages are not based on index, but index + 1 (to avoid page being displayed as 0)
   // So, 0, 8, 18 etc.
 
   const end = start + 9; // end displays absolute maximum index that is displayed on current page
@@ -87,7 +91,7 @@ const ProductComponent = ({ products, page }) => {
 };
 
 // wrapper
-const Products = ({ products, page }) => {
+const Products = ({ products }) => {
   // create a route in this component
   // make route change page depending on filter
   // -> find matching items based on filter
@@ -97,7 +101,7 @@ const Products = ({ products, page }) => {
   return (
     <div className={classes.products}>
       <div className={classes.productsContainer}>
-        <ProductComponent products={products} page={page} />
+        <ProductComponent products={products} />
       </div>
     </div>
   );
