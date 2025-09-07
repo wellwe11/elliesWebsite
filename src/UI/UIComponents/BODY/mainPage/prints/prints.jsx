@@ -12,8 +12,6 @@ import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 
 // Example section of a collection of prints - 3 images with scrolling text below as bio
 const SetOfExampleCollectionSection = ({ data }) => {
-  const { setUniqueImage } = useContext(UniqueImageContext);
-
   // if user clicks on any image, will navigate to collection
   const navigate = handleNavigateSmooth();
 
@@ -55,10 +53,7 @@ const SetOfExampleCollectionSection = ({ data }) => {
     return (
       <section
         className={classes.exampleCollectionSection}
-        onClick={() => {
-          setUniqueImage(mostRecentlyAddedSet);
-          navigate(`uniqueImage/${linkType}/${linkId}`);
-        }}
+        onClick={() => navigate(`uniqueImage/${linkType}/${linkId}`)}
       >
         <SetOfimagesWithText
           images={printImagesSrc}
@@ -72,44 +67,12 @@ const SetOfExampleCollectionSection = ({ data }) => {
 
 // section to view many different collections (1 image per collection) which is clickable
 const WheelImagesSection = ({ data }) => {
-  const { setUniqueImage } = useContext(UniqueImageContext);
-
-  // If quickView is clicked (to display info about image), activeImageSrc is data fetched for that specific item
-  const [activeImageSrc, setActiveImageSrc] = useState(null);
-
-  // information displayed once you click quickview
-  const [activeQuickViewData, setActiveQuickViewData] = useState(null);
-
-  // extended data which is used by extended components (interactive components which only need data once they're interacted with)
-  const embeddedData = data.map((obj) => obj._embedded);
-
-  // mapped objects using their 'representive-image'
-  const wheelImages = data.map((obj) => obj.image);
-
-  useEffect(() => {
-    if (!activeImageSrc) setActiveQuickViewData(null);
-
-    setActiveQuickViewData(embeddedData[activeImageSrc]);
-
-    setUniqueImage(data[activeImageSrc]);
-  }, [activeImageSrc]);
-
   return (
     <section className={classes.wheelImagesSection}>
-      <div className={classes.titleContainer}>
-        <h1 className={classes.title}>{"Dive into prints"}</h1>
+      <div>
+        <h1>{"Placeholder title"}</h1>
       </div>
-      <WheelOfManyImages
-        canQuickView={true}
-        images={wheelImages}
-        activeImageProps={{ activeImageSrc, setActiveImageSrc }}
-        quickViewProps={{
-          quickViewImages: activeQuickViewData?.restImages,
-          title: activeQuickViewData?.setTitle,
-          price: activeQuickViewData?.details.price,
-          bio: activeQuickViewData?.setDescription,
-        }}
-      />
+      <WheelOfManyImages canQuickView={true} data={data} />
     </section>
   );
 };
@@ -139,6 +102,7 @@ const Prints = ({ data }) => {
       {sectionSeperationImage}
 
       <SetOfExampleCollectionSection data={data} />
+      {sectionSeperationImage}
     </div>
   );
 };

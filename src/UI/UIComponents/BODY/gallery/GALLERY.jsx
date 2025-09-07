@@ -72,11 +72,6 @@ const Gallery = ({ data }) => {
     setFlattedData(flatData);
   }, [data]);
 
-  useEffect(() => {
-    // resets page to top whenever you update page
-    window.scrollTo({ top: 0 });
-  }, [category, hash]);
-
   if (!filteredData)
     return (
       <div>

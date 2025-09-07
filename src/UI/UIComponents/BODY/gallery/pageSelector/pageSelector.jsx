@@ -140,6 +140,11 @@ const PageSelector = ({ products }) => {
   const pageNumber = +hash.replace(/\D/g, "") || 1; // remove hash or anything else that comes with the current page
   const maxPage = Math.ceil(products?.length / 9); // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
 
+  useEffect(() => {
+    // resets page to top whenever you update page
+    window.scrollTo({ top: 0 });
+  }, [hash]);
+
   return (
     <div className={classes.pageSelector}>
       <LeftButton page={pageNumber} navigate={navigate} />

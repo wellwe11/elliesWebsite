@@ -1,19 +1,14 @@
 import classes from "./paintings.module.scss";
-import { useContext, useEffect, useState } from "react";
-
-import UniqueImageContext from "../../uniqueImageContext";
+import { useEffect, useState } from "react";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 
 import WheelOfManyImages from "@fullyComponents/wheelOfManyImages/wheelOfManyImages";
-import ExploreNewIn from "@fullyComponents/exploreNewIn/exploreNewIn";
 import SetOfimagesWithText from "@fullyComponents/SetOfImagesWithText/setOfImagesWithText";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 
 // Example section of a collection of paintings - 3 images with scrolling text below as bio
 const SetOfExampleCollectionSection = ({ data }) => {
-  const { setUniqueImage } = useContext(UniqueImageContext);
-
   // if user clicks on any image, will navigate to collection
   const navigate = handleNavigateSmooth();
 
@@ -55,10 +50,7 @@ const SetOfExampleCollectionSection = ({ data }) => {
     return (
       <section
         className={classes.exampleCollectionSection}
-        onClick={() => {
-          setUniqueImage(mostRecentlyAddedSet);
-          navigate(`uniqueImage/${linkType}/${linkId}`);
-        }}
+        onClick={() => navigate(`uniqueImage/${linkType}/${linkId}`)}
       >
         <SetOfimagesWithText
           images={paintingsImagesSrc}
