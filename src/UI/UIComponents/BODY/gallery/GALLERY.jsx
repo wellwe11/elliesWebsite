@@ -1,5 +1,11 @@
 import { Suspense, useEffect, useMemo, useState } from "react";
-import { Route, Routes, useNavigate, useParams } from "react-router-dom";
+import {
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 
 import classes from "./GALLERY.module.scss";
 import PageSelector from "./pageSelector/pageSelector";
@@ -45,6 +51,7 @@ const Gallery = ({ data }) => {
   const [flattedData, setFlattedData] = useState(null);
 
   const { category } = useParams(); // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
+  const { hash } = useLocation();
 
   // Filters data based on current filter
   const filteredData = useMemo(() => {
@@ -64,6 +71,11 @@ const Gallery = ({ data }) => {
       .sort((a, b) => a.id - b.id);
     setFlattedData(flatData);
   }, [data]);
+
+  useEffect(() => {
+    // resets page to top whenever you update page
+    window.scrollTo({ top: 0 });
+  }, [category, hash]);
 
   if (!filteredData)
     return (

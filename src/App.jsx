@@ -22,8 +22,8 @@ export default App;
 /** TODO LIST
  *
  * TODO NOW!
- * Change products so it uses a route-system to change filters. Essentially, change inline-pages
  * FIX PAINTINGS-SECTION AND PRINTS-SECTION FOR QUICKVIEW
+ * Update change-page on products page so that it stays the same page for 1 second or until items are loaded if you change page (if more than 7 sec, change to error-page)
  *
  * ** BUGS **
  * sectionSeperationImage is currently buggy - snaps to a position when entering the screen. Does not smoothly transition in

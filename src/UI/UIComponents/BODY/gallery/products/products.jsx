@@ -3,6 +3,7 @@ import classes from "./products.module.scss";
 
 import QuickView from "@fullyComponents/quickView/quickView";
 import { useLocation, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ bioData }) => {
@@ -92,12 +93,22 @@ const ProductComponent = ({ products }) => {
 
 // wrapper
 const Products = ({ products }) => {
-  // create a route in this component
-  // make route change page depending on filter
-  // -> find matching items based on filter
-  // --> update page
-  // ---> filter them
+  const [loadProducts, setLoadProducts] = useState(false);
 
+  // effect which adds a loading-screen to each time products change, to allow for smooth transition.
+  // Will update it so it stays on the same page for 1 second instead, and then navigates
+  useEffect(() => {
+    setLoadProducts(false);
+
+    if (products) {
+      setTimeout(() => {
+        setLoadProducts(true);
+      }, 1000);
+    }
+  }, [products]);
+
+  console.log();
+  if (!loadProducts) return <h1>loading..</h1>;
   return (
     <div className={classes.products}>
       <div className={classes.productsContainer}>

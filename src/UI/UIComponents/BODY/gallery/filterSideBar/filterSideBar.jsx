@@ -23,9 +23,8 @@ const FilterSideBar = ({ dataKeys, handleFilter }) => {
                 className={classes.filterInput}
                 type="checkbox"
                 name="key-choices"
-                // checked={filter === key}
+                checked={category === key}
                 onChange={() => handleFilter(key)}
-                // onClick={() => setPage(1)}
               />
               <div className={classes.textAndUnderline}>
                 <h3 className={classes.filterText}>{key}</h3>
