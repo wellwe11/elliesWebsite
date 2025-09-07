@@ -1,7 +1,5 @@
 import classes from "./prints.module.scss";
-import { useContext, useEffect, useState } from "react";
-
-import UniqueImageContext from "../../uniqueImageContext";
+import { useEffect, useState } from "react";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 

@@ -6,13 +6,6 @@
     height: 50px;
   }
 
-  .titleWrapper {
-    padding: 10px 0px;
-    .title {
-      font-variation-settings: "wght" 900;
-    }
-  }
-
   .exampleCollectionSection {
     height: 500px;
     overflow: hidden;
@@ -25,13 +18,6 @@
       margin-left: -36px;
       .titleContainer {
         padding: 20px 20px;
-      }
-    }
-    .titleContainer {
-      padding: 20px 40px;
-      .title {
-        font-size: clamp(10px, 5vw, 35px);
-        font-variation-settings: "wght" 250;
       }
     }
   }

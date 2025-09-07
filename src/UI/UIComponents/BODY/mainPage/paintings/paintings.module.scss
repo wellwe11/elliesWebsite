@@ -6,20 +6,27 @@
     height: 50px;
   }
 
-  .titleWrapper {
-    .title {
-    }
-  }
-
   .exampleCollectionSection {
     height: 500px;
     overflow: hidden;
   }
 
   .wheelImagesSection {
-  }
-
-  .exploreNewInSection {
+    @media screen and (min-width: 1440px) {
+      width: 100vw;
+      max-width: 1440px;
+      margin-left: -36px;
+      .titleContainer {
+        padding: 20px 20px;
+      }
+    }
+    .titleContainer {
+      padding: 20px 40px;
+      .title {
+        font-size: clamp(10px, 5vw, 35px);
+        font-variation-settings: "wght" 250;
+      }
+    }
   }
 
   .sectionSeperationImage {
