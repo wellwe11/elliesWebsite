@@ -1,10 +1,9 @@
 import classes from "./uniqueImage.module.scss";
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import UniqueTopSection from "./uniqueTopSection/uniqueTopSection";
 import UniqueInfoSection from "./uniqueInfoSection/uniqueInfoSection";
-import UniqueImageContext from "../uniqueImageContext";
 
 // Component containing all info for top-section
 const UniqueTopSectionComponent = ({ info, foundObject }) => {
@@ -52,15 +51,8 @@ const UniqueImage = ({ data }) => {
   // state that will store correct item - if you're on this page, correct product needs to be displayed.
   const [foundObject, setFoundObject] = useState(null);
 
-  const { uniqueImage, setUniqueImage } = useContext(UniqueImageContext);
-
   // checks params for which type (painting/prints etc...) & id (id is printed on each objected after fetch, which is based on their position)
   const { type, id } = useParams();
-
-  useEffect(() => {
-    if (!id) setUniqueImage(null);
-  }, [type, id]);
-  console.log(type, id, uniqueImage);
 
   useEffect(() => {
     // if no data, return. If no type & id (link is undefined) return

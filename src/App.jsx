@@ -22,8 +22,6 @@ export default App;
 /** TODO LIST
  *
  * TODO NOW!
- * CLEAN CSS FILES FROM CLASSES WHICH DONT BELONG THERE (HAVE BEEN MOVED)
- * Fix uniqueImage-page so that it takes information from params!
  * Change products so it uses a route-system to change filters. Essentially, change inline-pages
  * FIX PAINTINGS-SECTION AND PRINTS-SECTION FOR QUICKVIEW
  *
@@ -65,6 +63,8 @@ export default App;
  * Loading page (if data not loaded)
  * Error page (if page not found)
  *
+ * Preview-page
+ * -- Page which is displayed if you link a preview to someone (the quickview-button page)
  */
 
 /*** RULES FOR PROJECT

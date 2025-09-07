@@ -86,7 +86,14 @@ const ProductComponent = ({ products, page }) => {
   return mappedProductImages;
 };
 
+// wrapper
 const Products = ({ products, page }) => {
+  // create a route in this component
+  // make route change page depending on filter
+  // -> find matching items based on filter
+  // --> update page
+  // ---> filter them
+
   return (
     <div className={classes.products}>
       <div className={classes.productsContainer}>

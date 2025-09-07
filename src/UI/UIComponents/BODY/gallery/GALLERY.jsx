@@ -1,27 +1,35 @@
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
+import {
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 
 import classes from "./GALLERY.module.scss";
 import PageSelector from "./pageSelector/pageSelector";
 import FilterSideBar from "./filterSideBar/filterSideBar";
 import Products from "./products/products";
-import { useLocation, useParams } from "react-router-dom";
 
-const FilterSideBarWrapperComponent = ({
-  data,
-  state: { setFilter, filter, setPage },
-}) => {
-  const handleFilter = (key) =>
-    setFilter((prev) => (prev === key ? null : key)); // if user clicks on the same filter as currently active, it de-selects filter
+const FilterSideBarWrapperComponent = ({ data }) => {
+  const navigate = useNavigate();
+  const { category } = useParams();
+
+  const handleFilter = (e) => {
+    console.log(e, category);
+    if (e === category) {
+      navigate(`/gallery#1`); // reset navigation when user clicks button over again
+    } else {
+      navigate(`/gallery/${e}#1`); // navigate to first page to reset previous searched pages
+    }
+  };
 
   const dataKeys = Object.keys(data); // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
 
   const filterSideBarWrapper = (
     <div className={classes.filterSideBarWrapper}>
-      <FilterSideBar
-        dataKeys={dataKeys}
-        handleFilter={handleFilter}
-        state={{ filter, setPage }}
-      />
+      <FilterSideBar dataKeys={dataKeys} handleFilter={handleFilter} />
     </div>
   );
 
@@ -58,54 +66,38 @@ const Gallery = ({ data }) => {
    */
 
   // route
-  const { category, id } = useParams(); // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
   const { hash } = useLocation(); // page-number
+  const { category } = useParams(); // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
+
+  const navigate = useNavigate();
 
   const pageNumber = +hash.replace(/\D/g, "") || 1; // remove hash or anything else that comes with the current page
 
-  // state
-  const [filter, setFilter] = useState(id ? category : null); // filter-boolean - when active, changes filteredData to matching objects
   const [page, setPage] = useState(pageNumber); // active page
 
   // object to simplify props to send to child-components
   const state = {
-    filter,
-    setFilter,
     page,
     setPage,
   };
 
-  // // initial useEffect - updates correct url on load
-  // useEffect(() => {
-  //   if (filter && page) return; // if filter and page is active, do not set filter or page to anything new
+  useEffect(() => {
+    navigate({
+      hash: `#${page}`,
+    });
+  }, [page]);
 
-  //   if (id) {
-  //     setFilter(category); // if id (category & pagenumber)
-  //   }
-  //   setPage(pageNumber); // pagenumber based on hash
-  //   // setUniqueImage(null);
-  // }, []);
-
-  // // if filter or page updates
-  // useEffect(() => {
-  //   if (!filter) {
-  //     navigate(`/gallery/page#${+page}`); // if no filter, navigate to correct page
-  //   }
-
-  //   if (filter) {
-  //     navigate(`/gallery/${filter}/page#${+page}`); // if filter, navigate to filter and then corresponding page
-  //   }
-
-  //   window.scrollTo({ top: 0 }); // always reset to top of window
-  // }, [filter, page, hash]);
+  console.log(category, page);
 
   // Filters data based on current filter
   const filteredData = useMemo(() => {
     if (!flattedData) return; // only works if data has been platted
-    if (!filter) return flattedData; // if no filter, return unfilted data
+    if (category === "page" || !category) return flattedData; // if no filter, return unfilted data
 
-    return flattedData.filter((obj) => obj?._embedded.details.type === filter); // otherwise, filter data based on active filter
-  }, [filter, flattedData]);
+    return flattedData.filter(
+      (obj) => obj?._embedded.details.type === category
+    ); // otherwise, filter data based on active filter
+  }, [category, flattedData]);
 
   // effect that flattens data out to allow items to be displayed in 'random' order with no filters
   // runs only once, when data initially is loaded (on page-laod)
@@ -129,7 +121,20 @@ const Gallery = ({ data }) => {
     <div className={classes.gallery}>
       <div className={classes.galleryTop}>
         <FilterSideBarWrapperComponent data={data} state={state} />
-        <ProductsWrapperComponent filteredData={filteredData} state={state} />
+
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route
+              path=":category?"
+              element={
+                <ProductsWrapperComponent
+                  filteredData={filteredData}
+                  state={state}
+                />
+              }
+            ></Route>
+          </Routes>
+        </Suspense>
       </div>
       <PageWrapperComponent filteredData={filteredData} state={state} />
     </div>
