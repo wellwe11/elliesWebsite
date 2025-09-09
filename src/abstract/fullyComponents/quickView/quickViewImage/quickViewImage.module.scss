@@ -22,6 +22,8 @@
     height: 100%;
 
     background-color: rgba(70, 70, 70, 0.388);
+
+    scroll-behavior: none;
   }
 
   .quickViewImageContainer {
@@ -37,6 +39,8 @@
 
     background-color: white;
     outline: 0.5px solid black;
+
+    overflow: hidden;
 
     .activeImageWrapper {
       width: 50%;

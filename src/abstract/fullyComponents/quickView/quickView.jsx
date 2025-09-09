@@ -1,6 +1,7 @@
 import classes from "./quickView.module.scss";
 import { useNavigate } from "react-router-dom";
 import QuickViewButton from "./quickViewButton/quickViewButton";
+import bodyNoScroll from "@functions/bodyNoScroll";
 
 const QuickView = ({ src, productType, productId }) => {
   const navigate = useNavigate();
@@ -20,11 +21,13 @@ const QuickView = ({ src, productType, productId }) => {
         }
         <QuickViewButton
           text={"Quick view"}
-          onClick={() =>
+          onClick={() => {
             navigate(`/gallery/preview/${productType}/${productId}`, {
               state: { backgroundLocation: location.pathname },
-            })
-          }
+            });
+
+            bodyNoScroll().disableScroll();
+          }}
         />
       </div>
     </div>

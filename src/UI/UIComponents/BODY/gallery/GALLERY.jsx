@@ -1,6 +1,5 @@
 import { Suspense, useEffect, useMemo, useState } from "react";
 import {
-  Outlet,
   Route,
   Routes,
   useLocation,
@@ -14,6 +13,7 @@ import classes from "./GALLERY.module.scss";
 import PageSelector from "./pageSelector/pageSelector";
 import FilterSideBar from "./filterSideBar/filterSideBar";
 import Products from "./products/products";
+import bodyNoScroll from "@functions/bodyNoScroll";
 
 const LoadingWrapper = () => {
   return (
@@ -59,6 +59,7 @@ const ProductsWrapperComponent = ({ filteredData }) => {
   // Will update it so it stays on the same page for 1 second instead, and then navigates
   useEffect(() => {
     setLoading(true);
+    bodyNoScroll().disableScroll();
     setPrevData(newData);
 
     const pageNumber = +hash.replace(/\D/g, "") || 1; // remove hash or anything else that comes with the current page
@@ -77,6 +78,8 @@ const ProductsWrapperComponent = ({ filteredData }) => {
     setNewData(displayedProducts);
     const timer = setTimeout(() => {
       setLoading(false);
+      window.scroll({ top: 0 });
+      bodyNoScroll().enableScroll();
     }, 1000);
 
     return () => clearTimeout(timer);

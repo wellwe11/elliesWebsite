@@ -21,13 +21,15 @@
   // productsWrapper
   .productsWrapper {
     width: 70%;
-    display: grid;
+    display: grid; // display grid to place previous products & upcoming products in the same place
 
+    // these are the old products which are displayed while loading
     .productsLoading {
       grid-column: 1;
       grid-row: 1;
     }
 
+    // these are the new upcoming products when user changes filter
     .productsLoaded {
       grid-column: 1;
       grid-row: 1;
@@ -45,25 +47,16 @@
 }
 
 .loading {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 90vw;
+  width: 100vw;
   height: 100vh;
-
-  scroll-behavior: none;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::webkit-scrollbar {
-    display: none;
-  }
 
   .loadingBackground {
     width: 100%;
     height: 100%;
 
-    left: 0px;
     background-color: rgba(255, 255, 255, 0.767);
 
     .loadingWrapper {

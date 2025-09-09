@@ -137,7 +137,10 @@ const Navbar = () => {
 
     // find if any buttonKeys exist inside of url
     buttonsKeys.forEach((btn, index) => {
-      if (splittedPathName.includes(btn)) {
+      if (
+        splittedPathName.includes(btn) ||
+        (btn === "home" && splittedPathName.includes(""))
+      ) {
         // if yes, change index to that
         setActiveButton(index);
         setHoverButton(index);

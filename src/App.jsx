@@ -27,19 +27,9 @@ export default App;
  * ** BUGS **
  * sectionSeperationImage is currently buggy - snaps to a position when entering the screen. Does not smoothly transition in
  *
- *  Going back from Gallery to Home doesnt reset the navbars underline - it stays on Gallery
- *
- * Remove scroll from white-background on which is up when quickView window is open
  * * navBar icon-animation (the blue/white circle) resets when you click it. Either, remove this, or add a spin-animation (360 spin) to click.
- *
  * ------------------------------------------------
- *
  * ** THINGS TO FIX **
- *
- * Loading animations:
- * -- When you click Gallery, loading... needs to be fixed & have svg
- * --- When you switch filter on Gallery, loading... needs to be fixed & have svg
- *
  * QuickView as a lot of code which contains class-names etc from other files. Need to change it to quickView or something instead
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
