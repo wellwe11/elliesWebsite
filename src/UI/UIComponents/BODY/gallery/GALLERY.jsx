@@ -1,5 +1,6 @@
 import { Suspense, useEffect, useMemo, useState } from "react";
 import {
+  Outlet,
   Route,
   Routes,
   useLocation,
@@ -7,10 +8,24 @@ import {
   useParams,
 } from "react-router-dom";
 
+import LoadingAnimation from "@components/loadingAnimation/loadingAnimation";
+
 import classes from "./GALLERY.module.scss";
 import PageSelector from "./pageSelector/pageSelector";
 import FilterSideBar from "./filterSideBar/filterSideBar";
 import Products from "./products/products";
+
+const LoadingWrapper = () => {
+  return (
+    <div className={classes.loading}>
+      <div className={classes.loadingBackground}>
+        <div className={classes.loadingWrapper}>
+          <LoadingAnimation />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const FilterSideBarWrapperComponent = ({ data }) => {
   const navigate = useNavigate();
@@ -20,7 +35,7 @@ const FilterSideBarWrapperComponent = ({ data }) => {
     if (e === category) {
       navigate(`/gallery#1`); // reset navigation when user clicks button over again
     } else {
-      navigate(`/gallery/${e}#1`); // navigate to first page to reset previous searched pages
+      navigate(`/gallery/${e}#1`);
     }
   };
 
@@ -33,11 +48,63 @@ const FilterSideBarWrapperComponent = ({ data }) => {
   );
 };
 
-const ProductsWrapperComponent = ({ filteredData }) => (
-  <div className={classes.productsWrapper}>
-    <Products products={filteredData} />
-  </div>
-);
+const ProductsWrapperComponent = ({ filteredData }) => {
+  const [newData, setNewData] = useState(filteredData);
+  const [prevData, setPrevData] = useState(newData);
+
+  const [loading, setLoading] = useState(false);
+  const { hash } = useLocation();
+
+  // effect which adds a loading-screen to each time products change, to allow for smooth transition.
+  // Will update it so it stays on the same page for 1 second instead, and then navigates
+  useEffect(() => {
+    setLoading(true);
+    setPrevData(newData);
+
+    const pageNumber = +hash.replace(/\D/g, "") || 1; // remove hash or anything else that comes with the current page
+    // start displays the absolute minimum of index which is allowed to be shown on each page
+    // page starts on 0, goes to 1, 2, 3 etc.
+    const start = (pageNumber - 1) * 9; // First image is then current (page - 1) * 9. -1 because pages are not based on index, but index + 1 (to avoid page being displayed as 0)
+    // So, 0, 8, 18 etc.
+    const end = start + 9; // end displays absolute maximum index that is displayed on current page
+    // so, 8, 17, 26 etc.
+
+    // slices only visible objects
+    const displayedProducts = filteredData?.slice(start, end);
+
+    if (!displayedProducts) return; // need to create error-page if something hangs
+
+    setNewData(displayedProducts);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [filteredData]);
+
+  return (
+    <div className={classes.productsWrapper}>
+      <div
+        className={classes.productsLoading}
+        style={{
+          visibility: loading ? "visible" : "hidden",
+        }}
+      >
+        <LoadingWrapper />
+        <Products products={prevData} />
+      </div>
+
+      <div
+        className={classes.productsLoaded}
+        style={{
+          visibility: loading ? "hidden" : "visible",
+        }}
+      >
+        <Products products={newData} />
+      </div>
+    </div>
+  );
+};
 
 const PageWrapperComponent = ({ filteredData }) => (
   <div className={classes.pageWrapper}>
@@ -52,7 +119,6 @@ const Gallery = ({ data }) => {
 
   const { category } = useParams(); // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
   const location = useLocation();
-
   const state = location.state;
 
   // Filters data based on current filter
@@ -74,23 +140,18 @@ const Gallery = ({ data }) => {
     setFlattedData(flatData);
   }, [data]);
 
-  if (!filteredData)
-    return (
-      <div>
-        <h1>loading..</h1>
-      </div>
-    );
-
-  // navigate(`/gallery/preview/${productType}/${productId}`, {
-  //   state: { backgroundLocation: location.pathname },
-  // });
-
   return (
     <div className={classes.gallery}>
       <div className={classes.galleryTop}>
         <FilterSideBarWrapperComponent data={data} />
 
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <div style={{ backgroundColor: "orange" }}>
+              Loading... inside of suspense{" "}
+            </div>
+          }
+        >
           <Routes location={state?.backgroundLocation || location}>
             <Route
               path=":category?"
@@ -105,3 +166,12 @@ const Gallery = ({ data }) => {
 };
 
 export default Gallery;
+
+// {state?.backgroundLocation && (
+//   <Routes>
+//     <Route
+//       path="/:tab?/preview/:type/:id"
+//       element={<QuickViewImageContainer data={topLayerData} />}
+//     />
+//   </Routes>
+// )}

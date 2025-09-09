@@ -6,6 +6,13 @@ const FilterSideBar = ({ dataKeys, handleFilter }) => {
 
   const ActiveLabel = ({ objKey }) => (
     <label className={classes.activeFilter}>
+      <input
+        className={classes.filterInput}
+        type="checkbox"
+        name="key-choices"
+        checked={category === objKey}
+        onChange={() => handleFilter(objKey)}
+      />
       <h3 className={classes.filterText}>{objKey}</h3>
     </label>
   );

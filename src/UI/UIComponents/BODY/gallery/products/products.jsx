@@ -3,8 +3,6 @@ import classes from "./products.module.scss";
 
 import QuickView from "@fullyComponents/quickView/quickView";
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import LoadingAnimation from "@components/loadingAnimation/loadingAnimation";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ bioData }) => {
@@ -62,27 +60,13 @@ const ProductBio = ({ bioData }) => {
 };
 
 const ProductComponent = ({ products }) => {
-  const { hash } = useLocation();
-  const pageNumber = +hash.replace(/\D/g, "") || 1; // remove hash or anything else that comes with the current page
-
-  // start displays the absolute minimum of index which is allowed to be shown on each page
-  // page starts on 0, goes to 1, 2, 3 etc.
-  const start = (pageNumber - 1) * 9; // First image is then current (page - 1) * 9. -1 because pages are not based on index, but index + 1 (to avoid page being displayed as 0)
-  // So, 0, 8, 18 etc.
-
-  const end = start + 9; // end displays absolute maximum index that is displayed on current page
-  // so, 8, 17, 26 etc.
-
-  // slices only visible objects
-  const displayedProducts = products.slice(start, end);
-
   // map only visible objects to display them as 'pages' which can be navigated by user
-  const mappedProductImages = displayedProducts.map((product, index) => (
+  const mappedProductImages = products?.map((product, index) => (
     <div key={index} className={classes.productWrapper}>
       <QuickView
         src={product.image}
         productType={product._embedded.details.type}
-        productId={product?.id}
+        productId={product.id}
       />
 
       <ProductBio bioData={product?._embedded} />
@@ -94,27 +78,6 @@ const ProductComponent = ({ products }) => {
 
 // wrapper
 const Products = ({ products }) => {
-  const [loadProducts, setLoadProducts] = useState(false);
-
-  // effect which adds a loading-screen to each time products change, to allow for smooth transition.
-  // Will update it so it stays on the same page for 1 second instead, and then navigates
-  useEffect(() => {
-    setLoadProducts(false);
-
-    if (products) {
-      setTimeout(() => {
-        setLoadProducts(true);
-      }, 1000);
-    }
-  }, [products]);
-
-  if (!loadProducts)
-    return (
-      <div className={classes.loading}>
-        <LoadingAnimation />
-      </div>
-    );
-
   return (
     <div className={classes.products}>
       <div className={classes.productsContainer}>

@@ -2,7 +2,7 @@
 .loader {
   width: 80px;
   aspect-ratio: 1;
-  border: 10px solid var(--websiteContainerColor);
+  border: 10px solid rgba(255, 255, 255, 0);
   box-sizing: border-box;
 
   background: radial-gradient(
@@ -18,7 +18,7 @@
       right,
     radial-gradient(farthest-side, var(--c-grey-500) 98%, var(--c-grey-500))
       bottom,
-    var(--websiteContainerColor); /* background-color */
+    #ffffff6d; /* background-color */
 
   background-size: 20px 20px;
   background-repeat: no-repeat;

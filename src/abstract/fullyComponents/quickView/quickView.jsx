@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import classes from "./quickView.module.scss";
+import { useNavigate } from "react-router-dom";
 import QuickViewButton from "./quickViewButton/quickViewButton";
 
 const QuickView = ({ src, productType, productId }) => {
@@ -7,7 +7,12 @@ const QuickView = ({ src, productType, productId }) => {
 
   return (
     <div className={classes.productImageWrapper}>
-      <img className={classes.productImage} src={src} alt="" />
+      <img
+        className={classes.productImage}
+        src={src}
+        alt=""
+        onLoad={(e) => e.currentTarget.classList.add(classes.loaded)}
+      />
       <div className={classes.quickViewButtonComponentWrapper}>
         {
           // Button which pops up on hovering an image. Clicking it will display QuickViewImageContainer.

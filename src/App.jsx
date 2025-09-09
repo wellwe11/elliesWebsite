@@ -39,6 +39,8 @@ export default App;
  * Loading animations:
  * -- When you click Gallery, loading... needs to be fixed & have svg
  * --- When you switch filter on Gallery, loading... needs to be fixed & have svg
+ *
+ * QuickView as a lot of code which contains class-names etc from other files. Need to change it to quickView or something instead
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
  * Implement a button on uniqueImage page to help user navigate down to the details-page
