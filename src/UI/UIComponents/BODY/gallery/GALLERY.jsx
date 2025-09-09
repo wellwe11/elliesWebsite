@@ -7,13 +7,12 @@ import {
   useParams,
 } from "react-router-dom";
 
-import LoadingAnimation from "@components/loadingAnimation/loadingAnimation";
-
 import classes from "./GALLERY.module.scss";
 import PageSelector from "./pageSelector/pageSelector";
 import FilterSideBar from "./filterSideBar/filterSideBar";
 import Products from "./products/products";
 import bodyNoScroll from "@functions/bodyNoScroll";
+import LoadingAnimation from "@components/loadingAnimation/loadingAnimation";
 
 const LoadingWrapper = () => {
   return (
@@ -58,9 +57,9 @@ const ProductsWrapperComponent = ({ filteredData }) => {
   // effect which adds a loading-screen to each time products change, to allow for smooth transition.
   // Will update it so it stays on the same page for 1 second instead, and then navigates
   useEffect(() => {
+    setPrevData(newData); // to display old old products while loading new ones
     setLoading(true);
     bodyNoScroll().disableScroll();
-    setPrevData(newData);
 
     const pageNumber = +hash.replace(/\D/g, "") || 1; // remove hash or anything else that comes with the current page
     // start displays the absolute minimum of index which is allowed to be shown on each page
@@ -70,20 +69,20 @@ const ProductsWrapperComponent = ({ filteredData }) => {
     const end = start + 9; // end displays absolute maximum index that is displayed on current page
     // so, 8, 17, 26 etc.
 
-    // slices only visible objects
-    const displayedProducts = filteredData?.slice(start, end);
+    const displayedProducts = filteredData?.slice(start, end); // slices only visible objects for each page
 
     if (!displayedProducts) return; // need to create error-page if something hangs
 
     setNewData(displayedProducts);
+
     const timer = setTimeout(() => {
       setLoading(false);
       window.scroll({ top: 0 });
       bodyNoScroll().enableScroll();
-    }, 1000);
+    }, 1500);
 
     return () => clearTimeout(timer);
-  }, [filteredData]);
+  }, [filteredData, hash]);
 
   return (
     <div className={classes.productsWrapper}>
@@ -169,12 +168,3 @@ const Gallery = ({ data }) => {
 };
 
 export default Gallery;
-
-// {state?.backgroundLocation && (
-//   <Routes>
-//     <Route
-//       path="/:tab?/preview/:type/:id"
-//       element={<QuickViewImageContainer data={topLayerData} />}
-//     />
-//   </Routes>
-// )}

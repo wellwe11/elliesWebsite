@@ -1,7 +1,7 @@
 import classes from "./loadingAnimation.module.scss";
 
 const LoadingAnimation = () => {
-  return <div className={classes.loader} />;
+  return <span className={classes.loader} />;
 };
 
 export default LoadingAnimation;
