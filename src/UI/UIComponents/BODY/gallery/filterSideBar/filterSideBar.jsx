@@ -1,24 +1,22 @@
 import { useParams } from "react-router-dom";
 import classes from "./filterSideBar.module.scss";
 
-/**
- * route: {category, id, hash, navigate, pageNumber}
- * state: {filter, setFilter, page, setPage}
- */
-
 const FilterSideBar = ({ dataKeys, handleFilter }) => {
   const { category } = useParams();
+
+  const ActiveLabel = ({ objKey }) => (
+    <label className={classes.activeFilter}>
+      <h3 className={classes.filterText}>{objKey}</h3>
+    </label>
+  );
 
   return (
     <div className={classes.filterSideBar}>
       <ul className={classes.filterUl}>
         {dataKeys.map((key, index) => (
           <li key={index} className={classes.filterLi}>
-            <label
-              className={`${classes.filterLabel} ${
-                category === key ? classes.activeFilter : ""
-              }`}
-            >
+            <label className={classes.filterLabel}>
+              {category === key ? <ActiveLabel objKey={key} /> : ""}
               <input
                 className={classes.filterInput}
                 type="checkbox"

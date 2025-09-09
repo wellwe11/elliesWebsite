@@ -21,37 +21,33 @@ export default App;
 
 /** TODO LIST
  *
- * TODO NOW!
- * FIX PAINTINGS-SECTION AND PRINTS-SECTION FOR QUICKVIEW
- * Update change-page on products page so that it stays the same page for 1 second or until items are loaded if you change page (if more than 7 sec, change to error-page)
+ * ** TODO NOW! **
  *
+ * ------------------------------------------------
  * ** BUGS **
  * sectionSeperationImage is currently buggy - snaps to a position when entering the screen. Does not smoothly transition in
  *
- * Home-page, quick-view buttons do not scale with the websites site; remove the quick-view scaling on gallery-page and make it scale simply on the initial file: quickViewButton
- *
- * Something fishy is going on with the link - When you go to a category, and you want to click 'back' with your browser, it doesnt work
- *
- * When switching between pages, (except navigating to uniqueImagePage) uniqueImageContext needs to reset. Currently it doesnt, because of this, the quickView window is open when switching pages.
+ *  Going back from Gallery to Home doesnt reset the navbars underline - it stays on Gallery
  *
  * Remove scroll from white-background on which is up when quickView window is open
+ * * navBar icon-animation (the blue/white circle) resets when you click it. Either, remove this, or add a spin-animation (360 spin) to click.
  *
- * Clicking home/gallery should navigate to top window if clicked again
- * Clicking gallery again while on page 2 should navigate back to page 1
+ * ------------------------------------------------
  *
+ * ** THINGS TO FIX **
  *
+ * Loading animations:
+ * -- When you click Gallery, loading... needs to be fixed & have svg
+ * --- When you switch filter on Gallery, loading... needs to be fixed & have svg
+ * ------------------------------------------------
  * ** ADD TO COMPONENTS **
  * Implement a button on uniqueImage page to help user navigate down to the details-page
  * Implement a add to cart on uniqueImage page
  *
- * navBar icon-animation (the blue/white circle) resets when you click it. Either, remove this, or add a spin-animation (360 spin) to click.
- *
  * * On hover: display quickview & change image for product
- *
  * on click: take to product-page
  *
- * remake whiteButtonCenterText to a quickViewImage, which has a quickViewButton. Then you can map that specific component in wheelOfManyImages for example, or use it as a single component for Gallery
- *
+ * ------------------------------------------------
  * ** NEW COMPONENTS **
  * Create an instagram section - this should be a spinning wheel that simply has images from ellies instagram-page, and when clicked, takes you to ellies instagram
  * Create a 'new-in' component, which is a stand-alone component. Not related to prints/paintings sections. It simply displays something with a nice animation. (this should seperate prints & paintings)
@@ -65,6 +61,8 @@ export default App;
  *
  * Preview-page
  * -- Page which is displayed if you link a preview to someone (the quickview-button page)
+ *
+ * ------------------------------------------------
  */
 
 /*** RULES FOR PROJECT

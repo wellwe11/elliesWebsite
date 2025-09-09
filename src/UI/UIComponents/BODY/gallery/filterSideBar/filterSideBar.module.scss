@@ -21,6 +21,8 @@
       .filterLabel {
         cursor: pointer;
         // check-box which is hidden but enables functionality
+
+        position: relative;
         .filterInput {
           display: none;
         }
@@ -28,14 +30,16 @@
         // container for text and corresponding line
         .textAndUnderline {
           width: 107%;
+
           display: flex;
           flex-direction: column;
           align-items: flex-start;
+
           // text for filterLabel
           .filterText {
             font-variation-settings: "wght" 350;
             padding: 2px 0px;
-            transition: text-shadow 0.2s ease;
+            transition: font-variation-settings 0.2s ease;
 
             color: var(--c-text-300);
           }
@@ -67,8 +71,7 @@
           .textAndUnderline {
             .filterText {
               color: var(--c-text-black);
-              text-shadow: -0.1px -0.1px 0 black, 0.1px -0.15px 0 black,
-                -0.1px 0.1px 0 black, 0.11px 0.1px 0 black;
+              font-variation-settings: "wght" 400;
             }
 
             .underline {
@@ -88,20 +91,25 @@
 
 // for when user clicks a filter
 .activeFilter {
-  .textAndUnderline {
-    .filterText {
-      font-weight: 500 !important;
-      color: var(--c-text-black) !important;
-      text-shadow: -0.2px -0.2px 0 black, 0.2px -0.2px 0 black,
-        -0.2px 0.2px 0 black, 0.2px 0.2px 0 black;
-    }
-    .underline {
-      height: 1.5px;
-      background-color: var(--c-text-black) !important;
+  cursor: pointer;
+  position: absolute;
+  top: 2px;
+  left: -1px;
 
-      .underlineDot {
-        left: 110% !important;
-      }
-    }
+  animation: textAppear 0.3s ease forwards;
+
+  .filterText {
+    font-variation-settings: "wght" 600 !important;
+    color: var(--c-text-black);
+  }
+}
+
+@keyframes textAppear {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
   }
 }

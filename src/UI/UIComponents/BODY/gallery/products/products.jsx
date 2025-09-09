@@ -2,8 +2,9 @@ import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import classes from "./products.module.scss";
 
 import QuickView from "@fullyComponents/quickView/quickView";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import LoadingAnimation from "@components/loadingAnimation/loadingAnimation";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ bioData }) => {
@@ -107,8 +108,13 @@ const Products = ({ products }) => {
     }
   }, [products]);
 
-  console.log();
-  if (!loadProducts) return <h1>loading..</h1>;
+  if (!loadProducts)
+    return (
+      <div className={classes.loading}>
+        <LoadingAnimation />
+      </div>
+    );
+
   return (
     <div className={classes.products}>
       <div className={classes.productsContainer}>

@@ -1,6 +1,6 @@
 // Products
 .products {
-  height: fit-content;
+  height: 100%;
   .productsContainer {
     display: grid;
     align-content: center;
@@ -17,6 +17,13 @@
       justify-content: space-between;
     }
   }
+}
+
+.loading {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 // mappedProductsImages

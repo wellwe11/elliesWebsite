@@ -51,7 +51,9 @@ const Gallery = ({ data }) => {
   const [flattedData, setFlattedData] = useState(null);
 
   const { category } = useParams(); // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
-  const { hash } = useLocation();
+  const location = useLocation();
+
+  const state = location.state;
 
   // Filters data based on current filter
   const filteredData = useMemo(() => {
@@ -79,13 +81,17 @@ const Gallery = ({ data }) => {
       </div>
     );
 
+  // navigate(`/gallery/preview/${productType}/${productId}`, {
+  //   state: { backgroundLocation: location.pathname },
+  // });
+
   return (
     <div className={classes.gallery}>
       <div className={classes.galleryTop}>
         <FilterSideBarWrapperComponent data={data} />
 
         <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
+          <Routes location={state?.backgroundLocation || location}>
             <Route
               path=":category?"
               element={<ProductsWrapperComponent filteredData={filteredData} />}

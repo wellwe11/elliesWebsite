@@ -127,8 +127,7 @@ const Navbar = () => {
 
   const [loadTab, setLoadTab] = useState(false);
 
-  // useEffect which searches for the currently active tab
-  useEffect(() => {
+  const setActiveNavButton = () => {
     // find active tab
     // split names of tabs
     const buttonsKeys = Object.keys(buttons);
@@ -146,7 +145,12 @@ const Navbar = () => {
     });
 
     setLoadTab(true);
-  }, []);
+  };
+
+  // useEffect which searches for the currently active tab
+  useEffect(() => {
+    setActiveNavButton();
+  }, [pathname]);
 
   // logo
   const navLogoWrapper = (
@@ -179,6 +183,7 @@ const Navbar = () => {
   );
 
   if (!loadTab) return <div />;
+
   return (
     <div className={classes.navbar}>
       <div className={classes.navContent}>

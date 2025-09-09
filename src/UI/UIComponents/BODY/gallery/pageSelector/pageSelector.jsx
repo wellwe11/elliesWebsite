@@ -87,8 +87,10 @@ const PageNumbers = ({ page, maxPage, navigate }) => {
     borderBottom: "1px solid var(--c-text-black)",
   };
 
+  if (!pagesArr) return <h1>loading...</h1>;
+
   // array displaying pagesArr
-  const currentPageNumber = (
+  return (
     <div className={classes.currentPageWrapper}>
       {pagesArr.map((arrNr, index) => (
         <button
@@ -109,14 +111,11 @@ const PageNumbers = ({ page, maxPage, navigate }) => {
       ))}
     </div>
   );
-
-  return currentPageNumber;
 };
 
 const BackToZeroButton = ({ page, navigate }) => {
   const backToZeroStyle = {
-    display: page > 2 ? "block" : "none",
-    paddingLeft: page > 2 ? "10px" : "0px",
+    display: page >= 3 ? "block" : "none",
   };
 
   return (
