@@ -10,7 +10,7 @@ import tryFetchFn from "@functions/tryFetchFn";
 
 import UniqueImageContext from "../BODY/uniqueImageContext";
 import Gallery from "../BODY/gallery/GALLERY";
-import QuickViewImageContainer from "@fullyComponents/quickView/quickViewImage/quickViewImage";
+import QuickViewImage from "@fullyComponents/quickView/quickViewImage/quickViewImage";
 
 const ScreenContainer = () => {
   const [topLayerData, setTopLayerData] = useState(null); // fetched data with id added
@@ -88,7 +88,7 @@ const ScreenContainer = () => {
               <Routes>
                 <Route
                   path="/:tab?/preview/:type/:id"
-                  element={<QuickViewImageContainer data={topLayerData} />}
+                  element={<QuickViewImage data={topLayerData} />}
                 />
               </Routes>
             )}

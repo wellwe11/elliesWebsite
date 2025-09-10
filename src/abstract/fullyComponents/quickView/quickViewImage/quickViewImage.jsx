@@ -137,7 +137,7 @@ const QuickViewInfo = ({
 };
 
 // Element containing product-image and product-info
-const QuickViewImage = ({ quickViewProps }) => {
+const QuickViewImageContainer = ({ quickViewProps }) => {
   // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
@@ -168,10 +168,9 @@ const QuickViewImage = ({ quickViewProps }) => {
 
 // Element containing QuickViewImage & QuickViewInfo, as well as a faded background.
 // Will always be positonined fixed in middle of the screen.
-const QuickViewImageContainer = ({ data }) => {
+const QuickViewImage = ({ data }) => {
   // Object which will be displayed ocne user clicks quickview
   const [quickViewObj, setQuickViewObj] = useState(null);
-  const [loadingText, setLoadingText] = useState("loading...");
 
   // navigates to a backgroundLocation
   const navigate = useNavigate();
@@ -197,7 +196,6 @@ const QuickViewImageContainer = ({ data }) => {
     // if not found, spends more time
     if (!quickViewObj) {
       setTimeout(() => {
-        setLoadingText("Need more time to find object...");
         setTimeout(() => {
           if (foundObj) {
             setQuickViewObj(foundObj);
@@ -224,19 +222,6 @@ const QuickViewImageContainer = ({ data }) => {
     />
   );
 
-  if (!quickViewObj) {
-    return (
-      <div className={classes.quickViewImage}>
-        <LoadingWrapper
-          onClick={() => {
-            bodyNoScroll().enableScroll();
-            navigate(-1);
-          }}
-        />
-      </div>
-    );
-  }
-
   const uniqueViewEmbedded = quickViewObj?._embedded;
 
   const quickViewProps = {
@@ -247,11 +232,28 @@ const QuickViewImageContainer = ({ data }) => {
   };
 
   return (
-    <div className={classes.quickViewImage}>
-      {WhiteBackgroundPopUp}
-      <QuickViewImage quickViewProps={quickViewProps} />
-    </div>
+    <>
+      <div
+        className={classes.quickViewImage}
+        style={{ opacity: !quickViewObj ? 1 : 0 }}
+      >
+        <LoadingWrapper
+          onClick={() => {
+            bodyNoScroll().enableScroll();
+            navigate(-1);
+          }}
+        />
+      </div>
+
+      <div
+        className={classes.quickViewImage}
+        style={{ opacity: quickViewObj ? 1 : 0 }}
+      >
+        {WhiteBackgroundPopUp}
+        <QuickViewImageContainer quickViewProps={quickViewProps} />
+      </div>
+    </>
   );
 };
 
-export default QuickViewImageContainer;
+export default QuickViewImage;
