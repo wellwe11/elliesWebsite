@@ -21,6 +21,9 @@ export default App;
 
 /** TODO LIST
  *
+ * ** minor bug**
+ * Gallery sidebar(filter buttons) scale oddly when hovering/clicking. Fix
+ *
  * ** TODO NOW! **
  * ------------------------------------------------
  * ** BUGS **

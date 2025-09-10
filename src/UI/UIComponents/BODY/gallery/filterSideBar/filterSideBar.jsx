@@ -13,7 +13,7 @@ const FilterSideBar = ({ dataKeys, handleFilter }) => {
         checked={category === objKey}
         onChange={() => handleFilter(objKey)}
       />
-      <h3 className={classes.filterText}>{objKey}</h3>
+      <h5 className={classes.filterText}>{objKey}</h5>
     </label>
   );
 
