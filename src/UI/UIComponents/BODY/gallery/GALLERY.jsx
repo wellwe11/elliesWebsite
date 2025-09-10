@@ -82,7 +82,7 @@ const ProductsWrapperComponent = ({ filteredData }) => {
     }, 1500);
 
     return () => clearTimeout(timer);
-  }, [filteredData, hash]);
+  }, [filteredData]);
 
   return (
     <div className={classes.productsWrapper}>

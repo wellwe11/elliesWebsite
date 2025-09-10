@@ -55,6 +55,10 @@ a {
   color: inherit;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 /* Set core body defaults */
 body {
   font-family: system-ui, sans-serif;
@@ -64,13 +68,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overscroll-behavior: none;
-}
-
-// class to block scrolling --used in wheelOfManyImages.jsx
-body.body--no-scroll {
-  overflow: hidden;
-  position: absolute;
-  width: 100%;
 }
 
 /* Media elements reset */

@@ -12,14 +12,6 @@
   }
 
   .wheelImagesSection {
-    @media screen and (min-width: 1440px) {
-      width: 100vw;
-      max-width: 1440px;
-      margin-left: -36px;
-      .titleContainer {
-        padding: 20px 20px;
-      }
-    }
     .titleContainer {
       padding: 20px 40px;
       .title {
