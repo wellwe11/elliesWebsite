@@ -16,9 +16,10 @@
     /* All CONTENT (Except unique components, ex: navbar(which should still obide by the general approach of sizes)) will be inside a defined width. This should not match max-screen-width */
     /* contentWrapper styled definitions */
     /* big screens */
-    @media screen and (min-width: 1400px) {
+    @media screen and (min-width: 1440px) {
       width: 95vw;
       max-width: 1440px;
+
       h1,
       h2,
       h3,
@@ -26,8 +27,12 @@
       h5,
       h6,
       p {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
       }
+    }
+
+    @media screen and (max-width: 1440px) {
+      width: 90vw;
     }
 
     /* normal desktop */

@@ -20,7 +20,11 @@ const LeftSection = ({ data, setActiveImage }) => {
           key={index}
           onMouseEnter={() => setActiveImage(index)}
         >
-          <ButtonWithUnderlineAndUndertext index={index} fontSize={"30px"}>
+          <ButtonWithUnderlineAndUndertext
+            index={index}
+            fontSize={"2vw"}
+            fontType={"h1"}
+          >
             {text}
           </ButtonWithUnderlineAndUndertext>
         </div>

@@ -2,28 +2,41 @@ import { useEffect, useState } from "react";
 import classes from "./buttonWithUnderlineAndUndertext.module.scss";
 
 // Span of text for each button
-const MainImageSpan = ({ children }) => {
+const MainImageSpan = ({
+  children = "Please insert a text here",
+  fontType = "h3",
+  fontSize,
+}) => {
+  const FontType = fontType;
+
   return (
     <span className={classes.mainImageSpan}>
-      <p className={classes.mainImageSpanText}>{children}</p>
+      <FontType style={{ fontSize }} className={classes.mainImageSpanText}>
+        {children}
+      </FontType>
     </span>
   );
 };
 
 const UnderlineSpan = ({ fontSize = 30 }) => {
   const [updatedFontSize, setUpdatedFontSize] = useState(fontSize);
+  const [fontSizeType, setFontSizeType] = useState(null);
 
   // imports font-size and removes anything except numbers. If prop is '30px', 30 will remain
   // caveat: fontSize = clamp(30px, 5vw, 50px) will return 30550, which is a size we dont want.
   const validateFontSize = () => {
     if (typeof fontSize === "string") {
+      let removeNumbers = fontSize.replace(/\d/g, "");
       let removeLetters = fontSize.replace(/\D/g, "");
-      return setUpdatedFontSize(+removeLetters);
+
+      setUpdatedFontSize(+removeLetters);
+      setFontSizeType(removeNumbers);
     } else {
       return setUpdatedFontSize(fontSize);
     }
   };
 
+  console.log(fontSizeType);
   useEffect(() => {
     validateFontSize();
   }, [fontSize]);
@@ -35,7 +48,11 @@ const UnderlineSpan = ({ fontSize = 30 }) => {
       <p
         className={classes.buttonHoveringText}
         style={{
-          fontSize: `${updatedFontSize / 2}px`, // underline will always be smaller than text. Looks better
+          fontSize: `${
+            fontSizeType?.includes("vw")
+              ? updatedFontSize * 11.5
+              : updatedFontSize / 2
+          }px`, // underline will always be smaller than text. Looks better
         }}
       >
         explore
@@ -51,11 +68,13 @@ const UnderlineSpan = ({ fontSize = 30 }) => {
   );
 };
 
-const ButtonWithUnderlineAndUndertext = ({ children, fontSize }) => {
+const ButtonWithUnderlineAndUndertext = ({ children, fontSize, fontType }) => {
   return (
     <div className={classes.mainImageWrapperText}>
       <div className={classes.mainImageWrapper}>
-        <MainImageSpan fontSize={fontSize}>{children}</MainImageSpan>
+        <MainImageSpan fontSize={fontSize} fontType={fontType}>
+          {children}
+        </MainImageSpan>
         <UnderlineSpan fontSize={fontSize} />
       </div>
     </div>

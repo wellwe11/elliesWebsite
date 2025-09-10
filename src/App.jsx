@@ -22,7 +22,6 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * SERVICES (3 images with 4 buttons on home-page Which displays examples of iamges); scrollable text is not fully visible
  * Text-sizes need to be adjusted to fit - currently oddly scaled
  * ------------------------------------------------
  * ** BUGS **
@@ -43,7 +42,6 @@ export default App;
  * ** NEW COMPONENTS **
  * Create an instagram section - this should be a spinning wheel that simply has images from ellies instagram-page, and when clicked, takes you to ellies instagram
  * Create a 'new-in' component, which is a stand-alone component. Not related to prints/paintings sections. It simply displays something with a nice animation. (this should seperate prints & paintings)
- * Contact us section above footer
  *
  * Shopping-cart page
  * -- shopping-cart sidebar
@@ -51,8 +49,7 @@ export default App;
  * Loading page (if data not loaded)
  * Error page (if page not found)
  *
- * Preview-page
- * -- Page which is displayed if you link a preview to someone (the quickview-button page)
+ * Contact us Page
  *
  * ------------------------------------------------
  */
