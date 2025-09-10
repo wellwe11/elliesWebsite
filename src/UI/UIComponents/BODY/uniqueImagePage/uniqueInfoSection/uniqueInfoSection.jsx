@@ -9,15 +9,15 @@ const InfoSectionBio = ({ details, bioRef }) => {
   // a list of details for set of images. I.e. colors, width, height etc.
   const mappedBioDetails = bioKeys.map((key, index) => (
     <div className={classes.detailsWrapper} key={index}>
-      <h5 className={classes.detailText}>{key}</h5>
-      <h5 className={classes.detailText}>{bioValues[index]}</h5>
+      <p className={classes.detailText}>{key}</p>
+      <p className={classes.detailText}>{bioValues[index]}</p>
     </div>
   ));
 
   // a simple title to indicate where the information about the set is
   const detailsTitle = (
     <div>
-      <h1 className={classes.detailsTitle}>DETAILS</h1>
+      <h3 className={classes.detailsTitle}>DETAILS</h3>
     </div>
   );
 

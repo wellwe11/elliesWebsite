@@ -16,14 +16,18 @@
     justify-content: center;
     align-items: center;
     transition: color 0.3s ease;
-    color: var(--fontColor);
 
-    &:hover {
-      color: black;
+    .font {
+      transition: transform 0.7s ease, color 0.4s ease;
+      color: var(--fontColor);
+      font-variation-settings: "wght" 450;
     }
 
-    .target {
-      color: black;
+    &:hover {
+      .font {
+        color: black;
+        transform: scale(1.01);
+      }
     }
   }
 }

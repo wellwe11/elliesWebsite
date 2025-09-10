@@ -74,12 +74,12 @@ const RightSection = ({ data, activeImage }) => {
   // title
   const bioScrollingTitle = (
     <div className={classes.scrollingTextTitle}>
-      <h3>
-        <TextThatCorrespondsToActiveImage
-          texts={collectionBioTitles}
-          activeImage={activeImage}
-        />
-      </h3>
+      <TextThatCorrespondsToActiveImage
+        fontSize="h6"
+        fontWeight={700}
+        texts={collectionBioTitles}
+        activeImage={activeImage}
+      />
     </div>
   );
 
@@ -90,12 +90,10 @@ const RightSection = ({ data, activeImage }) => {
   // bio
   const bioScrollingBio = (
     <div className={classes.scrollingTextBio}>
-      <p>
-        <TextThatCorrespondsToActiveImage
-          texts={collectionBioTexts}
-          activeImage={activeImage}
-        />
-      </p>
+      <TextThatCorrespondsToActiveImage
+        texts={collectionBioTexts}
+        activeImage={activeImage}
+      />
     </div>
   );
 

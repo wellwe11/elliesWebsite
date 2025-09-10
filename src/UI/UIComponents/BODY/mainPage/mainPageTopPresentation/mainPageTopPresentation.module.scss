@@ -48,7 +48,7 @@
         user-select: none;
         opacity: 1;
 
-        font-size: clamp(50px, 10vw, 150px);
+        font-size: clamp(50px, 10vw, 150px) !important;
         font-variation-settings: "wght" 450;
 
         color: rgb(9, 43, 94);

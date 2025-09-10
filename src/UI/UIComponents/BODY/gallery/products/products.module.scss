@@ -62,14 +62,13 @@
       .name {
         .bioText {
           font-variation-settings: "wght" 550;
-          font-size: clamp(8px, 1.2vw, 20px) !important;
         }
       }
 
       .type {
         .bioText {
           color: var(--c-text-200);
-          font-size: clamp(8px, 0.9vw, 14px) !important;
+
           font-variation-settings: "wght" 450;
           cursor: pointer;
 
@@ -84,7 +83,6 @@
 
     .price {
       .bioText {
-        font-size: clamp(8px, 1.1vw, 16px) !important;
         font-variation-settings: "wght" 650;
         padding-bottom: 5%;
       }
@@ -117,7 +115,6 @@
 
     .bioText {
       padding-left: 0.5vw;
-      font-size: clamp(8px, 1.1vw, 16px) !important;
       font-variation-settings: "wght" 450;
     }
   }

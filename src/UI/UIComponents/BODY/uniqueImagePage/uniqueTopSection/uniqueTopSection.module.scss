@@ -36,8 +36,7 @@
     }
 
     .bioTitle {
-      font-variation-settings: "wght" 450;
-      font-size: 0.9rem;
+      font-variation-settings: "wght" 600;
       padding-bottom: 10px;
     }
 
@@ -71,7 +70,8 @@
       color: black;
       font-weight: 200;
       opacity: 0;
-      font-size: 100px;
+      font-size: clamp(70px, 5vw, 100px) !important;
+
       transform: translateY(150%) scaleY(1.65);
       transform-origin: bottom;
 

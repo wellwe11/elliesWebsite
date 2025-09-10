@@ -47,7 +47,7 @@
       align-items: center;
 
       .text {
-        font-size: 50px;
+        font-size: clamp(30px, 5vw, 50px);
         font-variation-settings: "wght" 300;
       }
     }

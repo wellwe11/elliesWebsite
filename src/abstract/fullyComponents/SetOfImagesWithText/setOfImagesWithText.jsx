@@ -31,16 +31,16 @@ const SetOfimagesWithText = ({
   );
 
   // the set has a name which is displayed as a title
-  const bioTitle = <h3 className={classes.textBioTitle}>{textBioTitle}</h3>;
+  const bioTitle = <h5 className={classes.textBioTitle}>{textBioTitle}</h5>;
 
   // Each individual image has a text related to it which is changed depending on which image is hovered
   const scrollingText = (
-    <p className={classes.textBioBio}>
+    <div className={classes.textBioBio}>
       <TextThatCorrespondsToActiveImage
         texts={texts}
         activeImage={activeImage}
       />
-    </p>
+    </div>
   );
 
   return (

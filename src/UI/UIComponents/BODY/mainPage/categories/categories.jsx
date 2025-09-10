@@ -6,11 +6,11 @@ import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 const CategoryTitle = ({ title }) => {
   const firstCapitalTitle = title[0].toUpperCase() + title.slice(1);
 
-  const categoryTitle = <h2 className={classes.title}>{firstCapitalTitle}</h2>;
+  const categoryTitle = <h5 className={classes.title}>{firstCapitalTitle}</h5>;
 
   const categoryExploreTextWithUnderline = (
     <div className={classes.exploreWrapper}>
-      <h4 className={classes.subTitle}>Explore</h4>
+      <h6 className={classes.subTitle}>Explore</h6>
       <div className={classes.underline}>
         <div className={classes.underlineDot} />
       </div>

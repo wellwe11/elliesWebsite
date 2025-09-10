@@ -41,10 +41,10 @@ const UniqueTopSectionTitle = ({ titleInfo: { titleOne, titleTwo } }) => {
 // A small container of text containing some bio about the collection
 // title. Example: "Elegant red-rose collection"
 const UniqueTopSectionBio = ({ textInfo: { bioTitle, bioText } }) => {
-  const bioTextTitle = <h5 className={classes.bioTitle}>{bioTitle}</h5>;
+  const bioTextTitle = <p className={classes.bioTitle}>{bioTitle}</p>;
 
   // bio. Some catchy text
-  const bioTextBio = <h5 className={classes.bioText}>{bioText}</h5>;
+  const bioTextBio = <p className={classes.bioText}>{bioText}</p>;
 
   return (
     <div className={classes.bioTextContainer}>

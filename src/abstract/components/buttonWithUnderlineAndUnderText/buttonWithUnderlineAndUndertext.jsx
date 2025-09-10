@@ -36,7 +36,6 @@ const UnderlineSpan = ({ fontSize = 30 }) => {
     }
   };
 
-  console.log(fontSizeType);
   useEffect(() => {
     validateFontSize();
   }, [fontSize]);
@@ -50,7 +49,7 @@ const UnderlineSpan = ({ fontSize = 30 }) => {
         style={{
           fontSize: `${
             fontSizeType?.includes("vw")
-              ? updatedFontSize * 11.5
+              ? updatedFontSize * 9
               : updatedFontSize / 2
           }px`, // underline will always be smaller than text. Looks better
         }}

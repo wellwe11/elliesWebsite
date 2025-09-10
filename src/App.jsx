@@ -24,9 +24,9 @@ export default App;
  * ** TODO NOW! **
  * ------------------------------------------------
  * ** BUGS **
- * sectionSeperationImage is currently buggy - snaps to a position when entering the screen. Does not smoothly transition in
- *
  * * navBar icon-animation (the blue/white circle) resets when you click it. Either, remove this, or add a spin-animation (360 spin) to click.
+ *
+ * Currently, uniqueImage page snaps very strangely with mouse-scroll
  * ------------------------------------------------
  * ** THINGS TO FIX **
  * ------------------------------------------------

@@ -24,19 +24,19 @@
   }
 
   .imagesTextWrapper {
-    height: 10%;
-    min-height: 50px;
+    min-height: 60px;
   }
 
   // bioTitle
   .textBioTitle {
     height: 50%;
+    font-variation-settings: "wght" 550;
   }
 
   // scrollingText
   .textBioBio {
-    position: relative;
     height: 50%;
+    position: relative;
     overflow: hidden;
   }
 }

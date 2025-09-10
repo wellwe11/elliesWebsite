@@ -32,7 +32,7 @@ const FilterSideBar = ({ dataKeys, handleFilter }) => {
                 onChange={() => handleFilter(key)}
               />
               <div className={classes.textAndUnderline}>
-                <h3 className={classes.filterText}>{key}</h3>
+                <h5 className={classes.filterText}>{key}</h5>
                 <div className={classes.underline}>
                   <div className={classes.underlineDot} />
                 </div>

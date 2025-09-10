@@ -1,10 +1,11 @@
 import classes from "./BUTTONWITHCONTENT.module.scss";
 
-const ButtonWithContent = ({ children }) => {
+const ButtonWithContent = ({ children, fontType = "h3" }) => {
+  const FontType = fontType;
   return (
     <button className={classes.buttonWithContent}>
       <div className={classes.childrenWrapper}>
-        <p>{children}</p>
+        <FontType className={classes.font}>{children}</FontType>
       </div>
     </button>
   );

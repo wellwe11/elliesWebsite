@@ -13,14 +13,23 @@ const SectionSeperationImage = ({ imgSrc, imgAlt }) => {
 
   // tracks if ref is intersecting
   useEffect(() => {
+    if (!imgSrc) return;
+
     // observer for refs on-off switch
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setRefIsIntersecting(true);
-      } else {
-        setRefIsIntersecting(false);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setRefIsIntersecting(true);
+        } else {
+          setRefIsIntersecting(false);
+        }
+      },
+      {
+        root: null,
+        threshold: 0,
+        rootMargin: "0px 0px -200px 0px",
       }
-    });
+    );
 
     // if ref exists
     if (sectionRef.current) {
@@ -28,7 +37,7 @@ const SectionSeperationImage = ({ imgSrc, imgAlt }) => {
 
       // margin-from top which will be transformed with translateY
       setMarginTop(
-        Math.round(sectionRef.current.getBoundingClientRect().top / 60)
+        Math.round(sectionRef.current.getBoundingClientRect().top / 30)
       );
     }
 
@@ -40,6 +49,7 @@ const SectionSeperationImage = ({ imgSrc, imgAlt }) => {
 
   // updates useState: marginTop while ref is intersecting.
   useEffect(() => {
+    if (!imgSrc) return;
     // tracks current margin from top
     const trackMargin = () => {
       // if ref exists
@@ -48,11 +58,11 @@ const SectionSeperationImage = ({ imgSrc, imgAlt }) => {
         if (
           sectionRef.current.getBoundingClientRect().top > 100 &&
           sectionRef.current.getBoundingClientRect().top < 520 &&
-          Math.round(sectionRef.current.getBoundingClientRect().top / 70) !==
+          Math.round(sectionRef.current.getBoundingClientRect().top / 30) !==
             marginTop // checks if marginTop actually has changed, avoid unneeded updates
         ) {
           setMarginTop(
-            Math.round(sectionRef.current.getBoundingClientRect().top / 70)
+            Math.round(sectionRef.current.getBoundingClientRect().top / 30)
           );
         }
       }

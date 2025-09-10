@@ -12,14 +12,14 @@ const ProductBio = ({ bioData }) => {
 
   const Type = (
     <div className={classes.type}>
-      <h4 className={classes.bioText}>{type}</h4>
+      <p className={classes.bioText}>{type}</p>
     </div>
   );
 
   const name = bioData.setTitle; // collections/sets name - I.e. spring-collection, pastel-blue bookmarks collection, etc.
   const Name = (
     <div className={classes.name}>
-      <h4 className={classes.bioText}>{name}</h4>
+      <p className={classes.bioText}>{name}</p>
     </div>
   );
 
@@ -30,7 +30,7 @@ const ProductBio = ({ bioData }) => {
   const price = bioData.details.price; // fixed price which is based on euro
   const Price = (
     <div className={classes.price}>
-      <h4 className={classes.bioText}>{price + "€"}</h4>
+      <h6 className={classes.bioText}>{price + "€"}</h6>
     </div>
   );
 
@@ -40,7 +40,7 @@ const ProductBio = ({ bioData }) => {
       <div className={classes.shoppingBagSVGWrapper}>
         <ShoppingBagSVG />
       </div>
-      <h4 className={classes.bioText}>Add to cart</h4>
+      <p className={classes.bioText}>Add to cart</p>
     </button>
   );
 

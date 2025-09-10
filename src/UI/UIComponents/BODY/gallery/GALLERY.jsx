@@ -90,7 +90,6 @@ const ProductsWrapperComponent = ({ filteredData }) => {
     </div>
   );
 
-  console.log(loading);
   // visible once elements have loaded + 1.5s
   const productHasLoaded = (
     <div

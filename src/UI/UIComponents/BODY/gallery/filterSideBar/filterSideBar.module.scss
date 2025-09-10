@@ -37,7 +37,7 @@
 
           // text for filterLabel
           .filterText {
-            font-variation-settings: "wght" 350;
+            font-variation-settings: "wght" 450;
             padding: 2px 0px;
             transition: font-variation-settings 0.2s ease;
 
@@ -46,7 +46,7 @@
 
           // underline that has animation to highlight hover-state
           .underline {
-            height: 1.2px !important;
+            height: 1px !important;
             width: 100%;
             background-color: var(--c-text-300);
 

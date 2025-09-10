@@ -21,7 +21,7 @@ const ViewProductButton = () => {
   return (
     <div className={classes.viewProductButtonWrapper}>
       <QuickViewButton
-        text={<h3 className={classes.buttonText}>Explore item</h3>}
+        text={<h5 className={classes.buttonText}>Explore item</h5>}
         onClick={() => navigate(`/uniqueImage/${tabType}/${productId}`)}
       />
     </div>
@@ -38,7 +38,7 @@ const ProductDescription = ({ bio }) => {
       className={classes.buttonDescriptionButton}
       onClick={() => setViewDescription(!viewDescription)}
     >
-      <h3 className={classes.buttonDescriptionButtonText}>
+      <h5 className={classes.buttonDescriptionButtonText}>
         Description
         <div
           className={`${classes.descriptionSvgContainer} ${
@@ -47,7 +47,7 @@ const ProductDescription = ({ bio }) => {
         >
           <ArrowNoBodySVG />
         </div>
-      </h3>
+      </h5>
     </div>
   );
 
@@ -86,14 +86,14 @@ const QuickViewInfo = ({
   // which product is currently displayed
   const infoProductTitle = (
     <div className={classes.info}>
-      <h1>{title}</h1>
+      <h5>{title}</h5>
     </div>
   );
 
   // products price
   const infoProductPrice = (
     <div className={classes.price}>
-      <h4>{price}$</h4>
+      <h6>{price}$</h6>
     </div>
   );
 
@@ -117,7 +117,7 @@ const QuickViewInfo = ({
   // currently only displayed index of active allImagesRelatedToQuickViewImage. In future, will have some bio-info
   const currentImageBioText = (
     <div className={classes.currentImageBioText}>
-      <h4>Currently selected product: {activeImageIndex}</h4>
+      <p>Currently selected product: {activeImageIndex}</p>
     </div>
   );
 

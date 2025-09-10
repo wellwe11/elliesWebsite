@@ -23,8 +23,6 @@
     padding-left: 10px;
     h1 {
       font-family: "Mrs Saint Delafield", cursive, Arial, sans-serif;
-      font-size: clamp(30px, 5vw, 40px);
-
       animation: fadeInText 1s ease forwards 1s;
       opacity: 0;
     }

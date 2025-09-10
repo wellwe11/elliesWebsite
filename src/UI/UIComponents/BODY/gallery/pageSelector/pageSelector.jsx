@@ -87,7 +87,7 @@ const PageNumbers = ({ page, maxPage, navigate }) => {
     borderBottom: "1px solid var(--c-text-black)",
   };
 
-  if (!pagesArr) return <h1>loading...</h1>;
+  if (!pagesArr) return;
 
   // array displaying pagesArr
   return (

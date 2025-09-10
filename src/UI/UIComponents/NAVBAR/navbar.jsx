@@ -41,7 +41,7 @@ const NavButton = ({ children, link }) => {
   return (
     // on-click is applied to wrapper to isolate logic from buttonWithContent
     <div className={classes.button} onClick={() => handleNavigate(link)}>
-      <ButtonWithContent>{children}</ButtonWithContent>
+      <ButtonWithContent fontType={"h6"}>{children}</ButtonWithContent>
     </div>
   );
 };
@@ -110,7 +110,7 @@ const NavLogo = ({ setActiveButton, setHoverButton }) => {
       }}
     >
       <img className={classes.navLogoImage} src={logoImage} alt="" />
-      <h1 className={classes.logo}>art & cards co.</h1>
+      <h3 className={classes.logo}>art & cards co.</h3>
     </div>
   );
 };
