@@ -49,7 +49,9 @@ const ProductsWrapperComponent = ({ filteredData }) => {
   useEffect(() => {
     setPrevData(newData); // to display old old products while loading new ones
     setLoading(true);
-    bodyNoScroll().disableScroll();
+    const { disableScroll, enableScroll } = bodyNoScroll();
+
+    disableScroll();
 
     const pageNumber = +hash.replace(/\D/g, "") || 1; // current page
 
@@ -68,21 +70,19 @@ const ProductsWrapperComponent = ({ filteredData }) => {
     const timer = setTimeout(() => {
       setLoading(false);
       window.scroll({ top: 0 });
-      bodyNoScroll().enableScroll();
+      enableScroll();
     }, 1500);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      enableScroll();
+    };
   }, [filteredData]);
 
   // visible only while filter has changed
   const productIsLoading = (
-    <div
-      className={classes.productsLoading}
-      style={{
-        visibility: loading ? "visible" : "hidden",
-      }}
-    >
-      <LoadingWrapper />
+    <div className={classes.productsLoading}>
+      <LoadingWrapper condition={loading} />
       <Products products={prevData} />
     </div>
   );

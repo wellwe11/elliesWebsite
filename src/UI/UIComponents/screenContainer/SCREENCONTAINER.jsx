@@ -15,6 +15,7 @@ import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackgrou
 
 const ScreenContainer = () => {
   const [topLayerData, setTopLayerData] = useState(null); // fetched data with id added
+  const [loadPage, setLoadPage] = useState(false);
   const [serviceData, setServiceData] = useState(null); // Services data
   const [uniqueImage, setUniqueImage] = useState(null); // context for whichever product is in focus
 
@@ -44,7 +45,10 @@ const ScreenContainer = () => {
         if (assignIds) {
           setTimeout(() => {
             setTopLayerData(assignIds);
-          }, 1000);
+          }, 1400);
+          setTimeout(() => {
+            setLoadPage(true);
+          }, 1500);
         }
 
         setServiceData(dataLink);
@@ -53,52 +57,53 @@ const ScreenContainer = () => {
     fetchData();
   }, []);
 
-  if (!topLayerData) return <LoadingWrapper />;
-
   return (
-    <div className={classes.widthContainer}>
-      <Navbar />
-      <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
-        <UniqueImageContext.Provider value={{ uniqueImage, setUniqueImage }}>
-          <Routes location={state?.backgroundLocation || location}>
-            <Route
-              path="/"
-              element={
-                topLayerData && serviceData ? (
+    <>
+      <LoadingWrapper condition={!loadPage} />
+
+      <div
+        className={classes.widthContainer}
+        style={{ visibility: loadPage ? "visible" : "hidden" }}
+      >
+        <Navbar />
+        <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
+          <UniqueImageContext.Provider value={{ uniqueImage, setUniqueImage }}>
+            <Routes location={state?.backgroundLocation || location}>
+              <Route
+                path="/"
+                element={
                   <MainPage
                     topLayerData={topLayerData}
                     serviceData={serviceData}
                   />
-                ) : (
-                  <div>Data is loading...</div>
-                )
-              }
-            />
+                }
+              />
 
-            <Route
-              path="/uniqueImage/:type/:id"
-              element={<UniqueImage data={topLayerData} />}
-            />
-
-            <Route
-              path="/gallery/:category?/:id?/*"
-              element={<Gallery data={topLayerData} />}
-            />
-          </Routes>
-
-          {state?.backgroundLocation && (
-            <Routes>
               <Route
-                path="/:tab?/preview/:type/:id"
-                element={<QuickViewImage data={topLayerData} />}
+                path="/uniqueImage/:type/:id"
+                element={<UniqueImage data={topLayerData} />}
+              />
+
+              <Route
+                path="/gallery/:category?/:id?/*"
+                element={<Gallery data={topLayerData} />}
               />
             </Routes>
-          )}
-        </UniqueImageContext.Provider>
-        {/* <Footer /> */
-        /** Currently inactive because it doesnt work with uniqueImage-page */}
+
+            {state?.backgroundLocation && (
+              <Routes>
+                <Route
+                  path="/:tab?/preview/:type/:id"
+                  element={<QuickViewImage data={topLayerData} />}
+                />
+              </Routes>
+            )}
+          </UniqueImageContext.Provider>
+          {/* <Footer /> */
+          /** Currently inactive because it doesnt work with uniqueImage-page */}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

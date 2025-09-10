@@ -233,15 +233,13 @@ const QuickViewImage = ({ data }) => {
 
   return (
     <>
-      <div
-        className={classes.quickViewImage}
-        style={{ opacity: !quickViewObj ? 1 : 0 }}
-      >
+      <div className={classes.quickViewImage}>
         <LoadingWrapper
           onClick={() => {
             bodyNoScroll().enableScroll();
             navigate(-1);
           }}
+          condition={!quickViewObj}
         />
       </div>
 
