@@ -141,6 +141,8 @@ const Gallery = ({ data }) => {
     setFlattedData(flatData);
   }, [data]);
 
+  if (!data) return;
+
   return (
     <div className={classes.gallery}>
       <div className={classes.galleryTop}>

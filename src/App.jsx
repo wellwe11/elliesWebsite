@@ -22,7 +22,8 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- *
+ * SERVICES (3 images with 4 buttons on home-page Which displays examples of iamges); scrollable text is not fully visible
+ * Text-sizes need to be adjusted to fit - currently oddly scaled
  * ------------------------------------------------
  * ** BUGS **
  * sectionSeperationImage is currently buggy - snaps to a position when entering the screen. Does not smoothly transition in

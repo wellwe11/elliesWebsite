@@ -63,7 +63,9 @@ const ScreenContainer = () => {
 
       <div
         className={classes.widthContainer}
-        style={{ visibility: loadPage ? "visible" : "hidden" }}
+        style={{
+          visibility: loadPage ? "visible" : "hidden",
+        }}
       >
         <Navbar />
         <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
