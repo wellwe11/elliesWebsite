@@ -146,20 +146,12 @@ const Gallery = ({ data }) => {
       <div className={classes.galleryTop}>
         <FilterSideBarWrapperComponent data={data} />
 
-        <Suspense
-          fallback={
-            <div style={{ backgroundColor: "orange" }}>
-              Loading... inside of suspense{" "}
-            </div>
-          }
-        >
-          <Routes location={state?.backgroundLocation || location}>
-            <Route
-              path=":category?"
-              element={<ProductsWrapperComponent filteredData={filteredData} />}
-            />
-          </Routes>
-        </Suspense>
+        <Routes location={state?.backgroundLocation || location}>
+          <Route
+            path=":category?"
+            element={<ProductsWrapperComponent filteredData={filteredData} />}
+          />
+        </Routes>
       </div>
       <PageWrapperComponent filteredData={filteredData} />
     </div>

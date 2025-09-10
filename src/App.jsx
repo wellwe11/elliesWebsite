@@ -23,7 +23,6 @@ export default App;
  *
  * ** TODO NOW! **
  *
- * QuickView as a lot of code which contains class-names etc from other files. Need to change it to quickView or something instead
  * ------------------------------------------------
  * ** BUGS **
  * sectionSeperationImage is currently buggy - snaps to a position when entering the screen. Does not smoothly transition in

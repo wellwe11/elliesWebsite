@@ -11,6 +11,7 @@ import tryFetchFn from "@functions/tryFetchFn";
 import UniqueImageContext from "../BODY/uniqueImageContext";
 import Gallery from "../BODY/gallery/GALLERY";
 import QuickViewImage from "@fullyComponents/quickView/quickViewImage/quickViewImage";
+import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 
 const ScreenContainer = () => {
   const [topLayerData, setTopLayerData] = useState(null); // fetched data with id added
@@ -41,7 +42,9 @@ const ScreenContainer = () => {
         );
 
         if (assignIds) {
-          setTopLayerData(assignIds);
+          setTimeout(() => {
+            setTopLayerData(assignIds);
+          }, 1000);
         }
 
         setServiceData(dataLink);
@@ -50,54 +53,52 @@ const ScreenContainer = () => {
     fetchData();
   }, []);
 
-  if (!topLayerData) return <h1>...loading</h1>;
+  if (!topLayerData) return <LoadingWrapper />;
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <div className={classes.widthContainer}>
-        <Navbar />
-        <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
-          <UniqueImageContext.Provider value={{ uniqueImage, setUniqueImage }}>
-            <Routes location={state?.backgroundLocation || location}>
-              <Route
-                path="/"
-                element={
-                  topLayerData && serviceData ? (
-                    <MainPage
-                      topLayerData={topLayerData}
-                      serviceData={serviceData}
-                    />
-                  ) : (
-                    <div>Data is loading...</div>
-                  )
-                }
-              />
+    <div className={classes.widthContainer}>
+      <Navbar />
+      <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
+        <UniqueImageContext.Provider value={{ uniqueImage, setUniqueImage }}>
+          <Routes location={state?.backgroundLocation || location}>
+            <Route
+              path="/"
+              element={
+                topLayerData && serviceData ? (
+                  <MainPage
+                    topLayerData={topLayerData}
+                    serviceData={serviceData}
+                  />
+                ) : (
+                  <div>Data is loading...</div>
+                )
+              }
+            />
 
-              <Route
-                path="/uniqueImage/:type/:id"
-                element={<UniqueImage data={topLayerData} />}
-              />
+            <Route
+              path="/uniqueImage/:type/:id"
+              element={<UniqueImage data={topLayerData} />}
+            />
 
+            <Route
+              path="/gallery/:category?/:id?/*"
+              element={<Gallery data={topLayerData} />}
+            />
+          </Routes>
+
+          {state?.backgroundLocation && (
+            <Routes>
               <Route
-                path="/gallery/:category?/:id?/*"
-                element={<Gallery data={topLayerData} />}
+                path="/:tab?/preview/:type/:id"
+                element={<QuickViewImage data={topLayerData} />}
               />
             </Routes>
-
-            {state?.backgroundLocation && (
-              <Routes>
-                <Route
-                  path="/:tab?/preview/:type/:id"
-                  element={<QuickViewImage data={topLayerData} />}
-                />
-              </Routes>
-            )}
-          </UniqueImageContext.Provider>
-          {/* <Footer /> */
-          /** Currently inactive because it doesnt work with uniqueImage-page */}
-        </div>
+          )}
+        </UniqueImageContext.Provider>
+        {/* <Footer /> */
+        /** Currently inactive because it doesnt work with uniqueImage-page */}
       </div>
-    </Suspense>
+    </div>
   );
 };
 
