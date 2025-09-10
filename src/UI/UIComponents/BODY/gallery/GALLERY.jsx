@@ -15,6 +15,7 @@ import bodyNoScroll from "@functions/bodyNoScroll";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 
+// buttons on left to select specific items based on their type
 const FilterSideBarWrapperComponent = ({ data }) => {
   const navigate = useNavigate();
   const { category } = useParams();
@@ -36,26 +37,26 @@ const FilterSideBarWrapperComponent = ({ data }) => {
   );
 };
 
+// objects with image and some info and a quick-view option
 const ProductsWrapperComponent = ({ filteredData }) => {
-  const [newData, setNewData] = useState(filteredData);
+  const [newData, setNewData] = useState(filteredData); // if user changes
   const [prevData, setPrevData] = useState(newData);
 
   const [loading, setLoading] = useState(false);
   const { hash } = useLocation();
 
-  // effect which adds a loading-screen to each time products change, to allow for smooth transition.
-  // Will update it so it stays on the same page for 1 second instead, and then navigates
+  // effect which adds a loading-screen to each time products change; visible appealing. Avoids stuttering when elements update information.
   useEffect(() => {
     setPrevData(newData); // to display old old products while loading new ones
     setLoading(true);
     bodyNoScroll().disableScroll();
 
-    const pageNumber = +hash.replace(/\D/g, "") || 1; // remove hash or anything else that comes with the current page
-    // start displays the absolute minimum of index which is allowed to be shown on each page
+    const pageNumber = +hash.replace(/\D/g, "") || 1; // current page
+
     // page starts on 0, goes to 1, 2, 3 etc.
-    const start = (pageNumber - 1) * 9; // First image is then current (page - 1) * 9. -1 because pages are not based on index, but index + 1 (to avoid page being displayed as 0)
+    const start = (pageNumber - 1) * 9; // index of first object to display
     // So, 0, 8, 18 etc.
-    const end = start + 9; // end displays absolute maximum index that is displayed on current page
+    const end = start + 9; // index of last object to display
     // so, 8, 17, 26 etc.
 
     const displayedProducts = filteredData?.slice(start, end); // slices only visible objects for each page
@@ -73,30 +74,35 @@ const ProductsWrapperComponent = ({ filteredData }) => {
     return () => clearTimeout(timer);
   }, [filteredData]);
 
-  useEffect(() => {
-    window.scroll({ top: 0 });
-  }, [hash]);
+  // visible only while filter has changed
+  const productIsLoading = (
+    <div
+      className={classes.productsLoading}
+      style={{
+        visibility: loading ? "visible" : "hidden",
+      }}
+    >
+      <LoadingWrapper />
+      <Products products={prevData} />
+    </div>
+  );
+
+  // visible once elements have loaded + 1.5s
+  const productHasLoaded = (
+    <div
+      className={classes.productsLoaded}
+      style={{
+        visibility: loading ? "hidden" : "visible",
+      }}
+    >
+      <Products products={newData} />
+    </div>
+  );
 
   return (
     <div className={classes.productsWrapper}>
-      <div
-        className={classes.productsLoading}
-        style={{
-          visibility: loading ? "visible" : "hidden",
-        }}
-      >
-        <LoadingWrapper />
-        <Products products={prevData} />
-      </div>
-
-      <div
-        className={classes.productsLoaded}
-        style={{
-          visibility: loading ? "hidden" : "visible",
-        }}
-      >
-        <Products products={newData} />
-      </div>
+      {productIsLoading}
+      {productHasLoaded}
     </div>
   );
 };

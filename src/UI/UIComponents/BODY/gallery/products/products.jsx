@@ -2,7 +2,6 @@ import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import classes from "./products.module.scss";
 
 import QuickView from "@fullyComponents/quickView/quickView";
-import { useLocation } from "react-router-dom";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ bioData }) => {
@@ -59,32 +58,26 @@ const ProductBio = ({ bioData }) => {
   );
 };
 
-const ProductComponent = ({ products }) => {
-  // map only visible objects to display them as 'pages' which can be navigated by user
-  const mappedProductImages = products?.map((product, index) => (
-    <div key={index} className={classes.productWrapper}>
-      <QuickView
-        src={product.image}
-        productType={product._embedded.details.type}
-        productId={product.id}
-      />
-
-      <ProductBio bioData={product?._embedded} />
-    </div>
-  ));
-
-  return mappedProductImages;
-};
-
 // wrapper
 const Products = ({ products }) => {
-  return (
-    <div className={classes.products}>
-      <div className={classes.productsContainer}>
-        <ProductComponent products={products} />
-      </div>
+  // map only visible objects to display them as 'pages' which can be navigated by user
+  const mappedProductImages = (
+    <div className={classes.productsContainer}>
+      {products?.map((product, index) => (
+        <div key={index} className={classes.productWrapper}>
+          <QuickView
+            src={product.image}
+            productType={product._embedded.details.type}
+            productId={product.id}
+          />
+
+          <ProductBio bioData={product?._embedded} />
+        </div>
+      ))}
     </div>
   );
+
+  return <div className={classes.products}>{mappedProductImages}</div>;
 };
 
 export default Products;

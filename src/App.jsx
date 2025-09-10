@@ -23,6 +23,7 @@ export default App;
  *
  * ** TODO NOW! **
  *
+ * QuickView as a lot of code which contains class-names etc from other files. Need to change it to quickView or something instead
  * ------------------------------------------------
  * ** BUGS **
  * sectionSeperationImage is currently buggy - snaps to a position when entering the screen. Does not smoothly transition in
@@ -30,7 +31,6 @@ export default App;
  * * navBar icon-animation (the blue/white circle) resets when you click it. Either, remove this, or add a spin-animation (360 spin) to click.
  * ------------------------------------------------
  * ** THINGS TO FIX **
- * QuickView as a lot of code which contains class-names etc from other files. Need to change it to quickView or something instead
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
  * Implement a button on uniqueImage page to help user navigate down to the details-page
