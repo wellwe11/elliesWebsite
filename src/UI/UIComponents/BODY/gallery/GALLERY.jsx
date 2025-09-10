@@ -81,12 +81,16 @@ const ProductsWrapperComponent = ({ filteredData }) => {
 
   // visible only while filter has changed
   const productIsLoading = (
-    <div className={classes.productsLoading}>
+    <div
+      className={classes.productsLoading}
+      style={{ visibility: !loading ? "hidden" : "visible" }}
+    >
       <LoadingWrapper condition={loading} />
       <Products products={prevData} />
     </div>
   );
 
+  console.log(loading);
   // visible once elements have loaded + 1.5s
   const productHasLoaded = (
     <div
