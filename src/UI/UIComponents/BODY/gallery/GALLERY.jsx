@@ -12,19 +12,8 @@ import PageSelector from "./pageSelector/pageSelector";
 import FilterSideBar from "./filterSideBar/filterSideBar";
 import Products from "./products/products";
 import bodyNoScroll from "@functions/bodyNoScroll";
-import LoadingAnimation from "@components/loadingAnimation/loadingAnimation";
 
-const LoadingWrapper = () => {
-  return (
-    <div className={classes.loading}>
-      <div className={classes.loadingBackground}>
-        <div className={classes.loadingWrapper}>
-          <LoadingAnimation />
-        </div>
-      </div>
-    </div>
-  );
-};
+import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 
 const FilterSideBarWrapperComponent = ({ data }) => {
   const navigate = useNavigate();
@@ -83,6 +72,10 @@ const ProductsWrapperComponent = ({ filteredData }) => {
 
     return () => clearTimeout(timer);
   }, [filteredData]);
+
+  useEffect(() => {
+    window.scroll({ top: 0 });
+  }, [hash]);
 
   return (
     <div className={classes.productsWrapper}>

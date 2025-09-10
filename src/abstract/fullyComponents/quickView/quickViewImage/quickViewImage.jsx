@@ -6,19 +6,7 @@ import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 import { useNavigate, useParams } from "react-router-dom";
 import QuickViewButton from "../quickViewButton/quickViewButton";
 import bodyNoScroll from "@functions/bodyNoScroll";
-import LoadingAnimation from "@components/loadingAnimation/loadingAnimation";
-
-const LoadingWrapper = () => {
-  return (
-    <div className={classes.loading}>
-      <div className={classes.loadingBackground}>
-        <div className={classes.loadingWrapper}>
-          <LoadingAnimation />
-        </div>
-      </div>
-    </div>
-  );
-};
+import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 
 // If you want to view the actual product, this button takes you to a new page which contains further information and such
 const ViewProductButton = () => {
@@ -239,8 +227,12 @@ const QuickViewImageContainer = ({ data }) => {
   if (!quickViewObj) {
     return (
       <div className={classes.quickViewImage}>
-        {WhiteBackgroundPopUp}
-        <LoadingWrapper />
+        <LoadingWrapper
+          onClick={() => {
+            bodyNoScroll().enableScroll();
+            navigate(-1);
+          }}
+        />
       </div>
     );
   }
