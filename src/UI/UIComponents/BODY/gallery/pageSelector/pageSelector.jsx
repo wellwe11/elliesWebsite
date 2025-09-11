@@ -123,7 +123,7 @@ const PageNumbers = ({ page, maxPage, navigate, category }) => {
 
 const BackToZeroButton = ({ page, navigate, category }) => {
   const backToZeroStyle = {
-    display: page >= 3 ? "block" : "none",
+    display: page >= 4 ? "block" : "none",
   };
 
   return (

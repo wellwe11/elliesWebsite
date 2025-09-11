@@ -1,10 +1,7 @@
-import { useParams } from "react-router-dom";
 import classes from "./filterSideBar.module.scss";
 import ButtonWithUnderlineAndUndertext from "@components/buttonWithUnderlineAndUnderText/buttonWithUnderlineAndUndertext";
 
-const FilterSideBar = ({ dataKeys, handleFilter }) => {
-  const { category } = useParams();
-
+const FilterSideBar = ({ dataKeys, handleFilter, category }) => {
   return (
     <div className={classes.filterSideBar}>
       <ul className={classes.filterUl}>

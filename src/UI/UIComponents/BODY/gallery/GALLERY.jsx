@@ -1,11 +1,5 @@
-import { Suspense, useEffect, useMemo, useState } from "react";
-import {
-  Route,
-  Routes,
-  useLocation,
-  useNavigate,
-  useSearchParams,
-} from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import classes from "./GALLERY.module.scss";
 import PageSelector from "./pageSelector/pageSelector";
@@ -16,10 +10,8 @@ import bodyNoScroll from "@functions/bodyNoScroll";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 
 // buttons on left to select specific items based on their type
-const FilterSideBarWrapperComponent = ({ data }) => {
+const FilterSideBarWrapperComponent = ({ data, category }) => {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const category = searchParams.get("category") || "";
 
   const handleFilter = (e) => {
     if (e === category) {
@@ -33,20 +25,21 @@ const FilterSideBarWrapperComponent = ({ data }) => {
 
   return (
     <div className={classes.filterSideBarWrapper}>
-      <FilterSideBar dataKeys={dataKeys} handleFilter={handleFilter} />
+      <FilterSideBar
+        dataKeys={dataKeys}
+        handleFilter={handleFilter}
+        category={category}
+      />
     </div>
   );
 };
 
 // objects with image and some info and a quick-view option
-const ProductsWrapperComponent = ({ filteredData }) => {
+const ProductsWrapperComponent = ({ filteredData, page }) => {
   const [newData, setNewData] = useState(filteredData); // if user changes
   const [prevData, setPrevData] = useState(newData);
 
   const [loading, setLoading] = useState(false);
-
-  const [searchParams] = useSearchParams();
-  const page = searchParams.get("page") || 1;
 
   // effect which adds a loading-screen to each time products change; visible appealing. Avoids stuttering when elements update information.
   useEffect(() => {
@@ -130,6 +123,7 @@ const Gallery = ({ data }) => {
 
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category") || ""; // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
+  const page = searchParams.get("page") || 1;
 
   // Filters data based on current filter
   const filteredData = useMemo(() => {
@@ -155,8 +149,8 @@ const Gallery = ({ data }) => {
   return (
     <div className={classes.gallery}>
       <div className={classes.galleryTop}>
-        <FilterSideBarWrapperComponent data={data} />
-        <ProductsWrapperComponent filteredData={filteredData} />
+        <FilterSideBarWrapperComponent data={data} category={category} />
+        <ProductsWrapperComponent filteredData={filteredData} page={page} />
       </div>
       <PageWrapperComponent filteredData={filteredData} />
     </div>
