@@ -79,3 +79,15 @@
     opacity: 1;
   }
 }
+
+.activeClass {
+  // displays explore-text and smaller underline on click
+
+  .underlineSpan {
+    width: 60px !important;
+  }
+
+  .buttonHoveringElement {
+    opacity: 1 !important;
+  }
+}

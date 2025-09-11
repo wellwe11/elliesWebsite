@@ -18,7 +18,7 @@ const MainImageSpan = ({
   );
 };
 
-const UnderlineSpan = ({ fontSize = 30 }) => {
+const UnderlineSpan = ({ fontSize = 30, boolean }) => {
   const [updatedFontSize, setUpdatedFontSize] = useState(fontSize);
   const [fontSizeType, setFontSizeType] = useState(null);
 
@@ -26,8 +26,8 @@ const UnderlineSpan = ({ fontSize = 30 }) => {
   // caveat: fontSize = clamp(30px, 5vw, 50px) will return 30550, which is a size we dont want.
   const validateFontSize = () => {
     if (typeof fontSize === "string") {
-      let removeNumbers = fontSize.replace(/\d/g, "");
-      let removeLetters = fontSize.replace(/\D/g, "");
+      let removeNumbers = fontSize.replace(/[0-9]/g, "");
+      let removeLetters = fontSize.replace(/[a-zA-Z]/g, "");
 
       setUpdatedFontSize(+removeLetters);
       setFontSizeType(removeNumbers);
@@ -42,8 +42,6 @@ const UnderlineSpan = ({ fontSize = 30 }) => {
 
   const buttonHoveringElement = (
     <div className={classes.buttonHoveringElement}>
-      {/* Currently disabled since text below looks better */}
-      {/* <ArrowSVG color="black" /> */}
       <p
         className={classes.buttonHoveringText}
         style={{
@@ -60,21 +58,30 @@ const UnderlineSpan = ({ fontSize = 30 }) => {
   );
 
   return (
-    <div className={classes.underlineSpanContainer}>
-      <div className={classes.underlineSpan}></div>
+    <div
+      className={`${classes.underlineSpanContainer} ${
+        boolean ? classes.activeClass : ""
+      }`}
+    >
+      <div className={classes.underlineSpan} />
       {buttonHoveringElement}
     </div>
   );
 };
 
-const ButtonWithUnderlineAndUndertext = ({ children, fontSize, fontType }) => {
+const ButtonWithUnderlineAndUndertext = ({
+  children,
+  fontSize,
+  fontType,
+  boolean,
+}) => {
   return (
     <div className={classes.mainImageWrapperText}>
       <div className={classes.mainImageWrapper}>
         <MainImageSpan fontSize={fontSize} fontType={fontType}>
           {children}
         </MainImageSpan>
-        <UnderlineSpan fontSize={fontSize} />
+        <UnderlineSpan fontSize={fontSize} boolean={boolean} />
       </div>
     </div>
   );

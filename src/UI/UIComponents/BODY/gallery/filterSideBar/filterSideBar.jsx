@@ -1,21 +1,10 @@
 import { useParams } from "react-router-dom";
 import classes from "./filterSideBar.module.scss";
+import ArrowSVG from "@components/SVGS/arrowSVG/arrowSVG";
+import ButtonWithUnderlineAndUndertext from "@components/buttonWithUnderlineAndUnderText/buttonWithUnderlineAndUndertext";
 
 const FilterSideBar = ({ dataKeys, handleFilter }) => {
   const { category } = useParams();
-
-  const ActiveLabel = ({ objKey }) => (
-    <label className={classes.activeFilter}>
-      <input
-        className={classes.filterInput}
-        type="checkbox"
-        name="key-choices"
-        checked={category === objKey}
-        onChange={() => handleFilter(objKey)}
-      />
-      <h5 className={classes.filterText}>{objKey}</h5>
-    </label>
-  );
 
   return (
     <div className={classes.filterSideBar}>
@@ -23,7 +12,6 @@ const FilterSideBar = ({ dataKeys, handleFilter }) => {
         {dataKeys.map((key, index) => (
           <li key={index} className={classes.filterLi}>
             <label className={classes.filterLabel}>
-              {category === key ? <ActiveLabel objKey={key} /> : ""}
               <input
                 className={classes.filterInput}
                 type="checkbox"
@@ -32,10 +20,14 @@ const FilterSideBar = ({ dataKeys, handleFilter }) => {
                 onChange={() => handleFilter(key)}
               />
               <div className={classes.textAndUnderline}>
-                <h5 className={classes.filterText}>{key}</h5>
-                <div className={classes.underline}>
-                  <div className={classes.underlineDot} />
-                </div>
+                <ButtonWithUnderlineAndUndertext
+                  index={index}
+                  fontSize={"1.5vw"}
+                  fontType={"h3"}
+                  boolean={category === key}
+                >
+                  {key}
+                </ButtonWithUnderlineAndUndertext>
               </div>
             </label>
           </li>

@@ -29,87 +29,15 @@
 
         // container for text and corresponding line
         .textAndUnderline {
-          width: 107%;
-
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-
-          // text for filterLabel
-          .filterText {
-            font-variation-settings: "wght" 450;
-            padding: 2px 0px;
-            transition: font-variation-settings 0.2s ease;
-
-            color: var(--c-text-300);
-          }
-
-          // underline that has animation to highlight hover-state
-          .underline {
-            height: 1px !important;
-            width: 100%;
-            background-color: var(--c-text-300);
-
-            position: relative;
-
-            .underlineDot {
-              position: absolute;
-              background-color: var(--websiteContainerColor);
-              height: 5px;
-              width: 10px;
-              left: -15px;
-              top: -1.35px;
-
-              border-radius: 100px;
-
-              pointer-events: none;
-            }
-          }
         }
 
-        &:not(.activeFilter):hover {
-          .textAndUnderline {
-            .filterText {
-              color: var(--c-text-black);
-              font-variation-settings: "wght" 400;
-            }
-
-            .underline {
-              background-color: var(--c-text-black);
-
-              .underlineDot {
-                left: 103% !important;
-                transition: left 0.9s cubic-bezier(0.55, 0, 0.1, 1);
-              }
-            }
-          }
+        // class applied if button is clicked
+        .activeFilter {
         }
       }
     }
-  }
-}
-
-// for when user clicks a filter
-.activeFilter {
-  cursor: pointer;
-  position: absolute;
-  top: 2px;
-  left: -1px;
-
-  animation: textAppear 0.3s ease forwards;
-
-  .filterText {
-    font-variation-settings: "wght" 600 !important;
-    color: var(--c-text-black);
-  }
-}
-
-@keyframes textAppear {
-  from {
-    opacity: 0%;
-  }
-
-  to {
-    opacity: 100%;
   }
 }

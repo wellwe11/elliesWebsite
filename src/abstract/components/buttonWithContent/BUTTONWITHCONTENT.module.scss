@@ -18,7 +18,7 @@
     transition: color 0.3s ease;
 
     .font {
-      transition: transform 0.7s ease, color 0.4s ease;
+      transition: color 0.4s ease;
       color: var(--fontColor);
       font-variation-settings: "wght" 450;
     }
@@ -26,7 +26,6 @@
     &:hover {
       .font {
         color: black;
-        transform: scale(1.01);
       }
     }
   }
