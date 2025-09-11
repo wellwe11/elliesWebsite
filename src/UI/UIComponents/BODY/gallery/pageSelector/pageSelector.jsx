@@ -1,7 +1,8 @@
 import ArrowRoundEdgesSVG from "@components/SVGS/arrowRoundEdgesSVG/arrowRoundEdgesSVG";
 import classes from "./pageSelector.module.scss";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { scrollTop } from "../GALLERY";
 
 // abstract button component which has the same structure & classes for all nav-buttons
 const NavButton = ({ onClick, disabled, label }) => {
@@ -23,6 +24,7 @@ const RightButton = ({ page, maxPage, navigate, category }) => {
     ? `/gallery?category=${category}&page=${page + 1}`
     : `/gallery?page=${page + 1}`;
   const increment = () => {
+    scrollTop();
     // if next page can contain products
     if (page < maxPage) {
       navigate(url);
@@ -50,6 +52,7 @@ const LeftButton = ({ page, navigate, category }) => {
   const decrement = () => {
     // prevent page from going below 0
     if (page > 0) {
+      scrollTop();
       navigate(url);
     }
   };
@@ -105,9 +108,10 @@ const PageNumbers = ({ page, maxPage, navigate, category }) => {
           style={{
             gridColumn: +index + 1,
           }}
-          onClick={() =>
-            navigate(`/gallery?category=${category}&page=${arrNr}`)
-          } // changes current page if you click a number (and not previous/next)
+          onClick={() => {
+            navigate(`/gallery?category=${category}&page=${arrNr}`);
+            scrollTop();
+          }} // changes current page if you click a number (and not previous/next)
         >
           <p
             className={classes.btnText}

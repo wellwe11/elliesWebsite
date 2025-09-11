@@ -9,6 +9,12 @@ import bodyNoScroll from "@functions/bodyNoScroll";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 
+export const scrollTop = () => {
+  setTimeout(() => {
+    window.scroll({ top: 0 });
+  }, 1580);
+};
+
 // used for rendering products based on the current page
 const handleDisplayedProducts = (page, data) => {
   // page starts on 0, goes to 1, 2, 3 etc.
@@ -30,6 +36,7 @@ const FilterSideBarWrapperComponent = ({ data, category }) => {
     } else {
       navigate(`/gallery?category=${e}&page=1`);
     }
+    scrollTop();
   };
 
   const dataKeys = Object.keys(data); // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
@@ -67,12 +74,11 @@ const ProductsWrapperComponent = ({ filteredData, page }) => {
     disableScroll();
 
     const displayedProducts = handleDisplayedProducts(page, filteredData);
+
     setNewData(displayedProducts);
 
     const timer = setTimeout(() => {
       setLoading(false);
-
-      window.scroll({ top: 0 });
       enableScroll();
     }, 1500);
 
