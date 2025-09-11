@@ -82,7 +82,7 @@ const ScreenContainer = () => {
               />
 
               <Route
-                path="/uniqueImage/:type/:id"
+                path="/uniqueImage/:type"
                 element={<UniqueImage data={topLayerData} />}
               />
 

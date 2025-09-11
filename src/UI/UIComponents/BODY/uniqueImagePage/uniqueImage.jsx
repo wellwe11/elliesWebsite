@@ -1,9 +1,10 @@
 import classes from "./uniqueImage.module.scss";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 import UniqueTopSection from "./uniqueTopSection/uniqueTopSection";
 import UniqueInfoSection from "./uniqueInfoSection/uniqueInfoSection";
+import { useContext } from "react";
 
 // Component containing all info for top-section
 const UniqueTopSectionComponent = ({ info, foundObject }) => {
@@ -52,7 +53,9 @@ const UniqueImage = ({ data }) => {
   const [foundObject, setFoundObject] = useState(null);
 
   // checks params for which type (painting/prints etc...) & id (id is printed on each objected after fetch, which is based on their position)
-  const { type, id } = useParams();
+  const { type } = useParams();
+  const { hash } = useLocation();
+  const id = +hash.replace(/\D/g, "");
 
   useEffect(() => {
     // if no data, return. If no type & id (link is undefined) return

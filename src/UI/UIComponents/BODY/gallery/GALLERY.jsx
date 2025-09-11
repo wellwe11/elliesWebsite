@@ -130,7 +130,6 @@ const Gallery = ({ data }) => {
 
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category") || ""; // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
-  const location = useLocation();
 
   // Filters data based on current filter
   const filteredData = useMemo(() => {
