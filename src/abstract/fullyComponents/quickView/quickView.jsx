@@ -22,7 +22,7 @@ const QuickView = ({ src, productType, productId }) => {
         <QuickViewButton
           text={"Quick view"}
           onClick={() => {
-            navigate(`/gallery/preview/${productType}/${productId}`, {
+            navigate(`/gallery/preview/${productType}#${productId}`, {
               state: { backgroundLocation: location.pathname },
             });
 

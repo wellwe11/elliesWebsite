@@ -18,7 +18,7 @@ const MainImageSpan = ({
   );
 };
 
-const UnderlineSpan = ({ fontSize = 30, boolean }) => {
+const UnderlineSpan = ({ fontSize = 30, boolean, underlineText }) => {
   const [updatedFontSize, setUpdatedFontSize] = useState(fontSize);
   const [fontSizeType, setFontSizeType] = useState(null);
 
@@ -52,7 +52,7 @@ const UnderlineSpan = ({ fontSize = 30, boolean }) => {
           }px`, // underline will always be smaller than text. Looks better
         }}
       >
-        explore
+        {underlineText || "explore"}
       </p>
     </div>
   );
@@ -74,6 +74,7 @@ const ButtonWithUnderlineAndUndertext = ({
   fontSize,
   fontType,
   boolean,
+  underlineText,
 }) => {
   return (
     <div className={classes.mainImageWrapperText}>
@@ -81,7 +82,11 @@ const ButtonWithUnderlineAndUndertext = ({
         <MainImageSpan fontSize={fontSize} fontType={fontType}>
           {children}
         </MainImageSpan>
-        <UnderlineSpan fontSize={fontSize} boolean={boolean} />
+        <UnderlineSpan
+          fontSize={fontSize}
+          boolean={boolean}
+          underlineText={underlineText}
+        />
       </div>
     </div>
   );

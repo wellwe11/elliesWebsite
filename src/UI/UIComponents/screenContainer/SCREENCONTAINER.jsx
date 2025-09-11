@@ -95,7 +95,7 @@ const ScreenContainer = () => {
             {state?.backgroundLocation && (
               <Routes>
                 <Route
-                  path="/:tab?/preview/:type/:id"
+                  path="/:tab?/preview/:type"
                   element={<QuickViewImage data={topLayerData} />}
                 />
               </Routes>

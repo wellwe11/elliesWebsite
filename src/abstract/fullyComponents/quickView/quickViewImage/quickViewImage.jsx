@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import QuickViewButton from "../quickViewButton/quickViewButton";
 import bodyNoScroll from "@functions/bodyNoScroll";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
@@ -13,10 +13,11 @@ const ViewProductButton = () => {
   // navigates to a backgroundLocation
   const navigate = useNavigate();
   const params = useParams();
+  const { hash } = useLocation();
 
   // gets correct object type & info to find the correct object
   const tabType = params?.type;
-  const productId = +params?.id;
+  const productId = +hash.replace(/\D/g, ""); // current page;
 
   return (
     <div className={classes.viewProductButtonWrapper}>
@@ -175,10 +176,11 @@ const QuickViewImage = ({ data }) => {
   // navigates to a backgroundLocation
   const navigate = useNavigate();
   const params = useParams();
+  const { hash } = useLocation();
 
   // gets correct object type & info to find the correct object
   const tabType = params?.type;
-  const productId = +params?.id;
+  const productId = +hash.replace(/\D/g, ""); // current page;
 
   useEffect(() => {
     if (!data) return;

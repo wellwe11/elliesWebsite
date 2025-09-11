@@ -121,7 +121,7 @@ const Navbar = () => {
   const { pathname } = useLocation();
   const buttons = {
     home: "",
-    gallery: "gallery#1",
+    gallery: "/gallery?page=1",
     contact: "./#contact",
   };
 

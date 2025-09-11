@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import classes from "./filterSideBar.module.scss";
-import ArrowSVG from "@components/SVGS/arrowSVG/arrowSVG";
 import ButtonWithUnderlineAndUndertext from "@components/buttonWithUnderlineAndUnderText/buttonWithUnderlineAndUndertext";
 
 const FilterSideBar = ({ dataKeys, handleFilter }) => {

@@ -4,7 +4,7 @@ import {
   Routes,
   useLocation,
   useNavigate,
-  useParams,
+  useSearchParams,
 } from "react-router-dom";
 
 import classes from "./GALLERY.module.scss";
@@ -18,13 +18,14 @@ import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackgrou
 // buttons on left to select specific items based on their type
 const FilterSideBarWrapperComponent = ({ data }) => {
   const navigate = useNavigate();
-  const { category } = useParams();
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category") || "";
 
   const handleFilter = (e) => {
     if (e === category) {
-      navigate(`/gallery#1`); // reset navigation when user clicks button over again
+      navigate(`/gallery?page=1`); // reset navigation when user clicks button over again
     } else {
-      navigate(`/gallery/${e}#1`);
+      navigate(`/gallery?category=${e}&page=1`);
     }
   };
 
@@ -43,7 +44,9 @@ const ProductsWrapperComponent = ({ filteredData }) => {
   const [prevData, setPrevData] = useState(newData);
 
   const [loading, setLoading] = useState(false);
-  const { hash } = useLocation();
+
+  const [searchParams] = useSearchParams();
+  const page = searchParams.get("page") || 1;
 
   // effect which adds a loading-screen to each time products change; visible appealing. Avoids stuttering when elements update information.
   useEffect(() => {
@@ -53,10 +56,8 @@ const ProductsWrapperComponent = ({ filteredData }) => {
 
     disableScroll();
 
-    const pageNumber = +hash.replace(/\D/g, "") || 1; // current page
-
     // page starts on 0, goes to 1, 2, 3 etc.
-    const start = (pageNumber - 1) * 9; // index of first object to display
+    const start = (+page - 1) * 9; // index of first object to display
     // So, 0, 8, 18 etc.
     const end = start + 9; // index of last object to display
     // so, 8, 17, 26 etc.
@@ -77,7 +78,13 @@ const ProductsWrapperComponent = ({ filteredData }) => {
       clearTimeout(timer);
       enableScroll();
     };
-  }, [filteredData]);
+  }, [filteredData, page]);
+
+  useEffect(() => {
+    if (!loading) {
+      window.scroll({ top: 0 });
+    }
+  }, [loading]);
 
   // visible only while filter has changed
   const productIsLoading = (
@@ -121,16 +128,16 @@ const Gallery = ({ data }) => {
   // Works like a parent-variable. Always contains an array of all data, and never changes.
   const [flattedData, setFlattedData] = useState(null);
 
-  const { category } = useParams(); // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category") || ""; // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
   const location = useLocation();
-  const state = location.state;
 
   // Filters data based on current filter
   const filteredData = useMemo(() => {
-    if (!flattedData) return; // only works if data has been platted
+    if (!flattedData) return []; // only works if data has been platted
     if (!category) return flattedData; // if no filter, return unfilted data
 
-    return data?.[category];
+    return data[category] || [];
   }, [category, flattedData]);
 
   // effect that flattens data out to allow items to be displayed in 'random' order with no filters
@@ -150,13 +157,7 @@ const Gallery = ({ data }) => {
     <div className={classes.gallery}>
       <div className={classes.galleryTop}>
         <FilterSideBarWrapperComponent data={data} />
-
-        <Routes location={state?.backgroundLocation || location}>
-          <Route
-            path=":category?"
-            element={<ProductsWrapperComponent filteredData={filteredData} />}
-          />
-        </Routes>
+        <ProductsWrapperComponent filteredData={filteredData} />
       </div>
       <PageWrapperComponent filteredData={filteredData} />
     </div>

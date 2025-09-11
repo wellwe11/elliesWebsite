@@ -1,7 +1,7 @@
 import ArrowRoundEdgesSVG from "@components/SVGS/arrowRoundEdgesSVG/arrowRoundEdgesSVG";
 import classes from "./pageSelector.module.scss";
-import { useEffect, useMemo } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useMemo } from "react";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 // abstract button component which has the same structure & classes for all nav-buttons
 const NavButton = ({ onClick, disabled, label }) => {
@@ -18,11 +18,14 @@ const NavButton = ({ onClick, disabled, label }) => {
 };
 
 // change page forward - increment page
-const RightButton = ({ page, maxPage, navigate }) => {
+const RightButton = ({ page, maxPage, navigate, category }) => {
+  const url = category
+    ? `/gallery?category=${category}&page=${page + 1}`
+    : `/gallery?page=${page + 1}`;
   const increment = () => {
     // if next page can contain products
     if (page < maxPage) {
-      navigate({ hash: `${page + 1}` });
+      navigate(url);
     }
   };
 
@@ -40,11 +43,14 @@ const RightButton = ({ page, maxPage, navigate }) => {
 };
 
 // change page backwards - decrement page
-const LeftButton = ({ page, navigate }) => {
+const LeftButton = ({ page, navigate, category }) => {
+  const url = category
+    ? `/gallery?category=${category}&page=${page - 1}`
+    : `/gallery?page=${page - 1}`;
   const decrement = () => {
     // prevent page from going below 0
     if (page > 0) {
-      navigate({ hash: `${page - 1}` });
+      navigate(url);
     }
   };
 
@@ -61,7 +67,7 @@ const LeftButton = ({ page, navigate }) => {
   );
 };
 
-const PageNumbers = ({ page, maxPage, navigate }) => {
+const PageNumbers = ({ page, maxPage, navigate, category }) => {
   const pageNumber = +page; // pages are 0-indexed, but are shown as 1-indexed because page 1 fits better than page 0 as initial page
 
   // creates a dynamic array which displays current set of pages (always pageNumber-1, pageNumber, pageNumber+1)
@@ -99,7 +105,9 @@ const PageNumbers = ({ page, maxPage, navigate }) => {
           style={{
             gridColumn: +index + 1,
           }}
-          onClick={() => navigate({ hash: `${+arrNr}` })} // changes current page if you click a number (and not previous/next)
+          onClick={() =>
+            navigate(`/gallery?category=${category}&page=${arrNr}`)
+          } // changes current page if you click a number (and not previous/next)
         >
           <p
             className={classes.btnText}
@@ -113,7 +121,7 @@ const PageNumbers = ({ page, maxPage, navigate }) => {
   );
 };
 
-const BackToZeroButton = ({ page, navigate }) => {
+const BackToZeroButton = ({ page, navigate, category }) => {
   const backToZeroStyle = {
     display: page >= 3 ? "block" : "none",
   };
@@ -121,7 +129,7 @@ const BackToZeroButton = ({ page, navigate }) => {
   return (
     <div className={classes.backToZeroButtonWrapper} style={backToZeroStyle}>
       <button
-        onClick={() => navigate({ hash: `${1}` })}
+        onClick={() => navigate(`/gallery?category=${category}&page=${1}`)}
         style={backToZeroStyle}
         className={classes.pageSelectorButton}
       >
@@ -134,21 +142,29 @@ const BackToZeroButton = ({ page, navigate }) => {
 // buttons that change pages, or rather, changes the index in which products can be displayed
 const PageSelector = ({ products }) => {
   const navigate = useNavigate();
-  const { hash } = useLocation();
 
-  const pageNumber = +hash.replace(/\D/g, "") || 1; // remove hash or anything else that comes with the current page
+  const [searchParams] = useSearchParams();
+  const page = +searchParams.get("page") || 1;
+  const category = searchParams.get("category") || "";
+
   const maxPage = Math.ceil(products?.length / 9); // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
-
-  useEffect(() => {
-    window.scroll({ top: 0 });
-  }, [pageNumber]);
 
   return (
     <div className={classes.pageSelector}>
-      <LeftButton page={pageNumber} navigate={navigate} />
-      <BackToZeroButton page={pageNumber} navigate={navigate} />
-      <PageNumbers page={pageNumber} maxPage={maxPage} navigate={navigate} />
-      <RightButton page={pageNumber} maxPage={maxPage} navigate={navigate} />
+      <LeftButton page={page} navigate={navigate} category={category} />
+      <BackToZeroButton page={page} navigate={navigate} category={category} />
+      <PageNumbers
+        page={page}
+        maxPage={maxPage}
+        navigate={navigate}
+        category={category}
+      />
+      <RightButton
+        page={page}
+        maxPage={maxPage}
+        navigate={navigate}
+        category={category}
+      />
     </div>
   );
 };
