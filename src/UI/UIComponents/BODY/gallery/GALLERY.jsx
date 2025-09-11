@@ -9,6 +9,17 @@ import bodyNoScroll from "@functions/bodyNoScroll";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 
+// used for rendering products based on the current page
+const handleDisplayedProducts = (page, data) => {
+  // page starts on 0, goes to 1, 2, 3 etc.
+  const start = (+page - 1) * 9; // index of first object to display
+  // So, 0, 8, 18 etc.
+  const end = start + 9; // index of last object to display
+  // so, 8, 17, 26 etc.
+
+  return data?.slice(start, end); // slices only visible objects for each page
+};
+
 // buttons on left to select specific items based on their type
 const FilterSideBarWrapperComponent = ({ data, category }) => {
   const navigate = useNavigate();
@@ -41,25 +52,15 @@ const ProductsWrapperComponent = ({ filteredData, page }) => {
 
   const [loading, setLoading] = useState(false);
 
+  const { disableScroll, enableScroll } = bodyNoScroll();
+
   // effect which adds a loading-screen to each time products change; visible appealing. Avoids stuttering when elements update information.
   useEffect(() => {
     setPrevData(newData); // to display old old products while loading new ones
     setLoading(true);
-    const { disableScroll, enableScroll } = bodyNoScroll();
-
     disableScroll();
 
-    // page starts on 0, goes to 1, 2, 3 etc.
-    const start = (+page - 1) * 9; // index of first object to display
-    // So, 0, 8, 18 etc.
-    const end = start + 9; // index of last object to display
-    // so, 8, 17, 26 etc.
-
-    const displayedProducts = filteredData?.slice(start, end); // slices only visible objects for each page
-
-    if (!displayedProducts) return; // need to create error-page if something hangs
-
-    setNewData(displayedProducts);
+    setNewData(handleDisplayedProducts(page, filteredData));
 
     const timer = setTimeout(() => {
       setLoading(false);
@@ -110,20 +111,24 @@ const ProductsWrapperComponent = ({ filteredData, page }) => {
   );
 };
 
-const PageWrapperComponent = ({ filteredData }) => (
-  <div className={classes.pageWrapper}>
-    <PageSelector products={filteredData} />
-  </div>
-);
+const PageWrapperComponent = ({ filteredData }) => {
+  const maxPage = Math.ceil(filteredData?.length / 9); // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
+
+  return (
+    <div className={classes.pageWrapper}>
+      <PageSelector maxPage={maxPage} />
+    </div>
+  );
+};
 
 const Gallery = ({ data }) => {
-  // all types (paintings, prints, accessories are 'flattened')
-  // Works like a parent-variable. Always contains an array of all data, and never changes.
-  const [flattedData, setFlattedData] = useState(null);
-
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category") || ""; // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
   const page = searchParams.get("page") || 1;
+
+  // all types (paintings, prints, accessories are 'flattened')
+  // Works like a parent-variable. Always contains an array of all data, and never changes.
+  const [flattedData, setFlattedData] = useState(null);
 
   // Filters data based on current filter
   const filteredData = useMemo(() => {

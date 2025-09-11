@@ -1,7 +1,7 @@
 import ArrowRoundEdgesSVG from "@components/SVGS/arrowRoundEdgesSVG/arrowRoundEdgesSVG";
 import classes from "./pageSelector.module.scss";
 import { useMemo } from "react";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 // abstract button component which has the same structure & classes for all nav-buttons
 const NavButton = ({ onClick, disabled, label }) => {
@@ -140,14 +140,12 @@ const BackToZeroButton = ({ page, navigate, category }) => {
 };
 
 // buttons that change pages, or rather, changes the index in which products can be displayed
-const PageSelector = ({ products }) => {
+const PageSelector = ({ maxPage }) => {
   const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
   const page = +searchParams.get("page") || 1;
   const category = searchParams.get("category") || "";
-
-  const maxPage = Math.ceil(products?.length / 9); // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
 
   return (
     <div className={classes.pageSelector}>
