@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 import classes from "./GALLERY.module.scss";
 import PageSelector from "./pageSelector/pageSelector";
@@ -48,22 +48,30 @@ const FilterSideBarWrapperComponent = ({ data, category }) => {
 // objects with image and some info and a quick-view option
 const ProductsWrapperComponent = ({ filteredData, page }) => {
   const [newData, setNewData] = useState(filteredData); // if user changes
-  const [prevData, setPrevData] = useState(newData);
+  const [prevData, setPrevData] = useState(null);
 
   const [loading, setLoading] = useState(false);
 
   const { disableScroll, enableScroll } = bodyNoScroll();
 
+  const location = useLocation();
+
   // effect which adds a loading-screen to each time products change; visible appealing. Avoids stuttering when elements update information.
   useEffect(() => {
+    console.log(location.search.length);
+    if (location.search.length < 1) return;
+    console.log("asd");
+
     setPrevData(newData); // to display old old products while loading new ones
     setLoading(true);
     disableScroll();
 
-    setNewData(handleDisplayedProducts(page, filteredData));
+    const displayedProducts = handleDisplayedProducts(page, filteredData);
+    setNewData(displayedProducts);
 
     const timer = setTimeout(() => {
       setLoading(false);
+
       window.scroll({ top: 0 });
       enableScroll();
     }, 1500);
@@ -73,12 +81,6 @@ const ProductsWrapperComponent = ({ filteredData, page }) => {
       enableScroll();
     };
   }, [filteredData, page]);
-
-  useEffect(() => {
-    if (!loading) {
-      window.scroll({ top: 0 });
-    }
-  }, [loading]);
 
   // visible only while filter has changed
   const productIsLoading = (

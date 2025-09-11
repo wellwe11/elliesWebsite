@@ -22,18 +22,21 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
+ * Implement a button on uniqueImage page to help user navigate down to the details-page
+ * Implement a add to cart on uniqueImage page
+ * Fix uniqueImage so it scrolls from top section to lower section with mouse. Currently, it doesnt scroll smoothly, but snaps immediately to info-section
+ *
  * ------------------------------------------------
  * ** BUGS **
  * * navBar icon-animation (the blue/white circle) resets when you click it. Either, remove this, or add a spin-animation (360 spin) to click.
- *
- * Currently, uniqueImage page snaps very strangely with mouse-scroll
  * ------------------------------------------------
  * ** THINGS TO FIX **
+ * Footer on uniqueImage page
+ * allow scrolling on left side and right side screen on uniuqeImage page
+ * Quickview images (currently only displays placeholders)
+ * ** make explore item text smaller (possibly h4 or h5)
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
- * Implement a button on uniqueImage page to help user navigate down to the details-page
- * Implement a add to cart on uniqueImage page
- *
  * * On hover: display quickview & change image for product
  * on click: take to product-page
  *
@@ -44,11 +47,10 @@ export default App;
  *
  * Shopping-cart page
  * -- shopping-cart sidebar
- *
- * Loading page (if data not loaded)
  * Error page (if page not found)
- *
  * Contact us Page
+ *
+ * Intro page (while website loads)
  *
  * ------------------------------------------------
  */
