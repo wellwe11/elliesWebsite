@@ -1,4 +1,58 @@
+import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT";
 import classes from "./uniqueTopSection.module.scss";
+import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
+import ArrowSVG from "@components/SVGS/arrowSVG/arrowSVG";
+import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
+
+const ButtonsWrapper = () => {
+  // button sharing same classes and structure
+  const ButtonStyle = ({
+    text,
+    children,
+    fontType = "h6",
+    onClick,
+    onMouseEnter,
+    onMouseLeave,
+  }) => {
+    const FontType = fontType;
+    return (
+      <button
+        className={classes.button}
+        onClick={onClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        <div className={classes.textWrapper}>
+          {children}
+          <FontType className={classes.text}>{text}</FontType>
+        </div>
+      </button>
+    );
+  };
+
+  const addToCartButtonWrapper = (
+    <ButtonStyle text={"Add to cart"}>
+      <div className={classes.shoppingBagSVGWrapper}>
+        <ShoppingBagSVG />
+      </div>
+    </ButtonStyle>
+  );
+
+  const scrollDownButton = (
+    <ButtonStyle text={"Info"}>
+      <div className={classes.arrowSVGWrapper}>
+        <ArrowNoBodySVG strokeWidth={1.5} />
+      </div>
+    </ButtonStyle>
+  );
+
+  return (
+    <div className={classes.buttonsWrapper}>
+      {addToCartButtonWrapper}
+      {scrollDownButton}
+    </div>
+  );
+};
 
 // One big image that is showing you an example of the currently displayed art-piece
 const TopImage = ({ image }) => {
@@ -60,7 +114,14 @@ const UniqueTopSection = ({ topImage, textInfo, titleInfo }) => {
   const leftSectionWrapper = (
     <div className={classes.uniqueTopLeft}>
       <UniqueTopSectionTitle textInfo={textInfo} titleInfo={titleInfo} />
-      <UniqueTopSectionBio textInfo={textInfo} />
+      <div className={classes.uniqueTopBottom}>
+        <div className={classes.left}>
+          <ButtonsWrapper />
+        </div>
+        <div className={classes.right}>
+          <UniqueTopSectionBio textInfo={textInfo} />
+        </div>
+      </div>
     </div>
   );
 

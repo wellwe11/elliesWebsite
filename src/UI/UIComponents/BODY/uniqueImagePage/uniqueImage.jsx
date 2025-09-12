@@ -76,13 +76,17 @@ const UniqueImage = ({ data }) => {
   const info = foundObject._embedded;
 
   const uniqueTopSectionWrapper = (
-    <section className={`${classes.snapStart} ${classes.first}`}>
+    <section
+      className={`${classes.uniqueTopSectionWrapper} ${classes.snapStart} ${classes.first}`}
+    >
       <UniqueTopSectionComponent info={info} foundObject={foundObject} />
     </section>
   );
 
   const uniqueInfoSectionWrapper = (
-    <section className={classes.snapStart}>
+    <section
+      className={`${classes.uniqueInfoSectionWrapper} ${classes.snapStart}`}
+    >
       <UniqueInfoSectionComponent info={info} foundObject={foundObject} />
     </section>
   );

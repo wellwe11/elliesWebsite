@@ -9,6 +9,8 @@ import bodyNoScroll from "@functions/bodyNoScroll";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 
+// function which saves the previous page when you switch pages etc.
+// Used inside of ProductsWrapperComponent's useEffect to avoid page from scrolling to top unnecessarily
 function usePrevious(value) {
   const ref = useRef();
 
@@ -18,10 +20,6 @@ function usePrevious(value) {
 
   return ref.current;
 }
-
-export const scrollTop = () => {
-  window.scroll({ top: 0 });
-};
 
 // used for rendering products based on the current page
 const handleDisplayedProducts = (page, data) => {
@@ -44,7 +42,6 @@ const FilterSideBarWrapperComponent = ({ data, category }) => {
     } else {
       navigate(`/gallery?category=${e}&page=1`);
     }
-    // scrollTop();
   };
 
   const dataKeys = Object.keys(data); // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
@@ -75,7 +72,6 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
 
   // effect which adds a loading-screen to each time products change; visible appealing. Avoids stuttering when elements update information.
   useEffect(() => {
-    console.log(prevPage);
     if (!prevPage) return;
     if (location.search.length < 1) return;
 
@@ -84,15 +80,17 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
     setLoading(true);
     disableScroll();
 
+    // update new products
     const displayedProducts = handleDisplayedProducts(page, filteredData);
     setNewData(displayedProducts);
 
+    // initiate reload
     const timer = setTimeout(() => {
       setLoading(false);
       enableScroll();
 
       if (prevPage) {
-        scrollTop();
+        window.scroll({ top: 0 });
       }
     }, 1500);
 

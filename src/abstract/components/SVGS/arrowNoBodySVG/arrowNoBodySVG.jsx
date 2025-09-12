@@ -1,4 +1,4 @@
-const ArrowNoBodySVG = () => {
+const ArrowNoBodySVG = ({ strokeWidth = 2 }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -7,7 +7,7 @@ const ArrowNoBodySVG = () => {
       viewBox="0 0 16 16"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
     >
