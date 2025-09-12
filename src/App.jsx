@@ -35,6 +35,9 @@ export default App;
  * allow scrolling on left side and right side screen on uniuqeImage page
  * Quickview images (currently only displays placeholders)
  * ** make explore item text smaller (possibly h4 or h5)
+ *
+ * GALLERY has a function called scrollTop. I want it to work by conditions, rather than having a function directly inside of the onClick events...
+ * Because currently, the page-changer renders at 1500ms, and scrollTop works after 1580ms
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
  * * On hover: display quickview & change image for product

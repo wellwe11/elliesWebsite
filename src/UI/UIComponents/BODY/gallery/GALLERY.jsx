@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 import classes from "./GALLERY.module.scss";
@@ -9,10 +9,18 @@ import bodyNoScroll from "@functions/bodyNoScroll";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 
+function usePrevious(value) {
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current = value;
+  }, [value]);
+
+  return ref.current;
+}
+
 export const scrollTop = () => {
-  setTimeout(() => {
-    window.scroll({ top: 0 });
-  }, 1580);
+  window.scroll({ top: 0 });
 };
 
 // used for rendering products based on the current page
@@ -36,7 +44,7 @@ const FilterSideBarWrapperComponent = ({ data, category }) => {
     } else {
       navigate(`/gallery?category=${e}&page=1`);
     }
-    scrollTop();
+    // scrollTop();
   };
 
   const dataKeys = Object.keys(data); // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
@@ -53,9 +61,11 @@ const FilterSideBarWrapperComponent = ({ data, category }) => {
 };
 
 // objects with image and some info and a quick-view option
-const ProductsWrapperComponent = ({ filteredData, page }) => {
+const ProductsWrapperComponent = ({ page, filteredData }) => {
   const [newData, setNewData] = useState(filteredData); // if user changes
   const [prevData, setPrevData] = useState(null);
+
+  const prevPage = usePrevious(page); // used to determine if scrollTop should be used or not
 
   const [loading, setLoading] = useState(false);
 
@@ -65,28 +75,32 @@ const ProductsWrapperComponent = ({ filteredData, page }) => {
 
   // effect which adds a loading-screen to each time products change; visible appealing. Avoids stuttering when elements update information.
   useEffect(() => {
-    console.log(location.search.length);
+    console.log(prevPage);
+    if (!prevPage) return;
     if (location.search.length < 1) return;
-    console.log("asd");
 
-    setPrevData(newData); // to display old old products while loading new ones
+    // start loading animation
+    setPrevData(newData); // display old products while loading new ones
     setLoading(true);
     disableScroll();
 
     const displayedProducts = handleDisplayedProducts(page, filteredData);
-
     setNewData(displayedProducts);
 
     const timer = setTimeout(() => {
       setLoading(false);
       enableScroll();
+
+      if (prevPage) {
+        scrollTop();
+      }
     }, 1500);
 
     return () => {
       clearTimeout(timer);
       enableScroll();
     };
-  }, [filteredData, page]);
+  }, [page, filteredData]);
 
   // visible only while filter has changed
   const productIsLoading = (
@@ -131,8 +145,8 @@ const PageWrapperComponent = ({ filteredData }) => {
 
 const Gallery = ({ data }) => {
   const [searchParams] = useSearchParams();
-  const category = searchParams.get("category") || ""; // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
-  const page = searchParams.get("page") || 1;
+  const category = searchParams.get("category") || null; // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
+  const page = searchParams.get("page") || null;
 
   // all types (paintings, prints, accessories are 'flattened')
   // Works like a parent-variable. Always contains an array of all data, and never changes.
@@ -141,7 +155,8 @@ const Gallery = ({ data }) => {
   // Filters data based on current filter
   const filteredData = useMemo(() => {
     if (!flattedData) return []; // only works if data has been platted
-    if (!category) return flattedData; // if no filter, return unfilted data
+
+    if (!category) return flattedData || []; // if no filter, return unfilted data
 
     return data[category] || [];
   }, [category, flattedData]);

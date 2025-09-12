@@ -87,7 +87,7 @@ a {
 }
 
 html {
-  scrollbar-gutter: stable;
+  scrollbar-gutter: stable; // keep scrollbar visible while scroll is locked (to preserve window-size)
 }
 
 /* Set core body defaults */
