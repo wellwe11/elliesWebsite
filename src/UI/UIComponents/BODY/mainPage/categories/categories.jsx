@@ -45,7 +45,7 @@ const CategoryContainer = ({ categories }) => {
           className={classes.categoriesWrapper}
           key={index}
           style={calculatedCategoryStyle}
-          onClick={() => navigate(`./gallery/${category}/page#1`)}
+          onClick={() => navigate(`./gallery?category=${category}&page=1`)}
         >
           <div className={classes.imageWrapper}>
             <img
