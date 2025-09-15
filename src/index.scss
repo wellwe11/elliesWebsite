@@ -88,6 +88,7 @@ a {
 
 html {
   scrollbar-gutter: stable; // keep scrollbar visible while scroll is locked (to preserve window-size)
+  scroll-padding-top: 80px;
 }
 
 /* Set core body defaults */

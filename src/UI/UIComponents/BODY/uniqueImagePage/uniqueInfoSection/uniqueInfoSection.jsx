@@ -8,7 +8,11 @@ const InfoSectionBio = ({ details, bioRef }) => {
 
   // a list of details for set of images. I.e. colors, width, height etc.
   const mappedBioDetails = bioKeys.map((key, index) => (
-    <div className={classes.detailsWrapper} key={index}>
+    <div
+      className={classes.detailsWrapper}
+      key={index}
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
       <p className={classes.detailText}>{key}</p>
       <p className={classes.detailText}>{bioValues[index]}</p>
     </div>
@@ -22,7 +26,7 @@ const InfoSectionBio = ({ details, bioRef }) => {
   );
 
   return (
-    <div className={classes.unqieInfoRightBio} ref={bioRef}>
+    <div className={classes.uniqeInfoRightBio} ref={bioRef}>
       {detailsTitle}
       {mappedBioDetails}
     </div>
@@ -72,13 +76,14 @@ const UniqueInfoSection = ({ images, textInfo }) => {
   const bioRef = useRef(null);
 
   useEffect(() => {
-    transitionInAnimation(imageRef, classes.intersectingImage, true);
+    transitionInAnimation(imageRef, classes.intersectingImage, false, 40);
     transitionInAnimation(
       smallerImagesRef,
-      classes.intersectingSmallerImages,
-      true
+      classes.intersectingInfoRight,
+      false,
+      30
     );
-    transitionInAnimation(bioRef, classes.intersectingSmallerImages, true);
+    transitionInAnimation(bioRef, classes.intersectingBioRight, false, 10);
   }, []);
 
   const leftSectionWrapper = (

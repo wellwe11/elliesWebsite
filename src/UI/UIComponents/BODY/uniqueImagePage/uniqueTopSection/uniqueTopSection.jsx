@@ -1,33 +1,26 @@
-import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT";
 import classes from "./uniqueTopSection.module.scss";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
-import ArrowSVG from "@components/SVGS/arrowSVG/arrowSVG";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 
 const ButtonsWrapper = () => {
   // button sharing same classes and structure
-  const ButtonStyle = ({
-    text,
-    children,
-    fontType = "h6",
-    onClick,
-    onMouseEnter,
-    onMouseLeave,
-  }) => {
+  const ButtonStyle = ({ text, children, fontType = "h6", onClick }) => {
     const FontType = fontType;
     return (
-      <button
-        className={classes.button}
-        onClick={onClick}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      >
+      <button className={classes.button} onClick={onClick}>
         <div className={classes.textWrapper}>
           {children}
           <FontType className={classes.text}>{text}</FontType>
         </div>
       </button>
     );
+  };
+
+  const scrollBottom = () => {
+    window.scrollTo({
+      top: window.innerHeight + 140,
+      behavior: "smooth",
+    });
   };
 
   const addToCartButtonWrapper = (
@@ -39,7 +32,7 @@ const ButtonsWrapper = () => {
   );
 
   const scrollDownButton = (
-    <ButtonStyle text={"Info"}>
+    <ButtonStyle text={"Info"} onClick={() => scrollBottom()}>
       <div className={classes.arrowSVGWrapper}>
         <ArrowNoBodySVG strokeWidth={1.5} />
       </div>

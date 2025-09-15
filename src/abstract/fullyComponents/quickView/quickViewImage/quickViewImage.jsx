@@ -23,7 +23,10 @@ const ViewProductButton = () => {
     <div className={classes.viewProductButtonWrapper}>
       <QuickViewButton
         text={<h5 className={classes.buttonText}>Explore item</h5>}
-        onClick={() => navigate(`/uniqueImage/${tabType}#${productId}`)}
+        onClick={() => {
+          navigate(`/uniqueImage/${tabType}#${productId}`);
+          bodyNoScroll().enableScroll();
+        }}
       />
     </div>
   );

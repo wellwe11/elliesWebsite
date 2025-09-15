@@ -1,10 +1,11 @@
 import classes from "./uniqueImage.module.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import mainImage from "@assets/welcomeImage.jpg";
 
 import UniqueTopSection from "./uniqueTopSection/uniqueTopSection";
 import UniqueInfoSection from "./uniqueInfoSection/uniqueInfoSection";
-import { useContext } from "react";
+import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 
 // Component containing all info for top-section
 const UniqueTopSectionComponent = ({ info, foundObject }) => {
@@ -52,6 +53,8 @@ const UniqueImage = ({ data }) => {
   // state that will store correct item - if you're on this page, correct product needs to be displayed.
   const [foundObject, setFoundObject] = useState(null);
 
+  const containerRef = useRef();
+
   // checks params for which type (painting/prints etc...) & id (id is printed on each objected after fetch, which is based on their position)
   const { type } = useParams();
   const { hash } = useLocation();
@@ -76,24 +79,28 @@ const UniqueImage = ({ data }) => {
   const info = foundObject._embedded;
 
   const uniqueTopSectionWrapper = (
-    <section
-      className={`${classes.uniqueTopSectionWrapper} ${classes.snapStart} ${classes.first}`}
-    >
+    <section className={classes.uniqueTopSectionWrapper}>
       <UniqueTopSectionComponent info={info} foundObject={foundObject} />
     </section>
   );
 
   const uniqueInfoSectionWrapper = (
-    <section
-      className={`${classes.uniqueInfoSectionWrapper} ${classes.snapStart}`}
-    >
+    <section className={classes.uniqueInfoSectionWrapper}>
       <UniqueInfoSectionComponent info={info} foundObject={foundObject} />
     </section>
   );
 
+  // seperates sections with some form of image (currently with a placeholder) and margins
+  const sectionSeperatorWithImage = (
+    <div className={classes.sectionSeperationWrapper}>
+      <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
+    </div>
+  );
+
   return (
-    <div className={classes.uniqueImage}>
+    <div className={classes.uniqueImage} ref={containerRef}>
       {uniqueTopSectionWrapper}
+      {sectionSeperatorWithImage}
       {uniqueInfoSectionWrapper}
     </div>
   );

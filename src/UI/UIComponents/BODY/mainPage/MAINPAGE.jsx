@@ -85,6 +85,13 @@ const MainPage = ({ topLayerData, serviceData }) => {
     </section>
   );
 
+  //   // spinning wheel of images from ellies page
+  const instagramSection = (
+    <section>
+      <h1>insta</h1>
+    </section>
+  );
+
   // seperates sections with some form of image (currently with a placeholder) and margins
   const sectionSeperatorWithImage = (
     <div className={classes.sectionSeperationWrapper}>

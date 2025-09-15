@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, useParams } from "react-router-dom";
 import { Suspense, useEffect, useState } from "react";
 import classes from "./SCREENCONTAINER.module.scss";
 
@@ -21,6 +21,14 @@ const ScreenContainer = () => {
 
   const location = useLocation();
   const state = location.state;
+  const tab = location.pathname.split("/")[1];
+
+  // scroll back to top each time you navigate to a new page
+  useEffect(() => {
+    if (tab === "preview") return;
+
+    window.scroll({ top: 0 });
+  }, [tab]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -101,8 +109,7 @@ const ScreenContainer = () => {
               </Routes>
             )}
           </UniqueImageContext.Provider>
-          {/* <Footer /> */
-          /** Currently inactive because it doesnt work with uniqueImage-page */}
+          <Footer />
         </div>
       </div>
     </>

@@ -51,7 +51,7 @@ const SetOfExampleCollectionSection = ({ data }) => {
     return (
       <section
         className={classes.exampleCollectionSection}
-        onClick={() => navigate(`uniqueImage/${linkType}/${linkId}`)}
+        onClick={() => navigate(`uniqueImage/${linkType}#${linkId}`)}
       >
         <SetOfimagesWithText
           images={printImagesSrc}
