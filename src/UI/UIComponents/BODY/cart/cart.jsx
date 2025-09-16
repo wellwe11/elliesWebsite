@@ -4,12 +4,13 @@ import { useContext, useEffect } from "react";
 import cartContext from "../cartContext";
 import bodyNoScroll from "@functions/bodyNoScroll";
 import { useNavigate } from "react-router-dom";
+import { addToCart, removeFromCart } from "@functions/handleCart";
 
 const Product = ({ product, length }) => {
-  const { setCart } = useContext(cartContext);
+  const { cart, setCart } = useContext(cartContext);
   // for payment details such as name, amount, single-price.
 
-  const specificProduct = product[0]; // select first item in array, since all items are identical.
+  const specificProduct = product?.[0]; // select first item in array, since all items are identical.
   const amountOfProducts = length;
   const {
     image: image,
@@ -31,11 +32,25 @@ const Product = ({ product, length }) => {
     </div>
   );
 
+  const handlePlus = (item) => addToCart(setCart, item);
+
+  const handleMinus = (item) => removeFromCart(setCart, item);
+
   const productAmount = (
     <div className={classes.productAmount}>
-      <button className={`${classes.amountBtn} ${classes.minus}`}>-</button>
+      <button
+        className={`${classes.amountBtn} ${classes.minus}`}
+        onClick={() => handleMinus(product)}
+      >
+        -
+      </button>
       <h6 className={classes.amountText}>{amountOfProducts}</h6>
-      <button className={`${classes.amountBtn} ${classes.plus}`}>+</button>
+      <button
+        className={`${classes.amountBtn} ${classes.plus}`}
+        onClick={() => handlePlus(product[0])}
+      >
+        +
+      </button>
     </div>
   );
 
@@ -67,7 +82,6 @@ const CartProducts = () => {
   const { cart } = useContext(cartContext);
 
   const cartEntries = Object.entries(cart);
-  console.log(cartEntries);
 
   const cartProductsWrapper = cartEntries.map(([_, arr], index) => (
     <Product key={index} product={arr} length={arr.length} />
@@ -91,8 +105,6 @@ const Cart = () => {
 
   // add + and - button to increase/decrease amount of objects per item
 
-  console.log(cart, totalPriceVar, totalItemsVar);
-
   useEffect(() => {
     disableScroll();
   }, []);
@@ -101,6 +113,8 @@ const Cart = () => {
     navigate(-1);
     enableScroll();
   };
+
+  const toPaymentMethod = <button>To payment method</button>;
 
   return (
     <div className={classes.cart}>
@@ -114,6 +128,7 @@ const Cart = () => {
           <h1>Total items: {totalItemsVar}</h1>
           <h1>Total price: {totalPriceVar}</h1>
         </div>
+        {toPaymentMethod}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import classes from "./products.module.scss";
 
 import QuickView from "@fullyComponents/quickView/quickView";
-import addToCart from "@functions/addToCart";
+import { addToCart } from "@functions/handleCart";
 import { useContext } from "react";
 import cartContext from "../../cartContext";
 

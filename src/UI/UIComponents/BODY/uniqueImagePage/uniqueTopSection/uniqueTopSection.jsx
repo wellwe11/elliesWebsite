@@ -3,7 +3,7 @@ import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 import { useContext } from "react";
 import cartContext from "../../cartContext";
-import addToCart from "@functions/addToCart";
+import { addToCart } from "@functions/handleCart";
 
 const ButtonsWrapper = ({ foundObject }) => {
   const { cart, setCart } = useContext(cartContext);

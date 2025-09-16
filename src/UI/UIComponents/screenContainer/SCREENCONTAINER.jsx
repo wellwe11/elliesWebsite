@@ -20,12 +20,12 @@ const ScreenContainer = () => {
   const [serviceData, setServiceData] = useState(null); // Services data
 
   const [cart, setCart] = useState({}); // context for whichever product is in focus
-  const totalItems = () => Object.values(cart).flat()?.length;
+  const totalItems = () => Object.values(cart)?.flat()?.length;
 
   const totalPrice = () =>
     Object.values(cart)
       .flat()
-      .reduce((sum, item) => sum + item._embedded.details.price, 0);
+      .reduce((sum, item) => sum + item?._embedded?.details?.price, 0);
 
   const location = useLocation();
   const state = location.state;
