@@ -5,7 +5,6 @@ import classes from "./GALLERY.module.scss";
 import PageSelector from "./pageSelector/pageSelector";
 import FilterSideBar from "./filterSideBar/filterSideBar";
 import Products from "./products/products";
-import bodyNoScroll from "@functions/bodyNoScroll";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 
@@ -64,9 +63,7 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
 
   const prevPage = usePrevious(page); // used to determine if scrollTop should be used or not
 
-  const [loading, setLoading] = useState(false);
-
-  const { disableScroll, enableScroll } = bodyNoScroll();
+  const [loading, setLoading] = useState(true);
 
   const location = useLocation();
 
@@ -78,7 +75,6 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
     // start loading animation
     setPrevData(newData); // display old products while loading new ones
     setLoading(true);
-    disableScroll();
 
     // update new products
     const displayedProducts = handleDisplayedProducts(page, filteredData);
@@ -87,7 +83,6 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
     // initiate reload
     const timer = setTimeout(() => {
       setLoading(false);
-      enableScroll();
 
       if (prevPage) {
         window.scroll({ top: 0 });
@@ -96,7 +91,6 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
 
     return () => {
       clearTimeout(timer);
-      enableScroll();
     };
   }, [page, filteredData]);
 
@@ -104,7 +98,7 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
   const productIsLoading = (
     <div
       className={classes.productsLoading}
-      style={{ visibility: !loading ? "hidden" : "visible" }}
+      style={{ visibility: !loading ? "hidden" : "visible" }} // reason for having an additional visibility to loadingIconWithBackground's own conditionial visiblity is to display 'old' products while loading, to give the appearance that old products are displayable while new ones are loading in and pre-rendering
     >
       <LoadingWrapper condition={loading} />
       <Products products={prevData} />
@@ -116,7 +110,7 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
     <div
       className={classes.productsLoaded}
       style={{
-        visibility: loading ? "hidden" : "visible",
+        visibility: loading ? "hidden" : "visible", // same as productIsLoading - preloading products while keeping visibility hidden, to avoid a laggy appearance once the products have fully loaded
       }}
     >
       <Products products={newData} />
@@ -143,7 +137,7 @@ const PageWrapperComponent = ({ filteredData }) => {
 
 const Gallery = ({ data }) => {
   const [searchParams] = useSearchParams();
-  const category = searchParams.get("category") || null; // category: paintings, prints etc for link. Id for page-number. If id is active, means you're currently on a category.
+  const category = searchParams.get("category") || null;
   const page = searchParams.get("page") || null;
 
   // all types (paintings, prints, accessories are 'flattened')

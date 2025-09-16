@@ -11,11 +11,10 @@ import tryFetchFn from "@functions/tryFetchFn";
 import UniqueImageContext from "../BODY/uniqueImageContext";
 import Gallery from "../BODY/gallery/GALLERY";
 import QuickViewImage from "@fullyComponents/quickView/quickViewImage/quickViewImage";
-import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 
 const ScreenContainer = () => {
   const [topLayerData, setTopLayerData] = useState(null); // fetched data with id added
-  const [loadPage, setLoadPage] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [serviceData, setServiceData] = useState(null); // Services data
   const [uniqueImage, setUniqueImage] = useState(null); // context for whichever product is in focus
 
@@ -31,6 +30,7 @@ const ScreenContainer = () => {
   }, [tab]);
 
   useEffect(() => {
+    setLoading(true);
     const fetchData = async () => {
       const imagesLink = "/API_imitation/images.json";
       const servicesLink = "/API_imitation/services.json";
@@ -55,7 +55,7 @@ const ScreenContainer = () => {
             setTopLayerData(assignIds);
           }, 1400);
           setTimeout(() => {
-            setLoadPage(true);
+            setLoading(false);
           }, 1500);
         }
 
@@ -67,12 +67,10 @@ const ScreenContainer = () => {
 
   return (
     <>
-      <LoadingWrapper condition={!loadPage} />
-
       <div
         className={classes.widthContainer}
         style={{
-          visibility: loadPage ? "visible" : "hidden",
+          visibility: !loading ? "visible" : "hidden",
         }}
       >
         <Navbar />

@@ -11,7 +11,7 @@ const InfoSectionBio = ({ details, bioRef }) => {
     <div
       className={classes.detailsWrapper}
       key={index}
-      style={{ animationDelay: `${index * 0.1}s` }}
+      style={{ animationDelay: `${index * 0.08}s` }}
     >
       <p className={classes.detailText}>{key}</p>
       <p className={classes.detailText}>{bioValues[index]}</p>

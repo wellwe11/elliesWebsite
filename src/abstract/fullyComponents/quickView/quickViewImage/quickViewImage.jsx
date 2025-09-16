@@ -186,11 +186,14 @@ const QuickViewImage = ({ data }) => {
   const productId = +hash.replace(/\D/g, ""); // current page;
 
   useEffect(() => {
+    if (quickViewObj) bodyNoScroll().disableScroll(); // disables scroll while quickview is active
+  }, [quickViewObj]);
+
+  useEffect(() => {
     if (!data) return;
 
     // finds matching obj
     const foundObj = data[tabType].find((a) => +a.id === productId);
-
     // tries to find obj quickly
     setTimeout(() => {
       if (foundObj) {
@@ -210,9 +213,13 @@ const QuickViewImage = ({ data }) => {
     }
 
     // if no item is found by 10 seconds, navigates to error-page (which will be made specifically for not finding products in future)
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       if (!foundObj) navigate("/Error");
     }, 10000);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [data]);
 
   // white background-image that differs pop-up from the rest of the website

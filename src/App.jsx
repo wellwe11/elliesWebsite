@@ -22,9 +22,7 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * Implement a button on uniqueImage page to help user navigate down to the details-page
  * Implement a add to cart on uniqueImage page
- * Fix uniqueImage so it scrolls from top section to lower section with mouse. Currently, it doesnt scroll smoothly, but snaps immediately to info-section
  *
  * ------------------------------------------------
  * ** BUGS **
