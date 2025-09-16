@@ -18,7 +18,14 @@ const ScreenContainer = () => {
   const [topLayerData, setTopLayerData] = useState(null); // fetched data with id added
   const [loading, setLoading] = useState(false);
   const [serviceData, setServiceData] = useState(null); // Services data
+
   const [cart, setCart] = useState({}); // context for whichever product is in focus
+  const totalItems = () => Object.values(cart).flat()?.length;
+
+  const totalPrice = () =>
+    Object.values(cart)
+      .flat()
+      .reduce((sum, item) => sum + item._embedded.details.price, 0);
 
   const location = useLocation();
   const state = location.state;
@@ -79,7 +86,9 @@ const ScreenContainer = () => {
       >
         <Navbar />
         <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
-          <UniqueImageContext.Provider value={{ cart, setCart }}>
+          <UniqueImageContext.Provider
+            value={{ cart, setCart, totalItems, totalPrice }}
+          >
             <Routes location={state?.backgroundLocation || location}>
               <Route
                 path="/"
