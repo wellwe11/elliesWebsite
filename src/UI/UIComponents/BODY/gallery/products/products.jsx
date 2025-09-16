@@ -2,9 +2,14 @@ import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import classes from "./products.module.scss";
 
 import QuickView from "@fullyComponents/quickView/quickView";
+import addToCart from "@functions/addToCart";
+import { useContext } from "react";
+import cartContext from "../../cartContext";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
-const ProductBio = ({ bioData }) => {
+const ProductBio = ({ product, bioData }) => {
+  const { setCart } = useContext(cartContext);
+
   // I.e. Paintings, Prints etc.
   const type =
     bioData.details.type.slice(0, 1).toUpperCase() +
@@ -34,9 +39,16 @@ const ProductBio = ({ bioData }) => {
     </div>
   );
 
+  const handleCart = (item) => {
+    addToCart(setCart, item);
+  };
+
   // button which will be adding object to a context containing the cart-information.
   const addToCartButton = (
-    <button className={classes.addToCartButton}>
+    <button
+      className={classes.addToCartButton}
+      onClick={() => handleCart(product)}
+    >
       <div className={classes.shoppingBagSVGWrapper}>
         <ShoppingBagSVG />
       </div>
@@ -71,7 +83,7 @@ const Products = ({ products }) => {
             productId={product.id}
           />
 
-          <ProductBio bioData={product?._embedded} />
+          <ProductBio product={product} bioData={product?._embedded} />
         </div>
       ))}
     </div>
