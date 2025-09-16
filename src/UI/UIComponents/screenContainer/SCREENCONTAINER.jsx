@@ -18,7 +18,7 @@ const ScreenContainer = () => {
   const [topLayerData, setTopLayerData] = useState(null); // fetched data with id added
   const [loading, setLoading] = useState(false);
   const [serviceData, setServiceData] = useState(null); // Services data
-  const [cart, setCart] = useState([]); // context for whichever product is in focus
+  const [cart, setCart] = useState({}); // context for whichever product is in focus
 
   const location = useLocation();
   const state = location.state;

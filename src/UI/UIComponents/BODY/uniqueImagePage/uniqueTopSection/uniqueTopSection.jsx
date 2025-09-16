@@ -3,6 +3,7 @@ import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 import { useContext } from "react";
 import cartContext from "../../cartContext";
+import addToCart from "@functions/addToCart";
 
 const ButtonsWrapper = ({ foundObject }) => {
   const { cart, setCart } = useContext(cartContext);
@@ -27,12 +28,19 @@ const ButtonsWrapper = ({ foundObject }) => {
     });
   };
 
-  const addToCart = (item) => {
-    setCart([...cart, item]);
+  const handleCart = (item) => {
+    addToCart(setCart, item);
   };
 
   const addToCartButtonWrapper = (
-    <ButtonStyle text={"Add to cart"} onClick={() => addToCart(foundObject)}>
+    <ButtonStyle
+      text={"Add to cart"}
+      onClick={() =>
+        handleCart(
+          foundObject /** foundObject is the currently displayed product which user is visiting */
+        )
+      }
+    >
       <div className={classes.shoppingBagSVGWrapper}>
         <ShoppingBagSVG />
       </div>
