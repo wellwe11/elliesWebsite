@@ -5,12 +5,55 @@ import cartContext from "../cartContext";
 import bodyNoScroll from "@functions/bodyNoScroll";
 import { useNavigate } from "react-router-dom";
 
-const Product = ({ product }) => {
-  // for details such as color, price etc.
-  console.log(product);
+const Product = ({ product, length }) => {
+  const { setCart } = useContext(cartContext);
+  // for payment details such as name, amount, single-price.
 
-  const { cart } = useContext(cartContext);
-  const flattedProducts = Object.values(cart).flat();
+  const specificProduct = product[0]; // select first item in array, since all items are identical.
+  const amountOfProducts = length;
+  const {
+    image: image,
+    _embedded: {
+      setTitle: name,
+      details: { price: price, type: type },
+    },
+  } = specificProduct;
+
+  const productImage = (
+    <div className={classes.productImageWrapper}>
+      <img src={image} alt="" />
+    </div>
+  );
+
+  const productName = (
+    <div className={classes.productName}>
+      <h5>{name}</h5>
+    </div>
+  );
+
+  const productAmount = (
+    <div className={classes.productAmount}>
+      <h6>{amountOfProducts}</h6>
+    </div>
+  );
+
+  const productPrice = (
+    <div className={classes.productPrice}>
+      <p>{price}</p>
+    </div>
+  );
+
+  const productType = (
+    <div className={classes.productType}>
+      <p>{type}</p>
+    </div>
+  );
+
+  return (
+    <div className={classes.product}>
+      <h1>product</h1>
+    </div>
+  );
 };
 
 const CartProducts = ({}) => {
@@ -19,11 +62,9 @@ const CartProducts = ({}) => {
   const cartEntries = Object.entries(cart);
   console.log(cartEntries);
 
-  const cartProductsWrapper = cartEntries.map(([name, arr], index) => (
-    <div key={index}>
-      <h3>{name}</h3>
-      <Product product={arr} />
-      <h3>{arr.length}</h3>
+  const cartProductsWrapper = cartEntries.map(([_, arr], index) => (
+    <div key={index} className={classes.productsWrapper}>
+      <Product product={arr} length={arr.length} />
     </div>
   ));
 
@@ -61,9 +102,9 @@ const Cart = () => {
       <div className={classes.background} onClick={handleNavigateBack} />
       <div className={classes.cartWrapper}>
         <h1>cart</h1>
+        <CartProducts />
         <h1>Total items: {totalItemsVar}</h1>
         <h1>Total price: {totalPriceVar}</h1>
-        <CartProducts />
       </div>
     </div>
   );

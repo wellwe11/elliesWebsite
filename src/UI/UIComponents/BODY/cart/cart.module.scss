@@ -10,12 +10,14 @@
   display: flex;
   justify-content: flex-end;
 
+  // background to tone done backgroundLocation while cart is visible
   .background {
     flex: 1;
     background-color: rgba(255, 255, 255, 0.745);
     cursor: pointer;
   }
 
+  // wrapper for products which have been added to cart by user
   .cartWrapper {
     border-left: 2px solid black;
     padding: 10px 20px;
@@ -27,5 +29,35 @@
     h1 {
       color: black;
     }
+  }
+}
+
+// CartProducts
+.cartProductsContainer {
+  // cartProductsWrapper variable
+  .productsWrapper {
+  }
+}
+
+// Products
+.product {
+  // productImage variable
+  .productImageWrapper {
+  }
+
+  // productName variable
+  .productName {
+  }
+
+  // productAmount variable
+  .productAmount {
+  }
+
+  // productPrice variable
+  .productPrice {
+  }
+
+  // productType variable
+  .productType {
   }
 }

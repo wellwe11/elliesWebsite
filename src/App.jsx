@@ -29,6 +29,7 @@ export default App;
  * ------------------------------------------------
  * ** BUGS **
  * If user clicks quickView button, then explore (go to uniuqeImage), and then navigates back directly to preview, loading never ends
+ * -- same with cart-page. Just keeps loading after reload
  * * navBar icon-animation (the blue/white circle) resets when you click it. Either, remove this, or add a spin-animation (360 spin) to click.
  * ------------------------------------------------
  * ** THINGS TO FIX **
