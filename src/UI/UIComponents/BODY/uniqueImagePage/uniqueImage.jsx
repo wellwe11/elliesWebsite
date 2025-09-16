@@ -32,6 +32,7 @@ const UniqueTopSectionComponent = ({ info, foundObject }) => {
         titleOne: uniqueTopSectionTitles.title,
         titleTwo: uniqueTopSectionTitles.bio,
       }}
+      foundObject={foundObject}
     />
   );
 };

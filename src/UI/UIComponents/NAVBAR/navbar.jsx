@@ -13,6 +13,8 @@ import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 import { useLocation } from "react-router-dom";
 
 const ShoppingCart = () => {
+  const handleNavigate = handleNavigateSmooth();
+
   // Simple text related to shoppingcart. Text is static and will remain the same.
   const shoppingBagText = (
     <div className={classes.shoppingBagText}>
@@ -28,7 +30,10 @@ const ShoppingCart = () => {
   );
 
   return (
-    <div className={classes.shoppingCart}>
+    <div
+      className={classes.shoppingCart}
+      onClick={() => handleNavigate("/cart")}
+    >
       {shoppingBagText}
       {shoppingBagSvgWrapper}
     </div>

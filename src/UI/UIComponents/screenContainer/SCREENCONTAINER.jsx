@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation, useParams } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, useEffect, useState } from "react";
 import classes from "./SCREENCONTAINER.module.scss";
 
@@ -8,15 +8,17 @@ import MainPage from "../BODY/mainPage/MAINPAGE";
 import UniqueImage from "../BODY/uniqueImagePage/uniqueImage";
 import tryFetchFn from "@functions/tryFetchFn";
 
-import UniqueImageContext from "../BODY/uniqueImageContext";
+import UniqueImageContext from "../BODY/cartContext";
 import Gallery from "../BODY/gallery/GALLERY";
 import QuickViewImage from "@fullyComponents/quickView/quickViewImage/quickViewImage";
+import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
+import Cart from "../BODY/cart/cart";
 
 const ScreenContainer = () => {
   const [topLayerData, setTopLayerData] = useState(null); // fetched data with id added
   const [loading, setLoading] = useState(false);
   const [serviceData, setServiceData] = useState(null); // Services data
-  const [uniqueImage, setUniqueImage] = useState(null); // context for whichever product is in focus
+  const [cart, setCart] = useState([]); // context for whichever product is in focus
 
   const location = useLocation();
   const state = location.state;
@@ -67,6 +69,8 @@ const ScreenContainer = () => {
 
   return (
     <>
+      {/* <LoadingWrapper condition={loading} /> This stays disabled because it bugs the loading-conditions - will add another 'intro' loading for the webstie in the future perhaps*/}
+
       <div
         className={classes.widthContainer}
         style={{
@@ -75,7 +79,7 @@ const ScreenContainer = () => {
       >
         <Navbar />
         <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
-          <UniqueImageContext.Provider value={{ uniqueImage, setUniqueImage }}>
+          <UniqueImageContext.Provider value={{ cart, setCart }}>
             <Routes location={state?.backgroundLocation || location}>
               <Route
                 path="/"
@@ -96,6 +100,8 @@ const ScreenContainer = () => {
                 path="/gallery/:category?/:id?/*"
                 element={<Gallery data={topLayerData} />}
               />
+
+              <Route path="/cart" element={<Cart />} />
             </Routes>
 
             {state?.backgroundLocation && (

@@ -1,8 +1,12 @@
 import classes from "./uniqueTopSection.module.scss";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
+import { useContext } from "react";
+import cartContext from "../../cartContext";
 
-const ButtonsWrapper = () => {
+const ButtonsWrapper = ({ foundObject }) => {
+  const { cart, setCart } = useContext(cartContext);
+
   // button sharing same classes and structure
   const ButtonStyle = ({ text, children, fontType = "h6", onClick }) => {
     const FontType = fontType;
@@ -23,8 +27,12 @@ const ButtonsWrapper = () => {
     });
   };
 
+  const addToCart = (item) => {
+    setCart([...cart, item]);
+  };
+
   const addToCartButtonWrapper = (
-    <ButtonStyle text={"Add to cart"}>
+    <ButtonStyle text={"Add to cart"} onClick={() => addToCart(foundObject)}>
       <div className={classes.shoppingBagSVGWrapper}>
         <ShoppingBagSVG />
       </div>
@@ -103,13 +111,13 @@ const UniqueTopSectionBio = ({ textInfo: { bioTitle, bioText } }) => {
   );
 };
 
-const UniqueTopSection = ({ topImage, textInfo, titleInfo }) => {
+const UniqueTopSection = ({ topImage, textInfo, titleInfo, foundObject }) => {
   const leftSectionWrapper = (
     <div className={classes.uniqueTopLeft}>
       <UniqueTopSectionTitle textInfo={textInfo} titleInfo={titleInfo} />
       <div className={classes.uniqueTopBottom}>
         <div className={classes.left}>
-          <ButtonsWrapper />
+          <ButtonsWrapper foundObject={foundObject} />
         </div>
         <div className={classes.right}>
           <UniqueTopSectionBio textInfo={textInfo} />

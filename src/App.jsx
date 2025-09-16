@@ -22,7 +22,9 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * Implement a add to cart on uniqueImage page
+ *
+ * * Shopping-cart page
+ * -- shopping-cart sidebar
  *
  * ------------------------------------------------
  * ** BUGS **
@@ -41,13 +43,14 @@ export default App;
  * * On hover: display quickview & change image for product
  * on click: take to product-page
  *
+ * * Implement a add to cart on uniqueImage page
+ * -- make it functional
+ *
  * ------------------------------------------------
  * ** NEW COMPONENTS **
  * Create an instagram section - this should be a spinning wheel that simply has images from ellies instagram-page, and when clicked, takes you to ellies instagram
  * Create a 'new-in' component, which is a stand-alone component. Not related to prints/paintings sections. It simply displays something with a nice animation. (this should seperate prints & paintings)
  *
- * Shopping-cart page
- * -- shopping-cart sidebar
  * Error page (if page not found)
  * Contact us Page
  *
