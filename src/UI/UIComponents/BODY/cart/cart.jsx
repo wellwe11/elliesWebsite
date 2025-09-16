@@ -15,7 +15,7 @@ const Product = ({ product, length }) => {
     image: image,
     _embedded: {
       setTitle: name,
-      details: { price: price, type: type },
+      details: { price: price },
     },
   } = specificProduct;
 
@@ -27,45 +27,50 @@ const Product = ({ product, length }) => {
 
   const productName = (
     <div className={classes.productName}>
-      <h5>{name}</h5>
+      <p>{name}</p>
     </div>
   );
 
   const productAmount = (
     <div className={classes.productAmount}>
-      <h6>{amountOfProducts}</h6>
+      <button className={`${classes.amountBtn} ${classes.minus}`}>-</button>
+      <h6 className={classes.amountText}>{amountOfProducts}</h6>
+      <button className={`${classes.amountBtn} ${classes.plus}`}>+</button>
     </div>
   );
 
+  const currency = "€"; // need to update for a currency based on location/pref
   const productPrice = (
     <div className={classes.productPrice}>
-      <p>{price}</p>
-    </div>
-  );
-
-  const productType = (
-    <div className={classes.productType}>
-      <p>{type}</p>
+      <p>
+        {price} {currency}
+      </p>
     </div>
   );
 
   return (
     <div className={classes.product}>
-      <h1>product</h1>
+      <div className={classes.imageContainer}>{productImage}</div>
+      <div className={classes.leftSection}>
+        {productName}
+        {productAmount}
+      </div>
+      <div className={classes.rightSection}>
+        {productPrice}
+        <div />
+      </div>
     </div>
   );
 };
 
-const CartProducts = ({}) => {
+const CartProducts = () => {
   const { cart } = useContext(cartContext);
 
   const cartEntries = Object.entries(cart);
   console.log(cartEntries);
 
   const cartProductsWrapper = cartEntries.map(([_, arr], index) => (
-    <div key={index} className={classes.productsWrapper}>
-      <Product product={arr} length={arr.length} />
-    </div>
+    <Product key={index} product={arr} length={arr.length} />
   ));
 
   return (
@@ -102,9 +107,13 @@ const Cart = () => {
       <div className={classes.background} onClick={handleNavigateBack} />
       <div className={classes.cartWrapper}>
         <h1>cart</h1>
-        <CartProducts />
-        <h1>Total items: {totalItemsVar}</h1>
-        <h1>Total price: {totalPriceVar}</h1>
+        <div className={classes.productsWrapper}>
+          <CartProducts />
+        </div>
+        <div className={classes.totalWrapper}>
+          <h1>Total items: {totalItemsVar}</h1>
+          <h1>Total price: {totalPriceVar}</h1>
+        </div>
       </div>
     </div>
   );
