@@ -10,10 +10,18 @@ import logoImage from "@assets/logo.png";
 import { useEffect, useState } from "react";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ShoppingCart = () => {
-  const handleNavigate = handleNavigateSmooth();
+  const navigate = useNavigate();
+
+  const navigateCart = () => {
+    if (location.pathname !== "/cart") {
+      navigate("./cart", {
+        state: { backgroundLocation: location.pathname },
+      });
+    }
+  };
 
   // Simple text related to shoppingcart. Text is static and will remain the same.
   const shoppingBagText = (
@@ -30,10 +38,7 @@ const ShoppingCart = () => {
   );
 
   return (
-    <div
-      className={classes.shoppingCart}
-      onClick={() => handleNavigate("/cart")}
-    >
+    <div className={classes.shoppingCart} onClick={navigateCart}>
       {shoppingBagText}
       {shoppingBagSvgWrapper}
     </div>

@@ -26,7 +26,7 @@ const ScreenContainer = () => {
 
   // scroll back to top each time you navigate to a new page
   useEffect(() => {
-    if (tab === "preview") return;
+    if (tab === "preview" || tab === "cart") return;
 
     window.scroll({ top: 0 });
   }, [tab]);
@@ -100,8 +100,6 @@ const ScreenContainer = () => {
                 path="/gallery/:category?/:id?/*"
                 element={<Gallery data={topLayerData} />}
               />
-
-              <Route path="/cart" element={<Cart />} />
             </Routes>
 
             {state?.backgroundLocation && (
@@ -110,6 +108,8 @@ const ScreenContainer = () => {
                   path="/:tab?/preview/:type"
                   element={<QuickViewImage data={topLayerData} />}
                 />
+
+                <Route path="/:tab?cart" element={<Cart />} />
               </Routes>
             )}
           </UniqueImageContext.Provider>
