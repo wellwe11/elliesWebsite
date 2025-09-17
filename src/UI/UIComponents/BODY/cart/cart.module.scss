@@ -149,9 +149,19 @@
 
       border: 1px solid var(--c-grey-300);
 
-      .amountText {
+      .productAmountInput {
+        min-width: 30px;
+        max-width: 40px;
+
         font-variation-settings: "wght" 200;
         color: var(c-text--500);
+
+        text-align: center;
+        border: none;
+
+        &:focus {
+          outline: 1px solid var(--c-grey-300);
+        }
       }
 
       .amountBtn {

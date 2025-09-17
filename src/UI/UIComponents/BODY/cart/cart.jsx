@@ -50,7 +50,6 @@ export const Product = ({ product, length }) => {
   };
 
   const handleClickEnterInput = (e, item) => {
-    console.log(e.key, item, localCart);
     const value = +inputRef.current.value;
     if (value === amountOfProducts) return;
     if (e.key === "Enter") {
@@ -65,7 +64,6 @@ export const Product = ({ product, length }) => {
   const handleMouseClickOutsideInput = (item) => {
     const value = +inputRef.current.value;
     setLocalCart(value);
-    console.log(item, value);
     changeFromInputToCart(setCart, item, value);
   };
 
@@ -89,6 +87,7 @@ export const Product = ({ product, length }) => {
       </button>
 
       <input
+        className={classes.productAmountInput}
         value={localCart}
         onKeyDown={(e) => handleClickEnterInput(e, product)}
         onChange={handleChangeInput}
@@ -144,8 +143,8 @@ const CartProducts = () => {
 
   const cartEntries = Object.entries(cart);
 
-  const cartProductsWrapper = cartEntries.map(([_, arr], index) => (
-    <Product key={index} product={arr} length={arr.length} />
+  const cartProductsWrapper = cartEntries.map(([name, arr], index) => (
+    <Product key={name + index} product={arr} length={arr.length} />
   ));
 
   return (
@@ -189,7 +188,7 @@ const Cart = () => {
         SUBTOTAL: {totalPriceVar}
         {" " + currency}
       </p>
-      <p className={classes.totalText}>Total items: {totalItemsVar}</p>
+      <p className={classes.totalText}>TOTAL ITEMS: {totalItemsVar}</p>
     </div>
   );
 
