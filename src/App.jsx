@@ -23,14 +23,27 @@ export default App;
  *
  * ** TODO NOW! **
  *
- * ------------------------------------------------
- * ** BUGS **
+ * CartPage:
+ * Clean logic in productAmount & handleCart
+ *
+ * -- Finalize styling on 'This is the bottom'
+ * -- Fix button
+ * -- add transition to the cart when it's supposed to appear (user clicks cart)
+ * -- When user clicks image of image of product, take user to product-page
+ *
  * If user clicks quickView button, then explore (go to uniuqeImage), and then navigates back directly to preview, loading never ends
  * -- same with cart-page. Just keeps loading after reload
+ *
+ * Fix the footer component (currently empty)
+ *
+ * On hover: display quickview & change image for product
+ * -- on click: take to product-page
+ *
+ * ------------------------------------------------
+ * ** BUGS **
  * * navBar icon-animation (the blue/white circle) resets when you click it. Either, remove this, or add a spin-animation (360 spin) to click.
  * ------------------------------------------------
  * ** THINGS TO FIX **
- * Footer on uniqueImage page
  * allow scrolling on left side and right side screen on uniuqeImage page
  * Quickview images (currently only displays placeholders)
  * ** make explore item text smaller (possibly h4 or h5)
@@ -39,16 +52,11 @@ export default App;
  * Because currently, the page-changer renders at 1500ms, and scrollTop works after 1580ms
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
- * * On hover: display quickview & change image for product
- * on click: take to product-page
- *
- * * Implement a add to cart on uniqueImage page
- * -- make it functional
- *
  * ------------------------------------------------
  * ** NEW COMPONENTS **
  * Create an instagram section - this should be a spinning wheel that simply has images from ellies instagram-page, and when clicked, takes you to ellies instagram
  * Create a 'new-in' component, which is a stand-alone component. Not related to prints/paintings sections. It simply displays something with a nice animation. (this should seperate prints & paintings)
+ *
  *
  * Intro page (while website loads)
  * Error page (if page not found)

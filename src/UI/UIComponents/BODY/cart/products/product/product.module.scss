@@ -1,0 +1,26 @@
+// Product
+.product {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  padding: 20px 0px;
+
+  border-bottom: 0.5px solid var(--c-grey-300);
+
+  // leftSection variable
+  .leftSection {
+    width: 60%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  // rightSection variable
+  .rightSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}

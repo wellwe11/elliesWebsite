@@ -1,165 +1,44 @@
 import classes from "./cart.module.scss";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect } from "react";
 
 import cartContext from "../cartContext";
 import bodyNoScroll from "@functions/bodyNoScroll";
 import { useNavigate } from "react-router-dom";
-import {
-  addToCart,
-  changeFromInputToCart,
-  removeFromCart,
-} from "@functions/handleCart";
+import Products from "./products/products";
 
-export const Product = ({ product, length }) => {
-  const [localCart, setLocalCart] = useState(length);
-  const { setCart } = useContext(cartContext);
-  const inputRef = useRef();
-  // for payment details such as name, amount, single-price.
-
-  const specificProduct = product?.[0]; // select first item in array, since all items are identical.
-  const amountOfProducts = length;
-  const {
-    image: image,
-    _embedded: {
-      setTitle: name,
-      details: { price: price },
-    },
-  } = specificProduct;
-
-  // clicking on image should navigate to that product again
-  const productImage = (
-    <div className={classes.productImageWrapper}>
-      <img src={image} alt="" />
-    </div>
-  );
-
-  const productName = (
-    <div className={classes.productName}>
-      <p>{name}</p>
-    </div>
-  );
-
-  const handlePlus = (item) => {
-    addToCart(setCart, item);
-  };
-
-  const handleMinus = (item) => {
-    removeFromCart(setCart, item);
-  };
-
-  const handleClickEnterInput = (e, item) => {
-    const value = +inputRef.current.value;
-    if (value === amountOfProducts) return;
-    if (e.key === "Enter") {
-      if (localCart.length > 0) {
-        changeFromInputToCart(setCart, item, +localCart);
-      } else {
-        changeFromInputToCart(setCart, item, 0);
-      }
-    }
-  };
-
-  const handleMouseClickOutsideInput = (item) => {
-    const value = +inputRef.current.value;
-    setLocalCart(value);
-    changeFromInputToCart(setCart, item, value);
-  };
-
-  const handleChangeInput = (e) => {
-    const input = e?.target?.value;
-    if (input === +amountOfProducts) return;
-
-    setLocalCart(input);
-  };
-
-  const productAmount = (
-    <div className={classes.productAmount}>
-      <button
-        className={`${classes.amountBtn} ${classes.minus}`}
-        onClick={() => {
-          handleMinus(product);
-          setLocalCart((prev) => prev - 1);
-        }}
-      >
-        -
-      </button>
-
-      <input
-        className={classes.productAmountInput}
-        ref={inputRef}
-        value={localCart}
-        onKeyDown={(e) => handleClickEnterInput(e, product)}
-        onChange={handleChangeInput}
-        onBlur={() => handleMouseClickOutsideInput(product)}
-      />
-      <button
-        className={`${classes.amountBtn} ${classes.plus}`}
-        onClick={() => {
-          handlePlus(product[0]);
-          setLocalCart((prev) => prev + 1);
-        }}
-      >
-        +
-      </button>
-    </div>
-  );
-
-  const currency = "€"; // need to update for a currency based on location/pref
-  const productPrice = (
-    <div className={classes.productPrice}>
-      <p>
-        {price} {currency}
-      </p>
-    </div>
-  );
-
-  return (
-    <div className={classes.product}>
-      <div className={classes.imageContainer}>{productImage}</div>
-      <div className={classes.leftSection}>
-        {productName}
-        {productAmount}
-      </div>
-      <div className={classes.rightSection}>
-        {productPrice}
-        <div />
-      </div>
-    </div>
-  );
+const ToPaymentMethod = () => {
+  return <button>To payment method</button>;
 };
 
-const CartBottomItem = () => {
-  return (
-    <div className={classes.cartBottomItem}>
-      <h1>This is the bottom</h1>
-    </div>
+const TotalProducts = () => {
+  const { totalItems, totalPrice } = useContext(cartContext);
+  const totalPriceVar = Math.round(+totalPrice() * 100) / 100; // 19.999999... === 19.99
+  const totalItemsVar = totalItems();
+
+  const currency = "€"; // will change in future
+  const subtotalWrapper = (
+    <p className={classes.totalText}>
+      SUBTOTAL: {totalPriceVar}
+      {" " + currency}
+    </p>
   );
-};
 
-const CartProducts = () => {
-  const { cart } = useContext(cartContext);
-
-  const cartEntries = Object.entries(cart);
-
-  const cartProductsWrapper = cartEntries.map(([name, arr], index) => (
-    <Product key={name + index} product={arr} length={arr.length} />
-  ));
+  const totalItemsWrapper = (
+    <p className={classes.totalText}>TOTAL ITEMS: {totalItemsVar}</p>
+  );
 
   return (
-    <div className={classes.cartProductsContainer}>
-      {cartProductsWrapper}
-      <CartBottomItem />
+    <div className={classes.totalProducts}>
+      {subtotalWrapper}
+      {totalItemsWrapper}
     </div>
   );
 };
 
 const Cart = () => {
   const navigate = useNavigate();
-  const { cart, setCart, totalItems, totalPrice } = useContext(cartContext);
-  const { disableScroll, enableScroll } = bodyNoScroll();
 
-  const totalPriceVar = Math.round(+totalPrice() * 100) / 100; // 19.999999... === 19.99
-  const totalItemsVar = totalItems();
+  const { disableScroll, enableScroll } = bodyNoScroll();
 
   useEffect(() => {
     disableScroll();
@@ -172,16 +51,21 @@ const Cart = () => {
 
   const title = <h4 className={classes.title}>SHOPPING CART</h4>;
 
-  const toPaymentMethod = <button>To payment method</button>;
-  const currency = "€"; // will change in future
+  const productsWrapper = (
+    <div className={classes.productsWrapper}>
+      <Products />
+    </div>
+  );
 
-  const totalElements = (
-    <div className={classes.totalWrapper}>
-      <p className={classes.totalText}>
-        SUBTOTAL: {totalPriceVar}
-        {" " + currency}
-      </p>
-      <p className={classes.totalText}>TOTAL ITEMS: {totalItemsVar}</p>
+  const totalProductsWrapper = (
+    <div className={classes.totalProductsWrapper}>
+      <TotalProducts />
+    </div>
+  );
+
+  const toPaymentMethodWrapper = (
+    <div className={classes.toPaymentMethodWrapper}>
+      <ToPaymentMethod />
     </div>
   );
 
@@ -190,11 +74,9 @@ const Cart = () => {
       <div className={classes.background} onClick={handleNavigateBack} />
       <div className={classes.cartWrapper}>
         {title}
-        <div className={classes.productsWrapper}>
-          <CartProducts />
-        </div>
-        {totalElements}
-        {toPaymentMethod}
+        {productsWrapper}
+        {totalProductsWrapper}
+        {toPaymentMethodWrapper}
       </div>
     </div>
   );
