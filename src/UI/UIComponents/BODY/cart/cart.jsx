@@ -78,6 +78,14 @@ const Product = ({ product, length }) => {
   );
 };
 
+const CartBottomItem = () => {
+  return (
+    <div className={classes.cartBottomItem}>
+      <h1>This is the bottom</h1>
+    </div>
+  );
+};
+
 const CartProducts = () => {
   const { cart } = useContext(cartContext);
 
@@ -88,7 +96,10 @@ const CartProducts = () => {
   ));
 
   return (
-    <div className={classes.cartProductsContainer}>{cartProductsWrapper}</div>
+    <div className={classes.cartProductsContainer}>
+      {cartProductsWrapper}
+      <CartBottomItem />
+    </div>
   );
 };
 
@@ -115,6 +126,7 @@ const Cart = () => {
   };
 
   const toPaymentMethod = <button>To payment method</button>;
+  const currency = "€"; // will change in future
 
   return (
     <div className={classes.cart}>
@@ -126,7 +138,10 @@ const Cart = () => {
         </div>
         <div className={classes.totalWrapper}>
           <h1>Total items: {totalItemsVar}</h1>
-          <h1>Total price: {totalPriceVar}</h1>
+          <h1>
+            Total price: {totalPriceVar}
+            {" " + currency}
+          </h1>
         </div>
         {toPaymentMethod}
       </div>
