@@ -40,9 +40,13 @@ export const Product = ({ product, length }) => {
     </div>
   );
 
-  const handlePlus = (item) => addToCart(setCart, item);
+  const handlePlus = (item) => {
+    addToCart(setCart, item);
+  };
 
-  const handleMinus = (item) => removeFromCart(setCart, item);
+  const handleMinus = (item) => {
+    removeFromCart(setCart, item);
+  };
 
   const handleClickEnterInput = (e, item) => {
     if (e.key === "Enter") {
@@ -55,8 +59,7 @@ export const Product = ({ product, length }) => {
   };
 
   const handleChangeInput = (e) => {
-    console.log(e);
-    const input = e.target.value;
+    const input = e?.target?.value;
     if (input === +amountOfProducts) return;
 
     setLocalCart(input);
@@ -66,7 +69,10 @@ export const Product = ({ product, length }) => {
     <div className={classes.productAmount}>
       <button
         className={`${classes.amountBtn} ${classes.minus}`}
-        onClick={() => handleMinus(product)}
+        onClick={() => {
+          handleMinus(product);
+          setLocalCart((prev) => prev - 1);
+        }}
       >
         -
       </button>
@@ -76,10 +82,12 @@ export const Product = ({ product, length }) => {
         onKeyDown={(e) => handleClickEnterInput(e, product)}
         onChange={handleChangeInput}
       />
-      <h6 className={classes.amountText}>{localCart}</h6>
       <button
         className={`${classes.amountBtn} ${classes.plus}`}
-        onClick={() => handlePlus(product[0])}
+        onClick={() => {
+          handlePlus(product[0]);
+          setLocalCart((prev) => prev + 1);
+        }}
       >
         +
       </button>
