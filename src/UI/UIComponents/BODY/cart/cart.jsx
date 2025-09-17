@@ -1,5 +1,5 @@
 import classes from "./cart.module.scss";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
 import cartContext from "../cartContext";
 import bodyNoScroll from "@functions/bodyNoScroll";
@@ -12,6 +12,7 @@ import {
 
 export const Product = ({ product, length }) => {
   const { cart, setCart } = useContext(cartContext);
+  const inputRef = useRef();
   // for payment details such as name, amount, single-price.
 
   // clicking on image should navigate to that product again
@@ -49,6 +50,9 @@ export const Product = ({ product, length }) => {
   };
 
   const handleClickEnterInput = (e, item) => {
+    console.log(e.key, item, localCart);
+    const value = +inputRef.current.value;
+    if (value === amountOfProducts) return;
     if (e.key === "Enter") {
       if (localCart.length > 0) {
         changeFromInputToCart(setCart, item, +localCart);
@@ -56,6 +60,13 @@ export const Product = ({ product, length }) => {
         changeFromInputToCart(setCart, item, 0);
       }
     }
+  };
+
+  const handleMouseClickOutsideInput = (item) => {
+    const value = +inputRef.current.value;
+    setLocalCart(value);
+    console.log(item, value);
+    changeFromInputToCart(setCart, item, value);
   };
 
   const handleChangeInput = (e) => {
@@ -81,6 +92,8 @@ export const Product = ({ product, length }) => {
         value={localCart}
         onKeyDown={(e) => handleClickEnterInput(e, product)}
         onChange={handleChangeInput}
+        onBlur={() => handleMouseClickOutsideInput(product)}
+        ref={inputRef}
       />
       <button
         className={`${classes.amountBtn} ${classes.plus}`}
