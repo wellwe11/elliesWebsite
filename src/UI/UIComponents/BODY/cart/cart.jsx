@@ -11,11 +11,10 @@ import {
 } from "@functions/handleCart";
 
 export const Product = ({ product, length }) => {
-  const { cart, setCart } = useContext(cartContext);
+  const [localCart, setLocalCart] = useState(length);
+  const { setCart } = useContext(cartContext);
   const inputRef = useRef();
   // for payment details such as name, amount, single-price.
-
-  // clicking on image should navigate to that product again
 
   const specificProduct = product?.[0]; // select first item in array, since all items are identical.
   const amountOfProducts = length;
@@ -27,8 +26,7 @@ export const Product = ({ product, length }) => {
     },
   } = specificProduct;
 
-  const [localCart, setLocalCart] = useState(amountOfProducts);
-
+  // clicking on image should navigate to that product again
   const productImage = (
     <div className={classes.productImageWrapper}>
       <img src={image} alt="" />
@@ -88,11 +86,11 @@ export const Product = ({ product, length }) => {
 
       <input
         className={classes.productAmountInput}
+        ref={inputRef}
         value={localCart}
         onKeyDown={(e) => handleClickEnterInput(e, product)}
         onChange={handleChangeInput}
         onBlur={() => handleMouseClickOutsideInput(product)}
-        ref={inputRef}
       />
       <button
         className={`${classes.amountBtn} ${classes.plus}`}
@@ -160,13 +158,8 @@ const Cart = () => {
   const { cart, setCart, totalItems, totalPrice } = useContext(cartContext);
   const { disableScroll, enableScroll } = bodyNoScroll();
 
-  const totalPriceVar = Math.floor(+totalPrice() * 10) / 10; // 19.999... === 19.9
+  const totalPriceVar = Math.round(+totalPrice() * 100) / 100; // 19.999999... === 19.99
   const totalItemsVar = totalItems();
-
-  // if objects have same id, stack them inside the same array
-  // sorts items before viewing cart
-
-  // add + and - button to increase/decrease amount of objects per item
 
   useEffect(() => {
     disableScroll();

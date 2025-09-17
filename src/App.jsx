@@ -23,9 +23,6 @@ export default App;
  *
  * ** TODO NOW! **
  *
- * * Shopping-cart page
- * -- shopping-cart sidebar
- *
  * ------------------------------------------------
  * ** BUGS **
  * If user clicks quickView button, then explore (go to uniuqeImage), and then navigates back directly to preview, loading never ends
@@ -53,10 +50,10 @@ export default App;
  * Create an instagram section - this should be a spinning wheel that simply has images from ellies instagram-page, and when clicked, takes you to ellies instagram
  * Create a 'new-in' component, which is a stand-alone component. Not related to prints/paintings sections. It simply displays something with a nice animation. (this should seperate prints & paintings)
  *
+ * Intro page (while website loads)
  * Error page (if page not found)
  * Contact us Page
- *
- * Intro page (while website loads)
+ * Payment method page
  *
  * ------------------------------------------------
  */
