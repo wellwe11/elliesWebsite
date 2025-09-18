@@ -35,6 +35,7 @@ const Images = ({ data }) => {
         <div key={index} className={classes.imageWrapper}>
           <QuickView
             src={image}
+            secondSrc={data[index]._embedded.restImages[0]}
             productType={data[index]._embedded.details.type}
             productId={data[index]?.id}
           />
