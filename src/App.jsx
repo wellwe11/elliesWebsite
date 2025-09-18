@@ -23,11 +23,6 @@ export default App;
  *
  * ** TODO NOW! **
  *
- * CartPage:
- * -- Finalize styling on 'This is the bottom'
- * -- Fix button
- * -- add transition to the cart when it's supposed to appear (user clicks cart)
- * -- When user clicks image of image of product, take user to product-page
  *
  * If user clicks quickView button, then explore (go to uniuqeImage), and then navigates back directly to preview, loading never ends
  * -- same with cart-page. Just keeps loading after reload
@@ -44,6 +39,7 @@ export default App;
  * on UniquePage, if user has filter active (i.e. prints) and clicks quickView, the filter button 'explore' disappears
  * ------------------------------------------------
  * ** THINGS TO FIX **
+ * Give uniqueImage a small time to load so it doesn't stutter so much
  * allow scrolling on left side and right side screen on uniuqeImage page
  * Quickview images (currently only displays placeholders)
  * ** make explore item text smaller (possibly h4 or h5)

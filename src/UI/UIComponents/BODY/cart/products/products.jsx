@@ -14,8 +14,6 @@ const Products = () => {
     <Product key={name + index} product={arr} length={arr.length} />
   ));
 
-  console.log(cartEntries?.length);
-
   return (
     <div className={classes.cartProductsContainer}>
       {cartProductsWrapper}

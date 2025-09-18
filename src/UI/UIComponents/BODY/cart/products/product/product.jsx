@@ -29,7 +29,7 @@ export const Product = ({ product, length }) => {
 
   return (
     <div className={classes.product}>
-      <ProductImage image={image} />
+      <ProductImage image={image} product={product} />
       {leftSection}
       {rightSection}
     </div>
