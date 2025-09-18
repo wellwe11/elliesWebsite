@@ -74,7 +74,6 @@ const ScreenContainer = () => {
     fetchData();
   }, []);
 
-  console.log(topLayerData);
   return (
     <>
       {/* <LoadingWrapper condition={loading} /> This stays disabled because it bugs the loading-conditions - will add another 'intro' loading for the webstie in the future perhaps*/}

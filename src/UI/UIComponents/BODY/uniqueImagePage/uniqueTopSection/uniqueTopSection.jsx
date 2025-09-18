@@ -21,13 +21,6 @@ const ButtonsWrapper = ({ foundObject }) => {
     );
   };
 
-  const scrollBottom = () => {
-    window.scrollTo({
-      top: window.innerHeight + 140,
-      behavior: "smooth",
-    });
-  };
-
   const handleCart = (item) => {
     addToCart(setCart, item);
   };
@@ -46,6 +39,13 @@ const ButtonsWrapper = ({ foundObject }) => {
       </div>
     </ButtonStyle>
   );
+
+  const scrollBottom = () => {
+    window.scrollTo({
+      top: window.innerHeight + 140,
+      behavior: "smooth",
+    });
+  };
 
   const scrollDownButton = (
     <ButtonStyle text={"Info"} onClick={() => scrollBottom()}>
@@ -75,8 +75,8 @@ const TopImage = ({ image }) => {
 // Text is split into 2 sections. This allows
 // the text to transition 'un-evenly', giving a nicer
 const UniqueTopSectionTitle = ({ titleInfo: { titleOne, titleTwo } }) => {
-  // Title one. Transitions first
   const titleTextOne = (
+    // Title one. Transitions first
     <div className={classes.uniqueLeftTitle}>
       <h1 className={`${classes.uniqueLeftTitleText} ${classes.first}`}>
         {titleOne}
@@ -84,8 +84,8 @@ const UniqueTopSectionTitle = ({ titleInfo: { titleOne, titleTwo } }) => {
     </div>
   );
 
-  // Title two. Transitions second, is also positioned below.
   const titleTextTwo = (
+    // Title two. Transitions second, is also positioned below.
     <div className={classes.uniqueLeftTitle}>
       <h1 className={`${classes.uniqueLeftTitleText} ${classes.second}`}>
         {titleTwo}
@@ -104,10 +104,8 @@ const UniqueTopSectionTitle = ({ titleInfo: { titleOne, titleTwo } }) => {
 // A small container of text containing some bio about the collection
 // title. Example: "Elegant red-rose collection"
 const UniqueTopSectionBio = ({ textInfo: { bioTitle, bioText } }) => {
-  const bioTextTitle = <p className={classes.bioTitle}>{bioTitle}</p>;
-
-  // bio. Some catchy text
-  const bioTextBio = <p className={classes.bioText}>{bioText}</p>;
+  const bioTextTitle = <p className={classes.bioTitle}>{bioTitle}</p>,
+    bioTextBio = <p className={classes.bioText}>{bioText}</p>;
 
   return (
     <div className={classes.bioTextContainer}>

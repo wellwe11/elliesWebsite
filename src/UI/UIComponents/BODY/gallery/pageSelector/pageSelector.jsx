@@ -22,6 +22,7 @@ const RightButton = ({ page, maxPage, navigate, category }) => {
   const url = category
     ? `/gallery?category=${category}&page=${page + 1}`
     : `/gallery?page=${page + 1}`;
+
   const increment = () => {
     // if next page can contain products
     if (page < maxPage) {
@@ -47,6 +48,7 @@ const LeftButton = ({ page, navigate, category }) => {
   const url = category
     ? `/gallery?category=${category}&page=${page - 1}`
     : `/gallery?page=${page - 1}`;
+
   const decrement = () => {
     // prevent page from going below 0
     if (page > 0) {
@@ -71,11 +73,11 @@ const LeftButton = ({ page, navigate, category }) => {
 const PageNumbers = ({ page, maxPage, navigate, category }) => {
   const pageNumber = +page; // pages are 0-indexed, but are shown as 1-indexed because page 1 fits better than page 0 as initial page
 
-  // creates a dynamic array which displays current set of pages (always pageNumber-1, pageNumber, pageNumber+1)
-  // also allows a border to be displayed for the active page
   const getPageWindow = (page, max) => {
-    const start = Math.max(1, Math.min(page - 1, max - 2)); // ensures window doesn't overflow
-    const end = Math.min(max, start + 2);
+    // creates a dynamic array which displays current set of pages (always pageNumber-1, pageNumber, pageNumber+1)
+    // also allows a border to be displayed for the active page
+    const start = Math.max(1, Math.min(page - 1, max - 2)), // ensures window doesn't overflow
+      end = Math.min(max, start + 2);
 
     const arr = [];
 
@@ -89,8 +91,8 @@ const PageNumbers = ({ page, maxPage, navigate, category }) => {
     [pageNumber, maxPage]
   ); // useMemos the 3 active buttons
 
-  // style for when the current page is displayed
   const activePageUnderline = {
+    // style for when the current page is displayed
     borderBottom: "1px solid var(--c-text-black)",
   };
 
@@ -144,9 +146,9 @@ const BackToZeroButton = ({ page, navigate, category }) => {
 const PageSelector = ({ maxPage }) => {
   const navigate = useNavigate();
 
-  const [searchParams] = useSearchParams();
-  const page = +searchParams.get("page") || 1;
-  const category = searchParams.get("category") || "";
+  const [searchParams] = useSearchParams(),
+    page = +searchParams.get("page") || 1,
+    category = searchParams.get("category") || "";
 
   return (
     <div className={classes.pageSelector}>

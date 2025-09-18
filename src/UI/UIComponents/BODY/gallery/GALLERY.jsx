@@ -23,9 +23,9 @@ function usePrevious(value) {
 // used for rendering products based on the current page
 const handleDisplayedProducts = (page, data) => {
   // page starts on 0, goes to 1, 2, 3 etc.
-  const start = (+page - 1) * 9; // index of first object to display
-  // So, 0, 8, 18 etc.
-  const end = start + 9; // index of last object to display
+  const start = (+page - 1) * 9, // index of first object to display
+    // So, 0, 8, 18 etc.
+    end = start + 9; // index of last object to display
   // so, 8, 17, 26 etc.
 
   return data?.slice(start, end); // slices only visible objects for each page
@@ -58,8 +58,8 @@ const FilterSideBarWrapperComponent = ({ data, category }) => {
 
 // objects with image and some info and a quick-view option
 const ProductsWrapperComponent = ({ page, filteredData }) => {
-  const [newData, setNewData] = useState(filteredData); // if user changes
-  const [prevData, setPrevData] = useState(null);
+  const [newData, setNewData] = useState(filteredData), // if user changes
+    [prevData, setPrevData] = useState(null);
 
   const prevPage = usePrevious(page); // used to determine if scrollTop should be used or not
 
@@ -142,9 +142,9 @@ const PageWrapperComponent = ({ filteredData }) => {
 };
 
 const Gallery = ({ data }) => {
-  const [searchParams] = useSearchParams();
-  const category = searchParams.get("category") || null;
-  const page = searchParams.get("page") || null;
+  const [searchParams] = useSearchParams(),
+    category = searchParams.get("category") || null,
+    page = searchParams.get("page") || null;
 
   // all types (paintings, prints, accessories are 'flattened')
   // Works like a parent-variable. Always contains an array of all data, and never changes.

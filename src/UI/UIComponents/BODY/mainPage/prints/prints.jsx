@@ -13,27 +13,20 @@ const SetOfExampleCollectionSection = ({ data }) => {
   // if user clicks on any image, will navigate to collection
   const navigate = handleNavigateSmooth();
 
-  // set of images and their sources (this is for the 3-set images which have rolling-text)
-  const [printImagesSrc, setPrintImagesSrc] = useState(null);
-  // corresponding texts to each image
-  const [printImagesText, setPrintImagesText] = useState(null);
+  const [printImagesSrc, setPrintImagesSrc] = useState(null), // set of images and their sources (this is for the 3-set images which have rolling-text)
+    [printImagesText, setPrintImagesText] = useState(null); // corresponding texts to each image
 
-  // automated data which finds last set-images. This is because front-page should represent the most recently added collection, to keep it 'fresh' and nicely updated
-  const mostRecentlyAddedSet = data[data.length - 1];
-
-  const linkId = mostRecentlyAddedSet?.id;
-
-  const linkType = mostRecentlyAddedSet?._embedded.details.type;
-
-  // sets title
-  const textBioTitle = mostRecentlyAddedSet._embedded.setTitle;
+  const mostRecentlyAddedSet = data[data.length - 1], // automated data which finds last set-images. This is because front-page should represent the most recently added collection, to keep it 'fresh' and nicely updated
+    linkId = mostRecentlyAddedSet?.id,
+    linkType = mostRecentlyAddedSet?._embedded.details.type,
+    textBioTitle = mostRecentlyAddedSet._embedded.setTitle; // sets title
 
   useEffect(() => {
     if (!mostRecentlyAddedSet) return;
 
     // local arrays that will contain fetched data related to SetOfExampleCollectionSection
-    const sources = [];
-    const bios = [];
+    const sources = [],
+      bios = [];
 
     // images, their source and related text
     const printsImages = mostRecentlyAddedSet.images;

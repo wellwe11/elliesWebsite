@@ -6,13 +6,11 @@ import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText"
 
 // buttons that change the currently displayed set of images
 const LeftSection = ({ data, setActiveImage }) => {
-  // get collection-names
-  const buttonNames = data?.service_collections.map((obj) => obj.name);
-  // limit it to 4 sets
-  const buttonNamesSpliced = buttonNames.splice(0, 4);
+  const buttonNames = data?.service_collections.map((obj) => obj.name), // get collection-names
+    buttonNamesSpliced = buttonNames.splice(0, 4); // limit it to 4 sets
 
-  // a collection of buttons containing the names for each collection (buttonNamesSpliced)
   return (
+    // a collection of buttons containing the names for each collection (buttonNamesSpliced)
     <section className={classes.leftSection}>
       {buttonNamesSpliced.map((text, index) => (
         <div
@@ -36,12 +34,15 @@ const LeftSection = ({ data, setActiveImage }) => {
 const RightSection = ({ data, activeImage }) => {
   // each collections set of images
   const collectionImagesShuffle = data?.service_collections.map(
-    (obj) => obj.images
-  );
-
-  // display a set of 3 images
-  // active image represents the current set of images to display
-  const currentSetOfImages = collectionImagesShuffle[activeImage];
+      (obj) => obj.images
+    ),
+    currentSetOfImages = collectionImagesShuffle[activeImage], //  display a set of 3 images - active image represents the current set of images to display
+    servicesBackgroundImage = data?.backgroundImage, // the background in which the collections will be previewed on
+    collectionBioTitles = data?.service_collections.map(
+      // each collections title
+      (obj) => obj.bio_title
+    ),
+    collectionBioTexts = data?.service_collections.map((obj) => obj.bio_info); // each collections bio-text
 
   const mappedImages = (
     <div className={classes.paintingContainer}>
@@ -56,39 +57,28 @@ const RightSection = ({ data, activeImage }) => {
     </div>
   );
 
-  // the background in which the collections will be previewed on
-  const servicesBackgroundImage = data?.backgroundImage;
-  // background-image on which the mapped images will be displayed on
   const WallPaperWithPaintings = (
+    // background-image on which the mapped images will be displayed on
     <div className={classes.imageWrapper}>
       <img className={classes.image} src={servicesBackgroundImage} alt="" />
       {mappedImages}
     </div>
   );
 
-  // each collections title
-  const collectionBioTitles = data?.service_collections.map(
-    (obj) => obj.bio_title
-  );
-  // information displayed below image
-  // title
   const bioScrollingTitle = (
+    // information displayed below image title
     <div className={classes.scrollingTextTitle}>
       <TextThatCorrespondsToActiveImage
         fontSize="h6"
-        fontWeight={700}
+        fontWeight={300}
         texts={collectionBioTitles}
         activeImage={activeImage}
       />
     </div>
   );
 
-  // each collections bio-text
-  const collectionBioTexts = data?.service_collections.map(
-    (obj) => obj.bio_info
-  );
-  // bio
   const bioScrollingBio = (
+    // bio
     <div className={classes.scrollingTextBio}>
       <TextThatCorrespondsToActiveImage
         texts={collectionBioTexts}
@@ -116,15 +106,15 @@ const Services = ({ data }) => {
   // current set of images to display. Each number displays a set of 3 images
   const [activeImage, setActiveImage] = useState(0);
 
-  // a collection of buttons containing the names for each collection (buttonNamesSpliced)
   const leftSectionWrapper = (
+    // a collection of buttons containing the names for each collection (buttonNamesSpliced)
     <div className={classes.leftSectionWrapper}>
       <LeftSection setActiveImage={setActiveImage} data={data} />
     </div>
   );
 
-  // where images will be displayed
   const rightSectionWrapper = (
+    // where images will be displayed
     <div className={classes.rightSectionWrapper}>
       <RightSection data={data} activeImage={activeImage} />
     </div>

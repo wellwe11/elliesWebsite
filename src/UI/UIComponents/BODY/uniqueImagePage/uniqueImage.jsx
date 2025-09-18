@@ -12,17 +12,14 @@ const UniqueTopSectionComponent = ({ info, foundObject }) => {
   // currently placeholders right now. Not sure what I will use, but there will be text related to the set somehow.
 
   const uniqueTopSectionTitles = {
-    title: "Hello,",
-    bio: "Hello Two",
-  };
-
-  // Same image/one of the same images of set which has been clicked.
-  const topImage = foundObject.image;
-
-  const topBio = {
-    title: info.setTitle,
-    bio: info.setDescription,
-  };
+      title: "Hello,",
+      bio: "Hello Two",
+    },
+    topImage = foundObject.image, // Same image/one of the same images of set which has been clicked.
+    topBio = {
+      title: info.setTitle,
+      bio: info.setDescription,
+    };
 
   return (
     <UniqueTopSection
@@ -39,11 +36,8 @@ const UniqueTopSectionComponent = ({ info, foundObject }) => {
 
 // Component containing all info for info-section
 const UniqueInfoSectionComponent = ({ info, foundObject }) => {
-  // info which is used on uniqueInfoSection. It contains things such as size, color, type etc.
-  const details = info?.details;
-
-  // set of images which are related to the set (only 'main-type images')
-  const extendedDetailsImages = foundObject?.images.map((image) => image.src);
+  const details = info?.details, // info which is used on uniqueInfoSection. It contains things such as size, color, type etc.
+    extendedDetailsImages = foundObject?.images.map((image) => image.src); // set of images which are related to the set (only 'main-type images')
 
   return (
     <UniqueInfoSection images={extendedDetailsImages} textInfo={details} />
@@ -51,39 +45,33 @@ const UniqueInfoSectionComponent = ({ info, foundObject }) => {
 };
 
 const UniqueImage = ({ data }) => {
-  // state that will store correct item - if you're on this page, correct product needs to be displayed.
-  const [foundObject, setFoundObject] = useState(null);
+  const [foundObject, setFoundObject] = useState(null); // state that will store correct item - if you're on this page, correct product needs to be displayed.
 
   const containerRef = useRef();
 
-  // checks params for which type (painting/prints etc...) & id (id is printed on each objected after fetch, which is based on their position)
-  const { type } = useParams();
-  const { hash } = useLocation();
+  const { type } = useParams(), // checks params for which type (painting/prints etc...) & id (id is printed on each objected after fetch, which is based on their position)
+    { hash } = useLocation();
+
   const id = +hash.replace(/\D/g, "");
 
   useEffect(() => {
-    // if no data, return. If no type & id (link is undefined) return
-    if (!data || (!type && !id)) return;
+    if (!data || (!type && !id)) return; // if no data, return. If no type & id (link is undefined) return
 
-    // searches data for a matching id to params
-    const foundUniqueImage = data?.[type].find((obj) => obj.id === +id);
+    const foundUniqueImage = data?.[type].find((obj) => obj.id === +id); // searches data for a matching id to params
 
     if (foundUniqueImage) {
       setFoundObject(foundUniqueImage);
     }
   }, [data, type, id]);
 
-  // need to design a loading screen in future for these cases
-  if (foundObject === null) return <h1>loading...</h1>;
+  if (foundObject === null) return <h1>loading...</h1>; // need to design a loading screen in future for these cases
 
-  // _embedded contains all nested information about specifics of product
-  const info = foundObject._embedded;
-
-  const uniqueTopSectionWrapper = (
-    <section className={classes.uniqueTopSectionWrapper}>
-      <UniqueTopSectionComponent info={info} foundObject={foundObject} />
-    </section>
-  );
+  const info = foundObject._embedded, // _embedded contains all nested information about specifics of product
+    uniqueTopSectionWrapper = (
+      <section className={classes.uniqueTopSectionWrapper}>
+        <UniqueTopSectionComponent info={info} foundObject={foundObject} />
+      </section>
+    );
 
   const uniqueInfoSectionWrapper = (
     <section className={classes.uniqueInfoSectionWrapper}>
@@ -91,8 +79,8 @@ const UniqueImage = ({ data }) => {
     </section>
   );
 
-  // seperates sections with some form of image (currently with a placeholder) and margins
   const sectionSeperatorWithImage = (
+    // seperates sections with some form of image (currently with a placeholder) and margins
     <div className={classes.sectionSeperationWrapper}>
       <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
     </div>

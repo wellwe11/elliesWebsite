@@ -56,8 +56,8 @@ const Input = ({ localCart, setLocalCart, product }) => {
 
   const inputRef = useRef(); // for tracking value; inputRef.current.value
 
-  // user clicks enter while focusing Input and confirms amount
   const handleClickEnterInput = (e, item) => {
+    // user clicks enter while focusing Input and confirms amount
     const value = +inputRef.current.value; // inputs value
 
     if (value === length) return; // if value is the same as the amount of items that are already in cart, do nothing
@@ -72,18 +72,18 @@ const Input = ({ localCart, setLocalCart, product }) => {
     }
   };
 
-  // user has typed new amount and clicks outside Input
-  // If user inputs a new amount, and then clicks outside the input; updates input as if enter was clicked
   const handleMouseClickOutsideInput = (item) => {
+    // user has typed new amount and clicks outside Input
+    // If user inputs a new amount, and then clicks outside the input; updates input as if enter was clicked
     const value = +inputRef.current.value; // input value
 
     setLocalCart(value); // update localCart to visible display change
     changeFromInputToCart(setCart, item, value); // update array
   };
 
-  // user writes new input in Input
-  // update input & localCart
   const handleChangeInput = (e) => {
+    // user writes new input in Input
+    // update input & localCart
     const input = e?.target?.value;
     if (input === +length) return;
 

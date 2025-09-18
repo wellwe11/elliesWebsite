@@ -1,5 +1,5 @@
 import classes from "./cart.module.scss";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 
 import cartContext from "../cartContext";
 import bodyNoScroll from "@functions/bodyNoScroll";
@@ -12,16 +12,16 @@ const ToPaymentMethod = () => {
   return (
     <QuickViewButton
       text={<p className={classes.paymentMethodText}>To payment method</p>}
-    ></QuickViewButton>
+    />
   );
 };
 
 const TotalProducts = () => {
-  const { totalItems, totalPrice } = useContext(cartContext);
-  const totalPriceVar = Math.round(+totalPrice() * 100) / 100; // 19.999999... === 19.99
-  const totalItemsVar = totalItems();
+  const { totalItems, totalPrice } = useContext(cartContext),
+    totalItemsVar = totalItems(),
+    totalPriceVar = Math.round(+totalPrice() * 100) / 100, // 19.999999... === 19.99
+    currency = "€"; // will change in future
 
-  const currency = "€"; // will change in future
   const subtotalWrapper = (
     <p className={classes.totalText}>
       SUBTOTAL: {totalPriceVar}
@@ -42,9 +42,10 @@ const TotalProducts = () => {
 };
 
 const Cart = () => {
+  const cartWrapperRef = useRef(),
+    backgroundWhiteRef = useRef();
+
   const navigate = useNavigate();
-  const cartWrapperRef = useRef();
-  const backgroundWhiteRef = useRef();
   const { disableScroll, enableScroll } = bodyNoScroll();
 
   useEffect(() => {

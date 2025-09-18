@@ -3,11 +3,11 @@ import classes from "./uniqueInfoSection.module.scss";
 import transitionInAnimation from "@functions/transitionAnimation";
 
 const InfoSectionBio = ({ details, bioRef }) => {
-  const bioKeys = Object.keys(details);
-  const bioValues = Object.values(details);
+  const bioKeys = Object.keys(details),
+    bioValues = Object.values(details);
 
-  // a list of details for set of images. I.e. colors, width, height etc.
   const mappedBioDetails = bioKeys.map((key, index) => (
+    // a list of details for set of images. I.e. colors, width, height etc.
     <div
       className={classes.detailsWrapper}
       key={index}
@@ -71,9 +71,9 @@ const InfoSectionImages = ({ images, setActiveImage, smallerImagesRef }) => {
 const UniqueInfoSection = ({ images, textInfo }) => {
   const [activeImage, setActiveImage] = useState(0);
 
-  const imageRef = useRef(null);
-  const smallerImagesRef = useRef(null);
-  const bioRef = useRef(null);
+  const imageRef = useRef(null),
+    smallerImagesRef = useRef(null),
+    bioRef = useRef(null);
 
   useEffect(() => {
     transitionInAnimation(imageRef, classes.intersectingImage, false, 40);
