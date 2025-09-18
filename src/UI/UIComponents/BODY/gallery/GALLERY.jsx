@@ -63,15 +63,11 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
 
   const prevPage = usePrevious(page); // used to determine if scrollTop should be used or not
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const location = useLocation();
 
-  // effect which adds a loading-screen to each time products change; visible appealing. Avoids stuttering when elements update information.
-  useEffect(() => {
-    if (!prevPage) return;
-    if (location.search.length < 1) return;
-
+  const updateData = () => {
     // start loading animation
     setPrevData(newData); // display old products while loading new ones
     setLoading(true);
@@ -81,18 +77,28 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
     setNewData(displayedProducts);
 
     // initiate reload
-    const timer = setTimeout(() => {
+    return setTimeout(() => {
       setLoading(false);
 
       if (prevPage) {
         window.scroll({ top: 0 });
       }
     }, 1500);
+  };
 
-    return () => {
-      clearTimeout(timer);
-    };
+  // effect which adds a loading-screen to each time products change; visible appealing. Avoids stuttering when elements update information.
+  useEffect(() => {
+    if (!prevPage) return;
+    if (location.search.length < 1) return;
+
+    updateData();
   }, [page, filteredData]);
+
+  useEffect(() => {
+    if (newData?.length < 1) {
+      updateData();
+    }
+  }, [filteredData]);
 
   // visible only while filter has changed
   const productIsLoading = (

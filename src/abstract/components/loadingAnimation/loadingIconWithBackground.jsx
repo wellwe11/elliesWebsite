@@ -5,7 +5,6 @@ import bodyNoScroll from "@functions/bodyNoScroll";
 
 const LoadingWrapper = ({ onClick, condition }) => {
   useEffect(() => {
-    console.log(condition);
     const { disableScroll, enableScroll } = bodyNoScroll();
 
     if (condition) disableScroll();

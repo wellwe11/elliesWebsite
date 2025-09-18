@@ -22,11 +22,6 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * 
- *  * On hover: display quickview & change image for product
- * -- on click: take to product-page
- *
- *
  * If user clicks quickView button, then explore (go to uniuqeImage), and then navigates back directly to preview, loading never ends
  * -- same with cart-page. Just keeps loading after reload
  *

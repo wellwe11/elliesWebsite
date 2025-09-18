@@ -6,6 +6,10 @@ import bodyNoScroll from "@functions/bodyNoScroll";
 const QuickView = ({ src, secondSrc, productType, productId }) => {
   const navigate = useNavigate();
 
+  const handleNavigate = () => {
+    navigate(`/uniqueImage/${productType}#${productId}`);
+  };
+
   const quickViewImage = (
     <div className={classes.quickViewImageWrapper}>
       <img
@@ -15,7 +19,12 @@ const QuickView = ({ src, secondSrc, productType, productId }) => {
         onLoad={(e) => e.currentTarget.classList.add(classes.loaded)}
       />
 
-      <img className={classes.productImage} src={secondSrc} alt="" />
+      <img
+        className={classes.productImage}
+        src={secondSrc}
+        alt=""
+        onClick={handleNavigate}
+      />
     </div>
   );
 

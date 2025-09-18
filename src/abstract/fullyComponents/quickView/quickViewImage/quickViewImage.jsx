@@ -194,8 +194,9 @@ const QuickViewImage = ({ data }) => {
 
     // finds matching obj
     const foundObj = data[tabType].find((a) => +a.id === productId);
+
     // tries to find obj quickly
-    setTimeout(() => {
+    const timerOne = setTimeout(() => {
       if (foundObj) {
         setQuickViewObj(foundObj);
       }
@@ -203,22 +204,27 @@ const QuickViewImage = ({ data }) => {
 
     // if not found, spends more time
     if (!quickViewObj) {
-      setTimeout(() => {
-        setTimeout(() => {
+      const timerTwo = setTimeout(() => {
+        const timerThree = setTimeout(() => {
           if (foundObj) {
             setQuickViewObj(foundObj);
           }
         }, 1500);
+
+        return () => clearTimeout(timerThree);
       }, 6000);
+
+      return () => clearTimeout(timerTwo);
     }
 
     // if no item is found by 10 seconds, navigates to error-page (which will be made specifically for not finding products in future)
-    const timer = setTimeout(() => {
+    const timerFour = setTimeout(() => {
       if (!foundObj) navigate("/Error");
     }, 10000);
 
     return () => {
-      clearTimeout(timer);
+      clearTimeout(timerOne);
+      clearTimeout(timerFour);
     };
   }, [data]);
 
@@ -245,7 +251,7 @@ const QuickViewImage = ({ data }) => {
 
   return (
     <>
-      <div className={classes.quickViewImage}>
+      <div className={classes.quickViewImage} key={quickViewObj?.id}>
         <LoadingWrapper
           onClick={() => {
             bodyNoScroll().enableScroll();
