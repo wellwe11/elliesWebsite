@@ -121,8 +121,10 @@ const Cart = () => {
           {closeButton}
         </div>
         {productsWrapper}
-        {totalProductsWrapper}
-        {toPaymentMethodWrapper}
+        <div className={classes.cartBottomSection}>
+          {totalProductsWrapper}
+          {toPaymentMethodWrapper}
+        </div>
       </div>
     </div>
   );
