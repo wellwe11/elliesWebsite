@@ -24,7 +24,7 @@ export default App;
  * ** TODO NOW! **
  *
  * CartPage:
- * Clean logic in productAmount & handleCart
+ * Clean logic in body/cart/productAmount & abstract/functions/handleCart
  *
  * -- Finalize styling on 'This is the bottom'
  * -- Fix button
@@ -42,6 +42,7 @@ export default App;
  * ------------------------------------------------
  * ** BUGS **
  * * navBar icon-animation (the blue/white circle) resets when you click it. Either, remove this, or add a spin-animation (360 spin) to click.
+ * on gallery - pageSelector-button 1 (fast-skip to page 1) is displaying on wrong page. Should be displayed when page is 3, currently on 4
  * ------------------------------------------------
  * ** THINGS TO FIX **
  * allow scrolling on left side and right side screen on uniuqeImage page
@@ -50,6 +51,8 @@ export default App;
  *
  * GALLERY has a function called scrollTop. I want it to work by conditions, rather than having a function directly inside of the onClick events...
  * Because currently, the page-changer renders at 1500ms, and scrollTop works after 1580ms
+ *
+ * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
  * ------------------------------------------------
