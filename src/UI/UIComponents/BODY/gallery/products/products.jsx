@@ -72,6 +72,7 @@ const ProductBio = ({ product, bioData }) => {
 
 // wrapper
 const Products = ({ products }) => {
+  console.log(products);
   // map only visible objects to display them as 'pages' which can be navigated by user
   const mappedProductImages = (
     <div className={classes.productsContainer}>
@@ -79,6 +80,7 @@ const Products = ({ products }) => {
         <div key={index} className={classes.productWrapper}>
           <QuickView
             src={product.image}
+            secondSrc={product._embedded.restImages[0]}
             productType={product._embedded.details.type}
             productId={product.id}
           />

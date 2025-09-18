@@ -1,7 +1,6 @@
-.productImageWrapper {
+.quickViewImageContainer {
   cursor: pointer;
 
-  background-color: var(--c-grey-100);
   aspect-ratio: 1 / 1; // force images to stay the same size regardless of them being originally different sizes
 
   display: flex;
@@ -10,20 +9,59 @@
 
   overflow: hidden; // allows quickview button not to bug by being hovered outside of the container
 
-  .productImage {
+  flex: 1;
+
+  width: 100%;
+  background-color: var(--c-grey-100);
+
+  &:hover {
+    .quickViewButtonComponentWrapper {
+      transform: translateY(-40%);
+
+      opacity: 1;
+    }
+
+    .productImage {
+      &:nth-of-type(1) {
+        opacity: 0 !important;
+      }
+
+      &:nth-of-type(2) {
+        opacity: 1 !important;
+      }
+    }
+  }
+
+  .quickViewImageWrapper {
     width: 100%;
     height: 100%;
+    position: relative;
 
-    object-fit: contain;
-    object-position: center;
+    &:hover {
+    }
 
-    padding: 10%;
+    .productImage {
+      position: absolute;
+      left: 0;
+      top: 10%;
 
-    opacity: 0;
+      width: 100%;
+      height: 100%;
 
-    &:hover ~ .quickViewButtonComponentWrapper {
-      transform: translateY(-150%);
-      opacity: 1;
+      object-fit: contain;
+      object-position: center;
+      align-content: center;
+
+      opacity: 0;
+
+      &:nth-of-type(1) {
+        transition: opacity 0.3s ease;
+      }
+
+      &:nth-of-type(2) {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
     }
   }
 }
@@ -48,7 +86,7 @@
 
   // hover applies also to button, otherwise, button will close as the initial trigger is frm hovering it's sibling-element, which button will eventually cover partially
   &:hover {
-    transform: translateY(-150%);
+    transform: translateY(-40%);
     opacity: 1;
   }
 }
