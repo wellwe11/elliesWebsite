@@ -48,9 +48,34 @@
 
     transition: transform 0.3s ease 0.2s;
 
+    // closeButton variable
+    .closeButton {
+      height: fit-content;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border: none;
+      background-color: var(--backgroundColor);
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--c-grey-100);
+      }
+    }
+
     // title variable
     .title {
       font-variation-settings: "wght" 300;
+    }
+
+    .titleAndCloseWrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
     }
 
     // productsWrapper variable
@@ -121,7 +146,7 @@
   }
 }
 
-.paymentMethodButton {
+.paymentMethodText {
 }
 
 .slideFromRight {

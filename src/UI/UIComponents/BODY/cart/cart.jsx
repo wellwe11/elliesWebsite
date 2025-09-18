@@ -6,6 +6,7 @@ import bodyNoScroll from "@functions/bodyNoScroll";
 import { useNavigate } from "react-router-dom";
 import Products from "./products/products";
 import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickViewButton";
+import X_SVG from "@components/SVGS/X_SVG/X_SVG";
 
 const ToPaymentMethod = () => {
   return (
@@ -82,6 +83,12 @@ const Cart = () => {
 
   const title = <h4 className={classes.title}>SHOPPING CART</h4>;
 
+  const closeButton = (
+    <button className={classes.closeButton} onClick={handleNavigateBack}>
+      <X_SVG />
+    </button>
+  );
+
   const productsWrapper = (
     <div className={classes.productsWrapper}>
       <Products />
@@ -109,7 +116,10 @@ const Cart = () => {
         onClick={handleNavigateBack}
       />
       <div className={classes.cartWrapper} ref={cartWrapperRef}>
-        {title}
+        <div className={classes.titleAndCloseWrapper}>
+          {title}
+          {closeButton}
+        </div>
         {productsWrapper}
         {totalProductsWrapper}
         {toPaymentMethodWrapper}
