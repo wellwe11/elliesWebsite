@@ -3,7 +3,7 @@ import classes from "./cartBottomItem.module.scss";
 const CartBottomItem = () => {
   return (
     <div className={classes.cartBottomItem}>
-      <h1>This is the bottom</h1>
+      <h6 className={classes.cartBottomText}>The cart is currently empty</h6>
     </div>
   );
 };

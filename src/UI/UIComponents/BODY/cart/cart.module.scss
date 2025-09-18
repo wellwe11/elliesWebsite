@@ -9,16 +9,26 @@
 
   display: flex;
   justify-content: flex-end;
+  overflow: hidden;
 
   // background to tone done backgroundLocation while cart is visible
   .background {
-    flex: 1;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
     background-color: rgba(255, 255, 255, 0.745);
     cursor: pointer;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   // wrapper for products which have been added to cart by user
   .cartWrapper {
+    z-index: 10;
+
     border-left: 1px solid var(--c-grey-300);
 
     padding-left: 10px;
@@ -28,11 +38,15 @@
     background-color: white;
 
     height: 100%;
-    width: 35%;
+    width: 30%;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    transform: translateX(100%); // position outside window first
+
+    transition: transform 0.3s ease 0.2s;
 
     // title variable
     .title {
@@ -61,7 +75,7 @@
       }
 
       &::-webkit-scrollbar-track {
-        background-color: var(--c-grey-100);
+        background-color: var(--backgroundColor);
       }
 
       &::-webkit-scrollbar-thumb {
@@ -78,6 +92,7 @@
 
     // toPaymentMthodWrapper variable
     .toPaymentMethodWrapper {
+      height: 50px;
     }
   }
 }
@@ -104,4 +119,15 @@
       left: 7px;
     }
   }
+}
+
+.paymentMethodButton {
+}
+
+.slideFromRight {
+  transform: translateX(0%) !important;
+}
+
+.appearBackgroundWhite {
+  opacity: 1 !important;
 }

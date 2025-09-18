@@ -1,13 +1,18 @@
 import classes from "./cart.module.scss";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
 import cartContext from "../cartContext";
 import bodyNoScroll from "@functions/bodyNoScroll";
 import { useNavigate } from "react-router-dom";
 import Products from "./products/products";
+import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickViewButton";
 
 const ToPaymentMethod = () => {
-  return <button>To payment method</button>;
+  return (
+    <QuickViewButton
+      text={<p className={classes.paymentMethodText}>To payment method</p>}
+    ></QuickViewButton>
+  );
 };
 
 const TotalProducts = () => {
@@ -37,16 +42,42 @@ const TotalProducts = () => {
 
 const Cart = () => {
   const navigate = useNavigate();
-
+  const cartWrapperRef = useRef();
+  const backgroundWhiteRef = useRef();
   const { disableScroll, enableScroll } = bodyNoScroll();
 
   useEffect(() => {
     disableScroll();
+
+    if (cartWrapperRef.current) {
+      setTimeout(() => {
+        cartWrapperRef.current.classList.add(classes.slideFromRight);
+      }, 50);
+    }
+
+    if (backgroundWhiteRef.current) {
+      setTimeout(() => {
+        backgroundWhiteRef.current.classList.add(classes.appearBackgroundWhite);
+      }, 50);
+    }
   }, []);
 
+  //  user wants to return away from cart
   const handleNavigateBack = () => {
-    navigate(-1);
-    enableScroll();
+    cartWrapperRef.current.classList.remove(classes.slideFromRight); // side-bar goes back before navigating away
+
+    setTimeout(() => {
+      // once cartWrapperRef is gone, fade back into website
+      backgroundWhiteRef.current.classList.remove(
+        classes.appearBackgroundWhite
+      );
+    }, 200);
+
+    setTimeout(() => {
+      // once transition is completed, navigate url to previous page
+      navigate(-1);
+      enableScroll();
+    }, 500); // transitiion for slideFromRight is 0.2s; needs to match
   };
 
   const title = <h4 className={classes.title}>SHOPPING CART</h4>;
@@ -69,10 +100,15 @@ const Cart = () => {
     </div>
   );
 
+  // add close button
   return (
     <div className={classes.cart}>
-      <div className={classes.background} onClick={handleNavigateBack} />
-      <div className={classes.cartWrapper}>
+      <div
+        className={classes.background}
+        ref={backgroundWhiteRef}
+        onClick={handleNavigateBack}
+      />
+      <div className={classes.cartWrapper} ref={cartWrapperRef}>
         {title}
         {productsWrapper}
         {totalProductsWrapper}

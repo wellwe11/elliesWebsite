@@ -24,8 +24,6 @@ export default App;
  * ** TODO NOW! **
  *
  * CartPage:
- * Clean logic in body/cart/productAmount & abstract/functions/handleCart
- *
  * -- Finalize styling on 'This is the bottom'
  * -- Fix button
  * -- add transition to the cart when it's supposed to appear (user clicks cart)
@@ -43,6 +41,7 @@ export default App;
  * ** BUGS **
  * * navBar icon-animation (the blue/white circle) resets when you click it. Either, remove this, or add a spin-animation (360 spin) to click.
  * on gallery - pageSelector-button 1 (fast-skip to page 1) is displaying on wrong page. Should be displayed when page is 3, currently on 4
+ * on UniquePage, if user has filter active (i.e. prints) and clicks quickView, the filter button 'explore' disappears
  * ------------------------------------------------
  * ** THINGS TO FIX **
  * allow scrolling on left side and right side screen on uniuqeImage page
