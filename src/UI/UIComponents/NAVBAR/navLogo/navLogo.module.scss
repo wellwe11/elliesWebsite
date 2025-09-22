@@ -1,0 +1,30 @@
+// NavLogo
+.logoContainer {
+  z-index: 10000;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .navLogoImage {
+    height: clamp(20px, 5vw, 40px);
+    width: clamp(20px, 5vw, 40px);
+    margin-right: 10px;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    will-change: transform;
+  }
+
+  .logo {
+    font-family: "Mrs Saint Delafield", cursive;
+
+    color: black;
+    margin-left: 5px;
+  }
+
+  &:hover {
+    .navLogoImage {
+      transform: rotate(40deg);
+    }
+  }
+}

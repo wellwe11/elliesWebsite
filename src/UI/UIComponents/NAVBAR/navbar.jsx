@@ -3,14 +3,14 @@ import classes from "./navbar.module.scss";
 // importing screen-sizings to help navbar scale with body
 import screen_classes from "../screenContainer/SCREENCONTAINER.module.scss";
 
-import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT.jsx";
-
-import logoImage from "@assets/logo.png";
-
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+
+import NavLogo from "./navLogo/navLogo.jsx";
+
+import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT.jsx";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import handleNavigateSmooth from "@functions/handleNavigateSmooth";
-import { useLocation, useNavigate } from "react-router-dom";
 
 const ShoppingCart = () => {
   const navigate = useNavigate();
@@ -50,8 +50,10 @@ const NavButton = ({ children, link }) => {
   const handleNavigate = handleNavigateSmooth();
   return (
     // on-click is applied to wrapper to isolate logic from buttonWithContent
-    <div className={classes.button} onClick={() => handleNavigate(link)}>
-      <ButtonWithContent fontType={"h6"}>{children}</ButtonWithContent>
+    <div className={classes.button}>
+      <ButtonWithContent onClick={() => handleNavigate(link)} fontType={"h6"}>
+        {children}
+      </ButtonWithContent>
     </div>
   );
 };
@@ -103,24 +105,6 @@ const NavbarButtons = ({
     <div className={classes.buttonsWrapper}>
       {mappedNavButtons}
       {buttonUnderline}
-    </div>
-  );
-};
-
-const NavLogo = ({ setActiveButton, setHoverButton }) => {
-  const navigate = handleNavigateSmooth();
-
-  return (
-    <div
-      className={classes.logoContainer}
-      onClick={() => {
-        setActiveButton(0);
-        setHoverButton(0);
-        navigate("./");
-      }}
-    >
-      <img className={classes.navLogoImage} src={logoImage} alt="" />
-      <h3 className={classes.logo}>art & cards co.</h3>
     </div>
   );
 };
