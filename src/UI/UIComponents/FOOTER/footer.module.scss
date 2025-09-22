@@ -1,7 +1,5 @@
 // Footer
 .footer {
-  border-top: 1px solid var(--c-grey-200);
-
   position: absolute;
   left: 0;
   width: 100%;
@@ -88,6 +86,7 @@
 // GithubLink
 .gitHubWrapper {
   position: absolute;
+  height: 40px;
   left: 0;
 
   width: 100%;

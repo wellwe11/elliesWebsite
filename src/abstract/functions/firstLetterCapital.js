@@ -1,5 +1,4 @@
 export const capitalizeFirstLetter = (string) => {
-  console.log(string);
   if (typeof string !== "string")
     return console.log(
       "argument needs to be typeof string in: firstLetterCapital function"

@@ -40,6 +40,7 @@ export default App;
  * Because currently, the page-changer renders at 1500ms, and scrollTop works after 1580ms
  *
  * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)
+ * Website need to scale well for bigger screens as well. Currently, some images & texts scale very strangely with big screens
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
  * ------------------------------------------------

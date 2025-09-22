@@ -4,16 +4,22 @@ import GitHubSVG from "@components/SVGS/githubSVG/githubSVG";
 
 // importing screen-sizings to help navbar scale with body
 import screen_classes from "../screenContainer/SCREENCONTAINER.module.scss";
+import { useNavigate } from "react-router-dom";
 
 const PText = ({ children }) => {
   return <p className={classes.pText}>{children}</p>;
 };
 
-const LinkButton = ({ children, onClick }) => {
+const ALink = ({ children, href = "blank" }) => {
   return (
-    <button className={classes.linkButton} onClick={onClick}>
+    <a
+      className={classes.linkButton}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {children}
-    </button>
+    </a>
   );
 };
 
@@ -35,14 +41,14 @@ const GithubLink = () => {
         className={`${screen_classes.contentWrapper} ${classes.gitHubContentWrapper}`}
       >
         <div className={classes.buttonWrapper}>
-          <LinkButton>
+          <ALink>
             <div className={classes.content}>
               <PText>Github</PText>
               <div className={classes.svgWrapper}>
                 <GitHubSVG />
               </div>
             </div>
-          </LinkButton>
+          </ALink>
         </div>
       </div>
     </div>
@@ -50,6 +56,7 @@ const GithubLink = () => {
 };
 
 const NavigationLinks = () => {
+  const navigate = useNavigate();
   const footerLinks = {
     "social media": {
       instagram: "someLink", // link to ellies socials (insta)
@@ -77,9 +84,9 @@ const NavigationLinks = () => {
         <div className={classes.buttonsContainer}>
           {keyKeys.map((keyKey, index) => (
             <div key={`${index} ${keyKey}`} className={classes.buttonWrapper}>
-              <LinkButton>
+              <ALink href={footerLinks[key][keyKey]}>
                 <PText>{capitalizeAllFirstLetters(keyKey)}</PText>
-              </LinkButton>
+              </ALink>
             </div>
           ))}
         </div>
@@ -93,14 +100,14 @@ const NavigationLinks = () => {
       <h6 className={classes.title}>{contactTitle}</h6>
       <div className={classes.buttonsContainer}>
         <div className={classes.buttonWrapper}>
-          <LinkButton>
+          <ALink>
             <PText>{capitalizeAllFirstLetters(email)}</PText>
-          </LinkButton>
+          </ALink>
         </div>
         <div className={classes.buttonWrapper}>
-          <LinkButton>
+          <ALink>
             <PText>{capitalizeAllFirstLetters(adress)}</PText>
-          </LinkButton>
+          </ALink>
         </div>
       </div>
     </div>
