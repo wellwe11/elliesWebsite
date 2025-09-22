@@ -72,7 +72,7 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
 
   const location = useLocation();
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const updateData = () => {
     // start loading animation
@@ -157,7 +157,7 @@ const Gallery = ({ data }) => {
     [category, data]
   ); // flats data and filters data depending on category active
 
-  if (!data) return;
+  if (!data || !updatedData) return;
 
   return (
     <div className={classes.gallery}>

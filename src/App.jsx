@@ -26,6 +26,7 @@ export default App;
  *
  * ------------------------------------------------
  * ** BUGS **
+ * useNavigateSmooth is bugged right now. Remove it completely and replace it with useNavigate()
  * ------------------------------------------------
  * ** THINGS TO FIX **
  * Give uniqueImage a small time to load so it doesn't stutter so much
