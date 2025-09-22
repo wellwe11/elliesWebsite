@@ -101,7 +101,7 @@ const ScreenContainer = () => {
               />
 
               <Route
-                path="/uniqueImage/:type"
+                path="/uniqueImage/:category?/:id?/*"
                 element={<UniqueImage data={topLayerData} />}
               />
 
@@ -114,7 +114,7 @@ const ScreenContainer = () => {
             {state?.backgroundLocation && (
               <Routes>
                 <Route
-                  path="/:tab?/preview/:type"
+                  path="/:tab?/preview/:category?/:id?/*"
                   element={<QuickViewImage data={topLayerData} />}
                 />
 

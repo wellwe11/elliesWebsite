@@ -124,9 +124,9 @@ const PageNumbers = ({ page, maxPage, navigate, category }) => {
   );
 };
 
-const BackToZeroButton = ({ page, navigate, category }) => {
+const BackToZeroButton = ({ page, maxPage, navigate, category }) => {
   const backToZeroStyle = {
-    display: page >= 4 ? "block" : "none",
+    display: page >= 3 && maxPage > 3 ? "block" : "none",
   };
 
   return (
@@ -153,7 +153,12 @@ const PageSelector = ({ maxPage }) => {
   return (
     <div className={classes.pageSelector}>
       <LeftButton page={page} navigate={navigate} category={category} />
-      <BackToZeroButton page={page} navigate={navigate} category={category} />
+      <BackToZeroButton
+        page={page}
+        maxPage={maxPage}
+        navigate={navigate}
+        category={category}
+      />
       <PageNumbers
         page={page}
         maxPage={maxPage}

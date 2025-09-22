@@ -1,6 +1,6 @@
 import classes from "./uniqueImage.module.scss";
 import { useEffect, useRef, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, useSearchParams } from "react-router-dom";
 import mainImage from "@assets/welcomeImage.jpg";
 
 import UniqueTopSection from "./uniqueTopSection/uniqueTopSection";
@@ -49,20 +49,19 @@ const UniqueImage = ({ data }) => {
 
   const containerRef = useRef();
 
-  const { type } = useParams(), // checks params for which type (painting/prints etc...) & id (id is printed on each objected after fetch, which is based on their position)
-    { hash } = useLocation();
-
-  const id = +hash.replace(/\D/g, "");
+  const [searchParams] = useSearchParams(),
+    category = searchParams.get("category") || null,
+    id = searchParams.get("page") || null;
 
   useEffect(() => {
-    if (!data || (!type && !id)) return; // if no data, return. If no type & id (link is undefined) return
+    if (!data || (!category && !+id)) return; // if no data, return. If no type & id (link is undefined) return
 
-    const foundUniqueImage = data?.[type].find((obj) => obj.id === +id); // searches data for a matching id to params
+    const foundUniqueImage = data?.[category].find((obj) => obj.id === +id); // searches data for a matching id to params
 
     if (foundUniqueImage) {
       setFoundObject(foundUniqueImage);
     }
-  }, [data, type, id]);
+  }, [data, category, id]);
 
   if (foundObject === null) return <h1>loading...</h1>; // need to design a loading screen in future for these cases
 

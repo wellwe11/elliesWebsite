@@ -27,8 +27,7 @@ export default App;
  * ------------------------------------------------
  * ** BUGS **
  * * navBar icon-animation (the blue/white circle) resets when you click it. Either, remove this, or add a spin-animation (360 spin) to click.
- * on gallery - pageSelector-button 1 (fast-skip to page 1) is displaying on wrong page. Should be displayed when page is 3, currently on 4
- * on UniquePage, if user has filter active (i.e. prints) and clicks quickView, the filter button 'explore' disappears
+ * on Gallery, if user has filter active (i.e. prints) and clicks quickView, the filter button 'explore' disappears
  * ------------------------------------------------
  * ** THINGS TO FIX **
  * Give uniqueImage a small time to load so it doesn't stutter so much

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 import classes from "./GALLERY.module.scss";
@@ -7,6 +7,7 @@ import FilterSideBar from "./filterSideBar/filterSideBar";
 import Products from "./products/products";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
+import dataHandler from "./dataHandler.jsx";
 
 // function which saves the previous page when you switch pages etc.
 // Used inside of ProductsWrapperComponent's useEffect to avoid page from scrolling to top unnecessarily
@@ -63,21 +64,20 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
 
   const prevPage = usePrevious(page); // used to determine if scrollTop should be used or not
 
-  const [loading, setLoading] = useState(false);
-
   const location = useLocation();
+
+  const [loading, setLoading] = useState(false);
 
   const updateData = () => {
     // start loading animation
     setPrevData(newData); // display old products while loading new ones
     setLoading(true);
 
-    // update new products
-    const displayedProducts = handleDisplayedProducts(page, filteredData);
+    const displayedProducts = handleDisplayedProducts(page, filteredData); // update new products
     setNewData(displayedProducts);
 
-    // initiate reload
     return setTimeout(() => {
+      // initiate reload
       setLoading(false);
 
       if (prevPage) {
@@ -86,8 +86,8 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
     }, 1500);
   };
 
-  // effect which adds a loading-screen to each time products change; visible appealing. Avoids stuttering when elements update information.
   useEffect(() => {
+    // effect which adds a loading-screen to each time products change; visible appealing. Avoids stuttering when elements update information.
     if (!prevPage) return;
     if (location.search.length < 1) return;
 
@@ -146,29 +146,7 @@ const Gallery = ({ data }) => {
     category = searchParams.get("category") || null,
     page = searchParams.get("page") || null;
 
-  // all types (paintings, prints, accessories are 'flattened')
-  // Works like a parent-variable. Always contains an array of all data, and never changes.
-  const [flattedData, setFlattedData] = useState(null);
-
-  // Filters data based on current filter
-  const filteredData = useMemo(() => {
-    if (!flattedData) return []; // only works if data has been platted
-
-    if (!category) return flattedData || []; // if no filter, return unfilted data
-
-    return data[category] || [];
-  }, [category, flattedData]);
-
-  // effect that flattens data out to allow items to be displayed in 'random' order with no filters
-  // runs only once, when data initially is loaded (on page-laod)
-  useEffect(() => {
-    if (!data) return;
-
-    const flatData = Object.values(data) // since fetched data-objects are all stored in varius arrays, we flatten them and sort them based on id
-      .flat()
-      .sort((a, b) => a.id - b.id);
-    setFlattedData(flatData);
-  }, [data]);
+  const updatedData = dataHandler(data, category);
 
   if (!data) return;
 
@@ -176,9 +154,9 @@ const Gallery = ({ data }) => {
     <div className={classes.gallery}>
       <div className={classes.galleryTop}>
         <FilterSideBarWrapperComponent data={data} category={category} />
-        <ProductsWrapperComponent filteredData={filteredData} page={page} />
+        <ProductsWrapperComponent filteredData={updatedData} page={page} />
       </div>
-      <PageWrapperComponent filteredData={filteredData} />
+      <PageWrapperComponent filteredData={updatedData} />
     </div>
   );
 };

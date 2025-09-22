@@ -7,7 +7,7 @@ const QuickView = ({ src, secondSrc, productType, productId }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(`/uniqueImage/${productType}#${productId}`);
+    navigate(`/uniqueImage?category=${productType}&id${productId}`);
   };
 
   const quickViewImage = (
@@ -40,7 +40,7 @@ const QuickView = ({ src, secondSrc, productType, productId }) => {
         <QuickViewButton
           text={"Quick view"}
           onClick={() => {
-            navigate(`./preview/${productType}#${productId}`, {
+            navigate(`./preview?category=${productType}&id=${productId}`, {
               state: { backgroundLocation: location.pathname },
             });
 

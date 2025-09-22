@@ -3,7 +3,12 @@ import { useEffect, useState } from "react";
 
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  useLocation,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import QuickViewButton from "../quickViewButton/quickViewButton";
 import bodyNoScroll from "@functions/bodyNoScroll";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
@@ -12,19 +17,17 @@ import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackgrou
 const ViewProductButton = () => {
   // navigates to a backgroundLocation
   const navigate = useNavigate();
-  const params = useParams();
-  const { hash } = useLocation();
 
-  // gets correct object type & info to find the correct object
-  const tabType = params?.type;
-  const productId = +hash.replace(/\D/g, ""); // current page;
+  const [searchParams] = useSearchParams(),
+    category = searchParams.get("category") || null,
+    id = searchParams.get("id") || null;
 
   return (
     <div className={classes.viewProductButtonWrapper}>
       <QuickViewButton
         text={<h5 className={classes.buttonText}>Explore item</h5>}
         onClick={() => {
-          navigate(`/uniqueImage/${tabType}#${productId}`);
+          navigate(`/uniqueImage?category=${category}&id=${id}`);
           bodyNoScroll().enableScroll();
         }}
       />
@@ -178,12 +181,10 @@ const QuickViewImage = ({ data }) => {
 
   // navigates to a backgroundLocation
   const navigate = useNavigate();
-  const params = useParams();
-  const { hash } = useLocation();
 
-  // gets correct object type & info to find the correct object
-  const tabType = params?.type;
-  const productId = +hash.replace(/\D/g, ""); // current page;
+  const [searchParams] = useSearchParams(),
+    category = searchParams.get("category") || null,
+    id = searchParams.get("id") || null;
 
   useEffect(() => {
     if (quickViewObj) bodyNoScroll().disableScroll(); // disables scroll while quickview is active
@@ -193,7 +194,7 @@ const QuickViewImage = ({ data }) => {
     if (!data) return;
 
     // finds matching obj
-    const foundObj = data[tabType].find((a) => +a.id === productId);
+    const foundObj = data[category].find((a) => +a.id === +id);
 
     // tries to find obj quickly
     const timerOne = setTimeout(() => {
