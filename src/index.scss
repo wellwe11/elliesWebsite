@@ -50,9 +50,16 @@
 
   // sizes for paddings etc, following the 8x8 rule
   --minSize: 8px;
-  --mediumSize: 16px;
-  --largeSize: 24px;
-  --XLSize: 32px;
+
+  // Spacing variables based on multiples of 8
+  --spacing-1: calc(var(--minSize) * 1); /* 8px */
+  --spacing-2: calc(var(--minSize) * 2); /* 16px */
+  --spacing-3: calc(var(--minSize) * 3); /* 24px */
+  --spacing-4: calc(var(--minSize) * 4); /* 32px */
+  --spacing-5: calc(var(--minSize) * 5); /* 40px */
+  --spacing-6: calc(var(--minSize) * 6); /* 48px */
+  --spacing-7: calc(var(--minSize) * 7); /* 56px */
+  --spacing-8: calc(var(--minSize) * 8); /* 64px */
 }
 
 p {

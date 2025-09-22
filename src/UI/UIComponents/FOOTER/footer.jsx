@@ -1,13 +1,29 @@
+import { capitalizeAllFirstLetters } from "../../../abstract/functions/firstLetterCapital.js";
 import classes from "./footer.module.scss";
 import GitHubSVG from "@components/SVGS/githubSVG/githubSVG";
+
+// importing screen-sizings to help navbar scale with body
+import screen_classes from "../screenContainer/SCREENCONTAINER.module.scss";
+
+const PText = ({ children }) => {
+  return <p className={classes.pText}>{children}</p>;
+};
+
+const LinkButton = ({ children, onClick }) => {
+  return (
+    <button className={classes.linkButton} onClick={onClick}>
+      {children}
+    </button>
+  );
+};
 
 const Copyright = () => {
   const date = new Date();
   const year = date.getFullYear();
 
   return (
-    <div className={classes.copyRightWrapper}>
-      <p>{`Copyright © ${year} wellwe11`}</p>
+    <div className={classes.copyrightWrapper}>
+      <PText>{`Copyright © ${year} @wellwe11`}</PText>
     </div>
   );
 };
@@ -15,25 +31,21 @@ const Copyright = () => {
 const GithubLink = () => {
   return (
     <div className={classes.gitHubWrapper}>
-      <div className={classes.buttonWrapper}>
-        <LinkButton>
-          <div className={classes.content}>
-            Github
-            <div className={classes.svgWrapper}>
-              <GitHubSVG />
+      <div
+        className={`${screen_classes.contentWrapper} ${classes.gitHubContentWrapper}`}
+      >
+        <div className={classes.buttonWrapper}>
+          <LinkButton>
+            <div className={classes.content}>
+              <PText>Github</PText>
+              <div className={classes.svgWrapper}>
+                <GitHubSVG />
+              </div>
             </div>
-          </div>
-        </LinkButton>
+          </LinkButton>
+        </div>
       </div>
     </div>
-  );
-};
-
-const LinkButton = ({ children, onClick }) => {
-  return (
-    <button className={classes.linkButton} onClick={onClick}>
-      <p className={classes.buttonText}>{children}</p>
-    </button>
   );
 };
 
@@ -47,51 +59,65 @@ const NavigationLinks = () => {
       "customer rights": "some link", // link to info-page and navigates to customer rights section
       shipping: "some link", // link to info-page and navigates to shipping section
     },
-
-    business: {},
   };
 
-  const email = "someEmail@somePlace.com", // links to contact: form
+  const contactTitle = "Contact",
+    email = "someEmail@somePlace.com", // links to contact: form
     adress = "somePlaceWhereILive", // just a text with ellies adress
     linkKeys = Object.keys(footerLinks);
 
-  const linksWrapper = (
-    <div className={classes.linksWrapper}>
-      {linkKeys.map((key, index) => {
-        const keyKeys = Object.keys(footerLinks[key]);
-        return (
-          <div key={index} className={classes.sectionWrapper}>
-            <h6 className={classes.title}>{key}</h6>
+  const linksWrapper = linkKeys.map((key, index) => {
+    // dynamic wrapper with keys & values
+    const keyKeys = Object.keys(footerLinks[key]);
 
-            <div className={classes.buttonsContainer}>
-              {keyKeys.map((keyKey, index) => (
-                <div
-                  key={`${index} ${keyKey}`}
-                  className={classes.buttonWrapper}
-                >
-                  <LinkButton>{keyKey}</LinkButton>
-                </div>
-              ))}
-              <div className={classes.buttonWrapper}>
-                <LinkButton>{email}</LinkButton>
-              </div>
-              <div className={classes.buttonWrapper}>
-                <LinkButton>{adress}</LinkButton>
-              </div>
+    return (
+      <div key={index} className={classes.sectionWrapper}>
+        <h6 className={classes.title}>{capitalizeAllFirstLetters(key)}</h6>
+
+        <div className={classes.buttonsContainer}>
+          {keyKeys.map((keyKey, index) => (
+            <div key={`${index} ${keyKey}`} className={classes.buttonWrapper}>
+              <LinkButton>
+                <PText>{capitalizeAllFirstLetters(keyKey)}</PText>
+              </LinkButton>
             </div>
-          </div>
-        );
-      })}
+          ))}
+        </div>
+      </div>
+    );
+  });
+
+  const contactWrapper = (
+    // static wrapper with contactTitle, email & adress
+    <div className={classes.sectionWrapper}>
+      <h6 className={classes.title}>{contactTitle}</h6>
+      <div className={classes.buttonsContainer}>
+        <div className={classes.buttonWrapper}>
+          <LinkButton>
+            <PText>{capitalizeAllFirstLetters(email)}</PText>
+          </LinkButton>
+        </div>
+        <div className={classes.buttonWrapper}>
+          <LinkButton>
+            <PText>{capitalizeAllFirstLetters(adress)}</PText>
+          </LinkButton>
+        </div>
+      </div>
     </div>
   );
 
-  return linksWrapper;
+  return (
+    <div className={classes.linksWrapper}>
+      {linksWrapper}
+      {contactWrapper}
+    </div>
+  );
 };
 
 const Footer = () => {
   return (
     <div className={classes.footer}>
-      <div className={classes.navContent}>
+      <div className={`${screen_classes.contentWrapper} ${classes.navContent}`}>
         <NavigationLinks />
         <Copyright />
         <GithubLink />
