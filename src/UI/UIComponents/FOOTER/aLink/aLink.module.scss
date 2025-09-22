@@ -1,0 +1,14 @@
+// ALink
+.linkButton {
+  background-color: inherit;
+  width: 100%;
+  cursor: pointer;
+  text-align: start;
+  border: none;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: var(--spacing-4);
+}

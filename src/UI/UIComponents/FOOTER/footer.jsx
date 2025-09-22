@@ -1,28 +1,14 @@
-import { capitalizeAllFirstLetters } from "../../../abstract/functions/firstLetterCapital.js";
 import classes from "./footer.module.scss";
+
+import screen_classes from "../screenContainer/SCREENCONTAINER.module.scss"; // importing screen-sizings to help navbar scale with body
+
 import GitHubSVG from "@components/SVGS/githubSVG/githubSVG";
 
-// importing screen-sizings to help navbar scale with body
-import screen_classes from "../screenContainer/SCREENCONTAINER.module.scss";
-import { useNavigate } from "react-router-dom";
+import { capitalizeAllFirstLetters } from "../../../abstract/functions/firstLetterCapital.js";
+import PText from "./PText/pText.jsx";
+import ALink from "./aLink/aLink.jsx";
 
-const PText = ({ children }) => {
-  return <p className={classes.pText}>{children}</p>;
-};
-
-const ALink = ({ children, href = "blank" }) => {
-  return (
-    <a
-      className={classes.linkButton}
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {children}
-    </a>
-  );
-};
-
+// element containing static copyright text with dynamic year
 const Copyright = () => {
   const date = new Date();
   const year = date.getFullYear();
@@ -35,44 +21,35 @@ const Copyright = () => {
 };
 
 const GithubLink = () => {
+  const gitHubButtonLinkWrapper = (
+    <div className={classes.buttonWrapper}>
+      <ALink>
+        <div className={classes.content}>
+          <PText>Github</PText>
+          <div className={classes.svgWrapper}>
+            <GitHubSVG />
+          </div>
+        </div>
+      </ALink>
+    </div>
+  );
+
   return (
     <div className={classes.gitHubWrapper}>
       <div
         className={`${screen_classes.contentWrapper} ${classes.gitHubContentWrapper}`}
       >
-        <div className={classes.buttonWrapper}>
-          <ALink>
-            <div className={classes.content}>
-              <PText>Github</PText>
-              <div className={classes.svgWrapper}>
-                <GitHubSVG />
-              </div>
-            </div>
-          </ALink>
-        </div>
+        {gitHubButtonLinkWrapper}
       </div>
     </div>
   );
 };
 
-const NavigationLinks = () => {
-  const navigate = useNavigate();
-  const footerLinks = {
-    "social media": {
-      instagram: "someLink", // link to ellies socials (insta)
-    },
-
-    information: {
-      "customer rights": "some link", // link to info-page and navigates to customer rights section
-      shipping: "some link", // link to info-page and navigates to shipping section
-    },
-  };
-
-  const contactTitle = "Contact",
-    email = "someEmail@somePlace.com", // links to contact: form
-    adress = "somePlaceWhereILive", // just a text with ellies adress
-    linkKeys = Object.keys(footerLinks);
-
+const NavigationLinks = ({
+  linkKeys,
+  footerLinks,
+  contact: { contactTitle, email, adress },
+}) => {
   const linksWrapper = linkKeys.map((key, index) => {
     // dynamic wrapper with keys & values
     const keyKeys = Object.keys(footerLinks[key]);
@@ -122,10 +99,30 @@ const NavigationLinks = () => {
 };
 
 const Footer = () => {
+  const footerLinks = {
+    "social media": {
+      instagram: "someLink", // link to ellies socials (insta)
+    },
+
+    information: {
+      "customer rights": "some link", // link to info-page and navigates to customer rights section
+      shipping: "some link", // link to info-page and navigates to shipping section
+    },
+  };
+
+  const contactTitle = "Contact",
+    email = "someEmail@somePlace.com", // links to contact: form
+    adress = "somePlaceWhereILive", // just a text with ellies adress
+    linkKeys = Object.keys(footerLinks);
+
   return (
     <div className={classes.footer}>
       <div className={`${screen_classes.contentWrapper} ${classes.navContent}`}>
-        <NavigationLinks />
+        <NavigationLinks
+          linkKeys={linkKeys}
+          footerLinks={footerLinks}
+          contact={{ contactTitle, email, adress }}
+        />
         <Copyright />
         <GithubLink />
       </div>
