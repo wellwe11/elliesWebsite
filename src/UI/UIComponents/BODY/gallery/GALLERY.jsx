@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 import classes from "./GALLERY.module.scss";
@@ -70,7 +70,7 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
 
   const updateData = () => {
     // start loading animation
-    setPrevData(newData); // display old products while loading new ones
+    setPrevData(newData.slice(0, 9)); // display old products while loading new ones
     setLoading(true);
 
     const displayedProducts = handleDisplayedProducts(page, filteredData); // update new products
@@ -104,7 +104,7 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
   const productIsLoading = (
     <div
       className={classes.productsLoading}
-      style={{ visibility: !loading ? "hidden" : "visible" }} // reason for having an additional visibility to loadingIconWithBackground's own conditionial visiblity is to display 'old' products while loading, to give the appearance that old products are displayable while new ones are loading in and pre-rendering
+      style={{ visibility: loading ? "visible" : "hidden" }} // reason for having an additional visibility to loadingIconWithBackground's own conditionial visiblity is to display 'old' products while loading, to give the appearance that old products are displayable while new ones are loading in and pre-rendering
     >
       <LoadingWrapper condition={loading} />
       <Products products={prevData} />
@@ -146,7 +146,10 @@ const Gallery = ({ data }) => {
     category = searchParams.get("category") || null,
     page = searchParams.get("page") || null;
 
-  const updatedData = dataHandler(data, category);
+  const updatedData = useMemo(
+    () => dataHandler(data, category),
+    [category, data]
+  ); // flats data and filters data depending on category active
 
   if (!data) return;
 
