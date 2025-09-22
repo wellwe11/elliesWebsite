@@ -1,7 +1,41 @@
 import classes from "./footer.module.scss";
-import screen_classes from "../screenContainer/SCREENCONTAINER.module.scss";
+import GitHubSVG from "@components/SVGS/githubSVG/githubSVG";
 
-const Copyright = () => {};
+const Copyright = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+
+  return (
+    <div className={classes.copyRightWrapper}>
+      <p>{`Copyright © ${year} wellwe11`}</p>
+    </div>
+  );
+};
+
+const GithubLink = () => {
+  return (
+    <div className={classes.gitHubWrapper}>
+      <div className={classes.buttonWrapper}>
+        <LinkButton>
+          <div className={classes.content}>
+            Github
+            <div className={classes.svgWrapper}>
+              <GitHubSVG />
+            </div>
+          </div>
+        </LinkButton>
+      </div>
+    </div>
+  );
+};
+
+const LinkButton = ({ children, onClick }) => {
+  return (
+    <button className={classes.linkButton} onClick={onClick}>
+      <p className={classes.buttonText}>{children}</p>
+    </button>
+  );
+};
 
 const NavigationLinks = () => {
   const footerLinks = {
@@ -21,30 +55,37 @@ const NavigationLinks = () => {
     adress = "somePlaceWhereILive", // just a text with ellies adress
     linkKeys = Object.keys(footerLinks);
 
-  const socialsWrapper = (
-    <div>
+  const linksWrapper = (
+    <div className={classes.linksWrapper}>
       {linkKeys.map((key, index) => {
         const keyKeys = Object.keys(footerLinks[key]);
         return (
-          <div>
-            <h6>{key}</h6>
+          <div key={index} className={classes.sectionWrapper}>
+            <h6 className={classes.title}>{key}</h6>
 
-            <div>
+            <div className={classes.buttonsContainer}>
               {keyKeys.map((keyKey, index) => (
-                <div>{keyKey}</div>
+                <div
+                  key={`${index} ${keyKey}`}
+                  className={classes.buttonWrapper}
+                >
+                  <LinkButton>{keyKey}</LinkButton>
+                </div>
               ))}
+              <div className={classes.buttonWrapper}>
+                <LinkButton>{email}</LinkButton>
+              </div>
+              <div className={classes.buttonWrapper}>
+                <LinkButton>{adress}</LinkButton>
+              </div>
             </div>
           </div>
         );
       })}
-      <div>
-        {email}
-        {adress}
-      </div>
     </div>
   );
 
-  return socialsWrapper;
+  return linksWrapper;
 };
 
 const Footer = () => {
@@ -52,7 +93,8 @@ const Footer = () => {
     <div className={classes.footer}>
       <div className={classes.navContent}>
         <NavigationLinks />
-        <h1 className={screen_classes.contentWrapper}>footer</h1>
+        <Copyright />
+        <GithubLink />
       </div>
     </div>
   );
