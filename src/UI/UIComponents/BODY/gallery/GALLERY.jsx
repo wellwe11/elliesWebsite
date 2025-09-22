@@ -93,6 +93,10 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
   };
 
   useEffect(() => {
+    updateData();
+  }, []);
+
+  useEffect(() => {
     // effect which adds a loading-screen to each time products change; visible appealing. Avoids stuttering when elements update information.
     if (!prevPage) return;
     if (location.search.length < 1) return;
