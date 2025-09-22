@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 10px 20px;
+  padding: var(--step-1);
 
   background-color: var(--c-grey-100);
 
@@ -52,15 +52,15 @@
 }
 
 .backToZeroButtonWrapper {
-  padding-left: 10px;
+  padding-left: var(--step-1);
 }
 
 .leftButtonWrapper {
-  height: 30px;
+  height: var(--step-2);
 }
 
 .rightButtonWrapper {
-  height: 30px;
+  height: var(--step-2);
   transform: rotateY(180deg);
 }
 

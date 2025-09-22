@@ -20,7 +20,7 @@
     width: 100%;
     text-wrap: nowrap;
 
-    padding-left: 10px;
+    padding-left: var(--step-1);
     h1 {
       font-family: "Mrs Saint Delafield", cursive, Arial, sans-serif;
       animation: fadeInText 1s ease forwards 1s;

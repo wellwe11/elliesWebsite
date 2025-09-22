@@ -1,6 +1,6 @@
 // Gallery
 .gallery {
-  padding-top: 50px;
+  padding-top: var(--step-6);
   min-height: 100vh;
 
   display: flex;
@@ -22,6 +22,7 @@
   .productsWrapper {
     width: 70%;
     display: grid; // display grid to place previous products & upcoming products in the same place
+    padding-bottom: var(--step-7);
 
     // these are the old products which are displayed while loading
     .productsLoading {
@@ -42,7 +43,7 @@
     justify-content: center;
     align-items: center;
 
-    padding: 20px;
+    padding: var(--step-2);
   }
 }
 

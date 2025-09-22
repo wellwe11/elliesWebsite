@@ -133,7 +133,7 @@
 
   // shoppingBagText
   .shoppingBagText {
-    padding-right: 10px;
+    padding-right: var(--step-1);
 
     transition: opacity 1s ease, transform 0.4s ease;
     opacity: 0;
