@@ -36,10 +36,16 @@ const handleDisplayedProducts = (page, data) => {
 const FilterSideBarWrapperComponent = ({ data, category }) => {
   const navigate = useNavigate();
 
+  const [localCategory, setLocalCategory] = useState(null);
+
+  console.log(localCategory);
+
   const handleFilter = (e) => {
     if (e === category) {
+      setLocalCategory(null);
       navigate(`/gallery?page=1`); // reset navigation when user clicks button over again
     } else {
+      setLocalCategory(e);
       navigate(`/gallery?category=${e}&page=1`);
     }
   };
@@ -51,7 +57,7 @@ const FilterSideBarWrapperComponent = ({ data, category }) => {
       <FilterSideBar
         dataKeys={dataKeys}
         handleFilter={handleFilter}
-        category={category}
+        category={localCategory}
       />
     </div>
   );
