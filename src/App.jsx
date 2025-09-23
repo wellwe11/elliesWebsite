@@ -22,23 +22,18 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
-
+ * Seperate all fetch-logic. Make them into functions and remove the handling of it from the main-components
+ * Give uniqueImage a small time to load so it doesn't stutter so much
  * ------------------------------------------------
  * ** BUGS **
  * ------------------------------------------------
  * ** THINGS TO FIX **
- * Give uniqueImage a small time to load so it doesn't stutter so much
- * ** make explore item text smaller (possibly h4 or h5)
- *
- *
- * Seperate all fetch-logic. Make them into functions and remove the handling of it from the main-components
- *
-
  *
  * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)
  * Website need to scale well for bigger screens as well. Currently, some images & texts scale very strangely with big screens
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
+ * uniqueImage needs another add-to-cart button for bottomSection
  * ------------------------------------------------
  * ** NEW COMPONENTS **
  * Create an instagram section - this should be a spinning wheel that simply has images from ellies instagram-page, and when clicked, takes you to ellies instagram
@@ -51,6 +46,15 @@ export default App;
  * Payment method page
  *
  * ------------------------------------------------
+ *
+ * ** FUTURE UPDATES **
+ * In the future, I will create two main-objects for products.
+ * -- Object one: Front-page contains a certain amount of items. This Object will have a minor version of the total-object. This is to render as quickly as possible, and fetch only needed information.
+ * -- Object two: The total amount of items. This object will contain ALL information, which will later be fetched for gallery. This fetch will be unique, and only download 9 items at a time, while also downloading all categories.
+ * --- All categoties will be downloaded for the side-panel to toggle which category user wnats to view.
+ * -- 9 items to display items per page. This saves brandwidth for user.
+ * --- Each time user changes page, it will re-fetch the information & update the current products to be displayed.
+ * --- Like so, I can clean code which calculates the currently displayed products, because it wont be needed. The front-end UI will only manage all items which come in, while the fetch (eventually will be put into back-end) will contain all viewable items.
  */
 
 /*** RULES FOR PROJECT

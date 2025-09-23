@@ -6,7 +6,6 @@ import Footer from "../FOOTER/footer";
 import Navbar from "../NAVBAR/navbar";
 import MainPage from "../BODY/mainPage/MAINPAGE";
 import UniqueImage from "../BODY/uniqueImagePage/uniqueImage";
-import tryFetchFn from "@functions/tryFetchFn";
 
 import UniqueImageContext from "../BODY/cartContext";
 import Gallery from "../BODY/gallery/GALLERY";
@@ -14,22 +13,19 @@ import QuickViewImage from "@fullyComponents/quickView/quickViewImage/quickViewI
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import Cart from "../BODY/cart/cart";
 
+import useFetchData from "@hooks/useFetchData.jsx";
+import getTotalInfo from "./totalItems.js";
+
 const ScreenContainer = () => {
-  const [topLayerData, setTopLayerData] = useState(null); // fetched data with id added
-  const [loading, setLoading] = useState(false);
-  const [serviceData, setServiceData] = useState(null); // Services data
+  const { data: topLayerData, services: serviceData, loading } = useFetchData(); // fetch all data needed on front-page
 
   const [cart, setCart] = useState({}); // context for whichever product is in focus
-  const totalItems = () => Object.values(cart)?.flat()?.length;
 
-  const totalPrice = () =>
-    Object.values(cart)
-      .flat()
-      .reduce((sum, item) => sum + item?._embedded?.details?.price, 0);
+  const { totalItems, totalPrice } = getTotalInfo(cart);
 
-  const location = useLocation();
-  const state = location.state;
-  const tab = location.pathname.split("/")[1];
+  const location = useLocation(),
+    state = location.state,
+    tab = location.pathname.split("/")[1];
 
   // scroll back to top each time you navigate to a new page
   useEffect(() => {
@@ -37,42 +33,6 @@ const ScreenContainer = () => {
 
     window.scroll({ top: 0 });
   }, [tab]);
-
-  useEffect(() => {
-    setLoading(true);
-    const fetchData = async () => {
-      const imagesLink = "/API_imitation/images.json";
-      const servicesLink = "/API_imitation/services.json";
-
-      const dataImages = await tryFetchFn(imagesLink);
-      const dataLink = await tryFetchFn(servicesLink);
-
-      if (dataImages && dataLink) {
-        // entries to be able to map the dataImages
-        const dataImagesEntries = Object.entries(dataImages);
-        // new array which adds an id to each object. Each object has an id attached to it, which is it's index on the fetched object.
-        // Later when we need to access this object, for example, if user is on uniqueImage page, it can directly find the matching object due to it's ID.
-        const assignIds = Object.fromEntries(
-          dataImagesEntries.map(([key, arr]) => [
-            key,
-            arr.map((item, index) => ({ ...item, id: +index })),
-          ])
-        );
-
-        if (assignIds) {
-          setTimeout(() => {
-            setTopLayerData(assignIds);
-          }, 1400);
-          setTimeout(() => {
-            setLoading(false);
-          }, 1500);
-        }
-
-        setServiceData(dataLink);
-      }
-    };
-    fetchData();
-  }, []);
 
   return (
     <>

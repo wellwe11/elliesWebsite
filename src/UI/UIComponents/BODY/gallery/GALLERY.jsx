@@ -76,7 +76,11 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
 
   const updateData = () => {
     // start loading animation
-    setPrevData(newData.slice(0, 9)); // display old products while loading new ones
+
+    if (!loading) {
+      setPrevData(newData.slice(0, 9)); // display old products while loading new ones
+    }
+
     setLoading(true);
     disableScroll();
 
