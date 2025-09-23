@@ -22,13 +22,15 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
+ * Quickview images (currently only displays placeholders)
  * ------------------------------------------------
  * ** BUGS **
  * ------------------------------------------------
  * ** THINGS TO FIX **
  * Give uniqueImage a small time to load so it doesn't stutter so much
- * Quickview images (currently only displays placeholders)
  * ** make explore item text smaller (possibly h4 or h5)
+ *
+ * Seperate all fetch-logic. Make them into functions and remove the handling of it from the main-components
  *
  * On Gallery: Category-sidebar: underline is sometimes uneven in height
  *

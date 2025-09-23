@@ -10,8 +10,7 @@ import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackgrou
 
 // If you want to view the actual product, this button takes you to a new page which contains further information and such
 const ViewProductButton = () => {
-  // navigates to a backgroundLocation
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // navigates to a backgroundLocation
 
   const [searchParams] = useSearchParams(),
     category = searchParams.get("category") || null,
@@ -34,8 +33,8 @@ const ViewProductButton = () => {
 const ProductDescription = ({ bio }) => {
   const [viewDescription, setViewDescription] = useState(true);
 
-  // actual button which is always displayed
   const expandDescriptionButton = (
+    // actual button which is always displayed
     <div
       className={classes.buttonDescriptionButton}
       onClick={() => setViewDescription(!viewDescription)}
@@ -53,8 +52,8 @@ const ProductDescription = ({ bio }) => {
     </div>
   );
 
-  // text which will be hidden or displayed depending on expandDescriptionButton
   const expandDescriptionText = (
+    // text which will be hidden or displayed depending on expandDescriptionButton
     <div
       className={`${classes.descriptionWrapper} ${
         viewDescription ? classes.open : classes.closed
@@ -81,26 +80,26 @@ const ProductDescription = ({ bio }) => {
 
 // Element containing information & further info about the product, such as other images, price, name, description
 const QuickViewInfo = ({
-  quickViewProps: { title = "Title", price = 20, bio, quickViewImages },
+  quickViewProps: { title = "Title", price = 19.99, bio, quickViewImages },
   activeImageIndex,
   setActiveImageIndex,
 }) => {
-  // which product is currently displayed
   const infoProductTitle = (
+    // which product is currently displayed
     <div className={classes.info}>
       <h5>{title}</h5>
     </div>
   );
 
-  // products price
   const infoProductPrice = (
+    // products price
     <div className={classes.price}>
       <h6>{price}$</h6>
     </div>
   );
 
-  // a set of smaller images related to product. This handles the activeImageIndex
   const allImagesRelatedToQuickViewImage = (
+    // a set of smaller images related to product. This handles the activeImageIndex
     <div className={classes.allImagesExamples}>
       {quickViewImages?.map((image, index) => (
         <img
@@ -116,8 +115,8 @@ const QuickViewInfo = ({
     </div>
   );
 
-  // currently only displayed index of active allImagesRelatedToQuickViewImage. In future, will have some bio-info
   const currentImageBioText = (
+    // currently only displayed index of active allImagesRelatedToQuickViewImage. In future, will have some bio-info
     <div className={classes.currentImageBioText}>
       <p>Currently selected product: {activeImageIndex}</p>
     </div>
@@ -140,13 +139,12 @@ const QuickViewInfo = ({
 
 // Element containing product-image and product-info
 const QuickViewImageContainer = ({ quickViewProps }) => {
-  // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [activeImageIndex, setActiveImageIndex] = useState(0); // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
 
-  // destructure to access images for currentActiveImage
-  const { quickViewImages } = quickViewProps;
-  // currentActiveImage is the image which you initially clicked on quickView. It can be changed by clicking then related images (set of smaller images displayed in quickViewInfo)
+  const { quickViewImages } = quickViewProps; // destructure to access images for currentActiveImage
+
   const currentActiveImage = (
+    // currentActiveImage is the image which you initially clicked on quickView. It can be changed by clicking then related images (set of smaller images displayed in quickViewInfo)
     <div className={classes.activeImageWrapper}>
       <img
         className={classes.activeImage}
@@ -171,11 +169,9 @@ const QuickViewImageContainer = ({ quickViewProps }) => {
 // Element containing QuickViewImage & QuickViewInfo, as well as a faded background.
 // Will always be positonined fixed in middle of the screen.
 const QuickViewImage = ({ data }) => {
-  // Object which will be displayed ocne user clicks quickview
-  const [quickViewObj, setQuickViewObj] = useState(null);
+  const [quickViewObj, setQuickViewObj] = useState(null); // Object which will be displayed ocne user clicks quickview
 
-  // navigates to a backgroundLocation
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // navigates to a backgroundLocation
 
   const [searchParams] = useSearchParams(),
     category = searchParams.get("category") || null,
@@ -188,18 +184,17 @@ const QuickViewImage = ({ data }) => {
   useEffect(() => {
     if (!data) return;
 
-    // finds matching obj
-    const foundObj = data[category].find((a) => +a.id === +id);
+    const foundObj = data[category].find((a) => +a.id === +id); // finds matching obj
 
-    // tries to find obj quickly
     const timerOne = setTimeout(() => {
+      // tries to find obj quickly
       if (foundObj) {
         setQuickViewObj(foundObj);
       }
     }, 1500);
 
-    // if not found, spends more time
     if (!quickViewObj) {
+      // if not found, spends more time
       const timerTwo = setTimeout(() => {
         const timerThree = setTimeout(() => {
           if (foundObj) {
@@ -213,8 +208,8 @@ const QuickViewImage = ({ data }) => {
       return () => clearTimeout(timerTwo);
     }
 
-    // if no item is found by 10 seconds, navigates to error-page (which will be made specifically for not finding products in future)
     const timerFour = setTimeout(() => {
+      // if no item is found by 10 seconds, navigates to error-page (which will be made specifically for not finding products in future)
       if (!foundObj) navigate("/Error");
     }, 10000);
 
@@ -224,8 +219,8 @@ const QuickViewImage = ({ data }) => {
     };
   }, [data]);
 
-  // white background-image that differs pop-up from the rest of the website
   const WhiteBackgroundPopUp = (
+    // white background-image that differs pop-up from the rest of the website
     <div
       className={classes.quickViewBackground}
       // If you click on the white background it will close current quick-view window
