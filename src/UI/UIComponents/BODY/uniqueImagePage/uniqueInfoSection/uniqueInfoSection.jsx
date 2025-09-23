@@ -4,7 +4,9 @@ import transitionInAnimation from "@functions/transitionAnimation";
 
 const InfoSectionBio = ({ details, bioRef }) => {
   const bioKeys = Object.keys(details),
-    bioValues = Object.values(details);
+    bioValues = Object.values(details).map((e) =>
+      Array.isArray(e) ? e.join(", ") : e
+    ); // if values are arrays, join them to avoid "RedBlueWhite" to become "Red, Blue, White"
 
   const mappedBioDetails = bioKeys.map((key, index) => (
     // a list of details for set of images. I.e. colors, width, height etc.

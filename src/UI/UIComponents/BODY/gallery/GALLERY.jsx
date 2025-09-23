@@ -39,8 +39,6 @@ const FilterSideBarWrapperComponent = ({ data, category }) => {
 
   const [localCategory, setLocalCategory] = useState(null);
 
-  console.log(localCategory);
-
   const handleFilter = (e) => {
     if (e === category) {
       setLocalCategory(null);

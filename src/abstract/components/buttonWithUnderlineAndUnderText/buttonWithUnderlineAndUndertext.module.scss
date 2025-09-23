@@ -24,6 +24,58 @@
     font-size: clamp(20px, 2.2vw, 30px);
     text-shadow: -1.5px -1.5px 0 white, 1.5px -1.5px 0 white,
       -1.5px 1.5px 0 white, 1.5px 1.5px 0 white;
+    position: relative;
+
+    // text
+    &::after {
+      position: absolute;
+      left: 72%;
+      bottom: -40%;
+
+      content: "explore";
+      font-size: 60%;
+
+      opacity: 0;
+
+      transition: all 0.4s ease;
+    }
+
+    // underline
+    &::before {
+      content: "";
+      height: 3%;
+      min-height: 1.5px;
+      width: 70%;
+
+      background-color: black;
+
+      position: absolute;
+      left: 0;
+      bottom: -20%;
+
+      transition: width 0.4s ease;
+    }
+    &:hover {
+      &::after {
+        opacity: 1;
+        left: 60%;
+      }
+
+      &::before {
+        width: 55%;
+      }
+    }
+  }
+
+  .activeClass {
+    &::after {
+      opacity: 1;
+      left: 60%;
+    }
+
+    &::before {
+      width: 55%;
+    }
   }
 }
 

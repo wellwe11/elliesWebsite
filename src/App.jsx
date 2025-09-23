@@ -30,12 +30,10 @@ export default App;
  * Give uniqueImage a small time to load so it doesn't stutter so much
  * ** make explore item text smaller (possibly h4 or h5)
  *
+ *
  * Seperate all fetch-logic. Make them into functions and remove the handling of it from the main-components
  *
  * On Gallery: Category-sidebar: underline is sometimes uneven in height
- *
- * GALLERY has a function called scrollTop. I want it to work by conditions, rather than having a function directly inside of the onClick events...
- * Because currently, the page-changer renders at 1500ms, and scrollTop works after 1580ms
  *
  * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)
  * Website need to scale well for bigger screens as well. Currently, some images & texts scale very strangely with big screens
