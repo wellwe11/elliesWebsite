@@ -24,11 +24,9 @@ export default App;
  * ** TODO NOW! **
  * ------------------------------------------------
  * ** BUGS **
- * useNavigateSmooth is bugged right now. Remove it completely and replace it with useNavigate()
  * ------------------------------------------------
  * ** THINGS TO FIX **
  * Give uniqueImage a small time to load so it doesn't stutter so much
- * allow scrolling on left side and right side screen on uniuqeImage page
  * Quickview images (currently only displays placeholders)
  * ** make explore item text smaller (possibly h4 or h5)
  *

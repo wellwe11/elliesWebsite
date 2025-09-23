@@ -8,6 +8,7 @@ import Products from "./products/products";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import dataHandler from "./dataHandler.jsx";
+import bodyNoScroll from "../../../../abstract/functions/bodyNoScroll.js";
 
 // function which saves the previous page when you switch pages etc.
 // Used inside of ProductsWrapperComponent's useEffect to avoid page from scrolling to top unnecessarily
@@ -67,6 +68,7 @@ const FilterSideBarWrapperComponent = ({ data, category }) => {
 const ProductsWrapperComponent = ({ page, filteredData }) => {
   const [newData, setNewData] = useState(filteredData), // if user changes
     [prevData, setPrevData] = useState(null);
+  const { disableScroll, enableScroll } = bodyNoScroll();
 
   const prevPage = usePrevious(page); // used to determine if scrollTop should be used or not
 
@@ -78,6 +80,7 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
     // start loading animation
     setPrevData(newData.slice(0, 9)); // display old products while loading new ones
     setLoading(true);
+    disableScroll();
 
     const displayedProducts = handleDisplayedProducts(page, filteredData); // update new products
     setNewData(displayedProducts);
@@ -85,6 +88,7 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
     return setTimeout(() => {
       // initiate reload
       setLoading(false);
+      enableScroll();
 
       if (prevPage) {
         window.scroll({ top: 0 });

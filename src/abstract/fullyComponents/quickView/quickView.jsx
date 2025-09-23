@@ -5,6 +5,7 @@ import bodyNoScroll from "@functions/bodyNoScroll";
 
 const QuickView = ({ src, secondSrc, productType, productId }) => {
   const navigate = useNavigate();
+  const { disableScroll } = bodyNoScroll();
 
   const handleNavigate = () => {
     navigate(`/uniqueImage?category=${productType}&id${productId}`);
@@ -40,11 +41,10 @@ const QuickView = ({ src, secondSrc, productType, productId }) => {
         <QuickViewButton
           text={"Quick view"}
           onClick={() => {
+            disableScroll();
             navigate(`./preview?category=${productType}&id=${productId}`, {
               state: { backgroundLocation: location.pathname },
             });
-
-            bodyNoScroll().disableScroll();
           }}
         />
       </div>
