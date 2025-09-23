@@ -9,7 +9,7 @@ const X_SVG = () => {
       height="24"
       viewBox="0 0 24 24"
       role="img"
-      ariaLabel="Close"
+      aria-label="Close"
       focusable="false"
     >
       <rect

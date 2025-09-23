@@ -40,7 +40,11 @@ const UniqueInfoSectionComponent = ({ info, foundObject }) => {
     extendedDetailsImages = foundObject?.images.map((image) => image.src); // set of images which are related to the set (only 'main-type images')
 
   return (
-    <UniqueInfoSection images={extendedDetailsImages} textInfo={details} />
+    <UniqueInfoSection
+      images={extendedDetailsImages}
+      textInfo={details}
+      foundObject={foundObject}
+    />
   );
 };
 

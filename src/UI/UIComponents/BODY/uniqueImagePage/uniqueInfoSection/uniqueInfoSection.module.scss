@@ -45,7 +45,8 @@
 
 /* InfoSectionBio */
 .uniqeInfoRightBio {
-  height: 50%;
+  height: 100%;
+  max-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -65,6 +66,19 @@
 
     .detailText {
       font-weight: 300;
+    }
+  }
+
+  // ButtonsWrapper
+  .buttonsWrapper {
+    display: flex;
+    flex-direction: column;
+
+    height: fit-content;
+
+    .shoppingBagSVGWrapper {
+      height: 25px;
+      padding-right: 2.5px;
     }
   }
 }

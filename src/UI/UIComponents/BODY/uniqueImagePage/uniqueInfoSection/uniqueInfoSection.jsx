@@ -1,8 +1,36 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import classes from "./uniqueInfoSection.module.scss";
+import cartContext from "../../cartContext.jsx";
+import ButtonStyle from "../uniqueButton/uniqueButton.jsx";
 import transitionInAnimation from "@functions/transitionAnimation";
+import { addToCart } from "@functions/handleCart.js";
+import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG.jsx";
 
-const InfoSectionBio = ({ details, bioRef }) => {
+const InfoSectionBio = ({ details, bioRef, foundObject }) => {
+  console.log(foundObject);
+  const { setCart } = useContext(cartContext);
+
+  const handleCart = (item) => {
+    addToCart(setCart, item);
+  };
+
+  const addToCartButtonWrapper = (
+    <div className={classes.buttonsWrapper}>
+      <ButtonStyle
+        text={"Add to cart"}
+        onClick={() =>
+          handleCart(
+            foundObject /** foundObject is the currently displayed product which user is visiting */
+          )
+        }
+      >
+        <div className={classes.shoppingBagSVGWrapper}>
+          <ShoppingBagSVG />
+        </div>
+      </ButtonStyle>
+    </div>
+  );
+
   const bioKeys = Object.keys(details),
     bioValues = Object.values(details).map((e) =>
       Array.isArray(e) ? e.join(", ") : e
@@ -31,6 +59,7 @@ const InfoSectionBio = ({ details, bioRef }) => {
     <div className={classes.uniqeInfoRightBio} ref={bioRef}>
       {detailsTitle}
       {mappedBioDetails}
+      {addToCartButtonWrapper}
     </div>
   );
 };
@@ -70,7 +99,7 @@ const InfoSectionImages = ({ images, setActiveImage, smallerImagesRef }) => {
   );
 };
 
-const UniqueInfoSection = ({ images, textInfo }) => {
+const UniqueInfoSection = ({ images, textInfo, foundObject }) => {
   const [activeImage, setActiveImage] = useState(0);
 
   const imageRef = useRef(null),
@@ -104,7 +133,12 @@ const UniqueInfoSection = ({ images, textInfo }) => {
         images={images}
         setActiveImage={setActiveImage}
       />
-      <InfoSectionBio details={textInfo} bioRef={bioRef} />
+
+      <InfoSectionBio
+        details={textInfo}
+        bioRef={bioRef}
+        foundObject={foundObject}
+      />
     </div>
   );
 

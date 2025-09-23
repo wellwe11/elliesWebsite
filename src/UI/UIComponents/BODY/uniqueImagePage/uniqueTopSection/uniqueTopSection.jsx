@@ -4,22 +4,10 @@ import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 import { useContext } from "react";
 import cartContext from "../../cartContext";
 import { addToCart } from "@functions/handleCart";
+import ButtonStyle from "../uniqueButton/uniqueButton.jsx";
 
 const ButtonsWrapper = ({ foundObject }) => {
-  const { cart, setCart } = useContext(cartContext);
-
-  // button sharing same classes and structure
-  const ButtonStyle = ({ text, children, fontType = "h6", onClick }) => {
-    const FontType = fontType;
-    return (
-      <button className={classes.button} onClick={onClick}>
-        <div className={classes.textWrapper}>
-          {children}
-          <FontType className={classes.text}>{text}</FontType>
-        </div>
-      </button>
-    );
-  };
+  const { setCart } = useContext(cartContext);
 
   const handleCart = (item) => {
     addToCart(setCart, item);

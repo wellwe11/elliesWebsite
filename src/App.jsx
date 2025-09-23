@@ -22,18 +22,20 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * Seperate all fetch-logic. Make them into functions and remove the handling of it from the main-components
  * Give uniqueImage a small time to load so it doesn't stutter so much
+ * uniqueImage needs another add-to-cart button for bottomSection
  * ------------------------------------------------
  * ** BUGS **
+ * On gallery, current page needs to update after you've gone to next page
+ * ButtonWithUnderlineAndText's hover is a bit 'flickery'
  * ------------------------------------------------
  * ** THINGS TO FIX **
- *
  * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)
  * Website need to scale well for bigger screens as well. Currently, some images & texts scale very strangely with big screens
+ * services background-color should be 100% of windows width. Add screenContainers class to the child-element (to preserve dynamic width), and make containers width 100%
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
- * uniqueImage needs another add-to-cart button for bottomSection
+ * add Links to footer
  * ------------------------------------------------
  * ** NEW COMPONENTS **
  * Create an instagram section - this should be a spinning wheel that simply has images from ellies instagram-page, and when clicked, takes you to ellies instagram
