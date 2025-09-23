@@ -19,7 +19,7 @@ const ViewProductButton = () => {
   return (
     <div className={classes.viewProductButtonWrapper}>
       <QuickViewButton
-        text={<h5 className={classes.buttonText}>Explore item</h5>}
+        text={<h6 className={classes.buttonText}>Explore item</h6>}
         onClick={() => {
           navigate(`/uniqueImage?category=${category}&id=${id}`);
           bodyNoScroll().enableScroll();
