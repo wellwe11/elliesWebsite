@@ -6,7 +6,10 @@
   justify-content: space-between;
   align-items: flex-start;
 
+  width: 100%;
+
   .mainImageWrapper {
+    width: 100%;
   }
 }
 
@@ -30,7 +33,7 @@
     &::after {
       position: absolute;
       left: 72%;
-      bottom: -40%;
+      bottom: -48%;
 
       content: "explore";
       font-size: 60%;
@@ -51,10 +54,11 @@
 
       position: absolute;
       left: 0;
-      bottom: -20%;
+      bottom: -25%;
 
       transition: width 0.4s ease;
     }
+
     &:hover {
       &::after {
         opacity: 1;
@@ -67,6 +71,8 @@
     }
   }
 
+  // class which is active if jsx-boolean is truthy
+  // forces hover-state
   .activeClass {
     &::after {
       opacity: 1;

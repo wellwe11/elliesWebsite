@@ -22,7 +22,7 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * Quickview images (currently only displays placeholders)
+
  * ------------------------------------------------
  * ** BUGS **
  * ------------------------------------------------
@@ -33,7 +33,7 @@ export default App;
  *
  * Seperate all fetch-logic. Make them into functions and remove the handling of it from the main-components
  *
- * On Gallery: Category-sidebar: underline is sometimes uneven in height
+
  *
  * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)
  * Website need to scale well for bigger screens as well. Currently, some images & texts scale very strangely with big screens

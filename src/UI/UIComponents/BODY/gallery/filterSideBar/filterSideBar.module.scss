@@ -8,6 +8,7 @@
   .filterUl {
     position: sticky;
     top: 60px;
+    width: 100%;
 
     @media screen and (max-width: 1024px) {
       top: 110px;
@@ -19,6 +20,7 @@
       align-items: center;
 
       .filterLabel {
+        width: 40%;
         cursor: pointer;
         // check-box which is hidden but enables functionality
 
