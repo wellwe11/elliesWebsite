@@ -22,8 +22,6 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * Fix the footer component (currently empty)
- *
  * ------------------------------------------------
  * ** BUGS **
  * useNavigateSmooth is bugged right now. Remove it completely and replace it with useNavigate()
@@ -33,6 +31,8 @@ export default App;
  * allow scrolling on left side and right side screen on uniuqeImage page
  * Quickview images (currently only displays placeholders)
  * ** make explore item text smaller (possibly h4 or h5)
+ *
+ * On Gallery: Category-sidebar: underline is sometimes uneven in height
  *
  * GALLERY has a function called scrollTop. I want it to work by conditions, rather than having a function directly inside of the onClick events...
  * Because currently, the page-changer renders at 1500ms, and scrollTop works after 1580ms

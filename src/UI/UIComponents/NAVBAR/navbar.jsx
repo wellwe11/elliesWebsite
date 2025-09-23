@@ -10,7 +10,6 @@ import NavLogo from "./navLogo/navLogo.jsx";
 
 import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT.jsx";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
-import handleNavigateSmooth from "@functions/handleNavigateSmooth";
 
 const ShoppingCart = () => {
   const navigate = useNavigate();
@@ -47,7 +46,7 @@ const ShoppingCart = () => {
 
 // a wrapper for each nav-button
 const NavButton = ({ children, link }) => {
-  const handleNavigate = handleNavigateSmooth();
+  const handleNavigate = useNavigate();
   return (
     // on-click is applied to wrapper to isolate logic from buttonWithContent
     <div className={classes.button}>

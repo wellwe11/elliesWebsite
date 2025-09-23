@@ -23,7 +23,7 @@
     will-change: transform;
 
     .imageWrapper {
-      margin-right: 20px;
+      margin-right: var(--spacing-2);
       width: 15vw;
       max-width: 250px;
 

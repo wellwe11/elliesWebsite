@@ -1,6 +1,6 @@
 import ControlledImage from "@components/controlledImage/controlledImage";
 import classes from "./categories.module.scss";
-import handleNavigateSmooth from "@functions/handleNavigateSmooth";
+import { useNavigate } from "react-router-dom";
 
 // each category has a title. I.e. "Stickers, paintings etc"
 const CategoryTitle = ({ title }) => {
@@ -31,7 +31,7 @@ const CategoryContainer = ({ categories }) => {
   // category names
   const categoryKeys = Object.keys(categories);
 
-  const navigate = handleNavigateSmooth();
+  const navigate = useNavigate();
 
   // Make sure container is dynamic size
   const calculatedCategoryStyle = {

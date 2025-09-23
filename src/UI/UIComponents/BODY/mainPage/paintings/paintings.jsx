@@ -5,12 +5,12 @@ import SectionSeperationImage from "@components/sectionSeperationImage/sectionSe
 
 import WheelOfManyImages from "@fullyComponents/wheelOfManyImages/wheelOfManyImages";
 import SetOfimagesWithText from "@fullyComponents/SetOfImagesWithText/setOfImagesWithText";
-import handleNavigateSmooth from "@functions/handleNavigateSmooth";
+import { useNavigate } from "react-router-dom";
 
 // Example section of a collection of paintings - 3 images with scrolling text below as bio
 const SetOfExampleCollectionSection = ({ data }) => {
   // if user clicks on any image, will navigate to collection
-  const navigate = handleNavigateSmooth();
+  const navigate = useNavigate();
 
   const [paintingsImagesSrc, setPaintingsImagesSrc] = useState(null), // set of images and their sources (this is for the 3-set images which have rolling-text)
     [paintingsImagesText, setPaintingsImagesText] = useState(null); // corresponding texts to each image
