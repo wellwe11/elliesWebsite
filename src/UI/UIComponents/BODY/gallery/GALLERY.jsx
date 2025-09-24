@@ -165,6 +165,7 @@ const useGalleryData = () => {
 };
 
 const Gallery = () => {
+  const [hasLoaded, setHasLoaded] = useState(false);
   const [searchParams] = useSearchParams(),
     category = searchParams.get("category") || null,
     page = searchParams.get("page") || null;
@@ -179,10 +180,14 @@ const Gallery = () => {
     return dataHandler(data, category);
   }, [printData, paintingData, loading, category]); // flats data and filters data depending on category active
 
+  useEffect(() => {
+    setHasLoaded(true);
+  }, []);
+
   if (!updatedData) return;
 
   return (
-    <div className={classes.gallery} key={page}>
+    <div className={classes.gallery} key={hasLoaded}>
       <div className={classes.galleryTop}>
         <FilterSideBarWrapperComponent
           dataKeys={["prints", "paintings"]} // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
