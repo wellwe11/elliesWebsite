@@ -1,11 +1,14 @@
 import classes from "./uniqueImage.module.scss";
-import { useEffect, useRef, useState } from "react";
-import { useLocation, useParams, useSearchParams } from "react-router-dom";
-import mainImage from "@assets/welcomeImage.jpg";
+import { useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import UniqueTopSection from "./uniqueTopSection/uniqueTopSection";
 import UniqueInfoSection from "./uniqueInfoSection/uniqueInfoSection";
+
+import mainImage from "@assets/welcomeImage.jpg";
+
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
+import useFetchDataIDs from "@hooks/useFetchDataIDs.jsx";
 
 // Component containing all info for top-section
 const UniqueTopSectionComponent = ({ info, foundObject }) => {
@@ -48,37 +51,39 @@ const UniqueInfoSectionComponent = ({ info, foundObject }) => {
   );
 };
 
-const UniqueImage = ({ data }) => {
-  const [foundObject, setFoundObject] = useState(null); // state that will store correct item - if you're on this page, correct product needs to be displayed.
+const useUniqueImageData = () => {
+  const [searchParams] = useSearchParams(),
+    category = searchParams.get("category") || null;
 
+  const { data, loading } = useFetchDataIDs(
+    `/API_imitation/gallery/${category}.json`
+  );
+
+  return { data, loading };
+};
+
+const UniqueImage = () => {
   const containerRef = useRef();
+  const { data, loading } = useUniqueImageData();
 
   const [searchParams] = useSearchParams(),
-    category = searchParams.get("category") || null,
     id = searchParams.get("page") || null;
 
-  useEffect(() => {
-    if (!data || (!category && !+id)) return; // if no data, return. If no type & id (link is undefined) return
+  if (loading) return;
 
-    const foundUniqueImage = data?.[category].find((obj) => obj.id === +id); // searches data for a matching id to params
+  const foundUniqueImage = data.find((obj) => obj.id === +id); // searches data for a matching id to params
 
-    if (foundUniqueImage) {
-      setFoundObject(foundUniqueImage);
-    }
-  }, [data, category, id]);
+  const info = foundUniqueImage._embedded; // _embedded contains all nested information about specifics of product
 
-  if (foundObject === null) return <h1>loading...</h1>; // need to design a loading screen in future for these cases
-
-  const info = foundObject._embedded, // _embedded contains all nested information about specifics of product
-    uniqueTopSectionWrapper = (
-      <section className={classes.uniqueTopSectionWrapper}>
-        <UniqueTopSectionComponent info={info} foundObject={foundObject} />
-      </section>
-    );
+  const uniqueTopSectionWrapper = (
+    <section className={classes.uniqueTopSectionWrapper}>
+      <UniqueTopSectionComponent info={info} foundObject={foundUniqueImage} />
+    </section>
+  );
 
   const uniqueInfoSectionWrapper = (
     <section className={classes.uniqueInfoSectionWrapper}>
-      <UniqueInfoSectionComponent info={info} foundObject={foundObject} />
+      <UniqueInfoSectionComponent info={info} foundObject={foundUniqueImage} />
     </section>
   );
 

@@ -7,6 +7,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import QuickViewButton from "../quickViewButton/quickViewButton";
 import bodyNoScroll from "@functions/bodyNoScroll";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
+import useFetchDataIDs from "../../../hooks/useFetchDataIDs.jsx";
 
 // If you want to view the actual product, this button takes you to a new page which contains further information and such
 const ViewProductButton = () => {
@@ -166,58 +167,52 @@ const QuickViewImageContainer = ({ quickViewProps }) => {
   );
 };
 
+const useQuickViewData = () => {
+  const [searchParams] = useSearchParams(),
+    category = searchParams.get("category") || null;
+
+  const { data, loading } = useFetchDataIDs(
+    `/API_imitation/home/${category}.json`
+  );
+
+  return { data, loading };
+};
+
 // Element containing QuickViewImage & QuickViewInfo, as well as a faded background.
 // Will always be positonined fixed in middle of the screen.
-const QuickViewImage = ({ data }) => {
-  const [quickViewObj, setQuickViewObj] = useState(null); // Object which will be displayed ocne user clicks quickview
-
+const QuickViewImage = () => {
   const navigate = useNavigate(); // navigates to a backgroundLocation
 
   const [searchParams] = useSearchParams(),
-    category = searchParams.get("category") || null,
     id = searchParams.get("id") || null;
 
-  useEffect(() => {
-    if (quickViewObj) bodyNoScroll().disableScroll(); // disables scroll while quickview is active
-  }, [quickViewObj]);
+  const { data, loading } = useQuickViewData();
 
-  useEffect(() => {
-    if (!data) return;
+  const { enableScroll } = bodyNoScroll();
 
-    const foundObj = data[category].find((a) => +a.id === +id); // finds matching obj
+  if (loading)
+    return (
+      <div className={classes.quickViewImage}>
+        <LoadingWrapper
+          onClick={() => {
+            enableScroll();
+            navigate(-1);
+          }}
+          condition={loading}
+        />
+      </div>
+    );
 
-    const timerOne = setTimeout(() => {
-      // tries to find obj quickly
-      if (foundObj) {
-        setQuickViewObj(foundObj);
-      }
-    }, 1500);
+  const foundObj = data.find((a) => +a.id === +id); // finds matching obj
 
-    if (!quickViewObj) {
-      // if not found, spends more time
-      const timerTwo = setTimeout(() => {
-        const timerThree = setTimeout(() => {
-          if (foundObj) {
-            setQuickViewObj(foundObj);
-          }
-        }, 1500);
+  const uniqueViewEmbedded = foundObj?._embedded;
 
-        return () => clearTimeout(timerThree);
-      }, 6000);
-
-      return () => clearTimeout(timerTwo);
-    }
-
-    const timerFour = setTimeout(() => {
-      // if no item is found by 10 seconds, navigates to error-page (which will be made specifically for not finding products in future)
-      if (!foundObj) navigate("/Error");
-    }, 10000);
-
-    return () => {
-      clearTimeout(timerOne);
-      clearTimeout(timerFour);
-    };
-  }, [data]);
+  const quickViewProps = {
+    quickViewImages: uniqueViewEmbedded?.restImages,
+    title: uniqueViewEmbedded?.setTitle,
+    price: uniqueViewEmbedded?.details.price,
+    bio: uniqueViewEmbedded?.setDescription,
+  };
 
   const WhiteBackgroundPopUp = (
     // white background-image that differs pop-up from the rest of the website
@@ -231,30 +226,11 @@ const QuickViewImage = ({ data }) => {
     />
   );
 
-  const uniqueViewEmbedded = quickViewObj?._embedded;
-
-  const quickViewProps = {
-    quickViewImages: uniqueViewEmbedded?.restImages,
-    title: uniqueViewEmbedded?.setTitle,
-    price: uniqueViewEmbedded?.details.price,
-    bio: uniqueViewEmbedded?.setDescription,
-  };
-
   return (
     <>
-      <div className={classes.quickViewImage} key={quickViewObj?.id}>
-        <LoadingWrapper
-          onClick={() => {
-            bodyNoScroll().enableScroll();
-            navigate(-1);
-          }}
-          condition={!quickViewObj}
-        />
-      </div>
-
       <div
         className={classes.quickViewImage}
-        style={{ opacity: quickViewObj ? 1 : 0 }}
+        style={{ opacity: foundObj ? 1 : 0 }}
       >
         {WhiteBackgroundPopUp}
         <QuickViewImageContainer quickViewProps={quickViewProps} />
