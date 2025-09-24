@@ -1,21 +1,21 @@
 import classes from "./MAINPAGE.module.scss";
 
-import MainPageTopPresentation from "./mainPageTopPresentation/mainPageTopPresentation";
+import MainPageTopPresentation from "./mainPageTopPresentation/mainPageTopPresentation.jsx";
 import mainImage from "@assets/welcomeImage.jpg";
 import welcomeImageOne from "@assets/welcomeImageOne.jpg";
 
-import Categories from "./categories/categories";
+import Categories from "./categories/categories.jsx";
 import artCategory from "@assets/categories/artCategory.webp";
 import bookmarksCategory from "@assets/categories/bookmarksCategory.webp";
 import printsCategory from "@assets/categories/printsCategory.webp";
 import stickersCategory from "@assets/categories/stickersCategory.webp";
 
-import Prints from "./prints/prints";
-import Paintings from "./paintings/paintings";
-import Services from "./services/services";
+import Prints from "./prints/prints.jsx";
+import Paintings from "./paintings/paintings.jsx";
+import Services from "./services/services.jsx";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
-import NewIn from "./newIn/newIn";
+import NewIn from "./newIn/newIn.jsx";
 
 // Categories section
 const categories = {
@@ -36,7 +36,7 @@ const categories = {
 
 const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
-const MainPage = ({ topLayerData, serviceData }) => {
+const Home = ({ topLayerData, serviceData }) => {
   // Welcoming image and small animation
   const topSection = (
     <section className={classes.topSection}>
@@ -64,11 +64,11 @@ const MainPage = ({ topLayerData, serviceData }) => {
   );
 
   // Realistic image containing different colletions of images to "ikea-style" display them
-  const servicesSection = (
-    <section className={classes.serviceSection}>
-      <Services data={serviceData} />
-    </section>
-  );
+  // const servicesSection = (
+  //   <section className={classes.serviceSection}>
+  //     <Services data={serviceData} />
+  //   </section>
+  // );
 
   // data for paintings
   const topLayerDataPaintings = topLayerData?.paintings;
@@ -121,8 +121,8 @@ const MainPage = ({ topLayerData, serviceData }) => {
         {/* {newInSection}
         {sectionSeperatorWithImage} */}
 
-        {servicesSection}
-        {sectionSeperatorWithImage}
+        {/* {servicesSection}
+        {sectionSeperatorWithImage} */}
 
         {paintingsSection}
         {sectionSeperatorWithImage}
@@ -131,4 +131,4 @@ const MainPage = ({ topLayerData, serviceData }) => {
   }
 };
 
-export default MainPage;
+export default Home;

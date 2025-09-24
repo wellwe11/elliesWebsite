@@ -22,8 +22,8 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * Give uniqueImage a small time to load so it doesn't stutter so much
- * uniqueImage needs another add-to-cart button for bottomSection
+ * QuickViewButton needs to fetch specific item
+ * Remove initial loading from gallery
  * ------------------------------------------------
  * ** BUGS **
  * On gallery, current page needs to update after you've gone to next page
@@ -33,6 +33,7 @@ export default App;
  * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)
  * Website need to scale well for bigger screens as well. Currently, some images & texts scale very strangely with big screens
  * services background-color should be 100% of windows width. Add screenContainers class to the child-element (to preserve dynamic width), and make containers width 100%
+ * WheelOfManyImages is bugged atm when too few images
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
  * add Links to footer

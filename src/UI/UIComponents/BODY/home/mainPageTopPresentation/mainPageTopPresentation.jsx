@@ -1,6 +1,6 @@
 import classes from "./mainPageTopPresentation.module.scss";
 
-import LogoWithTextPresentation from "./logoWithTextPresentation/logoWithTextPresentation";
+import LogoWithTextPresentation from "./logoWithTextPresentation/logoWithTextPresentation.jsx";
 
 const MainPageTopPresentation = ({ images, mainImage }) => {
   // a small animation which is displayed once you load the front-page

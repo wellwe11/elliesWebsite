@@ -1,35 +1,31 @@
 import { useEffect, useState } from "react";
+import tryFetchFn from "../functions/fetches/tryFetchFn.js";
 
-import fetchDataAndAssignID from "@functions/fetches/fetchDataAndAssignId.js";
-import fetchData from "@functions/fetches/fetchData.js";
-
-// hook that fetches all data needed for the front-page;
-const useFetchData = () => {
+const UseFetchData = (link) => {
   const [data, setData] = useState(null);
-  const [services, setServices] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchAllData = async () => {
+    setLoading(true);
+    const fetch = async () => {
       try {
-        const [dataWithIDs, serviceData] = await Promise.all([
-          fetchDataAndAssignID("/API_imitation/images.json"),
-          fetchData("/API_imitation/services.json"),
-        ]);
+        const fetchedData = await tryFetchFn(link);
 
-        setData(dataWithIDs);
-        setServices(serviceData);
+        setData(fetchedData);
       } catch (error) {
-        console.error("Failed to fetch data in useFetchData", error);
+        console.error("Failed to fetch data in useFetchData.jsx", error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchAllData();
-  }, []);
+    fetch();
+  }, [link]);
 
-  return { data, services, loading };
+  return {
+    data,
+    loading,
+  };
 };
 
-export default useFetchData;
+export default UseFetchData;

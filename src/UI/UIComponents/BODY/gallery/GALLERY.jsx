@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 import classes from "./GALLERY.module.scss";
@@ -8,19 +8,8 @@ import Products from "./products/products";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import dataHandler from "./dataHandler.jsx";
-import bodyNoScroll from "../../../../abstract/functions/bodyNoScroll.js";
-
-// function which saves the previous page when you switch pages etc.
-// Used inside of ProductsWrapperComponent's useEffect to avoid page from scrolling to top unnecessarily
-function usePrevious(value) {
-  const ref = useRef();
-
-  useEffect(() => {
-    ref.current = value;
-  }, [value]);
-
-  return ref.current;
-}
+import bodyNoScroll from "@functions/bodyNoScroll.js";
+import usePrevious from "@hooks/usePrevious.jsx";
 
 // used for rendering products based on the current page
 const handleDisplayedProducts = (page, data) => {

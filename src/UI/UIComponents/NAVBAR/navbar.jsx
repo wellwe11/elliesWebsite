@@ -46,11 +46,12 @@ const ShoppingCart = () => {
 
 // a wrapper for each nav-button
 const NavButton = ({ children, link }) => {
-  const handleNavigate = useNavigate();
+  const navigate = useNavigate();
+
   return (
     // on-click is applied to wrapper to isolate logic from buttonWithContent
     <div className={classes.button}>
-      <ButtonWithContent onClick={() => handleNavigate(link)} fontType={"h6"}>
+      <ButtonWithContent onClick={() => navigate(link)} fontType={"h6"}>
         {children}
       </ButtonWithContent>
     </div>
@@ -76,7 +77,9 @@ const NavbarButtons = ({
   const mappedNavButtons = buttonKeys.map((_, index) => (
     <div
       key={index}
-      onClick={() => setActiveButton(index)}
+      onClick={() => {
+        setActiveButton(index);
+      }}
       onMouseEnter={() => setHoverButton(index)}
       onMouseLeave={() => setHoverButton(activeButton)}
       className={classes.buttonWrapper}
@@ -108,7 +111,7 @@ const NavbarButtons = ({
   );
 };
 
-const Navbar = () => {
+const Navbar = ({}) => {
   const [activeButton, setActiveButton] = useState(0);
   const [hoverButton, setHoverButton] = useState(0);
   const { pathname } = useLocation();
