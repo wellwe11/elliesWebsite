@@ -52,15 +52,20 @@ const FilterSideBarWrapperComponent = ({ dataKeys, category }) => {
 
 // objects with image and some info and a quick-view option
 const ProductsWrapperComponent = ({ page, filteredData }) => {
-  const [newData, setNewData] = useState(filteredData), // if user changes
-    [prevData, setPrevData] = useState(null);
+  const [newData, setNewData] = useState(
+    handleDisplayedProducts(page, filteredData)
+  );
+
+  const [prevData, setPrevData] = useState(null);
   const { disableScroll, enableScroll } = bodyNoScroll();
 
   const prevPage = usePrevious(page); // used to determine if scrollTop should be used or not
 
   const location = useLocation();
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  const displayedProducts = handleDisplayedProducts(page, filteredData); // update new products
 
   const updateData = () => {
     // start loading animation
@@ -72,7 +77,6 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
     setLoading(true);
     disableScroll();
 
-    const displayedProducts = handleDisplayedProducts(page, filteredData); // update new products
     setNewData(displayedProducts);
 
     return setTimeout(() => {
@@ -85,10 +89,6 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
       }
     }, 1500);
   };
-
-  useEffect(() => {
-    updateData();
-  }, []);
 
   useEffect(() => {
     // effect which adds a loading-screen to each time products change; visible appealing. Avoids stuttering when elements update information.
