@@ -22,8 +22,6 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * QuickViewButton needs to fetch specific item
- * Remove initial loading from gallery
  * ------------------------------------------------
  * ** BUGS **
  * On gallery, current page needs to update after you've gone to next page

@@ -182,7 +182,7 @@ const Gallery = () => {
   if (!updatedData) return;
 
   return (
-    <div className={classes.gallery}>
+    <div className={classes.gallery} key={page}>
       <div className={classes.galleryTop}>
         <FilterSideBarWrapperComponent
           dataKeys={["prints", "paintings"]} // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
