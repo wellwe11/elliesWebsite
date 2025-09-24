@@ -7,7 +7,6 @@ import { addToCart } from "@functions/handleCart.js";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG.jsx";
 
 const InfoSectionBio = ({ details, bioRef, foundObject }) => {
-  console.log(foundObject);
   const { setCart } = useContext(cartContext);
 
   const handleCart = (item) => {

@@ -57,7 +57,7 @@ const ScreenContainer = () => {
                 element={<QuickViewImage />}
               />
 
-              <Route path="/:tab?cart" element={<Cart />} />
+              <Route path="/:tab?/cart" element={<Cart />} />
             </Routes>
           )}
         </UniqueImageContext.Provider>

@@ -1,6 +1,6 @@
 import classes from "./uniqueImage.module.scss";
-import { useRef } from "react";
-import { useSearchParams } from "react-router-dom";
+
+import { useLocation, useSearchParams } from "react-router-dom";
 
 import UniqueTopSection from "./uniqueTopSection/uniqueTopSection";
 import UniqueInfoSection from "./uniqueInfoSection/uniqueInfoSection";
@@ -9,6 +9,7 @@ import mainImage from "@assets/welcomeImage.jpg";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 import useFetchDataIDs from "@hooks/useFetchDataIDs.jsx";
+import usePrevious from "../../../../abstract/hooks/usePrevious.jsx";
 
 // Component containing all info for top-section
 const UniqueTopSectionComponent = ({ info, foundObject }) => {
@@ -62,18 +63,23 @@ const useUniqueImageData = () => {
   return { data, loading };
 };
 
-const UniqueImage = () => {
-  const containerRef = useRef();
-  const { data, loading } = useUniqueImageData();
-
+const useFindObj = (data) => {
   const [searchParams] = useSearchParams(),
     id = searchParams.get("page") || null;
 
-  if (loading) return;
+  if (!data) return;
 
-  const foundUniqueImage = data.find((obj) => obj.id === +id); // searches data for a matching id to params
+  return data?.find((obj) => obj.id === +id); // searches data for a matching id to params
+};
 
-  const info = foundUniqueImage._embedded; // _embedded contains all nested information about specifics of product
+const UniqueImage = () => {
+  const { data, loading } = useUniqueImageData();
+
+  const foundUniqueImage = useFindObj(data); // _embedded contains all nested information about specifics of product
+
+  if (loading || !data) return;
+
+  const info = foundUniqueImage?._embedded; // _embedded contains all nested information about specifics of product
 
   const uniqueTopSectionWrapper = (
     <section className={classes.uniqueTopSectionWrapper}>
@@ -95,7 +101,7 @@ const UniqueImage = () => {
   );
 
   return (
-    <div className={classes.uniqueImage} ref={containerRef}>
+    <div className={classes.uniqueImage}>
       {uniqueTopSectionWrapper}
       {sectionSeperatorWithImage}
       {uniqueInfoSectionWrapper}

@@ -17,7 +17,7 @@ const ShoppingCart = () => {
   const navigateCart = () => {
     if (location.pathname !== "/cart") {
       navigate("./cart", {
-        state: { backgroundLocation: location.pathname },
+        state: { backgroundLocation: location.pathname + location.search },
       });
     }
   };
