@@ -3,10 +3,11 @@ import tryFetchFn from "../functions/fetches/tryFetchFn.js";
 
 const UseFetchData = (link) => {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
+
     const fetch = async () => {
       try {
         const fetchedData = await tryFetchFn(link);
@@ -15,7 +16,9 @@ const UseFetchData = (link) => {
       } catch (error) {
         console.error("Failed to fetch data in useFetchData.jsx", error);
       } finally {
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
       }
     };
 

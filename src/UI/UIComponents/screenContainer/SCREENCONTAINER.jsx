@@ -13,8 +13,6 @@ import QuickViewImage from "@fullyComponents/quickView/quickViewImage/quickViewI
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import Cart from "../BODY/cart/cart";
 
-import useFetchDataIDs from "@hooks/useFetchDataIDs.jsx";
-
 import getTotalInfo from "./totalItems.js";
 import UseFetchData from "../../../abstract/hooks/useFetchData.jsx";
 
@@ -26,14 +24,6 @@ const ScreenContainer = () => {
   const location = useLocation(),
     state = location.state,
     tab = location.pathname.split("/")[1];
-
-  const { data: topLayerData, loading } = useFetchDataIDs(
-    tab === "" ? "/API_imitation/home.json" : "/API_imitation/gallery" + ".json"
-  ); // fetch all data needed on front-page
-
-  const { data: serviceData, loading: serviceLoading } = UseFetchData(
-    tab === "" ? "/API_imitation/services.json" : ""
-  );
 
   // scroll back to top each time you navigate to a new page
   useEffect(() => {
@@ -50,29 +40,21 @@ const ScreenContainer = () => {
           value={{ cart, setCart, totalItems, totalPrice }}
         >
           <Routes location={state?.backgroundLocation || location}>
-            <Route
-              path="/"
-              element={
-                <Home topLayerData={topLayerData} serviceData={serviceData} />
-              }
-            />
+            <Route path="/" element={<Home />} />
 
             <Route
               path="/uniqueImage/:category?/:id?/*"
-              element={<UniqueImage data={topLayerData} />}
+              element={<UniqueImage />}
             />
 
-            <Route
-              path="/gallery/:category?/:id?/*"
-              element={<Gallery data={topLayerData} />}
-            />
+            <Route path="/gallery/:category?/:id?/*" element={<Gallery />} />
           </Routes>
 
           {state?.backgroundLocation && (
             <Routes>
               <Route
                 path="/:tab?/preview/:category?/:id?/*"
-                element={<QuickViewImage data={topLayerData} />}
+                element={<QuickViewImage />}
               />
 
               <Route path="/:tab?cart" element={<Cart />} />

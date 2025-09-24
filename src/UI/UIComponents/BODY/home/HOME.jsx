@@ -10,6 +10,9 @@ import bookmarksCategory from "@assets/categories/bookmarksCategory.webp";
 import printsCategory from "@assets/categories/printsCategory.webp";
 import stickersCategory from "@assets/categories/stickersCategory.webp";
 
+import useFetchDataIDs from "@hooks/useFetchDataIDs.jsx";
+import UseFetchData from "@hooks/useFetchData.jsx";
+
 import Prints from "./prints/prints.jsx";
 import Paintings from "./paintings/paintings.jsx";
 import Services from "./services/services.jsx";
@@ -36,7 +39,32 @@ const categories = {
 
 const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
-const Home = ({ topLayerData, serviceData }) => {
+const useHomeData = () => {
+  // fetch all data needed on front-page
+  const { data: printData, printLoading } = useFetchDataIDs(
+    "/API_imitation/home/paintings.json"
+  );
+
+  const { data: paintData, paintLoading } = useFetchDataIDs(
+    "/API_imitation/home/prints.json"
+  );
+
+  const { data: serviceData, loading: serviceLoading } = UseFetchData(
+    "/API_imitation/home/services.json"
+  );
+
+  const isLoading = printLoading || paintLoading || serviceLoading;
+
+  return { printData, paintData, serviceData, isLoading };
+};
+
+const Home = () => {
+  const { printData, paintData, serviceData, isLoading } = useHomeData();
+
+  if (isLoading) {
+    return null;
+  }
+
   // Welcoming image and small animation
   const topSection = (
     <section className={classes.topSection}>
@@ -54,28 +82,24 @@ const Home = ({ topLayerData, serviceData }) => {
     </section>
   );
 
-  // data for prints
-  const topLayerDataPrints = topLayerData?.prints;
   // wrapper that contains all top-level data for prints
   const printSection = (
     <section className={classes.printSection}>
-      <Prints data={topLayerDataPrints} />
+      <Prints data={printData} />
     </section>
   );
 
   // Realistic image containing different colletions of images to "ikea-style" display them
-  // const servicesSection = (
-  //   <section className={classes.serviceSection}>
-  //     <Services data={serviceData} />
-  //   </section>
-  // );
+  const servicesSection = (
+    <section className={classes.serviceSection}>
+      <Services data={serviceData} />
+    </section>
+  );
 
-  // data for paintings
-  const topLayerDataPaintings = topLayerData?.paintings;
   // Example-images of paintings
   const paintingsSection = (
     <section className={classes.paintingSection}>
-      <Paintings data={topLayerDataPaintings} />
+      <Paintings data={paintData} />
     </section>
   );
 
@@ -106,29 +130,27 @@ const Home = ({ topLayerData, serviceData }) => {
     </div>
   );
 
-  if (topLayerData) {
-    return (
-      <div>
-        {topSection}
-        {sectionSeperatorWithNoImage}
+  return (
+    <div>
+      {topSection}
+      {sectionSeperatorWithNoImage}
 
-        {categoriesSection}
-        {sectionSeperatorWithNoImage}
+      {categoriesSection}
+      {sectionSeperatorWithNoImage}
 
-        {printSection}
-        {sectionSeperatorWithImage}
+      {printSection}
+      {sectionSeperatorWithImage}
 
-        {/* {newInSection}
+      {/* {newInSection}
         {sectionSeperatorWithImage} */}
 
-        {/* {servicesSection}
-        {sectionSeperatorWithImage} */}
+      {servicesSection}
+      {sectionSeperatorWithImage}
 
-        {paintingsSection}
-        {sectionSeperatorWithImage}
-      </div>
-    );
-  }
+      {paintingsSection}
+      {sectionSeperatorWithImage}
+    </div>
+  );
 };
 
 export default Home;

@@ -13,9 +13,10 @@ const useFetchDataIDs = (link) => {
     const fetchData = async () => {
       try {
         const data = await fetchDataAndAssignID(link);
+
         setData(data);
       } catch (error) {
-        console.error("Failed to fetch data in useFetchData", error);
+        console.error("Failed to fetch data in useFetchDataIDs.jsx", error);
       } finally {
         setTimeout(() => {
           setLoading(false);

@@ -10,6 +10,7 @@ import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackgrou
 import dataHandler from "./dataHandler.jsx";
 import bodyNoScroll from "@functions/bodyNoScroll.js";
 import usePrevious from "@hooks/usePrevious.jsx";
+import useFetchDataIDs from "../../../../abstract/hooks/useFetchDataIDs.jsx";
 
 // used for rendering products based on the current page
 const handleDisplayedProducts = (page, data) => {
@@ -23,7 +24,7 @@ const handleDisplayedProducts = (page, data) => {
 };
 
 // buttons on left to select specific items based on their type
-const FilterSideBarWrapperComponent = ({ data, category }) => {
+const FilterSideBarWrapperComponent = ({ dataKeys, category }) => {
   const navigate = useNavigate();
 
   const [localCategory, setLocalCategory] = useState(null);
@@ -37,8 +38,6 @@ const FilterSideBarWrapperComponent = ({ data, category }) => {
       navigate(`/gallery?category=${e}&page=1`);
     }
   };
-
-  const dataKeys = Object.keys(data); // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
 
   return (
     <div className={classes.filterSideBarWrapper}>
@@ -146,22 +145,43 @@ const PageWrapperComponent = ({ filteredData }) => {
   );
 };
 
-const Gallery = ({ data }) => {
+const useGalleryData = () => {
+  const { data: printData, loading: printLoading } = useFetchDataIDs(
+    "/API_imitation/gallery/prints.json"
+  );
+  const { data: paintingData, loading: paintLoading } = useFetchDataIDs(
+    "/API_imitation/gallery/paintings.json"
+  );
+
+  const loading = printLoading || paintLoading;
+
+  return { printData, paintingData, loading };
+};
+
+const Gallery = () => {
   const [searchParams] = useSearchParams(),
     category = searchParams.get("category") || null,
     page = searchParams.get("page") || null;
 
-  const updatedData = useMemo(
-    () => dataHandler(data, category),
-    [category, data]
-  ); // flats data and filters data depending on category active
+  const { printData, paintingData, loading } = useGalleryData();
 
-  if (!data || !updatedData) return;
+  const updatedData = useMemo(() => {
+    if (loading) return null;
+
+    const data = { prints: printData, paintings: paintingData };
+
+    return dataHandler(data, category);
+  }, [printData, paintingData, loading, category]); // flats data and filters data depending on category active
+
+  if (!updatedData) return;
 
   return (
     <div className={classes.gallery}>
       <div className={classes.galleryTop}>
-        <FilterSideBarWrapperComponent data={data} category={category} />
+        <FilterSideBarWrapperComponent
+          dataKeys={["prints", "paintings"]} // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
+          category={category}
+        />
         <ProductsWrapperComponent filteredData={updatedData} page={page} />
       </div>
       <PageWrapperComponent filteredData={updatedData} />
