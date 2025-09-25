@@ -23,6 +23,7 @@ export default App;
  *
  * ** TODO NOW! **
  * Checn all files & clean CSS
+ * Abstract paintings & prints logic into custom hook and create it's own fullyComponent
  * ------------------------------------------------
  * ** BUGS **
  * On gallery, current page needs to update after you've gone to next page

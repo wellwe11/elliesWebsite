@@ -1,6 +1,6 @@
 import classes from "./uniqueImage.module.scss";
 
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 import UniqueTopSection from "./uniqueTopSection/uniqueTopSection";
 import UniqueInfoSection from "./uniqueInfoSection/uniqueInfoSection";
@@ -9,7 +9,6 @@ import mainImage from "@assets/welcomeImage.jpg";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 import useFetchDataIDs from "@hooks/useFetchDataIDs.jsx";
-import usePrevious from "../../../../abstract/hooks/usePrevious.jsx";
 
 // Component containing all info for top-section
 const UniqueTopSectionComponent = ({ info, foundObject }) => {
