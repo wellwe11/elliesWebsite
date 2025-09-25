@@ -2,7 +2,7 @@ import classes from "./uniqueTopSection.module.scss";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 import { useContext } from "react";
-import cartContext from "../../cartContext";
+import cartContext from "../../../cartContext";
 import { addToCart } from "@functions/handleCart";
 import ButtonStyle from "../uniqueButton/uniqueButton.jsx";
 

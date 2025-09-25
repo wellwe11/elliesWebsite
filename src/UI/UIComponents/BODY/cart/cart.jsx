@@ -1,12 +1,13 @@
 import classes from "./cart.module.scss";
-import { useContext, useEffect, useRef } from "react";
+import { useContext } from "react";
 
 import cartContext from "../cartContext";
-import bodyNoScroll from "@functions/bodyNoScroll";
-import { useNavigate } from "react-router-dom";
-import Products from "./products/products";
+
+import Products from "./local_components/products/products";
 import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickViewButton";
 import X_SVG from "@components/SVGS/X_SVG/X_SVG";
+import useAddDisplayClass from "./local_hooks/useAddDisplayClass.jsx";
+import useNavigateBack from "./local_hooks/useNavigateBack.jsx";
 
 const ToPaymentMethod = () => {
   return (
@@ -42,47 +43,13 @@ const TotalProducts = () => {
 };
 
 const Cart = () => {
-  const cartWrapperRef = useRef(),
-    backgroundWhiteRef = useRef();
-
-  const navigate = useNavigate();
-  const { disableScroll, enableScroll } = bodyNoScroll();
-
-  useEffect(() => {
-    disableScroll();
-
-    if (cartWrapperRef.current) {
-      setTimeout(() => {
-        cartWrapperRef.current.classList.add(classes.slideFromRight);
-      }, 50);
-    }
-
-    if (backgroundWhiteRef.current) {
-      setTimeout(() => {
-        backgroundWhiteRef.current.classList.add(classes.appearBackgroundWhite);
-      }, 50);
-    }
-  }, []);
-
-  //  user wants to return away from cart
-  const handleNavigateBack = () => {
-    cartWrapperRef.current.classList.remove(classes.slideFromRight); // side-bar goes back before navigating away
-
-    setTimeout(() => {
-      // once cartWrapperRef is gone, fade back into website
-      backgroundWhiteRef.current.classList.remove(
-        classes.appearBackgroundWhite
-      );
-    }, 200);
-
-    setTimeout(() => {
-      // once transition is completed, navigate url to previous page
-      navigate(-1);
-      enableScroll();
-    }, 500); // transitiion for slideFromRight is 0.2s; needs to match
-  };
-
   const title = <h4 className={classes.title}>SHOPPING CART</h4>;
+  const { cartWrapperRef, backgroundWhiteRef } = useAddDisplayClass(classes);
+  const { handleNavigateBack } = useNavigateBack(
+    cartWrapperRef,
+    backgroundWhiteRef,
+    classes
+  );
 
   const closeButton = (
     <button className={classes.closeButton} onClick={handleNavigateBack}>

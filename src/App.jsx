@@ -28,6 +28,7 @@ export default App;
  * ** BUGS **
  * On gallery, current page needs to update after you've gone to next page
  * ButtonWithUnderlineAndText's hover is a bit 'flickery'
+ * When user goes back from uniqueImagePage > quickView > Gallery, no data is displayed
  * ------------------------------------------------
  * ** THINGS TO FIX **
  * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)

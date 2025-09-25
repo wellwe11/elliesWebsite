@@ -1,24 +1,22 @@
-import classes from "./MAINPAGE.module.scss";
+import classes from "./HOME.module.scss";
 
-import MainPageTopPresentation from "./mainPageTopPresentation/mainPageTopPresentation.jsx";
+import MainPageTopPresentation from "./local_components/mainPageTopPresentation/mainPageTopPresentation.jsx";
 import mainImage from "@assets/welcomeImage.jpg";
 import welcomeImageOne from "@assets/welcomeImageOne.jpg";
 
-import Categories from "./categories/categories.jsx";
+import Categories from "./local_components/categories/categories.jsx";
 import artCategory from "@assets/categories/artCategory.webp";
 import bookmarksCategory from "@assets/categories/bookmarksCategory.webp";
 import printsCategory from "@assets/categories/printsCategory.webp";
 import stickersCategory from "@assets/categories/stickersCategory.webp";
 
-import useFetchDataIDs from "@hooks/useFetchDataIDs.jsx";
-import UseFetchData from "@hooks/useFetchData.jsx";
-
-import Prints from "./prints/prints.jsx";
-import Paintings from "./paintings/paintings.jsx";
-import Services from "./services/services.jsx";
+import Prints from "./local_components/prints/prints.jsx";
+import Paintings from "./local_components/paintings/paintings.jsx";
+import Services from "./local_components/services/services.jsx";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
-import NewIn from "./newIn/newIn.jsx";
+import NewIn from "./local_components/newIn/newIn.jsx";
+import useHomeData from "./local_hooks/useHomeData.jsx";
 
 // Categories section
 const categories = {
@@ -38,25 +36,6 @@ const categories = {
 };
 
 const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
-
-const useHomeData = () => {
-  // fetch all data needed on front-page
-  const { data: printData, printLoading } = useFetchDataIDs(
-    "/API_imitation/home/paintings.json"
-  );
-
-  const { data: paintData, paintLoading } = useFetchDataIDs(
-    "/API_imitation/home/prints.json"
-  );
-
-  const { data: serviceData, loading: serviceLoading } = UseFetchData(
-    "/API_imitation/home/services.json"
-  );
-
-  const isLoading = printLoading || paintLoading || serviceLoading;
-
-  return { printData, paintData, serviceData, isLoading };
-};
 
 const Home = () => {
   const { printData, paintData, serviceData, isLoading } = useHomeData();

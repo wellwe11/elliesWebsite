@@ -1,8 +1,8 @@
 import classes from "./products.module.scss";
 
 import { useContext } from "react";
-import { Product } from "./product/product";
-import cartContext from "../../cartContext";
+import { Product } from "./product/product.jsx";
+import cartContext from "../../../cartContext.jsx";
 import CartBottomItem from "../cartBottomItem/cartBottomItem";
 
 const Products = () => {

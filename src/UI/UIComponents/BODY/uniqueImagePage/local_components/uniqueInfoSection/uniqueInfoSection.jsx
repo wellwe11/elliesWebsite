@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import classes from "./uniqueInfoSection.module.scss";
-import cartContext from "../../cartContext.jsx";
+import cartContext from "../../../cartContext.jsx";
 import ButtonStyle from "../uniqueButton/uniqueButton.jsx";
 import transitionInAnimation from "@functions/transitionAnimation";
 import { addToCart } from "@functions/handleCart.js";

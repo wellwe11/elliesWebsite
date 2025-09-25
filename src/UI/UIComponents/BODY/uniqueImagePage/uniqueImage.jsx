@@ -1,14 +1,13 @@
 import classes from "./uniqueImage.module.scss";
 
-import { useSearchParams } from "react-router-dom";
-
-import UniqueTopSection from "./uniqueTopSection/uniqueTopSection";
-import UniqueInfoSection from "./uniqueInfoSection/uniqueInfoSection";
+import UniqueTopSection from "./local_components/uniqueTopSection/uniqueTopSection";
+import UniqueInfoSection from "./local_components/uniqueInfoSection/uniqueInfoSection";
 
 import mainImage from "@assets/welcomeImage.jpg";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
-import useFetchDataIDs from "@hooks/useFetchDataIDs.jsx";
+import useFindObj from "./local_hooks/useFindObj.jsx";
+import useUniqueImageData from "./local_hooks/useUniqueImageData.jsx";
 
 // Component containing all info for top-section
 const UniqueTopSectionComponent = ({ info, foundObject }) => {
@@ -49,26 +48,6 @@ const UniqueInfoSectionComponent = ({ info, foundObject }) => {
       foundObject={foundObject}
     />
   );
-};
-
-const useUniqueImageData = () => {
-  const [searchParams] = useSearchParams(),
-    category = searchParams.get("category") || null;
-
-  const { data, loading } = useFetchDataIDs(
-    `/API_imitation/gallery/${category}.json`
-  );
-
-  return { data, loading };
-};
-
-const useFindObj = (data) => {
-  const [searchParams] = useSearchParams(),
-    id = searchParams.get("page") || null;
-
-  if (!data) return;
-
-  return data?.find((obj) => obj.id === +id); // searches data for a matching id to params
 };
 
 const UniqueImage = () => {

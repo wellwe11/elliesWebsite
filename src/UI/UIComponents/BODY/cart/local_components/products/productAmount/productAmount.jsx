@@ -6,7 +6,7 @@ import {
   removeFromCart,
 } from "@functions/handleCart";
 import { useContext, useRef, useState } from "react";
-import cartContext from "../../../cartContext";
+import cartContext from "../../../../cartContext.jsx";
 
 // increase number of items
 const PlusButton = ({ setLocalCart, product }) => {

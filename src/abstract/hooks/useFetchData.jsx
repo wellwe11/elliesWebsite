@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import tryFetchFn from "../functions/fetches/tryFetchFn.js";
 
-const UseFetchData = (link) => {
+const useFetchData = (link) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -31,4 +31,4 @@ const UseFetchData = (link) => {
   };
 };
 
-export default UseFetchData;
+export default useFetchData;

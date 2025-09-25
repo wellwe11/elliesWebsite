@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import dataHandler from "../localFunctions/dataHandler.js";
+import dataHandler from "../local_functions/dataHandler.js";
 import useGalleryData from "./useGalleryData.jsx";
 
 const useUpdateDataLogic = (category) => {

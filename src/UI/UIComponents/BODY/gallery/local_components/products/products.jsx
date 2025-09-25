@@ -4,7 +4,7 @@ import classes from "./products.module.scss";
 import QuickView from "@fullyComponents/quickView/quickView";
 import { addToCart } from "@functions/handleCart";
 import { useContext } from "react";
-import cartContext from "../../cartContext";
+import cartContext from "../../../cartContext.jsx";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ product, bioData }) => {
