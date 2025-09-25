@@ -22,7 +22,6 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * Checn all files & clean CSS
  * Abstract paintings & prints logic into custom hook and create it's own fullyComponent
  * ------------------------------------------------
  * ** BUGS **
@@ -34,7 +33,7 @@ export default App;
  * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)
  * Website need to scale well for bigger screens as well. Currently, some images & texts scale very strangely with big screens
  * services background-color should be 100% of windows width. Add screenContainers class to the child-element (to preserve dynamic width), and make containers width 100%
- * WheelOfManyImages is bugged atm when too few images
+ * WheelOfManyImages is bugged atm when too few images (considner making it always be 10 objects)
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
  * add Links to footer

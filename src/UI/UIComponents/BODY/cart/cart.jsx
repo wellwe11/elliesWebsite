@@ -44,7 +44,9 @@ const TotalProducts = () => {
 
 const Cart = () => {
   const title = <h4 className={classes.title}>SHOPPING CART</h4>;
+
   const { cartWrapperRef, backgroundWhiteRef } = useAddDisplayClass(classes);
+
   const { handleNavigateBack } = useNavigateBack(
     cartWrapperRef,
     backgroundWhiteRef,
