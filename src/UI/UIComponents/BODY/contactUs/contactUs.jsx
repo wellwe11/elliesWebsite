@@ -1,26 +1,7 @@
 import classes from "./contactUs.module.scss";
 
-const ContactInput = ({ children = "Please add text", type = "text" }) => {
-  return (
-    <div className={classes.inputWrapper}>
-      <h6 className={classes.inputTitle}>{children}</h6>
-      <input className={classes.input} type={type} />
-    </div>
-  );
-};
-
-const ContactInfo = ({ children, title }) => {
-  return (
-    <div>
-      <div>
-        <h6>{title}</h6>
-      </div>
-      <div>
-        <p>{children}</p>
-      </div>
-    </div>
-  );
-};
+import ContactInfo from "./components/contactInfo/contactInfo.jsx";
+import ContactInput from "./components/contactInput/contactInput.jsx";
 
 const InputsWrapper = () => {
   const fullNameWrapper = (
@@ -51,22 +32,22 @@ const InputsWrapper = () => {
 };
 
 const InfoWrapper = () => {
-  const contact = (
+  const contactWrapper = (
     <div className={classes.contactWrapper}>
       <ContactInfo title={"Contact"}>someEmail@email.com</ContactInfo>
     </div>
   );
 
-  const adress = (
-    <div className={classes.adressWrapper}>
+  const addressWrapper = (
+    <div className={classes.addressWrapper}>
       <ContactInfo title={"Based in"}>`Some City Some country `</ContactInfo>
     </div>
   );
 
   return (
     <div className={classes.infoWrapper}>
-      {contact}
-      {adress}
+      {contactWrapper}
+      {addressWrapper}
     </div>
   );
 };
