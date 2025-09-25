@@ -15,6 +15,7 @@ import Cart from "../BODY/cart/cart";
 
 import getTotalInfo from "./totalItems.js";
 import UseFetchData from "../../../abstract/hooks/useFetchData.jsx";
+import ContactUs from "../BODY/contactUs/contactUs.jsx";
 
 const ScreenContainer = () => {
   const [cart, setCart] = useState({}); // context for whichever product is in focus
@@ -48,6 +49,8 @@ const ScreenContainer = () => {
             />
 
             <Route path="/gallery/:category?/:id?/*" element={<Gallery />} />
+
+            <Route path="/contact" element={<ContactUs />} />
           </Routes>
 
           {state?.backgroundLocation && (

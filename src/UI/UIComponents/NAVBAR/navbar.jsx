@@ -118,7 +118,7 @@ const Navbar = ({}) => {
   const buttons = {
     home: "",
     gallery: "/gallery?page=1",
-    contact: "./#contact",
+    contact: "./contact",
   };
 
   const [loadTab, setLoadTab] = useState(false);

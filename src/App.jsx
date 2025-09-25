@@ -22,17 +22,20 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
+ *
+ * * Contact-Page
+ * * Loading page for when pages switch
  * ------------------------------------------------
  * ** BUGS **
- * On gallery, current page needs to update after you've gone to next page
  * ButtonWithUnderlineAndText's hover is a bit 'flickery'
- * When user goes back from uniqueImagePage > quickView > Gallery, no data is displayed
  * ------------------------------------------------
  * ** THINGS TO FIX **
  * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)
  * Website need to scale well for bigger screens as well. Currently, some images & texts scale very strangely with big screens
  * services background-color should be 100% of windows width. Add screenContainers class to the child-element (to preserve dynamic width), and make containers width 100%
  * WheelOfManyImages is bugged atm when too few images (considner making it always be 10 objects)
+ *
+ * Seperate logic on components and put them into custom hooks
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
  * add Links to footer
@@ -44,8 +47,8 @@ export default App;
  *
  * Intro page (while website loads)
  * Error page (if page not found)
- * Contact us Page
  * Payment method page
+
  *
  * ------------------------------------------------
  *

@@ -1,7 +1,8 @@
 import ArrowRoundEdgesSVG from "@components/SVGS/arrowRoundEdgesSVG/arrowRoundEdgesSVG";
 import classes from "./pageSelector.module.scss";
-import { useMemo } from "react";
+
 import { useNavigate, useSearchParams } from "react-router-dom";
+import usePageNumbersLogic from "./hooks/usePageNumbersLogic.jsx";
 
 // abstract button component which has the same structure & classes for all nav-buttons
 const NavButton = ({ onClick, disabled, label }) => {
@@ -71,30 +72,12 @@ const LeftButton = ({ page, navigate, category }) => {
 };
 
 const PageNumbers = ({ page, maxPage, navigate, category }) => {
-  const pageNumber = +page; // pages are 0-indexed, but are shown as 1-indexed because page 1 fits better than page 0 as initial page
-
-  const getPageWindow = (page, max) => {
-    // creates a dynamic array which displays current set of pages (always pageNumber-1, pageNumber, pageNumber+1)
-    // also allows a border to be displayed for the active page
-    const start = Math.max(1, Math.min(page - 1, max - 2)), // ensures window doesn't overflow
-      end = Math.min(max, start + 2);
-
-    const arr = [];
-
-    for (let i = start; i <= end; i++) arr.push(i);
-
-    return arr;
-  };
-
-  const pagesArr = useMemo(
-    () => getPageWindow(pageNumber, maxPage),
-    [pageNumber, maxPage]
-  ); // useMemos the 3 active buttons
-
   const activePageUnderline = {
     // style for when the current page is displayed
     borderBottom: "1px solid var(--c-text-black)",
   };
+
+  const { pagesArr, pageNumber } = usePageNumbersLogic(page, maxPage); // retrieve relevant page/pages
 
   if (!pagesArr) return;
 
