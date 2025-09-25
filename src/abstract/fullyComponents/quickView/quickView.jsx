@@ -8,7 +8,7 @@ const QuickView = ({ src, secondSrc, productType, productId }) => {
   const { disableScroll } = bodyNoScroll();
 
   const handleNavigate = () => {
-    navigate(`/uniqueImage?category=${productType}&id${productId}`);
+    navigate(`/uniqueImage?category=${productType}&id=${productId}`);
   };
 
   const quickViewImage = (

@@ -22,6 +22,7 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
+ * Checn all files & clean CSS
  * ------------------------------------------------
  * ** BUGS **
  * On gallery, current page needs to update after you've gone to next page

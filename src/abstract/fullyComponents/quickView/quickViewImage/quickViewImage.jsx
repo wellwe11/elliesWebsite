@@ -3,7 +3,12 @@ import { useEffect, useState } from "react";
 
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 
-import { useNavigate, useSearchParams } from "react-router-dom";
+import {
+  useLocation,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import QuickViewButton from "../quickViewButton/quickViewButton";
 import bodyNoScroll from "@functions/bodyNoScroll";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
@@ -168,11 +173,14 @@ const QuickViewImageContainer = ({ quickViewProps }) => {
 };
 
 const useQuickViewData = () => {
+  const location = useLocation(),
+    tab = location.pathname.split("/")[1] === "preview" ? "home" : "gallery"; // not dynamic. Need to fix in future
+
   const [searchParams] = useSearchParams(),
     category = searchParams.get("category") || null;
 
   const { data, loading } = useFetchDataIDs(
-    `/API_imitation/home/${category}.json`
+    `/API_imitation/${tab}/${category}.json`
   );
 
   return { data, loading };
