@@ -1,6 +1,7 @@
 import useFetchData from "@hooks/useFetchData.jsx";
 import useFetchDataIDs from "@hooks/useFetchDataIDs.jsx";
 
+// used for HOME to fetch top-layer data
 const useHomeData = () => {
   // fetch all data needed on front-page
   const { data: printData, printLoading } = useFetchDataIDs(

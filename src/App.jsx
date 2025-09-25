@@ -22,7 +22,6 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * Abstract paintings & prints logic into custom hook and create it's own fullyComponent
  * ------------------------------------------------
  * ** BUGS **
  * On gallery, current page needs to update after you've gone to next page

@@ -8,12 +8,10 @@ const useProductsLogic = (page, filteredData, setLoading) => {
     handleDisplayedProducts(page, filteredData)
   ); // initial data
 
-  const prevPage = usePrevious(page);
-
   const slicedProducs = handleDisplayedProducts(page, filteredData); // runs each render to slice products based on page
 
   useEffect(() => {
-    if (page && prevPage) {
+    if (page) {
       setLoading(true);
 
       setUpdatedData(slicedProducs);
