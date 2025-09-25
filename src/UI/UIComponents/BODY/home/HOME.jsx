@@ -1,22 +1,22 @@
 import classes from "./HOME.module.scss";
 
-import MainPageTopPresentation from "./local_components/mainPageTopPresentation/mainPageTopPresentation.jsx";
+import MainPageTopPresentation from "./components/mainPageTopPresentation/mainPageTopPresentation.jsx";
 import mainImage from "@assets/welcomeImage.jpg";
 import welcomeImageOne from "@assets/welcomeImageOne.jpg";
 
-import Categories from "./local_components/categories/categories.jsx";
+import Categories from "./components/categories/categories.jsx";
 import artCategory from "@assets/categories/artCategory.webp";
 import bookmarksCategory from "@assets/categories/bookmarksCategory.webp";
 import printsCategory from "@assets/categories/printsCategory.webp";
 import stickersCategory from "@assets/categories/stickersCategory.webp";
 
-import Prints from "./local_components/prints/prints.jsx";
-import Paintings from "./local_components/paintings/paintings.jsx";
-import Services from "./local_components/services/services.jsx";
+import Prints from "./components/prints/prints.jsx";
+import Paintings from "./components/paintings/paintings.jsx";
+import Services from "./components/services/services.jsx";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
-import NewIn from "./local_components/newIn/newIn.jsx";
-import useHomeData from "./local_hooks/useHomeData.jsx";
+import NewIn from "./components/newIn/newIn.jsx";
+import useHomeData from "./hooks/useHomeData.jsx";
 
 // Categories section
 const categories = {

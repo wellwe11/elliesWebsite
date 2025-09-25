@@ -3,7 +3,7 @@ import classes from "./products.module.scss";
 import { useContext } from "react";
 import { Product } from "./product/product.jsx";
 import cartContext from "../../../cartContext.jsx";
-import CartBottomItem from "../cartBottomItem/cartBottomItem";
+import CartBottomItem from "../cartBottomItem/cartBottomItem.jsx";
 
 const Products = () => {
   const { cart } = useContext(cartContext),

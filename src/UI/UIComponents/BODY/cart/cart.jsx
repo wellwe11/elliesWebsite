@@ -3,11 +3,11 @@ import { useContext } from "react";
 
 import cartContext from "../cartContext";
 
-import Products from "./local_components/products/products";
+import Products from "./components/products/products";
 import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickViewButton";
 import X_SVG from "@components/SVGS/X_SVG/X_SVG";
-import useAddDisplayClass from "./local_hooks/useAddDisplayClass.jsx";
-import useNavigateBack from "./local_hooks/useNavigateBack.jsx";
+import useAddDisplayClass from "./hooks/useAddDisplayClass.jsx";
+import useNavigateBack from "./hooks/useNavigateBack.jsx";
 
 const ToPaymentMethod = () => {
   return (

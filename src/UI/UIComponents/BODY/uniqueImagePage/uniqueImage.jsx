@@ -1,13 +1,14 @@
 import classes from "./uniqueImage.module.scss";
 
-import UniqueTopSection from "./local_components/uniqueTopSection/uniqueTopSection";
-import UniqueInfoSection from "./local_components/uniqueInfoSection/uniqueInfoSection";
+import UniqueTopSection from "./components/uniqueTopSection/uniqueTopSection";
+import UniqueInfoSection from "./components/uniqueInfoSection/uniqueInfoSection";
 
 import mainImage from "@assets/welcomeImage.jpg";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
-import useFindObj from "./local_hooks/useFindObj.jsx";
-import useUniqueImageData from "./local_hooks/useUniqueImageData.jsx";
+
+import useFindObj from "./hooks/useFindObj.jsx";
+import useUniqueImageData from "./hooks/useUniqueImageData.jsx";
 
 // Component containing all info for top-section
 const UniqueTopSectionComponent = ({ info, foundObject }) => {

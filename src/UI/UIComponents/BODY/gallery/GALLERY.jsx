@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import classes from "./GALLERY.module.scss";
-import PageSelector from "./local_components/pageSelector/pageSelector";
-import FilterSideBar from "./local_components/filterSideBar/filterSideBar";
-import Products from "./local_components/products/products";
+import PageSelector from "./components/pageSelector/pageSelector";
+import FilterSideBar from "./components/filterSideBar/filterSideBar";
+import Products from "./components/products/products";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
-import useProductsLogic from "./GALLERY_localHooks/useProductsLogic.jsx";
-import useUpdateDataLogic from "./GALLERY_localHooks/useUpdateDataLogic.jsx";
+import useProductsLogic from "./hooks/useProductsLogic.jsx";
+import useUpdateDataLogic from "./hooks/useUpdateDataLogic.jsx";
 
 // buttons on left to select specific items based on their type
 const FilterSideBarWrapperComponent = ({ dataKeys, category }) => {

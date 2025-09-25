@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import usePrevious from "@hooks/usePrevious.jsx";
 
-import handleDisplayedProducts from "../local_functions/handleDisplayedProducts.js";
+import handleDisplayedProducts from "../functions/handleDisplayedProducts.js";
 
 const useProductsLogic = (page, filteredData, setLoading) => {
   const [updatedData, setUpdatedData] = useState(() =>
