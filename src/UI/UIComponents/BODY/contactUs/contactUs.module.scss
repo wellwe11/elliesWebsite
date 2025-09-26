@@ -12,19 +12,15 @@
     align-items: center;
     justify-content: center;
 
-    background-color: orange;
-
-    padding: var(--spacing-1);
+    padding: var(--spacing-2);
   }
 
   .inputsSection {
     flex: 1;
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-
-    background-color: blue;
 
     padding: var(--spacing-1);
   }

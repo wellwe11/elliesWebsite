@@ -2,9 +2,14 @@
   width: 100%;
   .inputTitle {
     padding: var(--spacing-1) 0px;
+    font-variation-settings: "wght" 500;
   }
 
   .input {
+    border: 1px solid black;
+    outline: none;
+
     width: 100%;
+    padding: calc(var(--spacing-1) / 2);
   }
 }
