@@ -1,11 +1,21 @@
-.contactInfo {
+.infoWrapper {
+  background-color: green;
+  width: 50%;
+  height: max-content;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
   .titleWrapper {
-    .title {
-    }
   }
 
-  .textWrapper {
-    .text {
-    }
+  .bioHeader {
+    padding: var(--spacing-1) 0px;
+  }
+
+  .bioText {
+    padding: var(--spacing-2) 0px;
   }
 }

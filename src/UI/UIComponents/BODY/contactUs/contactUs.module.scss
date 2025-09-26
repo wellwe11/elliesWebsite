@@ -3,38 +3,29 @@
   width: 100%;
   height: 100%;
 
-  background-color: orange;
+  display: flex;
 
-  // titleWrapper variable
-  .titleWrapper {
-    // titleWrapper variable
-    .title {
-    }
-  }
-}
+  .infoSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-// InputsWrapper
-.inputsWrapper {
-  //  fullNameWrapper variable
-  .fullNameContainer {
+    background-color: orange;
+
+    padding: var(--spacing-1);
   }
 
-  // emailWrapper
-  .emailContainer {
-  }
+  .inputsSection {
+    flex: 1;
 
-  // messageWrapper
-  .messageContainer {
-  }
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-// InfoWrapper
-.infoWrapper {
-  // contactWrapper variable
-  .contactWrapper {
-  }
+    background-color: blue;
 
-  // addressWrapper variable
-  .addressWrapper {
+    padding: var(--spacing-1);
   }
 }

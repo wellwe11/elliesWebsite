@@ -1,6 +1,6 @@
-import classes from "./contactInput.module.scss";
+import classes from "./input.module.scss";
 
-const ContactInput = ({ children = "Please add text", type = "text" }) => {
+const Input = ({ children = "Please add text", type = "text" }) => {
   return (
     <div className={classes.inputWrapper}>
       <h6 className={classes.inputTitle}>{children}</h6>
@@ -9,4 +9,4 @@ const ContactInput = ({ children = "Please add text", type = "text" }) => {
   );
 };
 
-export default ContactInput;
+export default Input;

@@ -1,0 +1,38 @@
+.inputs {
+  .inputsWrapper {
+    width: 100%;
+    .inputsContainer {
+      display: flex;
+
+      padding: var(--spacing-1);
+    }
+  }
+
+  .firstNameWrapper {
+  }
+
+  .lastNameWrapper {
+  }
+
+  .emailWrapper {
+  }
+
+  .messageWrapper {
+  }
+
+  .halfInput {
+    width: 50%;
+
+    &:first-child {
+      padding-right: var(--spacing-1);
+    }
+
+    &:last-child {
+      padding-left: var(--spacing-1);
+    }
+  }
+
+  .wholeInput {
+    width: 100%;
+  }
+}
