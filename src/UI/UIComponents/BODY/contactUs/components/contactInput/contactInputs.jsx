@@ -5,25 +5,25 @@ import Input from "./components/input/input.jsx";
 const ContactInputs = () => {
   const firstNameWrapper = (
     <div className={`${classes.firstNameWrapper} ${classes.halfInput}`}>
-      <Input />
+      <Input>First name</Input>
     </div>
   );
 
   const lastNameWrapper = (
     <div className={`${classes.lastNameWrapper} ${classes.halfInput}`}>
-      <Input />
+      <Input>Last name</Input>
     </div>
   );
 
   const emailWrapper = (
     <div className={`${classes.emailWrapper} ${classes.wholeInput}`}>
-      <Input />
+      <Input>Email</Input>
     </div>
   );
 
   const messageWrapper = (
     <div className={`${classes.messageWrapper} ${classes.wholeInput}`}>
-      <Input />
+      <Input>Message</Input>
     </div>
   );
 

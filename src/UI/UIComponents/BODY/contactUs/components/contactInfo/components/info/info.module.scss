@@ -1,0 +1,34 @@
+.info {
+  width: 50%;
+  height: max-content;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding: var(--spacing-3) 0px;
+
+  .titleWrapper {
+    padding: var(--spacing-1) 0px;
+    .title {
+      font-variation-settings: "wght" 450;
+    }
+  }
+
+  .bioHeader {
+    padding: var(--spacing-1) 0px;
+
+    .text {
+      font-variation-settings: "wght" 450;
+    }
+  }
+
+  .bioText {
+    padding: var(--spacing-3) 0px;
+
+    .text {
+      font-variation-settings: "wght" 300;
+    }
+  }
+}
