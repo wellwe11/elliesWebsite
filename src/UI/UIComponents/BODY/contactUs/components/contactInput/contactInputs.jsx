@@ -1,6 +1,6 @@
 import classes from "./contactInputs.module.scss";
 
-import Input from "./components/input/input.jsx";
+import { Input, TextArea } from "./components/input/input.jsx";
 
 const ContactInputs = () => {
   const firstNameWrapper = (
@@ -17,13 +17,13 @@ const ContactInputs = () => {
 
   const emailWrapper = (
     <div className={`${classes.emailWrapper} ${classes.wholeInput}`}>
-      <Input>Email</Input>
+      <Input type="email">Email</Input>
     </div>
   );
 
   const messageWrapper = (
     <div className={`${classes.messageWrapper} ${classes.wholeInput}`}>
-      <Input>Message</Input>
+      <TextArea>Message</TextArea>
     </div>
   );
 

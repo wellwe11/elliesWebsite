@@ -1,6 +1,11 @@
 import classes from "./input.module.scss";
 
-const Input = ({ children = "Please add text", type = "text" }) => {
+/** Create logic:
+ * User must enter all 4 fields (First name, Last name, email & message)
+ * User must enter valid email
+ */
+
+export const Input = ({ children = "Please add text", type = "text" }) => {
   return (
     <div className={classes.inputWrapper}>
       <p className={classes.inputTitle}>{children}</p>
@@ -9,4 +14,11 @@ const Input = ({ children = "Please add text", type = "text" }) => {
   );
 };
 
-export default Input;
+export const TextArea = ({ children }) => {
+  return (
+    <div className={classes.inputWrapper}>
+      <p className={classes.inputTitle}>{children}</p>
+      <textarea className={classes.input} />
+    </div>
+  );
+};
