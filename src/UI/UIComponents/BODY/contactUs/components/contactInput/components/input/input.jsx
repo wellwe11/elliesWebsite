@@ -18,7 +18,10 @@ export const TextArea = ({ children }) => {
   return (
     <div className={classes.inputWrapper}>
       <p className={classes.inputTitle}>{children}</p>
-      <textarea className={classes.input} />
+      <textarea
+        className={classes.input}
+        placeholder="What can I help you with?"
+      />
     </div>
   );
 };

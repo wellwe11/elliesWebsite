@@ -10,53 +10,63 @@ const SVGWrapper = ({ children }) => {
 };
 
 const Section = ({ links, onClick, sectionSVG }) => {
-  if (!links) return;
+  const linksEntries = Object.entries(links);
 
-  console.log(links);
+  console.log(linksEntries);
 
   return (
     <div className={classes.section}>
       <SVGWrapper>{sectionSVG}</SVGWrapper>
-      {links.map((link, index) => (
-        <a onClick={onClick} className={classes.link} key={index}>
-          {link}
-        </a>
-      ))}
+      <div className={classes.sectionWrapper}>
+        {linksEntries.map(([entry, obj], index) => (
+          <a onClick={onClick} className={classes.link} key={index}>
+            {obj.svg || obj.text}
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const LocalSvgWrapper = ({ svg }) => {
+  return (
+    <div className={classes.localSvgContainer}>
+      <div className={classes.svgWrapper}>{svg}</div>
     </div>
   );
 };
 
 const Contact = () => {
+  const emailContact = {
+      email: {
+        text: <p>someEmail@someMail.com</p>,
+        link: "",
+      },
+    },
+    contactObject = {
+      instagram: {
+        svg: <LocalSvgWrapper svg={<InstagramSVG />} />,
+        link: "",
+      },
+      facebook: {
+        svg: <LocalSvgWrapper svg={<FacebookSVG />} />,
+        link: "",
+      },
+      etsy: {
+        svg: <LocalSvgWrapper svg={<EtsySVG />} />,
+        link: "",
+      },
+    };
+
   const emailWrapper = (
     <div className={classes.emailWrapper}>
-      <Section
-        sectionSVG={<MailSVG />}
-        links={[<p>someEmail@atEmail.com</p>]}
-      />
+      <Section links={emailContact} sectionSVG={<MailSVG />} />
     </div>
   );
 
-  const LocalSvgWrapper = ({ children }) => {
-    return (
-      <div className={classes.localSvgContainer}>
-        {children.map((child) => (
-          <div className={classes.svgWrapper}>{child}</div>
-        ))}
-      </div>
-    );
-  };
-
-  const svgs = [
-    <LocalSvgWrapper>
-      <InstagramSVG />
-      <EtsySVG />
-      <FacebookSVG />
-    </LocalSvgWrapper>,
-  ];
-
   const socialsWrapper = (
     <div className={classes.socialMediaWrapper}>
-      <Section links={svgs} sectionSVG={<FollowSVG />} />
+      <Section links={contactObject} sectionSVG={<FollowSVG />} />
     </div>
   );
 

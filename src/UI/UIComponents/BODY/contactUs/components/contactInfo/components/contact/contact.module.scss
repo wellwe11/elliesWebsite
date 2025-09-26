@@ -1,26 +1,16 @@
+// Contact
 .contact {
   width: fit-content;
   padding: var(--spacing-3) 0px;
-  .localSvgContainer {
-    display: flex;
-    .svgWrapper {
-      display: flex;
 
-      width: var(--spacing-3);
-      margin-left: var(--spacing-1);
+  .emailWrapper {
+  }
 
-      &:first-child {
-        margin-left: 0px;
-      }
-    }
+  .socialMediaWrapper {
   }
 }
 
-.SVGWrapper {
-  display: flex;
-  padding-top: 2px;
-}
-
+// Section
 .section {
   height: 100%;
 
@@ -29,7 +19,33 @@
 
   padding: var(--spacing-1) 0px;
 
-  .link {
-    padding: 0px var(--spacing-3);
+  .sectionWrapper {
+    padding: 0px var(--spacing-2);
+
+    display: flex;
+    .link {
+      padding: 0px var(--spacing-1);
+      cursor: pointer;
+    }
   }
+}
+
+// LocalSvgWrapper
+.localSvgContainer {
+  display: flex;
+  .svgWrapper {
+    display: flex;
+
+    width: var(--spacing-3);
+
+    &:first-child {
+      margin-left: 0px;
+    }
+  }
+}
+
+// SVGWrapper
+.SVGWrapper {
+  display: flex;
+  height: 20px;
 }
