@@ -1,22 +1,26 @@
 .contact {
-  background-color: aqua;
-  .emailWrapper {
-    background-color: aquamarine;
-
-    padding: var(--spacing-1) 0px;
-
-    .link {
-      .text {
-        background-color: gray;
-        text-decoration: underline;
-      }
+  .localSvgContainer {
+    display: flex;
+    .svgWrapper {
+      width: var(--step-5);
+      display: flex;
+      padding: 0px var(--spacing-1);
     }
   }
+}
 
-  .socialMediaWrapper {
-    background-color: greenyellow;
+.SVGWrapper {
+  display: flex;
+  padding-top: 2px;
+}
 
-    .socialMediaLinks {
-    }
+.section {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  .link {
+    padding: 0px var(--spacing-1);
   }
 }
