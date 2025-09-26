@@ -19,7 +19,12 @@ const Section = ({ links, onClick, sectionSVG }) => {
       <SVGWrapper>{sectionSVG}</SVGWrapper>
       <div className={classes.sectionWrapper}>
         {linksEntries.map(([entry, obj], index) => (
-          <a onClick={onClick} className={classes.link} key={index}>
+          <a
+            href={obj.link}
+            onClick={onClick}
+            className={classes.link}
+            key={index + entry}
+          >
             {obj.svg || obj.text}
           </a>
         ))}

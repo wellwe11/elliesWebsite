@@ -27,8 +27,14 @@ const ContactInputs = () => {
     </div>
   );
 
+  const buttonWrapper = (
+    <button className={`${classes.button} ${classes.wholeInput}`} type="submit">
+      <p>Submit</p>
+    </button>
+  );
+
   const inputsWrapper = (
-    <div className={classes.inputsWrapper}>
+    <form className={classes.inputsWrapper}>
       <div className={classes.inputsContainer}>
         {firstNameWrapper}
         {lastNameWrapper}
@@ -37,7 +43,8 @@ const ContactInputs = () => {
       <div className={classes.inputsContainer}>{emailWrapper}</div>
 
       <div className={classes.inputsContainer}>{messageWrapper}</div>
-    </div>
+      <div className={classes.inputsContainer}>{buttonWrapper}</div>
+    </form>
   );
 
   return <div className={classes.inputs}>{inputsWrapper}</div>;

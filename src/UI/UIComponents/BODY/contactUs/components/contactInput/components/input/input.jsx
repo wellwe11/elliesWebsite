@@ -8,8 +8,10 @@ import classes from "./input.module.scss";
 export const Input = ({ children = "Please add text", type = "text" }) => {
   return (
     <div className={classes.inputWrapper}>
-      <p className={classes.inputTitle}>{children}</p>
-      <input className={classes.input} type={type} />
+      <input className={classes.input} type={type} required />
+      <label htmlFor={children} className={classes.inputTitle}>
+        <p>{children}</p>
+      </label>
     </div>
   );
 };

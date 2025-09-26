@@ -22,6 +22,19 @@
     max-height: 200px;
   }
 
+  .button {
+    border: 1px solid var(--c-grey-300);
+    background-color: var(--c-grey-200);
+    padding: var(--spacing-1);
+    cursor: pointer;
+
+    transition: background-color 0.4s ease;
+
+    &:hover {
+      background-color: var(--c-grey-300);
+    }
+  }
+
   .halfInput {
     width: 50%;
 
