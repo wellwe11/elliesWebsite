@@ -30,6 +30,8 @@
 
     transition: background-color 0.4s ease;
 
+    position: relative;
+
     &:hover {
       background-color: var(--c-grey-300);
     }

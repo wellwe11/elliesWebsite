@@ -40,6 +40,7 @@ const ScreenContainer = () => {
         <UniqueImageContext.Provider
           value={{ cart, setCart, totalItems, totalPrice }}
         >
+          {/** Main routes */}
           <Routes location={state?.backgroundLocation || location}>
             <Route path="/" element={<Home />} />
 
@@ -53,6 +54,7 @@ const ScreenContainer = () => {
             <Route path="/contact" element={<ContactUs />} />
           </Routes>
 
+          {/** Extended pages */}
           {state?.backgroundLocation && (
             <Routes>
               <Route

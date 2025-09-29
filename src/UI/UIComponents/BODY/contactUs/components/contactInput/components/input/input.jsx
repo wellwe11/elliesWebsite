@@ -19,11 +19,14 @@ export const Input = ({ children = "Please add text", type = "text" }) => {
 export const TextArea = ({ children }) => {
   return (
     <div className={classes.inputWrapper}>
-      <p className={classes.inputTitle}>{children}</p>
       <textarea
         className={classes.input}
         placeholder="What can I help you with?"
+        requireds
       />
+      <label htmlFor={children} className={classes.inputTitle}>
+        <p>{children}</p>
+      </label>
     </div>
   );
 };

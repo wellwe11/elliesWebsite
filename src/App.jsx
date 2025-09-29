@@ -22,20 +22,19 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
+ * services background-color should be 100% of windows width. Add screenContainers class to the child-element (to preserve dynamic width), and make containers width 100%
+ *  ButtonWithUnderlineAndText's hover is a bit 'flickery'
+ * WheelOfManyImages is bugged atm when too few images (considner making it always be 10 objects)
  *
- * * Contact-Page
- * * Loading page for when pages switch
+ *  Loading page for when pages switch
+ * * Error page (if page not found)
+ *
  * ------------------------------------------------
  * ** BUGS **
- * ButtonWithUnderlineAndText's hover is a bit 'flickery'
  * ------------------------------------------------
  * ** THINGS TO FIX **
  * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)
  * Website need to scale well for bigger screens as well. Currently, some images & texts scale very strangely with big screens
- * services background-color should be 100% of windows width. Add screenContainers class to the child-element (to preserve dynamic width), and make containers width 100%
- * WheelOfManyImages is bugged atm when too few images (considner making it always be 10 objects)
- *
- * Seperate logic on components and put them into custom hooks
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
  * add Links to footer
@@ -43,13 +42,6 @@ export default App;
  * ** NEW COMPONENTS **
  * Create an instagram section - this should be a spinning wheel that simply has images from ellies instagram-page, and when clicked, takes you to ellies instagram
  * Create a 'new-in' component, which is a stand-alone component. Not related to prints/paintings sections. It simply displays something with a nice animation. (this should seperate prints & paintings)
- *
- *
- * Intro page (while website loads)
- * Error page (if page not found)
- * Payment method page
-
- *
  * ------------------------------------------------
  *
  * ** FUTURE UPDATES **
@@ -60,6 +52,7 @@ export default App;
  * -- 9 items to display items per page. This saves brandwidth for user.
  * --- Each time user changes page, it will re-fetch the information & update the current products to be displayed.
  * --- Like so, I can clean code which calculates the currently displayed products, because it wont be needed. The front-end UI will only manage all items which come in, while the fetch (eventually will be put into back-end) will contain all viewable items.
+ * * Payment method page
  */
 
 /*** RULES FOR PROJECT

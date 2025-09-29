@@ -17,7 +17,7 @@ const SetOfExampleCollectionSection = ({ data }) => {
   // if user clicks on any image, will navigate to collection
   const navigate = useNavigate();
   const handleNavigate = () =>
-    navigate(`uniqueImage?category=${linkType}&=${linkId}`);
+    navigate(`uniqueImage?category=${linkType}&id=${linkId}`);
 
   if (imageSrc && text) {
     return (
