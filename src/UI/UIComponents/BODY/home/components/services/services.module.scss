@@ -1,36 +1,54 @@
 /* Services */
 .servicesContainer {
   display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 
-  .leftSectionWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    flex: 1;
-  }
-
-  .rightSectionWrapper {
-    width: 70%;
+  .background {
+    background-color: rgb(244, 244, 238);
     height: 100%;
+    width: 100vw;
+
+    position: absolute;
+  }
+  .serviceContent {
+    padding: var(--step-4) 0px;
+
+    height: 100%;
+    width: 100%;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    align-items: stretch;
+    justify-content: space-between;
 
-  /*
+    .leftSectionWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      flex: 1;
+    }
+
+    .rightSectionWrapper {
+      width: 70%;
+      height: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /*
   * disable component for smaller screens *
   navigation requires mouse for smooth interaction
   so disabling it will lead to better user-experience for
   smaller screen
   */
 
-  @media screen and (max-width: 1024px) {
-    display: none !important;
+    @media screen and (max-width: 1024px) {
+      display: none !important;
+    }
   }
 }
 

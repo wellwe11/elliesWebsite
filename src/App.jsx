@@ -35,6 +35,8 @@ export default App;
  * ** THINGS TO FIX **
  * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)
  * Website need to scale well for bigger screens as well. Currently, some images & texts scale very strangely with big screens
+ *
+ * sectionSeperationImage has a useeffect that tracks it's own movements. I have a function for that. Remove it from the component, and use the function that I have instead
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
  * add Links to footer

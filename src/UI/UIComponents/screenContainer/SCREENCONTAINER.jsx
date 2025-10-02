@@ -14,7 +14,7 @@ import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackgrou
 import Cart from "../BODY/cart/cart";
 
 import getTotalInfo from "./totalItems.js";
-import UseFetchData from "../../../abstract/hooks/useFetchData.jsx";
+import UseFetchData from "@hooks/useFetchData.jsx";
 import ContactUs from "../BODY/contactUs/contactUs.jsx";
 
 const ScreenContainer = () => {
