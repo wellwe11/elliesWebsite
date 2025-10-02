@@ -9,6 +9,12 @@ const Images = ({ data }) => {
   // mapped objects using their 'representive-image'
   const wheelImages = data?.map((obj) => obj.image);
 
+  const restImages = data?.map((obj) => obj._embedded.restImages[0]);
+
+  const productTypes = data?.map((obj) => obj._embedded.details.type);
+
+  const productIds = data?.map((obj) => obj.id);
+
   const buttonLimit = wheelImages.length; // the limit of marginLeft the wheel can go
 
   // clicking left or right decreases or increases marginLeft by 1. This is then translate to marginLeft * 10 %. So 2 = 20%.
@@ -39,9 +45,9 @@ const Images = ({ data }) => {
         <div key={index} className={classes.imageWrapper}>
           <QuickView
             src={image}
-            secondSrc={data[index]._embedded.restImages[0]}
-            productType={data[index]._embedded.details.type}
-            productId={data[index]?.id}
+            secondSrc={restImages[index]}
+            productType={productTypes[index]}
+            productId={productIds[index]}
           />
         </div>
       ))}
