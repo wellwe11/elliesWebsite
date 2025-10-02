@@ -9,6 +9,8 @@ const Images = ({ data }) => {
   // mapped objects using their 'representive-image'
   const wheelImages = data?.map((obj) => obj.image);
 
+  const buttonLimit = wheelImages.length; // the limit of marginLeft the wheel can go
+
   // clicking left or right decreases or increases marginLeft by 1. This is then translate to marginLeft * 10 %. So 2 = 20%.
   const [marginLeft, setMarginLeft] = useState(0);
 
@@ -20,9 +22,11 @@ const Images = ({ data }) => {
 
   // transition applied/removed & translateX control.
   const marginLeftStyle = {
-    transform: `translateX(${marginLeft}0%)`,
+    transform: `translateX(${(100 / wheelImages.length) * marginLeft}%)`,
     transition: `${
-      marginLeft === 0 && (prevMarginLeft === -9 || prevMarginLeft === 9)
+      marginLeft === 0 &&
+      (prevMarginLeft === -buttonLimit + 1 ||
+        prevMarginLeft === buttonLimit - 1)
         ? ""
         : "transform 0.5s ease"
     }`,
@@ -59,6 +63,7 @@ const Images = ({ data }) => {
   return (
     <div className={classes.imagesContainer}>
       <NavigationButtons
+        buttonLimit={buttonLimit}
         setMarginLeft={setMarginLeft}
         setPrevMarginLeft={setPrevMarginLeft}
       />

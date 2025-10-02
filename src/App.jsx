@@ -22,7 +22,7 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * WheelOfManyImages is bugged atm when too few images (considner making it always be 10 objects)
+ * abstract wheelOfManyImages (currently, secondSrc={data[index]._embedded.restImages[0]} needs to be broken down and handled in parent. Do this with other components as well)
  *
  *  Loading page for when pages switch
  * * Error page (if page not found)

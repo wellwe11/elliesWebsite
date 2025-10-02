@@ -2,7 +2,11 @@ import classes from "./navigationButtons.module.scss";
 import { useEffect, useState } from "react";
 
 // Two buttons which controls
-const NavigationButtons = ({ setMarginLeft, setPrevMarginLeft }) => {
+const NavigationButtons = ({
+  setMarginLeft,
+  setPrevMarginLeft,
+  buttonLimit = 10,
+}) => {
   const [canNavigate, setCanNavigate] = useState(true);
 
   // Moves images right
@@ -14,7 +18,7 @@ const NavigationButtons = ({ setMarginLeft, setPrevMarginLeft }) => {
       setMarginLeft((prev) => {
         setPrevMarginLeft(prev);
         // -10 because images move based on %. So, 1 = 10%, and 100 = 100%. Like so, no need to know how many images are in array
-        if (prev - 1 > -10) {
+        if (prev - 1 > -buttonLimit) {
           // if prev is within boundaries
           return prev - 1;
         } else {
@@ -37,7 +41,7 @@ const NavigationButtons = ({ setMarginLeft, setPrevMarginLeft }) => {
       setMarginLeft((prev) => {
         setPrevMarginLeft(prev);
         // 10 because images move based on %. So, 1 = 10%, and 100 = 100%. Like so, no need to know how many images are in array
-        if (prev + 1 < 10) {
+        if (prev + 1 < buttonLimit) {
           // if prev is within boundaries
           return prev + 1;
         } else {
