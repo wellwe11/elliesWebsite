@@ -1,7 +1,7 @@
 import classes from "./buttonWithUnderlineAndUndertext.module.scss";
 
 // Span of text for each button
-const MainImageSpan = ({
+const TextSpan = ({
   children = "Please insert a text here",
   fontType = "h3",
   fontSize,
@@ -24,7 +24,7 @@ const MainImageSpan = ({
 };
 
 const ButtonWithUnderlineAndUndertext = ({
-  children,
+  children = "Please insert text",
   fontSize,
   fontType,
   boolean,
@@ -32,13 +32,9 @@ const ButtonWithUnderlineAndUndertext = ({
   return (
     <div className={classes.mainImageWrapperText}>
       <div className={classes.mainImageWrapper}>
-        <MainImageSpan
-          fontSize={fontSize}
-          fontType={fontType}
-          boolean={boolean}
-        >
+        <TextSpan fontSize={fontSize} fontType={fontType} boolean={boolean}>
           {children}
-        </MainImageSpan>
+        </TextSpan>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import classes from "./services.module.scss";
-import screen_classes from "../../../../screenContainer/SCREENCONTAINER.module.scss";
+
 import { useState } from "react";
 
 import ButtonWithUnderlineAndUndertext from "@components/buttonWithUnderlineAndUnderText/buttonWithUnderlineAndUndertext";
@@ -124,9 +124,7 @@ const Services = ({ data }) => {
   return (
     <div className={classes.servicesContainer}>
       <div className={classes.background} />
-      <div
-        className={`${classes.serviceContent} ${screen_classes.contentWrapper}`}
-      >
+      <div className={classes.serviceContent}>
         {leftSectionWrapper}
         {rightSectionWrapper}
       </div>

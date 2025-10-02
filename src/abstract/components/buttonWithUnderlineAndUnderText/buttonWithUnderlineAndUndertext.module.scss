@@ -27,13 +27,17 @@
     font-size: clamp(20px, 2.2vw, 30px);
     text-shadow: -1.5px -1.5px 0 white, 1.5px -1.5px 0 white,
       -1.5px 1.5px 0 white, 1.5px 1.5px 0 white;
+
     position: relative;
+
+    padding-bottom: var(--spacing-1);
 
     // text
     &::after {
+      pointer-events: none;
       position: absolute;
       left: 72%;
-      bottom: -48%;
+      bottom: -20%;
 
       content: "explore";
       font-size: 60%;
@@ -45,16 +49,17 @@
 
     // underline
     &::before {
+      pointer-events: none;
       content: "";
-      height: 3%;
-      min-height: 1.5px;
+      min-height: 4%;
+      height: 4%;
       width: 70%;
 
       background-color: black;
 
       position: absolute;
       left: 0;
-      bottom: -25%;
+      bottom: 0;
 
       transition: width 0.4s ease;
     }
