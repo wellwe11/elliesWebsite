@@ -10,12 +10,10 @@ const TextSpan = ({
   const FontType = fontType;
 
   return (
-    <span className={classes.mainImageSpan}>
+    <span className={classes.textSpan}>
       <FontType
         style={{ fontSize }}
-        className={`${classes.mainImageSpanText} ${
-          boolean ? classes.activeClass : ""
-        }`}
+        className={`${classes.text} ${boolean ? classes.activeClass : ""}`}
       >
         {children}
       </FontType>
@@ -30,8 +28,8 @@ const ButtonWithUnderlineAndUndertext = ({
   boolean,
 }) => {
   return (
-    <div className={classes.mainImageWrapperText}>
-      <div className={classes.mainImageWrapper}>
+    <div className={classes.buttonWithUnderlineAndUnderText}>
+      <div className={classes.textWrapper}>
         <TextSpan fontSize={fontSize} fontType={fontType} boolean={boolean}>
           {children}
         </TextSpan>

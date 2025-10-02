@@ -22,8 +22,6 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * services background-color should be 100% of windows width. Add screenContainers class to the child-element (to preserve dynamic width), and make containers width 100%
- *  ButtonWithUnderlineAndText's hover is a bit 'flickery'
  * WheelOfManyImages is bugged atm when too few images (considner making it always be 10 objects)
  *
  *  Loading page for when pages switch

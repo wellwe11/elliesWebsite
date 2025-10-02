@@ -1,5 +1,5 @@
 // ButtonWithUnderlineAndUndertext
-.mainImageWrapperText {
+.buttonWithUnderlineAndUnderText {
   max-height: 400px;
 
   display: flex;
@@ -8,13 +8,13 @@
 
   width: 100%;
 
-  .mainImageWrapper {
+  .textWrapper {
     width: 100%;
   }
 }
 
 // MainImageSpan
-.mainImageSpan {
+.textSpan {
   cursor: pointer;
 
   width: 100%;
@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
 
-  .mainImageSpanText {
+  .text {
     font-variation-settings: "wght" 450;
     font-size: clamp(20px, 2.2vw, 30px);
     text-shadow: -1.5px -1.5px 0 white, 1.5px -1.5px 0 white,
