@@ -23,13 +23,14 @@ export default App;
  *
  * ** TODO NOW! **
  *  Display how many products are in basket
- *  Loading page for when pages switch
+ *  Loading page for when pages switch (perhaps old page displayed white loading)
  *  Error page (if page not found)
  *
  *
  * ------------------------------------------------
  * ** BUGS **
  * Navbar underline changes when you VIEW CART. Underline should also point to Gallery when on uniqueImage
+ * ViewCart text doesnt appear on smaller screens
  * ------------------------------------------------
  * ** THINGS TO FIX **
  * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)

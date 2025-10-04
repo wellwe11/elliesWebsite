@@ -95,6 +95,8 @@
 .shoppingCart {
   z-index: 10000;
   width: 33%;
+  min-width: 150px;
+
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -105,14 +107,14 @@
 
   // shoppingBagText variable
   .shoppingBagText {
-    padding-right: var(--step-1);
-
     transition: opacity 0.4s ease, transform 1s ease;
     opacity: 0;
 
     position: absolute;
+
+    padding-right: var(--step-1);
+    display: flex; // needed for background
     transform: translateX(60px);
-    right: 0px;
 
     z-index: 1;
     cursor: pointer;
@@ -134,8 +136,6 @@
 
     animation: highlightMove 3s ease infinite;
     animation-delay: 2s;
-
-    display: flex;
 
     .cartText {
       font-weight: 300;
@@ -255,9 +255,9 @@
 
   .buttonsWrapper {
     min-width: 100%;
+
     .buttonWrapper {
       width: 100%;
-      background-color: orange;
 
       display: flex;
       justify-content: center;
