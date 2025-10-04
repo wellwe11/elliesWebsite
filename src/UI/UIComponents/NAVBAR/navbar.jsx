@@ -4,15 +4,17 @@ import classes from "./navbar.module.scss";
 import screen_classes from "../screenContainer/SCREENCONTAINER.module.scss";
 
 import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import NavLogo from "./navLogo/navLogo.jsx";
 
 import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT.jsx";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 
-const ShoppingCart = () => {
+const ShoppingCart = ({ cartItems }) => {
   const navigate = useNavigate();
+
+  const totalItemsInCart = useMemo(() => cartItems(), [cartItems]);
 
   const navigateCart = () => {
     if (location.pathname !== "/cart") {
@@ -25,7 +27,15 @@ const ShoppingCart = () => {
   // Simple text related to shoppingcart. Text is static and will remain the same.
   const shoppingBagText = (
     <div className={classes.shoppingBagText}>
+      <p className={`${classes.cartText} ${classes.whiteText}`}>View cart</p>
       <p className={classes.cartText}>View cart</p>
+      <p className={`${classes.cartText} ${classes.whiteText}`}>View cart</p>
+    </div>
+  );
+
+  const totalItemsInCartWrapper = totalItemsInCart > 0 && (
+    <div className={classes.totalItemsInCartWrapper}>
+      <p className={classes.text}>{totalItemsInCart}</p>
     </div>
   );
 
@@ -40,6 +50,7 @@ const ShoppingCart = () => {
     <div className={classes.shoppingCart} onClick={navigateCart}>
       {shoppingBagText}
       {shoppingBagSvgWrapper}
+      {totalItemsInCartWrapper}
     </div>
   );
 };
@@ -111,7 +122,7 @@ const NavbarButtons = ({
   );
 };
 
-const Navbar = ({}) => {
+const Navbar = ({ cartItems }) => {
   const [activeButton, setActiveButton] = useState(0);
   const [hoverButton, setHoverButton] = useState(0);
   const { pathname } = useLocation();
@@ -177,7 +188,7 @@ const Navbar = ({}) => {
   // shoppingcart
   const shoppingCartWrapper = (
     <div className={classes.shoppingCartWrapper}>
-      <ShoppingCart />
+      <ShoppingCart cartItems={cartItems} />
     </div>
   );
 

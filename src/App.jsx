@@ -22,13 +22,14 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * abstract wheelOfManyImages (currently, secondSrc={data[index]._embedded.restImages[0]} needs to be broken down and handled in parent. Do this with other components as well)
- *
+ *  Display how many products are in basket
  *  Loading page for when pages switch
- * * Error page (if page not found)
+ *  Error page (if page not found)
+ *
  *
  * ------------------------------------------------
  * ** BUGS **
+ * Navbar underline changes when you VIEW CART. Underline should also point to Gallery when on uniqueImage
  * ------------------------------------------------
  * ** THINGS TO FIX **
  * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)

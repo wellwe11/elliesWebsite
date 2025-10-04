@@ -91,31 +91,78 @@
   height: 100%;
 }
 
-// ShoppingCart
+// ShoppingCart variable
 .shoppingCart {
   z-index: 10000;
   width: 33%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  overflow: hidden;
+
   position: relative;
 
-  // shoppingBagText
+  overflow: hidden;
+
+  // shoppingBagText variable
   .shoppingBagText {
     padding-right: var(--step-1);
 
-    transition: opacity 1s ease, transform 0.4s ease;
+    transition: opacity 0.4s ease, transform 1s ease;
     opacity: 0;
 
     position: absolute;
-    transform: translateX(100px);
-    right: 30px;
+    transform: translateX(60px);
+    right: 0px;
+
     z-index: 1;
     cursor: pointer;
 
+    background: linear-gradient(
+      90deg,
+      #333 0%,
+      #ddd 30%,
+      #fff 50%,
+      #ddd 70%,
+      #333 100%
+    );
+
+    background-size: 200% 100%;
+    background-position: -50% 0%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: highlightMove 3s ease infinite;
+    animation-delay: 2s;
+
+    display: flex;
+
     .cartText {
       font-weight: 300;
+      white-space: nowrap;
+    }
+    .whiteText {
+      color: white !important;
+      opacity: 0;
+    }
+
+    @keyframes highlightMove {
+      0% {
+        background-position: -250% 0%;
+        -webkit-text-fill-color: black;
+      }
+
+      1% {
+        -webkit-text-fill-color: transparent;
+      }
+
+      45% {
+        background-position: -50% 0%;
+      }
+
+      100% {
+        background-position: -50% 0%;
+      }
     }
   }
 
@@ -125,14 +172,34 @@
     width: 30px;
     height: 30px;
     z-index: 10;
-    background-color: var(--websiteContainerColor);
+
+    background-color: var(--websiteContainerColor); // hides text
   }
 
   &:hover {
     .shoppingBagText {
-      transform: translateX(0px);
+      transform: translateX(35px);
       opacity: 1;
     }
+  }
+
+  // totalItemsInCartWrapper variable
+  .totalItemsInCartWrapper {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 0;
+
+    z-index: 10000;
+    background-color: var(--websiteContainerColor);
+    border: 1px solid var(--c-grey-300);
+
+    border-radius: 100px;
+    padding: 0px 3px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 

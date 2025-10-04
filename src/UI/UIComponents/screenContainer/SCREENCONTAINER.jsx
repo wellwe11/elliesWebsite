@@ -34,7 +34,7 @@ const ScreenContainer = () => {
 
   return (
     <div className={classes.widthContainer}>
-      <Navbar />
+      <Navbar cartItems={totalItems} />
 
       <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
         <UniqueImageContext.Provider
