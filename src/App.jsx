@@ -58,6 +58,22 @@ export default App;
  */
 
 /*** RULES FOR PROJECT
+ * When committing:
+ * Follow the example as well as rules.
+ * Always commit if ANYTHING changes:
+ *
+ *
+ * git add package.json package-lock.json
+ * git commit -m "chore(deps): bump axois and react-scripts"
+ *
+ * git add src/components7userCard.js
+ * git commit -m "fix(userCard): prevent crash when user.name is undefined"
+ *
+ * git add .
+ * git commit -m "chore: misc minor cleanup"
+ *
+ * git push
+ *
  ** UI/UIComponents
  * Each MAIN-COMPONENT (Example: BODY is main-component) contains a set of sub-components, which are sections.
  * Each main-component has all imported information. That information is then passed down to children as props
