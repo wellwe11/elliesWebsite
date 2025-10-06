@@ -65,19 +65,19 @@ const PageWrapperComponent = ({ filteredData }) => {
   );
 };
 
-const Gallery = () => {
+const Gallery = ({ data }) => {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [searchParams] = useSearchParams(),
     category = searchParams.get("category") || null,
     page = searchParams.get("page") || null;
 
-  const { updatedData, loading } = useUpdateDataLogic(category);
+  const { updatedData, loading } = useUpdateDataLogic(category, data);
 
   useEffect(() => {
     setHasLoaded(true);
   }, []);
 
-  if (loading) return;
+  if (loading) return null;
 
   return (
     <div className={classes.gallery} key={hasLoaded}>

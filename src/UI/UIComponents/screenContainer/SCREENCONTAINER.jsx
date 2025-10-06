@@ -16,6 +16,8 @@ import Cart from "../BODY/cart/cart";
 import getTotalInfo from "./functions/totalItems.js";
 import UseFetchData from "@hooks/useFetchData.jsx";
 import ContactUs from "../BODY/contactUs/contactUs.jsx";
+import useHomeData from "./hooks/useHomeData.jsx";
+import useGalleryData from "./hooks/useGalleryData.jsx";
 
 const BodyWithData = () => {
   const location = useLocation(),
@@ -23,6 +25,11 @@ const BodyWithData = () => {
     tab = location.pathname.split("/")[1];
 
   // create a fetch containing data for each component, and pass it down here. Unifying data entirely
+  // once done with BodyWithData hooks, remove them from BODY/gallery & BODY/home
+
+  // const { printData, paintData, serviceData, isLoading } = useHomeData();
+
+  const { printsData, paintingsData, isLoading } = useGalleryData();
 
   // scroll back to top each time you navigate to a new page
   useEffect(() => {
@@ -30,19 +37,27 @@ const BodyWithData = () => {
     window.scroll({ top: 0 });
   }, [tab]);
 
+  // if (isLoading) return null;
+  if (isLoading) return null;
+
   return (
     <div>
       {/** Main routes */}
       <Routes location={state?.backgroundLocation || location}>
-        <Route path="/" element={<Home />} />
-        <Route path="/gallery/:category?/:id?/*" element={<Gallery />} />
+        {/* <Route
+          path="/"
+          element={<Home data={{ printData, paintData, serviceData }} />}
+        /> */}
+        <Route
+          path="/gallery/:category?/:id?/*"
+          element={<Gallery data={{ printsData, paintingsData }} />}
+        />
         <Route path="/contact" element={<ContactUs />} />
-
         {/** Extended pages */}
         <Route
           path="/uniqueImage/:category?/:id?/*"
           element={<UniqueImage />}
-        />
+        />{" "}
       </Routes>
 
       {/** Extended pages */}

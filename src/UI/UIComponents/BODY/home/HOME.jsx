@@ -16,7 +16,6 @@ import Services from "./components/services/services.jsx";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 import NewIn from "./components/newIn/newIn.jsx";
-import useHomeData from "./hooks/useHomeData.jsx";
 
 // Categories section
 const categories = {
@@ -37,13 +36,7 @@ const categories = {
 
 const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
-const Home = () => {
-  const { printData, paintData, serviceData, isLoading } = useHomeData();
-
-  if (isLoading) {
-    return null;
-  }
-
+const Home = ({ data: { printData, paintData, serviceData } }) => {
   // Welcoming image and small animation
   const topSection = (
     <section className={classes.topSection}>

@@ -1,6 +1,8 @@
 const dataHandler = (data, category) => {
   if (!data) return [];
 
+  console.log(data, category, data[category]);
+
   // if user navigates to category
   if (category && data[category]) {
     return data[category];
