@@ -17,11 +17,7 @@ import getTotalInfo from "./functions/totalItems.js";
 import UseFetchData from "@hooks/useFetchData.jsx";
 import ContactUs from "../BODY/contactUs/contactUs.jsx";
 
-const ScreenContainer = () => {
-  const [cart, setCart] = useState({}); // context for whichever product is in focus
-
-  const { totalItems, totalPrice } = getTotalInfo(cart);
-
+const BodyWithData = () => {
   const location = useLocation(),
     state = location.state,
     tab = location.pathname.split("/")[1];
@@ -32,7 +28,54 @@ const ScreenContainer = () => {
     window.scroll({ top: 0 });
   }, [tab]);
 
-  console.log(location);
+  return (
+    <div>
+      {/** Main routes */}
+      <Routes location={state?.backgroundLocation || location}>
+        <Route path="/" element={<Home />} />
+        <Route path="/gallery/:category?/:id?/*" element={<Gallery />} />
+        <Route path="/contact" element={<ContactUs />} />
+
+        {/** Extended pages */}
+        <Route
+          path="/uniqueImage/:category?/:id?/*"
+          element={<UniqueImage />}
+        />
+      </Routes>
+
+      {/** Extended pages */}
+      {state?.backgroundLocation && (
+        <Routes>
+          <Route
+            path="/:tab?/preview/:category?/:id?/*"
+            element={<QuickViewImage />}
+          />
+
+          <Route path="/:tab?/cart" element={<Cart />} />
+        </Routes>
+      )}
+
+      {state?.loadingLocation && (
+        <Routes location={state?.loadingLocation || location}>
+          <Route path="/" element={<Home />} />
+          <Route path="/gallery/:category?/:id?/*" element={<Gallery />} />
+          <Route path="/contact" element={<ContactUs />} />
+
+          {/** Extended pages */}
+          <Route
+            path="/uniqueImage/:category?/:id?/*"
+            element={<UniqueImage />}
+          />
+        </Routes>
+      )}
+    </div>
+  );
+};
+
+const ScreenContainer = () => {
+  const [cart, setCart] = useState({}); // context for whichever product is in focus
+
+  const { totalItems, totalPrice } = getTotalInfo(cart);
 
   return (
     <div className={classes.widthContainer}>
@@ -42,30 +85,7 @@ const ScreenContainer = () => {
         <UniqueImageContext.Provider
           value={{ cart, setCart, totalItems, totalPrice }}
         >
-          {/** Main routes */}
-          <Routes location={state?.backgroundLocation || location}>
-            <Route path="/" element={<Home />} />
-            <Route path="/gallery/:category?/:id?/*" element={<Gallery />} />
-            <Route path="/contact" element={<ContactUs />} />
-
-            {/** Extended pages */}
-            <Route
-              path="/uniqueImage/:category?/:id?/*"
-              element={<UniqueImage />}
-            />
-          </Routes>
-
-          {/** Extended pages */}
-          {state?.backgroundLocation && (
-            <Routes>
-              <Route
-                path="/:tab?/preview/:category?/:id?/*"
-                element={<QuickViewImage />}
-              />
-
-              <Route path="/:tab?/cart" element={<Cart />} />
-            </Routes>
-          )}
+          <BodyWithData />
         </UniqueImageContext.Provider>
         <Footer />
       </div>
