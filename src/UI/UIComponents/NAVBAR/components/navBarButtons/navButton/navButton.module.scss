@@ -1,0 +1,11 @@
+// NavButton
+.button {
+  width: 140px;
+  height: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .button {
+    width: 100%;
+  }
+}
