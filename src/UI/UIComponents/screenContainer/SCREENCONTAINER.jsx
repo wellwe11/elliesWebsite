@@ -16,41 +16,53 @@ import Cart from "../BODY/cart/cart";
 import getTotalInfo from "./functions/totalItems.js";
 import UseFetchData from "@hooks/useFetchData.jsx";
 import ContactUs from "../BODY/contactUs/contactUs.jsx";
-import useHomeData from "./hooks/useHomeData.jsx";
-import useGalleryData from "./hooks/useGalleryData.jsx";
-import fetchDataAndAssignID from "../../../abstract/functions/fetches/fetchDataAndAssignId.js";
 
-const BodyWithData = () => {
-  // create a fetch containing data for each component, and pass it down here. Unifying data entirely
-  // once done with BodyWithData hooks, remove them from BODY/gallery & BODY/home
+import fetchDataAndAssignID from "@functions/fetches/fetchDataAndAssignId.js";
 
-  // const { printData, paintData, serviceData, isLoading } = useHomeData();
+const useData = (state, tab) => {
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category") || null;
 
+  const tabPath = tab === "" ? "home" : tab;
+
+  const path = `/API_imitation/${tabPath}/${category ? category : "page"}.json`;
+
+  const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
 
+  useEffect(() => {
+    setIsLoading(true);
+    setData(null);
+
+    const fetchData = async () => {
+      const fetchedData = await fetchDataAndAssignID(path);
+
+      if (fetchedData) {
+        setData(fetchedData);
+
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 500);
+      }
+    };
+
+    fetchData();
+  }, [path]);
+
+  return { data, isLoading };
+};
+
+const BodyWithData = () => {
   const location = useLocation(),
     state = location.state,
     tab = location.pathname.split("/")[1];
 
-  const [searchParams] = useSearchParams();
-  const category = searchParams.get("category");
+  const { data, isLoading } = useData(state, tab);
 
-  const tabPath = tab === "" ? "home" : tab;
-  const path = `/API_imitation/${tabPath}/${category ? category : "page"}.json`;
+  // create a fetch containing data for each component, and pass it down here. Unifying data entirely
+  // once done with BodyWithData hooks, remove them from BODY/gallery & BODY/home
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const localData = await fetchDataAndAssignID(path);
-
-      setData(localData);
-    };
-
-    fetchData();
-  }, [tab, category]);
-
-  const { printsData, paintingsData, isLoading } = useGalleryData();
-
-  console.log(data);
+  // const { printData, paintData, serviceData, isLoading } = useHomeData();
 
   // scroll back to top each time you navigate to a new page
   useEffect(() => {
@@ -58,20 +70,16 @@ const BodyWithData = () => {
     window.scroll({ top: 0 });
   }, [tab]);
 
-  // if (isLoading) return null;
   if (isLoading) return null;
 
   return (
     <div>
       {/** Main routes */}
       <Routes location={state?.backgroundLocation || location}>
-        {/* <Route
-          path="/"
-          element={<Home data={{ printData, paintData, serviceData }} />}
-        /> */}
+        <Route path="/" element={<Home data={data} />} />
         <Route
           path="/gallery/:category?/:id?/*"
-          element={<Gallery data={{ printsData, paintingsData }} />}
+          element={<Gallery data={data} />}
         />
         <Route path="/contact" element={<ContactUs />} />
         {/** Extended pages */}
@@ -92,23 +100,23 @@ const BodyWithData = () => {
           <Route path="/:tab?/cart" element={<Cart />} />
         </Routes>
       )}
-
-      {state?.loadingLocation && (
-        <Routes location={state?.loadingLocation || location}>
-          <Route path="/" element={<Home />} />
-          <Route path="/gallery/:category?/:id?/*" element={<Gallery />} />
-          <Route path="/contact" element={<ContactUs />} />
-
-          {/** Extended pages */}
-          <Route
-            path="/uniqueImage/:category?/:id?/*"
-            element={<UniqueImage />}
-          />
-        </Routes>
-      )}
     </div>
   );
 };
+
+// {state?.loadingLocation && (
+//   <Routes location={state?.loadingLocation || location}>
+//     <Route path="/" element={<Home />} />
+//     <Route path="/gallery/:category?/:id?/*" element={<Gallery />} />
+//     <Route path="/contact" element={<ContactUs />} />
+
+//     {/** Extended pages */}
+//     <Route
+//       path="/uniqueImage/:category?/:id?/*"
+//       element={<UniqueImage />}
+//     />
+//   </Routes>
+// )}
 
 const ScreenContainer = () => {
   const [cart, setCart] = useState({}); // context for whichever product is in focus

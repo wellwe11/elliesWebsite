@@ -16,6 +16,7 @@ import Services from "./components/services/services.jsx";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 import NewIn from "./components/newIn/newIn.jsx";
+import { useEffect, useState } from "react";
 
 // Categories section
 const categories = {
@@ -36,7 +37,21 @@ const categories = {
 
 const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
-const Home = ({ data: { printData, paintData, serviceData } }) => {
+const Home = ({ data }) => {
+  const paintingsData = data.paintings,
+    printsData = data.prints,
+    servicesData = data.services;
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (paintingsData && printsData && servicesData) {
+      setIsLoading(false);
+    }
+  }, [data]);
+
+  if (isLoading) return null;
+
   // Welcoming image and small animation
   const topSection = (
     <section className={classes.topSection}>
@@ -57,21 +72,21 @@ const Home = ({ data: { printData, paintData, serviceData } }) => {
   // wrapper that contains all top-level data for prints
   const printSection = (
     <section className={classes.printSection}>
-      <Prints data={printData} />
+      <Prints data={printsData} />
     </section>
   );
 
   // Realistic image containing different colletions of images to "ikea-style" display them
   const servicesSection = (
     <section className={classes.serviceSection}>
-      <Services data={serviceData} />
+      <Services data={servicesData} />
     </section>
   );
 
   // Example-images of paintings
   const paintingsSection = (
     <section className={classes.paintingSection}>
-      <Paintings data={paintData} />
+      <Paintings data={paintingsData} />
     </section>
   );
 

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import usePrevious from "@hooks/usePrevious.jsx";
 
 import handleDisplayedProducts from "../functions/handleDisplayedProducts.js";
 
