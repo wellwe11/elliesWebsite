@@ -6,7 +6,6 @@ import screen_classes from "../screenContainer/SCREENCONTAINER.module.scss";
 import useSetActiveNavButton from "./hooks/useSetActiveNavButton.jsx";
 
 import NavLogo from "./components/navLogo/navLogo.jsx";
-import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT.jsx";
 import NavbarButtons from "./components/navBarButtons/navBarButtons.jsx";
 import ShoppingCart from "./components/shoppingCart/shoppingCart.jsx";
 
@@ -24,6 +23,8 @@ const Navbar = ({ cartItems }) => {
     setHoverButton,
     loadTab,
   } = useSetActiveNavButton(buttons);
+
+  console.log(loadTab);
 
   // logo
   const navLogoWrapper = (
