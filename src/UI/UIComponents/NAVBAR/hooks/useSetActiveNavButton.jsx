@@ -4,9 +4,9 @@ import { useLocation } from "react-router-dom";
 const useSetActiveNavButton = (buttons) => {
   const { pathname } = useLocation();
 
-  const [activeButton, setActiveButton] = useState(0);
-  const [hoverButton, setHoverButton] = useState(0);
-  const [loadTab, setLoadTab] = useState(false);
+  const [activeButton, setActiveButton] = useState(0),
+    [hoverButton, setHoverButton] = useState(0),
+    [loadTab, setLoadTab] = useState(false);
 
   const setActiveNavButton = () => {
     // find active tab
