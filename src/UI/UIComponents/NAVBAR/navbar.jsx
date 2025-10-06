@@ -3,13 +3,14 @@ import classes from "./navbar.module.scss";
 // importing screen-sizings to help navbar scale with body
 import screen_classes from "../screenContainer/SCREENCONTAINER.module.scss";
 
-import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useMemo } from "react";
 
 import NavLogo from "./navLogo/navLogo.jsx";
 
 import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT.jsx";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
+import useSetActiveNavButton from "./hooks/useSetActiveNavButton.jsx";
 
 const ShoppingCart = ({ cartItems }) => {
   const navigate = useNavigate();
@@ -123,44 +124,24 @@ const NavbarButtons = ({
 };
 
 const Navbar = ({ cartItems }) => {
-  const [activeButton, setActiveButton] = useState(0);
-  const [hoverButton, setHoverButton] = useState(0);
-  const { pathname } = useLocation();
   const buttons = {
     home: "",
     gallery: "/gallery?page=1",
     contact: "./contact",
   };
 
-  const [loadTab, setLoadTab] = useState(false);
-
-  const setActiveNavButton = () => {
-    // find active tab
-    // split names of tabs
-    const buttonsKeys = Object.keys(buttons);
-
-    // split current link
-    const splittedPathName = pathname.split("/");
-
-    // find if any buttonKeys exist inside of url
-    buttonsKeys.forEach((btn, index) => {
-      if (
-        splittedPathName.includes(btn) ||
-        (btn === "home" && splittedPathName.includes(""))
-      ) {
-        // if yes, change index to that
-        setActiveButton(index);
-        setHoverButton(index);
-      }
-    });
-
-    setLoadTab(true);
-  };
+  const {
+    activeButton,
+    setActiveButton,
+    hoverButton,
+    setHoverButton,
+    loadTab,
+  } = useSetActiveNavButton(buttons);
 
   // useEffect which searches for the currently active tab
-  useEffect(() => {
-    setActiveNavButton();
-  }, [pathname]);
+  // useEffect(() => {
+  //   setActiveNavButton();
+  // }, [pathname]);
 
   // logo
   const navLogoWrapper = (

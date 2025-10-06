@@ -74,6 +74,12 @@ export default App;
  *
  * git push
  *
+ *
+ * Other examples:
+ * fix(api): handle 404 errors
+ * fix(button): disable on loading
+ * fix(router): prevent redirect loop
+ *
  ** UI/UIComponents
  * Each MAIN-COMPONENT (Example: BODY is main-component) contains a set of sub-components, which are sections.
  * Each main-component has all imported information. That information is then passed down to children as props

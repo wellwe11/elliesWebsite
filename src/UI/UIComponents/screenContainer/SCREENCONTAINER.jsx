@@ -43,15 +43,14 @@ const ScreenContainer = () => {
           {/** Main routes */}
           <Routes location={state?.backgroundLocation || location}>
             <Route path="/" element={<Home />} />
+            <Route path="/gallery/:category?/:id?/*" element={<Gallery />} />
+            <Route path="/contact" element={<ContactUs />} />
 
+            {/** Extended pages */}
             <Route
               path="/uniqueImage/:category?/:id?/*"
               element={<UniqueImage />}
             />
-
-            <Route path="/gallery/:category?/:id?/*" element={<Gallery />} />
-
-            <Route path="/contact" element={<ContactUs />} />
           </Routes>
 
           {/** Extended pages */}
