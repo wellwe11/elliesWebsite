@@ -24,8 +24,6 @@ const Navbar = ({ cartItems }) => {
     loadTab,
   } = useSetActiveNavButton(buttons);
 
-  console.log(loadTab);
-
   // logo
   const navLogoWrapper = (
     <div className={classes.navLogoWrapper}>
