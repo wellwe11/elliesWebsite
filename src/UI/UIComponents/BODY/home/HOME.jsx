@@ -42,15 +42,7 @@ const Home = ({ data }) => {
     printsData = data.prints,
     servicesData = data.services;
 
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    if (paintingsData && printsData && servicesData) {
-      setIsLoading(false);
-    }
-  }, [data]);
-
-  if (isLoading) return null;
+  if (!paintingsData || !printsData || !servicesData) return null;
 
   // Welcoming image and small animation
   const topSection = (

@@ -71,7 +71,7 @@ const ProductBio = ({ product, bioData }) => {
 };
 
 // wrapper
-const Products = ({ products }) => {
+const Products = ({ products, isLoading }) => {
   // map only visible objects to display them as 'pages' which can be navigated by user
   const mappedProductImages = (
     <div className={classes.productsContainer}>

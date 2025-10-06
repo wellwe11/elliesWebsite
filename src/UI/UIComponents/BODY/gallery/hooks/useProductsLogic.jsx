@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import handleDisplayedProducts from "../functions/handleDisplayedProducts.js";
 
-const useProductsLogic = (page, filteredData, setLoading) => {
+const useProductsLogic = (page, filteredData, isLoading) => {
   const [updatedData, setUpdatedData] = useState(() =>
     handleDisplayedProducts(page, filteredData)
   ); // initial data
@@ -11,17 +11,13 @@ const useProductsLogic = (page, filteredData, setLoading) => {
 
   useEffect(() => {
     if (page) {
-      setLoading(true);
-
-      setUpdatedData(slicedProducs);
-      window.scrollTo({ top: 0 });
-      setLoading(false);
+      console.log(isLoading);
+      if (!isLoading) {
+        setUpdatedData(slicedProducs);
+        window.scrollTo({ top: 0 });
+      }
     }
-  }, [page, filteredData]);
-
-  useEffect(() => {
-    setLoading(false);
-  }, []);
+  }, [page, filteredData, isLoading]);
 
   return { updatedData };
 };

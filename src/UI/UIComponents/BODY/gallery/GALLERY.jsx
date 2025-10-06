@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 import classes from "./GALLERY.module.scss";
 import PageSelector from "./components/pageSelector/pageSelector";
@@ -9,6 +9,7 @@ import Products from "./components/products/products";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import useProductsLogic from "./hooks/useProductsLogic.jsx";
 import useUpdateDataLogic from "./hooks/useUpdateDataLogic.jsx";
+import useData from "../../../../abstract/hooks/useData.jsx";
 
 // buttons on left to select specific items based on their type
 const FilterSideBarWrapperComponent = ({ dataKeys, category }) => {
@@ -37,16 +38,15 @@ const FilterSideBarWrapperComponent = ({ dataKeys, category }) => {
 };
 
 // objects with image and some info and a quick-view option
-const ProductsWrapperComponent = ({ page, filteredData }) => {
-  const [loading, setLoading] = useState(false);
-  const { updatedData } = useProductsLogic(page, filteredData, setLoading);
+const ProductsWrapperComponent = ({ page, filteredData, isLoading }) => {
+  const { updatedData } = useProductsLogic(page, filteredData, isLoading);
 
   return (
     <div className={classes.productsWrapper}>
-      {loading && <LoadingWrapper condition={loading} />}
+      {isLoading && <LoadingWrapper condition={isLoading} />}
       <div
         className={`${classes.productsLoaded} ${
-          loading ? classes.productsTransitioning : ""
+          isLoading ? classes.productsTransitioning : ""
         }`}
       >
         <Products products={updatedData} />
@@ -66,27 +66,35 @@ const PageWrapperComponent = ({ filteredData }) => {
 };
 
 const Gallery = ({ data }) => {
-  const [hasLoaded, setHasLoaded] = useState(false);
   const [searchParams] = useSearchParams(),
     category = searchParams.get("category") || null,
     page = searchParams.get("page") || null;
 
-  const { updatedData, loading } = useUpdateDataLogic(category, data);
+  const location = useLocation(),
+    state = location.state,
+    tab = location.pathname.split("/")[1];
 
-  useEffect(() => {
-    setHasLoaded(true);
-  }, []);
+  const { data: categoryData, isLoading } = useData(state, tab, category);
+
+  const { updatedData, loading } = useUpdateDataLogic(
+    category,
+    categoryData || data
+  );
 
   if (loading) return null;
 
   return (
-    <div className={classes.gallery} key={hasLoaded}>
+    <div className={classes.gallery} key={isLoading}>
       <div className={classes.galleryTop}>
         <FilterSideBarWrapperComponent
           dataKeys={["prints", "paintings"]} // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
           category={category}
         />
-        <ProductsWrapperComponent filteredData={updatedData} page={page} />
+        <ProductsWrapperComponent
+          filteredData={updatedData}
+          page={page}
+          isLoading={isLoading}
+        />
       </div>
       <PageWrapperComponent filteredData={updatedData} />
     </div>

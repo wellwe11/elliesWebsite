@@ -16,41 +16,7 @@ import Cart from "../BODY/cart/cart";
 import getTotalInfo from "./functions/totalItems.js";
 import UseFetchData from "@hooks/useFetchData.jsx";
 import ContactUs from "../BODY/contactUs/contactUs.jsx";
-
-import fetchDataAndAssignID from "@functions/fetches/fetchDataAndAssignId.js";
-
-const useData = (state, tab) => {
-  const [searchParams] = useSearchParams();
-  const category = searchParams.get("category") || null;
-
-  const tabPath = tab === "" ? "home" : tab;
-
-  const path = `/API_imitation/${tabPath}/${category ? category : "page"}.json`;
-
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setData(null);
-
-    const fetchData = async () => {
-      const fetchedData = await fetchDataAndAssignID(path);
-
-      if (fetchedData) {
-        setData(fetchedData);
-
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 500);
-      }
-    };
-
-    fetchData();
-  }, [path]);
-
-  return { data, isLoading };
-};
+import useData from "@hooks/useData.jsx";
 
 const BodyWithData = () => {
   const location = useLocation(),
@@ -67,13 +33,13 @@ const BodyWithData = () => {
   // scroll back to top each time you navigate to a new page
   useEffect(() => {
     if (tab === "preview" || tab === "cart") return;
-    window.scroll({ top: 0 });
+    // window.scroll({ top: 0 });
   }, [tab]);
 
   if (isLoading) return null;
 
   return (
-    <div>
+    <div key={tab}>
       {/** Main routes */}
       <Routes location={state?.backgroundLocation || location}>
         <Route path="/" element={<Home data={data} />} />
