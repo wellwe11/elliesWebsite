@@ -22,6 +22,8 @@ const BodyWithData = () => {
     state = location.state,
     tab = location.pathname.split("/")[1];
 
+  // create a fetch containing data for each component, and pass it down here. Unifying data entirely
+
   // scroll back to top each time you navigate to a new page
   useEffect(() => {
     if (tab === "preview" || tab === "cart") return;
