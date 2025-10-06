@@ -81,8 +81,8 @@ const NavbarButtons = ({
   const buttonKeys = Object.keys(buttons);
 
   // make all navbar buttons texts start with a capital letter
-  const buttonNamesWithFirstLetterCapital = Object.keys(buttons).map(
-    (key) => key.slice(0, 1).toUpperCase() + key.slice(1)
+  const buttonNamesAllCaps = Object.keys(buttons).map((key) =>
+    key.toUpperCase()
   );
 
   // navbar buttons
@@ -97,7 +97,7 @@ const NavbarButtons = ({
       className={classes.buttonWrapper}
     >
       <NavButton link={Object.values(buttons)[index]}>
-        {buttonNamesWithFirstLetterCapital[index]}
+        {buttonNamesAllCaps[index]}
       </NavButton>
     </div>
   ));
