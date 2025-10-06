@@ -1,11 +1,16 @@
-import fetchData from "./fetchData.js";
+import assignIdToEntries from "../assignIdToEntries.js";
 import assignIdToObjects from "../assignIdToObjs.js";
+import tryFetchFn from "./tryFetchFn.js";
 
 const fetchDataAndAssignID = async (link) => {
-  const fetchedData = await fetchData(link);
+  const fetchedData = await tryFetchFn(link);
 
   if (fetchedData) {
-    return assignIdToObjects(fetchedData);
+    if (!Array.isArray(fetchedData)) {
+      return assignIdToEntries(fetchedData);
+    } else {
+      return assignIdToObjects(fetchedData);
+    }
   }
   return null;
 };

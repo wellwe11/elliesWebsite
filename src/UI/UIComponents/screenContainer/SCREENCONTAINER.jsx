@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, useSearchParams } from "react-router-dom";
 import { Suspense, useEffect, useState } from "react";
 import classes from "./SCREENCONTAINER.module.scss";
 
@@ -18,18 +18,39 @@ import UseFetchData from "@hooks/useFetchData.jsx";
 import ContactUs from "../BODY/contactUs/contactUs.jsx";
 import useHomeData from "./hooks/useHomeData.jsx";
 import useGalleryData from "./hooks/useGalleryData.jsx";
+import fetchDataAndAssignID from "../../../abstract/functions/fetches/fetchDataAndAssignId.js";
 
 const BodyWithData = () => {
-  const location = useLocation(),
-    state = location.state,
-    tab = location.pathname.split("/")[1];
-
   // create a fetch containing data for each component, and pass it down here. Unifying data entirely
   // once done with BodyWithData hooks, remove them from BODY/gallery & BODY/home
 
   // const { printData, paintData, serviceData, isLoading } = useHomeData();
 
+  const [data, setData] = useState(null);
+
+  const location = useLocation(),
+    state = location.state,
+    tab = location.pathname.split("/")[1];
+
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category");
+
+  const tabPath = tab === "" ? "home" : tab;
+  const path = `/API_imitation/${tabPath}/${category ? category : "page"}.json`;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const localData = await fetchDataAndAssignID(path);
+
+      setData(localData);
+    };
+
+    fetchData();
+  }, [tab, category]);
+
   const { printsData, paintingsData, isLoading } = useGalleryData();
+
+  console.log(data);
 
   // scroll back to top each time you navigate to a new page
   useEffect(() => {
