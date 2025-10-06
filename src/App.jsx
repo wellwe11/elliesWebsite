@@ -22,7 +22,6 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- *  Display how many products are in basket
  *  Loading page for when pages switch (perhaps old page displayed white loading)
  *  Error page (if page not found)
  *

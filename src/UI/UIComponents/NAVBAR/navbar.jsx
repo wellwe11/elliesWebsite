@@ -3,11 +3,10 @@ import classes from "./navbar.module.scss";
 // importing screen-sizings to help navbar scale with body
 import screen_classes from "../screenContainer/SCREENCONTAINER.module.scss";
 
-import NavLogo from "./navLogo/navLogo.jsx";
-
-import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT.jsx";
-
 import useSetActiveNavButton from "./hooks/useSetActiveNavButton.jsx";
+
+import NavLogo from "./components/navLogo/navLogo.jsx";
+import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT.jsx";
 import NavbarButtons from "./components/navBarButtons/navBarButtons.jsx";
 import ShoppingCart from "./components/shoppingCart/shoppingCart.jsx";
 

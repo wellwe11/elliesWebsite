@@ -32,6 +32,8 @@ const ScreenContainer = () => {
     window.scroll({ top: 0 });
   }, [tab]);
 
+  console.log(location);
+
   return (
     <div className={classes.widthContainer}>
       <Navbar cartItems={totalItems} />
