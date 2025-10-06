@@ -13,7 +13,7 @@ import QuickViewImage from "@fullyComponents/quickView/quickViewImage/quickViewI
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import Cart from "../BODY/cart/cart";
 
-import getTotalInfo from "./totalItems.js";
+import getTotalInfo from "./functions/totalItems.js";
 import UseFetchData from "@hooks/useFetchData.jsx";
 import ContactUs from "../BODY/contactUs/contactUs.jsx";
 

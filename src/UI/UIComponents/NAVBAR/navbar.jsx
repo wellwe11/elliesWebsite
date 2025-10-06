@@ -138,11 +138,6 @@ const Navbar = ({ cartItems }) => {
     loadTab,
   } = useSetActiveNavButton(buttons);
 
-  // useEffect which searches for the currently active tab
-  // useEffect(() => {
-  //   setActiveNavButton();
-  // }, [pathname]);
-
   // logo
   const navLogoWrapper = (
     <div className={classes.navLogoWrapper}>
