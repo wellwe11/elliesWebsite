@@ -38,8 +38,8 @@ const FilterSideBarWrapperComponent = ({ dataKeys, category }) => {
 };
 
 // objects with image and some info and a quick-view option
-const ProductsWrapperComponent = ({ page, filteredData, isLoading }) => {
-  const { updatedData } = useProductsLogic(page, filteredData, isLoading);
+const ProductsWrapperComponent = ({ page, filteredData }) => {
+  const { updatedData, isLoading } = useProductsLogic(page, filteredData);
 
   return (
     <div className={classes.productsWrapper}>
@@ -65,7 +65,7 @@ const PageWrapperComponent = ({ filteredData }) => {
   );
 };
 
-const Gallery = ({ data, isLoading }) => {
+const Gallery = ({ data }) => {
   const [searchParams] = useSearchParams(),
     category = searchParams.get("category") || null,
     page = searchParams.get("page") || null;
@@ -73,17 +73,13 @@ const Gallery = ({ data, isLoading }) => {
   const { updatedData } = useUpdateDataLogic(category, data);
 
   return (
-    <div className={classes.gallery} key={isLoading}>
+    <div className={classes.gallery}>
       <div className={classes.galleryTop}>
         <FilterSideBarWrapperComponent
           dataKeys={["prints", "paintings"]} // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
           category={category}
         />
-        <ProductsWrapperComponent
-          filteredData={updatedData}
-          page={page}
-          isLoading={isLoading}
-        />
+        <ProductsWrapperComponent filteredData={updatedData} page={page} />
       </div>
       <PageWrapperComponent filteredData={updatedData} />
     </div>

@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 
 import handleDisplayedProducts from "../functions/handleDisplayedProducts.js";
 
-const useProductsLogic = (page, filteredData, isLoading) => {
+// slices products based on what page user is on
+const useProductsLogic = (page, filteredData) => {
+  const [isLoading, setIsLoading] = useState(true);
   const [updatedData, setUpdatedData] = useState(() =>
     handleDisplayedProducts(page, filteredData)
   ); // initial data
@@ -10,13 +12,16 @@ const useProductsLogic = (page, filteredData, isLoading) => {
   const slicedProducs = handleDisplayedProducts(page, filteredData); // runs each render to slice products based on page
 
   useEffect(() => {
-    if (page && !isLoading) {
+    setIsLoading(true);
+
+    if (page) {
       setUpdatedData(slicedProducs);
       window.scrollTo({ top: 0 });
     }
-  }, [page, filteredData, isLoading]);
+    setIsLoading(false);
+  }, [page, filteredData]);
 
-  return { updatedData };
+  return { updatedData, isLoading };
 };
 
 export default useProductsLogic;

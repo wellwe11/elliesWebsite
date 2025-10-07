@@ -31,10 +31,10 @@ const BodyWithData = () => {
     <div key={tab}>
       {/** Main routes */}
       <Routes location={location}>
-        <Route path="/" element={<Home data={data} isLoading={isLoading} />} />
+        <Route path="/" element={<Home data={data} />} />
         <Route
           path="/gallery/:category?/:id?/*"
-          element={<Gallery data={data} isLoading={isLoading} />}
+          element={<Gallery data={data} />}
         />
         <Route path="/contact" element={<ContactUs />} />
         {/** Extended pages */}
