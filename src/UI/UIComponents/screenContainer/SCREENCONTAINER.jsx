@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation, useSearchParams } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, useEffect, useState } from "react";
 import classes from "./SCREENCONTAINER.module.scss";
 
@@ -24,11 +24,6 @@ const BodyWithData = () => {
     tab = location.pathname.split("/")[1];
 
   const { data, isLoading } = useData(state, tab);
-
-  useEffect(() => {
-    if (tab === "preview" || tab === "cart") return;
-    // window.scroll({ top: 0 });
-  }, [tab]);
 
   if (isLoading) return null;
 

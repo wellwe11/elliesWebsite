@@ -36,12 +36,10 @@ const categories = {
 
 const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
-const Home = ({ data, isLoading }) => {
+const Home = ({ data }) => {
   const paintingsData = data.paintings,
     printsData = data.prints,
     servicesData = data.services;
-
-  if (isLoading) return null;
 
   // Welcoming image and small animation
   const topSection = (

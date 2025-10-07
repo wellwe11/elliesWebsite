@@ -72,8 +72,6 @@ const Gallery = ({ data, isLoading }) => {
 
   const { updatedData } = useUpdateDataLogic(category, data);
 
-  if (isLoading) return null;
-
   return (
     <div className={classes.gallery} key={isLoading}>
       <div className={classes.galleryTop}>
