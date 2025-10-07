@@ -10,12 +10,9 @@ const useProductsLogic = (page, filteredData, isLoading) => {
   const slicedProducs = handleDisplayedProducts(page, filteredData); // runs each render to slice products based on page
 
   useEffect(() => {
-    if (page) {
-      console.log(isLoading);
-      if (!isLoading) {
-        setUpdatedData(slicedProducs);
-        window.scrollTo({ top: 0 });
-      }
+    if (page && !isLoading) {
+      setUpdatedData(slicedProducs);
+      window.scrollTo({ top: 0 });
     }
   }, [page, filteredData, isLoading]);
 

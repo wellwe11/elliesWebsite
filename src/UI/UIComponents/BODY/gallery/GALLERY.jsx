@@ -65,23 +65,14 @@ const PageWrapperComponent = ({ filteredData }) => {
   );
 };
 
-const Gallery = ({ data }) => {
+const Gallery = ({ data, isLoading }) => {
   const [searchParams] = useSearchParams(),
     category = searchParams.get("category") || null,
     page = searchParams.get("page") || null;
 
-  const location = useLocation(),
-    state = location.state,
-    tab = location.pathname.split("/")[1];
+  const { updatedData } = useUpdateDataLogic(category, data);
 
-  const { data: categoryData, isLoading } = useData(state, tab, category);
-
-  const { updatedData, loading } = useUpdateDataLogic(
-    category,
-    categoryData || data
-  );
-
-  if (loading) return null;
+  if (isLoading) return null;
 
   return (
     <div className={classes.gallery} key={isLoading}>

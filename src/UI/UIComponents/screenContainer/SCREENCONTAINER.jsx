@@ -25,12 +25,6 @@ const BodyWithData = () => {
 
   const { data, isLoading } = useData(state, tab);
 
-  // create a fetch containing data for each component, and pass it down here. Unifying data entirely
-  // once done with BodyWithData hooks, remove them from BODY/gallery & BODY/home
-
-  // const { printData, paintData, serviceData, isLoading } = useHomeData();
-
-  // scroll back to top each time you navigate to a new page
   useEffect(() => {
     if (tab === "preview" || tab === "cart") return;
     // window.scroll({ top: 0 });
@@ -41,11 +35,11 @@ const BodyWithData = () => {
   return (
     <div key={tab}>
       {/** Main routes */}
-      <Routes location={state?.backgroundLocation || location}>
-        <Route path="/" element={<Home data={data} />} />
+      <Routes location={location}>
+        <Route path="/" element={<Home data={data} isLoading={isLoading} />} />
         <Route
           path="/gallery/:category?/:id?/*"
-          element={<Gallery data={data} />}
+          element={<Gallery data={data} isLoading={isLoading} />}
         />
         <Route path="/contact" element={<ContactUs />} />
         {/** Extended pages */}

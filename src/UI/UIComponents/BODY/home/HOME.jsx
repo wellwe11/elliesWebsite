@@ -16,7 +16,6 @@ import Services from "./components/services/services.jsx";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 import NewIn from "./components/newIn/newIn.jsx";
-import { useEffect, useState } from "react";
 
 // Categories section
 const categories = {
@@ -37,12 +36,12 @@ const categories = {
 
 const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
-const Home = ({ data }) => {
+const Home = ({ data, isLoading }) => {
   const paintingsData = data.paintings,
     printsData = data.prints,
     servicesData = data.services;
 
-  if (!paintingsData || !printsData || !servicesData) return null;
+  if (isLoading) return null;
 
   // Welcoming image and small animation
   const topSection = (
