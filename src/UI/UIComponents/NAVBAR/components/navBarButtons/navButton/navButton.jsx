@@ -7,6 +7,7 @@ const NavButton = ({ children, link }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
+    window.scrollTo({ top: 0 });
     navigate(link);
   };
 
