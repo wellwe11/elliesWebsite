@@ -18,12 +18,16 @@ import useData from "@hooks/useData.jsx";
 
 import getTotalInfo from "./functions/totalItems.js";
 import UseFetchData from "@hooks/useFetchData.jsx";
-import usePrevious from "../../../abstract/hooks/usePrevious.jsx";
+import useUpdateDataLogic from "../BODY/gallery/hooks/useUpdateDataLogic.jsx";
 
-const QuickViewRoute = ({ data, isLoading }) => {
+const PreviewRoute = ({ backgroundLocation }) => {
+  const { data, isLoading } = useData(backgroundLocation);
+
   const [searchParams] = useSearchParams(),
     category = searchParams.get("category") || null,
     id = searchParams.get("id") || null;
+
+  if (isLoading) return null;
 
   const categoryData = data[category];
 
@@ -37,107 +41,69 @@ const QuickViewRoute = ({ data, isLoading }) => {
     price: uniqueViewEmbedded?.details.price,
     bio: uniqueViewEmbedded?.setDescription,
   };
-  return (
-    <Routes>
-      <Route
-        path="/:tab?/preview/:category?/:id?/*"
-        element={
-          <QuickViewImage
-            quickViewProps={quickViewProps}
-            isLoading={isLoading}
-          />
-        }
-      />
-    </Routes>
-  );
-};
 
-const CartRoute = ({ data, isLoading }) => {
   return (
-    <Routes>
-      <Route path="/:tab?/cart" element={<Cart />} />;
-    </Routes>
+    <QuickViewImage quickViewProps={quickViewProps} isLoading={isLoading} />
   );
 };
 
 const BackgroundRoutes = () => {
   const location = useLocation(),
-    tab = location.pathname.split("/")[1],
-    tabChecked = location.state.backgroundLocation
-      .replace("/", "")
-      .includes("gallery")
-      ? "gallery"
-      : "home";
-
-  console.log(tabChecked);
-
-  const { data, isLoading } = useData(tabChecked);
-
-  if (isLoading)
-    return (
-      <div>
-        <h1>Loading</h1>
-      </div>
-    ); // loading screen in future
+    backgroundLocation =
+      location.state?.backgroundLocation.replace("/", "") || "home";
 
   return (
-    <div key={tabChecked}>
-      {tab === "cart" ? (
-        <CartRoute data={data} isLoading={isLoading} />
-      ) : (
-        <QuickViewRoute data={data} isLoading={isLoading} />
-      )}
-    </div>
+    <Routes>
+      <Route
+        path="/:tab?/preview/:category?/:id?/*"
+        element={<PreviewRoute backgroundLocation={backgroundLocation} />}
+      />
+      <Route path="/:tab?/cart" element={<Cart />} />
+    </Routes>
   );
 };
 
-const BodyRoutes = () => {
-  const location = useLocation(),
-    state = location.state,
-    tab = location.pathname.split("/")[1] || "home",
-    prevTab = usePrevious(tab),
-    tabChecked = tab === "preview" || tab === "cart" ? prevTab : tab;
+const GalleryRoute = () => {
+  const [searchParams] = useSearchParams(),
+    category = searchParams.get("category") || null;
 
-  console.log(prevTab);
+  const { data, isLoading } = useData("gallery");
+  const { updatedData } = useUpdateDataLogic(category, data);
+  if (isLoading) return null;
 
-  const { data, isLoading } = useData(tabChecked);
+  return <Gallery data={updatedData} />;
+};
+
+const HomeRoute = () => {
+  const { data, isLoading } = useData("home");
 
   if (isLoading) return null; // loading screen in future
 
-  return (
-    <div key={tabChecked}>
-      {/** Main routes */}
-      <Routes location={state?.backgroundLocation || location}>
-        <Route path="/" element={<Home data={data} />} />
-        <Route
-          path="/gallery/:category?/:id?/*"
-          element={<Gallery data={data} />}
-        />
-        <Route path="/contact" element={<ContactUs />} />
-
-        {/** Extended pages */}
-        <Route
-          path="/uniqueImage/:category?/:id?/*"
-          element={<UniqueImage />}
-        />
-      </Routes>
-    </div>
-  );
+  return <Home data={data} />;
 };
 
-// {state?.loadingLocation && (
-//   <Routes location={state?.loadingLocation || location}>
-//     <Route path="/" element={<Home />} />
-//     <Route path="/gallery/:category?/:id?/*" element={<Gallery />} />
-//     <Route path="/contact" element={<ContactUs />} />
+const UniqueImageRoute = () => {
+  return <UniqueImage />;
+};
 
-//     {/** Extended pages */}
-//     <Route
-//       path="/uniqueImage/:category?/:id?/*"
-//       element={<UniqueImage />}
-//     />
-//   </Routes>
-// )}
+const MainPagesRoutes = () => {
+  const location = useLocation(),
+    state = location.state;
+
+  return (
+    <Routes location={state?.backgroundLocation || location}>
+      <Route path="/" element={<HomeRoute />} />
+      <Route path="/gallery/:category?/:id?/*" element={<GalleryRoute />} />
+      <Route path="/contact" element={<ContactUs />} />
+
+      {/** Extended pages */}
+      <Route
+        path="/uniqueImage/:category?/:id?/*"
+        element={<UniqueImageRoute />}
+      />
+    </Routes>
+  );
+};
 
 const ScreenContainer = () => {
   const [cart, setCart] = useState({}); // context for whichever product is in focus
@@ -155,7 +121,7 @@ const ScreenContainer = () => {
         <UniqueImageContext.Provider
           value={{ cart, setCart, totalItems, totalPrice }}
         >
-          <BodyRoutes />
+          <MainPagesRoutes />
           {state?.backgroundLocation && <BackgroundRoutes />}
         </UniqueImageContext.Provider>
         <Footer />

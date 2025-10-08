@@ -1,5 +1,5 @@
 import fetchDataAndAssignID from "@functions/fetches/fetchDataAndAssignId.js";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 const useData = (tab, category) => {
   const path = `/API_imitation/${tab}/${category || "page"}.json`;
@@ -7,26 +7,26 @@ const useData = (tab, category) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
 
-  const fetchData = async () => {
-    const fetchedData = await fetchDataAndAssignID(path);
-
-    if (fetchedData) {
-      setData(fetchedData);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 0); //  setIsLoading runs once callstack is empty
-    }
-  };
-
   useEffect(() => {
-    setIsLoading(true);
-    fetchData();
-  }, [path]);
+    let isMounted = true;
 
-  // forces loading to execute before returning data
-  // Without it, data will be returned once before useEffect runs
-  useMemo(() => {
+    setData(null);
     setIsLoading(true);
+
+    const fetchData = async () => {
+      const fetchedData = await fetchDataAndAssignID(path);
+
+      if (isMounted && fetchedData) {
+        setIsLoading(false);
+        setData(fetchedData);
+      }
+    };
+
+    fetchData();
+
+    return () => {
+      isMounted = false;
+    };
   }, [path]);
 
   return { data, isLoading };

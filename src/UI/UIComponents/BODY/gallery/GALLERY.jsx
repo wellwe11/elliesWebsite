@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import classes from "./GALLERY.module.scss";
 import PageSelector from "./components/pageSelector/pageSelector";
@@ -8,8 +8,6 @@ import Products from "./components/products/products";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import useProductsLogic from "./hooks/useProductsLogic.jsx";
-import useUpdateDataLogic from "./hooks/useUpdateDataLogic.jsx";
-import useData from "../../../../abstract/hooks/useData.jsx";
 
 // buttons on left to select specific items based on their type
 const FilterSideBarWrapperComponent = ({ dataKeys, category }) => {
@@ -70,8 +68,6 @@ const Gallery = ({ data }) => {
     category = searchParams.get("category") || null,
     page = searchParams.get("page") || null;
 
-  const { updatedData } = useUpdateDataLogic(category, data);
-
   return (
     <div className={classes.gallery}>
       <div className={classes.galleryTop}>
@@ -79,9 +75,9 @@ const Gallery = ({ data }) => {
           dataKeys={["prints", "paintings"]} // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
           category={category}
         />
-        <ProductsWrapperComponent filteredData={updatedData} page={page} />
+        <ProductsWrapperComponent filteredData={data} page={page} />
       </div>
-      <PageWrapperComponent filteredData={updatedData} />
+      <PageWrapperComponent filteredData={data} />
     </div>
   );
 };
