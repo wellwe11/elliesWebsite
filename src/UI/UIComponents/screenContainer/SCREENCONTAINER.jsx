@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation, useSearchParams } from "react-router-dom";
-import { Suspense, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
 import classes from "./SCREENCONTAINER.module.scss";
 
 import Footer from "../FOOTER/footer";
@@ -21,21 +21,23 @@ import UseFetchData from "@hooks/useFetchData.jsx";
 
 const BackgroundRoutes = () => {
   const location = useLocation(),
-    tab = location.pathname.split("/")[1] || "home";
+    tab = location.pathname.split("/")[1] || "home",
+    tabChecked = tab === "preview" ? "home" : tab;
 
   const [searchParams] = useSearchParams(),
     category = searchParams.get("category") || null,
     id = searchParams.get("id") || null;
 
-  const { data, isLoading } = useData(tab);
+  const { data, isLoading } = useData(tabChecked);
 
-  if (isLoading) return null; // loading screen in future
-
-  console.log(data);
+  if (isLoading)
+    return (
+      <div>
+        <h1>Loading</h1>
+      </div>
+    ); // loading screen in future
 
   const categoryData = data[category];
-
-  console.log(categoryData);
 
   const foundObj = categoryData.find((a) => +a.id === +id); // finds matching obj
 
@@ -49,7 +51,7 @@ const BackgroundRoutes = () => {
   };
 
   return (
-    <div>
+    <div key={tabChecked}>
       <Routes>
         <Route
           path="/:tab?/preview/:category?/:id?/*"
@@ -70,14 +72,15 @@ const BackgroundRoutes = () => {
 const BodyRoutes = () => {
   const location = useLocation(),
     state = location.state,
-    tab = location.pathname.split("/")[1] || "home";
+    tab = location.pathname.split("/")[1] || "home",
+    tabChecked = tab === "preview" ? "home" : tab;
 
-  const { data, isLoading } = useData(tab);
+  const { data, isLoading } = useData(tabChecked);
 
   if (isLoading) return null; // loading screen in future
 
   return (
-    <div key={tab}>
+    <div key={tabChecked}>
       {/** Main routes */}
       <Routes location={state?.backgroundLocation || location}>
         <Route path="/" element={<Home data={data} />} />

@@ -7,8 +7,8 @@ const useData = (tab, category) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
 
-  const fetchData = async (link) => {
-    const fetchedData = await fetchDataAndAssignID(link || path);
+  const fetchData = async () => {
+    const fetchedData = await fetchDataAndAssignID(path);
 
     if (fetchedData) {
       setData(fetchedData);
@@ -20,7 +20,7 @@ const useData = (tab, category) => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchData(path);
+    fetchData();
   }, [path]);
 
   useMemo(() => {
