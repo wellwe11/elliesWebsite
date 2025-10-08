@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation, useSearchParams } from "react-router-dom";
-import { Suspense, useMemo, useState } from "react";
+import { Suspense, useState } from "react";
 import classes from "./SCREENCONTAINER.module.scss";
 
 import Footer from "../FOOTER/footer";
@@ -18,24 +18,12 @@ import useData from "@hooks/useData.jsx";
 
 import getTotalInfo from "./functions/totalItems.js";
 import UseFetchData from "@hooks/useFetchData.jsx";
+import usePrevious from "../../../abstract/hooks/usePrevious.jsx";
 
-const BackgroundRoutes = () => {
-  const location = useLocation(),
-    tab = location.pathname.split("/")[1] || "home",
-    tabChecked = tab === "preview" ? "home" : tab;
-
+const QuickViewRoute = ({ data, isLoading }) => {
   const [searchParams] = useSearchParams(),
     category = searchParams.get("category") || null,
     id = searchParams.get("id") || null;
-
-  const { data, isLoading } = useData(tabChecked);
-
-  if (isLoading)
-    return (
-      <div>
-        <h1>Loading</h1>
-      </div>
-    ); // loading screen in future
 
   const categoryData = data[category];
 
@@ -49,22 +37,56 @@ const BackgroundRoutes = () => {
     price: uniqueViewEmbedded?.details.price,
     bio: uniqueViewEmbedded?.setDescription,
   };
+  return (
+    <Routes>
+      <Route
+        path="/:tab?/preview/:category?/:id?/*"
+        element={
+          <QuickViewImage
+            quickViewProps={quickViewProps}
+            isLoading={isLoading}
+          />
+        }
+      />
+    </Routes>
+  );
+};
+
+const CartRoute = ({ data, isLoading }) => {
+  return (
+    <Routes>
+      <Route path="/:tab?/cart" element={<Cart />} />;
+    </Routes>
+  );
+};
+
+const BackgroundRoutes = () => {
+  const location = useLocation(),
+    tab = location.pathname.split("/")[1],
+    tabChecked = location.state.backgroundLocation
+      .replace("/", "")
+      .includes("gallery")
+      ? "gallery"
+      : "home";
+
+  console.log(tabChecked);
+
+  const { data, isLoading } = useData(tabChecked);
+
+  if (isLoading)
+    return (
+      <div>
+        <h1>Loading</h1>
+      </div>
+    ); // loading screen in future
 
   return (
     <div key={tabChecked}>
-      <Routes>
-        <Route
-          path="/:tab?/preview/:category?/:id?/*"
-          element={
-            <QuickViewImage
-              quickViewProps={quickViewProps}
-              isLoading={isLoading}
-            />
-          }
-        />
-
-        <Route path="/:tab?/cart" element={<Cart />} />
-      </Routes>
+      {tab === "cart" ? (
+        <CartRoute data={data} isLoading={isLoading} />
+      ) : (
+        <QuickViewRoute data={data} isLoading={isLoading} />
+      )}
     </div>
   );
 };
@@ -73,7 +95,10 @@ const BodyRoutes = () => {
   const location = useLocation(),
     state = location.state,
     tab = location.pathname.split("/")[1] || "home",
-    tabChecked = tab === "preview" ? "home" : tab;
+    prevTab = usePrevious(tab),
+    tabChecked = tab === "preview" || tab === "cart" ? prevTab : tab;
+
+  console.log(prevTab);
 
   const { data, isLoading } = useData(tabChecked);
 

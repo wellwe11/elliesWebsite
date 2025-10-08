@@ -23,6 +23,8 @@ const useData = (tab, category) => {
     fetchData();
   }, [path]);
 
+  // forces loading to execute before returning data
+  // Without it, data will be returned once before useEffect runs
   useMemo(() => {
     setIsLoading(true);
   }, [path]);

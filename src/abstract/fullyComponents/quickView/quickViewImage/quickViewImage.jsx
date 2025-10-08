@@ -3,11 +3,10 @@ import { useState } from "react";
 
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import QuickViewButton from "../quickViewButton/quickViewButton";
 import bodyNoScroll from "@functions/bodyNoScroll";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
-import useFetchDataIDs from "../../../hooks/useFetchDataIDs.jsx";
 
 // If you want to view the actual product, this button takes you to a new page which contains further information and such
 const ViewProductButton = () => {
