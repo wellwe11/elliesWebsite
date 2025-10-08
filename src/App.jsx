@@ -21,11 +21,8 @@ export default App;
 
 /** TODO LIST
  *
- * Fixes:
- * QuickView must work when page reloads (User can scroll if page reloads)
- *
- *
  * ** TODO NOW! **
+ * Clean screenContainer and seperate each Route to it's own file
  *  Loading page for when pages switch (perhaps old page displayed white loading)
  *  Error page (if page not found)
  *
