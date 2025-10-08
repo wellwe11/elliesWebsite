@@ -7,9 +7,6 @@ import mainImage from "@assets/welcomeImage.jpg";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 
-import useFindObj from "./hooks/useFindObj.jsx";
-import useUniqueImageData from "./hooks/useUniqueImageData.jsx";
-
 // Component containing all info for top-section
 const UniqueTopSectionComponent = ({ info, foundObject }) => {
   // currently placeholders right now. Not sure what I will use, but there will be text related to the set somehow.
@@ -51,24 +48,16 @@ const UniqueInfoSectionComponent = ({ info, foundObject }) => {
   );
 };
 
-const UniqueImage = () => {
-  const { data, loading } = useUniqueImageData();
-
-  const foundUniqueImage = useFindObj(data); // _embedded contains all nested information about specifics of product
-
-  if (loading || !data) return;
-
-  const info = foundUniqueImage?._embedded; // _embedded contains all nested information about specifics of product
-
+const UniqueImage = ({ data, info }) => {
   const uniqueTopSectionWrapper = (
     <section className={classes.uniqueTopSectionWrapper}>
-      <UniqueTopSectionComponent info={info} foundObject={foundUniqueImage} />
+      <UniqueTopSectionComponent info={info} foundObject={data} />
     </section>
   );
 
   const uniqueInfoSectionWrapper = (
     <section className={classes.uniqueInfoSectionWrapper}>
-      <UniqueInfoSectionComponent info={info} foundObject={foundUniqueImage} />
+      <UniqueInfoSectionComponent info={info} foundObject={data} />
     </section>
   );
 

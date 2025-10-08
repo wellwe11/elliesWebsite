@@ -6,6 +6,7 @@ import useUpdateDataLogic from "../../hooks/useUpdateDataLogic.jsx";
 import Gallery from "../../../BODY/gallery/GALLERY.jsx";
 import Home from "../../../BODY/home/HOME.jsx";
 import ContactUs from "../../../BODY/contactUs/contactUs.jsx";
+import UniqueImage from "../../../BODY/uniqueImagePage/uniqueImage.jsx";
 
 const GalleryRoute = () => {
   const [searchParams] = useSearchParams(),
@@ -27,7 +28,20 @@ const HomeRoute = () => {
 };
 
 const UniqueImageRoute = () => {
-  return <UniqueImage />;
+  const [searchParams] = useSearchParams(),
+    category = searchParams.get("category") || null,
+    id = searchParams.get("id") || null;
+
+  const { data, isLoading } = useData("gallery");
+
+  if (isLoading) return null;
+
+  const categoryData = data[category],
+    foundObj = categoryData.find((a) => +a.id === +id); // finds matching obj
+
+  const embedded = foundObj?._embedded;
+
+  return <UniqueImage data={foundObj} info={embedded} />;
 };
 
 const MainPagesRoutes = () => {
