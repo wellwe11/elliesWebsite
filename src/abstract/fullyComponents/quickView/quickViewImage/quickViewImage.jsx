@@ -167,33 +167,14 @@ const QuickViewImageContainer = ({ quickViewProps }) => {
   );
 };
 
-const useQuickViewData = () => {
-  const location = useLocation(),
-    tab = location.pathname.split("/")[1] === "preview" ? "home" : "gallery"; // not dynamic. Need to fix in future
-
-  const [searchParams] = useSearchParams(),
-    category = searchParams.get("category") || null;
-
-  const { data, loading } = useFetchDataIDs(
-    `/API_imitation/${tab}/${category}.json`
-  );
-
-  return { data, loading };
-};
-
 // Element containing QuickViewImage & QuickViewInfo, as well as a faded background.
 // Will always be positonined fixed in middle of the screen.
-const QuickViewImage = () => {
+const QuickViewImage = ({ quickViewProps, isLoading }) => {
   const navigate = useNavigate(); // navigates to a backgroundLocation
-
-  const [searchParams] = useSearchParams(),
-    id = searchParams.get("id") || null;
-
-  const { data, loading } = useQuickViewData();
 
   const { enableScroll } = bodyNoScroll();
 
-  if (loading)
+  if (isLoading)
     return (
       <div className={classes.quickViewImage}>
         <LoadingWrapper
@@ -201,21 +182,10 @@ const QuickViewImage = () => {
             enableScroll();
             navigate(-1);
           }}
-          condition={loading}
+          condition={isLoading}
         />
       </div>
     );
-
-  const foundObj = data.find((a) => +a.id === +id); // finds matching obj
-
-  const uniqueViewEmbedded = foundObj?._embedded;
-
-  const quickViewProps = {
-    quickViewImages: uniqueViewEmbedded?.restImages,
-    title: uniqueViewEmbedded?.setTitle,
-    price: uniqueViewEmbedded?.details.price,
-    bio: uniqueViewEmbedded?.setDescription,
-  };
 
   const WhiteBackgroundPopUp = (
     // white background-image that differs pop-up from the rest of the website
@@ -233,7 +203,7 @@ const QuickViewImage = () => {
     <>
       <div
         className={classes.quickViewImage}
-        style={{ opacity: foundObj ? 1 : 0 }}
+        style={{ opacity: quickViewProps ? 1 : 0 }}
       >
         {WhiteBackgroundPopUp}
         <QuickViewImageContainer quickViewProps={quickViewProps} />

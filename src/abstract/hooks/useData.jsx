@@ -1,30 +1,30 @@
 import fetchDataAndAssignID from "@functions/fetches/fetchDataAndAssignId.js";
 import { useEffect, useMemo, useState } from "react";
 
-const useData = (state, tab, category) => {
-  const tabPath = tab === "" ? "home" : tab;
-  const path = `/API_imitation/${tabPath}/${category || "page"}.json`;
+const useData = (tab, category) => {
+  const path = `/API_imitation/${tab}/${category || "page"}.json`;
 
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
 
-  useMemo(() => {
-    setData(null);
-    setIsLoading(true);
-  }, [path]);
+  const fetchData = async (link) => {
+    const fetchedData = await fetchDataAndAssignID(link || path);
+
+    if (fetchedData) {
+      setData(fetchedData);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 0); //  setIsLoading runs once callstack is empty
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const fetchedData = await fetchDataAndAssignID(path);
+    setIsLoading(true);
+    fetchData(path);
+  }, [path]);
 
-      if (fetchedData) {
-        setData(fetchedData);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 500);
-      }
-    };
-    fetchData();
+  useMemo(() => {
+    setIsLoading(true);
   }, [path]);
 
   return { data, isLoading };

@@ -1,60 +1,98 @@
-import { Routes, Route, useLocation } from "react-router-dom";
-import { Suspense, useEffect, useState } from "react";
+import { Routes, Route, useLocation, useSearchParams } from "react-router-dom";
+import { Suspense, useState } from "react";
 import classes from "./SCREENCONTAINER.module.scss";
 
 import Footer from "../FOOTER/footer";
 import Navbar from "../NAVBAR/navbar";
 import Home from "../BODY/home/HOME";
+import Gallery from "../BODY/gallery/GALLERY";
+import ContactUs from "../BODY/contactUs/contactUs.jsx";
+
 import UniqueImage from "../BODY/uniqueImagePage/uniqueImage";
+import Cart from "../BODY/cart/cart";
 
 import UniqueImageContext from "../BODY/cartContext";
-import Gallery from "../BODY/gallery/GALLERY";
 import QuickViewImage from "@fullyComponents/quickView/quickViewImage/quickViewImage";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
-import Cart from "../BODY/cart/cart";
+import useData from "@hooks/useData.jsx";
 
 import getTotalInfo from "./functions/totalItems.js";
 import UseFetchData from "@hooks/useFetchData.jsx";
-import ContactUs from "../BODY/contactUs/contactUs.jsx";
-import useData from "@hooks/useData.jsx";
 
-const BodyWithData = () => {
+const BackgroundRoutes = () => {
+  const location = useLocation(),
+    tab = location.pathname.split("/")[1] || "home";
+
+  const [searchParams] = useSearchParams(),
+    category = searchParams.get("category") || null,
+    id = searchParams.get("id") || null;
+
+  const { data, isLoading } = useData(tab);
+
+  if (isLoading) return null; // loading screen in future
+
+  console.log(data);
+
+  const categoryData = data[category];
+
+  console.log(categoryData);
+
+  const foundObj = categoryData.find((a) => +a.id === +id); // finds matching obj
+
+  const uniqueViewEmbedded = foundObj?._embedded;
+
+  const quickViewProps = {
+    quickViewImages: uniqueViewEmbedded?.restImages,
+    title: uniqueViewEmbedded?.setTitle,
+    price: uniqueViewEmbedded?.details.price,
+    bio: uniqueViewEmbedded?.setDescription,
+  };
+
+  return (
+    <div>
+      <Routes>
+        <Route
+          path="/:tab?/preview/:category?/:id?/*"
+          element={
+            <QuickViewImage
+              quickViewProps={quickViewProps}
+              isLoading={isLoading}
+            />
+          }
+        />
+
+        <Route path="/:tab?/cart" element={<Cart />} />
+      </Routes>
+    </div>
+  );
+};
+
+const BodyRoutes = () => {
   const location = useLocation(),
     state = location.state,
-    tab = location.pathname.split("/")[1];
+    tab = location.pathname.split("/")[1] || "home";
 
-  const { data, isLoading } = useData(state, tab);
+  const { data, isLoading } = useData(tab);
 
-  if (isLoading) return null;
+  if (isLoading) return null; // loading screen in future
 
   return (
     <div key={tab}>
       {/** Main routes */}
-      <Routes location={location}>
+      <Routes location={state?.backgroundLocation || location}>
         <Route path="/" element={<Home data={data} />} />
         <Route
           path="/gallery/:category?/:id?/*"
           element={<Gallery data={data} />}
         />
         <Route path="/contact" element={<ContactUs />} />
+
         {/** Extended pages */}
         <Route
           path="/uniqueImage/:category?/:id?/*"
           element={<UniqueImage />}
-        />{" "}
+        />
       </Routes>
-
-      {/** Extended pages */}
-      {state?.backgroundLocation && (
-        <Routes>
-          <Route
-            path="/:tab?/preview/:category?/:id?/*"
-            element={<QuickViewImage />}
-          />
-
-          <Route path="/:tab?/cart" element={<Cart />} />
-        </Routes>
-      )}
     </div>
   );
 };
@@ -78,6 +116,9 @@ const ScreenContainer = () => {
 
   const { totalItems, totalPrice } = getTotalInfo(cart);
 
+  const location = useLocation(),
+    state = location.state;
+
   return (
     <div className={classes.widthContainer}>
       <Navbar cartItems={totalItems} />
@@ -86,7 +127,8 @@ const ScreenContainer = () => {
         <UniqueImageContext.Provider
           value={{ cart, setCart, totalItems, totalPrice }}
         >
-          <BodyWithData />
+          <BodyRoutes />
+          {state?.backgroundLocation && <BackgroundRoutes />}
         </UniqueImageContext.Provider>
         <Footer />
       </div>
