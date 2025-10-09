@@ -1,6 +1,6 @@
 import classes from "./routeContainer.module.scss";
 
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 import Footer from "../FOOTER/footer.jsx";
 import Navbar from "../NAVBAR/navbar.jsx";
@@ -19,20 +19,10 @@ const RouteContainer = () => {
 
   const { totalItems, totalPrice } = getTotalInfo(cart);
 
-  const { pathname, state, location } = useGetLocation();
+  const { state, location } = useGetLocation();
 
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
-  const [pageLoadedLocation, setPageLoadedLocation] = useState(pathname);
-
-  useLayoutEffect(() => {
-    const pageLocation = isLoading ? state || location : location;
-
-    if (pathname !== state?.loadingPage) {
-      setPageLoadedLocation(pageLocation);
-    }
-  }, [isLoading]);
 
   // console.log(pageLoadedLocation);
 
@@ -47,9 +37,9 @@ const RouteContainer = () => {
           value={{ cart, setCart, totalItems, totalPrice }}
         >
           <MainPagesRoutes
-            pageLoadedLocation={pageLoadedLocation}
             setIsError={setIsError}
             setIsLoading={setIsLoading}
+            isLoading={isLoading}
           />
           {state?.backgroundLocation && (
             <BackgroundRoutes

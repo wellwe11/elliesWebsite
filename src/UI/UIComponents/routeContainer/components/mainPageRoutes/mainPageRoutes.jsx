@@ -9,7 +9,7 @@ import Home from "../../../BODY/home/HOME.jsx";
 import ContactUs from "../../../BODY/contactUs/contactUs.jsx";
 import UniqueImage from "../../../BODY/uniqueImagePage/uniqueImage.jsx";
 import useGetLocation from "@hooks/useGetLocation.jsx";
-import { useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 const GalleryRoute = ({ setIsLoading, setIsError }) => {
   const { category } = useGetParams();
@@ -18,6 +18,8 @@ const GalleryRoute = ({ setIsLoading, setIsError }) => {
 
   useLayoutEffect(() => {
     setIsLoading(isLoading);
+
+    return () => setIsLoading(false);
   }, [isLoading, setIsLoading]);
 
   if (!data) return null;
@@ -30,6 +32,8 @@ const HomeRoute = ({ setIsLoading, setIsError }) => {
 
   useLayoutEffect(() => {
     setIsLoading(isLoading);
+
+    return () => setIsLoading(false);
   }, [isLoading, setIsLoading]);
 
   if (!data) return null;
@@ -44,6 +48,8 @@ const UniqueImageRoute = ({ setIsLoading, setIsError }) => {
 
   useLayoutEffect(() => {
     setIsLoading(isLoading);
+
+    return () => setIsLoading(false);
   }, [isLoading, setIsLoading]);
 
   if (isLoading) return null;
@@ -56,13 +62,24 @@ const UniqueImageRoute = ({ setIsLoading, setIsError }) => {
   return <UniqueImage data={foundObj} info={embedded} />;
 };
 
-const MainPagesRoutes = ({ setIsLoading, setIsError, pageLoadedLocation }) => {
+const MainPagesRoutes = ({ setIsLoading, setIsError, isLoading }) => {
   const { state, location } = useGetLocation();
+  const [pageLoadedLocation, setPageLoadedLocation] = useState(
+    location.pathname
+  );
 
-  console.log(pageLoadedLocation);
+  useLayoutEffect(() => {
+    const pageLocation = isLoading
+      ? state.loadingPage || location.pathname
+      : location.pathname;
+
+    setPageLoadedLocation(pageLocation);
+  }, [isLoading]);
 
   return (
-    <Routes location={state?.backgroundLocation || location}>
+    <Routes
+      location={state?.backgroundLocation || pageLoadedLocation || location}
+    >
       <Route
         path="/"
         element={
