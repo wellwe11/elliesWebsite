@@ -1,6 +1,5 @@
 import classes from "./SCREENCONTAINER.module.scss";
 
-import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
 import Footer from "../FOOTER/footer";
@@ -12,14 +11,14 @@ import getTotalInfo from "./functions/totalItems.js";
 
 import MainPagesRoutes from "./components/mainPageRoutes/mainPageRoutes.jsx";
 import BackgroundRoutes from "./components/backgroundRoutes/backgroundRoutes.jsx";
+import useGetLocation from "@hooks/useLocation.jsx";
 
 const ScreenContainer = () => {
   const [cart, setCart] = useState({}); // context for whichever product is in focus
 
   const { totalItems, totalPrice } = getTotalInfo(cart);
 
-  const location = useLocation(),
-    state = location.state;
+  const { state } = useGetLocation();
 
   return (
     <div className={classes.widthContainer}>

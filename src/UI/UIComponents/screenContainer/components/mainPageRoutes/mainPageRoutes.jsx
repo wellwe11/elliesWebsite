@@ -1,19 +1,20 @@
-import { Route, Routes, useLocation, useSearchParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import useData from "@hooks/useData.jsx";
 
 import useUpdateDataLogic from "../../hooks/useUpdateDataLogic.jsx";
+import useGetParams from "@hooks/useGetParams.jsx";
 
 import Gallery from "../../../BODY/gallery/GALLERY.jsx";
 import Home from "../../../BODY/home/HOME.jsx";
 import ContactUs from "../../../BODY/contactUs/contactUs.jsx";
 import UniqueImage from "../../../BODY/uniqueImagePage/uniqueImage.jsx";
+import useGetLocation from "@hooks/useLocation.jsx";
 
 const GalleryRoute = () => {
-  const [searchParams] = useSearchParams(),
-    category = searchParams.get("category") || null;
-
+  const { category } = useGetParams();
   const { data, isLoading } = useData("gallery");
   const { updatedData } = useUpdateDataLogic(category, data);
+
   if (isLoading) return null;
 
   return <Gallery data={updatedData} />;
@@ -28,9 +29,7 @@ const HomeRoute = () => {
 };
 
 const UniqueImageRoute = () => {
-  const [searchParams] = useSearchParams(),
-    category = searchParams.get("category") || null,
-    id = searchParams.get("id") || null;
+  const { category, id } = useGetParams();
 
   const { data, isLoading } = useData("gallery");
 
@@ -45,9 +44,7 @@ const UniqueImageRoute = () => {
 };
 
 const MainPagesRoutes = () => {
-  const location = useLocation(),
-    state = location.state;
-
+  const { state } = useGetLocation();
   return (
     <Routes location={state?.backgroundLocation || location}>
       <Route path="/" element={<HomeRoute />} />

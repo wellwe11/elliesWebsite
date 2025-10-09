@@ -3,18 +3,17 @@ import { useState } from "react";
 
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import QuickViewButton from "../quickViewButton/quickViewButton";
 import bodyNoScroll from "@functions/bodyNoScroll";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
+import useGetParams from "@hooks/useGetParams.jsx";
 
 // If you want to view the actual product, this button takes you to a new page which contains further information and such
 const ViewProductButton = () => {
   const navigate = useNavigate(); // navigates to a backgroundLocation
 
-  const [searchParams] = useSearchParams(),
-    category = searchParams.get("category") || null,
-    id = searchParams.get("id") || null;
+  const { category, id } = useGetParams();
 
   return (
     <div className={classes.viewProductButtonWrapper}>

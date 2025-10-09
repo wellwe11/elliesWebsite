@@ -16,7 +16,6 @@ import Services from "./components/services/services.jsx";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 import NewIn from "./components/newIn/newIn.jsx";
-import useData from "../../../../abstract/hooks/useData.jsx";
 
 // Categories section
 const categories = {

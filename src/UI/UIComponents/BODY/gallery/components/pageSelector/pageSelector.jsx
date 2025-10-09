@@ -3,6 +3,7 @@ import classes from "./pageSelector.module.scss";
 
 import { useNavigate, useSearchParams } from "react-router-dom";
 import usePageNumbersLogic from "./hooks/usePageNumbersLogic.jsx";
+import useGetParams from "../../../../../../abstract/hooks/useGetParams.jsx";
 
 // abstract button component which has the same structure & classes for all nav-buttons
 const NavButton = ({ onClick, disabled, label }) => {
@@ -129,9 +130,7 @@ const BackToZeroButton = ({ page, maxPage, navigate, category }) => {
 const PageSelector = ({ maxPage }) => {
   const navigate = useNavigate();
 
-  const [searchParams] = useSearchParams(),
-    page = +searchParams.get("page") || 1,
-    category = searchParams.get("category") || "";
+  const { page, category } = useGetParams();
 
   return (
     <div className={classes.pageSelector}>

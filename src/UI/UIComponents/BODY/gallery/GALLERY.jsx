@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import classes from "./GALLERY.module.scss";
 import PageSelector from "./components/pageSelector/pageSelector";
@@ -8,6 +8,7 @@ import Products from "./components/products/products";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import useProductsLogic from "./hooks/useProductsLogic.jsx";
+import useGetParams from "@hooks/useGetParams.jsx";
 
 // buttons on left to select specific items based on their type
 const FilterSideBarWrapperComponent = ({ dataKeys, category }) => {
@@ -64,9 +65,7 @@ const PageWrapperComponent = ({ filteredData }) => {
 };
 
 const Gallery = ({ data }) => {
-  const [searchParams] = useSearchParams(),
-    category = searchParams.get("category") || null,
-    page = searchParams.get("page") || null;
+  const { category, page } = useGetParams();
 
   return (
     <div className={classes.gallery}>

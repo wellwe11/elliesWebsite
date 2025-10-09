@@ -1,14 +1,13 @@
-import { Route, Routes, useLocation, useSearchParams } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import useData from "@hooks/useData.jsx";
 import QuickViewImage from "@fullyComponents/quickView/quickViewImage/quickViewImage.jsx";
 import Cart from "../../../BODY/cart/cart.jsx";
+import useGetParams from "@hooks/useGetParams.jsx";
 
 const PreviewRoute = ({ backgroundLocation }) => {
   const { data, isLoading } = useData(backgroundLocation);
 
-  const [searchParams] = useSearchParams(),
-    category = searchParams.get("category") || null,
-    id = searchParams.get("id") || null;
+  const { category, id } = useGetParams();
 
   if (isLoading) return null;
 
