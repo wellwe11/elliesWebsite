@@ -1,6 +1,6 @@
 import classes from "./routeContainer.module.scss";
 
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 import Footer from "../FOOTER/footer.jsx";
 import Navbar from "../NAVBAR/navbar.jsx";
@@ -11,7 +11,7 @@ import getTotalInfo from "./functions/totalItems.js";
 
 import MainPagesRoutes from "./components/mainPageRoutes/mainPageRoutes.jsx";
 import BackgroundRoutes from "./components/backgroundRoutes/backgroundRoutes.jsx";
-import useGetLocation from "@hooks/useLocation.jsx";
+import useGetLocation from "@hooks/useGetLocation.jsx";
 import Loading from "../LOADING/loading.jsx";
 
 const RouteContainer = () => {
@@ -19,19 +19,27 @@ const RouteContainer = () => {
 
   const { totalItems, totalPrice } = getTotalInfo(cart);
 
-  const { state } = useGetLocation();
+  const { pathname, state, location } = useGetLocation();
 
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  // while isLoading, display old page with clickerEvent: none;
+  const [pageLoadedLocation, setPageLoadedLocation] = useState(pathname);
 
-  console.log(isLoading);
+  useLayoutEffect(() => {
+    const pageLocation = isLoading ? state || location : location;
+
+    if (pathname !== state?.loadingPage) {
+      setPageLoadedLocation(pageLocation);
+    }
+  }, [isLoading]);
+
+  // console.log(pageLoadedLocation);
+
+  // while isLoading, display old page with clickerEvent: none;
 
   return (
     <div className={classes.widthContainer}>
-      {isLoading && <Loading />}
-
       <Navbar cartItems={totalItems} />
 
       <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
@@ -39,6 +47,7 @@ const RouteContainer = () => {
           value={{ cart, setCart, totalItems, totalPrice }}
         >
           <MainPagesRoutes
+            pageLoadedLocation={pageLoadedLocation}
             setIsError={setIsError}
             setIsLoading={setIsLoading}
           />

@@ -1,7 +1,7 @@
 import ArrowRoundEdgesSVG from "@components/SVGS/arrowRoundEdgesSVG/arrowRoundEdgesSVG";
 import classes from "./pageSelector.module.scss";
 
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import usePageNumbersLogic from "./hooks/usePageNumbersLogic.jsx";
 import useGetParams from "../../../../../../abstract/hooks/useGetParams.jsx";
 

@@ -12,7 +12,7 @@ const PreviewRoute = ({ backgroundLocation, setIsLoading, setIsError }) => {
 
   useLayoutEffect(() => {
     setIsLoading(isLoading);
-  }, [isLoading]);
+  }, [isLoading, setIsLoading]);
 
   if (isLoading) return null;
 

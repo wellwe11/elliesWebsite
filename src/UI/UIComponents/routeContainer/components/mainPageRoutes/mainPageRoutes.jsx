@@ -8,7 +8,7 @@ import Gallery from "../../../BODY/gallery/GALLERY.jsx";
 import Home from "../../../BODY/home/HOME.jsx";
 import ContactUs from "../../../BODY/contactUs/contactUs.jsx";
 import UniqueImage from "../../../BODY/uniqueImagePage/uniqueImage.jsx";
-import useGetLocation from "@hooks/useLocation.jsx";
+import useGetLocation from "@hooks/useGetLocation.jsx";
 import { useLayoutEffect } from "react";
 
 const GalleryRoute = ({ setIsLoading, setIsError }) => {
@@ -18,9 +18,9 @@ const GalleryRoute = ({ setIsLoading, setIsError }) => {
 
   useLayoutEffect(() => {
     setIsLoading(isLoading);
-  }, [isLoading]);
+  }, [isLoading, setIsLoading]);
 
-  if (isLoading) return null;
+  if (!data) return null;
 
   return <Gallery data={updatedData} />;
 };
@@ -30,9 +30,9 @@ const HomeRoute = ({ setIsLoading, setIsError }) => {
 
   useLayoutEffect(() => {
     setIsLoading(isLoading);
-  }, [isLoading]);
+  }, [isLoading, setIsLoading]);
 
-  if (isLoading) return null;
+  if (!data) return null;
 
   return <Home data={data} />;
 };
@@ -44,7 +44,7 @@ const UniqueImageRoute = ({ setIsLoading, setIsError }) => {
 
   useLayoutEffect(() => {
     setIsLoading(isLoading);
-  }, [isLoading]);
+  }, [isLoading, setIsLoading]);
 
   if (isLoading) return null;
 
@@ -56,8 +56,11 @@ const UniqueImageRoute = ({ setIsLoading, setIsError }) => {
   return <UniqueImage data={foundObj} info={embedded} />;
 };
 
-const MainPagesRoutes = ({ setIsLoading, setIsError }) => {
-  const { state } = useGetLocation();
+const MainPagesRoutes = ({ setIsLoading, setIsError, pageLoadedLocation }) => {
+  const { state, location } = useGetLocation();
+
+  console.log(pageLoadedLocation);
+
   return (
     <Routes location={state?.backgroundLocation || location}>
       <Route
@@ -79,7 +82,6 @@ const MainPagesRoutes = ({ setIsLoading, setIsError }) => {
         }
       />
 
-      {/** Extended pages */}
       <Route
         path="/uniqueImage/:category?/:id?/*"
         element={<UniqueImageRoute />}

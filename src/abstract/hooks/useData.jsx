@@ -17,8 +17,10 @@ const useData = (tab, category) => {
       const fetchedData = await fetchDataAndAssignID(path);
 
       if (isMounted && fetchedData) {
-        setIsLoading(false);
         setData(fetchedData);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 500);
       }
     };
 
