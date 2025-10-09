@@ -9,29 +9,42 @@ import Home from "../../../BODY/home/HOME.jsx";
 import ContactUs from "../../../BODY/contactUs/contactUs.jsx";
 import UniqueImage from "../../../BODY/uniqueImagePage/uniqueImage.jsx";
 import useGetLocation from "@hooks/useLocation.jsx";
+import { useLayoutEffect } from "react";
 
-const GalleryRoute = () => {
+const GalleryRoute = ({ setIsLoading, setIsError }) => {
   const { category } = useGetParams();
   const { data, isLoading } = useData("gallery");
   const { updatedData } = useUpdateDataLogic(category, data);
+
+  useLayoutEffect(() => {
+    setIsLoading(isLoading);
+  }, [isLoading]);
 
   if (isLoading) return null;
 
   return <Gallery data={updatedData} />;
 };
 
-const HomeRoute = () => {
+const HomeRoute = ({ setIsLoading, setIsError }) => {
   const { data, isLoading } = useData("home");
 
-  if (isLoading) return null; // loading screen in future
+  useLayoutEffect(() => {
+    setIsLoading(isLoading);
+  }, [isLoading]);
+
+  if (isLoading) return null;
 
   return <Home data={data} />;
 };
 
-const UniqueImageRoute = () => {
+const UniqueImageRoute = ({ setIsLoading, setIsError }) => {
   const { category, id } = useGetParams();
 
   const { data, isLoading } = useData("gallery");
+
+  useLayoutEffect(() => {
+    setIsLoading(isLoading);
+  }, [isLoading]);
 
   if (isLoading) return null;
 
@@ -43,13 +56,28 @@ const UniqueImageRoute = () => {
   return <UniqueImage data={foundObj} info={embedded} />;
 };
 
-const MainPagesRoutes = () => {
+const MainPagesRoutes = ({ setIsLoading, setIsError }) => {
   const { state } = useGetLocation();
   return (
     <Routes location={state?.backgroundLocation || location}>
-      <Route path="/" element={<HomeRoute />} />
-      <Route path="/gallery/:category?/:id?/*" element={<GalleryRoute />} />
-      <Route path="/contact" element={<ContactUs />} />
+      <Route
+        path="/"
+        element={
+          <HomeRoute setIsLoading={setIsLoading} setIsError={setIsError} />
+        }
+      />
+      <Route
+        path="/gallery/:category?/:id?/*"
+        element={
+          <GalleryRoute setIsLoading={setIsLoading} setIsError={setIsError} />
+        }
+      />
+      <Route
+        path="/contact"
+        element={
+          <ContactUs setIsLoading={setIsLoading} setIsError={setIsError} />
+        }
+      />
 
       {/** Extended pages */}
       <Route

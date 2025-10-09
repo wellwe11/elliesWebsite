@@ -3,11 +3,16 @@ import useData from "@hooks/useData.jsx";
 import QuickViewImage from "@fullyComponents/quickView/quickViewImage/quickViewImage.jsx";
 import Cart from "../../../BODY/cart/cart.jsx";
 import useGetParams from "@hooks/useGetParams.jsx";
+import { useLayoutEffect } from "react";
 
-const PreviewRoute = ({ backgroundLocation }) => {
+const PreviewRoute = ({ backgroundLocation, setIsLoading, setIsError }) => {
   const { data, isLoading } = useData(backgroundLocation);
 
   const { category, id } = useGetParams();
+
+  useLayoutEffect(() => {
+    setIsLoading(isLoading);
+  }, [isLoading]);
 
   if (isLoading) return null;
 
@@ -27,7 +32,7 @@ const PreviewRoute = ({ backgroundLocation }) => {
   );
 };
 
-const BackgroundRoutes = () => {
+const BackgroundRoutes = ({ setIsLoading, setIsError }) => {
   const location = useLocation(),
     backgroundLocation =
       location.state?.backgroundLocation.replace("/", "") || "home";
@@ -36,7 +41,13 @@ const BackgroundRoutes = () => {
     <Routes>
       <Route
         path="/:tab?/preview/:category?/:id?/*"
-        element={<PreviewRoute backgroundLocation={backgroundLocation} />}
+        element={
+          <PreviewRoute
+            setIsError={setIsError}
+            setIsLoading={setIsLoading}
+            backgroundLocation={backgroundLocation}
+          />
+        }
       />
       <Route path="/:tab?/cart" element={<Cart />} />
     </Routes>
