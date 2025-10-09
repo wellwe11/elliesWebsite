@@ -1,7 +1,7 @@
 import classes from "./navbar.module.scss";
 
 // importing screen-sizings to help navbar scale with body
-import screen_classes from "../screenContainer/SCREENCONTAINER.module.scss";
+import screen_classes from "../routeContainer/routeContainer.module.scss";
 
 import useSetActiveNavButton from "./hooks/useSetActiveNavButton.jsx";
 

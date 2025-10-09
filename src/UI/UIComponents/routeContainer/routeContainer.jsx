@@ -1,11 +1,11 @@
-import classes from "./SCREENCONTAINER.module.scss";
+import classes from "./routeContainer.module.scss";
 
 import { useState } from "react";
 
-import Footer from "../FOOTER/footer";
-import Navbar from "../NAVBAR/navbar";
+import Footer from "../FOOTER/footer.jsx";
+import Navbar from "../NAVBAR/navbar.jsx";
 
-import UniqueImageContext from "../BODY/cartContext";
+import UniqueImageContext from "../BODY/cartContext.jsx";
 
 import getTotalInfo from "./functions/totalItems.js";
 
@@ -13,7 +13,7 @@ import MainPagesRoutes from "./components/mainPageRoutes/mainPageRoutes.jsx";
 import BackgroundRoutes from "./components/backgroundRoutes/backgroundRoutes.jsx";
 import useGetLocation from "@hooks/useLocation.jsx";
 
-const ScreenContainer = () => {
+const RouteContainer = () => {
   const [cart, setCart] = useState({}); // context for whichever product is in focus
 
   const { totalItems, totalPrice } = getTotalInfo(cart);
@@ -37,4 +37,4 @@ const ScreenContainer = () => {
   );
 };
 
-export default ScreenContainer;
+export default RouteContainer;

@@ -1,6 +1,6 @@
 import classes from "./App.module.scss";
 
-import ScreenContainer from "./UI/UIComponents/screenContainer/SCREENCONTAINER";
+import RouteContainer from "./UI/UIComponents/routeContainer/routeContainer.jsx";
 
 const AppWrapper = ({ children }) => {
   return <div className={classes.appWrapper}>{children}</div>;
@@ -11,7 +11,7 @@ function App() {
   return (
     <AppWrapper>
       <Router>
-        <ScreenContainer />
+        <RouteContainer />
       </Router>
     </AppWrapper>
   );
@@ -22,7 +22,6 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * Clean screenContainer and seperate each Route to it's own file
  *  Loading page for when pages switch (perhaps old page displayed white loading)
  *  Error page (if page not found)
  *

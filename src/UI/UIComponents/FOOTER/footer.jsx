@@ -1,6 +1,6 @@
 import classes from "./footer.module.scss";
 
-import screen_classes from "../screenContainer/SCREENCONTAINER.module.scss"; // importing screen-sizings to help navbar scale with body
+import screen_classes from "../routeContainer/routeContainer.module.scss"; // importing screen-sizings to help navbar scale with body
 
 import GitHubSVG from "@components/SVGS/githubSVG/githubSVG";
 
