@@ -19,14 +19,7 @@ const RouteContainer = () => {
 
   const { totalItems, totalPrice } = getTotalInfo(cart);
 
-  const { state, location } = useGetLocation();
-
-  const [isError, setIsError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // console.log(pageLoadedLocation);
-
-  // while isLoading, display old page with clickerEvent: none;
+  const { state } = useGetLocation();
 
   return (
     <div className={classes.widthContainer}>
@@ -36,17 +29,8 @@ const RouteContainer = () => {
         <UniqueImageContext.Provider
           value={{ cart, setCart, totalItems, totalPrice }}
         >
-          <MainPagesRoutes
-            setIsError={setIsError}
-            setIsLoading={setIsLoading}
-            isLoading={isLoading}
-          />
-          {state?.backgroundLocation && (
-            <BackgroundRoutes
-              setIsError={setIsError}
-              setIsLoading={setIsLoading}
-            />
-          )}
+          <MainPagesRoutes />
+          {state?.backgroundLocation && <BackgroundRoutes />}
         </UniqueImageContext.Provider>
         <Footer />
       </div>

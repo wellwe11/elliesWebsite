@@ -8,7 +8,7 @@ const NavButton = ({ children, link }) => {
 
   const handleNavigate = () => {
     window.scrollTo({ top: 0 });
-    navigate(link, { state: { loadingPage: location.pathname } });
+    navigate(link);
   };
 
   return (
