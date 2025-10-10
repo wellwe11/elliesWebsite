@@ -37,9 +37,13 @@ const categories = {
 const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
 const Home = ({ data }) => {
-  const paintingsData = data.paintings,
-    printsData = data.prints,
-    servicesData = data.services;
+  const paintingsData = data?.paintings,
+    printsData = data?.prints,
+    servicesData = data?.services;
+
+  const canLoad = paintingsData && printsData && servicesData;
+
+  if (!canLoad) return;
 
   // Welcoming image and small animation
   const topSection = (

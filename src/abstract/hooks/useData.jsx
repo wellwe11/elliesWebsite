@@ -6,26 +6,20 @@ const useData = (tab, category) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
 
-  useLayoutEffect(() => {
-    setData(null);
+  const fetchData = async () => {
+    const fetchedData = await fetchDataAndAssignID(path);
 
-    const fetchData = async () => {
-      const fetchedData = await fetchDataAndAssignID(path);
+    if (fetchedData) {
+      setData(fetchedData);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 500);
+    } else {
+      setIsLoading(true);
+    }
+  };
 
-      if (fetchedData) {
-        setData(fetchedData);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 500);
-      } else {
-        setIsLoading(true);
-      }
-    };
-
-    fetchData();
-  }, [path]);
-
-  return { data, isLoading, setData };
+  return { data, isLoading };
 };
 
 export default useData;

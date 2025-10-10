@@ -2,13 +2,22 @@ import classes from "./navButton.module.scss";
 import { useNavigate } from "react-router-dom";
 import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT.jsx";
 
+import fetchDataAndAssignID from "@functions/fetches/fetchDataAndAssignId.js";
+
 // a wrapper for each nav-button
-const NavButton = ({ children, link }) => {
+const NavButton = ({ children, link, setFetchedData }) => {
   const navigate = useNavigate();
 
-  const handleNavigate = () => {
-    window.scrollTo({ top: 0 });
-    navigate(link);
+  const handleNavigate = async () => {
+    const dataTab = children.toLowerCase();
+    const path = `/API_imitation/${dataTab}/page.json`;
+    const fetchedData = await fetchDataAndAssignID(path);
+
+    if (fetchedData) {
+      setFetchedData(fetchedData);
+      window.scrollTo({ top: 0 });
+      navigate(link);
+    }
   };
 
   return (

@@ -9,7 +9,7 @@ import NavLogo from "./components/navLogo/navLogo.jsx";
 import NavbarButtons from "./components/navBarButtons/navBarButtons.jsx";
 import ShoppingCart from "./components/shoppingCart/shoppingCart.jsx";
 
-const Navbar = ({ cartItems }) => {
+const Navbar = ({ cartItems, setFetchedData }) => {
   const buttons = {
     home: "",
     gallery: "/gallery?page=1",
@@ -43,6 +43,7 @@ const Navbar = ({ cartItems }) => {
         setActiveButton={setActiveButton}
         hoverButton={hoverButton}
         setHoverButton={setHoverButton}
+        setFetchedData={setFetchedData}
       />
     </div>
   );

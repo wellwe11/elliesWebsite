@@ -9,34 +9,37 @@ import Home from "../../../BODY/home/HOME.jsx";
 import ContactUs from "../../../BODY/contactUs/contactUs.jsx";
 import UniqueImage from "../../../BODY/uniqueImagePage/uniqueImage.jsx";
 import useGetLocation from "@hooks/useGetLocation.jsx";
+import { Suspense } from "react";
 
-const GalleryRoute = () => {
+const GalleryRoute = ({ data }) => {
   const { category } = useGetParams();
-  const { data, isLoading } = useData("gallery");
-  const { updatedData } = useUpdateDataLogic(category, data);
 
-  if (isLoading) return;
+  const { updatedData } = useUpdateDataLogic(category, data);
 
   return <Gallery data={updatedData} />;
 };
 
-const HomeRoute = () => {
-  const { data, isLoading } = useData("home");
-
-  if (isLoading) return;
-
+const HomeRoute = ({ data }) => {
   return <Home data={data} />;
 };
 
-const MainPagesRoutes = () => {
+const MainPagesRoutes = ({ data }) => {
   const { state, location } = useGetLocation();
+  const { pathname } = useGetLocation();
+
+  console.log(data);
 
   return (
-    <Routes location={state?.backgroundLocation || location}>
-      <Route path="/" element={<HomeRoute />} />
-      <Route path="/gallery/:category?/:id?/*" element={<GalleryRoute />} />
-      <Route path="/contact" element={<ContactUs />} />
-    </Routes>
+    <Suspense fallback={pathname}>
+      <Routes location={state?.backgroundLocation || location}>
+        <Route path="/" element={<HomeRoute data={data} />} />
+        <Route
+          path="/gallery/:category?/:id?/*"
+          element={<GalleryRoute data={data} />}
+        />
+        <Route path="/contact" element={<ContactUs setTab={null} />} />
+      </Routes>
+    </Suspense>
   );
 };
 

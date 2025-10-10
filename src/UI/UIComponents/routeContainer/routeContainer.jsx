@@ -1,6 +1,6 @@
 import classes from "./routeContainer.module.scss";
 
-import { useLayoutEffect, useState } from "react";
+import { useState } from "react";
 
 import Footer from "../FOOTER/footer.jsx";
 import Navbar from "../NAVBAR/navbar.jsx";
@@ -21,15 +21,17 @@ const RouteContainer = () => {
 
   const { state } = useGetLocation();
 
+  const [fetchedData, setFetchedData] = useState(null);
+
   return (
     <div className={classes.widthContainer}>
-      <Navbar cartItems={totalItems} />
+      <Navbar cartItems={totalItems} setFetchedData={setFetchedData} />
 
       <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
         <UniqueImageContext.Provider
           value={{ cart, setCart, totalItems, totalPrice }}
         >
-          <MainPagesRoutes />
+          <MainPagesRoutes data={fetchedData} />
           {state?.backgroundLocation && <BackgroundRoutes />}
         </UniqueImageContext.Provider>
         <Footer />
