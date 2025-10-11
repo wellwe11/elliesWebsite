@@ -1,13 +1,16 @@
 import { Route, Routes } from "react-router-dom";
-import useData from "@hooks/useData.jsx";
+
+import { lazy } from "react";
 
 import useUpdateDataLogic from "../../hooks/useUpdateDataLogic.jsx";
 import useGetParams from "@hooks/useGetParams.jsx";
 
-import Gallery from "../../../BODY/gallery/GALLERY.jsx";
-import Home from "../../../BODY/home/HOME.jsx";
-import ContactUs from "../../../BODY/contactUs/contactUs.jsx";
-import UniqueImage from "../../../BODY/uniqueImagePage/uniqueImage.jsx";
+const Gallery = lazy(() => import("../../../BODY/gallery/GALLERY.jsx"));
+const Home = lazy(() => import("../../../BODY/home/HOME.jsx"));
+const ContactUs = lazy(() => import("../../../BODY/contactUs/contactUs.jsx"));
+const UniqueImage = lazy(() =>
+  import("../../../BODY/uniqueImagePage/uniqueImage.jsx")
+);
 import useGetLocation from "@hooks/useGetLocation.jsx";
 import { Suspense } from "react";
 
@@ -16,18 +19,20 @@ const GalleryRoute = ({ data }) => {
 
   const { updatedData } = useUpdateDataLogic(category, data);
 
+  if (data) return null;
+
   return <Gallery data={updatedData} />;
 };
 
 const HomeRoute = ({ data }) => {
+  if (!data) return null;
+
   return <Home data={data} />;
 };
 
 const MainPagesRoutes = ({ data }) => {
   const { state, location } = useGetLocation();
   const { pathname } = useGetLocation();
-
-  console.log(data);
 
   return (
     <Suspense fallback={pathname}>

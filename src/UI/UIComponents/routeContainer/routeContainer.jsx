@@ -1,6 +1,6 @@
 import classes from "./routeContainer.module.scss";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 import Footer from "../FOOTER/footer.jsx";
 import Navbar from "../NAVBAR/navbar.jsx";

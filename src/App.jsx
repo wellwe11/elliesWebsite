@@ -1,4 +1,5 @@
 import classes from "./App.module.scss";
+import { scan } from "react-scan";
 
 import RouteContainer from "./UI/UIComponents/routeContainer/routeContainer.jsx";
 
@@ -8,6 +9,9 @@ const AppWrapper = ({ children }) => {
 import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
+  scan({
+    enabled: true,
+  });
   return (
     <AppWrapper>
       <Router>
