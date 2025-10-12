@@ -15,33 +15,35 @@ import MainPagesRoutes from "./components/mainPageRoutes/mainPageRoutes.jsx";
 import BackgroundRoutes from "./components/backgroundRoutes/backgroundRoutes.jsx";
 import useGetLocation from "@hooks/useGetLocation.jsx";
 import Loading from "../LOADING/loading.jsx";
-import fetchDataAndAssignID from "../../../abstract/functions/fetches/fetchDataAndAssignId.js";
 
 export const useDataZustand = create((set, get) => ({
   isLoading: false,
   setIsLoading: (boolean) => set({ isLoading: boolean }),
 
   data: null,
-  prevData: null,
+  setData: (d) => set({ data: d }),
+  fetchData: async (path) => {
+    set({ isLoading: true, data: null });
+    try {
+      const response = await fetch(path);
 
-  fetch: async (path) => {
-    set({ isLoading: true });
-    const previousData = get().data;
+      if (!response.ok) {
+        console.error("Failed to fetch data");
+        set({ data: null, isLoading: false });
+        return false;
+      }
 
-    set({ prevData: previousData });
+      const JSONData = await response.json();
 
-    const localData = await fetchDataAndAssignID(path);
-
-    if (localData) {
-      set({
-        isLoading: false,
-        data: localData,
-        prevData: null,
-      });
-
-      return true;
-    } else {
-      set({ isLoading: false, data: null, prevData: null });
+      if (JSONData) {
+        set({ data: JSONData, isLoading: false });
+        return true;
+      } else {
+        set({ isLoading: false, data: null });
+        return false;
+      }
+    } catch (err) {
+      console.error(err);
       return false;
     }
   },
@@ -54,17 +56,15 @@ const RouteContainer = () => {
 
   const { state } = useGetLocation();
 
-  const [fetchedData, setFetchedData] = useState(null);
-
   return (
     <div className={classes.widthContainer}>
-      <Navbar cartItems={totalItems} setFetchedData={setFetchedData} />
+      <Navbar cartItems={totalItems} />
 
       <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
         <UniqueImageContext.Provider
           value={{ cart, setCart, totalItems, totalPrice }}
         >
-          <MainPagesRoutes data={fetchedData} />
+          <MainPagesRoutes />
           {state?.backgroundLocation && <BackgroundRoutes />}
         </UniqueImageContext.Provider>
         <Footer />

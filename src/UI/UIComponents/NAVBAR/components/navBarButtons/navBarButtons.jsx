@@ -8,7 +8,6 @@ const NavbarButtons = ({
   setHoverButton,
   hoverButton,
   activeButton,
-  setFetchedData,
 }) => {
   const buttonKeys = Object.keys(buttons);
 
@@ -28,10 +27,7 @@ const NavbarButtons = ({
       onMouseLeave={() => setHoverButton(activeButton)}
       className={classes.buttonWrapper}
     >
-      <NavButton
-        link={Object.values(buttons)[index]}
-        setFetchedData={setFetchedData}
-      >
+      <NavButton link={Object.values(buttons)[index]}>
         {buttonNamesAllCaps[index]}
       </NavButton>
     </div>

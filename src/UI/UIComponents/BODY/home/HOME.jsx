@@ -16,6 +16,8 @@ import Services from "./components/services/services.jsx";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 import NewIn from "./components/newIn/newIn.jsx";
+import { useDataZustand } from "../../routeContainer/routeContainer.jsx";
+import useData from "../../../../abstract/hooks/useData.jsx";
 
 // Categories section
 const categories = {
@@ -36,7 +38,11 @@ const categories = {
 
 const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
-const Home = ({ data }) => {
+const Home = () => {
+  const { data, isLoading } = useData("home");
+
+  if (isLoading) return;
+
   const paintingsData = data.paintings,
     printsData = data.prints,
     servicesData = data.services;

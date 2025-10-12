@@ -1,26 +1,22 @@
 import fetchDataAndAssignID from "@functions/fetches/fetchDataAndAssignId.js";
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 
 const useData = (tab, category) => {
   const path = `/API_imitation/${tab}/${category || "page"}.json`;
 
   const [data, setData] = useState(null);
-  const [isPending, startTransition] = useTransition();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     let isMounted = true;
-
-    startTransition(() => {
-      setData(null);
-    });
+    setIsLoading(true);
 
     const fetchData = async () => {
       const fetchedData = await fetchDataAndAssignID(path);
 
       if (isMounted && fetchedData) {
-        startTransition(() => {
-          setData(fetchedData);
-        });
+        setIsLoading(false);
+        setData(fetchedData);
       }
     };
 
@@ -31,7 +27,7 @@ const useData = (tab, category) => {
     };
   }, [path]);
 
-  return { data, isPending };
+  return { data, isLoading };
 };
 
 export default useData;
