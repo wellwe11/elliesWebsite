@@ -1,9 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 
-import { lazy } from "react";
+import { lazy, useEffect, useState } from "react";
 
 import useUpdateDataLogic from "../../hooks/useUpdateDataLogic.jsx";
 import useGetParams from "@hooks/useGetParams.jsx";
+
+import { useDataZustand } from "../../routeContainer.jsx";
 
 const Gallery = lazy(() => import("../../../BODY/gallery/GALLERY.jsx"));
 const Home = lazy(() => import("../../../BODY/home/HOME.jsx"));
@@ -14,35 +16,38 @@ const UniqueImage = lazy(() =>
 import useGetLocation from "@hooks/useGetLocation.jsx";
 import { Suspense } from "react";
 
-const GalleryRoute = ({ data }) => {
+const GalleryRoute = () => {
+  const { data, prevData, isLoading } = useDataZustand();
   const { category } = useGetParams();
 
-  const { updatedData } = useUpdateDataLogic(category, data);
+  const dataToRender = isLoading ? prevData : data;
 
-  if (data) return null;
+  const { updatedData } = useUpdateDataLogic(category, dataToRender);
+
+  if (!data) return;
 
   return <Gallery data={updatedData} />;
 };
 
-const HomeRoute = ({ data }) => {
-  if (!data) return null;
+const HomeRoute = () => {
+  const { data, prevData, isLoading } = useDataZustand();
 
-  return <Home data={data} />;
+  const dataToRender = isLoading ? prevData : data;
+  if (!data) return;
+
+  return <Home data={dataToRender} />;
 };
 
-const MainPagesRoutes = ({ data }) => {
+const MainPagesRoutes = () => {
   const { state, location } = useGetLocation();
   const { pathname } = useGetLocation();
 
   return (
     <Suspense fallback={pathname}>
       <Routes location={state?.backgroundLocation || location}>
-        <Route path="/" element={<HomeRoute data={data} />} />
-        <Route
-          path="/gallery/:category?/:id?/*"
-          element={<GalleryRoute data={data} />}
-        />
-        <Route path="/contact" element={<ContactUs setTab={null} />} />
+        <Route path="/" element={<HomeRoute />} />
+        <Route path="/gallery/:category?/:id?/*" element={<GalleryRoute />} />
+        <Route path="/contact" element={<ContactUs />} />
       </Routes>
     </Suspense>
   );
