@@ -10,7 +10,7 @@ const ProductImage = ({ image, alt, product }) => {
 
   const handleNavigate = () => {
       bodyNoScroll().enableScroll();
-      return navigate(`/uniqueImage/${productType}#${productId}`);
+      return navigate(`/uniqueImage?category=${productType}&id=${productId}`);
     },
     productImage = (
       // clicking on image should navigate to that product again

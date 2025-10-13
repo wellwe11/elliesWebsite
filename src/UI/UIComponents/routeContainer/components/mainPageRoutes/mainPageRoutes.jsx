@@ -2,18 +2,18 @@ import { Route, Routes } from "react-router-dom";
 
 import { lazy, Suspense } from "react";
 
+import Home from "../../../BODY/home/HOME.jsx";
 const Gallery = lazy(() => import("../../../BODY/gallery/GALLERY.jsx"));
-const Home = lazy(() => import("../../../BODY/home/HOME.jsx"));
-const ContactUs = lazy(() => import("../../../BODY/contactUs/contactUs.jsx"));
 const UniqueImage = lazy(() =>
   import("../../../BODY/uniqueImagePage/uniqueImage.jsx")
 );
+
+import ContactUs from "../../../BODY/contactUs/contactUs.jsx";
 import Loading from "../../../LOADING/loading.jsx";
 
 import useGetLocation from "@hooks/useGetLocation.jsx";
 import useGetParams from "@hooks/useGetParams.jsx";
 import useData from "@hooks/useData.jsx";
-
 import dataHandler from "../../functions/dataHandler.js";
 
 const GalleryRoute = () => {
