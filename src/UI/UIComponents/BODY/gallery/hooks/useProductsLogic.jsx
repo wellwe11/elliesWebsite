@@ -16,10 +16,13 @@ const useProductsLogic = (page, filteredData) => {
 
     if (page) {
       setUpdatedData(slicedProducs);
-      window.scrollTo({ top: 0 });
     }
     setIsLoading(false);
   }, [page, filteredData]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [page]);
 
   return { updatedData, isLoading };
 };

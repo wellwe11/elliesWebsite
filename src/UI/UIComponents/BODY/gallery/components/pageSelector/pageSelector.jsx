@@ -54,7 +54,6 @@ const LeftButton = ({ page, navigate, category }) => {
   const decrement = () => {
     // prevent page from going below 0
     if (page > 0) {
-      // scrollTop();
       navigate(url);
     }
   };

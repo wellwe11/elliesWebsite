@@ -5,7 +5,7 @@ import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT.j
 const NavButton = ({ children, link }) => {
   const navigate = useNavigate();
 
-  const handleNavigate = async () => {
+  const handleNavigate = () => {
     navigate(link);
     window.scrollTo({ top: 0 });
   };

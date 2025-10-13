@@ -3,11 +3,8 @@ import useData from "@hooks/useData.jsx";
 import QuickViewImage from "@fullyComponents/quickView/quickViewImage/quickViewImage.jsx";
 import Cart from "../../../BODY/cart/cart.jsx";
 import useGetParams from "@hooks/useGetParams.jsx";
-import { useTransition } from "react";
 
 const PreviewRoute = ({ backgroundLocation }) => {
-  const [isPending, startTransition] = useTransition();
-
   const { data, isLoading } = useData(backgroundLocation);
 
   const { category, id } = useGetParams();

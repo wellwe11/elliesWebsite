@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 
 import { lazy, Suspense } from "react";
 
-import Home from "../../../BODY/home/HOME.jsx";
+const Home = lazy(() => import("../../../BODY/home/HOME.jsx"));
 const Gallery = lazy(() => import("../../../BODY/gallery/GALLERY.jsx"));
 const UniqueImage = lazy(() =>
   import("../../../BODY/uniqueImagePage/uniqueImage.jsx")
