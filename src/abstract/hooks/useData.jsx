@@ -16,6 +16,7 @@ const useData = (tab, category) => {
 
       if (isMounted && fetchedData) {
         setIsLoading(false);
+
         setData(fetchedData);
       }
     };

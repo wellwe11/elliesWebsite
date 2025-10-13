@@ -16,38 +16,8 @@ import BackgroundRoutes from "./components/backgroundRoutes/backgroundRoutes.jsx
 import useGetLocation from "@hooks/useGetLocation.jsx";
 import Loading from "../LOADING/loading.jsx";
 
-export const useDataZustand = create((set, get) => ({
-  isLoading: false,
-  setIsLoading: (boolean) => set({ isLoading: boolean }),
-
-  data: null,
-  setData: (d) => set({ data: d }),
-  fetchData: async (path) => {
-    set({ isLoading: true, data: null });
-    try {
-      const response = await fetch(path);
-
-      if (!response.ok) {
-        console.error("Failed to fetch data");
-        set({ data: null, isLoading: false });
-        return false;
-      }
-
-      const JSONData = await response.json();
-
-      if (JSONData) {
-        set({ data: JSONData, isLoading: false });
-        return true;
-      } else {
-        set({ isLoading: false, data: null });
-        return false;
-      }
-    } catch (err) {
-      console.error(err);
-      return false;
-    }
-  },
-}));
+// will fix for future - to use instead of uniqueImageContext
+export const useDataZustand = create((set, get) => ({}));
 
 const RouteContainer = () => {
   const [cart, setCart] = useState({}); // context for whichever product is in focus

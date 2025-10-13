@@ -8,10 +8,6 @@ import Products from "./components/products/products";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import useProductsLogic from "./hooks/useProductsLogic.jsx";
-import useGetParams from "@hooks/useGetParams.jsx";
-import { useDataZustand } from "../../routeContainer/routeContainer.jsx";
-import useUpdateDataLogic from "../../routeContainer/hooks/useUpdateDataLogic.jsx";
-import useData from "../../../../abstract/hooks/useData.jsx";
 
 // buttons on left to select specific items based on their type
 const FilterSideBarWrapperComponent = ({ dataKeys, category }) => {
@@ -67,15 +63,7 @@ const PageWrapperComponent = ({ filteredData }) => {
   );
 };
 
-const Gallery = () => {
-  const { category, page } = useGetParams();
-
-  // const { data, isLoading } = useDataZustand();
-
-  const { data, isLoading } = useData("gallery");
-
-  const { updatedData } = useUpdateDataLogic(category, data);
-
+const Gallery = ({ data: { category, updatedData, page } }) => {
   return (
     <div className={classes.gallery}>
       <div className={classes.galleryTop}>

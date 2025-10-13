@@ -7,6 +7,8 @@ import mainImage from "@assets/welcomeImage.jpg";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 
+import Loading from "../../LOADING/loading.jsx";
+
 // Component containing all info for top-section
 const UniqueTopSectionComponent = ({ info, foundObject }) => {
   // currently placeholders right now. Not sure what I will use, but there will be text related to the set somehow.
@@ -48,16 +50,16 @@ const UniqueInfoSectionComponent = ({ info, foundObject }) => {
   );
 };
 
-const UniqueImage = ({ data, info }) => {
+const UniqueImage = ({ data: { foundObj, info } }) => {
   const uniqueTopSectionWrapper = (
     <section className={classes.uniqueTopSectionWrapper}>
-      <UniqueTopSectionComponent info={info} foundObject={data} />
+      <UniqueTopSectionComponent info={info} foundObject={foundObj} />
     </section>
   );
 
   const uniqueInfoSectionWrapper = (
     <section className={classes.uniqueInfoSectionWrapper}>
-      <UniqueInfoSectionComponent info={info} foundObject={data} />
+      <UniqueInfoSectionComponent info={info} foundObject={foundObj} />
     </section>
   );
 

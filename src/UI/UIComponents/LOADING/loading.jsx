@@ -1,9 +1,7 @@
+import classes from "./loading.module.scss";
+
 const Loading = () => {
-  return (
-    <div>
-      <h1>Loading</h1>
-    </div>
-  );
+  return <div className={classes.loadingContainer} />;
 };
 
 export default Loading;

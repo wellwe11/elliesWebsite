@@ -4,7 +4,7 @@ import handleDisplayedProducts from "../functions/handleDisplayedProducts.js";
 
 // slices products based on what page user is on
 const useProductsLogic = (page, filteredData) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [updatedData, setUpdatedData] = useState(() =>
     handleDisplayedProducts(page, filteredData)
   ); // initial data
