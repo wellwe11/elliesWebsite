@@ -22,7 +22,7 @@ const useProductsLogic = (page, filteredData) => {
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
-  }, [page]);
+  }, [updatedData]);
 
   return { updatedData, isLoading };
 };
