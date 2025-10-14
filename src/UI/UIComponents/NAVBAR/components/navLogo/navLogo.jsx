@@ -9,6 +9,7 @@ const NavLogo = ({ setActiveButton, setHoverButton }) => {
     <div
       className={classes.logoContainer}
       onClick={() => {
+        window.scrollTo({ top: 0 });
         setActiveButton(0);
         setHoverButton(0);
         navigate("./");

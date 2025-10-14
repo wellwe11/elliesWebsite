@@ -2,8 +2,6 @@ import classes from "./routeContainer.module.scss";
 
 import { Suspense, useState } from "react";
 
-import { create } from "zustand";
-
 import Footer from "../FOOTER/footer.jsx";
 import Navbar from "../NAVBAR/navbar.jsx";
 
@@ -15,12 +13,12 @@ import MainPagesRoutes from "./components/mainPageRoutes/mainPageRoutes.jsx";
 import BackgroundRoutes from "./components/backgroundRoutes/backgroundRoutes.jsx";
 import useGetLocation from "@hooks/useGetLocation.jsx";
 import Loading from "../LOADING/loading.jsx";
-import fetchDataAndAssignID from "../../../abstract/functions/fetches/fetchDataAndAssignId.js";
 
-// will fix for future - to use instead of uniqueImageContext
-export const useDataZustand = create((set, get) => ({
+import { create } from "zustand";
+
+// is for future, will store data in here to fetch it over the page
+export const storeData = create((set) => ({
   data: null,
-  fetchData: async (d) => fetchDataAndAssignID(d),
   setData: (d) => set({ data: d }),
 }));
 
