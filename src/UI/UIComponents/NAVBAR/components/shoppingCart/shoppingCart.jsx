@@ -4,11 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { useMemo } from "react";
 
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
+import { storeData } from "../../../routeContainer/routeContainer.jsx";
 
-const ShoppingCart = ({ cartItems }) => {
+const ShoppingCart = () => {
   const navigate = useNavigate();
 
-  const totalItemsInCart = useMemo(() => cartItems(), [cartItems]);
+  const cartItems = storeData((set) => set.cart);
+  const totalItemsInCart = useMemo(() => cartItems, [cartItems]);
 
   const navigateCart = () => {
     if (location.pathname !== "/cart") {

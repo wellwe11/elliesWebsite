@@ -9,7 +9,7 @@ import NavLogo from "./components/navLogo/navLogo.jsx";
 import NavbarButtons from "./components/navBarButtons/navBarButtons.jsx";
 import ShoppingCart from "./components/shoppingCart/shoppingCart.jsx";
 
-const Navbar = ({ cartItems, setFetchedData }) => {
+const Navbar = ({ setFetchedData }) => {
   const buttons = {
     home: "",
     gallery: "/gallery?page=1",
@@ -51,7 +51,7 @@ const Navbar = ({ cartItems, setFetchedData }) => {
   // shoppingcart
   const shoppingCartWrapper = (
     <div className={classes.shoppingCartWrapper}>
-      <ShoppingCart cartItems={cartItems} />
+      <ShoppingCart />
     </div>
   );
 
