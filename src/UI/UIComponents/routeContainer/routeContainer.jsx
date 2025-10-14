@@ -5,7 +5,7 @@ import { Suspense, useState } from "react";
 import Footer from "../FOOTER/footer.jsx";
 import Navbar from "../NAVBAR/navbar.jsx";
 
-import UniqueImageContext from "../BODY/cartContext.jsx";
+import cartContext from "../BODY/cartContext.jsx";
 
 import getTotalInfo from "./functions/totalItems.js";
 
@@ -20,6 +20,9 @@ import { create } from "zustand";
 export const storeData = create((set) => ({
   data: null,
   setData: (d) => set({ data: d }),
+
+  cart: {},
+  setCart: (e) => set({ cart: e }),
 }));
 
 const RouteContainer = () => {
@@ -34,12 +37,10 @@ const RouteContainer = () => {
       <Navbar cartItems={totalItems} />
 
       <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
-        <UniqueImageContext.Provider
-          value={{ cart, setCart, totalItems, totalPrice }}
-        >
+        <cartContext.Provider value={{ cart, setCart, totalItems, totalPrice }}>
           <MainPagesRoutes />
           {state?.backgroundLocation && <BackgroundRoutes />}
-        </UniqueImageContext.Provider>
+        </cartContext.Provider>
         <Footer />
       </div>
     </div>
