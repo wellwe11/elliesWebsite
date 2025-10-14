@@ -7,18 +7,22 @@ import { storeData } from "../../../../routeContainer/routeContainer.jsx";
 
 const Products = () => {
   const { cart, getItemId } = storeData(),
-    cartEntries = Object.values(cart);
+    cartValues = Object.values(cart);
 
-  console.log(cart, cartEntries);
+  console.log(cart, cartValues);
 
-  const cartProductsWrapper = cartEntries.map((obj, index) => (
-    <Product product={obj.item} amount={obj.quantity} />
+  const cartProductsWrapper = cartValues.map((obj, index) => (
+    <Product
+      key={getItemId(obj.item)}
+      product={obj.item}
+      amount={obj.quantity}
+    />
   ));
 
   return (
     <div className={classes.cartProductsContainer}>
       {cartProductsWrapper}
-      {cartEntries?.length < 1 && <CartBottomItem />}
+      {cartValues.length < 1 && <CartBottomItem />}
     </div>
   );
 };
