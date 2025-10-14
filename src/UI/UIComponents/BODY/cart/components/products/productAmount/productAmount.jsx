@@ -90,7 +90,7 @@ const Input = ({ product, amount }) => {
       className={classes.productAmountInput}
       onKeyDown={handleClickEnterInput}
       onChange={handleChangeInput}
-      value={+value}
+      value={value}
       onBlur={handleMouseClickOutsideInput}
     />
   );
