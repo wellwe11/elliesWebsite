@@ -1,7 +1,7 @@
 import ArrowRoundEdgesSVG from "@components/SVGS/arrowRoundEdgesSVG/arrowRoundEdgesSVG";
 import classes from "./pageSelector.module.scss";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import usePageNumbersLogic from "./hooks/usePageNumbersLogic.jsx";
 import useGetParams from "../../../../../../abstract/hooks/useGetParams.jsx";
 
@@ -54,6 +54,7 @@ const LeftButton = ({ page, navigate, category }) => {
   const decrement = () => {
     // prevent page from going below 0
     if (page > 0) {
+      // scrollTop();
       navigate(url);
     }
   };
