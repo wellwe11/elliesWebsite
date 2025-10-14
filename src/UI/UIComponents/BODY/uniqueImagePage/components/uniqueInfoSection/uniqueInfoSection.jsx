@@ -1,16 +1,17 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import classes from "./uniqueInfoSection.module.scss";
-import cartContext from "../../../cartContext.jsx";
+
 import ButtonStyle from "../uniqueButton/uniqueButton.jsx";
 import transitionInAnimation from "@functions/transitionAnimation";
-import { addToCart } from "@functions/handleCart.js";
+
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG.jsx";
+import { storeData } from "../../../../routeContainer/routeContainer.jsx";
 
 const InfoSectionBio = ({ details, bioRef, foundObject }) => {
-  const { setCart } = useContext(cartContext);
+  const { addToCart } = storeData();
 
   const handleCart = (item) => {
-    addToCart(setCart, item);
+    addToCart(item);
   };
 
   const addToCartButtonWrapper = (

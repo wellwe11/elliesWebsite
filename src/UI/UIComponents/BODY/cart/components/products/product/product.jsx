@@ -4,20 +4,19 @@ import ProductImage from "../productImage/productImage.jsx";
 import ProductName from "../productName/productName.jsx";
 import ProductPrice from "../productPrice/productPrice.jsx";
 
-export const Product = ({ product, length }) => {
-  const specificProduct = product?.[0]; // select first item in array, since all items are identical.
+export const Product = ({ product, amount }) => {
   const {
     image: image,
     _embedded: {
       setTitle: name,
       details: { price: price },
     },
-  } = specificProduct;
+  } = product;
 
   const leftSection = (
     <div className={classes.leftSection}>
       <ProductName name={name} />
-      <ProductAmount product={product} length={length} />
+      <ProductAmount product={product} amount={amount} />
     </div>
   );
 

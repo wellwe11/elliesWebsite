@@ -2,18 +2,16 @@ import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import classes from "./products.module.scss";
 
 import QuickView from "@fullyComponents/quickView/quickView";
-import { addToCart } from "@functions/handleCart";
-import { useContext } from "react";
-import cartContext from "../../../cartContext.jsx";
+
+import { storeData } from "../../../../routeContainer/routeContainer.jsx";
+import { capitalizeFirstLetter } from "../../../../../../abstract/functions/firstLetterCapital.js";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ product, bioData }) => {
-  const { setCart } = useContext(cartContext);
+  const addToCart = storeData((state) => state.addToCart);
 
   // I.e. Paintings, Prints etc.
-  const type =
-    bioData.details.type.slice(0, 1).toUpperCase() +
-    bioData.details.type.slice(1); // Starts with uppercase
+  const type = capitalizeFirstLetter(bioData.details.type);
 
   const Type = (
     <div className={classes.type}>
@@ -40,7 +38,7 @@ const ProductBio = ({ product, bioData }) => {
   );
 
   const handleCart = (item) => {
-    addToCart(setCart, item);
+    addToCart(item);
   };
 
   // button which will be adding object to a context containing the cart-information.

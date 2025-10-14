@@ -9,8 +9,9 @@ import { storeData } from "../../../routeContainer/routeContainer.jsx";
 const ShoppingCart = () => {
   const navigate = useNavigate();
 
-  const cartItems = storeData((set) => set.cart);
-  const totalItemsInCart = useMemo(() => cartItems, [cartItems]);
+  const { cart, getTotalItems } = storeData();
+
+  const totalItemsInCart = useMemo(() => getTotalItems(), [cart]);
 
   const navigateCart = () => {
     if (location.pathname !== "/cart") {

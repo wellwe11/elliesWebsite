@@ -1,16 +1,18 @@
 import classes from "./products.module.scss";
 
-import { useContext } from "react";
 import { Product } from "./product/product.jsx";
-import cartContext from "../../../cartContext.jsx";
+
 import CartBottomItem from "../cartBottomItem/cartBottomItem.jsx";
+import { storeData } from "../../../../routeContainer/routeContainer.jsx";
 
 const Products = () => {
-  const { cart } = useContext(cartContext),
-    cartEntries = Object.entries(cart);
+  const { cart, getItemId } = storeData(),
+    cartEntries = Object.values(cart);
 
-  const cartProductsWrapper = cartEntries.map(([name, arr], index) => (
-    <Product key={name + index} product={arr} length={arr.length} />
+  console.log(cart, cartEntries);
+
+  const cartProductsWrapper = cartEntries.map((obj, index) => (
+    <Product product={obj.item} amount={obj.quantity} />
   ));
 
   return (

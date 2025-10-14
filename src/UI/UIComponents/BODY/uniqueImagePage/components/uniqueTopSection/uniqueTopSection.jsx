@@ -1,16 +1,15 @@
 import classes from "./uniqueTopSection.module.scss";
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
-import { useContext } from "react";
-import cartContext from "../../../cartContext.jsx";
-import { addToCart } from "@functions/handleCart";
+
 import ButtonStyle from "../uniqueButton/uniqueButton.jsx";
+import { storeData } from "../../../../routeContainer/routeContainer.jsx";
 
 const ButtonsWrapper = ({ foundObject }) => {
-  const { setCart } = useContext(cartContext);
+  const { addToCart } = storeData();
 
   const handleCart = (item) => {
-    addToCart(setCart, item);
+    addToCart(item);
   };
 
   const addToCartButtonWrapper = (

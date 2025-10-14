@@ -1,28 +1,20 @@
 import classes from "./productAmount.module.scss";
 
-import {
-  addToCart,
-  changeFromInputToCart,
-  removeFromCart,
-} from "@functions/handleCart";
-import { useContext, useRef, useState } from "react";
-import cartContext from "../../../../cartContext.jsx";
+import { useEffect, useState } from "react";
+import { storeData } from "../../../../../routeContainer/routeContainer.jsx";
 
 // increase number of items
-const PlusButton = ({ setLocalCart, product }) => {
-  const { setCart } = useContext(cartContext);
+const PlusButton = ({ product }) => {
+  const addToCart = storeData((state) => state.addToCart);
 
-  const handlePlus = (item) => {
-    addToCart(setCart, item);
+  const handlePlus = () => {
+    addToCart(product);
   };
 
   return (
     <button
       className={`${classes.amountBtn} ${classes.plus}`}
-      onClick={() => {
-        handlePlus(product[0]);
-        setLocalCart((prev) => prev + 1);
-      }}
+      onClick={handlePlus}
     >
       +
     </button>
@@ -30,20 +22,17 @@ const PlusButton = ({ setLocalCart, product }) => {
 };
 
 // decrease number of items & if decreased to 0, remove item
-const MinusButton = ({ setLocalCart, product }) => {
-  const { setCart } = useContext(cartContext);
+const MinusButton = ({ product }) => {
+  const removeFromCart = storeData((state) => state.removeFromCart);
 
-  const handleMinus = (item) => {
-    removeFromCart(setCart, item);
+  const handleMinus = () => {
+    removeFromCart(product);
   };
 
   return (
     <button
       className={`${classes.amountBtn} ${classes.minus}`}
-      onClick={() => {
-        handleMinus(product);
-        setLocalCart((prev) => prev - 1);
-      }}
+      onClick={handleMinus}
     >
       -
     </button>
@@ -51,69 +40,68 @@ const MinusButton = ({ setLocalCart, product }) => {
 };
 
 // input which allow user to write amount of products
-const Input = ({ localCart, setLocalCart, product }) => {
-  const { setCart } = useContext(cartContext);
+const Input = ({ product, amount }) => {
+  const { changeFromInputToCart } = storeData();
 
-  const inputRef = useRef(); // for tracking value; inputRef.current.value
+  const [value, setValue] = useState(amount);
 
-  const handleClickEnterInput = (e, item) => {
+  useEffect(() => {
+    if (+value !== amount) {
+      setValue(amount);
+    }
+  }, [amount]);
+
+  const handleClickEnterInput = (e) => {
     // user clicks enter while focusing Input and confirms amount
-    const value = +inputRef.current.value; // inputs value
 
-    if (value === length) return; // if value is the same as the amount of items that are already in cart, do nothing
     if (e.key === "Enter") {
-      if (localCart.length > 0) {
+      if (+value > 0) {
         // if there are items in the cart
-        changeFromInputToCart(setCart, item, +localCart);
+        changeFromInputToCart(product, +value);
       } else {
         // else, remove the item
-        changeFromInputToCart(setCart, item, 0);
+        changeFromInputToCart(product, 0);
       }
     }
   };
 
-  const handleMouseClickOutsideInput = (item) => {
+  const handleMouseClickOutsideInput = () => {
     // user has typed new amount and clicks outside Input
     // If user inputs a new amount, and then clicks outside the input; updates input as if enter was clicked
-    const value = +inputRef.current.value; // input value
 
-    setLocalCart(value); // update localCart to visible display change
-    changeFromInputToCart(setCart, item, value); // update array
+    changeFromInputToCart(product, +value); // update array
   };
 
   const handleChangeInput = (e) => {
     // user writes new input in Input
     // update input & localCart
-    const input = e?.target?.value;
-    if (input === +length) return;
 
-    setLocalCart(input);
+    const input = e?.target?.value;
+
+    if (input === "" || input >= 0) {
+      setValue(input);
+    }
+
+    return;
   };
 
   return (
     <input
       className={classes.productAmountInput}
-      ref={inputRef}
-      value={localCart}
-      onKeyDown={(e) => handleClickEnterInput(e, product)}
+      onKeyDown={handleClickEnterInput}
       onChange={handleChangeInput}
-      onBlur={() => handleMouseClickOutsideInput(product)}
+      value={+value}
+      onBlur={handleMouseClickOutsideInput}
     />
   );
 };
 
-const ProductAmount = ({ product, length }) => {
-  const [localCart, setLocalCart] = useState(length); // a shared state that helps Input to visible update it's content; helps user see what is currently being displayed before any logic is implemented
-
+const ProductAmount = ({ product, amount }) => {
   return (
     <div className={classes.productAmount}>
-      <MinusButton setLocalCart={setLocalCart} product={product} />
-      <Input
-        localCart={localCart}
-        setLocalCart={setLocalCart}
-        product={product}
-      />
-      <PlusButton setLocalCart={setLocalCart} product={product} />
+      <MinusButton product={product} />
+      <Input amount={amount} product={product} />
+      <PlusButton product={product} />
     </div>
   );
 };

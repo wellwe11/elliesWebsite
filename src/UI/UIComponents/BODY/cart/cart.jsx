@@ -1,13 +1,11 @@
 import classes from "./cart.module.scss";
-import { useContext } from "react";
-
-import cartContext from "../cartContext";
 
 import Products from "./components/products/products";
 import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickViewButton";
 import X_SVG from "@components/SVGS/X_SVG/X_SVG";
 import useAddDisplayClass from "./hooks/useAddDisplayClass.jsx";
 import useNavigateBack from "./hooks/useNavigateBack.jsx";
+import { storeData } from "../../routeContainer/routeContainer.jsx";
 
 const ToPaymentMethod = () => {
   return (
@@ -18,9 +16,9 @@ const ToPaymentMethod = () => {
 };
 
 const TotalProducts = () => {
-  const { totalItems, totalPrice } = useContext(cartContext),
-    totalItemsVar = totalItems(),
-    totalPriceVar = Math.round(+totalPrice() * 100) / 100, // 19.999999... === 19.99
+  const { getTotalItems, getTotalPrice } = storeData(),
+    totalItemsVar = getTotalItems(),
+    totalPriceVar = Math.round(+getTotalPrice() * 100) / 100, // 19.999999... === 19.99
     currency = "€"; // will change in future
 
   const subtotalWrapper = (

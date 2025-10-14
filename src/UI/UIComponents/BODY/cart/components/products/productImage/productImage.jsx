@@ -5,8 +5,8 @@ import bodyNoScroll from "@functions/bodyNoScroll";
 const ProductImage = ({ image, alt, product }) => {
   const navigate = useNavigate();
 
-  const productId = product[0].id,
-    productType = product[0]._embedded.details.type;
+  const productId = product.id,
+    productType = product._embedded.details.type;
 
   const handleNavigate = () => {
       bodyNoScroll().enableScroll();
