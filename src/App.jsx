@@ -26,13 +26,10 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- *  Loading page for when pages switch (perhaps old page displayed white loading)
  *  Error page (if page not found)
- *
- *
  * ------------------------------------------------
  * ** BUGS **
- * Navbar underline changes when you VIEW CART. Underline should also point to Gallery when on uniqueImage
+ * Navbar underline changes when you VIEW CART. Underline should also point to previous page when on uniqueImage
  * ViewCart text doesnt appear on smaller screens
  * ------------------------------------------------
  * ** THINGS TO FIX **

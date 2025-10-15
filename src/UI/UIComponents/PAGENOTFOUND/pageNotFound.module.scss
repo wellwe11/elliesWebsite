@@ -1,0 +1,13 @@
+.pageNotFound {
+  height: 500px;
+
+  display: flex;
+
+  .textWrapper {
+    max-width: 65%;
+
+    h1 {
+      text-wrap: wrap;
+    }
+  }
+}

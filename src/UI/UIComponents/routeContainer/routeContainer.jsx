@@ -4,6 +4,7 @@ import { Suspense } from "react";
 
 import Footer from "../FOOTER/footer.jsx";
 import Navbar from "../NAVBAR/navbar.jsx";
+import PageNotFound from "../PAGENOTFOUND/pageNotFound.jsx";
 
 import MainPagesRoutes from "./components/mainPageRoutes/mainPageRoutes.jsx";
 import BackgroundRoutes from "./components/backgroundRoutes/backgroundRoutes.jsx";
@@ -11,8 +12,8 @@ import useGetLocation from "@hooks/useGetLocation.jsx";
 import Loading from "../LOADING/loading.jsx";
 
 import { create } from "zustand";
+import { Route, Routes } from "react-router-dom";
 
-// is for future, will store data in here to fetch it over the page
 export const storeData = create((set, get) => ({
   cart: {},
   setCart: (e) => set({ cart: e }),
@@ -127,7 +128,7 @@ export const storeData = create((set, get) => ({
 
       // If amount <= 0, remove product from cart entirely
       if (amount <= 0) {
-        const { [key]: _, restOfCart } = state.cart;
+        const { [key]: _, ...restOfCart } = state.cart;
         return {
           cart: restOfCart,
         };
@@ -152,6 +153,10 @@ const RouteContainer = () => {
       <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
         <MainPagesRoutes />
         {state?.backgroundLocation && <BackgroundRoutes />}
+
+        <Routes>
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
 
         <Footer />
       </div>
