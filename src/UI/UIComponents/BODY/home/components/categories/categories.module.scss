@@ -116,7 +116,7 @@
     .categoriesWrapper {
       max-width: 50%;
       min-width: 50%;
-      height: clamp(250px, 30vw, 350px);
+      height: clamp(150px, 50vw, 324px);
 
       padding-bottom: var(--step-1);
       &:nth-of-type(odd) {
