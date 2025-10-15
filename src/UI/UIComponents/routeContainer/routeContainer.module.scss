@@ -12,6 +12,7 @@
 
   .contentWrapper {
     height: 100%;
+    height: 100%;
 
     /* All CONTENT (Except unique components, ex: navbar(which should still obide by the general approach of sizes)) will be inside a defined width. This should not match max-screen-width */
     /* contentWrapper styled definitions */
@@ -33,23 +34,22 @@
 
     /* normal laptop */
     @media screen and (max-width: 1024px) {
-      width: 650px;
+      max-width: 650px;
     }
 
     /* tablet */
     @media screen and (max-width: 800px) {
-      width: 530px;
+      max-width: 530px;
     }
 
     /* tablet small */
     @media screen and (max-width: 650px) {
-      width: 350px;
+      max-width: 450px;
     }
 
     /* mobile */
     @media screen and (max-width: 450px) {
-      width: 70vw;
-      min-width: 350px;
+      max-width: 250px;
     }
   }
 
