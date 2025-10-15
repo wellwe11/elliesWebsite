@@ -1,36 +1,36 @@
 .LogoWithTextPresentation {
-  min-width: 320px;
-
-  height: 7vw;
-  min-height: 50px;
-
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
+  padding-bottom: var(--step-1);
+
   .imagesWrapper {
-    width: 35%;
-    min-width: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    width: 10vw;
   }
 
   .title {
-    width: 100%;
     text-wrap: nowrap;
 
-    padding-left: var(--step-1);
-    h1 {
+    .logoTitle {
       font-family: "Mrs Saint Delafield", cursive, Arial, sans-serif;
       animation: fadeInText 1s ease forwards 1s;
       opacity: 0;
     }
   }
+
+  @media screen and (max-width: 450px) {
+    display: none;
+  }
 }
 
 .image {
-  height: clamp(15px, 5vw, 30px);
+  height: clamp(var(--step-1), 3vw, var(--step-4));
   border-radius: 90px;
 
   &.img0 {
@@ -61,13 +61,13 @@
 
   100% {
     opacity: 1;
-    transform: rotate(00deg);
+    transform: rotate(0deg);
   }
 }
 
 @keyframes fadeInText {
   0% {
-    transform: translateX(5px);
+    transform: translateX(1px);
     opacity: 0;
   }
 

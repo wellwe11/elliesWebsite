@@ -13,12 +13,12 @@ const LogoWithTextPresentation = ({ images }) => {
   ));
 
   // Title that is displayed together with mappedCircleImages
-  const logoTitle = <h1>elisabeth chloé</h1>;
+  const logoTitle = <h1 className={classes.logoTitle}>elisabeth chloé</h1>;
 
   return (
     <div className={classes.LogoWithTextPresentation}>
-      <div className={classes.imagesWrapper}>{MappedCircleImages}</div>
       <div className={classes.title}>{logoTitle}</div>
+      <div className={classes.imagesWrapper}>{MappedCircleImages}</div>
     </div>
   );
 };
