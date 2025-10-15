@@ -105,7 +105,7 @@ const Home = ({ data: { paintingsData, printsData, servicesData } }) => {
   );
 
   return (
-    <div>
+    <div className={classes.home}>
       {topSection}
       {sectionSeperatorWithNoImage}
 
@@ -113,13 +113,15 @@ const Home = ({ data: { paintingsData, printsData, servicesData } }) => {
       {sectionSeperatorWithNoImage}
 
       {printSection}
-      {sectionSeperatorWithImage}
 
       {/* {newInSection}
         {sectionSeperatorWithImage} */}
 
-      {servicesSection}
-      {sectionSeperatorWithImage}
+      <div className={classes.servicesWrapper}>
+        {sectionSeperatorWithImage}
+        {servicesSection}
+        {sectionSeperatorWithImage}
+      </div>
 
       {paintingsSection}
       {sectionSeperatorWithImage}

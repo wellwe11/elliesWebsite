@@ -1,3 +1,35 @@
+.home {
+  .servicesWrapper {
+    @media screen and (max-width: 1024px) {
+      /*
+  * disable component for smaller screens *
+  navigation requires mouse for smooth interaction
+  so disabling it will lead to better user-experience for
+  smaller screen
+  */
+      display: none !important;
+    }
+  }
+
+  .topSection {
+  }
+
+  .categoriesSection {
+  }
+
+  .printSection {
+  }
+
+  .serviceSection {
+  }
+
+  .paintingSection {
+  }
+
+  .newInSection {
+  }
+}
+
 .sectionSeperationWrapper {
   width: 100%;
   height: 5vw;
@@ -10,22 +42,4 @@
     margin-top: 5px;
     margin-bottom: 5px;
   }
-}
-
-.topSection {
-}
-
-.categoriesSection {
-}
-
-.printSection {
-}
-
-.serviceSection {
-}
-
-.paintingSection {
-}
-
-.newInSection {
 }
