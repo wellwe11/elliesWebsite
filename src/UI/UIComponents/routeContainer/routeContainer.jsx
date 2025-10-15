@@ -4,7 +4,6 @@ import { Suspense } from "react";
 
 import Footer from "../FOOTER/footer.jsx";
 import Navbar from "../NAVBAR/navbar.jsx";
-import PageNotFound from "../PAGENOTFOUND/pageNotFound.jsx";
 
 import MainPagesRoutes from "./components/mainPageRoutes/mainPageRoutes.jsx";
 import BackgroundRoutes from "./components/backgroundRoutes/backgroundRoutes.jsx";
@@ -153,10 +152,6 @@ const RouteContainer = () => {
       <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
         <MainPagesRoutes />
         {state?.backgroundLocation && <BackgroundRoutes />}
-
-        <Routes>
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
 
         <Footer />
       </div>

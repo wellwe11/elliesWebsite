@@ -15,6 +15,7 @@ import useGetLocation from "@hooks/useGetLocation.jsx";
 import useGetParams from "@hooks/useGetParams.jsx";
 import useData from "@hooks/useData.jsx";
 import dataHandler from "../../functions/dataHandler.js";
+import PageNotFound from "../../../PAGENOTFOUND/pageNotFound.jsx";
 
 const GalleryRoute = () => {
   const { category, page } = useGetParams();
@@ -69,7 +70,8 @@ const MainPagesRoutes = () => {
           path="/uniqueImage/:category?/:id?/*"
           element={<UniqueImageRoute />}
         />
-        ;
+
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Suspense>
   );

@@ -15,6 +15,8 @@ const ViewProductButton = () => {
 
   const { category, id } = useGetParams();
 
+  console.log(category, id);
+
   return (
     <div className={classes.viewProductButtonWrapper}>
       <QuickViewButton

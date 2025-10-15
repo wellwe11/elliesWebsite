@@ -26,16 +26,18 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- *  Error page (if page not found)
- * ------------------------------------------------
- * ** BUGS **
- * Navbar underline changes when you VIEW CART. Underline should also point to previous page when on uniqueImage
- * ViewCart text doesnt appear on smaller screens
- * ------------------------------------------------
- * ** THINGS TO FIX **
  * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)
+ * ---ViewCart text doesnt appear on smaller screens
+ *
  * Website need to scale well for bigger screens as well. Currently, some images & texts scale very strangely with big screens
  *
+ * Navbar underline changes when you VIEW CART. Underline should also point to previous page when on uniqueImage
+ *
+ * uniqueImage doesnt scroll to top onload
+ * ------------------------------------------------
+ * ** BUGS **
+ * ------------------------------------------------
+ * ** THINGS TO FIX **
  * sectionSeperationImage has a useeffect that tracks it's own movements. I have a function for that. Remove it from the component, and use the function that I have instead
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
