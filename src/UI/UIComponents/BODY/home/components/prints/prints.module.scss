@@ -18,4 +18,12 @@
 
   .sectionSeperationImage {
   }
+
+  @media screen and (max-width: 350px) {
+    .wheelImagesSection,
+    .sectionSeperationImage,
+    .exampleCollectionSection {
+      display: none;
+    }
+  }
 }
