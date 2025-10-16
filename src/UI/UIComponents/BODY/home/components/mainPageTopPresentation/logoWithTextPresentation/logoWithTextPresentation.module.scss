@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
 
-  padding-bottom: var(--step-1);
+  padding-bottom: var(--spacing-1);
 
   .imagesWrapper {
     display: flex;
@@ -30,7 +30,7 @@
 }
 
 .image {
-  height: clamp(var(--step-1), 3vw, var(--step-4));
+  height: clamp(var(--spacing-1), 4vw, var(--spacing-4));
   border-radius: 90px;
 
   &.img0 {

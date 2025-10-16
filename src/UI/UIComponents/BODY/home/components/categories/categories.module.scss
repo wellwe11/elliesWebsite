@@ -62,7 +62,7 @@
     min-width: 25%;
     height: clamp(300px, 25vw, 350px);
 
-    padding: var(--step-1);
+    padding: var(--spacing-1);
 
     display: flex;
     flex-direction: column;
@@ -70,16 +70,6 @@
     justify-content: center;
 
     cursor: pointer;
-
-    &:first-of-type {
-      padding-right: var(--step-1);
-      padding-left: 0px;
-    }
-
-    &:last-of-type {
-      padding-left: var(--step-1);
-      padding-right: 0px;
-    }
 
     .imageWrapper {
       // height: clamp(100px, 15vw, 350px);
@@ -112,20 +102,41 @@
     }
   }
 
+  @media screen and (min-width: 1024px) {
+    &:first-of-type {
+      padding-right: var(--spacing-1);
+      padding-left: 0px;
+
+      // enforce same size for all containers
+      max-width: calc(25% - var(--spacing-1));
+      min-width: calc(25% - var(--spacing-1));
+    }
+
+    &:last-of-type {
+      padding-left: var(--spacing-1);
+      padding-right: 0px;
+
+      // enforce same size for all containers
+      max-width: calc(25% - var(--spacing-1));
+      min-width: calc(25% - var(--spacing-1));
+    }
+  }
+
   @media screen and (max-width: 1024px) {
     .categoriesWrapper {
       max-width: 50%;
       min-width: 50%;
       height: clamp(150px, 50vw, 324px);
 
-      padding-bottom: var(--step-1);
+      padding-bottom: var(--spacing-3);
+
       &:nth-of-type(odd) {
-        padding-right: var(--step-1);
+        padding-right: var(--spacing-1);
         padding-left: 0px;
       }
 
       &:nth-of-type(even) {
-        padding-left: var(--step-1);
+        padding-left: var(--spacing-1);
         padding-right: 0px;
       }
     }

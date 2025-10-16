@@ -4,11 +4,14 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: var(--step-1);
+  padding: var(--spacing-1);
 
   background-color: var(--c-grey-100);
 
-  width: 250px;
+  width: clamp(200px, 15vw, 220px);
+
+  @media screen and (min-width: 1024px) {
+  }
 }
 
 // PageNumbers
@@ -34,6 +37,11 @@
   cursor: pointer;
 
   position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   .btnText {
     width: 70%;
     height: 95%;
@@ -52,15 +60,17 @@
 }
 
 .backToZeroButtonWrapper {
-  padding-left: var(--step-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .leftButtonWrapper {
-  height: var(--step-2);
+  height: var(--spacing-2);
 }
 
 .rightButtonWrapper {
-  height: var(--step-2);
+  height: var(--spacing-2);
   transform: rotateY(180deg);
 }
 

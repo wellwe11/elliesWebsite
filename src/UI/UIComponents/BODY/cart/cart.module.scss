@@ -31,8 +31,8 @@
 
     border-left: 1px solid var(--c-grey-300);
 
-    padding-left: var(--step-1);
-    padding-bottom: var(--step-2);
+    padding-left: var(--spacing-1);
+    padding-bottom: var(--spacing-2);
 
     background-color: white;
 
@@ -74,7 +74,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: var(--step-1);
+      padding: var(--spacing-1) 0px;
     }
 
     .cartBottomSection {
@@ -91,14 +91,14 @@
 
       overflow-y: scroll;
 
-      padding-right: var(--step-1);
+      padding-right: var(--spacing-1);
 
       border-top: 1px solid var(--c-grey-300);
       border-bottom: 1px solid var(--c-grey-300);
 
       &::-webkit-scrollbar {
         width: 8px;
-        padding: var(--step-1);
+        padding: var(--spacing-1);
       }
 
       &::-webkit-scrollbar-track {
@@ -129,7 +129,7 @@
   .totalText {
     font-variation-settings: "wght" 350;
 
-    margin: var(--step-1) 0px;
+    margin: var(--spacing-1) 0px;
 
     position: relative;
 
@@ -142,7 +142,7 @@
       background-color: var(--c-grey-400);
 
       position: absolute;
-      top: var(--step-2);
+      top: var(--spacing-3);
       left: 0px;
     }
   }

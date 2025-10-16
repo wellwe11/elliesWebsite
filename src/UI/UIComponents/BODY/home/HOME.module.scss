@@ -32,13 +32,18 @@
 
 .sectionSeperationWrapper {
   width: 100%;
-  height: 5vw;
 
   margin-top: 2.5vw;
   margin-bottom: 2.5vw;
 
+  border: 1px solid orange;
+
+  @media screen and (max-width: 1024px) {
+    height: var(--spacing-2);
+  }
+
   &.lowMargin {
-    height: 5vw;
+    height: var(--spacing-2);
     margin-top: 5px;
     margin-bottom: 5px;
   }
