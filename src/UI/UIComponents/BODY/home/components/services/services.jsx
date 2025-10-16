@@ -21,8 +21,8 @@ const LeftSection = ({ data, setActiveImage }) => {
         >
           <ButtonWithUnderlineAndUndertext
             index={index}
-            fontSize={"2vw"}
-            fontType={"h1"}
+            fontType={"h3"}
+            fontSize={"2.3vw"}
           >
             {text}
           </ButtonWithUnderlineAndUndertext>

@@ -18,8 +18,7 @@ const FilterSideBar = ({ dataKeys, handleFilter, category }) => {
               <div className={classes.textAndUnderline}>
                 <ButtonWithUnderlineAndUndertext
                   index={index}
-                  fontSize={"1.5vw"}
-                  fontType={"h3"}
+                  fontType={"h5"}
                   boolean={category === key}
                 >
                   {key}

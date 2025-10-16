@@ -21,7 +21,6 @@
 
     padding-right: var(--spacing-1);
     display: flex; // needed for background
-    transform: translateX(40px);
 
     z-index: 1;
     cursor: pointer;
@@ -55,7 +54,7 @@
 
     @keyframes highlightMove {
       0% {
-        background-position: -250% 0%;
+        background-position: -260% 0%;
         -webkit-text-fill-color: black;
       }
 
@@ -64,12 +63,20 @@
       }
 
       45% {
-        background-position: -50% 0%;
+        background-position: -60% 0%;
       }
 
       100% {
-        background-position: -50% 0%;
+        background-position: -60% 0%;
       }
+    }
+
+    @media screen and (min-width: 1025px) {
+      transform: translateX(100px);
+    }
+
+    @media screen and (max-width: 1024px) {
+      transform: translateX(40px);
     }
   }
 
