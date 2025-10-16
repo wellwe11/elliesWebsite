@@ -38,6 +38,14 @@
 
   border: 1px solid orange;
 
+  @media screen and (min-width: 1024px) {
+    height: var(--spacing-6);
+
+    &.lowMargin {
+      height: var(--spacing-6);
+    }
+  }
+
   @media screen and (max-width: 1024px) {
     height: var(--spacing-2);
   }

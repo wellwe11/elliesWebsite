@@ -100,25 +100,25 @@
         left: 105%;
       }
     }
-  }
 
-  @media screen and (min-width: 1024px) {
-    &:first-of-type {
-      padding-right: var(--spacing-1);
-      padding-left: 0px;
+    @media screen and (min-width: 1024px) {
+      &:first-of-type {
+        padding-right: var(--spacing-1);
+        padding-left: 0px;
 
-      // enforce same size for all containers
-      max-width: calc(25% - var(--spacing-1));
-      min-width: calc(25% - var(--spacing-1));
-    }
+        // enforce same size for all containers
+        max-width: calc(25% - var(--spacing-1));
+        min-width: calc(25% - var(--spacing-1));
+      }
 
-    &:last-of-type {
-      padding-left: var(--spacing-1);
-      padding-right: 0px;
+      &:last-of-type {
+        padding-left: var(--spacing-1);
+        padding-right: 0px;
 
-      // enforce same size for all containers
-      max-width: calc(25% - var(--spacing-1));
-      min-width: calc(25% - var(--spacing-1));
+        // enforce same size for all containers
+        max-width: calc(25% - var(--spacing-1));
+        min-width: calc(25% - var(--spacing-1));
+      }
     }
   }
 
