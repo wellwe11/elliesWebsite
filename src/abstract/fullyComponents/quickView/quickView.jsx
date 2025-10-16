@@ -39,7 +39,7 @@ const QuickView = ({ src, secondSrc, productType, productId }) => {
           // Button is positioned absolute, so will awlays be relative to parent-element which needs to be set to a wrapper
         }
         <QuickViewButton
-          text={"Quick view"}
+          text={<p>Quick view</p>}
           onClick={() => {
             disableScroll();
             navigate(`./preview?category=${productType}&id=${productId}`, {
