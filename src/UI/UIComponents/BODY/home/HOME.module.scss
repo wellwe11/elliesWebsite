@@ -33,26 +33,27 @@
 .sectionSeperationWrapper {
   width: 100%;
 
-  margin-top: 2.5vw;
-  margin-bottom: 2.5vw;
-
-  border: 1px solid orange;
-
   @media screen and (min-width: 1024px) {
-    height: var(--spacing-6);
+    margin-top: var(--spacing-3);
+    margin-bottom: var(--spacing-3);
+    height: var(--spacing-8);
 
     &.lowMargin {
-      height: var(--spacing-6);
+      height: var(--spacing-8);
+      margin-bottom: 0px;
+      margin-top: 0px;
     }
   }
 
   @media screen and (max-width: 1024px) {
-    height: var(--spacing-2);
-  }
+    margin-top: var(--spacing-1);
+    margin-bottom: var(--spacing-1);
+    height: var(--spacing-5);
 
-  &.lowMargin {
-    height: var(--spacing-2);
-    margin-top: 5px;
-    margin-bottom: 5px;
+    &.lowMargin {
+      height: var(--spacing-5);
+      margin-bottom: 0px;
+      margin-top: 0px;
+    }
   }
 }
