@@ -22,7 +22,7 @@ const LeftSection = ({ data, setActiveImage }) => {
           <ButtonWithUnderlineAndUndertext
             index={index}
             fontType={"h3"}
-            fontSize={"2.3vw"}
+            fontSize={"clamp(16px, 2.2vw, 32px)"}
           >
             {text}
           </ButtonWithUnderlineAndUndertext>
