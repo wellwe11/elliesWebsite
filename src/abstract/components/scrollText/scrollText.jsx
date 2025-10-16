@@ -6,7 +6,7 @@ import classes from "./scrollText.module.scss";
 // ! EXCEPTION TO RULES !
 // Mapped is allowed because it is directly related to it's styling.
 // Styling cannot be directly applied unless more content is added
-const TextThatCorrespondsToActiveImage = ({
+const ScrollText = ({
   texts,
   activeImage,
   color = "black",
@@ -39,4 +39,4 @@ const TextThatCorrespondsToActiveImage = ({
   ));
 };
 
-export default TextThatCorrespondsToActiveImage;
+export default ScrollText;

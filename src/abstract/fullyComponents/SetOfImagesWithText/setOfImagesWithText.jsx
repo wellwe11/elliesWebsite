@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./setOfImagesWithText.module.scss";
 import ControlledImage from "@components/controlledImage/controlledImage";
-import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
+import ScrollText from "@components/scrollText/scrollText";
 
 const SetOfimagesWithText = ({
   images,
@@ -36,10 +36,7 @@ const SetOfimagesWithText = ({
   // Each individual image has a text related to it which is changed depending on which image is hovered
   const scrollingText = (
     <div className={classes.textBioBio}>
-      <TextThatCorrespondsToActiveImage
-        texts={texts}
-        activeImage={activeImage}
-      />
+      <ScrollText texts={texts} activeImage={activeImage} />
     </div>
   );
 
