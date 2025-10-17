@@ -92,7 +92,7 @@ const Home = ({ data: { paintingsData, printsData, servicesData } }) => {
 
   // seperates sections with some form of image (currently with a placeholder) and margins
   const sectionSeperatorWithImage = (
-    <div className={`${classes.sectionSeperationWrapper} ${classes.lowMargin}`}>
+    <div className={classes.sectionSeperationWrapper}>
       <SectionSeperationImage withImage={true} />
     </div>
   );

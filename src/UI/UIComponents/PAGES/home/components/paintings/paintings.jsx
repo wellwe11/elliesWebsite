@@ -74,7 +74,6 @@ const Paintings = ({ data }) => {
       {sectionSeperationImage}
 
       {setOfImagesWithText}
-      {sectionSeperationImage}
     </div>
   );
 };

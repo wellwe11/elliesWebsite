@@ -78,7 +78,6 @@ const Prints = ({ data }) => {
       {sectionSeperationImage}
 
       {setOfImagesWithText}
-      {sectionSeperationImage}
     </div>
   );
 };
