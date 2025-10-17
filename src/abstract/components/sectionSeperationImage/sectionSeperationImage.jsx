@@ -1,91 +1,45 @@
+import { useEffect, useState } from "react";
 import classes from "./sectionSeperationImage.module.scss";
-import { useEffect, useRef, useState } from "react";
+import image from "@assets/welcomeImage.jpg";
 
-const SectionSeperationImage = ({ imgSrc, imgAlt }) => {
-  // marginTop will change once element is displayed on screen. Creates a moving effect so it looks like an image further away (giving website depths)
-  const [marginTop, setMarginTop] = useState(0);
+const useParallexEffect = (speed = 0.2) => {
+  const [offsetY, setOffsetY] = useState(0);
 
-  // ref
-  const sectionRef = useRef();
+  const handleScroll = () => {
+    setOffsetY(Math.round((window.pageYOffset * speed) / 100));
+  };
 
-  // refs on-off switch.
-  const [refIsIntersecting, setRefIsIntersecting] = useState(false);
-
-  // tracks if ref is intersecting
   useEffect(() => {
-    if (!imgSrc) return;
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [speed]);
 
-    // observer for refs on-off switch
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setRefIsIntersecting(true);
-        } else {
-          setRefIsIntersecting(false);
-        }
-      },
-      {
-        root: null,
-        threshold: 0,
-        rootMargin: "0px 0px -200px 0px",
-      }
-    );
+  return offsetY;
+};
 
-    // if ref exists
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+const SectionSeperationImage = ({ withImage = false }) => {
+  const parallaxOffset = useParallexEffect(0.3);
 
-      // margin-from top which will be transformed with translateY
-      setMarginTop(
-        Math.round(sectionRef.current.getBoundingClientRect().top / 30)
-      );
-    }
+  const imageStyle = {
+    backgroundImage: `url('${image}')`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
 
-    // disconnect
-    return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
-    };
-  }, []);
+    transform: `translateY(${parallaxOffset}px)`,
 
-  // updates useState: marginTop while ref is intersecting.
-  useEffect(() => {
-    if (!imgSrc) return;
-    // tracks current margin from top
-    const trackMargin = () => {
-      // if ref exists
-      if (sectionRef.current) {
-        // if getBoundingClientRect().top is within the size of the size of the ref-element
-        if (
-          sectionRef.current.getBoundingClientRect().top > 100 &&
-          sectionRef.current.getBoundingClientRect().top < 520 &&
-          Math.round(sectionRef.current.getBoundingClientRect().top / 30) !==
-            marginTop // checks if marginTop actually has changed, avoid unneeded updates
-        ) {
-          setMarginTop(
-            Math.round(sectionRef.current.getBoundingClientRect().top / 30)
-          );
-        }
-      }
-    };
-
-    if (refIsIntersecting) {
-      window.addEventListener("scroll", trackMargin);
-
-      return () => window.removeEventListener("scroll", trackMargin);
-    }
-  }, [refIsIntersecting]);
+    transition: "transform 0.1s linear",
+  };
 
   return (
-    <div ref={sectionRef} className={classes.sectionSeperationImageWrapper}>
-      {imgSrc && imgSrc.length > 0 ? ( // either you can apply an image or create an empty section to seperate elements
-        <img
-          className={classes.image}
-          src={imgSrc || ""}
-          alt={imgAlt || "alt"}
-          style={{ transform: `translateY(-${marginTop}px)` }}
+    <div className={classes.sectionSeperationImageWrapper}>
+      {withImage ? ( // either you can apply an image or create an empty section to seperate elements
+        <div
+          className={`${classes.image} ${classes.globalImageSettings}`}
+          style={imageStyle}
         />
       ) : (
-        <div className={classes.image} />
+        <div className={classes.globalImageSettings} />
       )}
     </div>
   );
