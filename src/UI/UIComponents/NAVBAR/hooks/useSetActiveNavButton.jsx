@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import useGetLocation from "@hooks/useGetLocation.jsx";
 
 const setActiveNavButton = (
   buttons,
@@ -14,16 +14,10 @@ const setActiveNavButton = (
 
   // split current link
   const splittedPathName = pathname.split("/");
-  console.log(splittedPathName);
 
   // find if any buttonKeys exist inside of url
   buttonsKeys.forEach((btn, index) => {
-    if (
-      splittedPathName.includes(btn) ||
-      (btn === "home" &&
-        splittedPathName.includes("") &&
-        !pathname.includes("uniqueImage"))
-    ) {
+    if (splittedPathName.includes(btn)) {
       // if yes, change index to that
       setActiveButton(index);
       setHoverButton(index);
@@ -34,7 +28,7 @@ const setActiveNavButton = (
 };
 
 const useSetActiveNavButton = (buttons) => {
-  const { pathname } = useLocation();
+  const { pathname } = useGetLocation();
 
   const [activeButton, setActiveButton] = useState(0),
     [hoverButton, setHoverButton] = useState(0),
@@ -43,7 +37,7 @@ const useSetActiveNavButton = (buttons) => {
   useEffect(() => {
     setActiveNavButton(
       buttons,
-      pathname,
+      pathname === "/" ? "home" : pathname,
       setActiveButton,
       setHoverButton,
       setLoadTab
