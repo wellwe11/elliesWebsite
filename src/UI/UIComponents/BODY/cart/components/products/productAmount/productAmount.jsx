@@ -55,20 +55,25 @@ const Input = ({ product, amount }) => {
   const handleClickEnterInput = (e) => {
     // user clicks enter while focusing Input and confirms amount
     if (e.key === "Enter") {
-      if (+value > 0) {
+      e.preventDefault();
+      const numericValue = Number(value);
+
+      if (numericValue > 0) {
         // if there are items in the cart
-        changeFromInputToCart(product, +value);
+        changeFromInputToCart(product, numericValue);
       } else {
         // else, remove the item
         changeFromInputToCart(product, 0);
       }
+
+      e.target.blur();
     }
   };
 
   const handleMouseClickOutsideInput = () => {
     // user has typed new amount and clicks outside Input
     // If user inputs a new amount, and then clicks outside the input; updates input as if enter was clicked
-    changeFromInputToCart(product, +value); // update array
+    changeFromInputToCart(product, Number(value)); // update array
   };
 
   const handleChangeInput = (e) => {
@@ -76,7 +81,10 @@ const Input = ({ product, amount }) => {
     // update input & localCart
     const input = e?.target?.value;
 
-    if (input === "" || input >= 0) {
+    if (
+      input === "" ||
+      (input !== "" && !isNaN(Number(input)) && Number(input) >= 0)
+    ) {
       setValue(input);
     }
 
