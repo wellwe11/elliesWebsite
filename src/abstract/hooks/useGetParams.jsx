@@ -10,7 +10,6 @@ const useGetParams = () => {
       : null,
     page = +searchParams.get("page") || null;
 
-  console.log(id);
   return { category, id, page };
 };
 
