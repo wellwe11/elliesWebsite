@@ -1,7 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import useData from "@hooks/useData.jsx";
 import QuickViewImage from "@fullyComponents/quickView/quickViewImage/quickViewImage.jsx";
-import Cart from "../../../BODY/cart/cart.jsx";
+import Cart from "../../../PAGES/cart/cart.jsx";
 import useGetParams from "@hooks/useGetParams.jsx";
 
 const PreviewRoute = ({ backgroundLocation }) => {

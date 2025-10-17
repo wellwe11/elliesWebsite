@@ -15,6 +15,7 @@
   border: 0.5px solid gray;
 
   z-index: 9000000;
+
   // white background-image that differs pop-up from other elements
   .quickViewBackground {
     cursor: pointer;
@@ -27,6 +28,7 @@
   }
 
   .quickViewImageContainer {
+    padding: var(--spacing-1);
     display: flex;
     justify-content: flex-start;
     position: absolute;

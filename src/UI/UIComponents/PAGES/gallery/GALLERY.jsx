@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import classes from "./GALLERY.module.scss";
-import PageSelector from "./components/pageSelector/pageSelector";
-import FilterSideBar from "./components/filterSideBar/filterSideBar";
-import Products from "./components/products/products";
+import PageSelector from "./components/pageSelector/pageSelector.jsx";
+import FilterSideBar from "./components/filterSideBar/filterSideBar.jsx";
+import Products from "./components/products/products.jsx";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import useProductsLogic from "./hooks/useProductsLogic.jsx";

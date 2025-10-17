@@ -1,6 +1,6 @@
 import classes from "./cart.module.scss";
 
-import Products from "./components/products/products";
+import Products from "./components/products/products.jsx";
 import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickViewButton";
 import X_SVG from "@components/SVGS/X_SVG/X_SVG";
 import useAddDisplayClass from "./hooks/useAddDisplayClass.jsx";

@@ -2,13 +2,13 @@ import { Route, Routes } from "react-router-dom";
 
 import { lazy, Suspense } from "react";
 
-const Home = lazy(() => import("../../../BODY/home/HOME.jsx"));
-const Gallery = lazy(() => import("../../../BODY/gallery/GALLERY.jsx"));
+const Home = lazy(() => import("../../../PAGES/home/HOME.jsx"));
+const Gallery = lazy(() => import("../../../PAGES/gallery/GALLERY.jsx"));
 const UniqueImage = lazy(() =>
-  import("../../../BODY/uniqueImagePage/uniqueImage.jsx")
+  import("../../../PAGES/uniqueImagePage/uniqueImage.jsx")
 );
 
-import ContactUs from "../../../BODY/contactUs/contactUs.jsx";
+import ContactUs from "../../../PAGES/contactUs/contactUs.jsx";
 import Loading from "../../../LOADING/loading.jsx";
 
 import useGetLocation from "@hooks/useGetLocation.jsx";

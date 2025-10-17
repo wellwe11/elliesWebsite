@@ -53,8 +53,8 @@ const ButtonsWrapper = ({ foundObject }) => {
 // One big image that is showing you an example of the currently displayed art-piece
 const TopImage = ({ image }) => {
   return (
-    <div className={classes.topImage}>
-      <img className={classes.topImageImage} src={image} alt="" />
+    <div className={classes.topImageContainer}>
+      <img className={classes.topImage} src={image} alt="" />
     </div>
   );
 };
