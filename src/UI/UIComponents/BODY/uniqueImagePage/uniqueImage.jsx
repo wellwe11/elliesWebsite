@@ -8,10 +8,15 @@ import mainImage from "@assets/welcomeImage.jpg";
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 
 import Loading from "../../LOADING/loading.jsx";
+import { useEffect } from "react";
 
 // Component containing all info for top-section
 const UniqueTopSectionComponent = ({ info, foundObject }) => {
   // currently placeholders right now. Not sure what I will use, but there will be text related to the set somehow.
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
 
   const uniqueTopSectionTitles = {
       title: "Hello,",
