@@ -1,3 +1,4 @@
+import useGetLocation from "@hooks/useGetLocation.jsx";
 import classes from "./navBarButtons.module.scss";
 import NavButton from "./navButton/navButton.jsx";
 
@@ -10,6 +11,8 @@ const NavbarButtons = ({
   activeButton,
 }) => {
   const buttonKeys = Object.keys(buttons);
+
+  const { pathname } = useGetLocation();
 
   // make all navbar buttons texts start with a capital letter
   const buttonNamesAllCaps = Object.keys(buttons).map(
@@ -34,16 +37,16 @@ const NavbarButtons = ({
   ));
 
   // thin line below buttons that displays currently hovered button
-  const buttonUnderlinePosition = 100 * hoverButton; // calculate buttons position relevant to currently active button
-  const underlineWidth = 100 / Object.values(buttons).length; // calculate the buttons width depending on amount of buttons
+  const buttonUnderlinePosition = 100 * hoverButton, // calculate buttons position relevant to currently active button
+    underlineWidth = 100 / Object.values(buttons).length, // calculate the buttons width depending on amount of buttons
+    underlineOpacity = pathname.includes("uniqueImage") ? "0" : "1",
+    underlineStyle = {
+      opacity: underlineOpacity,
+      transform: `translateX(${buttonUnderlinePosition}%)`,
+      width: `${underlineWidth}%`,
+    };
   const buttonUnderline = (
-    <span
-      className={classes.buttonUnderline}
-      style={{
-        transform: `translateX(${buttonUnderlinePosition}%)`,
-        width: `${underlineWidth}%`,
-      }}
-    />
+    <span className={classes.buttonUnderline} style={underlineStyle} />
   );
 
   return (
