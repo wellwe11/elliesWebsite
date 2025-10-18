@@ -1,3 +1,4 @@
+import classes from "./products.module.scss";
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 
 const Products = ({ data }) => {
@@ -11,11 +12,11 @@ const Products = ({ data }) => {
   });
 
   return (
-    <div>
+    <div className={classes.products}>
       {fixedTitles.map(([entry, obj], index) => (
-        <div key={index}>
-          <div>
-            <h3>{entry}</h3>
+        <div key={index} className={classes.products}>
+          <div className={classes.categoryTitleWrapper}>
+            <h3 className={classes.title}>{entry}</h3>
           </div>
 
           <div>
