@@ -40,31 +40,6 @@ const categories = {
 
 const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
-const useScreenSize = () => {
-  const [windowSize, setWindowSize] = useState(() => window.innerWidth);
-
-  const windowResize = () => {
-    setWindowSize((prev) => {
-      const currentSize = window.innerWidth;
-
-      if (
-        Math.round(currentSize < prev - 100) ||
-        Math.round(currentSize > prev + 100)
-      ) {
-        return currentSize;
-      }
-      return prev;
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", windowResize);
-    return () => window.removeEventListener("resize", windowResize);
-  }, []);
-
-  return { windowSize };
-};
-
 const SectionSeperator = ({ lowMargin = false, withImage = false }) => (
   <div
     className={`${classes.sectionSeperationWrapper} ${
@@ -76,62 +51,56 @@ const SectionSeperator = ({ lowMargin = false, withImage = false }) => (
 );
 
 const Home = ({ data: { paintingsData, printsData, servicesData } }) => {
-  const { windowSize } = useScreenSize();
-
-  console.log(windowSize);
-
-  const MOBILESIZE = 425;
-
-  return windowSize > MOBILESIZE ? (
+  return (
     <div className={classes.home}>
       {/* DESKTOP */}
-      <section className={classes.topSection}>
-        <MainPageTopPresentation
-          images={smallCircleImages}
-          mainImage={mainImage}
-        />
-      </section>
+      <div className={classes.desktop}>
+        <section className={classes.topSection}>
+          <MainPageTopPresentation
+            images={smallCircleImages}
+            mainImage={mainImage}
+          />
+        </section>
 
-      <SectionSeperator lowMargin />
+        <SectionSeperator lowMargin />
 
-      <section className={classes.categoriesSection}>
-        <Categories categories={categories} />
-      </section>
-      <SectionSeperator lowMargin />
+        <section className={classes.categoriesSection}>
+          <Categories categories={categories} />
+        </section>
+        <SectionSeperator lowMargin />
 
-      <section className={classes.printSection}>
-        <Prints data={printsData} />
-      </section>
+        <section className={classes.printSection}>
+          <Prints data={printsData} />
+        </section>
 
-      {/* {newInSection}
+        {/* {newInSection}
         {sectionSeperatorWithImage} */}
 
-      <div className={classes.servicesWrapper}>
-        <SectionSeperator withImage />
-        <section className={classes.serviceSection}>
-          <Services data={servicesData} />
+        <div className={classes.servicesWrapper}>
+          <SectionSeperator withImage />
+          <section className={classes.serviceSection}>
+            <Services data={servicesData} />
+          </section>
+          <SectionSeperator withImage />
+        </div>
+
+        <section className={classes.paintingSection}>
+          <Paintings data={paintingsData} />
         </section>
         <SectionSeperator withImage />
-      </div>
 
-      <section className={classes.paintingSection}>
-        <Paintings data={paintingsData} />
-      </section>
-      <SectionSeperator withImage />
-
-      {/* <section className={classes.newInSection}>
+        {/* <section className={classes.newInSection}>
       <NewIn />
-    </section> */}
+      </section> */}
 
-      {/* <section>
+        {/* <section>
       <h1>insta</h1>
-    </section> */}
-    </div>
-  ) : (
-    <div className={classes.home}>
-      {/* MOBILE */}
-
-      <Products />
+      </section> */}
+      </div>
+      <div className={classes.mobile}>
+        {/* MOBILE */}
+        <Products />
+      </div>
     </div>
   );
 };
