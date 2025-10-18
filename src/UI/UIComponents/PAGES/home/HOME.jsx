@@ -41,114 +41,86 @@ const categories = {
 const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
 const useScreenSize = () => {
-  const [windowSize, setWindowSize] = useState(null);
+  const [windowSize, setWindowSize] = useState(() => window.innerWidth);
+
+  const windowResize = () => {
+    setWindowSize((prev) => {
+      const currentSize = window.innerWidth;
+
+      if (Math.abs(currentSize - prev > 100)) {
+        return currentSize;
+      }
+      return prev;
+    });
+  };
+
   useEffect(() => {
-    const windowResize = () => {
-      const localWindowSize = window.innerWidth;
-      setWindowSize(localWindowSize);
-    };
-
     window.addEventListener("resize", windowResize);
-
     return () => window.removeEventListener("resize", windowResize);
   }, []);
 
   return { windowSize };
 };
 
+const SectionSeperator = ({ lowMargin = false, withImage = false }) => (
+  <div
+    className={`${classes.sectionSeperationWrapper} ${
+      lowMargin ? classes.lowMargin : ""
+    }`}
+  >
+    <SectionSeperationImage withImage={withImage} />
+  </div>
+);
+
 const Home = ({ data: { paintingsData, printsData, servicesData } }) => {
   const { windowSize } = useScreenSize();
 
   const MOBILESIZE = 425;
 
-  // Welcoming image and small animation
-  const topSection = (
-    <section className={classes.topSection}>
-      <MainPageTopPresentation
-        images={smallCircleImages}
-        mainImage={mainImage}
-      />
-    </section>
-  );
-
-  // Clickable images to navigate to filtered products
-  const categoriesSection = (
-    <section className={classes.categoriesSection}>
-      <Categories categories={categories} />
-    </section>
-  );
-
-  // wrapper that contains all top-level data for prints
-  const printSection = (
-    <section className={classes.printSection}>
-      <Prints data={printsData} />
-    </section>
-  );
-
-  // Realistic image containing different colletions of images to "ikea-style" display them
-  const servicesSection = (
-    <section className={classes.serviceSection}>
-      <Services data={servicesData} />
-    </section>
-  );
-
-  // Example-images of paintings
-  const paintingsSection = (
-    <section className={classes.paintingSection}>
-      <Paintings data={paintingsData} />
-    </section>
-  );
-
-  const newInSection = (
-    <section className={classes.newInSection}>
-      <NewIn />
-    </section>
-  );
-
-  //   // spinning wheel of images from ellies page
-  const instagramSection = (
-    <section>
-      <h1>insta</h1>
-    </section>
-  );
-
-  // seperates sections with some form of image (currently with a placeholder) and margins
-  const sectionSeperatorWithImage = (
-    <div className={classes.sectionSeperationWrapper}>
-      <SectionSeperationImage withImage={true} />
-    </div>
-  );
-
-  // seperates sections simply with margins and it's own height
-  const sectionSeperatorWithNoImage = (
-    <div className={`${classes.sectionSeperationWrapper} ${classes.lowMargin}`}>
-      <SectionSeperationImage />
-    </div>
-  );
-
   return windowSize > MOBILESIZE ? (
     <div className={classes.home}>
       {/* DESKTOP */}
+      <section className={classes.topSection}>
+        <MainPageTopPresentation
+          images={smallCircleImages}
+          mainImage={mainImage}
+        />
+      </section>
 
-      {topSection}
-      {sectionSeperatorWithNoImage}
+      <SectionSeperator lowMargin />
 
-      {categoriesSection}
-      {sectionSeperatorWithNoImage}
+      <section className={classes.categoriesSection}>
+        <Categories categories={categories} />
+      </section>
+      <SectionSeperator lowMargin />
 
-      {printSection}
+      <section className={classes.printSection}>
+        <Prints data={printsData} />
+      </section>
 
       {/* {newInSection}
         {sectionSeperatorWithImage} */}
 
       <div className={classes.servicesWrapper}>
-        {sectionSeperatorWithImage}
-        {servicesSection}
-        {sectionSeperatorWithImage}
+        <SectionSeperator withImage />
+        <section className={classes.serviceSection}>
+          <Services data={servicesData} />
+        </section>
+        <SectionSeperator withImage />
       </div>
 
-      {paintingsSection}
-      {sectionSeperatorWithImage}
+      <section className={classes.paintingSection}>
+        <Paintings data={paintingsData} />
+      </section>
+      <SectionSeperator withImage />
+
+      {/* <section className={classes.newInSection}>
+      <NewIn />
+    </section> */}
+
+      {/* <section>
+      <h1>insta</h1>
+    </section> */}
     </div>
   ) : (
     <div className={classes.home}>
