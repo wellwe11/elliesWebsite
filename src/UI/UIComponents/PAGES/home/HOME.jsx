@@ -19,7 +19,6 @@ import NewIn from "./components/newIn/newIn.jsx";
 
 import Loading from "../../LOADING/loading.jsx";
 import Products from "./componentsPhoneSize/products/products.jsx";
-import { useEffect, useState } from "react";
 
 // Categories section
 const categories = {
@@ -53,7 +52,7 @@ const SectionSeperator = ({ lowMargin = false, withImage = false }) => (
 const Home = ({ data: { paintingsData, printsData, servicesData } }) => {
   return (
     <div className={classes.home}>
-      {/* DESKTOP */}
+      {/* DESKTOP >= 426px */}
       <div className={classes.desktop}>
         <section className={classes.topSection}>
           <MainPageTopPresentation
@@ -97,9 +96,9 @@ const Home = ({ data: { paintingsData, printsData, servicesData } }) => {
       <h1>insta</h1>
       </section> */}
       </div>
+      {/* MOBILE <= 425px */}
       <div className={classes.mobile}>
-        {/* MOBILE */}
-        <Products />
+        <Products data={{ paintingsData, printsData }} />
       </div>
     </div>
   );
