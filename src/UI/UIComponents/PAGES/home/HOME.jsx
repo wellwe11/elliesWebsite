@@ -47,7 +47,10 @@ const useScreenSize = () => {
     setWindowSize((prev) => {
       const currentSize = window.innerWidth;
 
-      if (Math.abs(currentSize - prev > 100)) {
+      if (
+        Math.round(currentSize < prev - 100) ||
+        Math.round(currentSize > prev + 100)
+      ) {
         return currentSize;
       }
       return prev;
@@ -74,6 +77,8 @@ const SectionSeperator = ({ lowMargin = false, withImage = false }) => (
 
 const Home = ({ data: { paintingsData, printsData, servicesData } }) => {
   const { windowSize } = useScreenSize();
+
+  console.log(windowSize);
 
   const MOBILESIZE = 425;
 

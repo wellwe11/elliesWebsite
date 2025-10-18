@@ -26,14 +26,8 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * Website need to be able to scale for mobile & bigger screens (currently most components do not scale well)
- * ---ViewCart text doesnt appear on smaller screens
- *
- * Website need to scale well for bigger screens as well. Currently, some images & texts scale very strangely with big screens
- *
- * Navbar underline changes when you VIEW CART. Underline should also point to previous page when on uniqueImage
- *
- * uniqueImage doesnt scroll to top onload
+ * Fix code where I am overusing Divs:
+ ** Use HOME as an example - add to other top-level components
  * ------------------------------------------------
  * ** BUGS **
  * ------------------------------------------------
