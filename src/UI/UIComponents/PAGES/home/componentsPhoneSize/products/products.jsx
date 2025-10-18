@@ -15,15 +15,21 @@ const Products = ({ data }) => {
     return [fixedTitle, obj];
   });
 
-  const handleNavigate = (category, id) => {
-    navigate(`uniqueImage?category=${category}&id=${id}`);
+  const handleNavigate = (link) => {
+    navigate(link);
   };
 
-  return (
+  //localhost:5173/gallery?category=prints&page=1
+  http: return (
     <div className={classes.categories}>
       {fixedTitles.map(([entry, obj], index) => (
         <div key={index} className={classes.products}>
-          <div className={classes.categoryTitleWrapper}>
+          <div
+            className={classes.categoryTitleWrapper}
+            onClick={() =>
+              handleNavigate(`gallery?category=${entry.toLowerCase()}&page=1`)
+            }
+          >
             <h3 className={classes.title}>{entry}</h3>
           </div>
 
@@ -37,10 +43,23 @@ const Products = ({ data }) => {
               return (
                 <div key={index} className={classes.product}>
                   <h5 className={classes.title}>{name}</h5>
-                  <img className={classes.img} src={image} alt="" />
+                  <img
+                    className={classes.img}
+                    src={image}
+                    alt=""
+                    onClick={() =>
+                      handleNavigate(
+                        `uniqueImage?category=${category}&id=${id}`
+                      )
+                    }
+                  />
                   <QuickViewButton
                     text={"Explore"}
-                    onClick={() => handleNavigate(category, id)}
+                    onClick={() =>
+                      handleNavigate(
+                        `uniqueImage?category=${category}&id=${id}`
+                      )
+                    }
                   />
                 </div>
               );

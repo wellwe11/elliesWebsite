@@ -1,5 +1,6 @@
 .categories {
   .categoryTitleWrapper {
+    padding: var(--spacing-1) 0px;
     position: relative;
     ::after {
       content: "";
