@@ -18,6 +18,8 @@ import SectionSeperationImage from "@components/sectionSeperationImage/sectionSe
 import NewIn from "./components/newIn/newIn.jsx";
 
 import Loading from "../../LOADING/loading.jsx";
+import Products from "./componentsPhoneSize/products/products.jsx";
+import { useEffect, useState } from "react";
 
 // Categories section
 const categories = {
@@ -38,7 +40,27 @@ const categories = {
 
 const smallCircleImages = [welcomeImageOne, welcomeImageOne, welcomeImageOne];
 
+const useScreenSize = () => {
+  const [windowSize, setWindowSize] = useState(null);
+  useEffect(() => {
+    const windowResize = () => {
+      const localWindowSize = window.innerWidth;
+      setWindowSize(localWindowSize);
+    };
+
+    window.addEventListener("resize", windowResize);
+
+    return () => window.removeEventListener("resize", windowResize);
+  }, []);
+
+  return { windowSize };
+};
+
 const Home = ({ data: { paintingsData, printsData, servicesData } }) => {
+  const { windowSize } = useScreenSize();
+
+  const MOBILESIZE = 425;
+
   // Welcoming image and small animation
   const topSection = (
     <section className={classes.topSection}>
@@ -104,8 +126,10 @@ const Home = ({ data: { paintingsData, printsData, servicesData } }) => {
     </div>
   );
 
-  return (
+  return windowSize > MOBILESIZE ? (
     <div className={classes.home}>
+      {/* DESKTOP */}
+
       {topSection}
       {sectionSeperatorWithNoImage}
 
@@ -125,6 +149,12 @@ const Home = ({ data: { paintingsData, printsData, servicesData } }) => {
 
       {paintingsSection}
       {sectionSeperatorWithImage}
+    </div>
+  ) : (
+    <div className={classes.home}>
+      {/* MOBILE */}
+
+      <Products />
     </div>
   );
 };
