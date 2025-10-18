@@ -3,8 +3,6 @@ import classes from "./uniqueImage.module.scss";
 import UniqueTopSection from "./components/uniqueTopSection/uniqueTopSection.jsx";
 import UniqueInfoSection from "./components/uniqueInfoSection/uniqueInfoSection.jsx";
 
-import mainImage from "@assets/welcomeImage.jpg";
-
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 
 import Loading from "../../LOADING/loading.jsx";
@@ -71,7 +69,7 @@ const UniqueImage = ({ data: { foundObj, info } }) => {
   const sectionSeperatorWithImage = (
     // seperates sections with some form of image (currently with a placeholder) and margins
     <div className={classes.sectionSeperationWrapper}>
-      <SectionSeperationImage imgSrc={mainImage} imgAlt={""} />
+      <SectionSeperationImage withImage={true} />
     </div>
   );
 
