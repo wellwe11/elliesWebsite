@@ -3,6 +3,7 @@ import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 
 import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickViewButton.jsx";
 import { useNavigate } from "react-router-dom";
+import ArrowNoBodySVG from "../../../../../../abstract/components/SVGS/arrowNoBodySVG/arrowNoBodySVG.jsx";
 
 const Products = ({ data }) => {
   const navigate = useNavigate();
@@ -31,6 +32,12 @@ const Products = ({ data }) => {
             }
           >
             <h3 className={classes.title}>{entry}</h3>
+            <div className={classes.exploreMoreWrapper}>
+              <h6 className={classes.exploreMore}>Explore whole collection</h6>
+              <div className={classes.arrowSVG}>
+                <ArrowNoBodySVG />
+              </div>
+            </div>
           </div>
 
           <div className={classes.products}>
