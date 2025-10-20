@@ -56,7 +56,7 @@ const ProductsWrapperComponent = ({ page, filteredData }) => {
 };
 
 const PageWrapperComponent = ({ filteredData }) => {
-  const maxPage = Math.ceil(filteredData?.length / 9); // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
+  const maxPage = Math.ceil(filteredData?.length / 12); // max-amount of pages that can be displayed - it is based on whether or not products exist on next page
 
   return (
     <div className={classes.pageWrapper}>

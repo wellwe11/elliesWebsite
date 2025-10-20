@@ -4,7 +4,7 @@ import classes from "./products.module.scss";
 import QuickView from "@fullyComponents/quickView/quickView";
 
 import { storeData } from "../../../../routeContainer/routeContainer.jsx";
-import { capitalizeFirstLetter } from "../../../../../../abstract/functions/firstLetterCapital.js";
+import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ product, bioData }) => {

@@ -6,10 +6,10 @@ import handleDisplayedProducts from "../functions/handleDisplayedProducts.js";
 const useProductsLogic = (page, filteredData) => {
   const [isLoading, setIsLoading] = useState(false);
   const [updatedData, setUpdatedData] = useState(() =>
-    handleDisplayedProducts(page, filteredData)
+    handleDisplayedProducts(page, filteredData, 12)
   ); // initial data
 
-  const slicedProducs = handleDisplayedProducts(page, filteredData); // runs each render to slice products based on page
+  const slicedProducs = handleDisplayedProducts(page, filteredData, 12); // runs each render to slice products based on page
 
   useEffect(() => {
     setIsLoading(true);
