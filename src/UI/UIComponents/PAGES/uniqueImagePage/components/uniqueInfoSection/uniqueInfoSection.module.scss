@@ -44,16 +44,11 @@
 .uniqueInfoLeftImageContainer {
   width: 100%;
   height: 100%;
-
-  overflow: hidden;
+  max-height: 600px;
+  display: flex;
 
   .uniqueInfoLeftImage {
-    height: 100%;
-    width: 100%;
-
     object-fit: contain;
-
-    top: 0px;
 
     transition: transform 0.8s cubic-bezier(0.33, 1, 0.68, 1);
   }
