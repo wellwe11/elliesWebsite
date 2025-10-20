@@ -1,8 +1,5 @@
 /* UniqueInfoSection */
 .uniqueInfoSection {
-  height: 88vh;
-  max-height: inherit;
-
   display: flex;
   justify-content: space-between;
 
@@ -14,14 +11,28 @@
     justify-content: flex-start;
     align-items: flex-start;
     position: relative;
+
+    @media screen and (max-width: 650px) {
+      display: none;
+    }
   }
 
   .uniqueInfoRight {
     height: 100%;
-    width: 40%;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+
+    @media screen and (min-width: 651px) {
+      flex-direction: column;
+      width: 40%;
+    }
+
+    @media screen and (max-width: 650px) {
+      flex-direction: row;
+      width: 100%;
+
+      position: relative;
+    }
   }
 }
 
@@ -37,7 +48,6 @@
     width: 100%;
 
     object-fit: contain;
-    transform: translateX(-30px);
     position: absolute;
     top: 0px;
 
@@ -54,6 +64,7 @@
   justify-content: space-evenly;
 
   opacity: 0;
+
   .detailsTitle {
     font-variation-settings: "wght" 350;
   }
@@ -83,6 +94,13 @@
       padding-right: 2.5px;
     }
   }
+
+  @media screen and (max-width: 650px) {
+    width: 50%;
+    padding: var(--spacing-2) 0px;
+    position: sticky;
+    top: 100px;
+  }
 }
 
 // added classes once uniqueInfoRight is intersecting
@@ -98,17 +116,33 @@
 
 /* InfoSectionImages */
 .uniqueInfoRightImagesWrapper {
-  max-height: 50%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
   .placeholderImage {
-    width: 30%;
     cursor: pointer;
-
-    opacity: 0;
-
     transition: opacity 0.4s ease;
+  }
+
+  @media screen and (min-width: 651px) {
+    max-height: 50%;
+
+    .placeholderImage {
+      opacity: 0;
+      width: 30%;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    flex-direction: column;
+    max-height: 100%;
+    width: 40%;
+
+    .placeholderImage {
+      width: 100%;
+      padding: var(--spacing-2) 0px;
+    }
   }
 }
 
@@ -138,6 +172,7 @@
 
   .detailsWrapper {
     animation: popIn 0.8s ease forwards;
+    padding: var(--spacing-1) 0px;
   }
 }
 
