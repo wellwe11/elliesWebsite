@@ -26,6 +26,11 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
+ * /contact for smaller & bigger screens
+ * /cart for smaller & bigger screens
+ *
+ *
+ *
  * Fix code where I am overusing Divs:
  ** Use HOME as an example - add to other top-level components
  ** Add useMemo to stale components that operate expensive calculations each render
