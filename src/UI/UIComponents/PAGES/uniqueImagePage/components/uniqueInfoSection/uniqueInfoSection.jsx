@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, memo } from "react";
 import classes from "./uniqueInfoSection.module.scss";
 
 import ButtonStyle from "../uniqueButton/uniqueButton.jsx";
@@ -31,22 +31,24 @@ const InfoSectionBio = ({ details, bioRef, foundObject }) => {
     </div>
   );
 
-  const bioKeys = Object.keys(details),
-    bioValues = Object.values(details).map((e) =>
-      Array.isArray(e) ? e.join(", ") : e
-    ); // if values are arrays, join them to avoid "RedBlueWhite" to become "Red, Blue, White"
+  const mappedBioDetails = useMemo(() => {
+    const bioKeys = Object.keys(details),
+      bioValues = Object.values(details).map((e) =>
+        Array.isArray(e) ? e.join(", ") : e
+      ); // if values are arrays, join them to avoid "RedBlueWhite" to become "Red, Blue, White"
 
-  const mappedBioDetails = bioKeys.map((key, index) => (
-    // a list of details for set of images. I.e. colors, width, height etc.
-    <div
-      className={classes.detailsWrapper}
-      key={index}
-      style={{ animationDelay: `${index * 0.08}s` }}
-    >
-      <p className={classes.detailText}>{key}</p>
-      <p className={classes.detailText}>{bioValues[index]}</p>
-    </div>
-  ));
+    return bioKeys.map((key, index) => (
+      // a list of details for set of images. I.e. colors, width, height etc.
+      <div
+        className={classes.detailsWrapper}
+        key={index}
+        style={{ animationDelay: `${index * 0.08}s` }}
+      >
+        <p className={classes.detailText}>{key}</p>
+        <p className={classes.detailText}>{bioValues[index]}</p>
+      </div>
+    ));
+  });
 
   // a simple title to indicate where the information about the set is
   const detailsTitle = (
@@ -64,7 +66,7 @@ const InfoSectionBio = ({ details, bioRef, foundObject }) => {
   );
 };
 
-const InfoSectionMainImage = ({ activeImage, imageRef }) => {
+const InfoSectionMainImage = memo(({ activeImage, imageRef }) => {
   return (
     <div className={classes.uniqueInfoLeftImageContainer}>
       <img
@@ -75,29 +77,31 @@ const InfoSectionMainImage = ({ activeImage, imageRef }) => {
       />
     </div>
   );
-};
+});
 
-const InfoSectionImages = ({ images, setActiveImage, smallerImagesRef }) => {
-  // display all images in the collection, which can be hovered to preview them as bigger
-  const smallImagesPreview = images.map((image, index) => (
-    <img
-      onMouseEnter={() => setActiveImage(index)}
-      className={classes.placeholderImage}
-      key={index}
-      src={image}
-      alt=""
-    />
-  ));
+const InfoSectionImages = memo(
+  ({ images, setActiveImage, smallerImagesRef }) => {
+    // display all images in the collection, which can be hovered to preview them as bigger
+    const smallImagesPreview = images.map((image, index) => (
+      <img
+        onMouseEnter={() => setActiveImage(index)}
+        className={classes.placeholderImage}
+        key={index}
+        src={image}
+        alt=""
+      />
+    ));
 
-  return (
-    <div
-      className={classes.uniqueInfoRightImagesWrapper}
-      ref={smallerImagesRef}
-    >
-      {smallImagesPreview}
-    </div>
-  );
-};
+    return (
+      <div
+        className={classes.uniqueInfoRightImagesWrapper}
+        ref={smallerImagesRef}
+      >
+        {smallImagesPreview}
+      </div>
+    );
+  }
+);
 
 const UniqueInfoSection = ({ images, textInfo, foundObject }) => {
   const [activeImage, setActiveImage] = useState(0);
