@@ -34,20 +34,24 @@ const Product = ({ name, image, category, id, handleNavigate }) => {
   return (
     <div className={classes.product}>
       <h5 className={classes.title}>{name}</h5>
-      <img
-        className={classes.img}
-        src={image}
-        alt=""
-        onClick={() =>
-          handleNavigate(`uniqueImage?category=${category}&id=${id}`)
-        }
-      />
-      <QuickViewButton
-        text={"Explore"}
-        onClick={() =>
-          handleNavigate(`uniqueImage?category=${category}&id=${id}`)
-        }
-      />
+      <div className={classes.imgWrapper}>
+        <img
+          className={classes.img}
+          src={image}
+          alt=""
+          onClick={() =>
+            handleNavigate(`uniqueImage?category=${category}&id=${id}`)
+          }
+        />
+      </div>
+      <div className={classes.buttonWrapper}>
+        <QuickViewButton
+          text={"Explore"}
+          onClick={() =>
+            handleNavigate(`uniqueImage?category=${category}&id=${id}`)
+          }
+        />
+      </div>
     </div>
   );
 };

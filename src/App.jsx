@@ -28,11 +28,11 @@ export default App;
  * ** TODO NOW! **
  * Fix code where I am overusing Divs:
  ** Use HOME as an example - add to other top-level components
+ ** Add useMemo to stale components that operate expensive calculations each render
  * ------------------------------------------------
  * ** BUGS **
  * ------------------------------------------------
  * ** THINGS TO FIX **
- * sectionSeperationImage has a useeffect that tracks it's own movements. I have a function for that. Remove it from the component, and use the function that I have instead
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
  * add Links to footer
