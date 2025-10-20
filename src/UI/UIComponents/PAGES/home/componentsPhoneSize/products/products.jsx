@@ -3,7 +3,7 @@ import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 
 import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickViewButton.jsx";
 import { useNavigate } from "react-router-dom";
-import ArrowNoBodySVG from "../../../../../../abstract/components/SVGS/arrowNoBodySVG/arrowNoBodySVG.jsx";
+import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG.jsx";
 
 const Products = ({ data }) => {
   const navigate = useNavigate();
@@ -20,11 +20,10 @@ const Products = ({ data }) => {
     navigate(link);
   };
 
-  //localhost:5173/gallery?category=prints&page=1
-  http: return (
+  return (
     <div className={classes.categories}>
       {fixedTitles.map(([entry, obj], index) => (
-        <div key={index} className={classes.products}>
+        <div key={index} className={classes.category}>
           <div
             className={classes.categoryTitleWrapper}
             onClick={() =>
@@ -37,6 +36,9 @@ const Products = ({ data }) => {
               <div className={classes.arrowSVG}>
                 <ArrowNoBodySVG />
               </div>
+            </div>
+            <div className={classes.underlineWithDot}>
+              <div className={classes.dot} />
             </div>
           </div>
 
