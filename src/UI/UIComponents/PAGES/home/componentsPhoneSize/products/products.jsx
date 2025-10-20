@@ -4,6 +4,7 @@ import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickViewButton.jsx";
 import { useNavigate } from "react-router-dom";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG.jsx";
+import { useMemo } from "react";
 
 const Category = ({ children, entry, handleNavigate }) => {
   return (
@@ -57,23 +58,25 @@ const Product = ({ name, image, category, id, handleNavigate }) => {
 };
 
 const Products = ({ data }) => {
-  const dataEntries = Object.entries(data);
   const regex = /data/i;
+  // simplified data-structure for mobile-screen data
+  const dataEntries = useMemo(() => Object.entries(data), [data]).map(
+    ([entry, obj]) => {
+      const fixedTitle = capitalizeFirstLetter(entry.replace(regex, ""));
 
-  const fixedTitles = dataEntries.map(([entry, obj]) => {
-    const fixedTitle = capitalizeFirstLetter(entry.replace(regex, ""));
+      return [fixedTitle, obj];
+    },
+    [data]
+  );
 
-    return [fixedTitle, obj];
-  });
-  const navigate = useNavigate();
-
-  const handleNavigate = (link) => {
-    navigate(link);
-  };
+  const navigate = useNavigate(),
+    handleNavigate = (link) => {
+      navigate(link);
+    };
 
   return (
     <div className={classes.categories}>
-      {fixedTitles.map(([entry, obj], index) => (
+      {dataEntries.map(([entry, obj], index) => (
         <Category key={index} entry={entry} handleNavigate={handleNavigate}>
           <div className={classes.products}>
             {obj.map((obj, index) => {
