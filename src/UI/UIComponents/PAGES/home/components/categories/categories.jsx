@@ -1,6 +1,7 @@
 import ControlledImage from "@components/controlledImage/controlledImage";
 import classes from "./categories.module.scss";
 import { useNavigate } from "react-router-dom";
+import { useMemo } from "react";
 
 // each category has a title. I.e. "Stickers, paintings etc"
 const CategoryTitle = ({ title }) => {
@@ -34,9 +35,9 @@ const CategoryContainer = ({ categories }) => {
   const navigate = useNavigate();
 
   // Make sure container is dynamic size
-  const calculatedCategoryStyle = {
-    width: `${100 / categoryKeys.length}%`,
-  };
+  const calculatedCategoryWidth = useMemo(() => {
+    return `${100 / categoryKeys.length}%`;
+  }, []);
 
   return (
     <div className={classes.categoriesContainer}>
@@ -44,7 +45,7 @@ const CategoryContainer = ({ categories }) => {
         <div
           className={classes.categoriesWrapper}
           key={index}
-          style={calculatedCategoryStyle}
+          style={{ width: calculatedCategoryWidth }}
           onClick={() => navigate(`./gallery?category=${category}&page=1`)}
         >
           <div className={classes.imageWrapper}>
