@@ -1,20 +1,53 @@
-@media screen and (min-width: 531px) {
+// desktop screens
+@media screen and (min-width: 650px) {
   .desktop {
     display: flex;
-  }
+    .uniqueImage {
+      .uniqueInfoSectionWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 100%;
 
+        min-height: 500px;
+        max-height: 700px;
+      }
+
+      .uniqueTopSectionWrapper {
+        min-height: 500px;
+        max-height: 700px;
+      }
+    }
+  }
   .mobile {
     display: none;
   }
 }
 
-@media screen and (max-width: 530px) {
+// mobile screens
+@media screen and (max-width: 650px) {
   .desktop {
     display: none;
   }
+  .uniqueImage {
+    .mobile {
+      display: block;
 
-  .mobile {
-    display: block;
+      .uniqueInfoSectionWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 100%;
+
+        min-height: 300px;
+        max-height: 400px;
+      }
+
+      .uniqueTopSectionWrapper {
+        min-height: 300px;
+        max-height: 400px;
+      }
+    }
   }
 }
 
@@ -34,9 +67,6 @@
     justify-content: center;
     align-items: center;
     flex: 0 0 100%;
-
-    min-height: 500px;
-    max-height: 700px;
   }
 
   .uniqueInfoSectionWrapper {
@@ -44,9 +74,6 @@
     justify-content: center;
     align-items: center;
     flex: 0 0 100%;
-
-    min-height: 500px;
-    max-height: 700px;
   }
 
   .uniqueTopSectionWrapper,
