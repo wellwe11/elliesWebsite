@@ -22,9 +22,13 @@
         padding: calc(var(--spacing-1) / 2) var(--spacing-2);
         border-radius: 40px;
 
-        background-color: var(--c-grey-200);
+        background-color: var(--websiteContainerColor);
         transition: background-color 0.2s ease;
-        border: none;
+        border: 1px solid var(--c-grey-300);
+
+        .text {
+          font-variation-settings: "wght" 400;
+        }
       }
 
       .filterButtonActive {
@@ -34,6 +38,13 @@
       // class applied if button is clicked
       .activeFilter {
       }
+    }
+
+    .closeFilter {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

@@ -16,7 +16,7 @@
   // filterSideBarWrapper
   .filterSideBarWrapper {
     position: sticky;
-    top: 60px;
+
     z-index: 100;
 
     border-bottom: 0.5px solid var(--c-grey-200);
@@ -28,6 +28,14 @@
     .filterWrapper {
       width: 100%;
       height: 100%;
+    }
+
+    @media screen and (min-width: 1025px) {
+      top: 60px;
+    }
+
+    @media screen and (max-width: 1024px) {
+      top: 95px;
     }
   }
 
