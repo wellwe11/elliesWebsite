@@ -5,8 +5,54 @@ import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickVie
 import { useNavigate } from "react-router-dom";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG.jsx";
 
+const Category = ({ children, entry, handleNavigate }) => {
+  return (
+    <div className={classes.category}>
+      <div
+        className={classes.categoryTitleWrapper}
+        onClick={() =>
+          handleNavigate(`gallery?category=${entry.toLowerCase()}&page=1`)
+        }
+      >
+        <h3 className={classes.title}>{entry}</h3>
+        <div className={classes.exploreMoreWrapper}>
+          <h6 className={classes.exploreMore}>Explore whole collection</h6>
+          <div className={classes.arrowSVG}>
+            <ArrowNoBodySVG />
+          </div>
+        </div>
+        <div className={classes.underlineWithDot}>
+          <div className={classes.dot} />
+        </div>
+      </div>
+      {children}
+    </div>
+  );
+};
+
+const Product = ({ name, image, category, id, handleNavigate }) => {
+  return (
+    <div className={classes.product}>
+      <h5 className={classes.title}>{name}</h5>
+      <img
+        className={classes.img}
+        src={image}
+        alt=""
+        onClick={() =>
+          handleNavigate(`uniqueImage?category=${category}&id=${id}`)
+        }
+      />
+      <QuickViewButton
+        text={"Explore"}
+        onClick={() =>
+          handleNavigate(`uniqueImage?category=${category}&id=${id}`)
+        }
+      />
+    </div>
+  );
+};
+
 const Products = ({ data }) => {
-  const navigate = useNavigate();
   const dataEntries = Object.entries(data);
   const regex = /data/i;
 
@@ -15,6 +61,7 @@ const Products = ({ data }) => {
 
     return [fixedTitle, obj];
   });
+  const navigate = useNavigate();
 
   const handleNavigate = (link) => {
     navigate(link);
@@ -23,25 +70,7 @@ const Products = ({ data }) => {
   return (
     <div className={classes.categories}>
       {fixedTitles.map(([entry, obj], index) => (
-        <div key={index} className={classes.category}>
-          <div
-            className={classes.categoryTitleWrapper}
-            onClick={() =>
-              handleNavigate(`gallery?category=${entry.toLowerCase()}&page=1`)
-            }
-          >
-            <h3 className={classes.title}>{entry}</h3>
-            <div className={classes.exploreMoreWrapper}>
-              <h6 className={classes.exploreMore}>Explore whole collection</h6>
-              <div className={classes.arrowSVG}>
-                <ArrowNoBodySVG />
-              </div>
-            </div>
-            <div className={classes.underlineWithDot}>
-              <div className={classes.dot} />
-            </div>
-          </div>
-
+        <Category key={index} entry={entry} handleNavigate={handleNavigate}>
           <div className={classes.products}>
             {obj.map((obj, index) => {
               const name = obj._embedded.setTitle;
@@ -50,31 +79,18 @@ const Products = ({ data }) => {
               const category = obj._embedded.details.type;
 
               return (
-                <div key={index} className={classes.product}>
-                  <h5 className={classes.title}>{name}</h5>
-                  <img
-                    className={classes.img}
-                    src={image}
-                    alt=""
-                    onClick={() =>
-                      handleNavigate(
-                        `uniqueImage?category=${category}&id=${id}`
-                      )
-                    }
-                  />
-                  <QuickViewButton
-                    text={"Explore"}
-                    onClick={() =>
-                      handleNavigate(
-                        `uniqueImage?category=${category}&id=${id}`
-                      )
-                    }
-                  />
-                </div>
+                <Product
+                  handleNavigate={handleNavigate}
+                  key={index}
+                  name={name}
+                  image={image}
+                  id={id}
+                  category={category}
+                />
               );
             })}
           </div>
-        </div>
+        </Category>
       ))}
     </div>
   );
