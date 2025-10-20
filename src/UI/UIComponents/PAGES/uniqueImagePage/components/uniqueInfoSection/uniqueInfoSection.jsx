@@ -83,13 +83,15 @@ const InfoSectionImages = memo(
   ({ images, setActiveImage, smallerImagesRef }) => {
     // display all images in the collection, which can be hovered to preview them as bigger
     const smallImagesPreview = images.map((image, index) => (
-      <img
-        onMouseEnter={() => setActiveImage(index)}
-        className={classes.placeholderImage}
-        key={index}
-        src={image}
-        alt=""
-      />
+      <div className={classes.placeholderImageWrapper}>
+        <img
+          onMouseEnter={() => setActiveImage(index)}
+          className={classes.placeholderImage}
+          key={index}
+          src={image}
+          alt=""
+        />
+      </div>
     ));
 
     return (
