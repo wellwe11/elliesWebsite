@@ -1,19 +1,21 @@
 import classes from "./services.module.scss";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import ButtonWithUnderlineAndUndertext from "@components/buttonWithUnderlineAndUnderText/buttonWithUnderlineAndUndertext";
 import TextThatCorrespondsToActiveImage from "@components/scrollText/scrollText";
 
 // buttons that change the currently displayed set of images
 const LeftSection = ({ data, setActiveImage }) => {
-  const buttonNames = data?.service_collections.map((obj) => obj.name), // get collection-names
-    buttonNamesSpliced = buttonNames.splice(0, 4); // limit it to 4 sets
+  const buttonNames =
+    useMemo(() => data?.service_collections.map((obj) => obj.name), [data]) ??
+    [].slice(0, 4) ??
+    []; // limit it to 4 sets
 
   return (
     // a collection of buttons containing the names for each collection (buttonNamesSpliced)
     <section className={classes.leftSection}>
-      {buttonNamesSpliced.map((text, index) => (
+      {buttonNames.map((text, index) => (
         <div
           className={classes.buttonsWrapper}
           key={index}
@@ -34,16 +36,14 @@ const LeftSection = ({ data, setActiveImage }) => {
 
 const RightSection = ({ data, activeImage }) => {
   // each collections set of images
-  const collectionImagesShuffle = data?.service_collections.map(
-      (obj) => obj.images
-    ),
-    currentSetOfImages = collectionImagesShuffle[activeImage], //  display a set of 3 images - active image represents the current set of images to display
-    servicesBackgroundImage = data?.backgroundImage, // the background in which the collections will be previewed on
-    collectionBioTitles = data?.service_collections.map(
-      // each collections title
-      (obj) => obj.bio_title
-    ),
-    collectionBioTexts = data?.service_collections.map((obj) => obj.bio_info); // each collections bio-text
+
+  const serviceData = useMemo(() => data?.service_collections, [data]) ?? [],
+    collectionImagesShuffle = serviceData.map((obj) => obj.images), //  display a set of 3 images - active image represents the current set of images to display
+    collectionBioTitles = serviceData.map((obj) => obj.bio_title), // each collections title
+    collectionBioTexts = serviceData.map((obj) => obj.bio_info); // each collections bio-text
+
+  const servicesBackgroundImage = data?.backgroundImage; // the background in which the collections will be previewed on
+  const currentSetOfImages = collectionImagesShuffle[activeImage];
 
   const mappedImages = (
     <div className={classes.paintingContainer}>

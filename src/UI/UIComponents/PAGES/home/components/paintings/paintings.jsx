@@ -22,7 +22,6 @@ const SetOfExampleCollectionSection = ({ data }) => {
     const imagesSrc = bioInfo.images,
       imagesText = bioInfo.imagesBio;
 
-    console.log(imagesSrc, imagesText);
     return (
       <section
         className={classes.exampleCollectionSection}

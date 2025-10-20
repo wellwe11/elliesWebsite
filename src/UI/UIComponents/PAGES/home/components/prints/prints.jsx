@@ -11,7 +11,7 @@ import useSetOfExampleCollectionLogic from "../../hooks/useSetOfExampleCollectio
 
 // Example section of a collection of prints - 3 images with scrolling text below as bio
 const SetOfExampleCollectionSection = ({ data }) => {
-  const { imageSrc, text, bioInfo } = useSetOfExampleCollectionLogic(data);
+  const { bioInfo } = useSetOfExampleCollectionLogic(data);
   const { linkId, linkType, textBioTitle } = bioInfo;
 
   // if user clicks on any image, will navigate to collection
@@ -19,15 +19,17 @@ const SetOfExampleCollectionSection = ({ data }) => {
   const handleNavigate = () =>
     navigate(`uniqueImage?category=${linkType}&id=${linkId}`);
 
-  if (imageSrc && text) {
+  if (bioInfo) {
+    const imagesSrc = bioInfo.images,
+      imagesText = bioInfo.imagesBio;
     return (
       <section
         className={classes.exampleCollectionSection}
         onClick={handleNavigate}
       >
         <SetOfimagesWithText
-          images={imageSrc}
-          texts={text}
+          images={imagesSrc}
+          texts={imagesText}
           textBioTitle={textBioTitle || "Please insert a title"}
         />
       </section>
