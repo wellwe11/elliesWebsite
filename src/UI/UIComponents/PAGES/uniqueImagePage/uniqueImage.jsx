@@ -84,16 +84,24 @@ const UniqueImage = ({ data: { foundObj, info } }) => {
   );
 
   return (
-    <div className={classes.uniqueImage}>
-      {uniqueTopSectionWrapper}
-      {sectionSeperatorNoImage}
+    <>
+      <div className={classes.desktop}>
+        <div className={classes.uniqueImage}>
+          {uniqueTopSectionWrapper}
+          {sectionSeperatorNoImage}
 
-      {sectionSeperatorWithImage}
-      {sectionSeperatorNoImage}
+          {sectionSeperatorWithImage}
+          {sectionSeperatorNoImage}
 
-      {uniqueInfoSectionWrapper}
-      {sectionSeperatorNoImage}
-    </div>
+          {uniqueInfoSectionWrapper}
+          {sectionSeperatorNoImage}
+        </div>
+      </div>
+
+      <div className={classes.mobile}>
+        <div className={classes.uniqueImage}>{uniqueInfoSectionWrapper}</div>
+      </div>
+    </>
   );
 };
 
