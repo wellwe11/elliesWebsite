@@ -26,11 +26,13 @@ const FilterSideBarWrapperComponent = ({ dataKeys, category }) => {
 
   return (
     <div className={classes.filterSideBarWrapper}>
-      <FilterSideBar
-        dataKeys={dataKeys}
-        handleFilter={handleFilter}
-        category={localCategory}
-      />
+      <div className={classes.filterWrapper}>
+        <FilterSideBar
+          dataKeys={dataKeys}
+          handleFilter={handleFilter}
+          category={localCategory}
+        />
+      </div>
     </div>
   );
 };

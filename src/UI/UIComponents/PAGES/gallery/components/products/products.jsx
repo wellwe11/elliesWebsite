@@ -76,13 +76,14 @@ const Products = ({ products }) => {
     <div className={classes.productsContainer}>
       {products?.map((product, index) => (
         <div key={index} className={classes.productWrapper}>
-          <QuickView
-            src={product.image}
-            secondSrc={product._embedded.restImages[0]}
-            productType={product._embedded.details.type}
-            productId={product.id}
-          />
-
+          <div className={classes.productImageWrapper}>
+            <QuickView
+              src={product.image}
+              secondSrc={product._embedded.restImages[0]}
+              productType={product._embedded.details.type}
+              productId={product.id}
+            />
+          </div>
           <ProductBio product={product} bioData={product?._embedded} />
         </div>
       ))}

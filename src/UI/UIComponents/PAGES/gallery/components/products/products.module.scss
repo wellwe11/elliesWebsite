@@ -10,8 +10,8 @@
     justify-content: space-evenly;
 
     @media screen and (min-width: 1025px) {
-      gap: var(--spacing-3);
-      grid-template-columns: repeat(3, 0.3fr);
+      gap: var(--spacing-6);
+      grid-template-columns: repeat(4, 1fr);
     }
 
     @media screen and (max-width: 1024px) {
@@ -43,6 +43,21 @@
 
       &:hover {
       }
+
+      .productImageWrapper {
+        height: 100%;
+        width: 100%;
+
+        background-color: var(--c-grey-100);
+
+        @media screen and (min-width: 1025px) {
+          padding: var(--spacing-2) 0px;
+        }
+
+        @media screen and (max-width: 1024px) {
+          padding: var(--spacing-2);
+        }
+      }
     }
   }
 }
@@ -67,6 +82,8 @@
 
     .bioTopSection {
       height: 70%;
+
+      padding: var(--spacing-2) 0px;
 
       display: flex;
       flex-direction: column;

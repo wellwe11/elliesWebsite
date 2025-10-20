@@ -1,44 +1,38 @@
 // FilterSideBar
 .filterSideBar {
-  width: 80%;
-  height: 100%;
-
-  position: relative;
-
   .filterUl {
-    position: sticky;
-    top: 60px;
     width: 100%;
+    display: flex;
 
     @media screen and (max-width: 1024px) {
       top: 110px;
     }
     .filterLi {
-      margin: var(--spacing-2) 0px;
+      margin: var(--spacing-2) var(--spacing-1);
 
       display: flex;
       align-items: center;
 
-      .filterLabel {
-        width: 40%;
+      .filterInput {
+        display: none;
+      }
+
+      .filterButton {
         cursor: pointer;
-        // check-box which is hidden but enables functionality
+        padding: calc(var(--spacing-1) / 2) var(--spacing-2);
+        border-radius: 40px;
 
-        position: relative;
-        .filterInput {
-          display: none;
-        }
+        background-color: var(--c-grey-200);
+        transition: background-color 0.2s ease;
+        border: none;
+      }
 
-        // container for text and corresponding line
-        .textAndUnderline {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-        }
+      .filterButtonActive {
+        background-color: var(--c-grey-300);
+      }
 
-        // class applied if button is clicked
-        .activeFilter {
-        }
+      // class applied if button is clicked
+      .activeFilter {
       }
     }
   }
