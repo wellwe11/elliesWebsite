@@ -1,4 +1,5 @@
 import classes from "./uniqueImage.module.scss";
+import { useEffect, memo, useMemo } from "react";
 
 import UniqueTopSection from "./components/uniqueTopSection/uniqueTopSection.jsx";
 import UniqueInfoSection from "./components/uniqueInfoSection/uniqueInfoSection.jsx";
@@ -6,15 +7,10 @@ import UniqueInfoSection from "./components/uniqueInfoSection/uniqueInfoSection.
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 
 import Loading from "../../LOADING/loading.jsx";
-import { useEffect } from "react";
 
 // Component containing all info for top-section
-const UniqueTopSectionComponent = ({ info, foundObject }) => {
+const UniqueTopSectionComponent = memo(({ info, foundObject }) => {
   // currently placeholders right now. Not sure what I will use, but there will be text related to the set somehow.
-
-  useEffect(() => {
-    window.scrollTo({ top: 0 });
-  }, []);
 
   const uniqueTopSectionTitles = {
       title: "Hello,",
@@ -37,12 +33,15 @@ const UniqueTopSectionComponent = ({ info, foundObject }) => {
       foundObject={foundObject}
     />
   );
-};
+});
 
 // Component containing all info for info-section
 const UniqueInfoSectionComponent = ({ info, foundObject }) => {
-  const details = info?.details, // info which is used on uniqueInfoSection. It contains things such as size, color, type etc.
-    extendedDetailsImages = foundObject?.images.map((image) => image.src); // set of images which are related to the set (only 'main-type images')
+  const details = info?.details; // info which is used on uniqueInfoSection. It contains things such as size, color, type etc.
+  const extendedDetailsImages = useMemo(
+    () => foundObject?.images.map((image) => image.src) ?? [],
+    [foundObject]
+  ); // set of images which are related to the set (only 'main-type images')
 
   return (
     <UniqueInfoSection
@@ -54,6 +53,10 @@ const UniqueInfoSectionComponent = ({ info, foundObject }) => {
 };
 
 const UniqueImage = ({ data: { foundObj, info } }) => {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
+
   const uniqueTopSectionWrapper = (
     <section className={classes.uniqueTopSectionWrapper}>
       <UniqueTopSectionComponent info={info} foundObject={foundObj} />
