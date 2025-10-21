@@ -16,20 +16,22 @@
 
     @media screen and (max-width: 1024px) {
       gap: var(--spacing-4);
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 800px) {
       grid-template-columns: repeat(2, 1fr);
     }
 
     @media screen and (max-width: 650px) {
-      grid-template-columns: repeat(1, 1fr);
       padding: 0px var(--spacing-5);
     }
 
-    @media screen and (max-width: 450px) {
-      padding: 0px var(--spacing-3);
+    @media screen and (max-width: 425px) {
+      grid-template-columns: repeat(1, 1fr);
     }
 
-    @media screen and (max-width: 350px) {
-      padding: var(--spacing-2);
+    @media screen and (max-width: 375px) {
     }
 
     .productWrapper {
