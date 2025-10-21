@@ -52,7 +52,7 @@ const SectionSeperator = ({ lowMargin = false, withImage = false }) => (
 const Home = ({ data: { paintingsData, printsData, servicesData } }) => {
   return (
     <div className={classes.home}>
-      {/* DESKTOP >= 426px */}
+      {/* DESKTOP  */}
       <div className={classes.desktop}>
         <section className={classes.topSection}>
           <MainPageTopPresentation
@@ -96,7 +96,7 @@ const Home = ({ data: { paintingsData, printsData, servicesData } }) => {
       <h1>insta</h1>
       </section> */}
       </div>
-      {/* MOBILE <= 425px */}
+      {/* MOBILE */}
       <div className={classes.mobile}>
         <Products data={{ paintingsData, printsData }} />
       </div>

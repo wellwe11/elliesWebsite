@@ -1,9 +1,8 @@
-import X_SVG from "../../../../../../abstract/components/SVGS/X_SVG/X_SVG.jsx";
+import X_SVG from "@components/SVGS/X_SVG/X_SVG.jsx";
 import classes from "./filterSideBar.module.scss";
 import ButtonWithUnderlineAndUndertext from "@components/buttonWithUnderlineAndUnderText/buttonWithUnderlineAndUndertext";
 
 const FilterSideBar = ({ dataKeys, handleFilter, category }) => {
-  console.log(category);
   return (
     <div className={classes.filterSideBar}>
       <ul className={classes.filterUl}>
