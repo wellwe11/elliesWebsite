@@ -53,10 +53,14 @@
         background-color: var(--c-grey-100);
 
         @media screen and (min-width: 1025px) {
-          padding: var(--spacing-2) 0px;
+          padding: var(--spacing-4) 0px;
         }
 
         @media screen and (max-width: 1024px) {
+          padding: var(--spacing-3);
+        }
+
+        @media screen and (max-width: 650px) {
           padding: var(--spacing-2);
         }
       }
