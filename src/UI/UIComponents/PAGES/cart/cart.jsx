@@ -1,4 +1,5 @@
 import classes from "./cart.module.scss";
+import routeClasses from "../../routeContainer/routeContainer.module.scss";
 
 import Products from "./components/products/products.jsx";
 import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickViewButton";
@@ -77,7 +78,7 @@ const Cart = () => {
 
   // add close button
   return (
-    <div className={classes.cart}>
+    <div className={`${classes.cart}`}>
       <div
         className={classes.background}
         ref={backgroundWhiteRef}

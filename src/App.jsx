@@ -26,7 +26,6 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * /contact for smaller & bigger screens
  * /cart for smaller & bigger screens
  * Navbar leaks on right side on smaller screens
  *

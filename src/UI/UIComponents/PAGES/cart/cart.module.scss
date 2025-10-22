@@ -1,10 +1,11 @@
 .cart {
   z-index: 999999;
   position: fixed;
-  right: 0;
+
   top: 0;
 
   width: 100%;
+
   height: 100%;
 
   display: flex;
@@ -37,7 +38,7 @@
     background-color: white;
 
     height: 100%;
-    width: 30%;
+    width: clamp(300px, (50vw - 15rem), 600px);
 
     display: flex;
     flex-direction: column;
@@ -121,6 +122,23 @@
     .toPaymentMethodWrapper {
       height: 50px;
     }
+
+    @media screen and (min-width: 1441px) {
+      border-right: 1px solid var(--c-grey-300);
+    }
+
+    @media screen and (max-width: 375px) {
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: 1441px) {
+    width: 95vw;
+    max-width: 1440px;
+  }
+
+  @media screen and (max-width: 1440px) {
+    right: 0;
   }
 }
 
