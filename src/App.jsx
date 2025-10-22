@@ -27,7 +27,6 @@ export default App;
  *
  * ** TODO NOW! **
  * Fix code where I am overusing Divs:
- * add Links to footer 
  * Add page that has information about Costumer rights & shipping. Clicking button on footer should navigate to that section on the page
  * 
  * ------------------------------------------------

@@ -2,7 +2,7 @@ import useGetLocation from "@hooks/useGetLocation.jsx";
 import classes from "./navBarButtons.module.scss";
 import NavButton from "./navButton/navButton.jsx";
 
-import { capitalizeFirstLetter } from "../../../../../abstract/functions/firstLetterCapital.js";
+import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 
 const Buttons = ({
   buttons,

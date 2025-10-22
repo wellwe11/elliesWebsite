@@ -1,7 +1,27 @@
 // NavButton
-.button {
+.navButton {
+  background-color: inherit;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
   width: 140px;
-  height: 100%;
+  height: var(--spacing-8);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: color 0.3s ease;
+
+  .font {
+    transition: color 0.4s ease;
+    color: var(--fontColor);
+    font-variation-settings: "wght" 450;
+  }
+
+  .font {
+    color: black;
+  }
 }
 
 @media screen and (max-width: 1024px) {

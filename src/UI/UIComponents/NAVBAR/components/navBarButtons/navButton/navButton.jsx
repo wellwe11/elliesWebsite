@@ -11,11 +11,9 @@ const NavButton = ({ children, link }) => {
   };
 
   return (
-    <div className={classes.button}>
-      <ButtonWithContent onClick={handleNavigate} fontType={"h6"}>
-        {children}
-      </ButtonWithContent>
-    </div>
+    <button className={classes.navButton} onClick={handleNavigate}>
+      <h6 className={classes.font}>{children}</h6>
+    </button>
   );
 };
 
