@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import classes from "./wheelOfManyImages.module.scss";
 
 import NavigationButtons from "./navigationButtons/navigationButtons";
@@ -7,15 +7,8 @@ import QuickView from "@fullyComponents/quickView/quickView";
 
 const Images = ({ data }) => {
   // mapped objects using their 'representive-image'
-  const wheelImages = data?.map((obj) => obj.image);
 
-  const restImages = data?.map((obj) => obj._embedded.restImages[0]);
-
-  const productTypes = data?.map((obj) => obj._embedded.details.type);
-
-  const productIds = data?.map((obj) => obj.id);
-
-  const buttonLimit = wheelImages.length; // the limit of marginLeft the wheel can go
+  const buttonLimit = data.length; // the limit of marginLeft the wheel can go
 
   // clicking left or right decreases or increases marginLeft by 1. This is then translate to marginLeft * 10 %. So 2 = 20%.
   const [marginLeft, setMarginLeft] = useState(0);
@@ -28,7 +21,7 @@ const Images = ({ data }) => {
 
   // transition applied/removed & translateX control.
   const marginLeftStyle = {
-    transform: `translateX(${(100 / wheelImages.length) * marginLeft}%)`,
+    transform: `translateX(${(100 / buttonLimit) * marginLeft}%)`,
     transition: `${
       marginLeft === 0 &&
       (prevMarginLeft === -buttonLimit + 1 ||
@@ -39,30 +32,42 @@ const Images = ({ data }) => {
   };
 
   // array containing images
-  const mappedImages = (
-    <div className={`${classes.imagesWrapper}`} style={marginLeftStyle}>
-      {wheelImages?.map((image, index) => (
-        <div key={index} className={classes.imageWrapper}>
-          <QuickView
-            src={image}
-            secondSrc={restImages[index]}
-            productType={productTypes[index]}
-            productId={productIds[index]}
-          />
-        </div>
-      ))}
-    </div>
+  const mappedImages = useMemo(
+    () =>
+      data?.map((obj) => {
+        const { image, _embedded, id } = obj;
+        const restImages = _embedded.restImages[0];
+        const productTypes = _embedded.details.type;
+
+        return (
+          <div key={id} className={classes.imageWrapper}>
+            <QuickView
+              src={image}
+              secondSrc={restImages}
+              productType={productTypes}
+              productId={id}
+            />
+          </div>
+        );
+      }),
+    [data]
   );
 
   // All images are collectively returned 3 times in the return-statement to visually look like you can scroll forever
   const mappedImagesThreeTimes = (
     <>
-      {mappedImages}
+      <div className={`${classes.imagesWrapper}`} style={marginLeftStyle}>
+        {mappedImages}
+      </div>
 
       {/* imagesContainer (mappedImages container) is justify-content center. Therefor, this mappedImages is the "main-set" of images which are dispalyed */}
-      {mappedImages}
+      <div className={`${classes.imagesWrapper}`} style={marginLeftStyle}>
+        {mappedImages}
+      </div>
 
-      {mappedImages}
+      <div className={`${classes.imagesWrapper}`} style={marginLeftStyle}>
+        {mappedImages}
+      </div>
     </>
   );
 
