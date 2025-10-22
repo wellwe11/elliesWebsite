@@ -22,7 +22,7 @@ export const TextArea = ({ children }) => {
       <textarea
         className={classes.input}
         placeholder="What can I help you with?"
-        requireds
+        required
       />
       <label htmlFor={children} className={classes.inputTitle}>
         <p>{children}</p>

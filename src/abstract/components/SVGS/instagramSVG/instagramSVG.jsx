@@ -12,7 +12,7 @@ const InstagramSVG = () => {
         rx="10"
         fill="none"
         stroke="white"
-        stroke-width="4"
+        strokeWidth="4"
       />
       <circle
         cx="50"
@@ -20,7 +20,7 @@ const InstagramSVG = () => {
         r="12"
         fill="none"
         stroke="white"
-        stroke-width="4"
+        strokeWidth="4"
       />
       <circle cx="65" cy="35" r="3" fill="white" />
     </svg>
