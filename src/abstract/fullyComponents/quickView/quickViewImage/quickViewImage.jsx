@@ -1,6 +1,6 @@
 import classes from "./quickViewImage.module.scss";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 
@@ -35,7 +35,7 @@ const ProductDescription = ({ bio }) => {
 
   const expandDescriptionButton = (
     // actual button which is always displayed
-    <div
+    <button
       className={classes.buttonDescriptionButton}
       onClick={() => setViewDescription(!viewDescription)}
     >
@@ -49,7 +49,7 @@ const ProductDescription = ({ bio }) => {
           <ArrowNoBodySVG />
         </div>
       </h5>
-    </div>
+    </button>
   );
 
   const expandDescriptionText = (
@@ -73,7 +73,6 @@ const ProductDescription = ({ bio }) => {
     <div className={classes.productDescription}>
       {expandDescriptionButton}
       {expandDescriptionText}
-      <ViewProductButton />
     </div>
   );
 };
@@ -98,21 +97,24 @@ const QuickViewInfo = ({
     </div>
   );
 
-  const allImagesRelatedToQuickViewImage = (
-    // a set of smaller images related to product. This handles the activeImageIndex
-    <div className={classes.allImagesExamples}>
-      {quickViewImages?.map((image, index) => (
-        <img
-          key={index}
-          className={classes.imageExample}
-          src={image}
-          alt=""
-          onClick={() => {
-            setActiveImageIndex(index);
-          }}
-        />
-      ))}
-    </div>
+  const allImagesRelatedToQuickViewImage = useMemo(
+    () => (
+      // a set of smaller images related to product. This handles the activeImageIndex
+      <div className={classes.allImagesExamples}>
+        {quickViewImages?.map((image, index) => (
+          <img
+            key={index}
+            className={classes.imageExample}
+            src={image}
+            alt=""
+            onClick={() => {
+              setActiveImageIndex(index);
+            }}
+          />
+        ))}
+      </div>
+    ),
+    [quickViewImages, setActiveImageIndex]
   );
 
   const currentImageBioText = (
@@ -141,27 +143,25 @@ const QuickViewInfo = ({
 const QuickViewImageContainer = ({ quickViewProps }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0); // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
 
-  const { quickViewImages } = quickViewProps; // destructure to access images for currentActiveImage
-
-  const currentActiveImage = (
-    // currentActiveImage is the image which you initially clicked on quickView. It can be changed by clicking then related images (set of smaller images displayed in quickViewInfo)
-    <div className={classes.activeImageWrapper}>
-      <img
-        className={classes.activeImage}
-        src={quickViewImages?.[activeImageIndex]}
-        alt=""
-      />
-    </div>
-  );
+  const { quickViewImages } = quickViewProps;
 
   return (
     <div className={classes.quickViewImageContainer}>
-      {currentActiveImage}
-      <QuickViewInfo
-        quickViewProps={quickViewProps}
-        activeImageIndex={activeImageIndex}
-        setActiveImageIndex={setActiveImageIndex}
-      />
+      <div className={classes.activeImageWrapper}>
+        <img
+          className={classes.activeImage}
+          src={quickViewImages?.[activeImageIndex]}
+          alt=""
+        />
+      </div>
+      <div className={classes.infoWrapper}>
+        <QuickViewInfo
+          quickViewProps={quickViewProps}
+          activeImageIndex={activeImageIndex}
+          setActiveImageIndex={setActiveImageIndex}
+        />
+        <ViewProductButton />
+      </div>
     </div>
   );
 };
