@@ -24,37 +24,6 @@ const Navbar = ({ setFetchedData }) => {
     loadTab,
   } = useSetActiveNavButton(buttons);
 
-  // logo
-  const navLogoWrapper = (
-    <div className={classes.navLogoWrapper}>
-      <NavLogo
-        setActiveButton={setActiveButton}
-        setHoverButton={setHoverButton}
-      />
-    </div>
-  );
-
-  // main-buttons (home, gallery etc)
-  const navbarButtonsWrapper = (
-    <div className={classes.navButtonsWrapper}>
-      <NavbarButtons
-        buttons={buttons}
-        activeButton={activeButton}
-        setActiveButton={setActiveButton}
-        hoverButton={hoverButton}
-        setHoverButton={setHoverButton}
-        setFetchedData={setFetchedData}
-      />
-    </div>
-  );
-
-  // shoppingcart
-  const shoppingCartWrapper = (
-    <div className={classes.shoppingCartWrapper}>
-      <ShoppingCart />
-    </div>
-  );
-
   if (!loadTab) return <div />;
 
   return (
@@ -63,9 +32,25 @@ const Navbar = ({ setFetchedData }) => {
         <div
           className={`${screen_classes.contentWrapper} ${classes.navWrapper}`}
         >
-          {navLogoWrapper}
-          {navbarButtonsWrapper}
-          {shoppingCartWrapper}
+          <div className={classes.navLogoWrapper}>
+            <NavLogo
+              setActiveButton={setActiveButton}
+              setHoverButton={setHoverButton}
+            />
+          </div>
+          <div className={classes.navButtonsWrapper}>
+            <NavbarButtons
+              buttons={buttons}
+              activeButton={activeButton}
+              setActiveButton={setActiveButton}
+              hoverButton={hoverButton}
+              setHoverButton={setHoverButton}
+              setFetchedData={setFetchedData}
+            />
+          </div>
+          <div className={classes.shoppingCartWrapper}>
+            <ShoppingCart />
+          </div>
         </div>
       </div>
     </div>
