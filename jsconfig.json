@@ -5,7 +5,8 @@
       "@components/*": ["abstract/components/*"],
       "@fullyComponents/*": ["abstract/fullyComponents/*"],
       "@assets/*": ["assets/*"],
-      "@functions/*": ["abstract/functions/*"]
+      "@functions/*": ["abstract/functions/*"],
+      "@classes/*": ["abstract/classes/*"]
     }
   }
 }

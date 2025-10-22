@@ -26,11 +26,6 @@ export default App;
 /** TODO LIST
  *
  * ** TODO NOW! **
- * /cart for smaller & bigger screens
- * Navbar leaks on right side on smaller screens
- *
- *
- *
  * Fix code where I am overusing Divs:
  ** Use HOME as an example - add to other top-level components
  ** Add useMemo to stale components that operate expensive calculations each render

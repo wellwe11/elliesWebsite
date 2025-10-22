@@ -1,4 +1,5 @@
 import classes from "./uniqueImage.module.scss";
+import fadeInClass from "@classes/fadeInOnLoad.module.scss";
 import { useEffect, memo, useMemo } from "react";
 
 import UniqueTopSection from "./components/uniqueTopSection/uniqueTopSection.jsx";
@@ -85,7 +86,7 @@ const UniqueImage = ({ data: { foundObj, info } }) => {
 
   return (
     <>
-      <div className={classes.desktop}>
+      <div className={`${classes.desktop} ${fadeInClass.fade_in_on_load}`}>
         <div className={classes.uniqueImage}>
           {uniqueTopSectionWrapper}
           {sectionSeperatorNoImage}

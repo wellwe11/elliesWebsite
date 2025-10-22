@@ -1,7 +1,9 @@
+import classes from "./GALLERY.module.scss";
+import fadeInClass from "@classes/fadeInOnLoad.module.scss";
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import classes from "./GALLERY.module.scss";
 import PageSelector from "./components/pageSelector/pageSelector.jsx";
 import FilterSideBar from "./components/filterSideBar/filterSideBar.jsx";
 import Products from "./components/products/products.jsx";
@@ -67,7 +69,7 @@ const PageWrapperComponent = ({ filteredData }) => {
 
 const Gallery = ({ data: { category, updatedData, page } }) => {
   return (
-    <div className={classes.gallery}>
+    <div className={`${classes.gallery} ${fadeInClass.fade_in_on_load}`}>
       <div className={classes.galleryTop}>
         <FilterSideBarWrapperComponent
           dataKeys={["prints", "paintings"]} // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.

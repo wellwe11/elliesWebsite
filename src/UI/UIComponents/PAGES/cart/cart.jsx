@@ -1,5 +1,4 @@
 import classes from "./cart.module.scss";
-import routeClasses from "../../routeContainer/routeContainer.module.scss";
 
 import Products from "./components/products/products.jsx";
 import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickViewButton";

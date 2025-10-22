@@ -1,4 +1,5 @@
 import classes from "./HOME.module.scss";
+import fadeInClass from "@classes/fadeInOnLoad.module.scss";
 
 import MainPageTopPresentation from "./components/mainPageTopPresentation/mainPageTopPresentation.jsx";
 import mainImage from "@assets/welcomeImage.jpg";
@@ -51,7 +52,7 @@ const SectionSeperator = ({ lowMargin = false, withImage = false }) => (
 
 const Home = ({ data: { paintingsData, printsData, servicesData } }) => {
   return (
-    <div className={classes.home}>
+    <div className={`${classes.home} ${fadeInClass.fade_in_on_load}`}>
       {/* DESKTOP  */}
       <div className={classes.desktop}>
         <section className={classes.topSection}>
