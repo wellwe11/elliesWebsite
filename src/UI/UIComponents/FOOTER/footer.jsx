@@ -23,7 +23,7 @@ const Copyright = () => {
 const GithubLink = () => {
   const gitHubButtonLinkWrapper = (
     <div className={classes.buttonWrapper}>
-      <ALink>
+      <ALink href={"https://github.com/wellwe11/elliesWebsite"}>
         <div className={classes.content}>
           <PText>Github</PText>
           <div className={classes.svgWrapper}>

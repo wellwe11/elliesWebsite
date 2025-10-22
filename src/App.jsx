@@ -27,15 +27,16 @@ export default App;
  *
  * ** TODO NOW! **
  * Fix code where I am overusing Divs:
- ** Use HOME as an example - add to other top-level components
- ** Add useMemo to stale components that operate expensive calculations each render
+ * add Links to footer 
+ * Add page that has information about Costumer rights & shipping. Clicking button on footer should navigate to that section on the page
+ * 
  * ------------------------------------------------
  * ** BUGS **
  * ------------------------------------------------
  * ** THINGS TO FIX **
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
- * add Links to footer
+ 
  * ------------------------------------------------
  * ** NEW COMPONENTS **
  * Create an instagram section - this should be a spinning wheel that simply has images from ellies instagram-page, and when clicked, takes you to ellies instagram
