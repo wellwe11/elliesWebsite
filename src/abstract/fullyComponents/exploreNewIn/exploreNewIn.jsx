@@ -1,5 +1,4 @@
 import classes from "./exploreNewIn.module.scss";
-import tempImage from "@assets/euroSection.webp";
 
 const ExploreNewIn = () => {
   return (
@@ -7,7 +6,7 @@ const ExploreNewIn = () => {
       <div className={classes.sideWrapper}>
         <div className={classes.left}>
           <div className={classes.imageContainer}>
-            <img className={classes.image} src={tempImage} alt="" />
+            {/* <img className={classes.image} src={""} alt="" /> */}
           </div>
         </div>
         <div className={classes.right}>
