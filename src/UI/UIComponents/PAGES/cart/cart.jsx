@@ -51,30 +51,6 @@ const Cart = () => {
     classes
   );
 
-  const closeButton = (
-    <button className={classes.closeButton} onClick={handleNavigateBack}>
-      <X_SVG />
-    </button>
-  );
-
-  const productsWrapper = (
-    <div className={classes.productsWrapper}>
-      <Products />
-    </div>
-  );
-
-  const totalProductsWrapper = (
-    <div className={classes.totalProductsWrapper}>
-      <TotalProducts />
-    </div>
-  );
-
-  const toPaymentMethodWrapper = (
-    <div className={classes.toPaymentMethodWrapper}>
-      <ToPaymentMethod />
-    </div>
-  );
-
   // add close button
   return (
     <div className={`${classes.cart}`}>
@@ -86,12 +62,20 @@ const Cart = () => {
       <div className={classes.cartWrapper} ref={cartWrapperRef}>
         <div className={classes.titleAndCloseWrapper}>
           {title}
-          {closeButton}
+          <button className={classes.closeButton} onClick={handleNavigateBack}>
+            <X_SVG />
+          </button>
         </div>
-        {productsWrapper}
+        <div className={classes.productsWrapper}>
+          <Products />
+        </div>
         <div className={classes.cartBottomSection}>
-          {totalProductsWrapper}
-          {toPaymentMethodWrapper}
+          <div className={classes.totalProductsWrapper}>
+            <TotalProducts />
+          </div>
+          <div className={classes.toPaymentMethodWrapper}>
+            <ToPaymentMethod />
+          </div>
         </div>
       </div>
     </div>

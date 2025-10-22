@@ -1,17 +1,17 @@
 import classes from "./quickView.module.scss";
+
 import { useNavigate } from "react-router-dom";
 import QuickViewButton from "./quickViewButton/quickViewButton";
 import bodyNoScroll from "@functions/bodyNoScroll";
 
-const QuickView = ({ src, secondSrc, productType, productId }) => {
-  const navigate = useNavigate();
-  const { disableScroll } = bodyNoScroll();
-
-  const handleNavigate = () => {
-    navigate(`/uniqueImage?category=${productType}&id=${productId}`);
-  };
-
-  const quickViewImage = (
+const QuickViewImage = ({
+  src,
+  secondSrc,
+  productType,
+  productId,
+  handleNavigate,
+}) => {
+  return (
     <div className={classes.quickViewImageWrapper}>
       <img
         className={classes.productImage}
@@ -24,15 +24,27 @@ const QuickView = ({ src, secondSrc, productType, productId }) => {
         className={classes.productImage}
         src={secondSrc}
         alt=""
-        onClick={handleNavigate}
+        onClick={() =>
+          handleNavigate(`/uniqueImage?category=${productType}&id=${productId}`)
+        }
       />
     </div>
   );
+};
+
+const QuickView = ({ src, secondSrc, productType, productId }) => {
+  const navigate = useNavigate();
+  const { disableScroll } = bodyNoScroll();
 
   return (
     <div className={classes.quickViewImageContainer}>
-      {quickViewImage}
-
+      <QuickViewImage
+        src={src}
+        secondSrc={secondSrc}
+        productType={productType}
+        productId={productId}
+        handleNavigate={navigate}
+      />
       <div className={classes.quickViewButtonComponentWrapper}>
         {
           // Button which pops up on hovering an image. Clicking it will display QuickViewImageContainer.

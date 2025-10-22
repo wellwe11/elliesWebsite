@@ -1,4 +1,5 @@
 import classes from "./quickViewImage.module.scss";
+
 import { useState } from "react";
 
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
