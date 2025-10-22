@@ -1,4 +1,8 @@
 // PText
 .pText {
   padding: var(--spacing-1);
+  width: inherit;
+
+  word-wrap: wrap;
+  overflow-wrap: break-word;
 }

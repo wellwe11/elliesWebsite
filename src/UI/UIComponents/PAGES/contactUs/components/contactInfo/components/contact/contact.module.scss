@@ -1,9 +1,11 @@
 // Contact
 .contact {
   width: fit-content;
+  max-width: 100%;
   padding: var(--spacing-3) 0px;
 
   .emailWrapper {
+    max-width: inherit;
   }
 
   .socialMediaWrapper {
@@ -21,12 +23,22 @@
 
   .sectionWrapper {
     padding: 0px var(--spacing-2);
+    max-width: 100%;
 
     display: flex;
+
     .link {
       padding: 0px var(--spacing-1);
       cursor: pointer;
       color: var(--c-grey-500);
+      max-width: inherit;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    flex-direction: column;
+
+    .SVGWrapper {
+      margin-bottom: var(--spacing-3);
     }
   }
 }
@@ -49,4 +61,11 @@
 .SVGWrapper {
   display: flex;
   height: 20px;
+}
+
+// emailContact
+.contactText {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-wrap: wrap;
 }

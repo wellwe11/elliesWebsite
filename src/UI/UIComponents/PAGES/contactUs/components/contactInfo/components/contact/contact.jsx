@@ -12,8 +12,6 @@ const SVGWrapper = ({ children }) => {
 const Section = ({ links, onClick, sectionSVG }) => {
   const linksEntries = Object.entries(links);
 
-  console.log(linksEntries);
-
   return (
     <div className={classes.section}>
       <SVGWrapper>{sectionSVG}</SVGWrapper>
@@ -44,7 +42,7 @@ const LocalSvgWrapper = ({ svg }) => {
 const Contact = () => {
   const emailContact = {
       email: {
-        text: <p>someEmail@someMail.com</p>,
+        text: <p className={classes.contactText}>someEmail@someMail.com</p>,
         link: "",
       },
     },

@@ -31,4 +31,8 @@
       font-variation-settings: "wght" 300;
     }
   }
+
+  @media screen and (max-width: 375px) {
+    padding: 0px;
+  }
 }
