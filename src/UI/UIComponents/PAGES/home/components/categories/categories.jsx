@@ -1,8 +1,9 @@
 import classes from "./categories.module.scss";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import fadeInClasses from "@classes/fadeInOnLoad.module.scss";
 import ControlledImage from "@components/controlledImage/controlledImage";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useMemo, useRef, useState } from "react";
 
 // each category has a title. I.e. "Stickers, paintings etc"
 const CategoryTitle = ({ title }) => {

@@ -8,11 +8,11 @@
   top: 0;
 
   z-index: 150;
-  width: 100%;
+  width: 100vw;
 
-  border-bottom: 0.5px solid var(--c-grey-200);
-  backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.901);
+  backdrop-filter: blur(8px);
+  border-bottom: 0.5px solid var(--c-grey-200);
 
   .navContent {
     .navWrapper {
@@ -95,5 +95,25 @@
     .pageOptionsWrapper {
       width: 80%;
     }
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes addBackgroundColor {
+  from {
+    background-color: none;
+  }
+
+  to {
+    backdrop-filter: blur(2px);
   }
 }

@@ -11,38 +11,14 @@
 
     width: 100vw;
     max-width: 1440px;
-
-    max-height: 900px;
-
     overflow: hidden;
 
-    animation: pageLoad 2s ease-out 1 forwards;
-    transform: scale(1.4);
-    margin-top: -150px;
-
-    .mainPageTitleWrapper {
-      overflow: hidden;
-      position: absolute;
-      top: 45%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: flex;
-
-      .mainPageTitle {
-        user-select: none;
-        opacity: 1;
-
-        font-size: clamp(20px, 10vw, 150px) !important;
-        font-variation-settings: "wght" 450;
-
-        color: rgb(9, 43, 94);
-        mix-blend-mode: exclusion;
-
-        z-index: 10;
-      }
-    }
+    height: 100vh;
+    max-height: 800px;
 
     .mainImageWrapper {
+      animation: pageLoad 2s ease-out 1 forwards;
+      transform: scale(1.4);
       width: 100%;
       height: 100%;
 
@@ -52,6 +28,74 @@
         object-fit: cover;
       }
     }
+  }
+
+  .activeImageContainer {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 60%;
+    height: 60%;
+    overflow: hidden;
+  }
+}
+
+.activeImage {
+  animation: appear 1.4s cubic-bezier(0.4, 0, 0, 1) 1 forwards;
+  animation-delay: 0.8s;
+
+  width: 0%;
+  height: 100%;
+
+  background-color: transparent;
+
+  position: absolute;
+  left: 0;
+
+  overflow: hidden;
+
+  img {
+    max-width: initial;
+
+    width: auto;
+    height: auto;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+@keyframes appear {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes hideLeft {
+  0% {
+    width: 100%;
+    opacity: 1;
+  }
+
+  99% {
+    width: 0%;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
 
