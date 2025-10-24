@@ -147,8 +147,8 @@ const RouteContainer = () => {
 
   return (
     <div className={classes.widthContainer}>
+      <div className={classes.whiteBackground} />
       <Navbar />
-
       <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
         <MainPagesRoutes />
         {state?.backgroundLocation && <BackgroundRoutes />}

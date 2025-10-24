@@ -12,12 +12,13 @@
     width: 100vw;
     max-width: 1440px;
 
-    max-height: 700px;
+    max-height: 900px;
 
     overflow: hidden;
 
     animation: pageLoad 2s ease-out 1 forwards;
     transform: scale(1.4);
+    margin-top: -150px;
 
     .mainPageTitleWrapper {
       overflow: hidden;
@@ -52,51 +53,14 @@
       }
     }
   }
-
-  .whiteBackground {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-
-    top: 0;
-
-    background-color: var(--websiteContainerColor);
-    z-index: 10;
-
-    animation: whiteFadeOut 0.7s cubic-bezier(0.5, 0.05, 0.8, 0.2) 1 forwards;
-    animation-delay: 0.3s;
-  }
-}
-
-@keyframes whiteFadeOut {
-  0% {
-    transform: translateY(0%);
-    opacity: 1;
-    visibility: visible;
-  }
-
-  99% {
-    transform: translateY(100%);
-    opacity: 1;
-    visibility: visible;
-  }
-
-  100% {
-    transform: translateY(100%);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
 }
 
 @keyframes pageLoad {
   from {
-    filter: blur(2px);
     transform: scale(1.2);
   }
 
   to {
-    filter: blur(0px);
     transform: scale(1);
   }
 }

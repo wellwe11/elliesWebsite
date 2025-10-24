@@ -9,6 +9,21 @@
   min-height: 100vh;
 
   background-color: var(--websiteContainerColor);
+  position: relative;
+
+  .whiteBackground {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+
+    z-index: 9999999;
+    top: 0;
+
+    background-color: var(--websiteContainerColor);
+
+    animation: whiteFadeOut 0.7s cubic-bezier(0.5, 0.05, 0.8, 0.2) 1 forwards;
+    animation-delay: 0.3s;
+  }
 
   .contentWrapper {
     height: 100%;
@@ -59,5 +74,26 @@
 
   .paddingClass {
     // padding-top: var(--spacing-2);
+  }
+}
+
+@keyframes whiteFadeOut {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  99% {
+    transform: translateY(100%);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
 }
