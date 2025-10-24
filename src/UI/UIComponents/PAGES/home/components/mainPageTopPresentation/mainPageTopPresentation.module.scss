@@ -30,7 +30,7 @@
     }
   }
 
-  .activeImageContainer {
+  .activeImageWrapper {
     position: absolute;
     top: 50%;
     right: 50%;
@@ -40,14 +40,126 @@
     justify-content: center;
     align-items: center;
 
-    width: 60%;
-    height: 60%;
+    width: 80%;
+    height: 70%;
     overflow: hidden;
+  }
+
+  .categoriesWrapper {
+    position: absolute;
+    top: 25%;
+    left: 7%;
+    z-index: 10;
+  }
+}
+
+.categories {
+  .textWrapper {
+    margin: var(--spacing-1) 0;
+    .button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      position: relative;
+
+      transition: background-color 0.4s ease;
+
+      border-radius: 2px;
+      border: 1px solid var(--c-grey-100);
+
+      .textOne,
+      .textTwo {
+        padding: var(--spacing-1) var(--spacing-3);
+
+        font-variation-settings: "wght" 400;
+        font-size: var(--spacing-7);
+
+        opacity: 0;
+        z-index: 2;
+
+        color: white;
+      }
+
+      .textOne {
+        transition: transform 0.4s ease;
+        animation: appearFromBottom 1s ease forwards;
+      }
+
+      .textTwo {
+        display: none;
+      }
+
+      .buttonBackgroundWrapper {
+        left: 0;
+        top: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        overflow: hidden;
+
+        .buttonBackgroundFadeIn {
+          background-color: var(--c-grey-100);
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          bottom: -150px;
+          left: 0;
+        }
+
+        .buttonBackgroundFadeOut {
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: -150px;
+          left: 0;
+          background-color: var(--c-grey-100);
+          transition: top 0.4s ease;
+        }
+      }
+
+      &:hover {
+        .buttonBackgroundWrapper {
+          .buttonBackgroundFadeIn {
+            transition: bottom 0.4s ease;
+            bottom: 0;
+          }
+
+          .buttonBackgroundFadeOut {
+            top: 0px;
+            background-color: rgba(255, 255, 255, 0);
+          }
+        }
+
+        .textOne {
+          transform: translateY(100%);
+        }
+
+        .textTwo {
+        }
+      }
+    }
+  }
+}
+
+@keyframes appearFromBottom {
+  from {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    pointer-events: all;
+    transform: translate(0%);
+    opacity: 1;
   }
 }
 
 .activeImage {
-  animation: appear 1.4s cubic-bezier(0.4, 0, 0, 1) 1 forwards;
+  animation: appear 1.2s cubic-bezier(0.4, 0, 0, 1) 1 forwards;
   animation-delay: 0.8s;
 
   width: 0%;

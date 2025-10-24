@@ -2,11 +2,28 @@ import classes from "./mainPageTopPresentation.module.scss";
 import exampleImage from "@assets/categories/bookmarksCategory.avif";
 
 const Categories = () => {
+  const categories = ["Gallery", "Inspiration", "Contact"];
+
   return (
-    <div>
-      <h1>Shop</h1>
-      <h1>Inspiration</h1>
-      <h1>Contact</h1>
+    <div className={classes.categories}>
+      {categories.map((category, index) => (
+        <div key={category} className={classes.textWrapper}>
+          <button className={classes.button}>
+            <div className={classes.buttonBackgroundWrapper}>
+              <div className={classes.buttonBackgroundFadeIn} />
+              <div className={classes.buttonBackgroundFadeOut} />
+            </div>
+            <h1
+              className={classes.textOne}
+              style={{ animationDelay: `1.${index + 1}s` }}
+            >
+              {category}
+            </h1>
+
+            <h1 className={classes.textTwo}>{category}</h1>
+          </button>
+        </div>
+      ))}
     </div>
   );
 };
@@ -28,7 +45,10 @@ const MainPageTopPresentation = ({ mainImage }) => {
         </div>
       </div>
 
-      <div className={classes.activeImageContainer}>
+      <div className={classes.categoriesWrapper}>
+        <Categories />
+      </div>
+      <div className={classes.activeImageWrapper}>
         <ActiveImage />
       </div>
     </div>
