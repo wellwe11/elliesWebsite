@@ -8,19 +8,36 @@ const Categories = () => {
     <div className={classes.categories}>
       {categories.map((category, index) => (
         <div key={category} className={classes.textWrapper}>
-          <button className={classes.button}>
+          <button
+            className={classes.button}
+            style={{ animationDelay: `1.${index + 1}s` }}
+          >
             <div className={classes.buttonBackgroundWrapper}>
               <div className={classes.buttonBackgroundFadeIn} />
               <div className={classes.buttonBackgroundFadeOut} />
             </div>
-            <h1
-              className={classes.textOne}
-              style={{ animationDelay: `1.${index + 1}s` }}
-            >
-              {category}
-            </h1>
-
-            <h1 className={classes.textTwo}>{category}</h1>
+            <div className={classes.textOne}>
+              {category.split("").map((l, index) => (
+                <span
+                  key={index + l}
+                  className={classes.l}
+                  style={{ animationDelay: `${0.03 * index}s` }}
+                >
+                  {l}
+                </span>
+              ))}
+            </div>
+            <div className={classes.textTwo}>
+              {category.split("").map((l, index) => (
+                <span
+                  key={index + l}
+                  className={classes.l}
+                  style={{ animationDelay: `${0.03 * index}s` }}
+                >
+                  {l}
+                </span>
+              ))}
+            </div>
           </button>
         </div>
       ))}

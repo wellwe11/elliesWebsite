@@ -55,9 +55,10 @@
 
 .categories {
   .textWrapper {
-    margin: var(--spacing-1) 0;
+    margin: var(--spacing-2) 0;
     .button {
       background-color: transparent;
+
       border: none;
       outline: none;
       cursor: pointer;
@@ -69,26 +70,47 @@
       border-radius: 2px;
       border: 1px solid var(--c-grey-100);
 
+      display: grid;
+
+      overflow: hidden;
+
       .textOne,
       .textTwo {
-        padding: var(--spacing-1) var(--spacing-3);
-
-        font-variation-settings: "wght" 400;
-        font-size: var(--spacing-7);
-
-        opacity: 0;
+        grid-column: 1;
+        grid-row: 1;
         z-index: 2;
 
-        color: white;
+        padding: var(--spacing-2) var(--spacing-5);
+
+        font-variation-settings: "wght" 400;
+        font-size: var(--spacing-4);
+        transition: opacity 1s ease;
+
+        .l {
+        }
       }
 
       .textOne {
-        transition: transform 0.4s ease;
         animation: appearFromBottom 1s ease forwards;
+        display: flex;
+        opacity: 1;
+
+        .l {
+          animation: lettersFromBottom 1s ease forwards;
+          color: var(--c-grey-100);
+          transform: translateY(0%);
+        }
       }
 
       .textTwo {
-        display: none;
+        transform: translateY(10%);
+        animation: fadeOutTop 0.5s ease forwards;
+        opacity: 0;
+
+        .l {
+          color: black;
+          transform: translateY(5%);
+        }
       }
 
       .buttonBackgroundWrapper {
@@ -116,14 +138,14 @@
           top: -150px;
           left: 0;
           background-color: var(--c-grey-100);
-          transition: top 0.4s ease;
+          transition: top 1s ease;
         }
       }
 
       &:hover {
         .buttonBackgroundWrapper {
           .buttonBackgroundFadeIn {
-            transition: bottom 0.4s ease;
+            transition: bottom 0.5s ease;
             bottom: 0;
           }
 
@@ -134,13 +156,76 @@
         }
 
         .textOne {
-          transform: translateY(100%);
+          animation: fadeOutTop 1s ease forwards !important;
+          animation-delay: 0.8s !important;
+          opacity: 0;
+          .l {
+            transform: translateY(5%);
+          }
         }
 
         .textTwo {
+          animation: appearFromBottom 1s ease forwards;
+          display: flex;
+          opacity: 1;
+
+          .l {
+            animation: lettersFromBottom 1s ease forwards;
+          }
         }
       }
     }
+  }
+}
+
+@keyframes lettersFromBottom {
+  from {
+    transform: translateY(5%);
+  }
+
+  to {
+    transform: translate(0%);
+  }
+}
+
+@keyframes fadeOutTop {
+  0% {
+    transform: translateY(0%);
+  }
+
+  20% {
+  }
+
+  99% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(10%);
+  }
+}
+
+@keyframes appearFromTop {
+  from {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    pointer-events: all;
+    transform: translate(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes lettersFromBottom {
+  from {
+    transform: translateY(20%);
+  }
+
+  to {
+    transform: translate(0%);
   }
 }
 
@@ -148,7 +233,7 @@
   from {
     pointer-events: none;
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(20%);
   }
 
   to {
