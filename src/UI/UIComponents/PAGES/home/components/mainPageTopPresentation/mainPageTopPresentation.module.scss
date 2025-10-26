@@ -54,6 +54,9 @@
 }
 
 .categories {
+  animation: appearFromBottom 1s ease forwards;
+  animation-delay: 1s;
+  opacity: 0;
   .textWrapper {
     margin: var(--spacing-2) 0;
     .button {
@@ -85,8 +88,10 @@
         font-variation-settings: "wght" 400;
         font-size: var(--spacing-4);
 
+        animation-delay: 0.3s;
+
         .l {
-          transition: transform 1s ease;
+          transition: transform 1s ease, opacity 1s ease;
         }
       }
 
@@ -94,6 +99,7 @@
         display: flex;
 
         .l {
+          opacity: 1;
           color: var(--c-grey-100);
         }
       }
@@ -102,6 +108,7 @@
         opacity: 0;
 
         .l {
+          opacity: 0;
           color: black;
         }
       }
@@ -149,19 +156,22 @@
         }
 
         .textOne {
-          animation: fadeOutTop 0.2s ease forwards !important;
+          animation: fadeOutTop 0.5s ease forwards !important;
 
           .l {
-            transform: translateY(5%);
+            transform: translateY(5%) !important;
+            opacity: 0 !important;
           }
         }
 
         .textTwo {
           animation: appearFromBottom 1s ease forwards;
+          animation-delay: 0.1s;
           display: flex;
 
           .l {
-            transform: translateY(0px) !important;
+            opacity: 1 !important;
+            transform: translateY(0%) !important;
           }
         }
       }
@@ -171,6 +181,7 @@
           animation: appearFromBottom 0.4s ease forwards;
 
           .l {
+            opacity: 1 !important;
             transform: translateY(0%) !important;
           }
         }
@@ -188,8 +199,9 @@
   80% {
     opacity: 0;
   }
+
   90% {
-    transform: translateY(-20%);
+    transform: translateY(-10%);
   }
 
   100% {
@@ -213,13 +225,13 @@
 }
 
 @keyframes appearFromBottom {
-  from {
+  0% {
     pointer-events: none;
     opacity: 0;
-    transform: translateY(10%);
+    transform: translateY(5%);
   }
 
-  to {
+  100% {
     pointer-events: all;
     transform: translate(0%);
     opacity: 1;
