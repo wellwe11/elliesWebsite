@@ -21,7 +21,7 @@ const Categories = () => {
                 <span
                   key={index + l}
                   className={classes.l}
-                  style={{ transform: `translateY(${index * 2}px)` }}
+                  style={{ transform: `translateY(${index * 1.1}px)` }}
                 >
                   {l}
                 </span>
@@ -32,7 +32,7 @@ const Categories = () => {
                 <span
                   key={index + l}
                   className={classes.l}
-                  style={{ transform: `translateY(${index * 2}px)` }}
+                  style={{ transform: `translateY(${index * 1.1}px)` }}
                 >
                   {l}
                 </span>

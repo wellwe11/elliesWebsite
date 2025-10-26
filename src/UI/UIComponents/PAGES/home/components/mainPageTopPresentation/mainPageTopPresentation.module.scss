@@ -84,6 +84,7 @@
 
         font-variation-settings: "wght" 400;
         font-size: var(--spacing-4);
+
         .l {
           transition: transform 1s ease;
         }
@@ -93,7 +94,6 @@
         display: flex;
 
         .l {
-          transform: translateY(0px) !important;
           color: var(--c-grey-100);
         }
       }
@@ -149,7 +149,7 @@
         }
 
         .textOne {
-          animation: fadeOutTop 0.2s ease forwards;
+          animation: fadeOutTop 0.2s ease forwards !important;
 
           .l {
             transform: translateY(5%);
@@ -165,19 +165,17 @@
           }
         }
       }
+
+      &:not(:hover) {
+        .textOne {
+          animation: appearFromBottom 0.4s ease forwards;
+
+          .l {
+            transform: translateY(0%) !important;
+          }
+        }
+      }
     }
-  }
-}
-
-@keyframes lettersFromBottom {
-  from {
-    opacity: 0 !important;
-    transform: translateY(5%);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate(0%);
   }
 }
 
@@ -185,9 +183,6 @@
   0% {
     transform: translateY(0%);
     opacity: 1;
-  }
-
-  20% {
   }
 
   80% {
@@ -217,21 +212,11 @@
   }
 }
 
-@keyframes lettersFromBottom {
-  from {
-    transform: translateY(20%);
-  }
-
-  to {
-    transform: translate(0%);
-  }
-}
-
 @keyframes appearFromBottom {
   from {
     pointer-events: none;
     opacity: 0;
-    transform: translateY(20%);
+    transform: translateY(10%);
   }
 
   to {
