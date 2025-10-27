@@ -1,19 +1,24 @@
 import classes from "./categories.module.scss";
-import { useState } from "react";
+
+const LSpan = ({ index, l }) => {
+  return (
+    <span
+      className={classes.l}
+      style={{
+        transform: `translateY(${index * 1.4}px)`,
+        opacity: `calc(1 - 0.${index - 0.8})`,
+      }}
+    >
+      {l}
+    </span>
+  );
+};
+
+const MappedLetters = ({ text }) =>
+  text.split("").map((l, i) => <LSpan key={l + i} index={i} l={l} />);
 
 const Categories = () => {
   const categories = ["Gallery", "Inspiration", "Contact"];
-  const [hoverDelay, setHoverDelay] = useState(false);
-
-  const enableHover = () => {
-    if (hoverDelay) return;
-
-    setHoverDelay(true);
-
-    setTimeout(() => {
-      setHoverDelay(false);
-    }, 500);
-  };
 
   return (
     <div className={classes.categories}>
@@ -22,39 +27,16 @@ const Categories = () => {
           <button
             className={classes.button}
             style={{ animationDelay: `1.${index + 1}s` }}
-            onMouseEnter={() => enableHover()}
           >
             <div className={classes.buttonBackgroundWrapper}>
               <div className={classes.buttonBackgroundFadeIn} />
               <div className={classes.buttonBackgroundFadeOut} />
             </div>
             <div className={classes.textOne}>
-              {category.split("").map((l, index) => (
-                <span
-                  key={index + l}
-                  className={classes.l}
-                  style={{
-                    transform: `translateY(${index * 1.4}px)`,
-                    opacity: `calc(1 - 0.${index - 0.8})`,
-                  }}
-                >
-                  {l}
-                </span>
-              ))}
+              <MappedLetters text={category} />
             </div>
             <div className={classes.textTwo}>
-              {category.split("").map((l, index) => (
-                <span
-                  key={index + l}
-                  className={classes.l}
-                  style={{
-                    transform: `translateY(${index * 1.4}px)`,
-                    opacity: `calc(1 - 0.${index - 0.8})`,
-                  }}
-                >
-                  {l}
-                </span>
-              ))}
+              <MappedLetters text={category} />
             </div>
           </button>
         </div>

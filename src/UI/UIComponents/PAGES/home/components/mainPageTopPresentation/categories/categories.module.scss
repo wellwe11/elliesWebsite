@@ -2,21 +2,30 @@
   animation: appearFromBottom 1s ease forwards;
   animation-delay: 1s;
   opacity: 0;
+  gap: 10px 0px;
+  will-change: transform, opacity, gap;
+
+  display: flex;
+  flex-direction: column;
+
   .textWrapper {
-    margin: var(--spacing-2) 0;
+    padding: var(--spacing-2) 0px;
+    display: flex;
+
     .button {
       background-color: transparent;
 
-      border: none;
-      outline: none;
       cursor: pointer;
 
       position: relative;
 
       transition: background-color 0.4s ease;
 
+      width: 100%;
+
       border-radius: 5px;
       border: 2px solid var(--c-grey-100);
+      outline: none;
 
       display: grid;
 
@@ -52,6 +61,7 @@
 
       .textTwo {
         opacity: 0;
+        display: flex;
 
         .l {
           opacity: 0;
@@ -119,6 +129,7 @@
 
           .l {
             opacity: 1 !important;
+
             transform: translateY(0%) !important;
             transition-delay: 0.2s;
           }
@@ -150,7 +161,7 @@
 
 @keyframes fadeOutTop {
   0% {
-    transform: translateY(0%);
+    transform: translateY(0);
     opacity: 1;
   }
 
@@ -177,7 +188,7 @@
 
   to {
     pointer-events: all;
-    transform: translate(0%);
+    transform: translate(0);
     opacity: 1;
   }
 }
@@ -186,11 +197,13 @@
   0% {
     pointer-events: none;
     transform: translateY(5%);
+    gap: 10px 0px;
   }
 
   100% {
     pointer-events: all;
-    transform: translate(0%);
+    transform: translate(0);
     opacity: 1;
+    gap: 0px 0px;
   }
 }
