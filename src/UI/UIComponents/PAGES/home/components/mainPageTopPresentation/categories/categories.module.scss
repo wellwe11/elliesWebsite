@@ -1,0 +1,196 @@
+.categories {
+  animation: appearFromBottom 1s ease forwards;
+  animation-delay: 1s;
+  opacity: 0;
+  .textWrapper {
+    margin: var(--spacing-2) 0;
+    .button {
+      background-color: transparent;
+
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      position: relative;
+
+      transition: background-color 0.4s ease;
+
+      border-radius: 5px;
+      border: 2px solid var(--c-grey-100);
+
+      display: grid;
+
+      overflow: hidden;
+
+      .textOne,
+      .textTwo {
+        grid-column: 1;
+        grid-row: 1;
+        z-index: 2;
+
+        padding: var(--spacing-2) var(--spacing-5);
+
+        font-variation-settings: "wght" 400;
+        font-size: var(--spacing-4);
+
+        animation-delay: 0.3s;
+        will-change: transform, opacity;
+
+        .l {
+          will-change: transform, opacity;
+          transition: transform 0.5s ease, opacity 0.3s ease;
+        }
+      }
+
+      .textOne {
+        display: flex;
+
+        .l {
+          color: var(--c-grey-100);
+        }
+      }
+
+      .textTwo {
+        opacity: 0;
+
+        .l {
+          opacity: 0;
+          color: black;
+        }
+      }
+
+      .buttonBackgroundWrapper {
+        left: 0;
+        top: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        overflow: hidden;
+
+        .buttonBackgroundFadeIn {
+          will-change: bottom;
+          background-color: var(--c-grey-100);
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          bottom: -150px;
+          left: 0;
+        }
+
+        .buttonBackgroundFadeOut {
+          will-change: top;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: -150px;
+          left: 0;
+          background-color: var(--c-grey-100);
+          transition: top 0.45s ease-out;
+        }
+      }
+
+      &:hover {
+        .buttonBackgroundWrapper {
+          .buttonBackgroundFadeIn {
+            transition: bottom 0.5s ease-out;
+            bottom: 0;
+          }
+
+          .buttonBackgroundFadeOut {
+            transition: top 0.3s ease-in;
+            top: 0px;
+            background-color: rgba(255, 255, 255, 0);
+          }
+        }
+
+        .textOne {
+          animation: fadeOutTop 0.4s ease forwards !important;
+
+          .l {
+          }
+        }
+
+        .textTwo {
+          animation: appearFromBottom 0.5s ease forwards;
+          animation-delay: 0.2s !important;
+
+          display: flex;
+
+          .l {
+            opacity: 1 !important;
+            transform: translateY(0%) !important;
+            transition-delay: 0.2s;
+          }
+        }
+      }
+
+      &:not(:hover) {
+        .textOne {
+          opacity: 0;
+          animation: appearFromBottom 0.5s ease forwards;
+          animation-delay: 0.2s;
+
+          .l {
+            opacity: 1 !important;
+            transform: translateY(0%) !important;
+            transition-delay: 0.2s;
+          }
+        }
+
+        .textTwo {
+          animation: fadeOutTop 0.3s ease forwards !important;
+          .l {
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeOutTop {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+
+  60% {
+    transform: translateY(-12.5%);
+  }
+
+  90% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+}
+
+@keyframes appearFromTop {
+  from {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    pointer-events: all;
+    transform: translate(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes appearFromBottom {
+  0% {
+    pointer-events: none;
+    transform: translateY(5%);
+  }
+
+  100% {
+    pointer-events: all;
+    transform: translate(0%);
+    opacity: 1;
+  }
+}
