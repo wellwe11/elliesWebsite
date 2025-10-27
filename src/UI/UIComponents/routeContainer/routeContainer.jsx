@@ -1,6 +1,6 @@
 import classes from "./routeContainer.module.scss";
 
-import { Suspense } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 
 import Footer from "../FOOTER/footer.jsx";
 import Navbar from "../NAVBAR/navbar.jsx";
@@ -143,11 +143,53 @@ export const storeData = create((set, get) => ({
 }));
 
 const RouteContainer = () => {
-  const { state } = useGetLocation();
+  const { pathname, state } = useGetLocation();
+
+  console.log(pathname);
+  const intersectingNavbarRef = useRef();
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  useEffect(() => {
+    if (pathname !== "/") return isIntersecting(true);
+
+    const element = intersectingNavbarRef.current;
+
+    const observer = new IntersectionObserver((entry, observer) => {
+      const firstEl = entry[0];
+
+      if (firstEl.isIntersecting) {
+        setIsIntersecting(true);
+      } else {
+        setIsIntersecting(false);
+      }
+    });
+
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <div className={classes.widthContainer}>
-      {/* <Navbar /> */}
+      <div
+        className={`${classes.navbarWrapper} ${
+          isIntersecting ? classes.isIntersecting : classes.isNotIntersecting
+        }`}
+      >
+        <Navbar />
+      </div>
+      <div
+        className={classes.intersectingNavbarRef}
+        ref={intersectingNavbarRef}
+      />
       <div className={classes.whiteBackground} />
 
       <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>

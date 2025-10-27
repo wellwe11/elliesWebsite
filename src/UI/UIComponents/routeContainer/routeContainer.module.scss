@@ -25,6 +25,35 @@
     animation-delay: 0.3s;
   }
 
+  .intersectingNavbarRef {
+    position: absolute;
+    top: 100vw;
+
+    width: 100%;
+    height: 100%;
+    border: 1px solid orange;
+  }
+
+  .navbarWrapper {
+    z-index: 1000;
+
+    width: 100%;
+    position: fixed;
+    top: 0;
+
+    transition: background-color 0.4s ease;
+  }
+
+  .isNotIntersecting {
+    background-color: transparent;
+  }
+
+  .isIntersecting {
+    background-color: rgba(255, 255, 255, 0.901);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--c-grey-200);
+  }
+
   .contentWrapper {
     height: 100%;
     height: 100%;

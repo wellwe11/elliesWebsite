@@ -16,6 +16,7 @@ import useGetParams from "@hooks/useGetParams.jsx";
 import useData from "@hooks/useData.jsx";
 import dataHandler from "../../functions/dataHandler.js";
 import PageNotFound from "../../../PAGENOTFOUND/pageNotFound.jsx";
+import Navbar from "../../../NAVBAR/navbar.jsx";
 
 const GalleryRoute = () => {
   const { category, page } = useGetParams();

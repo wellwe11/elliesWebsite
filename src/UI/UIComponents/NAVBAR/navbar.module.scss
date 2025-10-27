@@ -4,15 +4,7 @@
   justify-content: center;
   align-items: center;
 
-  position: sticky;
-  top: 0;
-
-  z-index: 150;
   width: 100vw;
-
-  background-color: rgba(255, 255, 255, 0.901);
-  backdrop-filter: blur(8px);
-  border-bottom: 0.5px solid var(--c-grey-200);
 
   .navContent {
     .navWrapper {
