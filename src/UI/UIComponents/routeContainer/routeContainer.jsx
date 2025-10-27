@@ -150,7 +150,10 @@ const RouteContainer = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
 
   useEffect(() => {
-    if (pathname !== "/") return isIntersecting(true);
+    if (pathname !== "/") {
+      setIsIntersecting(true);
+      return;
+    }
 
     const element = intersectingNavbarRef.current;
 
@@ -175,7 +178,9 @@ const RouteContainer = () => {
 
       observer.disconnect();
     };
-  }, []);
+  }, [pathname]);
+
+  console.log(pathname !== "/");
 
   return (
     <div className={classes.widthContainer}>
