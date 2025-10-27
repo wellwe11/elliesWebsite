@@ -27,7 +27,7 @@ const MappedLetters = ({ text }) =>
 
 const Button = () => {
   return (
-    <button className={classes.button} style={{ animationDelay: `1.${1}s` }}>
+    <button className={classes.button}>
       <div className={classes.buttonBackgroundWrapper}>
         <div className={classes.buttonBackgroundFadeIn} />
         <div className={classes.buttonBackgroundFadeOut} />
@@ -46,8 +46,12 @@ const Categories = () => {
   return (
     <div className={classes.categories}>
       <div className={classes.contentWrapper}>
-        <Text>Explore Art in it's different forms with me</Text>
-        <Button />
+        <div className={classes.textWrapper}>
+          <Text>Explore Art in it's different forms with me</Text>
+        </div>
+        <div className={classes.buttonWrapper}>
+          <Button />
+        </div>
       </div>
     </div>
   );

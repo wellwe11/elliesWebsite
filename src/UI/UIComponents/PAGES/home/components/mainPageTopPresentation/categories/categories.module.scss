@@ -1,11 +1,12 @@
 .categories {
   margin-left: -50px;
-  animation: appearFromBottom 1s ease forwards;
-  animation-delay: 1s;
-  opacity: 0;
-  will-change: transform, opacity, gap;
 
   .contentWrapper {
+    animation: appearFromBottom 1s ease forwards;
+    animation-delay: 1s;
+    will-change: transform, opacity, gap;
+    opacity: 0;
+
     display: flex;
     flex-direction: column;
 
@@ -15,6 +16,12 @@
     max-width: 500px;
 
     padding: var(--spacing-4);
+
+    .textWrapper {
+    }
+
+    .buttonWrapper {
+    }
   }
 }
 
@@ -211,13 +218,14 @@
   0% {
     pointer-events: none;
     transform: translateY(5%);
-    gap: 10px 0px;
+    gap: calc(clamp(40px, 5vw, 60px) + 40px) 0px;
   }
 
   100% {
     pointer-events: all;
     transform: translate(0);
     opacity: 1;
-    gap: 0px 0px;
+
+    gap: clamp(40px, 5vw, 60px) 0px;
   }
 }
