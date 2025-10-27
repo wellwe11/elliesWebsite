@@ -1,162 +1,175 @@
 .categories {
-  margin-left: 10px;
+  margin-left: -50px;
   animation: appearFromBottom 1s ease forwards;
   animation-delay: 1s;
   opacity: 0;
-  gap: 10px 0px;
   will-change: transform, opacity, gap;
 
-  display: flex;
-  flex-direction: column;
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
 
-  .textWrapper {
-    padding: var(--spacing-2) 0px;
+    gap: clamp(40px, 5vw, 60px);
+
+    min-width: 300px;
+    max-width: 500px;
+
+    padding: var(--spacing-4);
+  }
+}
+
+.button {
+  background-color: transparent;
+
+  cursor: pointer;
+
+  position: relative;
+
+  transition: background-color 0.4s ease;
+
+  width: clamp(150px, 15vw, max-content);
+
+  border-radius: 5px;
+  border: 2px solid var(--c-grey-100);
+  outline: none;
+
+  display: grid;
+
+  overflow: hidden;
+
+  .textOne,
+  .textTwo {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 2;
+
+    padding: var(--spacing-2) var(--spacing-5);
+
+    font-variation-settings: "wght" 400;
+    font-size: var(--spacing-4);
+
+    animation-delay: 0.3s;
+    will-change: transform, opacity;
+
+    .l {
+      will-change: transform, opacity;
+      transition: transform 0.5s ease, opacity 0.3s ease;
+    }
+  }
+
+  .textOne {
     display: flex;
 
-    .button {
-      background-color: transparent;
+    .l {
+      color: var(--c-grey-100);
+    }
+  }
 
-      cursor: pointer;
+  .textTwo {
+    opacity: 0;
+    display: flex;
 
-      position: relative;
+    .l {
+      opacity: 0;
+      color: black;
+    }
+  }
 
-      transition: background-color 0.4s ease;
+  .buttonBackgroundWrapper {
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 
+    overflow: hidden;
+
+    .buttonBackgroundFadeIn {
+      will-change: bottom;
+      background-color: var(--c-grey-100);
+      height: 100%;
       width: 100%;
+      position: absolute;
+      bottom: -150px;
+      left: 0;
+    }
 
-      border-radius: 5px;
-      border: 2px solid var(--c-grey-100);
-      outline: none;
+    .buttonBackgroundFadeOut {
+      will-change: top;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: -150px;
+      left: 0;
+      background-color: var(--c-grey-100);
+      transition: top 0.45s ease-out;
+    }
+  }
 
-      display: grid;
-
-      overflow: hidden;
-
-      .textOne,
-      .textTwo {
-        grid-column: 1;
-        grid-row: 1;
-        z-index: 2;
-
-        padding: var(--spacing-2) var(--spacing-5);
-
-        font-variation-settings: "wght" 400;
-        font-size: var(--spacing-4);
-
-        animation-delay: 0.3s;
-        will-change: transform, opacity;
-
-        .l {
-          will-change: transform, opacity;
-          transition: transform 0.5s ease, opacity 0.3s ease;
-        }
+  &:hover {
+    .buttonBackgroundWrapper {
+      .buttonBackgroundFadeIn {
+        transition: bottom 0.5s ease-out;
+        bottom: 0;
       }
 
-      .textOne {
-        display: flex;
-
-        .l {
-          color: var(--c-grey-100);
-        }
-      }
-
-      .textTwo {
-        opacity: 0;
-        display: flex;
-
-        .l {
-          opacity: 0;
-          color: black;
-        }
-      }
-
-      .buttonBackgroundWrapper {
-        left: 0;
-        top: 0;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-
-        overflow: hidden;
-
-        .buttonBackgroundFadeIn {
-          will-change: bottom;
-          background-color: var(--c-grey-100);
-          height: 100%;
-          width: 100%;
-          position: absolute;
-          bottom: -150px;
-          left: 0;
-        }
-
-        .buttonBackgroundFadeOut {
-          will-change: top;
-          height: 100%;
-          width: 100%;
-          position: absolute;
-          top: -150px;
-          left: 0;
-          background-color: var(--c-grey-100);
-          transition: top 0.45s ease-out;
-        }
-      }
-
-      &:hover {
-        .buttonBackgroundWrapper {
-          .buttonBackgroundFadeIn {
-            transition: bottom 0.5s ease-out;
-            bottom: 0;
-          }
-
-          .buttonBackgroundFadeOut {
-            transition: top 0.3s ease-in;
-            top: 0px;
-            background-color: rgba(255, 255, 255, 0);
-          }
-        }
-
-        .textOne {
-          animation: fadeOutTop 0.4s ease forwards !important;
-
-          .l {
-          }
-        }
-
-        .textTwo {
-          animation: appearFromBottom 0.5s ease forwards;
-          animation-delay: 0.2s !important;
-
-          display: flex;
-
-          .l {
-            opacity: 1 !important;
-
-            transform: translateY(0%) !important;
-            transition-delay: 0.2s;
-          }
-        }
-      }
-
-      &:not(:hover) {
-        .textOne {
-          opacity: 0;
-          animation: appearFromBottom 0.5s ease forwards;
-          animation-delay: 0.2s;
-
-          .l {
-            opacity: 1 !important;
-            transform: translateY(0%) !important;
-            transition-delay: 0.2s;
-          }
-        }
-
-        .textTwo {
-          animation: fadeOutTop 0.3s ease forwards !important;
-          .l {
-          }
-        }
+      .buttonBackgroundFadeOut {
+        transition: top 0.3s ease-in;
+        top: 0px;
+        background-color: rgba(255, 255, 255, 0);
       }
     }
+
+    .textOne {
+      animation: fadeOutTop 0.4s ease forwards !important;
+
+      .l {
+      }
+    }
+
+    .textTwo {
+      animation: appearFromBottom 0.5s ease forwards;
+      animation-delay: 0.2s !important;
+
+      display: flex;
+
+      .l {
+        opacity: 1 !important;
+
+        transform: translateY(0%) !important;
+        transition-delay: 0.2s;
+      }
+    }
+  }
+
+  &:not(:hover) {
+    .textOne {
+      opacity: 0;
+      animation: appearFromBottom 0.5s ease forwards;
+      animation-delay: 0.2s;
+
+      .l {
+        opacity: 1 !important;
+        transform: translateY(0%) !important;
+        transition-delay: 0.2s;
+      }
+    }
+
+    .textTwo {
+      animation: fadeOutTop 0.3s ease forwards !important;
+      .l {
+      }
+    }
+  }
+}
+
+.textContainer {
+  max-width: 20vw;
+
+  padding: var(--spacing-2) var(--spacing-4);
+
+  .text {
+    font-variation-settings: "wght" 650;
   }
 }
 

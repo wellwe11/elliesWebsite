@@ -145,56 +145,9 @@ export const storeData = create((set, get) => ({
 const RouteContainer = () => {
   const { pathname, state } = useGetLocation();
 
-  console.log(pathname);
-  const intersectingNavbarRef = useRef();
-  const [isIntersecting, setIsIntersecting] = useState(false);
-
-  useEffect(() => {
-    if (pathname !== "/") {
-      setIsIntersecting(true);
-      return;
-    }
-
-    const element = intersectingNavbarRef.current;
-
-    const observer = new IntersectionObserver((entry, observer) => {
-      const firstEl = entry[0];
-
-      if (firstEl.isIntersecting) {
-        setIsIntersecting(true);
-      } else {
-        setIsIntersecting(false);
-      }
-    });
-
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element);
-      }
-
-      observer.disconnect();
-    };
-  }, [pathname]);
-
-  console.log(pathname !== "/");
-
   return (
     <div className={classes.widthContainer}>
-      <div
-        className={`${classes.navbarWrapper} ${
-          isIntersecting ? classes.isIntersecting : classes.isNotIntersecting
-        }`}
-      >
-        <Navbar />
-      </div>
-      <div
-        className={classes.intersectingNavbarRef}
-        ref={intersectingNavbarRef}
-      />
+      <Navbar />
       <div className={classes.whiteBackground} />
 
       <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
