@@ -70,8 +70,8 @@
 
       transition: background-color 0.4s ease;
 
-      border-radius: 2px;
-      border: 1px solid var(--c-grey-100);
+      border-radius: 5px;
+      border: 2px solid var(--c-grey-100);
 
       display: grid;
 
@@ -89,9 +89,11 @@
         font-size: var(--spacing-4);
 
         animation-delay: 0.3s;
+        will-change: transform, opacity;
 
         .l {
-          transition: transform 1s ease, opacity 1s ease;
+          will-change: transform, opacity;
+          transition: transform 0.5s ease, opacity 0.3s ease;
         }
       }
 
@@ -99,7 +101,6 @@
         display: flex;
 
         .l {
-          opacity: 1;
           color: var(--c-grey-100);
         }
       }
@@ -123,6 +124,7 @@
         overflow: hidden;
 
         .buttonBackgroundFadeIn {
+          will-change: bottom;
           background-color: var(--c-grey-100);
           height: 100%;
           width: 100%;
@@ -132,57 +134,68 @@
         }
 
         .buttonBackgroundFadeOut {
+          will-change: top;
           height: 100%;
           width: 100%;
           position: absolute;
           top: -150px;
           left: 0;
           background-color: var(--c-grey-100);
-          transition: top 1s ease;
+          transition: top 0.75s ease-out;
         }
       }
 
       &:hover {
         .buttonBackgroundWrapper {
           .buttonBackgroundFadeIn {
-            transition: bottom 0.5s ease;
+            transition: bottom 0.35s ease-out;
             bottom: 0;
           }
 
           .buttonBackgroundFadeOut {
+            transition: top 0.5s ease-in;
             top: 0px;
             background-color: rgba(255, 255, 255, 0);
           }
         }
 
         .textOne {
-          animation: fadeOutTop 0.5s ease forwards !important;
+          animation: fadeOutTop 0.4s ease forwards !important;
 
           .l {
-            transform: translateY(5%) !important;
-            opacity: 0 !important;
           }
         }
 
         .textTwo {
-          animation: appearFromBottom 1s ease forwards;
-          animation-delay: 0.1s;
+          animation: appearFromBottom 0.5s ease forwards;
+          animation-delay: 0.2s;
+
           display: flex;
 
           .l {
             opacity: 1 !important;
             transform: translateY(0%) !important;
+            transition-delay: 0.2s;
           }
         }
       }
 
       &:not(:hover) {
         .textOne {
-          animation: appearFromBottom 0.4s ease forwards;
+          opacity: 0;
+          animation: appearFromBottom 0.5s ease forwards;
+          animation-delay: 0.2s;
 
           .l {
             opacity: 1 !important;
             transform: translateY(0%) !important;
+            transition-delay: 0.2s;
+          }
+        }
+
+        .textTwo {
+          animation: fadeOutTop 0.3s ease forwards !important;
+          .l {
           }
         }
       }
@@ -196,12 +209,12 @@
     opacity: 1;
   }
 
-  80% {
-    opacity: 0;
+  60% {
+    transform: translateY(-12.5%);
   }
 
   90% {
-    transform: translateY(-10%);
+    opacity: 0;
   }
 
   100% {
@@ -227,7 +240,6 @@
 @keyframes appearFromBottom {
   0% {
     pointer-events: none;
-    opacity: 0;
     transform: translateY(5%);
   }
 
