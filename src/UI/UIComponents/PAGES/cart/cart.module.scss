@@ -1,85 +1,122 @@
 .cart {
   z-index: 999999;
   position: fixed;
-
   top: 0;
+  left: 0;
 
   width: 100%;
-
   height: 100%;
 
+  border: 5px solid green;
+
   display: flex;
-  justify-content: flex-end;
-  overflow: hidden;
+  justify-content: center;
 
   // wrapper for products which have been added to cart by user
   .cartWrapper {
     z-index: 10;
 
-    border-left: 1px solid var(--c-grey-300);
-
-    padding-left: var(--spacing-1);
-    padding-bottom: var(--spacing-2);
-
     background-color: white;
+    padding: var(--spacing-3);
+
+    overflow: hidden;
 
     height: 100%;
     width: 100%;
 
     display: flex;
-    flex-direction: column;
+
     justify-content: space-between;
 
     transition: opacity 0.3s ease;
 
-    // closeButton variable
-    .closeButton {
-      height: fit-content;
-
+    .leftSection,
+    .rightSection {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
+      width: 50%;
 
-      border: none;
-      background-color: var(--backgroundColor);
-      cursor: pointer;
+      padding: var(--spacing-1);
+    }
 
-      &:hover {
-        background-color: var(--c-grey-100);
+    .leftSection {
+      // title variable
+      .title {
+        font-variation-settings: "wght" 300;
+      }
+
+      .cartBottomSection {
+      }
+
+      // totalProductsWrapper variable
+      .totalProductsWrapper {
+      }
+
+      // toPaymentMthodWrapper variable
+      .toPaymentMethodWrapper {
+        height: 50px;
+      }
+
+      @media screen and (min-width: 1441px) {
+        border-right: 1px solid var(--c-grey-300);
+      }
+
+      @media screen and (max-width: 375px) {
+        width: 100%;
       }
     }
 
-    // title variable
-    .title {
-      font-variation-settings: "wght" 300;
+    @media screen and (min-width: 1441px) {
+      width: 95vw;
+      max-width: 1440px;
     }
 
-    .titleAndCloseWrapper {
-      width: 100%;
+    @media screen and (max-width: 1440px) {
+      right: 0;
+    }
+  }
+
+  // totalElements variable
+  .totalProducts {
+    .totalText {
+      font-variation-settings: "wght" 350;
+
+      margin: var(--spacing-1) 0px;
+
+      position: relative;
+
+      width: fit-content;
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: var(--c-grey-400);
+
+        position: absolute;
+        top: var(--spacing-3);
+        left: 0px;
+      }
+    }
+  }
+
+  .rightSection {
+    .closeButtonWrapper {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
-      padding: var(--spacing-1) 0px;
     }
-
-    .cartBottomSection {
-    }
-
     // productsWrapper variable
     .productsWrapper {
       display: flex;
       justify-content: center;
 
-      height: 70%;
-      max-height: 400px;
+      height: 100%;
       width: 100%;
 
       overflow-y: scroll;
 
-      padding-right: var(--spacing-1);
-
-      border-top: 1px solid var(--c-grey-300);
-      border-bottom: 1px solid var(--c-grey-300);
+      background-color: orange;
 
       &::-webkit-scrollbar {
         width: 8px;
@@ -97,56 +134,22 @@
       &::-webkit-scrollbar-thumb:hover {
       }
     }
-
-    // totalProductsWrapper variable
-    .totalProductsWrapper {
-    }
-
-    // toPaymentMthodWrapper variable
-    .toPaymentMethodWrapper {
-      height: 50px;
-    }
-
-    @media screen and (min-width: 1441px) {
-      border-right: 1px solid var(--c-grey-300);
-    }
-
-    @media screen and (max-width: 375px) {
-      width: 100%;
-    }
-  }
-
-  @media screen and (min-width: 1441px) {
-    width: 95vw;
-    max-width: 1440px;
-  }
-
-  @media screen and (max-width: 1440px) {
-    right: 0;
   }
 }
 
-// totalElements variable
-.totalProducts {
-  .totalText {
-    font-variation-settings: "wght" 350;
+.closeButton {
+  height: fit-content;
 
-    margin: var(--spacing-1) 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    position: relative;
+  border: none;
+  background-color: var(--backgroundColor);
+  cursor: pointer;
 
-    width: fit-content;
-
-    &::after {
-      content: "";
-      width: 100%;
-      height: 1px;
-      background-color: var(--c-grey-400);
-
-      position: absolute;
-      top: var(--spacing-3);
-      left: 0px;
-    }
+  &:hover {
+    background-color: var(--c-grey-100);
   }
 }
 

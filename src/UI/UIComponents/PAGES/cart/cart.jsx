@@ -50,8 +50,6 @@ const CloseButton = ({ handleClick }) => {
 };
 
 const Cart = () => {
-  // add close button
-
   const cartRef = useRef();
   const [isOpen, setIsOpen] = useState(() => true);
   const navigate = useNavigate();
@@ -75,18 +73,16 @@ const Cart = () => {
     setIsOpen((prev) => !prev);
 
     if (!isOpen) {
-      enableScroll();
+      disableScroll();
     }
 
     if (isOpen) {
       setTimeout(() => {
-        disableScroll();
+        enableScroll();
         navigate(-1);
       }, 300); // === cartClosed animation timer
     }
   };
-
-  console.log(isOpen);
 
   return (
     <div className={`${classes.cart}`}>
@@ -96,19 +92,25 @@ const Cart = () => {
         }`}
         ref={cartRef}
       >
-        <div className={classes.titleAndCloseWrapper}>
+        <div className={classes.leftSection}>
           <h4 className={classes.title}>SHOPPING CART</h4>
-          <CloseButton handleClick={handleNavigateBack} />
-        </div>
-        <div className={classes.productsWrapper}>
-          <Products />
-        </div>
-        <div className={classes.cartBottomSection}>
-          <div className={classes.totalProductsWrapper}>
-            <TotalProducts />
+
+          <div className={classes.cartBottomSection}>
+            <div className={classes.totalProductsWrapper}>
+              <TotalProducts />
+            </div>
+            <div className={classes.toPaymentMethodWrapper}>
+              <ToPaymentMethod />
+            </div>
           </div>
-          <div className={classes.toPaymentMethodWrapper}>
-            <ToPaymentMethod />
+        </div>
+
+        <div className={classes.rightSection}>
+          <div className={classes.closeButtonWrapper}>
+            <CloseButton handleClick={handleNavigateBack} />
+          </div>
+          <div className={classes.productsWrapper}>
+            <Products />
           </div>
         </div>
       </div>
