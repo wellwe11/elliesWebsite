@@ -61,6 +61,8 @@
   --spacing-6: calc(var(--minSize) * 6); /* 48px */
   --spacing-7: calc(var(--minSize) * 7); /* 56px */
   --spacing-8: calc(var(--minSize) * 8); /* 64px */
+
+  --pageWidhtNoScrollBar: calc(100vw - 17px);
 }
 
 p {

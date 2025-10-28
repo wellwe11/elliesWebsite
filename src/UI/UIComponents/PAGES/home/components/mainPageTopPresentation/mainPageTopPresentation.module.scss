@@ -9,7 +9,7 @@
   .imageWrapper {
     position: relative;
 
-    width: 100vw;
+    width: var(--pageWidhtNoScrollBar);
     max-width: 1920px;
     overflow: hidden;
 
@@ -69,8 +69,7 @@
 
   img {
     max-width: initial;
-
-    width: 1000px;
+    height: 700px;
 
     position: absolute;
     top: 0;
