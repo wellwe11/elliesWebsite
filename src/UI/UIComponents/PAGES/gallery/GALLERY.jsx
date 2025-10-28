@@ -1,7 +1,7 @@
 import classes from "./GALLERY.module.scss";
 import fadeInClass from "@classes/fadeInOnLoad.module.scss";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import PageSelector from "./components/pageSelector/pageSelector.jsx";
@@ -19,6 +19,7 @@ const FilterSideBarWrapperComponent = ({ dataKeys, category }) => {
   const handleFilter = (e) => {
     if (e === category) {
       setLocalCategory(null);
+
       navigate(`/gallery?page=1`); // reset navigation when user clicks button over again
     } else {
       setLocalCategory(e);
@@ -68,6 +69,10 @@ const PageWrapperComponent = ({ filteredData }) => {
 };
 
 const Gallery = ({ data: { category, updatedData, page } }) => {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [category, page]);
+
   return (
     <div className={`${classes.gallery} ${fadeInClass.fade_in_on_load}`}>
       <div className={classes.galleryTop}>

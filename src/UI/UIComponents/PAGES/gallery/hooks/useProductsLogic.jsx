@@ -11,7 +11,6 @@ const useProductsLogic = (page, filteredData) => {
     setIsLoading(true);
 
     if (slicedProducs) {
-      window.scrollTo({ top: 0 });
       setIsLoading(false);
       return slicedProducs;
     }
