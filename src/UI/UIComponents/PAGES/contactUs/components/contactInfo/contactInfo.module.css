@@ -1,8 +1,0 @@
-.contactInfoWrapper {
-  width: 45%;
-}
-@media screen and (max-width: 800px) {
-  .contactInfoWrapper {
-    width: 100%;
-  }
-}/*# sourceMappingURL=contactInfo.module.css.map */
