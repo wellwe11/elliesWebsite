@@ -1,0 +1,11 @@
+.cartBottomItem {
+  flex: 0 0 100%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cartBottomItem .cartBottomText {
+  font-variation-settings: "wght" 500;
+}/*# sourceMappingURL=cartBottomItem.module.css.map */

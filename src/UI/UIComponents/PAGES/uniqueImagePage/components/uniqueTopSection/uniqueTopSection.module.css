@@ -1,0 +1,141 @@
+/* UniqueTopSection */
+.uniqueTopSection {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  max-height: 600px;
+  position: relative;
+}
+.uniqueTopSection .uniqueTopLeft {
+  flex: 1;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: var(--spacing-1);
+}
+.uniqueTopSection .uniqueTopLeft .uniqueTopBottom {
+  display: flex;
+  justify-content: space-between;
+}
+.uniqueTopSection .uniqueTopLeft .uniqueTopBottom .left {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  padding-right: var(--spacing-4);
+}
+.uniqueTopSection .uniqueTopLeft .uniqueTopBottom .right {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.uniqueTopSection .uniqueTopRight {
+  position: sticky;
+  top: 120px;
+  width: 50%;
+  max-height: 600px;
+  display: flex;
+}
+
+/* UniqueTopSectionBio */
+.bioTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.bioTextContainer .bioTextWrapper {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.bioTextContainer .bioTextWrapper .bioTitle,
+.bioTextContainer .bioTextWrapper .bioText {
+  opacity: 0;
+  transform-origin: right;
+  animation: textTransitionRight 1s ease 0.8s 1 normal forwards;
+}
+.bioTextContainer .bioTextWrapper .bioTitle {
+  font-variation-settings: "wght" 600;
+  padding-bottom: var(--spacing-1);
+}
+.bioTextContainer .bioTextWrapper .bioText {
+  font-stretch: condensed;
+  text-align: justify;
+  max-width: 30ch;
+  font-variation-settings: "wght" 250;
+}
+
+.buttonsWrapper {
+  display: flex;
+  flex-direction: column;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-width: 170px;
+}
+.buttonsWrapper .shoppingBagSVGWrapper {
+  height: 25px;
+  padding-right: 2.5px;
+}
+.buttonsWrapper .arrowSVGWrapper {
+  height: 25px;
+  padding-top: 2.5px;
+  padding-right: 2.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* TopImage */
+.topImageContainer {
+  width: 100%;
+}
+.topImageContainer .topImage {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+
+/* UniqueTopSectionTitle */
+.uniqueLeftTitleWrapper .uniqueLeftTitle {
+  overflow: hidden;
+}
+.uniqueLeftTitleWrapper .uniqueLeftTitle .uniqueLeftTitleText {
+  color: black;
+  font-weight: 200;
+  opacity: 0;
+  font-size: clamp(30px, 6vw, 80px) !important;
+  transform: translateY(150%) scaleY(1.65);
+  transform-origin: bottom;
+}
+.uniqueLeftTitleWrapper .uniqueLeftTitle .uniqueLeftTitleText.first {
+  animation: textTransitionUp 1s ease 0.5s 1 normal forwards;
+}
+.uniqueLeftTitleWrapper .uniqueLeftTitle .uniqueLeftTitleText.second {
+  animation: textTransitionUp 1s ease 0.8s 1 normal forwards;
+}
+
+/* Title animation */
+@keyframes textTransitionUp {
+  from {
+    transform: translateY(150%) scaleY(1.65);
+    transform-origin: bottom;
+  }
+  to {
+    transform: translate(0%) scaleY(1) scaleX(1);
+    opacity: 1;
+  }
+}
+/* Bio animation */
+@keyframes textTransitionRight {
+  from {
+    opacity: 0;
+    transform: translateX(-5%) scaleX(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}/*# sourceMappingURL=uniqueTopSection.module.css.map */

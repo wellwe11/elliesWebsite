@@ -37,15 +37,10 @@ const ProductBio = ({ product, bioData }) => {
     </div>
   );
 
-  const handleCart = (item) => {
-    addToCart(item);
-  };
-
-  // button which will be adding object to a context containing the cart-information.
   const addToCartButton = (
     <button
       className={classes.addToCartButton}
-      onClick={() => handleCart(product)}
+      onClick={() => addToCart(product)}
     >
       <div className={classes.shoppingBagSVGWrapper}>
         <ShoppingBagSVG />
@@ -68,7 +63,6 @@ const ProductBio = ({ product, bioData }) => {
   );
 };
 
-// wrapper
 const Products = ({ products }) => {
   // map only visible objects to display them as 'pages' which can be navigated by user
 

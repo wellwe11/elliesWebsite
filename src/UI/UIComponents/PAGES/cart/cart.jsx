@@ -1,12 +1,13 @@
 import classes from "./cart.module.scss";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import Products from "./components/products/products.jsx";
 import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickViewButton";
 import X_SVG from "@components/SVGS/X_SVG/X_SVG";
+import bodyNoScroll from "@functions/bodyNoScroll.js";
+
 import { storeData } from "../../routeContainer/routeContainer.jsx";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
-import bodyNoScroll from "../../../../abstract/functions/bodyNoScroll.js";
+import Products from "./components/products/products.jsx";
 
 const ToPaymentMethod = () => {
   return (
@@ -63,6 +64,7 @@ const Cart = () => {
     if (isOpen) {
       element.classList.add(classes.isOpen);
       element.classList.remove(classes.isClosed);
+      disableScroll();
     } else {
       element.classList.remove(classes.isOpen);
       element.classList.add(classes.isClosed);
@@ -72,15 +74,11 @@ const Cart = () => {
   const handleNavigateBack = () => {
     setIsOpen((prev) => !prev);
 
-    if (!isOpen) {
-      disableScroll();
-    }
-
     if (isOpen) {
       setTimeout(() => {
         enableScroll();
         navigate(-1);
-      }, 300); // === cartClosed animation timer
+      }, 300); // === cartClosed animation timer = css
     }
   };
 

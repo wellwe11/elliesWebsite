@@ -1,0 +1,42 @@
+.navigationButtonsContainer {
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  width: 97%;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.navigationButtonsContainer .navigationButtonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navigationButtonsContainer .navigationButtonWrapper.left {
+  margin-left: 10px;
+}
+.navigationButtonsContainer .navigationButtonWrapper.right {
+  margin-right: 10px;
+}
+.navigationButtonsContainer .navigationButtonWrapper .navigationButton {
+  pointer-events: all;
+  cursor: pointer;
+  height: 8vw;
+  min-height: 50px;
+  max-height: 150px;
+  width: 100%;
+  min-width: 50px;
+  border: none;
+  background-color: white;
+  outline: 0.5px solid black;
+  opacity: 0.94;
+}
+.navigationButtonsContainer .navigationButtonWrapper .navigationButton .buttonArrow {
+  color: gray;
+}
+.navigationButtonsContainer .navigationButtonWrapper .navigationButton:hover {
+  opacity: 1;
+}
+.navigationButtonsContainer .navigationButtonWrapper .navigationButton:hover .buttonArrow {
+  color: black;
+}/*# sourceMappingURL=navigationButtons.module.css.map */

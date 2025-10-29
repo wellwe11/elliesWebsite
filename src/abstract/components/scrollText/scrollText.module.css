@@ -1,0 +1,8 @@
+.fontTypeSpanBio {
+  position: absolute;
+  font-variation-settings: "wght" 400;
+  transition: top 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.24s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+  overflow-y: auto;
+  width: 100%;
+}/*# sourceMappingURL=scrollText.module.css.map */

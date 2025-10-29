@@ -1,0 +1,25 @@
+.contactUs {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.contactUs .infoSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2);
+}
+.contactUs .inputsSection {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: var(--spacing-1);
+}
+@media screen and (max-width: 800px) {
+  .contactUs {
+    flex-direction: column;
+  }
+}/*# sourceMappingURL=contactUs.module.css.map */

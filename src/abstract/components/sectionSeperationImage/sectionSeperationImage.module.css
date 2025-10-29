@@ -1,0 +1,11 @@
+.sectionSeperationImageWrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.sectionSeperationImageWrapper .globalImageSettings.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+}/*# sourceMappingURL=sectionSeperationImage.module.css.map */

@@ -1,0 +1,66 @@
+.categories .products {
+  padding: var(--spacing-2) 0px;
+}
+
+.category .categoryTitleWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-1) 0px;
+}
+.category .categoryTitleWrapper .title {
+  font-variation-settings: "wght" 500;
+}
+.category .categoryTitleWrapper .exploreMoreWrapper {
+  display: flex;
+}
+.category .categoryTitleWrapper .exploreMoreWrapper .exploreMore {
+  font-variation-settings: "wght" 400;
+}
+.category .categoryTitleWrapper .exploreMoreWrapper .arrowSVG {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateZ(270deg);
+}
+.category .categoryTitleWrapper .underlineWithDot {
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  position: relative;
+}
+.category .categoryTitleWrapper .underlineWithDot .dot {
+  background-color: var(--websiteContainerColor);
+  transition: left 1s cubic-bezier(0.55, 0, 0.1, 1);
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  left: -25px;
+  bottom: -2.5px;
+  border-radius: 90px;
+}
+.category .categoryTitleWrapper:hover .underlineWithDot .dot {
+  background-color: var(--websiteContainerColor);
+  transition: left 1s cubic-bezier(0.55, 0, 0.1, 1);
+  left: 100%;
+}
+
+.product {
+  border-bottom: 1px solid var(--navUnderlineColor);
+  padding-bottom: var(--spacing-1);
+}
+.product .title {
+  padding: var(--spacing-2) 0px;
+}
+.product .imgWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product .imgWrapper .img {
+  padding: var(--spacing-2) var(--spacing-5);
+  max-width: 350px;
+}
+.product .buttonWrapper {
+  width: 100%;
+  height: 40px;
+}/*# sourceMappingURL=products.module.css.map */

@@ -1,0 +1,12 @@
+.ArrowRoundEdgesSVG {
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+}
+.ArrowRoundEdgesSVG line {
+  stroke: gray;
+  transition: stroke 0.4s ease;
+}
+.ArrowRoundEdgesSVG:hover line {
+  stroke: black;
+}/*# sourceMappingURL=arrowRoundEdgesSVG.module.css.map */

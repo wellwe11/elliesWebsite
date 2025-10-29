@@ -1,0 +1,133 @@
+.products {
+  height: 100%;
+  position: relative;
+}
+.products .productsContainer {
+  display: grid;
+  align-content: center;
+  justify-content: space-evenly;
+}
+@media screen and (min-width: 1025px) {
+  .products .productsContainer {
+    gap: var(--spacing-6);
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .products .productsContainer {
+    gap: var(--spacing-4);
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 800px) {
+  .products .productsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 650px) {
+  .products .productsContainer {
+    padding: 0px var(--spacing-5);
+  }
+}
+@media screen and (max-width: 425px) {
+  .products .productsContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.products .productsContainer .productWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.products .productsContainer .productWrapper .productImageWrapper {
+  height: 100%;
+  width: 100%;
+  background-color: var(--c-grey-100);
+}
+@media screen and (min-width: 1025px) {
+  .products .productsContainer .productWrapper .productImageWrapper {
+    padding: var(--spacing-4) 0px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .products .productsContainer .productWrapper .productImageWrapper {
+    padding: var(--spacing-3);
+  }
+}
+@media screen and (max-width: 650px) {
+  .products .productsContainer .productWrapper .productImageWrapper {
+    padding: var(--spacing-2);
+  }
+}
+
+.productBioSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--spacing-1);
+}
+.productBioSection .productBio {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.productBioSection .productBio .bioTopSection {
+  height: 70%;
+  padding: var(--spacing-2) 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.productBioSection .productBio .bioTopSection .name {
+  padding-bottom: var(--spacing-1) 0px;
+}
+.productBioSection .productBio .bioTopSection .name .bioText {
+  font-variation-settings: "wght" 550;
+}
+.productBioSection .productBio .bioTopSection .type {
+  padding-bottom: var(--spacing-2) 0px;
+}
+.productBioSection .productBio .bioTopSection .type .bioText {
+  color: var(--c-text-200);
+  font-variation-settings: "wght" 450;
+  cursor: pointer;
+  z-index: 2;
+}
+.productBioSection .productBio .bioTopSection .type .bioText:hover {
+  color: var(--c-text-black);
+}
+.productBioSection .productBio .price .bioText {
+  font-variation-settings: "wght" 450;
+}
+.productBioSection .addToCartButton {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--websiteContainerColor);
+  width: 100%;
+  flex: 1;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+.productBioSection .addToCartButton:hover {
+  background-color: var(--c-grey-100);
+}
+.productBioSection .addToCartButton .shoppingBagSVGWrapper {
+  width: clamp(var(--spacing-1), 3vw, var(--spacing-3));
+  height: 100%;
+  margin-left: -1.5vw;
+}
+.productBioSection .addToCartButton .bioText {
+  padding-left: calc(var(--spacing-1) / 2);
+  font-variation-settings: "wght" 450;
+}/*# sourceMappingURL=products.module.css.map */

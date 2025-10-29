@@ -1,0 +1,8 @@
+.imageContainer {
+  cursor: pointer;
+}
+.imageContainer .productImageWrapper {
+  width: 100px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}/*# sourceMappingURL=productImage.module.css.map */

@@ -1,0 +1,9 @@
+.svgContainer {
+  height: 100%;
+  width: 100%;
+}
+.svgContainer svg {
+  height: 100%;
+  width: auto;
+  display: block;
+}/*# sourceMappingURL=arrowSVG.module.css.map */

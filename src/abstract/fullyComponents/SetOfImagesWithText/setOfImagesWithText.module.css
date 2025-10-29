@@ -1,0 +1,32 @@
+.setOfImagesWithText {
+  --text-height: 60px;
+  --bio-height: calc(var(--text-height) / 2);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.setOfImagesWithText .imagesContainer {
+  cursor: pointer;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.setOfImagesWithText .imagesContainer .imageWrapper {
+  overflow: hidden;
+}
+.setOfImagesWithText .imagesTextWrapper {
+  min-height: var(--text-height);
+}
+.setOfImagesWithText .textBioTitle {
+  height: var(--bio-height);
+  font-variation-settings: "wght" 550;
+}
+.setOfImagesWithText .textBioBio {
+  height: var(--bio-height);
+  position: relative;
+  overflow: hidden;
+}/*# sourceMappingURL=setOfImagesWithText.module.css.map */

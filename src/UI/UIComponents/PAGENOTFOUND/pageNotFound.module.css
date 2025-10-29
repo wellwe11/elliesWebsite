@@ -1,0 +1,10 @@
+.pageNotFound {
+  height: 500px;
+  display: flex;
+}
+.pageNotFound .textWrapper {
+  max-width: 65%;
+}
+.pageNotFound .textWrapper h1 {
+  text-wrap: wrap;
+}/*# sourceMappingURL=pageNotFound.module.css.map */

@@ -1,0 +1,35 @@
+.fade_in_on_load {
+  animation: contentAppear 0.3s ease 1 forwards;
+}
+
+@keyframes contentAppear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.categoriesPreAppearance {
+  filter: blur(5px);
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.smoothAppearance {
+  opacity: 1;
+  transition: opacity 2s ease;
+  transition-delay: 0.3s;
+  animation: smoothAppear 1.5s cubic-bezier(0.25, 1, 0.5, 1) 1 forwards;
+}
+
+@keyframes smoothAppear {
+  from {
+    filter: blur(5px);
+    transform: translateY(50px);
+  }
+  to {
+    filter: blur(0px);
+    transform: translateY(0);
+  }
+}/*# sourceMappingURL=fadeInOnLoad.module.css.map */

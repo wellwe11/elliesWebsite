@@ -1,0 +1,169 @@
+.categories {
+  margin-left: -50px;
+}
+.categories .contentWrapper {
+  animation: appearFromBottom 1s ease forwards;
+  animation-delay: 1s;
+  will-change: transform, opacity, gap;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 5vw, 60px);
+  min-width: 300px;
+  max-width: 500px;
+  padding: var(--spacing-4);
+}
+.button {
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.4s ease;
+  width: clamp(150px, 15vw, -moz-max-content);
+  width: clamp(150px, 15vw, max-content);
+  border-radius: 5px;
+  border: 2px solid var(--c-grey-100);
+  outline: none;
+  display: grid;
+  overflow: hidden;
+}
+.button .textOne,
+.button .textTwo {
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 2;
+  padding: var(--spacing-2) var(--spacing-5);
+  font-variation-settings: "wght" 400;
+  font-size: var(--spacing-4);
+  animation-delay: 0.3s;
+  will-change: transform, opacity;
+}
+.button .textOne .l,
+.button .textTwo .l {
+  will-change: transform, opacity;
+  transition: transform 0.5s ease, opacity 0.3s ease;
+}
+.button .textOne {
+  display: flex;
+}
+.button .textOne .l {
+  color: var(--c-grey-100);
+}
+.button .textTwo {
+  opacity: 0;
+  display: flex;
+}
+.button .textTwo .l {
+  opacity: 0;
+  color: black;
+}
+.button .buttonBackgroundWrapper {
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.button .buttonBackgroundWrapper .buttonBackgroundFadeIn {
+  will-change: bottom;
+  background-color: var(--c-grey-100);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  bottom: -150px;
+  left: 0;
+}
+.button .buttonBackgroundWrapper .buttonBackgroundFadeOut {
+  will-change: top;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: -150px;
+  left: 0;
+  background-color: var(--c-grey-100);
+  transition: top 0.45s ease-out;
+}
+.button:hover .buttonBackgroundWrapper .buttonBackgroundFadeIn {
+  transition: bottom 0.5s ease-out;
+  bottom: 0;
+}
+.button:hover .buttonBackgroundWrapper .buttonBackgroundFadeOut {
+  transition: top 0.3s ease-in;
+  top: 0px;
+  background-color: rgba(255, 255, 255, 0);
+}
+.button:hover .textOne {
+  animation: fadeOutTop 0.4s ease forwards !important;
+}
+.button:hover .textTwo {
+  animation: appearFromBottom 0.5s ease forwards;
+  animation-delay: 0.2s !important;
+  display: flex;
+}
+.button:hover .textTwo .l {
+  opacity: 1 !important;
+  transform: translateY(0%) !important;
+  transition-delay: 0.2s;
+}
+.button:not(:hover) .textOne {
+  opacity: 0;
+  animation: appearFromBottom 0.5s ease forwards;
+  animation-delay: 0.2s;
+}
+.button:not(:hover) .textOne .l {
+  opacity: 1 !important;
+  transform: translateY(0%) !important;
+  transition-delay: 0.2s;
+}
+.button:not(:hover) .textTwo {
+  animation: fadeOutTop 0.3s ease forwards !important;
+}
+.textContainer {
+  max-width: 20vw;
+  padding: var(--spacing-2) var(--spacing-4);
+}
+.textContainer .text {
+  font-variation-settings: "wght" 650;
+}
+
+@keyframes fadeOutTop {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(-12.5%);
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+}
+@keyframes appearFromTop {
+  from {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    pointer-events: all;
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+@keyframes appearFromBottom {
+  0% {
+    pointer-events: none;
+    transform: translateY(5%);
+    gap: calc(clamp(40px, 5vw, 60px) + 40px) 0px;
+  }
+  100% {
+    pointer-events: all;
+    transform: translate(0);
+    opacity: 1;
+    gap: clamp(40px, 5vw, 60px) 0px;
+  }
+}/*# sourceMappingURL=categories.module.css.map */

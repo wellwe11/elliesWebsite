@@ -1,0 +1,48 @@
+.inputs .inputsWrapper {
+  width: 100%;
+}
+.inputs .inputsWrapper .inputsContainer {
+  display: flex;
+  padding: var(--spacing-1);
+}
+@media screen and (max-width: 650px) {
+  .inputs .inputsWrapper .inputsContainer {
+    flex-direction: column;
+  }
+}
+.inputs .messageWrapper {
+  max-height: 200px;
+}
+.inputs .button {
+  border: 1px solid var(--c-grey-300);
+  background-color: var(--c-grey-200);
+  padding: var(--spacing-1);
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+  position: relative;
+}
+.inputs .button:hover {
+  background-color: var(--c-grey-300);
+}
+.inputs .halfInput {
+  width: 50%;
+}
+.inputs .halfInput:first-child {
+  padding-right: var(--spacing-1);
+}
+.inputs .halfInput:last-child {
+  padding-left: var(--spacing-1);
+}
+@media screen and (max-width: 800px) {
+  .inputs .halfInput {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .inputs .halfInput {
+    padding: 0px !important;
+  }
+}
+.inputs .wholeInput {
+  width: 100%;
+}/*# sourceMappingURL=contactInputs.module.css.map */

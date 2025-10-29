@@ -1,0 +1,6 @@
+.cartProductsContainer {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}/*# sourceMappingURL=products.module.css.map */
