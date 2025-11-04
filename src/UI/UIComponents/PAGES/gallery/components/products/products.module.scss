@@ -40,9 +40,6 @@
       justify-content: space-evenly;
       align-items: center;
 
-      &:hover {
-      }
-
       .productImageWrapper {
         overflow: hidden;
         border-radius: var(--spacing-2);
@@ -61,6 +58,15 @@
 
         .productImage {
           object-fit: contain;
+          will-change: transform;
+
+          transition: transform 0.1s ease;
+        }
+        &:hover {
+          .productImage {
+            transition: transform 0.4s ease !important;
+            transform: scale(1.02);
+          }
         }
       }
     }
