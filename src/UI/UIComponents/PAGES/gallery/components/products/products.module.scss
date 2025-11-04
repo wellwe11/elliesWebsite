@@ -47,6 +47,7 @@
       }
 
       .productImageWrapper {
+        border-radius: var(--spacing-1);
         height: 100%;
         width: 100%;
 
@@ -71,34 +72,65 @@
 .productBioSection {
   width: 100%;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
   padding-top: var(--spacing-1);
 
+  .bioText {
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+  }
+
   .productBio {
-    height: 70%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    text-align: center;
+    justify-content: space-between;
+    position: relative;
+    padding-top: var(--spacing-1);
 
     .bioTopSection {
-      height: 70%;
-
-      padding: var(--spacing-2) 0px;
-
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+
+      width: 100%;
+
+      .nameAndMore {
+        display: flex;
+        justify-content: space-between;
+
+        .moreImagesWrapper {
+          position: relative;
+
+          .imageContainer {
+            width: 30px;
+            height: 30px;
+            overflow: hidden;
+
+            position: absolute;
+            top: 0;
+
+            outline: 3px solid var(--websiteContainerColor);
+            border-radius: var(--spacing-6);
+            background-color: var(--c-grey-100);
+
+            display: flex;
+            justify-content: center;
+            align-content: center;
+
+            img {
+            }
+          }
+        }
+      }
+
+      .bioInfo {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-1);
+      }
+
       .name {
-        padding-bottom: var(--spacing-1) 0px;
+        padding-bottom: var(--spacing-1);
         .bioText {
-          font-variation-settings: "wght" 550;
+          font-variation-settings: "wght" 450;
         }
       }
 

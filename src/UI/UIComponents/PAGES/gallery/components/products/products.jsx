@@ -1,15 +1,11 @@
-import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import classes from "./products.module.scss";
 
 import QuickView from "@fullyComponents/quickView/quickView";
 
-import { storeData } from "../../../../routeContainer/routeContainer.jsx";
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ product, bioData }) => {
-  const addToCart = storeData((state) => state.addToCart);
-
   // I.e. Paintings, Prints etc.
   const type = capitalizeFirstLetter(bioData.details.type);
 
@@ -19,10 +15,15 @@ const ProductBio = ({ product, bioData }) => {
     </div>
   );
 
-  const name = bioData.setTitle; // collections/sets name - I.e. spring-collection, pastel-blue bookmarks collection, etc.
+  const styledName =
+    bioData.setTitle.length > 20
+      ? bioData.setTitle.slice(0, bioData.setTitle[19] === " " ? 19 : 20) +
+        "..."
+      : bioData.setTitle; // collections/sets name - I.e. spring-collection, pastel-blue bookmarks collection, etc.
+
   const Name = (
     <div className={classes.name}>
-      <p className={classes.bioText}>{name}</p>
+      <h5 className={classes.bioText}>{capitalizeFirstLetter(styledName)}</h5>
     </div>
   );
 
@@ -33,32 +34,38 @@ const ProductBio = ({ product, bioData }) => {
   const price = bioData.details.price; // fixed price which is based on euro
   const Price = (
     <div className={classes.price}>
-      <h6 className={classes.bioText}>{price + "€"}</h6>
+      <p className={classes.bioText}>{price + " €"}</p>
     </div>
   );
 
-  const addToCartButton = (
-    <button
-      className={classes.addToCartButton}
-      onClick={() => addToCart(product)}
-    >
-      <div className={classes.shoppingBagSVGWrapper}>
-        <ShoppingBagSVG />
-      </div>
-      <p className={classes.bioText}>Add to cart</p>
-    </button>
+  const moreImages = product.images;
+  const moreImagesWrapper = (
+    <div className={classes.moreImagesWrapper}>
+      {moreImages.map((img, index) => (
+        <div
+          className={classes.imageContainer}
+          style={{ right: `${index * 17}px`, zIndex: index }}
+        >
+          <img src={img.src} alt="" />
+        </div>
+      ))}
+    </div>
   );
 
   return (
     <div className={classes.productBioSection}>
       <div className={classes.productBio}>
         <div className={classes.bioTopSection}>
-          {Name}
-          {Type}
+          <div className={classes.nameAndMore}>
+            {Name}
+            {moreImagesWrapper}
+          </div>
+          <div className={classes.bioInfo}>
+            {Type} {Price}
+          </div>
         </div>
-        {Price}
       </div>
-      {addToCartButton}
+      {/* {addToCartButton} */}
     </div>
   );
 };
