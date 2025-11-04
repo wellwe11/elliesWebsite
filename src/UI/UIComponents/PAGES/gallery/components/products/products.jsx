@@ -3,6 +3,7 @@ import classes from "./products.module.scss";
 import QuickView from "@fullyComponents/quickView/quickView";
 
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
+import { useNavigate } from "react-router-dom";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ product, bioData }) => {
@@ -31,12 +32,13 @@ const ProductBio = ({ product, bioData }) => {
   // need api to save users ip so currency stays
   // need option for manually changing currency
   // const typeOfCurrency = "euro or dollar or something"
-  const price = bioData.details.price; // fixed price which is based on euro
-  const Price = (
-    <div className={classes.price}>
-      <p className={classes.bioText}>{price + " €"}</p>
-    </div>
-  );
+
+  // const price = bioData.details.price; // fixed price which is based on euro
+  // const Price = (
+  //   <div className={classes.price}>
+  //     <p className={classes.bioText}>{price + " €"}</p>
+  //   </div>
+  // );
 
   const moreImages = product.images;
   const moreImagesWrapper = (
@@ -44,7 +46,7 @@ const ProductBio = ({ product, bioData }) => {
       {moreImages.map((img, index) => (
         <div
           className={classes.imageContainer}
-          style={{ right: `${index * 17}px`, zIndex: index }}
+          style={{ right: `${index * 13}px`, zIndex: index }}
         >
           <img src={img.src} alt="" />
         </div>
@@ -60,9 +62,7 @@ const ProductBio = ({ product, bioData }) => {
             {Name}
             {moreImagesWrapper}
           </div>
-          <div className={classes.bioInfo}>
-            {Type} {Price}
-          </div>
+          <div className={classes.bioInfo}>{Type}</div>
         </div>
       </div>
       {/* {addToCartButton} */}
@@ -72,17 +72,21 @@ const ProductBio = ({ product, bioData }) => {
 
 const Products = ({ products }) => {
   // map only visible objects to display them as 'pages' which can be navigated by user
+  const navigate = useNavigate();
 
   const mappedProductImages = (
     <div className={classes.productsContainer}>
       {products?.map((product, index) => (
         <div key={index} className={classes.productWrapper}>
           <div className={classes.productImageWrapper}>
-            <QuickView
+            <img
               src={product.image}
-              secondSrc={product._embedded.restImages[0]}
-              productType={product._embedded.details.type}
-              productId={product.id}
+              className={classes.productImage}
+              onClick={() =>
+                navigate(
+                  `/uniqueImage?category=${product._embedded.details.type}&id${product.id}`
+                )
+              }
             />
           </div>
           <ProductBio product={product} bioData={product?._embedded} />

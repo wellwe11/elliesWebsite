@@ -11,13 +11,14 @@
   background-color: var(--websiteContainerColor);
   position: relative;
 
+  overflow: hidden;
+
   .whiteBackground {
     position: fixed;
     top: 0;
 
     height: 100%;
     width: var(--pageWidhtNoScrollBar);
-    overflow: hidden;
 
     z-index: 9999999;
 
