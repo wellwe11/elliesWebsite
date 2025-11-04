@@ -1,15 +1,6 @@
 import classes from "./mainPageTopPresentation.module.scss";
-import exampleImage from "@assets/topPresentationImage.avif";
 
 import Categories from "./categories/categories.jsx";
-
-const ActiveImage = () => {
-  return (
-    <div className={classes.activeImage}>
-      <img src={exampleImage} alt="" />
-    </div>
-  );
-};
 
 const MainPageTopPresentation = ({ mainImage }) => {
   return (
@@ -22,9 +13,6 @@ const MainPageTopPresentation = ({ mainImage }) => {
 
       <div className={classes.categoriesWrapper}>
         <Categories />
-      </div>
-      <div className={classes.activeImageWrapper}>
-        <ActiveImage />
       </div>
     </div>
   );

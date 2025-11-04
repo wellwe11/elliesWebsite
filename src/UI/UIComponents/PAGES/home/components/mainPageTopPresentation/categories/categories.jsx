@@ -1,9 +1,13 @@
 import classes from "./categories.module.scss";
 
 const Text = ({ children }) => {
+  const title = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit.`;
+  const bio = `onec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.`;
+
   return (
     <div className={classes.textContainer}>
-      <h4 className={classes.text}>{children}</h4>
+      <h6 className={classes.textTitle}>{title}</h6>
+      <p className={classes.textBio}>{bio}</p>
     </div>
   );
 };
@@ -25,7 +29,7 @@ const LSpan = ({ index, l }) => {
 const MappedLetters = ({ text }) =>
   text.split("").map((l, i) => <LSpan key={l + i} index={i} l={l} />);
 
-const Button = () => {
+const Button = ({ text = "Please insert text" }) => {
   return (
     <button className={classes.button}>
       <div className={classes.buttonBackgroundWrapper}>
@@ -33,10 +37,10 @@ const Button = () => {
         <div className={classes.buttonBackgroundFadeOut} />
       </div>
       <div className={classes.textOne}>
-        <MappedLetters text={"Explore"} />
+        <MappedLetters text={text} />
       </div>
       <div className={classes.textTwo}>
-        <MappedLetters text={"Explore"} />
+        <MappedLetters text={text} />
       </div>
     </button>
   );
@@ -50,7 +54,7 @@ const Categories = () => {
           <Text>Explore Art in it's different forms with me</Text>
         </div>
         <div className={classes.buttonWrapper}>
-          <Button />
+          <Button text="Discover" />
         </div>
       </div>
     </div>

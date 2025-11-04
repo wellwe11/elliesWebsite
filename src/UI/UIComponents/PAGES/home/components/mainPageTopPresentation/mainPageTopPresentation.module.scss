@@ -30,96 +30,16 @@
     }
   }
 
-  .activeImageWrapper {
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 80%;
-    height: 70%;
-    overflow: hidden;
+  .staleNavbarWrapper {
+    background-color: transparent;
   }
 
   .categoriesWrapper {
     position: absolute;
-    top: 25%;
-    left: 7%;
-    z-index: 10;
-  }
-}
-
-.activeImage {
-  animation: appear 0.85s cubic-bezier(0.76, 0.09, 0.215, 1) 1 forwards;
-  animation-delay: 0.8s;
-
-  width: 0%;
-  height: 100%;
-
-  background-color: transparent;
-
-  position: absolute;
-  left: 0;
-
-  overflow: hidden;
-
-  img {
-    max-width: initial;
-    height: 700px;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    z-index: -1;
-    animation: scale 2s cubic-bezier(0.34, 0.615, 0.4, 0.985) 1 forwards;
-    animation-delay: 1s;
-
-    transform: scale(1.1);
-    filter: blur(5px);
-    will-change: transform, filter;
-  }
-}
-
-@keyframes scale {
-  from {
-    filter: blur(5px);
-    transform: scale(1.1);
-  }
-
-  to {
-    filter: blur(0px);
-    transform: scale(1);
-  }
-}
-
-@keyframes appear {
-  0% {
-    width: 0%;
-  }
-
-  100% {
-    width: 100%;
-  }
-}
-
-@keyframes hideLeft {
-  0% {
-    width: 100%;
-    opacity: 1;
-  }
-
-  99% {
-    width: 0%;
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
+    top: 69%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
   }
 }
 
