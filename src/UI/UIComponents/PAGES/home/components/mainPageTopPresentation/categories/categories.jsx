@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import classes from "./categories.module.scss";
 
 const Text = ({ children }) => {
@@ -29,9 +30,9 @@ const LSpan = ({ index, l }) => {
 const MappedLetters = ({ text }) =>
   text.split("").map((l, i) => <LSpan key={l + i} index={i} l={l} />);
 
-const Button = ({ text = "Please insert text" }) => {
+const Button = ({ text = "Please insert text", onClick }) => {
   return (
-    <button className={classes.button}>
+    <button className={classes.button} onClick={onClick}>
       <div className={classes.buttonBackgroundWrapper}>
         <div className={classes.buttonBackgroundFadeIn} />
         <div className={classes.buttonBackgroundFadeOut} />
@@ -47,6 +48,9 @@ const Button = ({ text = "Please insert text" }) => {
 };
 
 const Categories = () => {
+  const navigate = useNavigate();
+  const navigateToGallery = () => navigate("./gallery?page=1");
+
   return (
     <div className={classes.categories}>
       <div className={classes.contentWrapper}>
@@ -54,7 +58,7 @@ const Categories = () => {
           <Text>Explore Art in it's different forms with me</Text>
         </div>
         <div className={classes.buttonWrapper}>
-          <Button text="Discover" />
+          <Button text="Discover" onClick={navigateToGallery} />
         </div>
       </div>
     </div>
