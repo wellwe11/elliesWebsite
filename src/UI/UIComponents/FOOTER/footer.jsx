@@ -117,6 +117,7 @@ const Footer = () => {
 
   return (
     <div className={classes.footer}>
+      <div className={classes.backgroundColor} />
       <div className={`${screen_classes.contentWrapper} ${classes.navContent}`}>
         <NavigationLinks
           linkKeys={linkKeys}

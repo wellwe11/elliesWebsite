@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 
 const Home = lazy(() => import("../../../PAGES/home/HOME.jsx"));
 const Gallery = lazy(() => import("../../../PAGES/gallery/GALLERY.jsx"));
@@ -38,6 +38,10 @@ const HomeRoute = () => {
     servicesData = data?.services;
 
   const canLoad = paintingsData && printsData && servicesData;
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
 
   if (!canLoad) return <Loading />;
 

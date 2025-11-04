@@ -9,16 +9,14 @@
   min-height: 100vh;
 
   background-color: var(--websiteContainerColor);
-  position: relative;
-
-  overflow: hidden;
 
   .whiteBackground {
     position: fixed;
     top: 0;
+    left: 0;
 
     height: 100%;
-    width: var(--pageWidhtNoScrollBar);
+    width: 100vw;
 
     z-index: 9999999;
 

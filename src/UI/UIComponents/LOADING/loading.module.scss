@@ -1,5 +1,5 @@
 .loadingContainer {
   height: 100vh;
-  width: 100vw;
+  width: var(--pageWidhtNoScrollBar);
   min-height: 500px;
 }

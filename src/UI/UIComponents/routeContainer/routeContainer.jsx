@@ -1,6 +1,6 @@
 import classes from "./routeContainer.module.scss";
 
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 
 import Footer from "../FOOTER/footer.jsx";
 import Navbar from "../NAVBAR/navbar.jsx";
@@ -685,7 +685,7 @@ const RouteContainer = () => {
   return (
     <div className={classes.widthContainer}>
       <Navbar />
-      <div className={classes.whiteBackground} />
+      {/* <div className={classes.whiteBackground} /> */}
 
       <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
         <MainPagesRoutes />
