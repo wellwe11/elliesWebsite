@@ -110,6 +110,11 @@
         // enforce same size for all containers
         max-width: calc(25% - var(--spacing-1));
         min-width: calc(25% - var(--spacing-1));
+
+        .imageWrapper {
+          border-top-left-radius: var(--spacing-1);
+          border-bottom-left-radius: var(--spacing-1);
+        }
       }
 
       &:last-of-type {
@@ -119,6 +124,11 @@
         // enforce same size for all containers
         max-width: calc(25% - var(--spacing-1));
         min-width: calc(25% - var(--spacing-1));
+
+        .imageWrapper {
+          border-top-right-radius: var(--spacing-1);
+          border-bottom-right-radius: var(--spacing-1);
+        }
       }
     }
   }

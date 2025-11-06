@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import fadeInClasses from "@classes/fadeInOnLoad.module.scss";
 import ControlledImage from "@components/controlledImage/controlledImage";
+import intersecter from "../../../../../../abstract/functions/interSection.js";
 
 // each category has a title. I.e. "Stickers, paintings etc"
 const CategoryTitle = ({ title }) => {
@@ -41,38 +42,17 @@ const CategoryContainer = ({ categories }) => {
   // Make sure container is dynamic size
   const calculatedCategoryWidth = useMemo(() => {
     return `${100 / categoryKeys.length}%`;
-  }, []);
+  }, [categoryKeys]);
+
+  const { intersect } = useMemo(() => intersecter(), []);
 
   useEffect(() => {
-    if (observering) return;
+    if (!categoriesRef || !categoriesRef.current) return;
 
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        const entry = entries[0];
+    const observer = intersect(categoriesRef, setObserving);
 
-        if (entry.isIntersecting) {
-          setObserving(true);
-        }
-      },
-      {
-        rootMargin: "0px 0px -50px 0px",
-        threshold: 0.9,
-      }
-    );
-
-    const el = categoriesRef.current;
-
-    if (el) {
-      observer.observe(el);
-    }
-
-    return () => {
-      if (el) {
-        observer.unobserve(el);
-      }
-      observer.disconnect();
-    };
-  }, []);
+    return () => observer.disconnect();
+  }, [intersect, categoriesRef]);
 
   return (
     <div className={classes.categoriesContainer} ref={categoriesRef}>

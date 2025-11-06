@@ -2,10 +2,10 @@ import { useEffect, useMemo, useRef, useState, memo } from "react";
 import classes from "./uniqueInfoSection.module.scss";
 
 import ButtonStyle from "../uniqueButton/uniqueButton.jsx";
-import transitionInAnimation from "@functions/transitionAnimation";
 
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG.jsx";
 import { storeData } from "../../../../routeContainer/routeContainer.jsx";
+import intersecter from "../../../../../../abstract/functions/interSection.js";
 
 const InfoSectionBio = ({ details, bioRef, foundObject }) => {
   const { addToCart } = storeData();
@@ -112,16 +112,31 @@ const UniqueInfoSection = ({ images, textInfo, foundObject }) => {
     smallerImagesRef = useRef(null),
     bioRef = useRef(null);
 
+  const { intersect: intersectImageRef } = intersecter({
+      className: classes.intersectingImage,
+      unMount: true,
+    }),
+    { intersect: intersectSmallerImagesRef } = intersecter({
+      className: classes.intersectingInfoRight,
+      unMount: true,
+    }),
+    { intersect: intersectBioRef } = intersecter({
+      className: classes.intersectingBioRight,
+      unMount: true,
+    });
+
   useEffect(() => {
-    transitionInAnimation(imageRef, classes.intersectingImage, false, 40);
-    transitionInAnimation(
-      smallerImagesRef,
-      classes.intersectingInfoRight,
-      false,
-      30
-    );
-    transitionInAnimation(bioRef, classes.intersectingBioRight, false, 10);
-  }, []);
+    intersectImageRef(imageRef);
+    intersectSmallerImagesRef(smallerImagesRef);
+    intersectBioRef(bioRef);
+  }, [
+    imageRef,
+    intersectImageRef,
+    smallerImagesRef,
+    intersectSmallerImagesRef,
+    bioRef,
+    intersectBioRef,
+  ]);
 
   const leftSectionWrapper = (
     <div className={classes.uniqueInfoLeft}>

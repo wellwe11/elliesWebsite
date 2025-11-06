@@ -3,9 +3,11 @@ import classes from "./products.module.scss";
 import QuickView from "@fullyComponents/quickView/quickView";
 
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import setRef from "../../../../../../abstract/functions/setRefs.js";
+
+import intersecter from "../../../../../../abstract/functions/interSection.js";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ product, bioData }) => {
@@ -65,57 +67,63 @@ const Products = ({ products }) => {
 
   const productRefs = useRef([]);
 
+  const { intersect } = useMemo(
+    () =>
+      intersecter({
+        style: {
+          transitionDelay: "0.03}s",
+          opacity: "1",
+          transform: "translateY(0)",
+          filter: "blur(0)",
+        },
+        unMount: true,
+      }),
+    []
+  );
+
   useEffect(() => {
-    if (products.length < 1) return;
+    if (!products || !productRefs.current.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, index) => {
-          if (entry && entry.isIntersecting) {
-            entry.target.style.transitionDelay = `${index * 0.03}s`;
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-            entry.target.style.filter = "blur(0)";
+    const observer = productRefs.current.map((el) => {
+      const singleRef = { current: el };
 
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.7,
-      }
-    );
-
-    productRefs.current.forEach((el) => observer.observe(el));
+      return intersect(singleRef);
+    });
 
     return () => {
-      productRefs.current.forEach((el) => observer.unobserve(el));
+      observer.forEach((obs) => obs.disconnect());
     };
   }, [products.length]);
 
-  const mappedProductImages = (
-    <div className={classes.productsContainer}>
-      {products?.map((product, index) => (
-        <div
-          key={index}
-          className={classes.productWrapper}
-          ref={(e) => setRef(e, productRefs)}
-        >
-          <div className={classes.productImageWrapper}>
-            <img
-              src={product.image}
-              className={classes.productImage}
-              onClick={() =>
-                navigate(
-                  `/uniqueImage?category=${product._embedded.details.type}&id${product.id}`
-                )
-              }
-            />
+  const mappedProductImages = useMemo(
+    () => (
+      <div className={classes.productsContainer}>
+        {products?.map((product, index) => (
+          <div
+            key={index}
+            className={classes.productWrapper}
+            ref={(e) => setRef(e, productRefs)}
+            style={{
+              transitionDelay: `${index * 0.03}s`,
+            }}
+          >
+            <div className={classes.productImageWrapper}>
+              <img
+                src={product.image}
+                className={classes.productImage}
+                onClick={() =>
+                  navigate(
+                    `/uniqueImage?category=${product._embedded.details.type}&id=${product.id}`
+                  )
+                }
+              />
+            </div>
+            <ProductBio product={product} bioData={product?._embedded} />
           </div>
-          <ProductBio product={product} bioData={product?._embedded} />
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    ),
+    [products]
   );
 
   return <div className={classes.products}>{mappedProductImages}</div>;
