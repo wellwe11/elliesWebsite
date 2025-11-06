@@ -16,10 +16,11 @@ const PreviewRoute = ({ backgroundLocation }) => {
 
   const uniqueViewEmbedded = foundObj?._embedded,
     quickViewProps = {
-      quickViewImages: uniqueViewEmbedded?.restImages,
+      quickViewImages: foundObj.images.map((img) => img.src),
       title: uniqueViewEmbedded?.setTitle,
       price: uniqueViewEmbedded?.details.price,
       bio: uniqueViewEmbedded?.setDescription,
+      all: uniqueViewEmbedded,
     };
 
   return (

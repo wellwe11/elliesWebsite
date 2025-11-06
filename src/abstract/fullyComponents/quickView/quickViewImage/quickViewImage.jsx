@@ -1,6 +1,6 @@
 import classes from "./quickViewImage.module.scss";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 
@@ -9,6 +9,7 @@ import QuickViewButton from "../quickViewButton/quickViewButton";
 import bodyNoScroll from "@functions/bodyNoScroll";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import useGetParams from "@hooks/useGetParams.jsx";
+import { capitalizeFirstLetter } from "../../../functions/firstLetterCapital.js";
 
 // If you want to view the actual product, this button takes you to a new page which contains further information and such
 const ViewProductButton = () => {
@@ -30,8 +31,20 @@ const ViewProductButton = () => {
 };
 
 // Product will have a short description and this button is a boolean to display it or to hide the description
-const ProductDescription = ({ bio }) => {
+const ProductDescription = ({ bio, all }) => {
   const [viewDescription, setViewDescription] = useState(true);
+
+  const infoEntries = Object.entries(all.details);
+
+  const entriesInfo = infoEntries.map(([entry, obj], index) => {
+    const capitalEntry = capitalizeFirstLetter(entry);
+
+    return (
+      <div className={classes.entryContainer}>
+        <h5>{capitalEntry}</h5>
+      </div>
+    );
+  });
 
   const expandDescriptionButton = (
     // actual button which is always displayed
@@ -71,15 +84,16 @@ const ProductDescription = ({ bio }) => {
 
   return (
     <div className={classes.productDescription}>
-      {expandDescriptionButton}
-      {expandDescriptionText}
+      {/* {expandDescriptionButton} */}
+      {/* {expandDescriptionText} */}
+      <div className={classes.info}>{entriesInfo}</div>
     </div>
   );
 };
 
 // Element containing information & further info about the product, such as other images, price, name, description
 const QuickViewInfo = ({
-  quickViewProps: { title = "Title", price = 19.99, bio, quickViewImages },
+  quickViewProps: { title = "Title", price = 19.99, bio, quickViewImages, all },
   activeImageIndex,
   setActiveImageIndex,
 }) => {
@@ -134,7 +148,7 @@ const QuickViewInfo = ({
         {currentImageBioText}
         {allImagesRelatedToQuickViewImage}
       </div>
-      <ProductDescription bio={bio} />
+      <ProductDescription bio={bio} all={all} />
     </div>
   );
 };

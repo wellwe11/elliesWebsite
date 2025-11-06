@@ -61,12 +61,11 @@
 
 // QuickViewInfo
 .infoSection {
-  padding: var(--spacing-1);
+  padding: var(--spacing-7);
   padding-right: var(--spacing-2);
 
   display: flex;
   flex-direction: column;
-  align-items: center;
 
   width: 100%;
 
@@ -74,40 +73,43 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 
-    padding: var(--spacing-4);
+    padding: var(--spacing-4) 0px;
 
     // infoProductTitle
     .info {
       font-variation-settings: "wght" 350;
-      padding: var(--spacing-1);
     }
 
     // infoProductPrice
     .price {
       font-variation-settings: "wght" 300;
-      padding: var(--spacing-1);
+      padding: var(--spacing-1) 0px;
     }
   }
 
   // allImagesRelatedToQuickViewImage
   .allImagesExamples {
+    width: fit-content;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--spacing-3);
     flex-wrap: wrap;
 
-    border-bottom: 0.5px solid gray;
-    padding-bottom: var(--spacing-1);
+    padding: var(--spacing-2) 0px;
 
     .imageExample {
-      max-width: 250px;
-      max-height: 100px;
+      width: var(--spacing-6);
+      max-height: var(--spacing-5);
 
-      padding: var(--spacing-1);
+      border-radius: var(--spacing-1);
 
       cursor: pointer;
+
+      object-fit: cover;
+      object-position: center;
     }
   }
 
@@ -129,6 +131,20 @@
   justify-content: space-between;
 
   padding-top: var(--spacing-2);
+  border-bottom: 0.5px solid var(--c-grey-200);
+  border-top: 0.5px solid var(--c-grey-200);
+  padding: var(--spacing-2) 0px;
+
+  .info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-1);
+
+    .entryContainer {
+      padding: var(--spacing-4) var(--spacing-3);
+      border-left: 0.5px solid var(--c-grey-200);
+    }
+  }
 
   .buttonDescriptionButton {
     cursor: pointer;
