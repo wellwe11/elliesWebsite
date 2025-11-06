@@ -77,6 +77,8 @@ const Products = ({ products }) => {
           filter: "blur(0)",
         },
         unMount: true,
+        treshhold: 0.4,
+        rootMargin: "0px 0px 0px 0px",
       }),
     []
   );

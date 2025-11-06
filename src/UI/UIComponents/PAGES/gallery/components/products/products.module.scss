@@ -9,26 +9,25 @@
     align-content: center;
     justify-content: space-evenly;
 
-    @media screen and (min-width: 1025px) {
+    @media screen and (min-width: 1400px) {
       gap: var(--spacing-3);
       grid-template-columns: repeat(4, 1fr);
     }
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1400px) {
       gap: var(--spacing-4);
       grid-template-columns: repeat(3, 1fr);
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1024px) {
       grid-template-columns: repeat(2, 1fr);
     }
 
     @media screen and (max-width: 650px) {
-      padding: 0px var(--spacing-5);
+      grid-template-columns: repeat(1, 1fr);
     }
 
     @media screen and (max-width: 425px) {
-      grid-template-columns: repeat(1, 1fr);
     }
 
     @media screen and (max-width: 375px) {
@@ -44,6 +43,8 @@
       filter: blur(5px);
       transform: translateY(-5px);
       will-change: transform, opacity, filter;
+
+      height: clamp(200px, 35vw + 50rem, 500px);
 
       .productImageWrapper {
         overflow: hidden;
