@@ -1,82 +1,85 @@
 import classes from "./categories.module.scss";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useMemo, useRef } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 import fadeInClasses from "@classes/fadeInOnLoad.module.scss";
-import ControlledImage from "@components/controlledImage/controlledImage";
-import intersecter from "../../../../../../abstract/functions/interSection.js";
+
+import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
+import useCategoryEffect from "./hooks/useCategoryEffect.jsx";
 
 // each category has a title. I.e. "Stickers, paintings etc"
 const CategoryTitle = ({ title }) => {
-  const firstCapitalTitle = title[0].toUpperCase() + title.slice(1);
-
-  const categoryTitle = <h5 className={classes.title}>{firstCapitalTitle}</h5>;
-
-  const categoryExploreTextWithUnderline = (
-    <div className={classes.exploreWrapper}>
-      <h6 className={classes.subTitle}>Explore</h6>
-      <div className={classes.underline}>
-        <div className={classes.underlineDot} />
-      </div>
-    </div>
-  );
+  const titleCapital = capitalizeFirstLetter(title);
 
   return (
     <div className={classes.titleContainer}>
       <div className={classes.titleWrapper}>
-        {categoryTitle}
-        {categoryExploreTextWithUnderline}
+        <h5 className={classes.title}>{titleCapital}</h5>
+        <div className={classes.exploreWrapper}>
+          <h6 className={classes.subTitle}>Explore</h6>
+          <div className={classes.underline}>
+            <div className={classes.underlineDot} />
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
+const Category = ({
+  categoriesLength,
+  categoriesRef,
+  index,
+  category,
+  img,
+}) => {
+  const link = `./gallery?category=${category}&page=1`;
+
+  const { observering } = useCategoryEffect(categoriesRef); // displays the categories on intersection
+
+  // Dynamic sizing for wrapper
+  const categoriesWrapperStyle = useMemo(() => {
+    return {
+      width: `${100 / categoriesLength}%`,
+      animationDelay: index * 0.1 + "s",
+    };
+  }, [categoriesLength, index]);
+
+  return (
+    <Link
+      to={link}
+      className={`${classes.categoriesWrapper} ${
+        observering ? fadeInClasses.smoothAppearance : ""
+      } ${fadeInClasses.categoriesPreAppearance}`}
+      key={index}
+      style={categoriesWrapperStyle}
+    >
+      <div className={classes.imageWrapper}>
+        <img className={classes.image} src={img} alt="" />
+      </div>
+      <CategoryTitle title={category} />
+    </Link>
+  );
+};
+
 const CategoryContainer = ({ categories }) => {
   // category names
-  const categoryKeys = Object.keys(categories);
   const categoriesRef = useRef();
 
-  const navigate = useNavigate();
-  const [observering, setObserving] = useState(false);
-
-  // Make sure container is dynamic size
-  const calculatedCategoryWidth = useMemo(() => {
-    return `${100 / categoryKeys.length}%`;
-  }, [categoryKeys]);
-
-  const { intersect } = useMemo(() => intersecter({ unMount: true }), []);
-
-  useEffect(() => {
-    if (!categoriesRef || !categoriesRef.current) return;
-
-    const observer = intersect(categoriesRef, setObserving);
-
-    return () => observer.disconnect();
-  }, [intersect, categoriesRef]);
+  const categoryEntries = Object.entries(categories),
+    categoriesLength = categoryEntries.length;
 
   return (
     <div className={classes.categoriesContainer} ref={categoriesRef}>
-      {categoryKeys.map((category, index) => (
-        <div
-          className={`${classes.categoriesWrapper} ${
-            observering ? fadeInClasses.smoothAppearance : ""
-          } ${fadeInClasses.categoriesPreAppearance}`}
-          key={index}
-          style={{
-            width: calculatedCategoryWidth,
-            animationDelay: `${index * 0.1}s`,
-          }}
-          onClick={() => navigate(`./gallery?category=${category}&page=1`)}
-        >
-          <div className={classes.imageWrapper}>
-            <img
-              className={classes.image}
-              src={Object.values(categories[category])}
-              alt=""
-            />
-          </div>
-          <CategoryTitle title={category} />
-        </div>
+      {categoryEntries.map(([entry, obj], index) => (
+        <Category
+          categoriesLength={categoriesLength}
+          categoriesRef={categoriesRef}
+          key={index + entry}
+          index={index}
+          category={entry}
+          img={obj.image}
+        />
       ))}
     </div>
   );
