@@ -36,12 +36,40 @@ const ProductDescription = ({ bio, all }) => {
 
   const infoEntries = Object.entries(all.details);
 
-  const entriesInfo = infoEntries.map(([entry, obj], index) => {
+  const valueTypeChecker = (val) => {
+    if (typeof val === "object" && typeof val !== "function" && val !== null) {
+      return "reference";
+    } else {
+      return "primitive";
+    }
+  };
+
+  const EntryValue = ({ value }) => {
+    const result = valueTypeChecker(value);
+
+    if (result === "reference") {
+      return value.map((v) => (
+        <div className={classes.ref} style={{ backgroundColor: v }} />
+      ));
+    }
+
+    if (result === "primitive") {
+      return <h3 className={classes.value}>{value}</h3>;
+    }
+  };
+  console.log(100 / infoEntries.length);
+
+  const entryTitle = infoEntries.map(([entry, obj], index) => {
     const capitalEntry = capitalizeFirstLetter(entry);
 
     return (
-      <div className={classes.entryContainer}>
-        <h5>{capitalEntry}</h5>
+      <div
+        className={classes.entryContainer}
+        key={index}
+        style={{ width: `calc(${100 / infoEntries.length}%)` }}
+      >
+        <div className={classes.refContainer}>{<EntryValue value={obj} />}</div>
+        <p className={classes.entry}>{capitalEntry}</p>
       </div>
     );
   });
@@ -86,7 +114,7 @@ const ProductDescription = ({ bio, all }) => {
     <div className={classes.productDescription}>
       {/* {expandDescriptionButton} */}
       {/* {expandDescriptionText} */}
-      <div className={classes.info}>{entriesInfo}</div>
+      <div className={classes.info}>{entryTitle}</div>
     </div>
   );
 };
