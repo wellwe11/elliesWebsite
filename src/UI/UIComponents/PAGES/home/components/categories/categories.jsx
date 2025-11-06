@@ -44,7 +44,7 @@ const CategoryContainer = ({ categories }) => {
     return `${100 / categoryKeys.length}%`;
   }, [categoryKeys]);
 
-  const { intersect } = useMemo(() => intersecter(), []);
+  const { intersect } = useMemo(() => intersecter({ unMount: true }), []);
 
   useEffect(() => {
     if (!categoriesRef || !categoriesRef.current) return;

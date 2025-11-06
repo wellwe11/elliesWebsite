@@ -1,18 +1,17 @@
 import classes from "./products.module.scss";
 
-import QuickView from "@fullyComponents/quickView/quickView";
-
-import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 import { useEffect, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import setRef from "../../../../../../abstract/functions/setRefs.js";
 
-import intersecter from "../../../../../../abstract/functions/interSection.js";
+import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
+import setRef from "@functions/setRefs.js";
+import intersecter from "@functions/interSection.js";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ product, bioData }) => {
   // I.e. Paintings, Prints etc.
-  const type = capitalizeFirstLetter(bioData.details.type);
+  const detailsType = bioData.details.type,
+    type = capitalizeFirstLetter(detailsType);
 
   const Type = (
     <div className={classes.type}>
@@ -20,11 +19,11 @@ const ProductBio = ({ product, bioData }) => {
     </div>
   );
 
-  const styledName =
-    bioData.setTitle.length > 20
-      ? bioData.setTitle.slice(0, bioData.setTitle[19] === " " ? 19 : 20) +
-        "..."
-      : bioData.setTitle; // collections/sets name - I.e. spring-collection, pastel-blue bookmarks collection, etc.
+  const setTitle = bioData.setTitle,
+    styledName =
+      setTitle.length > 20
+        ? setTitle.slice(0, setTitle[19] === " " ? 19 : 20) + "..."
+        : setTitle; // collections/sets name - I.e. spring-collection, pastel-blue bookmarks collection, etc.
 
   const Name = (
     <div className={classes.name}>
@@ -62,9 +61,44 @@ const ProductBio = ({ product, bioData }) => {
   );
 };
 
-const Products = ({ products }) => {
+const Product = ({ productRefs, index, product }) => {
   const navigate = useNavigate();
 
+  const {
+      id: productId,
+      image: productImage,
+      _embedded: {
+        details: { type: productType },
+      },
+    } = product,
+    bio = product._embedded;
+
+  const transitionDelay = `${index * 0.03}s`,
+    productStyle = {
+      transitionDelay,
+    };
+
+  return (
+    <div
+      className={classes.productWrapper}
+      ref={(e) => setRef(e, productRefs)}
+      style={productStyle}
+    >
+      <div className={classes.productImageWrapper}>
+        <img
+          src={productImage}
+          className={classes.productImage}
+          onClick={() =>
+            navigate(`/uniqueImage?category=${productType}&id=${productId}`)
+          }
+        />
+      </div>
+      <ProductBio product={product} bioData={bio} />
+    </div>
+  );
+};
+
+const Products = ({ products }) => {
   const productRefs = useRef([]);
 
   const { intersect } = useMemo(
@@ -101,27 +135,12 @@ const Products = ({ products }) => {
     () => (
       <div className={classes.productsContainer}>
         {products?.map((product, index) => (
-          <div
+          <Product
             key={index}
-            className={classes.productWrapper}
-            ref={(e) => setRef(e, productRefs)}
-            style={{
-              transitionDelay: `${index * 0.03}s`,
-            }}
-          >
-            <div className={classes.productImageWrapper}>
-              <img
-                src={product.image}
-                className={classes.productImage}
-                onClick={() =>
-                  navigate(
-                    `/uniqueImage?category=${product._embedded.details.type}&id=${product.id}`
-                  )
-                }
-              />
-            </div>
-            <ProductBio product={product} bioData={product?._embedded} />
-          </div>
+            productRefs={productRefs}
+            index={index}
+            product={product}
+          />
         ))}
       </div>
     ),
