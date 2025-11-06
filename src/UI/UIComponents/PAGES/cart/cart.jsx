@@ -6,7 +6,7 @@ import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickVie
 import X_SVG from "@components/SVGS/X_SVG/X_SVG";
 import bodyNoScroll from "@functions/bodyNoScroll.js";
 
-import { storeData } from "../../routeContainer/routeContainer.jsx";
+import storeData from "../../routeContainer/zustandObject/storeData.jsx";
 import Products from "./components/products/products.jsx";
 
 const ToPaymentMethod = () => {

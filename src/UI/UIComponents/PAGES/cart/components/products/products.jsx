@@ -3,7 +3,7 @@ import classes from "./products.module.scss";
 import { Product } from "./product/product.jsx";
 
 import CartBottomItem from "../cartBottomItem/cartBottomItem.jsx";
-import { storeData } from "../../../../routeContainer/routeContainer.jsx";
+import storeData from "../../../../routeContainer/zustandObject/storeData.jsx";
 
 const Products = () => {
   const { cart, getItemId } = storeData(),

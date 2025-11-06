@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useMemo } from "react";
 
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
-import { storeData } from "../../../routeContainer/routeContainer.jsx";
+import storeData from "../../../routeContainer/zustandObject/storeData.jsx";
 
 const ShoppingCart = () => {
   const navigate = useNavigate();

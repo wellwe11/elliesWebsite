@@ -3,7 +3,7 @@ import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 
 import ButtonStyle from "../uniqueButton/uniqueButton.jsx";
-import { storeData } from "../../../../routeContainer/routeContainer.jsx";
+import storeData from "../../../../routeContainer/zustandObject/storeData.jsx";
 
 const ButtonsWrapper = ({ foundObject }) => {
   const { addToCart } = storeData();

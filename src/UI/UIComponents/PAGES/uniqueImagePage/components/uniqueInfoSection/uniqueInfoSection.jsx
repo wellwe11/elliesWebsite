@@ -4,8 +4,9 @@ import classes from "./uniqueInfoSection.module.scss";
 import ButtonStyle from "../uniqueButton/uniqueButton.jsx";
 
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG.jsx";
-import { storeData } from "../../../../routeContainer/routeContainer.jsx";
-import intersecter from "../../../../../../abstract/functions/interSection.js";
+import intersecter from "@functions/interSection.js";
+
+import storeData from "../../../../routeContainer/zustandObject/storeData.jsx";
 
 const InfoSectionBio = ({ details, bioRef, foundObject }) => {
   const { addToCart } = storeData();
@@ -83,7 +84,7 @@ const InfoSectionImages = memo(
   ({ images, setActiveImage, smallerImagesRef }) => {
     // display all images in the collection, which can be hovered to preview them as bigger
     const smallImagesPreview = images.map((image, index) => (
-      <div className={classes.placeholderImageWrapper}>
+      <div className={classes.placeholderImageWrapper} key={index}>
         <img
           onMouseEnter={() => setActiveImage(index)}
           className={classes.placeholderImage}
