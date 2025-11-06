@@ -1,6 +1,6 @@
 import classes from "./categories.module.scss";
 import { useMemo, useRef } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import fadeInClasses from "@classes/fadeInOnLoad.module.scss";
 
@@ -45,12 +45,14 @@ const Category = ({
     };
   }, [categoriesLength, index]);
 
+  const LinkClasses = `${classes.categoriesWrapper} 
+    ${observering ? fadeInClasses.smoothAppearance : ""} 
+    ${fadeInClasses.categoriesPreAppearance}`;
+
   return (
     <Link
       to={link}
-      className={`${classes.categoriesWrapper} ${
-        observering ? fadeInClasses.smoothAppearance : ""
-      } ${fadeInClasses.categoriesPreAppearance}`}
+      className={LinkClasses}
       key={index}
       style={categoriesWrapperStyle}
     >
