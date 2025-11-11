@@ -11,7 +11,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --themeColor: #808894;
+  --themeColor: rgb(244, 242, 239);
 
   --futureColorToAdd: #f8f7f4;
   --websiteContainerColor: var(--c-white);
@@ -157,6 +157,15 @@ img,
 video {
   max-width: 100%;
   display: block;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  user-drag: none;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+
+  -webkit-touch-callout: none;
 }
 
 /* Form elements inherit font */

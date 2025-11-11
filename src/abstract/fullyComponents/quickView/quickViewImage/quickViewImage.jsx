@@ -8,6 +8,7 @@ import ProductInfo from "./components/productInfo/productInfo.jsx";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import bodyNoScroll from "@functions/bodyNoScroll";
+import ExtendedProductInfo from "./components/extendedProductInfo/extendedProductInfo.jsx";
 
 const ActiveImage = ({ productProps, activeImageIndex }) => {
   const {
@@ -56,6 +57,24 @@ const DisplayProductContainer = ({ productProps }) => {
   );
 };
 
+const ExtendedInfo = ({ productProps }) => {
+  // price, type, width, height, frame, description,
+  const {
+      all: {
+        details: { price, type, height, width },
+        setDescription,
+      },
+    } = productProps,
+    props = { price, height, width, type },
+    description = setDescription;
+
+  return (
+    <div className={classes.extendedInfo}>
+      <ExtendedProductInfo props={props} description={description} />
+    </div>
+  );
+};
+
 // Element containing QuickViewImage & QuickViewInfo, as well as a faded background.
 // Will always be positonined fixed in middle of the screen.
 const QuickViewImage = ({ productProps, isLoading }) => {
@@ -79,6 +98,7 @@ const QuickViewImage = ({ productProps, isLoading }) => {
   return (
     <div className={classes.quickViewImage}>
       <DisplayProductContainer productProps={productProps} />
+      <ExtendedInfo productProps={productProps} />
     </div>
   );
 };
