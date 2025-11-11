@@ -9,12 +9,10 @@ import { useNavigate } from "react-router-dom";
 import bodyNoScroll from "@functions/bodyNoScroll";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 
-import { capitalizeFirstLetter } from "../../../functions/firstLetterCapital.js";
+import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 
 // Product will have a short description and this button is a boolean to display it or to hide the description
-const ProductDescription = ({ bio, infoDetails }) => {
-  const [viewDescription, setViewDescription] = useState(true);
-
+const ProductDescription = ({ infoDetails }) => {
   const infoEntries = Object.entries(infoDetails);
 
   const valueTypeChecker = (val) => {
@@ -56,46 +54,8 @@ const ProductDescription = ({ bio, infoDetails }) => {
     );
   });
 
-  const expandDescriptionButton = (
-    // actual button which is always displayed
-    <button
-      className={classes.buttonDescriptionButton}
-      onClick={() => setViewDescription(!viewDescription)}
-    >
-      <h5 className={classes.buttonDescriptionButtonText}>
-        Description
-        <div
-          className={`${classes.descriptionSvgContainer} ${
-            viewDescription ? classes.arrowFaceIn : ""
-          }`}
-        >
-          <ArrowNoBodySVG />
-        </div>
-      </h5>
-    </button>
-  );
-
-  const expandDescriptionText = (
-    // text which will be hidden or displayed depending on expandDescriptionButton
-    <div
-      className={`${classes.descriptionWrapper} ${
-        viewDescription ? classes.open : classes.closed
-      }`}
-    >
-      <p
-        className={`${classes.descriptionText} ${
-          viewDescription ? classes.open : classes.closed
-        }`}
-      >
-        {bio}
-      </p>
-    </div>
-  );
-
   return (
     <div className={classes.productDescription}>
-      {/* {expandDescriptionButton} */}
-      {/* {expandDescriptionText} */}
       <div className={classes.info}>{entryTitle}</div>
     </div>
   );
@@ -104,11 +64,7 @@ const ProductDescription = ({ bio, infoDetails }) => {
 // Element containing information & further info about the product, such as other images, price, name, description
 const ProductInfo = ({
   productProps: {
-    title = "Title",
-    price = 19.99,
-    bio,
-    type,
-    quickViewImages,
+    displayedDetails: { title = "Title", price = 19.99, type, quickViewImages },
     all,
     infoDetails,
   },
@@ -133,25 +89,35 @@ const ProductInfo = ({
       // a set of smaller images related to product. This handles the activeImageIndex
       <div className={classes.allImagesExamples}>
         {quickViewImages?.map((image, index) => (
-          <img
-            key={index}
-            className={classes.imageExample}
-            src={image}
-            alt=""
-            onClick={() => {
-              setActiveImageIndex(index);
+          <div
+            className={classes.borderContainer}
+            style={{
+              border:
+                activeImageIndex === index
+                  ? "1px solid gray"
+                  : "1px solid white",
             }}
-          />
+          >
+            <img
+              key={index}
+              className={classes.imageExample}
+              src={image}
+              alt=""
+              onClick={() => {
+                setActiveImageIndex(index);
+              }}
+            />
+          </div>
         ))}
       </div>
     ),
-    [quickViewImages, setActiveImageIndex]
+    [quickViewImages, setActiveImageIndex, activeImageIndex]
   );
 
   const currentlySelectedProduct = (
     // currently only displayed index of active allImagesRelatedToQuickViewImage. In future, will have some bio-info
     <div className={classes.bioTypeText}>
-      <h6>Currently selected product: {activeImageIndex}</h6>
+      <h6>Product: {activeImageIndex}</h6>
     </div>
   );
 
@@ -160,12 +126,13 @@ const ProductInfo = ({
       <div className={classes.productTitleAndBioWrapper}>
         {infoProductTitle}
         {infoType}
+        <div className={classes.paddingTop4}>
+          {currentlySelectedProduct}
+          {allImagesRelatedToQuickViewImage}
+        </div>
       </div>
-      <div>
-        {currentlySelectedProduct}
-        {allImagesRelatedToQuickViewImage}
-      </div>
-      <ProductDescription bio={bio} all={all} infoDetails={infoDetails} />
+
+      <ProductDescription all={all} infoDetails={infoDetails} />
     </div>
   );
 };
@@ -174,7 +141,9 @@ const ProductInfo = ({
 const DisplayProductContainer = ({ productProps }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0); // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
 
-  const { quickViewImages } = productProps;
+  const {
+    displayedDetails: { quickViewImages },
+  } = productProps;
 
   return (
     <div className={classes.quickViewImageContainer}>

@@ -1,6 +1,6 @@
 .quickViewImage {
   position: fixed;
-  top: 65px;
+  top: 64px;
   left: 0;
 
   width: 100%;
@@ -100,21 +100,33 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: var(--spacing-3);
+    gap: var(--spacing-1);
     flex-wrap: wrap;
 
     padding: var(--spacing-2) 0px;
 
-    .imageExample {
-      width: var(--spacing-7);
-      height: var(--spacing-6);
+    .borderContainer {
+      border: var(--spacing-1);
 
       border-radius: var(--spacing-1);
 
-      cursor: pointer;
+      overflow: hidden;
 
-      object-fit: cover;
-      object-position: center;
+      padding: var(--spacing-1);
+
+      transition: border 0.2s ease;
+      will-change: border;
+
+      .imageExample {
+        border-radius: var(--spacing-1);
+        width: var(--spacing-7);
+        max-height: var(--spacing-7);
+
+        cursor: pointer;
+
+        object-fit: cover;
+        object-position: center;
+      }
     }
   }
 
@@ -256,4 +268,8 @@
 
 .titleTypeText {
   font-variation-settings: "wght" 300;
+}
+
+.paddingTop4 {
+  padding-top: var(--spacing-4);
 }

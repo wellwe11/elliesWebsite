@@ -17,12 +17,14 @@ const PreviewRoute = ({ backgroundLocation }) => {
   const uniqueViewEmbedded = foundObj?._embedded,
     { amount, colors, height, width } = uniqueViewEmbedded.details,
     productProps = {
-      quickViewImages: foundObj.images.map((img) => img.src),
-      title: uniqueViewEmbedded?.setTitle,
-      price: uniqueViewEmbedded?.details.price,
-      bio: uniqueViewEmbedded?.setDescription,
       all: uniqueViewEmbedded,
-      type: uniqueViewEmbedded?.details.type,
+
+      displayedDetails: {
+        title: uniqueViewEmbedded?.setTitle,
+        price: uniqueViewEmbedded?.details.price,
+        type: uniqueViewEmbedded?.details.type,
+        quickViewImages: foundObj.images.map((img) => img.src),
+      },
 
       infoDetails: { amount, colors, height, width },
     };
