@@ -1,5 +1,6 @@
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 import classes from "./productDescription.module.scss";
+import quickViewClasses from "../../../../quickViewImage.module.scss";
 
 const valueTypeChecker = (val) => {
   if (typeof val === "object" && typeof val !== "function" && val !== null) {
@@ -20,33 +21,36 @@ const EntryValue = ({ value }) => {
 
   if (result === "primitive") {
     return (
-      <h1 className={`${classes.titleTypeText} ${classes.value}`}>{value}</h1>
+      <h1 className={`${quickViewClasses.titleTypeText} ${classes.value}`}>
+        {value}
+      </h1>
     );
   }
+};
+
+const Entry = ({ entry, entryWidth, obj }) => {
+  const capitalEntry = capitalizeFirstLetter(entry);
+
+  return (
+    <div className={classes.entryContainer} style={{ width: `${entryWidth}%` }}>
+      <div className={classes.refContainer}>{<EntryValue value={obj} />}</div>
+      <p className={quickViewClasses.bioTypeText}>{capitalEntry}</p>
+    </div>
+  );
 };
 
 // Product will have a short description and this button is a boolean to display it or to hide the description
 const ProductDescription = ({ infoDetails }) => {
   const infoEntries = Object.entries(infoDetails);
-
-  const entryTitle = infoEntries.map(([entry, obj], index) => {
-    const capitalEntry = capitalizeFirstLetter(entry);
-
-    return (
-      <div
-        className={classes.entryContainer}
-        key={index}
-        style={{ width: `calc(${100 / infoEntries.length}%)` }}
-      >
-        <div className={classes.refContainer}>{<EntryValue value={obj} />}</div>
-        <p className={classes.bioTypeText}>{capitalEntry}</p>
-      </div>
-    );
-  });
+  const entryWidth = 100 / infoEntries.length;
 
   return (
     <div className={classes.productDescription}>
-      <div className={classes.info}>{entryTitle}</div>
+      <div className={classes.info}>
+        {infoEntries.map(([entry, obj], index) => (
+          <Entry key={index} entry={entry} entryWidth={entryWidth} obj={obj} />
+        ))}
+      </div>
     </div>
   );
 };

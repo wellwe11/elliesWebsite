@@ -47,7 +47,6 @@ const CurrentlySelectedProduct = ({ activeImageIndex }) => (
   <h6 className={quickViewClass.bioTypeText}>Product: {activeImageIndex}</h6>
 );
 
-// Element containing information & further info about the product, such as other images, price, name, description
 const ProductInfo = ({
   productProps: {
     displayedDetails: { title = "Title", price = 19.99, type, quickViewImages },
