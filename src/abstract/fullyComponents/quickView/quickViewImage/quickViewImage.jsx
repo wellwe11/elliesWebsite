@@ -76,25 +76,33 @@ const ExtendedInfo = ({ productProps }) => {
   );
 };
 
+const IsLoading = ({ isLoading }) => {
+  const navigate = useNavigate(); // navigates to a backgroundLocation
+  const { enableScroll } = bodyNoScroll();
+
+  return (
+    <div className={classes.quickViewImage}>
+      <LoadingWrapper
+        onClick={() => {
+          enableScroll();
+          navigate(-1);
+        }}
+        condition={isLoading}
+      />
+    </div>
+  );
+};
+
 // Element containing QuickViewImage & QuickViewInfo, as well as a faded background.
 // Will always be positonined fixed in middle of the screen.
 const QuickViewImage = ({ productProps, isLoading }) => {
-  const navigate = useNavigate(); // navigates to a backgroundLocation
+  if (isLoading) return <IsLoading isLoading={isLoading} />;
 
-  const { enableScroll } = bodyNoScroll();
-
-  if (isLoading)
-    return (
-      <div className={classes.quickViewImage}>
-        <LoadingWrapper
-          onClick={() => {
-            enableScroll();
-            navigate(-1);
-          }}
-          condition={isLoading}
-        />
-      </div>
-    );
+  // need to add close button
+  // need to style and add functionality to add to cart button
+  // create a image-view to display picture height (not real-height but something to show it somehow)
+  // display frame that will used for image
+  // display type of paper pershaps(if print or paper, they are different);
 
   return (
     <div className={classes.quickViewImage}>

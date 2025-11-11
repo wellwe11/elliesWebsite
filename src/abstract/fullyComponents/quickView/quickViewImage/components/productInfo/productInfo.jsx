@@ -47,6 +47,14 @@ const CurrentlySelectedProduct = ({ activeImageIndex }) => (
   <h6 className={quickViewClass.bioTypeText}>Product: {activeImageIndex}</h6>
 );
 
+const AddToCart = () => {
+  return (
+    <div>
+      <h3>Add to cart</h3>
+    </div>
+  );
+};
+
 const ProductInfo = ({
   productProps: {
     displayedDetails: { title = "Title", price = 19.99, type, quickViewImages },
@@ -59,8 +67,8 @@ const ProductInfo = ({
   return (
     <div className={classes.infoSection}>
       <div className={classes.productTitleAndBioWrapper}>
-        <InfoProductTitle title={title} />
         <InfoType type={type} />
+        <InfoProductTitle title={title} />
         <div className={quickViewClass.paddingTop4}>
           <CurrentlySelectedProduct activeImageIndex={activeImageIndex} />
           <QuickViewImageOptions
@@ -72,6 +80,7 @@ const ProductInfo = ({
       </div>
 
       <ProductDescription all={all} infoDetails={infoDetails} />
+      <AddToCart />
     </div>
   );
 };
