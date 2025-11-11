@@ -1,4 +1,5 @@
 import classes from "./quickViewImage.module.scss";
+import routeClasses from "../../../../UI/UIComponents/routeContainer/routeContainer.module.scss";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -97,8 +98,10 @@ const QuickViewImage = ({ productProps, isLoading }) => {
 
   return (
     <div className={classes.quickViewImage}>
-      <DisplayProductContainer productProps={productProps} />
-      <ExtendedInfo productProps={productProps} />
+      <div className={routeClasses.contentWrapper}>
+        <DisplayProductContainer productProps={productProps} />
+        <ExtendedInfo productProps={productProps} />
+      </div>
     </div>
   );
 };

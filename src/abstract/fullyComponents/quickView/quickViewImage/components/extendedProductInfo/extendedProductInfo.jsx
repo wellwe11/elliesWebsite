@@ -16,7 +16,18 @@ const DescriptionElement = ({ obj }) => {
   );
 };
 
-const Description = ({ data }) => {};
+const Description = ({ data }) => {
+  console.log(data);
+  return (
+    <div className={classes.description}>
+      <h3 className={`${classes.infoTitle} ${classes.textWeight}`}>BIO</h3>
+
+      <div className={classes.textWrapper}>
+        <h6 className={`${classes.text} ${classes.textWeight}`}>{data}</h6>
+      </div>
+    </div>
+  );
+};
 
 const Info = ({ data }) => {
   const entries = Object.entries(data);

@@ -17,6 +17,8 @@
   overflow-y: scroll;
 
   background-color: var(--websiteContainerColor);
+
+  padding: var(--spacing-2);
 }
 
 // DisplayProductContainer
@@ -51,8 +53,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  overflow: hidden;
 
   .activeImage {
     border-radius: var(--spacing-1);

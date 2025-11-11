@@ -1,5 +1,9 @@
 .extendedProductInfo {
   height: 100%;
+  width: 80%;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 .infoWrapper {
@@ -8,9 +12,18 @@
 
   gap: var(--spacing-2);
 
-  width: 30%;
+  width: 40%;
 
   .infoTitle {
+  }
+}
+
+.description {
+  width: 50%;
+  padding: var(--spacing-1) 0px;
+
+  .textWrapper {
+    margin-top: var(--spacing-1);
   }
 }
 
