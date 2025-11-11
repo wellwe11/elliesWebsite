@@ -15,26 +15,19 @@ const PreviewRoute = ({ backgroundLocation }) => {
     foundObj = categoryData.find((a) => +a.id === +id); // finds matching obj
 
   const uniqueViewEmbedded = foundObj?._embedded,
+    { amount, colors, height, width } = uniqueViewEmbedded.details,
     productProps = {
       quickViewImages: foundObj.images.map((img) => img.src),
       title: uniqueViewEmbedded?.setTitle,
       price: uniqueViewEmbedded?.details.price,
       bio: uniqueViewEmbedded?.setDescription,
       all: uniqueViewEmbedded,
+      type: uniqueViewEmbedded?.details.type,
+
+      infoDetails: { amount, colors, height, width },
     };
 
-  const {
-      details: { amount, colors, height, width },
-    } = uniqueViewEmbedded,
-    infoDetails = { amount, colors, height, width };
-
-  return (
-    <QuickViewImage
-      productProps={productProps}
-      isLoading={isLoading}
-      infoDetails={infoDetails}
-    />
-  );
+  return <QuickViewImage productProps={productProps} isLoading={isLoading} />;
 };
 
 const BackgroundRoutes = () => {

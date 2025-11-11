@@ -5,30 +5,11 @@ import { useMemo, useState } from "react";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 
 import { useNavigate } from "react-router-dom";
-import QuickViewButton from "../quickViewButton/quickViewButton";
+
 import bodyNoScroll from "@functions/bodyNoScroll";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
-import useGetParams from "@hooks/useGetParams.jsx";
+
 import { capitalizeFirstLetter } from "../../../functions/firstLetterCapital.js";
-
-// If you want to view the actual product, this button takes you to a new page which contains further information and such
-const ViewProductButton = () => {
-  const navigate = useNavigate(); // navigates to a backgroundLocation
-
-  const { category, id } = useGetParams();
-
-  return (
-    <div className={classes.viewProductButtonWrapper}>
-      <QuickViewButton
-        text={<h6 className={classes.buttonText}>Explore item</h6>}
-        onClick={() => {
-          navigate(`/uniqueImage?category=${category}&id=${id}`);
-          bodyNoScroll().enableScroll();
-        }}
-      />
-    </div>
-  );
-};
 
 // Product will have a short description and this button is a boolean to display it or to hide the description
 const ProductDescription = ({ bio, infoDetails }) => {
@@ -54,7 +35,9 @@ const ProductDescription = ({ bio, infoDetails }) => {
     }
 
     if (result === "primitive") {
-      return <h3 className={classes.value}>{value}</h3>;
+      return (
+        <h1 className={`${classes.titleTypeText} ${classes.value}`}>{value}</h1>
+      );
     }
   };
 
@@ -68,7 +51,7 @@ const ProductDescription = ({ bio, infoDetails }) => {
         style={{ width: `calc(${100 / infoEntries.length}%)` }}
       >
         <div className={classes.refContainer}>{<EntryValue value={obj} />}</div>
-        <p className={classes.entry}>{capitalEntry}</p>
+        <p className={classes.bioTypeText}>{capitalEntry}</p>
       </div>
     );
   });
@@ -120,22 +103,28 @@ const ProductDescription = ({ bio, infoDetails }) => {
 
 // Element containing information & further info about the product, such as other images, price, name, description
 const ProductInfo = ({
-  infoDetails: { title = "Title", price = 19.99, bio, quickViewImages, all },
+  productProps: {
+    title = "Title",
+    price = 19.99,
+    bio,
+    type,
+    quickViewImages,
+    all,
+    infoDetails,
+  },
   activeImageIndex,
   setActiveImageIndex,
-  infoDetails,
 }) => {
   const infoProductTitle = (
     // which product is currently displayed
     <div className={classes.info}>
-      <h5>{title}</h5>
+      <h1 className={classes.titleTypeText}>{title}</h1>
     </div>
   );
 
-  const infoProductPrice = (
-    // products price
-    <div className={classes.price}>
-      <h6>{price}$</h6>
+  const infoType = (
+    <div className={classes.bioTypeText}>
+      <h6>{capitalizeFirstLetter(type)}</h6>
     </div>
   );
 
@@ -159,21 +148,21 @@ const ProductInfo = ({
     [quickViewImages, setActiveImageIndex]
   );
 
-  const currentImageBioText = (
+  const currentlySelectedProduct = (
     // currently only displayed index of active allImagesRelatedToQuickViewImage. In future, will have some bio-info
-    <div className={classes.currentImageBioText}>
-      <p>Currently selected product: {activeImageIndex}</p>
+    <div className={classes.bioTypeText}>
+      <h6>Currently selected product: {activeImageIndex}</h6>
     </div>
   );
 
   return (
     <div className={classes.infoSection}>
-      <div className={classes.productTitleAndPriceWrapper}>
+      <div className={classes.productTitleAndBioWrapper}>
         {infoProductTitle}
-        {infoProductPrice}
+        {infoType}
       </div>
       <div>
-        {currentImageBioText}
+        {currentlySelectedProduct}
         {allImagesRelatedToQuickViewImage}
       </div>
       <ProductDescription bio={bio} all={all} infoDetails={infoDetails} />
@@ -182,7 +171,7 @@ const ProductInfo = ({
 };
 
 // Element containing product-image and product-info
-const DisplayProductContainer = ({ productProps, infoDetails }) => {
+const DisplayProductContainer = ({ productProps }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0); // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
 
   const { quickViewImages } = productProps;
@@ -201,9 +190,7 @@ const DisplayProductContainer = ({ productProps, infoDetails }) => {
           productProps={productProps}
           activeImageIndex={activeImageIndex}
           setActiveImageIndex={setActiveImageIndex}
-          infoDetails={infoDetails}
         />
-        <ViewProductButton />
       </div>
     </div>
   );
@@ -211,7 +198,7 @@ const DisplayProductContainer = ({ productProps, infoDetails }) => {
 
 // Element containing QuickViewImage & QuickViewInfo, as well as a faded background.
 // Will always be positonined fixed in middle of the screen.
-const QuickViewImage = ({ productProps, isLoading, infoDetails }) => {
+const QuickViewImage = ({ productProps, isLoading }) => {
   const navigate = useNavigate(); // navigates to a backgroundLocation
 
   const { enableScroll } = bodyNoScroll();
@@ -229,29 +216,10 @@ const QuickViewImage = ({ productProps, isLoading, infoDetails }) => {
       </div>
     );
 
-  const WhiteBackgroundPopUp = (
-    // white background-image that differs pop-up from the rest of the website
-    <div
-      className={classes.quickViewBackground}
-      // If you click on the white background it will close current quick-view window
-      onClick={() => {
-        bodyNoScroll().enableScroll();
-        navigate(-1);
-      }} // navigates pages -1; previous page.
-    />
-  );
-
   return (
     <>
-      <div
-        className={classes.quickViewImage}
-        style={{ opacity: productProps ? 1 : 0 }}
-      >
-        {WhiteBackgroundPopUp}
-        <DisplayProductContainer
-          productProps={productProps}
-          infoDetails={infoDetails}
-        />
+      <div className={classes.quickViewImage}>
+        <DisplayProductContainer productProps={productProps} />
       </div>
     </>
   );
