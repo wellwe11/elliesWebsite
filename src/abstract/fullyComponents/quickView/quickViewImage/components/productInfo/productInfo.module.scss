@@ -1,0 +1,62 @@
+// QuickViewInfo
+.infoSection {
+  padding: var(--spacing-7);
+  padding-right: var(--spacing-2);
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+
+  .productTitleAndBioWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: var(--spacing-4) 0px;
+  }
+}
+
+.allImagesExamples {
+  width: fit-content;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-1);
+  flex-wrap: wrap;
+
+  padding: var(--spacing-2) 0px;
+
+  .borderContainer {
+    border-radius: var(--spacing-1);
+
+    overflow: hidden;
+
+    padding: var(--spacing-1);
+
+    transition: border 0.2s ease;
+    will-change: border;
+
+    .imageExample {
+      border-radius: var(--spacing-1);
+      width: var(--spacing-7);
+      max-height: var(--spacing-7);
+
+      cursor: pointer;
+
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .activeBorder {
+    border: 1px solid var(--c-grey-200);
+  }
+
+  .inactiveBorder {
+    border: 1px solid var(--websiteContainerColor);
+  }
+}

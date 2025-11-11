@@ -1,3 +1,4 @@
+// QuickViewImage
 .quickViewImage {
   position: fixed;
   top: 64px;
@@ -15,144 +16,51 @@
   overflow-y: scroll;
 
   background-color: var(--websiteContainerColor);
-
-  // white background-image that differs pop-up from other elements
-  .quickViewBackground {
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-  }
-
-  .quickViewImageContainer {
-    padding: var(--spacing-1);
-    display: flex;
-    justify-content: flex-start;
-    position: absolute;
-
-    z-index: 100;
-
-    width: 100%;
-    height: 100%;
-
-    // currentActiveImage
-    .activeImageWrapper {
-      width: 50%;
-      height: 91%;
-      padding: var(--spacing-1);
-
-      border-radius: var(--spacing-1);
-      background-color: var(--c-grey-100);
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      overflow: hidden;
-
-      .activeImage {
-        border-radius: var(--spacing-1);
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
-      }
-    }
-
-    .infoWrapper {
-      height: 100%;
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-
-      padding: var(--spacing-2) var(--spacing-3);
-    }
-  }
 }
 
-// QuickViewInfo
-.infoSection {
-  padding: var(--spacing-7);
-  padding-right: var(--spacing-2);
-
+// DisplayProductContainer
+.quickViewImageContainer {
+  padding: var(--spacing-1);
   display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  justify-content: flex-start;
+  position: absolute;
+
+  z-index: 100;
 
   width: 100%;
   height: 100%;
-
-  .productTitleAndBioWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding: var(--spacing-4) 0px;
-
-    // infoProductTitle
-    .info {
-      font-variation-settings: "wght" 350;
-    }
-  }
-
-  // allImagesRelatedToQuickViewImage
-  .allImagesExamples {
-    width: fit-content;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--spacing-1);
-    flex-wrap: wrap;
-
-    padding: var(--spacing-2) 0px;
-
-    .borderContainer {
-      border: var(--spacing-1);
-
-      border-radius: var(--spacing-1);
-
-      overflow: hidden;
-
-      padding: var(--spacing-1);
-
-      transition: border 0.2s ease;
-      will-change: border;
-
-      .imageExample {
-        border-radius: var(--spacing-1);
-        width: var(--spacing-7);
-        max-height: var(--spacing-7);
-
-        cursor: pointer;
-
-        object-fit: cover;
-        object-position: center;
-      }
-    }
-  }
-
-  // currentImageBioText
-  .currentImageBioText {
-  }
-
-  .buttonText {
-    font-variation-settings: "wght" 550;
-  }
 }
 
-// ViewProductButton
-.viewProductButtonWrapper {
-  height: 100px;
-  width: 100%;
+// Info
+.infoWrapper {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
 
+  padding: var(--spacing-2) var(--spacing-3);
+}
+
+// ActiveImage
+.activeImageWrapper {
+  width: 50%;
+  height: 91%;
   padding: var(--spacing-1);
 
-  display: flex;
-  align-items: flex-end;
+  border-radius: var(--spacing-1);
+  background-color: var(--c-grey-100);
 
-  .viewProductButton {
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  .activeImage {
+    border-radius: var(--spacing-1);
+    height: 100%;
     width: 100%;
-    height: 40px;
+    object-fit: contain;
   }
 }
 
