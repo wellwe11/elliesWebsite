@@ -15,7 +15,7 @@ const PreviewRoute = ({ backgroundLocation }) => {
     foundObj = categoryData.find((a) => +a.id === +id); // finds matching obj
 
   const uniqueViewEmbedded = foundObj?._embedded,
-    quickViewProps = {
+    productProps = {
       quickViewImages: foundObj.images.map((img) => img.src),
       title: uniqueViewEmbedded?.setTitle,
       price: uniqueViewEmbedded?.details.price,
@@ -23,8 +23,17 @@ const PreviewRoute = ({ backgroundLocation }) => {
       all: uniqueViewEmbedded,
     };
 
+  const {
+      details: { amount, colors, height, width },
+    } = uniqueViewEmbedded,
+    infoDetails = { amount, colors, height, width };
+
   return (
-    <QuickViewImage quickViewProps={quickViewProps} isLoading={isLoading} />
+    <QuickViewImage
+      productProps={productProps}
+      isLoading={isLoading}
+      infoDetails={infoDetails}
+    />
   );
 };
 

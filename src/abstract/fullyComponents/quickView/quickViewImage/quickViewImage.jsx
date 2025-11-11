@@ -31,10 +31,10 @@ const ViewProductButton = () => {
 };
 
 // Product will have a short description and this button is a boolean to display it or to hide the description
-const ProductDescription = ({ bio, all }) => {
+const ProductDescription = ({ bio, infoDetails }) => {
   const [viewDescription, setViewDescription] = useState(true);
 
-  const infoEntries = Object.entries(all.details);
+  const infoEntries = Object.entries(infoDetails);
 
   const valueTypeChecker = (val) => {
     if (typeof val === "object" && typeof val !== "function" && val !== null) {
@@ -57,7 +57,6 @@ const ProductDescription = ({ bio, all }) => {
       return <h3 className={classes.value}>{value}</h3>;
     }
   };
-  console.log(100 / infoEntries.length);
 
   const entryTitle = infoEntries.map(([entry, obj], index) => {
     const capitalEntry = capitalizeFirstLetter(entry);
@@ -120,10 +119,11 @@ const ProductDescription = ({ bio, all }) => {
 };
 
 // Element containing information & further info about the product, such as other images, price, name, description
-const QuickViewInfo = ({
-  quickViewProps: { title = "Title", price = 19.99, bio, quickViewImages, all },
+const ProductInfo = ({
+  infoDetails: { title = "Title", price = 19.99, bio, quickViewImages, all },
   activeImageIndex,
   setActiveImageIndex,
+  infoDetails,
 }) => {
   const infoProductTitle = (
     // which product is currently displayed
@@ -176,16 +176,16 @@ const QuickViewInfo = ({
         {currentImageBioText}
         {allImagesRelatedToQuickViewImage}
       </div>
-      <ProductDescription bio={bio} all={all} />
+      <ProductDescription bio={bio} all={all} infoDetails={infoDetails} />
     </div>
   );
 };
 
 // Element containing product-image and product-info
-const QuickViewImageContainer = ({ quickViewProps }) => {
+const DisplayProductContainer = ({ productProps, infoDetails }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0); // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
 
-  const { quickViewImages } = quickViewProps;
+  const { quickViewImages } = productProps;
 
   return (
     <div className={classes.quickViewImageContainer}>
@@ -197,10 +197,11 @@ const QuickViewImageContainer = ({ quickViewProps }) => {
         />
       </div>
       <div className={classes.infoWrapper}>
-        <QuickViewInfo
-          quickViewProps={quickViewProps}
+        <ProductInfo
+          productProps={productProps}
           activeImageIndex={activeImageIndex}
           setActiveImageIndex={setActiveImageIndex}
+          infoDetails={infoDetails}
         />
         <ViewProductButton />
       </div>
@@ -210,7 +211,7 @@ const QuickViewImageContainer = ({ quickViewProps }) => {
 
 // Element containing QuickViewImage & QuickViewInfo, as well as a faded background.
 // Will always be positonined fixed in middle of the screen.
-const QuickViewImage = ({ quickViewProps, isLoading }) => {
+const QuickViewImage = ({ productProps, isLoading, infoDetails }) => {
   const navigate = useNavigate(); // navigates to a backgroundLocation
 
   const { enableScroll } = bodyNoScroll();
@@ -244,10 +245,13 @@ const QuickViewImage = ({ quickViewProps, isLoading }) => {
     <>
       <div
         className={classes.quickViewImage}
-        style={{ opacity: quickViewProps ? 1 : 0 }}
+        style={{ opacity: productProps ? 1 : 0 }}
       >
         {WhiteBackgroundPopUp}
-        <QuickViewImageContainer quickViewProps={quickViewProps} />
+        <DisplayProductContainer
+          productProps={productProps}
+          infoDetails={infoDetails}
+        />
       </div>
     </>
   );

@@ -23,6 +23,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -63,6 +64,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -104,6 +106,7 @@
           "colors": ["Blue", "White"],
           "price": 24.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -145,6 +148,7 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -186,6 +190,7 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -227,6 +232,7 @@
           "colors": ["Blue", "White"],
           "price": 24.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -268,6 +274,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -309,6 +316,7 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -350,6 +358,7 @@
           "colors": ["Blue", "White"],
           "price": 24.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -391,6 +400,7 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -432,6 +442,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -473,6 +484,7 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -512,6 +524,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -552,6 +565,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -591,6 +605,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -631,6 +646,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -670,6 +686,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -710,6 +727,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -749,6 +767,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -789,6 +808,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -828,6 +848,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -868,6 +889,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -907,6 +929,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -947,6 +970,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -986,6 +1010,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -1026,6 +1051,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -1065,6 +1091,7 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -1105,6 +1132,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "paintings"
         },
@@ -1150,6 +1178,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1194,6 +1223,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1238,6 +1268,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1282,6 +1313,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1326,6 +1358,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1370,6 +1403,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1414,6 +1448,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1458,6 +1493,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1502,6 +1538,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1546,6 +1583,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1591,6 +1629,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 24.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1635,6 +1674,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1679,6 +1719,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1724,6 +1765,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 24.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1768,6 +1810,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1812,6 +1855,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1856,6 +1900,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 24.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1899,6 +1944,7 @@
           "colors": ["Red", "Blue", "White"],
           "type": "prints",
           "height": 35,
+          "width": 25,
           "amount": 3,
           "price": 19.99
         },
@@ -1943,6 +1989,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
@@ -1987,6 +2034,7 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
+          "width": 25,
           "amount": 3,
           "type": "prints"
         },
