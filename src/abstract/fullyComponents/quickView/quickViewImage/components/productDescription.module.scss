@@ -1,0 +1,105 @@
+// ProductDescription
+.productDescription {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding-top: var(--spacing-2);
+  border-bottom: 0.5px solid var(--c-grey-200);
+  border-top: 0.5px solid var(--c-grey-200);
+  padding: var(--spacing-2) 0px;
+
+  .info {
+    display: flex;
+    flex-wrap: wrap;
+
+    .entryContainer {
+      padding: var(--spacing-4) var(--spacing-3);
+      border-left: 0.5px solid var(--c-grey-200);
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+      &:first-of-type {
+        border: none; // because borders are only on left side; last-of-type is not needed
+      }
+
+      .value {
+        margin-top: -8px;
+      }
+
+      .refContainer {
+        display: flex;
+
+        gap: var(--spacing-1);
+
+        .ref {
+          border-radius: var(--spacing-1);
+          height: 30px;
+          width: 30px;
+
+          border: 0.5px solid var(--c-grey-300);
+        }
+      }
+
+      .entry {
+        font-variation-settings: "wght" 300;
+      }
+    }
+  }
+
+  .buttonDescriptionButton {
+    cursor: pointer;
+    border: none;
+    background-color: white;
+
+    padding-bottom: var(--spacing-2);
+
+    // expandDescriptionButton
+    .buttonDescriptionButtonText {
+      display: flex;
+      align-items: center;
+
+      font-variation-settings: "wght" 450;
+      padding-bottom: 5px;
+
+      .descriptionSvgContainer {
+        padding-top: var(--spacing-1);
+        padding-left: var(--spacing-1);
+
+        transition: transform 0.4s ease;
+        // helps SVG to look more middle-placed
+        transform: translateY(1px);
+        transform-origin: center;
+
+        &.arrowFaceIn {
+          transform: rotateX(180deg) translateY(-3px);
+        }
+      }
+    }
+  }
+
+  // expandDescriptionText
+  .descriptionWrapper {
+    transition: height 0.4s ease;
+
+    &.open {
+      height: 250px;
+    }
+
+    &.closed {
+      height: 0px;
+    }
+
+    .descriptionText {
+      &.open {
+      }
+
+      &.closed {
+      }
+    }
+  }
+}

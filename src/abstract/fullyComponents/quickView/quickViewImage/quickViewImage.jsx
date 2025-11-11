@@ -1,65 +1,14 @@
 import classes from "./quickViewImage.module.scss";
 
+import { useNavigate } from "react-router-dom";
 import { useMemo, useState } from "react";
 
+import ProductDescription from "./components/productDescription.jsx";
+
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
-
-import { useNavigate } from "react-router-dom";
-
-import bodyNoScroll from "@functions/bodyNoScroll";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
-
+import bodyNoScroll from "@functions/bodyNoScroll";
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
-
-// Product will have a short description and this button is a boolean to display it or to hide the description
-const ProductDescription = ({ infoDetails }) => {
-  const infoEntries = Object.entries(infoDetails);
-
-  const valueTypeChecker = (val) => {
-    if (typeof val === "object" && typeof val !== "function" && val !== null) {
-      return "reference";
-    } else {
-      return "primitive";
-    }
-  };
-
-  const EntryValue = ({ value }) => {
-    const result = valueTypeChecker(value);
-
-    if (result === "reference") {
-      return value.map((v) => (
-        <div className={classes.ref} style={{ backgroundColor: v }} />
-      ));
-    }
-
-    if (result === "primitive") {
-      return (
-        <h1 className={`${classes.titleTypeText} ${classes.value}`}>{value}</h1>
-      );
-    }
-  };
-
-  const entryTitle = infoEntries.map(([entry, obj], index) => {
-    const capitalEntry = capitalizeFirstLetter(entry);
-
-    return (
-      <div
-        className={classes.entryContainer}
-        key={index}
-        style={{ width: `calc(${100 / infoEntries.length}%)` }}
-      >
-        <div className={classes.refContainer}>{<EntryValue value={obj} />}</div>
-        <p className={classes.bioTypeText}>{capitalEntry}</p>
-      </div>
-    );
-  });
-
-  return (
-    <div className={classes.productDescription}>
-      <div className={classes.info}>{entryTitle}</div>
-    </div>
-  );
-};
 
 // Element containing information & further info about the product, such as other images, price, name, description
 const ProductInfo = ({
