@@ -1,11 +1,13 @@
 // Preview / IsLoading
 .preview {
+  --marginTop: 8.5%;
+
   position: fixed;
-  top: 0;
+  top: var(--marginTop);
   left: 0;
 
   width: 100%;
-  height: 100%;
+  height: calc(100% - var(--marginTop));
 
   display: flex;
   flex-direction: column;
