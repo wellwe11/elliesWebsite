@@ -1,6 +1,6 @@
 // ProductInfo
 .infoSection {
-  padding: var(--spacing-7);
+  padding: 0px var(--spacing-7);
   padding-right: var(--spacing-2);
 
   display: flex;
@@ -21,6 +21,9 @@
     justify-content: center;
 
     padding: var(--spacing-4) 0px;
+  }
+
+  .addToCartWrapper {
   }
 }
 
@@ -112,5 +115,24 @@
 
   .inactiveBorder {
     border: 1px solid var(--c-grey-100);
+  }
+}
+
+.addToCartBtn {
+  border-radius: var(--spacing-1);
+  width: 100%;
+  border: none;
+
+  cursor: pointer;
+
+  padding: var(--spacing-1);
+  background-color: var(--c-grey-100);
+  transition: background-color 0.1s ease;
+  .text {
+  }
+
+  &:hover {
+    transition: background-color 0.4s ease;
+    background-color: var(--c-grey-200);
   }
 }

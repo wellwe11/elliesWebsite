@@ -58,11 +58,11 @@ const AddToCart = ({ obj }) => {
   const handleAddToCart = () => addToCart(obj);
 
   return (
-    <div>
-      <button onClick={handleAddToCart}>
-        <h3>Add To Cart</h3>
-      </button>
-    </div>
+    <button className={classes.addToCartBtn} onClick={handleAddToCart}>
+      <h4 className={`${classes.text} ${quickViewClass.titleTypeText}`}>
+        Add To Cart
+      </h4>
+    </button>
   );
 };
 
@@ -110,7 +110,9 @@ const ProductInfo = ({
       </div>
 
       <ProductDescription all={all} infoDetails={infoDetails} />
-      <AddToCart obj={obj} />
+      <div className={classes.addToCartWrapper}>
+        <AddToCart obj={obj} />
+      </div>
     </div>
   );
 };
