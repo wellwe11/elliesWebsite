@@ -30,7 +30,9 @@ const PreviewRoute = ({ backgroundLocation }) => {
       infoDetails: { amount, colors, height, width },
     };
 
-  return <Preview productProps={productProps} isLoading={isLoading} />;
+  return (
+    <Preview productProps={productProps} isLoading={isLoading} obj={foundObj} />
+  );
 };
 
 const BackgroundRoutes = () => {

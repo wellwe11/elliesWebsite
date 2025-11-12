@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 import ProductDescription from "../productInfo/components/productDescription/productDescription.jsx";
+import storeData from "../../../../routeContainer/zustandObject/storeData.jsx";
 
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 import X_SVG from "@components/SVGS/X_SVG/X_SVG.jsx";
@@ -52,10 +53,15 @@ const CurrentlySelectedProduct = ({ activeImageIndex }) => (
   <h6 className={quickViewClass.bioTypeText}>Product: {activeImageIndex}</h6>
 );
 
-const AddToCart = () => {
+const AddToCart = ({ obj }) => {
+  const addToCart = storeData((state) => state.addToCart);
+  const handleAddToCart = () => addToCart(obj);
+
   return (
     <div>
-      <h3>Add to cart</h3>
+      <button onClick={handleAddToCart}>
+        <h3>Add To Cart</h3>
+      </button>
     </div>
   );
 };
@@ -71,6 +77,7 @@ const CloseButton = () => {
 };
 
 const ProductInfo = ({
+  obj,
   productProps: {
     displayedDetails: { title = "Title", price = 19.99, type, quickViewImages },
     all,
@@ -103,7 +110,7 @@ const ProductInfo = ({
       </div>
 
       <ProductDescription all={all} infoDetails={infoDetails} />
-      <AddToCart />
+      <AddToCart obj={obj} />
     </div>
   );
 };

@@ -17,7 +17,6 @@ const DescriptionElement = ({ obj }) => {
 };
 
 const Description = ({ data }) => {
-  console.log(data);
   return (
     <div className={classes.description}>
       <h3 className={`${classes.infoTitle} ${classes.textWeight}`}>BIO</h3>

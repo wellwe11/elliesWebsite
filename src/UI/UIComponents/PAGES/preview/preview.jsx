@@ -28,10 +28,11 @@ const ActiveImage = ({ productProps, activeImageIndex }) => {
   );
 };
 
-const Info = ({ productProps, activeImageIndex, setActiveImageIndex }) => {
+const Info = ({ productProps, activeImageIndex, setActiveImageIndex, obj }) => {
   return (
     <div className={classes.infoWrapper}>
       <ProductInfo
+        obj={obj}
         productProps={productProps}
         activeImageIndex={activeImageIndex}
         setActiveImageIndex={setActiveImageIndex}
@@ -41,7 +42,7 @@ const Info = ({ productProps, activeImageIndex, setActiveImageIndex }) => {
 };
 
 // Element containing product-image and product-info
-const DisplayProductContainer = ({ productProps }) => {
+const DisplayProductContainer = ({ productProps, obj }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0); // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
 
   return (
@@ -51,6 +52,7 @@ const DisplayProductContainer = ({ productProps }) => {
         activeImageIndex={activeImageIndex}
       />
       <Info
+        obj={obj}
         productProps={productProps}
         activeImageIndex={activeImageIndex}
         setActiveImageIndex={setActiveImageIndex}
@@ -94,7 +96,7 @@ const IsLoading = ({ isLoading }) => {
   );
 };
 
-const Preview = ({ productProps, isLoading }) => {
+const Preview = ({ productProps, isLoading, obj }) => {
   if (isLoading) return <IsLoading isLoading={isLoading} />;
 
   // need to style and add functionality to add to cart button
@@ -105,7 +107,7 @@ const Preview = ({ productProps, isLoading }) => {
   return (
     <div className={classes.preview}>
       <div className={routeClasses.contentWrapper}>
-        <DisplayProductContainer productProps={productProps} />
+        <DisplayProductContainer productProps={productProps} obj={obj} />
         <ExtendedInfo productProps={productProps} />
       </div>
     </div>
