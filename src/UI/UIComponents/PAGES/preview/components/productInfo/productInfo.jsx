@@ -58,11 +58,18 @@ const AddToCart = ({ obj }) => {
   const handleAddToCart = () => addToCart(obj);
 
   return (
-    <button className={classes.addToCartBtn} onClick={handleAddToCart}>
-      <h4 className={`${classes.text} ${quickViewClass.titleTypeText}`}>
-        Add To Cart
-      </h4>
-    </button>
+    <div className={classes.addToCartContainer}>
+      <div className={classes.amountContainer}>
+        <button>-</button>
+        <h4>1</h4>
+        <button>+</button>
+      </div>
+      <button className={classes.addToCartBtn} onClick={handleAddToCart}>
+        <h4 className={`${classes.text} ${quickViewClass.titleTypeText}`}>
+          Add To Cart
+        </h4>
+      </button>
+    </div>
   );
 };
 
