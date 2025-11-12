@@ -3,6 +3,8 @@ import quickViewClass from "../../quickViewImage.module.scss";
 
 import ProductDescription from "./components/productDescription/productDescription.jsx";
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
+import { Link } from "react-router-dom";
+import X_SVG from "../../../../../components/SVGS/X_SVG/X_SVG.jsx";
 
 const InfoProductTitle = ({ title }) => (
   <h1 className={quickViewClass.titleTypeText}>{title}</h1>
@@ -55,6 +57,14 @@ const AddToCart = () => {
   );
 };
 
+const CloseButton = () => {
+  return (
+    <Link to={-1} className={classes.closeButton}>
+      <X_SVG />
+    </Link>
+  );
+};
+
 const ProductInfo = ({
   productProps: {
     displayedDetails: { title = "Title", price = 19.99, type, quickViewImages },
@@ -66,6 +76,9 @@ const ProductInfo = ({
 }) => {
   return (
     <div className={classes.infoSection}>
+      <div className={classes.closeWrapper}>
+        <CloseButton />
+      </div>
       <div className={classes.productTitleAndBioWrapper}>
         <InfoType type={type} />
         <InfoProductTitle title={title} />
