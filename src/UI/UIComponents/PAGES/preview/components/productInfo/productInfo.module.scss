@@ -45,8 +45,6 @@
     transform: rotate(-90deg);
 
     svg {
-      filter: invert(0.3);
-      transition: filter 0.2s ease;
       animation: bounce-spin 0.4s ease-out forwards;
     }
   }

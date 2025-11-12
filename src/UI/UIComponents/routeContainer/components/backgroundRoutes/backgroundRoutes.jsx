@@ -2,7 +2,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import useData from "@hooks/useData.jsx";
 import useGetParams from "@hooks/useGetParams.jsx";
 
-import QuickViewImage from "../../../PAGES/preview/preview.jsx";
+import Preview from "../../../PAGES/preview/preview.jsx";
 import Cart from "../../../PAGES/cart/cart.jsx";
 
 const PreviewRoute = ({ backgroundLocation }) => {
@@ -30,7 +30,7 @@ const PreviewRoute = ({ backgroundLocation }) => {
       infoDetails: { amount, colors, height, width },
     };
 
-  return <QuickViewImage productProps={productProps} isLoading={isLoading} />;
+  return <Preview productProps={productProps} isLoading={isLoading} />;
 };
 
 const BackgroundRoutes = () => {

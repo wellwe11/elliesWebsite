@@ -1,5 +1,5 @@
-// QuickViewImage
-.quickViewImage {
+// Preview / IsLoading
+.preview {
   position: fixed;
   top: 0;
   left: 0;
@@ -22,7 +22,7 @@
 }
 
 // DisplayProductContainer
-.quickViewImageContainer {
+.imageContainer {
   padding: var(--spacing-1);
   display: flex;
   justify-content: flex-start;

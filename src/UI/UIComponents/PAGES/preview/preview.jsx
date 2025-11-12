@@ -45,7 +45,7 @@ const DisplayProductContainer = ({ productProps }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0); // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
 
   return (
-    <div className={classes.quickViewImageContainer}>
+    <div className={classes.imageContainer}>
       <ActiveImage
         productProps={productProps}
         activeImageIndex={activeImageIndex}
@@ -82,7 +82,7 @@ const IsLoading = ({ isLoading }) => {
   const { enableScroll } = bodyNoScroll();
 
   return (
-    <div className={classes.quickViewImage}>
+    <div className={classes.preview}>
       <LoadingWrapper
         onClick={() => {
           enableScroll();
@@ -94,9 +94,7 @@ const IsLoading = ({ isLoading }) => {
   );
 };
 
-// Element containing QuickViewImage & QuickViewInfo, as well as a faded background.
-// Will always be positonined fixed in middle of the screen.
-const QuickViewImage = ({ productProps, isLoading }) => {
+const Preview = ({ productProps, isLoading }) => {
   if (isLoading) return <IsLoading isLoading={isLoading} />;
 
   // need to style and add functionality to add to cart button
@@ -105,7 +103,7 @@ const QuickViewImage = ({ productProps, isLoading }) => {
   // display type of paper pershaps(if print or paper, they are different);
 
   return (
-    <div className={classes.quickViewImage}>
+    <div className={classes.preview}>
       <div className={routeClasses.contentWrapper}>
         <DisplayProductContainer productProps={productProps} />
         <ExtendedInfo productProps={productProps} />
@@ -114,4 +112,4 @@ const QuickViewImage = ({ productProps, isLoading }) => {
   );
 };
 
-export default QuickViewImage;
+export default Preview;
