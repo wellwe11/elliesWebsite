@@ -37,11 +37,7 @@ const useSetActiveNavButton = (buttons) => {
   useEffect(() => {
     setActiveNavButton(
       buttons,
-      pathname === "/"
-        ? "home"
-        : pathname.includes("uniqueImage")
-        ? "gallery"
-        : pathname,
+      pathname === "/" ? "home" : pathname,
       setActiveButton,
       setHoverButton,
       setLoadTab
