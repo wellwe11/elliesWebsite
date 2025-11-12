@@ -17,6 +17,7 @@ import useData from "@hooks/useData.jsx";
 import dataHandler from "../../functions/dataHandler.js";
 import PageNotFound from "../../../PAGENOTFOUND/pageNotFound.jsx";
 import Navbar from "../../../NAVBAR/navbar.jsx";
+import bodyNoScroll from "../../../../../abstract/functions/bodyNoScroll.js";
 
 const GalleryRoute = () => {
   const { category, page } = useGetParams();
@@ -64,6 +65,12 @@ const UniqueImageRoute = () => {
 
 const MainPagesRoutes = () => {
   const { state, location } = useGetLocation();
+
+  const { enableScroll } = bodyNoScroll();
+
+  useEffect(() => {
+    enableScroll();
+  });
 
   return (
     <Suspense fallback={<Loading />}>

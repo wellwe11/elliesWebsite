@@ -6,6 +6,7 @@ import ProductDescription from "./components/productDescription/productDescripti
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 import X_SVG from "@components/SVGS/X_SVG/X_SVG.jsx";
 import bodyNoScroll from "@functions/bodyNoScroll.js";
+import { useEffect } from "react";
 
 const InfoProductTitle = ({ title }) => (
   <h1 className={quickViewClass.titleTypeText}>{title}</h1>
@@ -77,6 +78,12 @@ const ProductInfo = ({
   activeImageIndex,
   setActiveImageIndex,
 }) => {
+  const { disableScroll } = bodyNoScroll();
+
+  useEffect(() => {
+    disableScroll();
+  });
+
   return (
     <div className={classes.infoSection}>
       <div className={classes.closeWrapper}>
