@@ -68,9 +68,10 @@ const MainPagesRoutes = () => {
 
   const { enableScroll } = bodyNoScroll();
 
+  //
   useEffect(() => {
     enableScroll();
-  });
+  }, [enableScroll]);
 
   return (
     <Suspense fallback={<Loading />}>

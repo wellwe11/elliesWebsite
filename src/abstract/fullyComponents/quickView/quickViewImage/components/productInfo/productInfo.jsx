@@ -82,7 +82,7 @@ const ProductInfo = ({
 
   useEffect(() => {
     disableScroll();
-  });
+  }, [disableScroll]);
 
   return (
     <div className={classes.infoSection}>
