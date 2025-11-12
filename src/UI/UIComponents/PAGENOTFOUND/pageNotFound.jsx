@@ -6,8 +6,6 @@ const PageNotFound = () => {
   const path = location.pathname;
   const text = path.length > 20 ? path.slice(0, 20) + "..." : path.slice(0, 20);
 
-  console.log(path);
-
   return (
     <div className={classes.pageNotFound}>
       <div className={classes.textWrapper}>

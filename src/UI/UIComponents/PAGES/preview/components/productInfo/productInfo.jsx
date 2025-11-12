@@ -1,9 +1,10 @@
 import classes from "./productInfo.module.scss";
-import quickViewClass from "../../quickViewImage.module.scss";
+import quickViewClass from "../../preview.module.scss";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
-import ProductDescription from "./components/productDescription/productDescription.jsx";
+import ProductDescription from "../productInfo/components/productDescription/productDescription.jsx";
+
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 import X_SVG from "@components/SVGS/X_SVG/X_SVG.jsx";
 import bodyNoScroll from "@functions/bodyNoScroll.js";
@@ -78,11 +79,10 @@ const ProductInfo = ({
   activeImageIndex,
   setActiveImageIndex,
 }) => {
-  const { disableScroll } = bodyNoScroll();
-
   useEffect(() => {
+    const { disableScroll } = bodyNoScroll();
     disableScroll();
-  }, [disableScroll]);
+  }, []);
 
   return (
     <div className={classes.infoSection}>

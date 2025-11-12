@@ -35,6 +35,7 @@
   background-color: var(--c-grey-100);
 
   svg {
+    will-change: transform;
     transition: filter 0.1s ease;
   }
 

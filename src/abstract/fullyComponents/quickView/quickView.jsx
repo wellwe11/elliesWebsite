@@ -1,7 +1,7 @@
 import classes from "./quickView.module.scss";
 
 import { useNavigate } from "react-router-dom";
-import QuickViewButton from "./quickViewButton/quickViewButton";
+import QuickViewButton from "./quickViewButton/quickViewButton.jsx";
 import bodyNoScroll from "@functions/bodyNoScroll";
 
 const QuickViewImage = ({

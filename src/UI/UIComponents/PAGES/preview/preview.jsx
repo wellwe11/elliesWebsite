@@ -1,5 +1,6 @@
-import classes from "./quickViewImage.module.scss";
-import routeClasses from "../../../../UI/UIComponents/routeContainer/routeContainer.module.scss";
+import classes from "./preview.module.scss";
+
+import routeClasses from "../../routeContainer/routeContainer.module.scss";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";

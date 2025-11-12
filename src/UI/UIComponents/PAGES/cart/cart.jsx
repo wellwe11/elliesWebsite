@@ -2,7 +2,6 @@ import classes from "./cart.module.scss";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickViewButton";
 import X_SVG from "@components/SVGS/X_SVG/X_SVG";
 import bodyNoScroll from "@functions/bodyNoScroll.js";
 
@@ -11,9 +10,9 @@ import Products from "./components/products/products.jsx";
 
 const ToPaymentMethod = () => {
   return (
-    <QuickViewButton
-      text={<p className={classes.paymentMethodText}>To payment method</p>}
-    />
+    <Link>
+      <p className={classes.paymentMethodText}>To payment method</p>
+    </Link>
   );
 };
 

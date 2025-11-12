@@ -49,12 +49,10 @@ const HomeRoute = () => {
 const MainPagesRoutes = () => {
   const { state, location } = useGetLocation();
 
-  const { enableScroll } = bodyNoScroll();
-
-  //
   useEffect(() => {
+    const { enableScroll } = bodyNoScroll();
     enableScroll();
-  }, [enableScroll]);
+  }, []);
 
   return (
     <Suspense fallback={<Loading />}>

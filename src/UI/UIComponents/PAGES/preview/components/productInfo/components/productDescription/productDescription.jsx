@@ -1,6 +1,7 @@
-import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 import classes from "./productDescription.module.scss";
-import quickViewClasses from "../../../../quickViewImage.module.scss";
+import quickViewClasses from "../../../../preview.module.scss";
+
+import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 
 const valueTypeChecker = (val) => {
   if (typeof val === "object" && typeof val !== "function" && val !== null) {
