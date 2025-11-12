@@ -1,10 +1,11 @@
 import classes from "./productInfo.module.scss";
 import quickViewClass from "../../quickViewImage.module.scss";
+import { Link } from "react-router-dom";
 
 import ProductDescription from "./components/productDescription/productDescription.jsx";
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
-import { Link } from "react-router-dom";
-import X_SVG from "../../../../../components/SVGS/X_SVG/X_SVG.jsx";
+import X_SVG from "@components/SVGS/X_SVG/X_SVG.jsx";
+import bodyNoScroll from "@functions/bodyNoScroll.js";
 
 const InfoProductTitle = ({ title }) => (
   <h1 className={quickViewClass.titleTypeText}>{title}</h1>
@@ -58,8 +59,10 @@ const AddToCart = () => {
 };
 
 const CloseButton = () => {
+  const { enableScroll } = bodyNoScroll();
+
   return (
-    <Link to={-1} className={classes.closeButton}>
+    <Link to={-1} className={classes.closeButton} onClick={enableScroll}>
       <X_SVG />
     </Link>
   );

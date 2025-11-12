@@ -98,7 +98,6 @@ const IsLoading = ({ isLoading }) => {
 const QuickViewImage = ({ productProps, isLoading }) => {
   if (isLoading) return <IsLoading isLoading={isLoading} />;
 
-  // need to add close button
   // need to style and add functionality to add to cart button
   // create a image-view to display picture height (not real-height but something to show it somehow)
   // display frame that will used for image
