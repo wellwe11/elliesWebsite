@@ -1,5 +1,5 @@
 import classes from "./addToCart.module.scss";
-import quickViewClass from "../../../../preview.module.scss";
+import previewClass from "../../../../preview.module.scss";
 import { useState } from "react";
 import storeData from "../../../../../../routeContainer/zustandObject/storeData.jsx";
 
@@ -58,7 +58,7 @@ const AddToCart = ({ obj }) => {
         />
       </div>
       <button className={classes.addToCartBtn} onClick={handleAddToCart}>
-        <h4 className={`${classes.text} ${quickViewClass.titleTypeText}`}>
+        <h4 className={`${classes.text} ${previewClass.titleTypeText}`}>
           Add To Cart
         </h4>
       </button>

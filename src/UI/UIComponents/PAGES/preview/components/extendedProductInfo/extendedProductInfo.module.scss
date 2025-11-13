@@ -2,8 +2,15 @@
   height: 100%;
   width: 80%;
 
-  display: flex;
-  justify-content: space-between;
+  .extendedSectionOne {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .extendedSectionTwo {
+    padding: var(--spacing-4) 0px;
+    height: clamp(250px, 30vw, 400px);
+  }
 }
 
 .infoWrapper {
@@ -36,9 +43,61 @@
   padding: var(--spacing-1) 0px;
 }
 
-.bioText {
-}
+.guide {
+  .imageContainer {
+    width: fit-content;
+    height: fit-content;
 
-.textWeight {
-  font-variation-settings: "wght" 350;
+    position: relative;
+    .frameSizeImage {
+      position: relative;
+      object-fit: contain;
+      z-index: 1;
+    }
+
+    .height,
+    .width {
+      padding: 0px var(--spacing-1);
+      position: absolute;
+      border-bottom: 2px solid var(--c-grey-200);
+
+      .text {
+        .span {
+          font-style: italic;
+        }
+      }
+    }
+
+    .height {
+      right: -25%;
+      top: 43%;
+    }
+
+    .width {
+      left: 43%;
+      bottom: -11%;
+    }
+
+    &::after,
+    &::before {
+      z-index: 2;
+      position: absolute;
+      background-color: var(--c-grey-200);
+      content: "";
+    }
+
+    &::after {
+      width: 97%;
+      height: 2px;
+      bottom: 0%;
+      left: 0;
+    }
+
+    &::before {
+      height: 97%;
+      width: 2px;
+      right: 0%;
+      top: 0;
+    }
+  }
 }

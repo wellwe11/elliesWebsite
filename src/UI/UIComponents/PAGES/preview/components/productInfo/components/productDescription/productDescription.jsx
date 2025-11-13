@@ -1,5 +1,5 @@
 import classes from "./productDescription.module.scss";
-import quickViewClasses from "../../../../preview.module.scss";
+import previewClass from "../../../../preview.module.scss";
 
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 
@@ -22,7 +22,7 @@ const EntryValue = ({ value }) => {
 
   if (result === "primitive") {
     return (
-      <h1 className={`${quickViewClasses.titleTypeText} ${classes.value}`}>
+      <h1 className={`${previewClass.titleTypeText} ${classes.value}`}>
         {value}
       </h1>
     );
@@ -35,7 +35,7 @@ const Entry = ({ entry, entryWidth, obj }) => {
   return (
     <div className={classes.entryContainer} style={{ width: `${entryWidth}%` }}>
       <div className={classes.refContainer}>{<EntryValue value={obj} />}</div>
-      <p className={quickViewClasses.bioTypeText}>{capitalEntry}</p>
+      <p className={previewClass.bioTypeText}>{capitalEntry}</p>
     </div>
   );
 };
