@@ -48,6 +48,7 @@ const AddToCart = ({ obj }) => {
     <div className={classes.addToCartContainer}>
       <div className={classes.amountContainer}>
         <input
+          className={classes.input}
           value={addToCartAmount}
           onChange={(e) => handleInput(setAddToCartAmount, e)}
           onBlur={(e) => clickOutsideWithNoValue(setAddToCartAmount, e)}
