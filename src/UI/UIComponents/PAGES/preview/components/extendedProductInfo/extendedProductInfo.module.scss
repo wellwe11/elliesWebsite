@@ -1,3 +1,4 @@
+// ExtendedProductInfo
 .extendedProductInfo {
   height: 100%;
   width: 80%;
@@ -9,10 +10,10 @@
 
   .extendedSectionTwo {
     padding: var(--spacing-4) 0px;
-    height: clamp(250px, 30vw, 400px);
   }
 }
 
+// Info
 .infoWrapper {
   display: flex;
   flex-direction: column;
@@ -34,6 +35,7 @@
   }
 }
 
+// DescriptionElement
 .elWrapper {
   border-bottom: 0.5px solid var(--c-grey-200);
 
@@ -43,6 +45,7 @@
   padding: var(--spacing-1) 0px;
 }
 
+// Guide
 .guide {
   .imageContainer {
     width: fit-content;
@@ -115,7 +118,7 @@
 
     .width {
       left: 16%;
-      bottom: -12%;
+      bottom: -13%;
     }
 
     &::after,

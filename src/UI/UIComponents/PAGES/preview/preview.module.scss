@@ -1,31 +1,59 @@
 // Preview / IsLoading
 .preview {
+  position: relative;
   --marginTop: 8.5%;
-
-  position: fixed;
-  top: var(--marginTop);
-  left: 0;
-
-  width: 100%;
-  height: calc(100% - var(--marginTop));
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  z-index: 9000000;
 
   overflow-y: scroll;
 
-  background-color: var(--websiteContainerColor);
+  .fixedPreviewContainer {
+    position: fixed;
+    top: var(--marginTop);
 
-  padding: var(--spacing-2);
+    pointer-events: none;
+
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: calc(100% - var(--marginTop));
+    padding: var(--spacing-2);
+    overflow-x: hidden;
+
+    .backgroundColorWrapper {
+      pointer-events: auto;
+      background-color: var(--websiteContainerColor);
+      width: 100vw;
+      z-index: 2;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .transparentEl {
+      height: 500px;
+      width: 100%;
+    }
+  }
+
+  .footerWrapper {
+    pointer-events: none;
+    z-index: 1;
+    z-index: 99;
+
+    width: 100%;
+    position: fixed;
+    bottom: 5%;
+    left: 0;
+  }
+
+  .footerWrapper * {
+    pointer-events: auto;
+  }
 }
 
 // DisplayProductContainer
 .imageContainer {
-  padding: var(--spacing-1);
   display: flex;
   justify-content: flex-start;
 
@@ -35,7 +63,7 @@
 
 // Info
 .infoWrapper {
-  height: 100%;
+  height: 650px;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -45,21 +73,22 @@
 
 // ActiveImage
 .activeImageWrapper {
-  width: 50%;
-
-  padding: var(--spacing-1);
-
   border-radius: var(--spacing-1);
+  width: 50%;
+  height: 650px;
+
   background-color: var(--c-grey-100);
 
   display: flex;
   justify-content: center;
   align-items: center;
 
+  padding: var(--spacing-3);
+
   .activeImage {
     border-radius: var(--spacing-1);
     height: 100%;
-    width: 100%;
+
     object-fit: contain;
   }
 }

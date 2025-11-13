@@ -3,7 +3,7 @@ import classes from "./preview.module.scss";
 import routeClasses from "../../routeContainer/routeContainer.module.scss";
 
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import ProductInfo from "./components/productInfo/productInfo.jsx";
 
@@ -11,6 +11,7 @@ import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import bodyNoScroll from "@functions/bodyNoScroll";
 import ExtendedProductInfo from "./components/extendedProductInfo/extendedProductInfo.jsx";
+import Footer from "../../FOOTER/footer.jsx";
 
 const ActiveImage = ({ productProps, activeImageIndex }) => {
   const {
@@ -97,18 +98,50 @@ const IsLoading = ({ isLoading }) => {
 };
 
 const Preview = ({ productProps, isLoading, obj }) => {
-  if (isLoading) return <IsLoading isLoading={isLoading} />;
-
   // need to style and add functionality to add to cart button
   // create a image-view to display picture height (not real-height but something to show it somehow)
   // display frame that will used for image
   // display type of paper pershaps(if print or paper, they are different);
 
+  const fixedPreviewRef = useRef(null);
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    const footerElement = footerRef.current;
+    const scrollableElement = fixedPreviewRef.current;
+
+    if (!footerElement || !scrollableElement) return;
+
+    const handleWheel = (e) => {
+      e.preventDefault();
+      scrollableElement.scrollTop += e.deltaY;
+    };
+
+    footerElement.addEventListener("wheel", handleWheel, { passive: false });
+
+    return () => {
+      footerElement.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
+
+  if (isLoading) return <IsLoading isLoading={isLoading} />;
+
   return (
     <div className={classes.preview}>
-      <div className={routeClasses.contentWrapper}>
-        <DisplayProductContainer productProps={productProps} obj={obj} />
-        <ExtendedInfo productProps={productProps} />
+      <div className={classes.fixedPreviewContainer} ref={fixedPreviewRef}>
+        <div>
+          <div className={classes.backgroundColorWrapper}>
+            <div className={routeClasses.contentWrapper}>
+              <DisplayProductContainer productProps={productProps} obj={obj} />
+              <ExtendedInfo productProps={productProps} />
+            </div>
+          </div>
+        </div>
+        <div className={classes.transparentEl} />
+      </div>
+
+      <div className={classes.footerWrapper} ref={footerRef}>
+        <Footer />
       </div>
     </div>
   );
