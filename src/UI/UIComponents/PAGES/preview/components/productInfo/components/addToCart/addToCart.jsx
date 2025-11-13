@@ -11,29 +11,19 @@ const Button = ({ children, fn }) => {
   );
 };
 
-const handlePlus = (setter) => {
-  setter((prev) => (prev + 1 < 100 ? +prev + 1 : prev));
-};
-
-const handleMinus = (setter) => {
-  setter((prev) => (+prev > 0 ? +prev - 1 : prev));
-};
-
 const handleInput = (setter, input) => {
   const inputValue = input.target.value;
 
-  if (Number(inputValue) && +inputValue > 0) {
-    if (+inputValue < 100) {
-      setter(+inputValue);
-    } else {
-      setter(99);
-    }
-  } else {
-    setter((prev) => prev);
-  }
-
-  if (inputValue === "") {
+  if (Number(inputValue) && inputValue > 0 && inputValue < 100) {
+    setter(+inputValue);
+  } else if (inputValue > 99) {
+    setter(99);
+  } else if (typeof inputValue === "string" && inputValue !== "") {
     setter("");
+  } else if (inputValue === "") {
+    setter("");
+  } else {
+    setter(1);
   }
 };
 
@@ -51,20 +41,20 @@ const AddToCart = ({ obj }) => {
   const addToCart = storeData((state) => state.addToCart);
 
   const handleAddToCart = () => {
-    obj.amount = addToCartAmount;
-    addToCart(obj);
+    addToCart(obj, +addToCartAmount);
   };
 
   return (
     <div className={classes.addToCartContainer}>
       <div className={classes.amountContainer}>
-        <Button fn={() => handleMinus(setAddToCartAmount)}>-</Button>
         <input
           value={addToCartAmount}
           onChange={(e) => handleInput(setAddToCartAmount, e)}
           onBlur={(e) => clickOutsideWithNoValue(setAddToCartAmount, e)}
+          max={99}
+          min={1}
+          type="number"
         />
-        <Button fn={() => handlePlus(setAddToCartAmount)}>+</Button>
       </div>
       <button className={classes.addToCartBtn} onClick={handleAddToCart}>
         <h4 className={`${classes.text} ${quickViewClass.titleTypeText}`}>

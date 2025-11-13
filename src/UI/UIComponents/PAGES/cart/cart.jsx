@@ -1,6 +1,6 @@
 import classes from "./cart.module.scss";
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import X_SVG from "@components/SVGS/X_SVG/X_SVG";
 import bodyNoScroll from "@functions/bodyNoScroll.js";
