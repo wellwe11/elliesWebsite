@@ -589,7 +589,13 @@ export const storeData = create((set, get) => ({
         return {
           cart: {
             ...state.cart,
-            [key]: { ...objExists, quantity: objExists.quantity + 1 },
+            [key]: {
+              ...objExists,
+              quantity:
+                objExists.quantity < 100
+                  ? objExists.quantity + 1
+                  : (objExists.quantity = 99),
+            },
           },
         };
       }

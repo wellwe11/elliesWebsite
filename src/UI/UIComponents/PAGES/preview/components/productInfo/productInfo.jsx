@@ -1,7 +1,7 @@
 import classes from "./productInfo.module.scss";
 import quickViewClass from "../../preview.module.scss";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import ProductDescription from "../productInfo/components/productDescription/productDescription.jsx";
 import storeData from "../../../../routeContainer/zustandObject/storeData.jsx";
@@ -9,6 +9,7 @@ import storeData from "../../../../routeContainer/zustandObject/storeData.jsx";
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 import X_SVG from "@components/SVGS/X_SVG/X_SVG.jsx";
 import bodyNoScroll from "@functions/bodyNoScroll.js";
+import AddToCart from "./components/addToCart/addToCart.jsx";
 
 const InfoProductTitle = ({ title }) => (
   <h1 className={quickViewClass.titleTypeText}>{title}</h1>
@@ -52,26 +53,6 @@ const QuickViewImageOptions = ({
 const CurrentlySelectedProduct = ({ activeImageIndex }) => (
   <h6 className={quickViewClass.bioTypeText}>Product: {activeImageIndex}</h6>
 );
-
-const AddToCart = ({ obj }) => {
-  const addToCart = storeData((state) => state.addToCart);
-  const handleAddToCart = () => addToCart(obj);
-
-  return (
-    <div className={classes.addToCartContainer}>
-      <div className={classes.amountContainer}>
-        <button>-</button>
-        <h4>1</h4>
-        <button>+</button>
-      </div>
-      <button className={classes.addToCartBtn} onClick={handleAddToCart}>
-        <h4 className={`${classes.text} ${quickViewClass.titleTypeText}`}>
-          Add To Cart
-        </h4>
-      </button>
-    </div>
-  );
-};
 
 const CloseButton = () => {
   const { enableScroll } = bodyNoScroll();
