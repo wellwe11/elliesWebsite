@@ -1,7 +1,7 @@
 // Preview / IsLoading
 .preview {
   position: relative;
-  --marginTop: 8.5%;
+  --marginTop: 6%;
 
   overflow-y: scroll;
 
@@ -19,8 +19,9 @@
     overflow-x: hidden;
 
     .backgroundColorWrapper {
-      pointer-events: auto;
+      padding: var(--spacing-4) 0px;
       background-color: var(--websiteContainerColor);
+      pointer-events: auto;
       width: 100vw;
       z-index: 2;
 
@@ -31,7 +32,7 @@
     }
 
     .transparentEl {
-      height: 500px;
+      height: 300px;
       width: 100%;
     }
   }
