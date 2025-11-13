@@ -1,6 +1,7 @@
 import classes from "./extendedProductInfo.module.scss";
 import previewClasses from "../../preview.module.scss";
 import frameSizesImage from "@assets/sizeGuide.png";
+import { capitalizeFirstLetter } from "../../../../../../abstract/functions/firstLetterCapital.js";
 
 const DescriptionElement = ({ obj }) => {
   const key = obj[0].toUpperCase();
@@ -52,21 +53,29 @@ const Info = ({ data }) => {
 };
 
 const Guide = ({ description }) => {
-  const { height, width } = description;
+  const { height, width, type } = description;
 
   return (
     <div className={classes.guide}>
+      <h3 className={`${previewClasses.titleTypeText} ${classes.guideTitle}`}>
+        Guide
+      </h3>
       <div className={classes.imageContainer}>
         <img className={classes.frameSizeImage} src={frameSizesImage} alt="" />
+        <div className={classes.frameMeasurements} />
         <div className={classes.height}>
           <p className={classes.text}>
-            <span className={classes.span}>h </span>
+            <span className={classes.span}>
+              {capitalizeFirstLetter(type)} h:{" "}
+            </span>
             {height} cm
           </p>
         </div>
         <div className={classes.width}>
           <p className={classes.text}>
-            <span className={classes.span}>w </span>
+            <span className={classes.span}>
+              {capitalizeFirstLetter(type)} w:{" "}
+            </span>
             {width} cm
           </p>
         </div>
