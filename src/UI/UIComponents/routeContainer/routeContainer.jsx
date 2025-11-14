@@ -24,7 +24,7 @@ const RouteContainer = () => {
 
       <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
         <MainPagesRoutes />
-        {(backgroundLocation || prevBackgroundLocation) && <BackgroundRoutes />}
+        {backgroundLocation && <BackgroundRoutes />}
 
         <Footer />
       </div>

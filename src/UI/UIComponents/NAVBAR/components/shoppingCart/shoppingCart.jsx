@@ -16,6 +16,8 @@ const ShoppingCart = () => {
   const totalItemsInCart = useMemo(() => getTotalItems(), [cart]);
 
   const navigateCart = () => {
+    if (location.pathname.includes("/cart")) return;
+
     const stateLocation = {
       backgroundLocation: location.pathname + location.search,
     };

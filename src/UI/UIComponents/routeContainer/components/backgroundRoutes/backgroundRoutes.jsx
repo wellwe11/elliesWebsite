@@ -44,15 +44,11 @@ const BackgroundRoutes = () => {
   const { location, backgroundLocation, prevBackgroundLocation } =
     useGetLocation();
 
-  console.log(location, backgroundLocation, prevBackgroundLocation);
-
   return (
     <>
-      <Routes
-        location={backgroundLocation || prevBackgroundLocation || location}
-      >
+      <Routes location={location}>
         <Route path="/:tab?/cart" element={<Cart />} />
-        {/* 
+
         <Route
           path="/:tab?/preview/:category?/:id?/*"
           element={
@@ -62,7 +58,7 @@ const BackgroundRoutes = () => {
               prevBackgroundLocation={prevBackgroundLocation}
             />
           }
-        /> */}
+        />
       </Routes>
 
       <Routes location={prevBackgroundLocation || location}>
