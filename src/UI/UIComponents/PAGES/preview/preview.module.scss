@@ -70,7 +70,7 @@
 
 // Info
 .infoWrapper {
-  height: 650px;
+  height: 85vh;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -80,9 +80,9 @@
 
 // ActiveImage
 .activeImageWrapper {
-  border-radius: var(--spacing-1);
+  height: 85vh;
   width: 50%;
-  height: 650px;
+  border-radius: var(--spacing-1);
 
   background-color: var(--c-grey-100);
 
