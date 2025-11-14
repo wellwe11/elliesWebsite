@@ -4,7 +4,7 @@ import { lazy, Suspense, useEffect } from "react";
 
 const Home = lazy(() => import("../../../PAGES/home/HOME.jsx"));
 const Gallery = lazy(() => import("../../../PAGES/gallery/GALLERY.jsx"));
-const Preview = lazy(() => import("../../../PAGES/preview/preview.jsx"));
+// const Preview = lazy(() => import("../../../PAGES/preview/preview.jsx"));
 
 import ContactUs from "../../../PAGES/contactUs/contactUs.jsx";
 import Loading from "../../../LOADING/loading.jsx";
@@ -17,35 +17,35 @@ import dataHandler from "../../functions/dataHandler.js";
 import PageNotFound from "../../../PAGENOTFOUND/pageNotFound.jsx";
 import Navbar from "../../../NAVBAR/navbar.jsx";
 
-const PreviewRoute = () => {
-  const { data, isLoading } = useData("gallery");
+// const PreviewRoute = () => {
+//   const { data, isLoading } = useData("gallery");
 
-  const { category, id } = useGetParams();
+//   const { category, id } = useGetParams();
 
-  if (!data) return null;
+//   if (!data) return null;
 
-  const categoryData = data[category],
-    foundObj = categoryData.find((a) => +a.id === +id); // finds matching obj
+//   const categoryData = data[category],
+//     foundObj = categoryData.find((a) => +a.id === +id); // finds matching obj
 
-  const uniqueViewEmbedded = foundObj?._embedded,
-    { amount, colors, height, width } = uniqueViewEmbedded.details,
-    productProps = {
-      all: uniqueViewEmbedded,
+//   const uniqueViewEmbedded = foundObj?._embedded,
+//     { amount, colors, height, width } = uniqueViewEmbedded.details,
+//     productProps = {
+//       all: uniqueViewEmbedded,
 
-      displayedDetails: {
-        title: uniqueViewEmbedded?.setTitle,
-        price: uniqueViewEmbedded?.details.price,
-        type: uniqueViewEmbedded?.details.type,
-        quickViewImages: foundObj.images.map((img) => img.src),
-      },
+//       displayedDetails: {
+//         title: uniqueViewEmbedded?.setTitle,
+//         price: uniqueViewEmbedded?.details.price,
+//         type: uniqueViewEmbedded?.details.type,
+//         quickViewImages: foundObj.images.map((img) => img.src),
+//       },
 
-      infoDetails: { amount, colors, height, width },
-    };
+//       infoDetails: { amount, colors, height, width },
+//     };
 
-  return (
-    <Preview productProps={productProps} isLoading={isLoading} obj={foundObj} />
-  );
-};
+//   return (
+//     <Preview productProps={productProps} isLoading={isLoading} obj={foundObj} />
+//   );
+// };
 
 const GalleryRoute = () => {
   const { category, page } = useGetParams();
@@ -91,7 +91,7 @@ const MainPagesRoutes = () => {
         <Route path="/" element={<HomeRoute />} />
         <Route path="/gallery/:category?/:id?/*" element={<GalleryRoute />} />
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/:tab?/preview" element={<PreviewRoute />} />
+        {/* <Route path="/:tab?/preview" element={<PreviewRoute />} /> */}
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>

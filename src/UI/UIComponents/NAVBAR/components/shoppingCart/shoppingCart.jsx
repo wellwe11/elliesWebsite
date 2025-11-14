@@ -16,13 +16,24 @@ const ShoppingCart = () => {
   const totalItemsInCart = useMemo(() => getTotalItems(), [cart]);
 
   const navigateCart = () => {
-    if (location.pathname !== "/cart") {
-      navigate("/cart", {
-        state: {
-          backgroundLocation: location.pathname + location.search,
-        },
-      });
+    const stateLocation = {
+      backgroundLocation: location.pathname + location.search,
+    };
+
+    if (location.state) {
+      stateLocation.prevBackgroundLocation =
+        location.pathname + location.search;
+      stateLocation.backgroundLocation = "/cart";
     }
+
+    const { backgroundLocation, prevBackgroundLocation } = stateLocation;
+
+    navigate("./cart", {
+      state: {
+        backgroundLocation,
+        prevBackgroundLocation,
+      },
+    });
   };
 
   // Simple text related to shoppingcart. Text is static and will remain the same.

@@ -9,13 +9,14 @@ import MainPagesRoutes from "./components/mainPageRoutes/mainPageRoutes.jsx";
 const BackgroundRoutes = lazy(() =>
   import("./components/backgroundRoutes/backgroundRoutes.jsx")
 );
+
 import useGetLocation from "@hooks/useGetLocation.jsx";
 import Loading from "../LOADING/loading.jsx";
 
 import { Route, Routes } from "react-router-dom";
 
 const RouteContainer = () => {
-  const { backgroundLocation } = useGetLocation();
+  const { backgroundLocation, prevBackgroundLocation } = useGetLocation();
 
   return (
     <div className={classes.widthContainer}>
@@ -23,7 +24,7 @@ const RouteContainer = () => {
 
       <div className={`${classes.contentWrapper} ${classes.paddingClass}`}>
         <MainPagesRoutes />
-        {backgroundLocation && <BackgroundRoutes />}
+        {(backgroundLocation || prevBackgroundLocation) && <BackgroundRoutes />}
 
         <Footer />
       </div>
