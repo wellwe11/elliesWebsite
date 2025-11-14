@@ -10,14 +10,16 @@ import Loading from "../../../LOADING/loading.jsx";
 
 import bodyNoScroll from "@functions/bodyNoScroll.js";
 import useGetLocation from "@hooks/useGetLocation.jsx";
-import useGetParams from "@hooks/useGetParams.jsx";
+
 import useData from "@hooks/useData.jsx";
 import dataHandler from "../../functions/dataHandler.js";
 import PageNotFound from "../../../PAGENOTFOUND/pageNotFound.jsx";
 import Navbar from "../../../NAVBAR/navbar.jsx";
 
-const GalleryRoute = () => {
-  const { category, page } = useGetParams();
+const GalleryRoute = ({ location }) => {
+  const searchParams = new URLSearchParams(location.search);
+  const category = searchParams.get("category");
+  const page = searchParams.get("page");
 
   const { data } = useData("gallery");
 
@@ -58,7 +60,10 @@ const MainPagesRoutes = () => {
     <Suspense fallback={<Loading />}>
       <Routes location={state?.backgroundLocation || location}>
         <Route path="/" element={<HomeRoute />} />
-        <Route path="/gallery/:category?/:id?/*" element={<GalleryRoute />} />
+        <Route
+          path="/gallery/:category?/:id?/*"
+          element={<GalleryRoute location={location} />}
+        />
         <Route path="/contact" element={<ContactUs />} />
 
         <Route path="*" element={<PageNotFound />} />

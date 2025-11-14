@@ -41,8 +41,6 @@ const BackgroundRoutes = () => {
   const { location } = useGetLocation();
   const { tempLocation, tempSearch } = location.state || {};
 
-  console.log(location);
-
   return (
     <>
       <Routes location={location}>
