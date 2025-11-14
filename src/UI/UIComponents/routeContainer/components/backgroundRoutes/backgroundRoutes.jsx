@@ -1,21 +1,18 @@
 import { Route, Routes } from "react-router-dom";
 import useData from "@hooks/useData.jsx";
-import useGetParams from "@hooks/useGetParams.jsx";
 import useGetLocation from "@hooks/useGetLocation.jsx";
 
 import Preview from "../../../PAGES/preview/preview.jsx";
 import Cart from "../../../PAGES/cart/cart.jsx";
 
-const PreviewRoute = ({
-  location,
-  backgroundLocation,
-  prevBackgroundLocation,
-}) => {
+const PreviewRoute = ({ search }) => {
   const { data, isLoading } = useData("gallery");
 
-  const { category, id } = useGetParams();
+  const searchParams = new URLSearchParams(search);
+  const category = searchParams.get("category");
+  const id = searchParams.get("id");
 
-  if (!data) return null;
+  if (!data) return;
 
   const categoryData = data[category],
     foundObj = categoryData.find((a) => +a.id === +id); // finds matching obj
@@ -41,38 +38,21 @@ const PreviewRoute = ({
 };
 
 const BackgroundRoutes = () => {
-  const { location, backgroundLocation, prevBackgroundLocation } =
-    useGetLocation();
+  const { location } = useGetLocation();
+  const { tempLocation, tempSearch } = location.state || {};
+
+  console.log(location);
 
   return (
     <>
       <Routes location={location}>
         <Route path="/:tab?/cart" element={<Cart />} />
-
-        <Route
-          path="/:tab?/preview/:category?/:id?/*"
-          element={
-            <PreviewRoute
-              location={location}
-              backgroundLocation={backgroundLocation}
-              prevBackgroundLocation={prevBackgroundLocation}
-            />
-          }
-        />
       </Routes>
 
-      <Routes location={prevBackgroundLocation || location}>
-        <Route path="/:tab?/cart" element={<Cart />} />
-
+      <Routes location={tempLocation || location}>
         <Route
-          path="/:tab?/preview/:category?/:id?/*"
-          element={
-            <PreviewRoute
-              location={location}
-              backgroundLocation={backgroundLocation}
-              prevBackgroundLocation={prevBackgroundLocation}
-            />
-          }
+          path="/:tab?/preview/*"
+          element={<PreviewRoute search={tempSearch || location.search} />}
         />
       </Routes>
     </>

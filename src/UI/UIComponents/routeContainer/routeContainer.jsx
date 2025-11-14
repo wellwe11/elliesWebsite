@@ -16,7 +16,7 @@ import Loading from "../LOADING/loading.jsx";
 import { Route, Routes } from "react-router-dom";
 
 const RouteContainer = () => {
-  const { backgroundLocation, prevBackgroundLocation } = useGetLocation();
+  const { backgroundLocation } = useGetLocation();
 
   return (
     <div className={classes.widthContainer}>
