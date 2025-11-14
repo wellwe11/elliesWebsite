@@ -1,7 +1,7 @@
 // Preview / IsLoading
 .preview {
   position: relative;
-  --marginTop: 6%;
+  --marginTop: 8.5%;
 
   overflow-y: scroll;
 
@@ -15,11 +15,11 @@
     z-index: 100;
     width: 100%;
     height: calc(100% - var(--marginTop));
-    padding: var(--spacing-2);
+
     overflow-x: hidden;
 
     .backgroundColorWrapper {
-      padding: var(--spacing-4) 0px;
+      padding: var(--spacing-3) 0px;
       background-color: var(--websiteContainerColor);
       pointer-events: auto;
       width: 100vw;
@@ -32,20 +32,26 @@
     }
 
     .transparentEl {
-      height: 300px;
+      height: 500px;
       width: 100%;
     }
   }
 
   .footerWrapper {
-    pointer-events: none;
     z-index: 1;
-    z-index: 99;
 
+    flex: 1;
+    height: 500px;
     width: 100%;
+
     position: fixed;
     bottom: 5%;
     left: 0;
+
+    background-color: var(--websiteContainerColor);
+
+    display: flex;
+    align-items: flex-end;
   }
 
   .footerWrapper * {
