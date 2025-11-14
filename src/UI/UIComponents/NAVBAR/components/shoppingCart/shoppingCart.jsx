@@ -5,9 +5,11 @@ import { useMemo } from "react";
 
 import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import storeData from "../../../routeContainer/zustandObject/storeData.jsx";
+import useGetLocation from "@hooks/useGetLocation.jsx";
 
 const ShoppingCart = () => {
   const navigate = useNavigate();
+  const { location } = useGetLocation();
 
   const { cart, getTotalItems } = storeData();
 
@@ -15,8 +17,10 @@ const ShoppingCart = () => {
 
   const navigateCart = () => {
     if (location.pathname !== "/cart") {
-      navigate("./cart", {
-        state: { backgroundLocation: location.pathname + location.search },
+      navigate("/cart", {
+        state: {
+          backgroundLocation: location.pathname + location.search,
+        },
       });
     }
   };

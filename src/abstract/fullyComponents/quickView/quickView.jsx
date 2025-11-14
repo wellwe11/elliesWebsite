@@ -29,9 +29,7 @@ const QuickView = ({ src, secondSrc, productType, productId }) => {
   const { disableScroll } = bodyNoScroll();
 
   const handleNavigate = () =>
-    navigate(`./preview?category=${productType}&id=${productId}`, {
-      state: { backgroundLocation: location.pathname },
-    });
+    navigate(`./preview?category=${productType}&id=${productId}`);
 
   return (
     <div className={classes.quickViewImageContainer} onClick={handleNavigate}>

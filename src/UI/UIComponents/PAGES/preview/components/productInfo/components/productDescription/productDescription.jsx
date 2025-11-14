@@ -15,8 +15,12 @@ const EntryValue = ({ value }) => {
   const result = valueTypeChecker(value);
 
   if (result === "reference") {
-    return value.map((v) => (
-      <div className={classes.ref} style={{ backgroundColor: v }} />
+    return value.map((v, index) => (
+      <div
+        key={v + index}
+        className={classes.ref}
+        style={{ backgroundColor: v }}
+      />
     ));
   }
 

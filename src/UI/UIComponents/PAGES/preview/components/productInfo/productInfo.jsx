@@ -28,6 +28,7 @@ const QuickViewImageOptions = ({
   <div className={classes.allImagesExamples}>
     {quickViewImages?.map((image, index) => (
       <div
+        key={index}
         className={`${classes.borderContainer} ${
           activeImageIndex === index
             ? classes.activeBorder

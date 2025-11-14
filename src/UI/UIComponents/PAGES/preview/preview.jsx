@@ -11,6 +11,7 @@ import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import bodyNoScroll from "@functions/bodyNoScroll";
 import ExtendedProductInfo from "./components/extendedProductInfo/extendedProductInfo.jsx";
+
 import Footer from "../../FOOTER/footer.jsx";
 
 const ActiveImage = ({ productProps, activeImageIndex }) => {

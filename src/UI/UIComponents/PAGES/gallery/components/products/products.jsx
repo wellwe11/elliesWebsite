@@ -89,9 +89,7 @@ const Product = ({ productRefs, index, product }) => {
           src={productImage}
           className={classes.productImage}
           onClick={() =>
-            navigate(`./preview?category=${productType}&id=${productId}`, {
-              state: { backgroundLocation: location.pathname },
-            })
+            navigate(`./preview?category=${productType}&id=${productId}`, {})
           }
         />
       </div>
