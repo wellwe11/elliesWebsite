@@ -17,24 +17,20 @@ const ShoppingCart = () => {
 
   const navigateCart = () => {
     const stateObject = {
-      backgroundLocation: location.pathname,
+      backgroundLocation: location.pathname + location.search,
     };
 
     if (location.state) {
-      stateObject.tempLocation = location.pathname;
+      stateObject.tempLocation = location.pathname + location.search;
       stateObject.backgroundLocation = "/cart";
-      stateObject.tempSearch = location.search;
-    } else {
-      stateObject.backgroundLocation = location.pathname;
     }
 
-    const { backgroundLocation, tempLocation, tempSearch } = stateObject;
+    const { backgroundLocation, tempLocation } = stateObject;
 
     navigate("/cart", {
       state: {
         backgroundLocation,
         tempLocation,
-        tempSearch,
       },
     });
   };

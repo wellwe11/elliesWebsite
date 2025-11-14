@@ -1,16 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 import useData from "@hooks/useData.jsx";
 import useGetLocation from "@hooks/useGetLocation.jsx";
+import useGetParams from "@hooks/useGetParams.jsx";
 
 import Preview from "../../../PAGES/preview/preview.jsx";
 import Cart from "../../../PAGES/cart/cart.jsx";
 
-const PreviewRoute = ({ search }) => {
-  const { data, isLoading } = useData("gallery");
+const PreviewRoute = () => {
+  const { category, id } = useGetParams();
 
-  const searchParams = new URLSearchParams(search);
-  const category = searchParams.get("category");
-  const id = searchParams.get("id");
+  const { data, isLoading } = useData("gallery");
 
   if (!data) return;
 

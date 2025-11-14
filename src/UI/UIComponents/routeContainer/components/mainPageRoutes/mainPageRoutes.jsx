@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import { lazy, Suspense, useEffect } from "react";
 
@@ -10,6 +10,7 @@ import Loading from "../../../LOADING/loading.jsx";
 
 import bodyNoScroll from "@functions/bodyNoScroll.js";
 import useGetLocation from "@hooks/useGetLocation.jsx";
+import useGetParams from "@hooks/useGetParams.jsx";
 
 import useData from "@hooks/useData.jsx";
 import dataHandler from "../../functions/dataHandler.js";
@@ -17,9 +18,9 @@ import PageNotFound from "../../../PAGENOTFOUND/pageNotFound.jsx";
 import Navbar from "../../../NAVBAR/navbar.jsx";
 
 const GalleryRoute = ({ location }) => {
-  const searchParams = new URLSearchParams(location.search);
-  const category = searchParams.get("category");
-  const page = searchParams.get("page");
+  console.log(location);
+
+  const { category, page } = useGetParams();
 
   const { data } = useData("gallery");
 
