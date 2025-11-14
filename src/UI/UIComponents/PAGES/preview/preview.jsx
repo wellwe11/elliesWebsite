@@ -98,11 +98,6 @@ const IsLoading = ({ isLoading }) => {
 };
 
 const Preview = ({ productProps, isLoading, obj }) => {
-  // need to style and add functionality to add to cart button
-  // create a image-view to display picture height (not real-height but something to show it somehow)
-  // display frame that will used for image
-  // display type of paper pershaps(if print or paper, they are different);
-
   const fixedPreviewRef = useRef(null);
   const footerRef = useRef(null);
 
