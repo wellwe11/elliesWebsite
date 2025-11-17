@@ -42,9 +42,11 @@ const BackgroundRoutes = () => {
 
   return (
     <>
-      <Routes location={location}>
-        <Route path="/:tab?/cart" element={<Cart />} />
-      </Routes>
+      {location.pathname.includes("cart") && (
+        <Routes location={location}>
+          <Route path="/:tab?/cart" element={<Cart />} />
+        </Routes>
+      )}
 
       <Routes location={tempLocation || location}>
         <Route
