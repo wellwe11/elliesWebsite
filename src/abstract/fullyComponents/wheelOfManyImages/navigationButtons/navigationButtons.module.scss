@@ -4,17 +4,20 @@
   display: flex;
   justify-content: space-between;
 
-  width: 97%;
-
   // positioned inside of imagesContainer
   position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
+  top: -20%;
+
+  .title {
+    font-variation-settings: "wght" 400;
+  }
 
   .navigationButtonWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    padding: 0 var(--spacing-4);
 
     &.left {
       margin-left: 10px;
@@ -28,20 +31,12 @@
       pointer-events: all;
       cursor: pointer;
 
-      height: 8vw;
-      min-height: 50px;
-      max-height: 150px;
-      width: 100%;
-      min-width: 50px;
-
       border: none;
 
-      background-color: white;
-      outline: 0.5px solid black;
-      opacity: 0.94;
+      background-color: transparent;
 
       .buttonArrow {
-        color: gray;
+        color: black;
       }
 
       &:hover {

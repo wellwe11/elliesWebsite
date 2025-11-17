@@ -2,6 +2,7 @@
 .WheelOfManyImages {
   height: 100%;
   width: 100%;
+  position: relative;
 }
 
 // Images
@@ -9,12 +10,10 @@
   display: flex;
   justify-content: center;
 
-  overflow: hidden;
-
+  overflow-x: hidden;
   pointer-events: none;
 
   // relative for navigationButtonsContainer
-  position: relative;
 
   // mappedImages
   .imagesWrapper {
@@ -36,6 +35,23 @@
       @media screen and (min-width: 1025px) {
         img {
           padding: var(--spacing-3) 0px;
+        }
+      }
+
+      .bioContainer {
+        padding: 0px var(--spacing-6);
+
+        .bio {
+          text-decoration: underline;
+          text-underline-offset: calc(var(--spacing-1) / 2);
+          text-decoration-thickness: 1px;
+        }
+
+        .size {
+          font-style: italic;
+        }
+
+        .price {
         }
       }
     }

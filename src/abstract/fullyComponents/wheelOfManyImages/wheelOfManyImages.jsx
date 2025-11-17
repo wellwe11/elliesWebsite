@@ -35,7 +35,14 @@ const Images = ({ data }) => {
   const mappedImages = useMemo(
     () =>
       data?.map((obj) => {
-        const { image, _embedded, id } = obj;
+        const {
+            image,
+            _embedded: {
+              details: { width, height, price },
+            },
+            id,
+          } = obj,
+          { _embedded } = obj;
         const restImages = _embedded.restImages[0];
         const productTypes = _embedded.details.type;
 
@@ -47,6 +54,12 @@ const Images = ({ data }) => {
               productType={productTypes}
               productId={id}
             />
+            <div className={classes.bioContainer}>
+              <p className={`${classes.bio} ${classes.size}`}>
+                {width} x {height}
+              </p>
+              <p className={`${classes.bio} ${classes.price}`}>{price} €</p>
+            </div>
           </div>
         );
       }),

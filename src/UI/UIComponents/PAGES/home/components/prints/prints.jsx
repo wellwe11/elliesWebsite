@@ -41,9 +41,6 @@ const SetOfExampleCollectionSection = ({ data }) => {
 const WheelImagesSection = ({ data }) => {
   return (
     <section className={classes.wheelImagesSection}>
-      <div>
-        <h5>{"Placeholder title"}</h5>
-      </div>
       <WheelOfManyImages canQuickView={true} data={data} />
     </section>
   );
@@ -76,6 +73,7 @@ const Prints = ({ data }) => {
       {exploreNewInSection}
       {sectionSeperationImage}
 
+      {sectionSeperationImage}
       <WheelImagesSection data={data} />
       {sectionSeperationImage}
 
