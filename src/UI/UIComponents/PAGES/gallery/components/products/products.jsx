@@ -31,7 +31,7 @@ const ProductBio = ({ product, bioData }) => {
 
   const Name = (
     <div className={classes.name}>
-      <h4 className={classes.bioText}>{capitalizeFirstLetter(styledName)}</h4>
+      <h5 className={classes.bioText}>{capitalizeFirstLetter(styledName)}</h5>
     </div>
   );
 

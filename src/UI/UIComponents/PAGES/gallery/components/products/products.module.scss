@@ -43,7 +43,6 @@
 
       .productImageWrapper {
         overflow: hidden;
-        border-radius: var(--spacing-1);
 
         cursor: pointer;
 
@@ -62,7 +61,6 @@
           will-change: transform;
 
           transition: transform 0.1s ease;
-          border-radius: var(--spacing-1);
         }
         &:hover {
           .productImage {
@@ -119,7 +117,7 @@
             top: 0;
 
             outline: 1px solid var(--c-grey-200);
-            border-radius: var(--spacing-6);
+            border-radius: var(--spacing-8);
             background-color: var(--c-grey-100);
 
             display: flex;
