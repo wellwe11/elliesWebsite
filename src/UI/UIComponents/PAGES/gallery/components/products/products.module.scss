@@ -115,19 +115,21 @@
           width: 40%;
 
           .imageContainer {
-            height: 100%;
+            height: 80%;
             overflow: hidden;
 
             position: absolute;
             top: 0;
 
-            outline: 3px solid var(--websiteContainerColor);
+            outline: 1px solid var(--c-grey-200);
             border-radius: var(--spacing-6);
             background-color: var(--c-grey-100);
 
             display: flex;
             justify-content: center;
             align-content: center;
+
+            overflow: hidden;
 
             img {
             }
@@ -143,7 +145,7 @@
 
       .name {
         .bioText {
-          font-variation-settings: "wght" 450;
+          font-variation-settings: "wght" 300;
         }
       }
 

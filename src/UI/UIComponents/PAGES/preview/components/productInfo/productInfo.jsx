@@ -51,7 +51,7 @@ const QuickViewImageOptions = ({
 
 // currently only displayed index of active allImagesRelatedToQuickViewImage. In future, will have some bio-info
 const CurrentlySelectedProduct = ({ activeImageIndex }) => (
-  <h6 className={previewClass.bioTypeText}>Product: {activeImageIndex}</h6>
+  <h6 className={previewClass.bioTypeText}>Product: {+activeImageIndex + 1}</h6>
 );
 
 const CloseButton = () => {

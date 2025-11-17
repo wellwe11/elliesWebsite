@@ -24,9 +24,9 @@ const DescriptionElement = ({ obj }) => {
 const Description = ({ data }) => {
   return (
     <div className={classes.description}>
-      <h3 className={`${classes.infoTitle} ${previewClasses.titleTypeText}`}>
+      <h5 className={`${classes.infoTitle} ${previewClasses.titleTypeText}`}>
         BIO
-      </h3>
+      </h5>
 
       <div className={classes.textWrapper}>
         <h6 className={`${classes.text} ${previewClasses.bioTypeText}`}>
@@ -37,14 +37,35 @@ const Description = ({ data }) => {
   );
 };
 
+const Frame = ({ data }) => {
+  const frameInfo = data?.frame || {
+    color: "black",
+    type: "wooden",
+    width: 10,
+  };
+
+  const entries = Object.entries(frameInfo);
+
+  return (
+    <div className={classes.frame}>
+      <h5 className={`${previewClasses.titleTypeText} ${classes.title}`}>
+        FRAME
+      </h5>
+      {entries.map(([key, obj], index) => (
+        <DescriptionElement obj={[key, obj]} key={index} />
+      ))}
+    </div>
+  );
+};
+
 const Info = ({ data }) => {
   const entries = Object.entries(data);
 
   return (
-    <div className={classes.infoWrapper}>
-      <h3 className={`${previewClasses.titleTypeText} ${classes.infoTitle}`}>
+    <div className={classes.info}>
+      <h5 className={`${previewClasses.titleTypeText} ${classes.infoTitle}`}>
         DETAILS
-      </h3>
+      </h5>
       {entries.map(([key, obj], index) => (
         <DescriptionElement obj={[key, obj]} key={index} />
       ))}
@@ -57,9 +78,9 @@ const Guide = ({ description }) => {
 
   return (
     <div className={classes.guide}>
-      <h3 className={`${previewClasses.titleTypeText} ${classes.guideTitle}`}>
+      <h5 className={`${previewClasses.titleTypeText} ${classes.guideTitle}`}>
         Guide
-      </h3>
+      </h5>
       <div className={classes.imageContainer}>
         <img className={classes.frameSizeImage} src={frameSizesImage} alt="" />
         <div className={classes.frameMeasurements} />
@@ -89,6 +110,7 @@ const ExtendedProductInfo = ({ props, description }) => {
     <div className={classes.extendedProductInfo}>
       <div className={classes.extendedSectionOne}>
         <Info data={props} />
+        <Frame />
         <Description data={description} />
       </div>
       <div className={classes.extendedSectionTwo}>

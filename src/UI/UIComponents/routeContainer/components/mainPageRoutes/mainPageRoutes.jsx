@@ -18,8 +18,6 @@ import PageNotFound from "../../../PAGENOTFOUND/pageNotFound.jsx";
 import Navbar from "../../../NAVBAR/navbar.jsx";
 
 const GalleryRoute = ({ location }) => {
-  console.log(location);
-
   const { category, page } = useGetParams();
 
   const { data } = useData("gallery");

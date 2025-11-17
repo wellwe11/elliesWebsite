@@ -21,13 +21,13 @@ const ProductBio = ({ product, bioData }) => {
 
   const setTitle = bioData.setTitle,
     styledName =
-      setTitle.length > 20
-        ? setTitle.slice(0, setTitle[19] === " " ? 19 : 20) + "..."
+      setTitle.length > 14
+        ? setTitle.slice(0, setTitle[14] === " " ? 13 : 14) + "..."
         : setTitle; // collections/sets name - I.e. spring-collection, pastel-blue bookmarks collection, etc.
 
   const Name = (
     <div className={classes.name}>
-      <h5 className={classes.bioText}>{capitalizeFirstLetter(styledName)}</h5>
+      <h3 className={classes.bioText}>{capitalizeFirstLetter(styledName)}</h3>
     </div>
   );
 
@@ -38,7 +38,7 @@ const ProductBio = ({ product, bioData }) => {
         <div
           key={index}
           className={classes.imageContainer}
-          style={{ right: `${index * 13}px`, zIndex: index }}
+          style={{ right: `${index * 12}px`, zIndex: -index }}
         >
           <img src={img.src} alt="" />
         </div>

@@ -1,48 +1,50 @@
 // ExtendedProductInfo
 .extendedProductInfo {
   height: 100%;
-  width: 80%;
+  width: 100%;
 
   .extendedSectionOne {
     display: flex;
     justify-content: space-between;
+    gap: var(--spacing-8);
   }
 
   .extendedSectionTwo {
-    padding: var(--spacing-4) 0px;
+    padding: var(--spacing-7) 0px;
   }
 }
 
 // Info
-.infoWrapper {
+.info {
   display: flex;
   flex-direction: column;
 
-  gap: var(--spacing-2);
-
-  width: 40%;
+  flex: 1;
 
   .infoTitle {
+    padding-bottom: var(--spacing-1);
   }
 }
 
+// Frame
+.frame {
+  display: flex;
+  flex-direction: column;
+
+  flex: 0.7;
+
+  .title {
+    padding-bottom: var(--spacing-1);
+  }
+}
+
+// Description
 .description {
-  width: 50%;
-  padding: var(--spacing-1) 0px;
+  width: 30%;
 
   .textWrapper {
     margin-top: var(--spacing-1);
   }
-}
-
-// DescriptionElement
-.elWrapper {
-  border-bottom: 0.5px solid var(--c-grey-200);
-
-  display: flex;
-  justify-content: space-between;
-
-  padding: var(--spacing-1) 0px;
 }
 
 // Guide
@@ -143,5 +145,19 @@
       right: 2.5%;
       top: 12.5%;
     }
+  }
+}
+
+// DescriptionElement
+.elWrapper {
+  border-bottom: 0.5px solid var(--c-grey-200);
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: var(--spacing-1) 0px;
+
+  &:first-of-type {
+    border-top: 0.5px solid var(--c-grey-200);
   }
 }
