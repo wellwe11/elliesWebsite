@@ -23,6 +23,7 @@
       background-color: var(--websiteContainerColor);
       pointer-events: auto;
       width: 100vw;
+      height: fit-content;
       z-index: 2;
 
       display: flex;
@@ -65,12 +66,12 @@
   justify-content: flex-start;
 
   width: 100%;
-  height: 100%;
+  height: clamp(600px, 85vh, 700px);
 }
 
 // Info
 .infoWrapper {
-  height: 85vh;
+  height: 100%;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -80,7 +81,7 @@
 
 // ActiveImage
 .activeImageWrapper {
-  height: 85vh;
+  height: 100%;
   width: 50%;
   border-radius: var(--spacing-1);
 
