@@ -2,8 +2,6 @@
 .setOfImagesWithText {
   --text-height: 60px;
   --bio-height: calc(var(--text-height) / 2);
-  height: 100%;
-  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -22,6 +20,7 @@
 
     .imageWrapper {
       overflow: hidden;
+      height: clamp(300px, 30vw, 500px);
     }
   }
 

@@ -45,11 +45,12 @@ const SetOfimagesWithText = ({
 
   return (
     <div className={classes.setOfImagesWithText}>
-      {imagesMap}
-
-      <div className={classes.imagesTextWrapper}>
-        {bioTitle}
-        {scrollingText}
+      <div className={classes.imagesWithTextWrapper}>
+        {imagesMap}
+        <div className={classes.imagesTextWrapper}>
+          {bioTitle}
+          {scrollingText}
+        </div>
       </div>
     </div>
   );
