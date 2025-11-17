@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import classes from "./exploreNewIn.module.scss";
-import placeholderImage from "/frontPage/colorsPlaceholder.webp";
+import placeholderImage from "/frontPage/colorsPlaceholder.jpg";
 
 const placeholderTitle = `Prints`;
 const placeholderText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`;

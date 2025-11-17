@@ -32,11 +32,10 @@ const GalleryRoute = ({ location }) => {
 const HomeRoute = () => {
   const { data } = useData("home");
 
-  const paintingsData = data?.paintings,
-    printsData = data?.prints,
+  const galleryData = data?.paintings.concat(data?.prints),
     servicesData = data?.services;
 
-  const canLoad = paintingsData && printsData && servicesData;
+  const canLoad = galleryData && servicesData;
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -44,7 +43,7 @@ const HomeRoute = () => {
 
   if (!canLoad) return <Loading />;
 
-  return <Home data={{ paintingsData, printsData, servicesData }} />;
+  return <Home data={{ galleryData, servicesData }} />;
 };
 
 const MainPagesRoutes = () => {

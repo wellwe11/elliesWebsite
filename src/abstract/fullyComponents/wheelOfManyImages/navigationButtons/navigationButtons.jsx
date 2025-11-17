@@ -87,7 +87,7 @@ const NavigationButtons = ({
   return (
     <div className={classes.navigationButtonsContainer}>
       {leftClickButton}
-      <h3 className={classes.title}>Latest prints</h3>
+      <h3 className={classes.title}>Latest Art</h3>
       {rightClickButton}
     </div>
   );

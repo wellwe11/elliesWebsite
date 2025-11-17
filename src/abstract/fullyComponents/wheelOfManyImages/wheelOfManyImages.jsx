@@ -34,7 +34,7 @@ const Images = ({ data }) => {
   // array containing images
   const mappedImages = useMemo(
     () =>
-      data?.map((obj) => {
+      data?.map((obj, index) => {
         const {
             image,
             _embedded: {
@@ -47,7 +47,7 @@ const Images = ({ data }) => {
         const productTypes = _embedded.details.type;
 
         return (
-          <div key={id} className={classes.imageWrapper}>
+          <div key={index} className={classes.imageWrapper}>
             <QuickView
               src={image}
               secondSrc={restImages}

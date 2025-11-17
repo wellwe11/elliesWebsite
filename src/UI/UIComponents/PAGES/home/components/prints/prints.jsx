@@ -72,6 +72,8 @@ const Prints = ({ data }) => {
       {/* Currently contains nothing except small text */}
       {exploreNewInSection}
       {sectionSeperationImage}
+      {sectionSeperationImage}
+      {sectionSeperationImage}
 
       {sectionSeperationImage}
       <WheelImagesSection data={data} />
