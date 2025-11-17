@@ -1,7 +1,7 @@
 // ProductInfo
 .infoSection {
   padding: 0px var(--spacing-7);
-  padding-right: var(--spacing-2);
+  padding-right: 0px;
 
   display: flex;
   justify-content: space-between;
@@ -11,6 +11,7 @@
   height: 100%;
 
   .closeWrapper {
+    padding-top: var(--spacing-1);
     display: flex;
     justify-content: flex-end;
   }
@@ -24,54 +25,6 @@
   }
 
   .addToCartWrapper {
-  }
-}
-
-.closeButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: var(--spacing-1);
-  padding: calc(var(--spacing-1) / 4);
-
-  transition: background-color 0.1s ease;
-  background-color: var(--c-grey-100);
-
-  svg {
-    will-change: transform;
-    transition: filter 0.1s ease;
-  }
-
-  &:hover {
-    transition: background-color 0.6s ease;
-    background-color: var(--c-grey-200);
-    transform: rotate(-90deg);
-
-    svg {
-      animation: bounce-spin 0.4s ease-out forwards;
-    }
-  }
-
-  @keyframes bounce-spin {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    50% {
-      transform: rotate(110deg);
-    }
-
-    75% {
-      transform: rotate(85deg);
-    }
-
-    90% {
-      transform: rotate(95deg);
-    }
-
-    100% {
-      transform: rotate(90deg);
-    }
   }
 }
 

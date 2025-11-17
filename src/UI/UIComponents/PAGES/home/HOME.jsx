@@ -20,23 +20,6 @@ import NewIn from "./components/newIn/newIn.jsx";
 import Loading from "../../LOADING/loading.jsx";
 import Products from "./componentsPhoneSize/products/products.jsx";
 
-// Categories section
-const categories = {
-  prints: {
-    image: printsCategory,
-  },
-  paintings: {
-    image: artCategory,
-  },
-
-  bookmarks: {
-    image: bookmarksCategory,
-  },
-  stickers: {
-    image: stickersCategory,
-  },
-};
-
 const SectionSeperator = ({ lowMargin = false, withImage = false }) => (
   <div
     className={`${classes.sectionSeperationWrapper} ${
@@ -56,11 +39,6 @@ const Home = ({ data: { paintingsData, printsData, servicesData } }) => {
           <MainPageTopPresentation mainImage={waterColorImage} />
         </section>
 
-        <SectionSeperator lowMargin />
-
-        <section className={classes.categoriesSection}>
-          <Categories categories={categories} />
-        </section>
         <SectionSeperator lowMargin />
 
         <section className={classes.printSection}>

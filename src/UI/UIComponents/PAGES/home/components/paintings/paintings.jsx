@@ -41,7 +41,10 @@ const Paintings = ({ data }) => {
   // section containing most recently added paintings together with some text
   const exploreNewInSection = (
     <section className={classes.exploreNewInSection}>
-      <ExploreNewIn />
+      <ExploreNewIn
+        title={"Paintings"}
+        link={"/gallery?category=paintings&page=1"}
+      />
     </section>
   );
 

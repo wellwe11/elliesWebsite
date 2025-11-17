@@ -1,5 +1,12 @@
 .loadingContainer {
   height: 100vh;
-  width: var(--pageWidhtNoScrollBar);
   min-height: 500px;
+  width: var(--pageWidhtNoScrollBar);
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000000;
+
+  background-color: var(--websiteContainerColor);
 }

@@ -53,7 +53,7 @@ const Prints = ({ data }) => {
   // section containing most recently added print together with some text
   const exploreNewInSection = (
     <section className={classes.exploreNewInSection}>
-      <ExploreNewIn />
+      <ExploreNewIn title={"Prints"} link={"/gallery?category=prints&page=1"} />
     </section>
   );
 

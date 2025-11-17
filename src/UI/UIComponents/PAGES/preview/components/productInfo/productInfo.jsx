@@ -9,6 +9,7 @@ import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 import X_SVG from "@components/SVGS/X_SVG/X_SVG.jsx";
 import bodyNoScroll from "@functions/bodyNoScroll.js";
 import AddToCart from "./components/addToCart/addToCart.jsx";
+import CloseButton from "@components/closeButton/closeButton.jsx";
 
 const InfoProductTitle = ({ title }) => (
   <h1 className={previewClass.titleTypeText}>{title}</h1>
@@ -53,16 +54,6 @@ const QuickViewImageOptions = ({
 const CurrentlySelectedProduct = ({ activeImageIndex }) => (
   <h6 className={previewClass.bioTypeText}>Product: {+activeImageIndex + 1}</h6>
 );
-
-const CloseButton = () => {
-  const { enableScroll } = bodyNoScroll();
-
-  return (
-    <Link to={-1} className={classes.closeButton} onClick={enableScroll}>
-      <X_SVG />
-    </Link>
-  );
-};
 
 const ProductInfo = ({
   obj,

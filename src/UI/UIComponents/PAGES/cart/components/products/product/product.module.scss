@@ -4,9 +4,13 @@
   display: flex;
   justify-content: space-between;
 
-  padding: var(--spacing-4);
+  padding: var(--spacing-4) 0px;
 
   border-bottom: 0.5px solid var(--c-grey-300);
+
+  &:first-of-type {
+    border-top: 0.5px solid var(--c-grey-300);
+  }
 
   // leftSection variable
   .leftSection {

@@ -38,13 +38,8 @@
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
-      opacity: 0;
-      transition: opacity 1.5s ease, transform 0.5s ease, filter 0.5s ease;
-      filter: blur(5px);
-      transform: translateY(-5px);
-      will-change: transform, opacity, filter;
 
-      height: clamp(200px, 35vw + 50rem, 500px);
+      height: clamp(200px, 35vw + 50rem, 450px);
 
       .productImageWrapper {
         overflow: hidden;
@@ -111,11 +106,13 @@
 
         .moreImagesWrapper {
           position: relative;
-          height: 100%;
-          width: 40%;
+          max-height: 25px;
+          width: fit-content;
 
           .imageContainer {
-            height: 80%;
+            height: 100%;
+            width: max-content;
+
             overflow: hidden;
 
             position: absolute;
@@ -145,7 +142,7 @@
 
       .name {
         .bioText {
-          font-variation-settings: "wght" 300;
+          font-variation-settings: "wght" 450;
         }
       }
 
@@ -154,7 +151,7 @@
         .bioText {
           color: var(--c-text-200);
 
-          font-variation-settings: "wght" 450;
+          font-variation-settings: "wght" 460;
           cursor: pointer;
 
           z-index: 2;

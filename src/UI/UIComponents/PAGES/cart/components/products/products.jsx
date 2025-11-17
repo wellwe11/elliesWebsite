@@ -9,6 +9,8 @@ const Products = () => {
   const { cart, getItemId } = storeData(),
     cartValues = Object.values(cart);
 
+  console.log(cart);
+
   const cartProductsWrapper = cartValues.map((obj) => (
     <Product
       key={getItemId(obj.item)}

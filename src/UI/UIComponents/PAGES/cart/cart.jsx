@@ -7,11 +7,12 @@ import bodyNoScroll from "@functions/bodyNoScroll.js";
 
 import storeData from "../../routeContainer/zustandObject/storeData.jsx";
 import Products from "./components/products/products.jsx";
+import CloseButton from "@components/closeButton/closeButton.jsx";
 
 const ToPaymentMethod = () => {
   return (
-    <Link>
-      <p className={classes.paymentMethodText}>To payment method</p>
+    <Link className={classes.paymentLink} to={"/paymentMethod"}>
+      <p className={classes.paymentMethodText}>PAYMENT METHOD</p>
     </Link>
   );
 };
@@ -38,14 +39,6 @@ const TotalProducts = () => {
       {subtotalWrapper}
       {totalItemsWrapper}
     </div>
-  );
-};
-
-const CloseButton = ({ handleClick }) => {
-  return (
-    <button className={classes.closeButton} onClick={handleClick}>
-      <X_SVG />
-    </button>
   );
 };
 
@@ -83,6 +76,7 @@ const Cart = () => {
 
   return (
     <div className={`${classes.cart}`}>
+      <div className={classes.clickBack} onClick={handleNavigateBack} />
       <div
         className={`${classes.cartWrapper} ${
           isOpen ? classes.isOpen : classes.isClosed
@@ -90,7 +84,7 @@ const Cart = () => {
         ref={cartRef}
       >
         <div className={classes.leftSection}>
-          <h4 className={classes.title}>SHOPPING CART</h4>
+          <h3 className={classes.title}>SHOPPING CART</h3>
 
           <div className={classes.cartBottomSection}>
             <div className={classes.totalProductsWrapper}>

@@ -20,14 +20,18 @@ const ProductBio = ({ product, bioData }) => {
   );
 
   const setTitle = bioData.setTitle,
+    titlelength = 20,
     styledName =
-      setTitle.length > 14
-        ? setTitle.slice(0, setTitle[14] === " " ? 13 : 14) + "..."
+      setTitle.length > titlelength
+        ? setTitle.slice(
+            0,
+            setTitle[titlelength] === " " ? titlelength - 1 : titlelength
+          ) + "..."
         : setTitle; // collections/sets name - I.e. spring-collection, pastel-blue bookmarks collection, etc.
 
   const Name = (
     <div className={classes.name}>
-      <h3 className={classes.bioText}>{capitalizeFirstLetter(styledName)}</h3>
+      <h4 className={classes.bioText}>{capitalizeFirstLetter(styledName)}</h4>
     </div>
   );
 
@@ -103,35 +107,35 @@ const Product = ({ productRefs, index, product }) => {
 const Products = ({ products }) => {
   const productRefs = useRef([]);
 
-  const { intersect } = useMemo(
-    () =>
-      intersecter({
-        style: {
-          transitionDelay: "0.03}s",
-          opacity: "1",
-          transform: "translateY(0)",
-          filter: "blur(0)",
-        },
-        unMount: true,
-        treshhold: 0.4,
-        rootMargin: "0px 0px 0px 0px",
-      }),
-    []
-  );
+  // const { intersect } = useMemo(
+  //   () =>
+  //     intersecter({
+  //       style: {
+  //         transitionDelay: "0.03}s",
+  //         opacity: "1",
+  //         transform: "translateY(0)",
+  //         filter: "blur(0)",
+  //       },
+  //       unMount: true,
+  //       treshhold: 0.4,
+  //       rootMargin: "0px 0px 0px 0px",
+  //     }),
+  //   []
+  // );
 
-  useEffect(() => {
-    if (!products || !productRefs.current.length) return;
+  // useEffect(() => {
+  //   if (!products || !productRefs.current.length) return;
 
-    const observer = productRefs.current.map((el) => {
-      const singleRef = { current: el };
+  //   const observer = productRefs.current.map((el) => {
+  //     const singleRef = { current: el };
 
-      return intersect(singleRef);
-    });
+  //     return intersect(singleRef);
+  //   });
 
-    return () => {
-      observer.forEach((obs) => obs.disconnect());
-    };
-  }, [products.length]);
+  //   return () => {
+  //     observer.forEach((obs) => obs.disconnect());
+  //   };
+  // }, [products.length]);
 
   const mappedProductImages = useMemo(
     () => (

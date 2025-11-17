@@ -4,58 +4,44 @@
   top: 0;
   right: 0;
 
-  width: clamp(400px, (30rem + 30vw), 900px);
+  width: 100%;
+  max-width: inherit;
   height: 100%;
 
   display: flex;
-  justify-content: center;
-
-  &::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-
-    background-color: var(--c-grey-100);
-    opacity: 0.5;
-
-    position: fixed;
-    left: 0;
-    top: 0;
-
-    will-change: opacity;
-    animation: opacityUp 1s ease 1 forwards;
-    opacity: 0;
-    z-index: 9;
-    cursor: pointer;
-  }
+  justify-content: flex-end;
 
   // wrapper for products which have been added to cart by user
   .cartWrapper {
+    will-change: transform;
     z-index: 10;
 
     overflow: hidden;
 
     height: 100%;
-    width: 100%;
+    width: 60%;
 
     display: flex;
 
     justify-content: space-between;
 
     transition: opacity 0.3s ease;
+    background-color: var(--websiteContainerColor);
+
+    padding: var(--spacing-3);
 
     .leftSection,
     .rightSection {
       padding: var(--spacing-3);
       display: flex;
       flex-direction: column;
-      width: 50%;
     }
 
     .leftSection {
+      width: 40%;
+
       justify-content: space-between;
 
-      background-color: var(--websiteContainerColor);
       // title variable
       .title {
         font-variation-settings: "wght" 300;
@@ -66,29 +52,14 @@
 
       // totalProductsWrapper variable
       .totalProductsWrapper {
+        padding-bottom: var(--spacing-3);
       }
 
       // toPaymentMthodWrapper variable
       .toPaymentMethodWrapper {
         height: 50px;
-      }
-
-      @media screen and (min-width: 1441px) {
-        border-right: 1px solid var(--c-grey-300);
-      }
-
-      @media screen and (max-width: 375px) {
         width: 100%;
       }
-    }
-
-    @media screen and (min-width: 1441px) {
-      width: 95vw;
-      max-width: 1440px;
-    }
-
-    @media screen and (max-width: 1440px) {
-      right: 0;
     }
   }
 
@@ -116,19 +87,17 @@
   }
 
   .rightSection {
-    height: 100%;
-    background-color: var(--themeColor);
+    flex: 1;
 
     .closeButtonWrapper {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      padding-bottom: var(--spacing-1);
+      padding-bottom: var(--spacing-4);
     }
     // productsWrapper variable
     .productsWrapper {
-      border-top: 1px solid var(--c-grey-200);
-      border-bottom: 1px solid var(--c-grey-200);
+      padding-right: var(--spacing-3);
 
       display: flex;
       justify-content: center;
@@ -174,6 +143,27 @@
   }
 }
 
+// ToPaymentMethod
+.paymentLink {
+  height: 100%;
+  width: 100%;
+
+  border-radius: var(--spacing-1);
+  border: 1px solid var(--c-grey-200);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color 0.4s ease;
+
+  &:hover {
+    background-color: var(--c-grey-200);
+  }
+
+  .paymentMethodText {
+  }
+}
+
 .isOpen {
   animation: cartOpen 1s ease 1 forwards !important;
   opacity: 1;
@@ -181,9 +171,6 @@
 
 .isClosed {
   opacity: 0;
-}
-
-.paymentMethodText {
 }
 
 @keyframes cartOpen {
@@ -203,5 +190,72 @@
 
   to {
     opacity: 0.5;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .cart {
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+
+      background-color: var(--c-grey-100);
+      opacity: 0.5;
+
+      position: fixed;
+      left: 0;
+      top: 0;
+
+      will-change: opacity;
+      animation: opacityUp 1s ease 1 forwards;
+      opacity: 0;
+      z-index: 9;
+
+      pointer-events: none;
+    }
+
+    .clickBack {
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .cartWrapper {
+    flex-direction: column;
+    overflow-y: scroll !important;
+    width: 100%;
+
+    .leftSection,
+    .rightSection {
+      width: 100% !important;
+    }
+
+    .rightSection {
+      padding: 0 !important;
+    }
+
+    .closeButtonWrapper {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: var(--spacing-3) !important;
+    }
+
+    .productsWrapper {
+      padding: 0px !important;
+
+      .product {
+        background-color: green !important;
+      }
+    }
+  }
+
+  @media screen and (max-width: 650px) {
   }
 }
