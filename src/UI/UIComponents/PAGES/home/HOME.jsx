@@ -25,7 +25,6 @@ const SectionSeperator = ({ lowMargin = false, withImage = false }) => (
 );
 
 const Home = ({ data: { galleryData, servicesData } }) => {
-  console.log(galleryData);
   return (
     <div className={`${classes.home} ${fadeInClass.fade_in_on_load}`}>
       {/* DESKTOP  */}

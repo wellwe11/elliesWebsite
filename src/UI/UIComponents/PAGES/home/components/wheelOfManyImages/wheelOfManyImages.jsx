@@ -1,10 +1,10 @@
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import classes from "./wheelOfManyImages.module.scss";
 
 import NavigationButtons from "./components/navigationButtons/navigationButtons.jsx";
 import QuickView from "./components/quickView/quickView.jsx";
 
-const Images = ({ data, canQuickView }) => {
+const Images = React.memo(({ data, canQuickView }) => {
   // mapped objects using their 'representive-image'
 
   const buttonLimit = data.length; // the limit of marginLeft the wheel can go
@@ -95,7 +95,7 @@ const Images = ({ data, canQuickView }) => {
       {mappedImagesThreeTimes}
     </div>
   );
-};
+});
 
 // Exception to rules. Needs map to allow for isolated logic which will only be applied to this document
 const WheelOfManyImages = ({
