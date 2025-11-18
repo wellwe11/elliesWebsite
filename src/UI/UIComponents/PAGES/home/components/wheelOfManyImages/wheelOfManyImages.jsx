@@ -30,6 +30,7 @@ const Images = ({ data, canQuickView }) => {
     }`,
   };
 
+  console.log();
   // array containing images
   const mappedImages = useMemo(
     () =>
@@ -37,7 +38,7 @@ const Images = ({ data, canQuickView }) => {
         const {
             image,
             _embedded: {
-              details: { width, height, price },
+              details: { price },
             },
             id,
           } = obj,
@@ -55,9 +56,6 @@ const Images = ({ data, canQuickView }) => {
               productId={id}
             />
             <div className={classes.bioContainer}>
-              <p className={`${classes.bio} ${classes.size}`}>
-                {width} x {height}
-              </p>
               <p className={`${classes.bio} ${classes.price}`}>{price} €</p>
             </div>
           </div>

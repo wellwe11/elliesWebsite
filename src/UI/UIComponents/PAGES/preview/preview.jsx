@@ -67,11 +67,11 @@ const ExtendedInfo = ({ productProps }) => {
   // price, type, width, height, frame, description,
   const {
       all: {
-        details: { price, type, height, width },
+        details: { price, type, height, width, set },
         setDescription,
       },
     } = productProps,
-    props = { price, height, width, type },
+    props = { price, height, width, type, set },
     description = setDescription;
 
   return (

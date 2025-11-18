@@ -6,6 +6,85 @@
       {
         "src": "/exampleImages/imageExampleOne.jpg",
         "bio": "This is bio about itemOne"
+      }
+    ],
+
+    "_embedded": {
+      "setTitle": "This is a title for this set",
+      "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+      "details": {
+        "colors": ["Red", "Blue", "White"],
+        "price": 14.99,
+        "height": 35,
+        "width": 25,
+        "amount": 1,
+        "set": "single",
+
+        "type": "prints"
+      },
+      "restImages": [
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleThree.jpg",
+
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleThree.jpg"
+      ]
+    }
+  },
+  {
+    "image": "/exampleImages/imageExampleOne.jpg",
+
+    "images": [
+      {
+        "src": "/exampleImages/imageExampleOne.jpg",
+        "bio": "This is bio about itemOne"
+      },
+      {
+        "src": "/exampleImages/imageExampleTwo.jpg",
+        "bio": "This is bio about itemTwo"
+      }
+    ],
+
+    "_embedded": {
+      "setTitle": "This is a title for this set",
+      "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+      "details": {
+        "colors": ["Red", "Blue", "White"],
+        "price": 14.99,
+        "height": 35,
+        "width": 25,
+        "amount": 2,
+        "set": "set",
+
+        "type": "prints"
+      },
+      "restImages": [
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleThree.jpg",
+
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleThree.jpg"
+      ]
+    }
+  },
+  {
+    "image": "/exampleImages/imageExampleOne.jpg",
+
+    "images": [
+      {
+        "src": "/exampleImages/imageExampleOne.jpg",
+        "bio": "This is bio about itemOne"
       },
       {
         "src": "/exampleImages/imageExampleTwo.jpg",
@@ -27,6 +106,8 @@
         "height": 35,
         "width": 25,
         "amount": 3,
+        "set": "set",
+
         "type": "prints"
       },
       "restImages": [
@@ -72,11 +153,50 @@
         "height": 35,
         "width": 25,
         "amount": 3,
+        "set": "set",
+
         "type": "prints"
       },
       "restImages": [
         "/exampleImages/imageExampleThree.jpg",
         "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleThree.jpg",
+
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleThree.jpg"
+      ]
+    }
+  },
+  {
+    "image": "/exampleImages/imageExampleOne.jpg",
+
+    "images": [
+      {
+        "src": "/exampleImages/imageExampleOne.jpg",
+        "bio": "This is bio about itemOne"
+      }
+    ],
+
+    "_embedded": {
+      "setTitle": "This is a title for this set",
+      "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+      "details": {
+        "colors": ["Red", "Blue", "White"],
+        "price": 14.99,
+        "height": 35,
+        "width": 25,
+        "amount": 1,
+        "set": "single",
+
+        "type": "prints"
+      },
+      "restImages": [
         "/exampleImages/imageExampleOne.jpg",
         "/exampleImages/imageExampleTwo.jpg",
         "/exampleImages/imageExampleOne.jpg",
@@ -117,11 +237,129 @@
         "height": 35,
         "width": 25,
         "amount": 3,
+        "set": "set",
+
         "type": "prints"
       },
       "restImages": [
         "/exampleImages/imageExampleThree.jpg",
         "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleThree.jpg",
+
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleThree.jpg"
+      ]
+    }
+  },
+  {
+    "image": "/exampleImages/imageExampleOne.jpg",
+
+    "images": [
+      {
+        "src": "/exampleImages/imageExampleOne.jpg",
+        "bio": "This is bio about itemOne"
+      }
+    ],
+
+    "_embedded": {
+      "setTitle": "This is a title for this set",
+      "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+      "details": {
+        "colors": ["Red", "Blue", "White"],
+        "price": 14.99,
+        "height": 35,
+        "width": 25,
+        "amount": 1,
+        "set": "single",
+
+        "type": "prints"
+      },
+      "restImages": [
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleThree.jpg",
+
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleThree.jpg"
+      ]
+    }
+  },
+  {
+    "image": "/exampleImages/imageExampleOne.jpg",
+
+    "images": [
+      {
+        "src": "/exampleImages/imageExampleOne.jpg",
+        "bio": "This is bio about itemOne"
+      },
+      {
+        "src": "/exampleImages/imageExampleTwo.jpg",
+        "bio": "This is bio about itemTwo"
+      }
+    ],
+
+    "_embedded": {
+      "setTitle": "This is a title for this set",
+      "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+      "details": {
+        "colors": ["Red", "Blue", "White"],
+        "price": 14.99,
+        "height": 35,
+        "width": 25,
+        "amount": 2,
+        "set": "set",
+
+        "type": "prints"
+      },
+      "restImages": [
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleThree.jpg",
+
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleOne.jpg",
+        "/exampleImages/imageExampleTwo.jpg",
+        "/exampleImages/imageExampleThree.jpg"
+      ]
+    }
+  },
+  {
+    "image": "/exampleImages/imageExampleOne.jpg",
+
+    "images": [
+      {
+        "src": "/exampleImages/imageExampleOne.jpg",
+        "bio": "This is bio about itemOne"
+      }
+    ],
+
+    "_embedded": {
+      "setTitle": "This is a title for this set",
+      "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+      "details": {
+        "colors": ["Red", "Blue", "White"],
+        "price": 14.99,
+        "height": 35,
+        "width": 25,
+        "amount": 1,
+        "set": "single",
+
+        "type": "prints"
+      },
+      "restImages": [
         "/exampleImages/imageExampleOne.jpg",
         "/exampleImages/imageExampleTwo.jpg",
         "/exampleImages/imageExampleOne.jpg",
@@ -162,276 +400,8 @@
         "height": 35,
         "width": 25,
         "amount": 3,
-        "type": "prints"
-      },
-      "restImages": [
-        "/exampleImages/imageExampleThree.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleThree.jpg",
+        "set": "set",
 
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleThree.jpg"
-      ]
-    }
-  },
-  {
-    "image": "/exampleImages/imageExampleOne.jpg",
-
-    "images": [
-      {
-        "src": "/exampleImages/imageExampleOne.jpg",
-        "bio": "This is bio about itemOne"
-      },
-      {
-        "src": "/exampleImages/imageExampleTwo.jpg",
-        "bio": "This is bio about itemTwo"
-      },
-      {
-        "src": "/exampleImages/imageExampleThree.jpg",
-        "bio": "This is bio about itemThree"
-      }
-    ],
-
-    "_embedded": {
-      "setTitle": "This is a title for this set",
-      "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
-
-      "details": {
-        "colors": ["Red", "Blue", "White"],
-        "price": 14.99,
-        "height": 35,
-        "width": 25,
-        "amount": 3,
-        "type": "prints"
-      },
-      "restImages": [
-        "/exampleImages/imageExampleThree.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleThree.jpg",
-
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleThree.jpg"
-      ]
-    }
-  },
-  {
-    "image": "/exampleImages/imageExampleOne.jpg",
-
-    "images": [
-      {
-        "src": "/exampleImages/imageExampleOne.jpg",
-        "bio": "This is bio about itemOne"
-      },
-      {
-        "src": "/exampleImages/imageExampleTwo.jpg",
-        "bio": "This is bio about itemTwo"
-      },
-      {
-        "src": "/exampleImages/imageExampleThree.jpg",
-        "bio": "This is bio about itemThree"
-      }
-    ],
-
-    "_embedded": {
-      "setTitle": "This is a title for this set",
-      "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
-
-      "details": {
-        "colors": ["Red", "Blue", "White"],
-        "price": 14.99,
-        "height": 35,
-        "width": 25,
-        "amount": 3,
-        "type": "prints"
-      },
-      "restImages": [
-        "/exampleImages/imageExampleThree.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleThree.jpg",
-
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleThree.jpg"
-      ]
-    }
-  },
-  {
-    "image": "/exampleImages/imageExampleOne.jpg",
-
-    "images": [
-      {
-        "src": "/exampleImages/imageExampleOne.jpg",
-        "bio": "This is bio about itemOne"
-      },
-      {
-        "src": "/exampleImages/imageExampleTwo.jpg",
-        "bio": "This is bio about itemTwo"
-      },
-      {
-        "src": "/exampleImages/imageExampleThree.jpg",
-        "bio": "This is bio about itemThree"
-      }
-    ],
-
-    "_embedded": {
-      "setTitle": "This is a title for this set",
-      "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
-
-      "details": {
-        "colors": ["Red", "Blue", "White"],
-        "price": 14.99,
-        "height": 35,
-        "width": 25,
-        "amount": 3,
-        "type": "prints"
-      },
-      "restImages": [
-        "/exampleImages/imageExampleThree.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleThree.jpg",
-
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleThree.jpg"
-      ]
-    }
-  },
-  {
-    "image": "/exampleImages/imageExampleOne.jpg",
-
-    "images": [
-      {
-        "src": "/exampleImages/imageExampleOne.jpg",
-        "bio": "This is bio about itemOne"
-      },
-      {
-        "src": "/exampleImages/imageExampleTwo.jpg",
-        "bio": "This is bio about itemTwo"
-      },
-      {
-        "src": "/exampleImages/imageExampleThree.jpg",
-        "bio": "This is bio about itemThree"
-      }
-    ],
-
-    "_embedded": {
-      "setTitle": "This is a title for this set",
-      "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
-
-      "details": {
-        "colors": ["Red", "Blue", "White"],
-        "price": 14.99,
-        "height": 35,
-        "width": 25,
-        "amount": 3,
-        "type": "prints"
-      },
-      "restImages": [
-        "/exampleImages/imageExampleThree.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleThree.jpg",
-
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleThree.jpg"
-      ]
-    }
-  },
-  {
-    "image": "/exampleImages/imageExampleOne.jpg",
-
-    "images": [
-      {
-        "src": "/exampleImages/imageExampleOne.jpg",
-        "bio": "This is bio about itemOne"
-      },
-      {
-        "src": "/exampleImages/imageExampleTwo.jpg",
-        "bio": "This is bio about itemTwo"
-      },
-      {
-        "src": "/exampleImages/imageExampleThree.jpg",
-        "bio": "This is bio about itemThree"
-      }
-    ],
-
-    "_embedded": {
-      "setTitle": "This is a title for this set",
-      "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
-
-      "details": {
-        "colors": ["Red", "Blue", "White"],
-        "price": 14.99,
-        "height": 35,
-        "width": 25,
-        "amount": 3,
-        "type": "prints"
-      },
-      "restImages": [
-        "/exampleImages/imageExampleThree.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleThree.jpg",
-
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleTwo.jpg",
-        "/exampleImages/imageExampleThree.jpg"
-      ]
-    }
-  },
-  {
-    "image": "/exampleImages/imageExampleOne.jpg",
-
-    "images": [
-      {
-        "src": "/exampleImages/imageExampleOne.jpg",
-        "bio": "This is bio about itemOne"
-      },
-      {
-        "src": "/exampleImages/imageExampleTwo.jpg",
-        "bio": "This is bio about itemTwo"
-      },
-      {
-        "src": "/exampleImages/imageExampleThree.jpg",
-        "bio": "This is bio about itemThree"
-      }
-    ],
-
-    "_embedded": {
-      "setTitle": "This is a title for this set",
-      "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
-
-      "details": {
-        "colors": ["Red", "Blue", "White"],
-        "price": 14.99,
-        "height": 35,
-        "width": 25,
-        "amount": 3,
         "type": "prints"
       },
       "restImages": [
@@ -457,14 +427,6 @@
       {
         "src": "/exampleImages/imageExampleOne.jpg",
         "bio": "This is bio about itemOne"
-      },
-      {
-        "src": "/exampleImages/imageExampleTwo.jpg",
-        "bio": "This is bio about itemTwo"
-      },
-      {
-        "src": "/exampleImages/imageExampleThree.jpg",
-        "bio": "This is bio about itemThree"
       }
     ],
 
@@ -477,12 +439,12 @@
         "price": 24.99,
         "height": 35,
         "width": 25,
-        "amount": 3,
+        "amount": 1,
+        "set": "single",
+
         "type": "prints"
       },
       "restImages": [
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleThree.jpg",
         "/exampleImages/imageExampleThree.jpg",
         "/exampleImages/imageExampleOne.jpg",
         "/exampleImages/imageExampleTwo.jpg",
@@ -502,14 +464,6 @@
       {
         "src": "/exampleImages/imageExampleOne.jpg",
         "bio": "This is bio about itemOne"
-      },
-      {
-        "src": "/exampleImages/imageExampleTwo.jpg",
-        "bio": "This is bio about itemTwo"
-      },
-      {
-        "src": "/exampleImages/imageExampleThree.jpg",
-        "bio": "This is bio about itemThree"
       }
     ],
 
@@ -522,12 +476,12 @@
         "price": 19.99,
         "height": 35,
         "width": 25,
-        "amount": 3,
+        "amount": 1,
+        "set": "single",
+
         "type": "prints"
       },
       "restImages": [
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleThree.jpg",
         "/exampleImages/imageExampleOne.jpg",
         "/exampleImages/imageExampleOne.jpg",
         "/exampleImages/imageExampleOne.jpg",
@@ -547,14 +501,6 @@
       {
         "src": "/exampleImages/imageExampleOne.jpg",
         "bio": "This is bio about itemOne"
-      },
-      {
-        "src": "/exampleImages/imageExampleTwo.jpg",
-        "bio": "This is bio about itemTwo"
-      },
-      {
-        "src": "/exampleImages/imageExampleThree.jpg",
-        "bio": "This is bio about itemThree"
       }
     ],
 
@@ -567,13 +513,12 @@
         "price": 19.99,
         "height": 35,
         "width": 25,
-        "amount": 3,
+        "amount": 1,
+        "set": "single",
+
         "type": "prints"
       },
       "restImages": [
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleThree.jpg",
-
         "/exampleImages/imageExampleTwo.jpg",
         "/exampleImages/imageExampleOne.jpg",
         "/exampleImages/imageExampleTwo.jpg",
@@ -614,6 +559,8 @@
         "height": 35,
         "width": 25,
         "amount": 3,
+        "set": "set",
+
         "type": "prints"
       },
       "restImages": [
@@ -638,14 +585,6 @@
       {
         "src": "/exampleImages/imageExampleOne.jpg",
         "bio": "This is bio about itemOne"
-      },
-      {
-        "src": "/exampleImages/imageExampleTwo.jpg",
-        "bio": "This is bio about itemTwo"
-      },
-      {
-        "src": "/exampleImages/imageExampleThree.jpg",
-        "bio": "This is bio about itemThree"
       }
     ],
 
@@ -658,12 +597,12 @@
         "price": 14.99,
         "height": 35,
         "width": 25,
-        "amount": 3,
+        "amount": 1,
+        "set": "single",
+
         "type": "prints"
       },
       "restImages": [
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleOne.jpg",
         "/exampleImages/imageExampleThree.jpg",
         "/exampleImages/imageExampleThree.jpg",
         "/exampleImages/imageExampleTwo.jpg",
@@ -704,6 +643,8 @@
         "height": 35,
         "width": 25,
         "amount": 3,
+        "set": "set",
+
         "type": "prints"
       },
       "restImages": [
@@ -728,14 +669,6 @@
       {
         "src": "/exampleImages/imageExampleOne.jpg",
         "bio": "This is bio about itemOne"
-      },
-      {
-        "src": "/exampleImages/imageExampleTwo.jpg",
-        "bio": "This is bio about itemTwo"
-      },
-      {
-        "src": "/exampleImages/imageExampleThree.jpg",
-        "bio": "This is bio about itemThree"
       }
     ],
 
@@ -748,12 +681,12 @@
         "price": 24.99,
         "height": 35,
         "width": 25,
-        "amount": 3,
+        "amount": 1,
+        "set": "single",
+
         "type": "prints"
       },
       "restImages": [
-        "/exampleImages/imageExampleOne.jpg",
-        "/exampleImages/imageExampleTwo.jpg",
         "/exampleImages/imageExampleThree.jpg",
         "/exampleImages/imageExampleThree.jpg",
         "/exampleImages/imageExampleOne.jpg",
@@ -793,6 +726,8 @@
         "height": 35,
         "width": 25,
         "amount": 3,
+        "set": "set",
+
         "price": 19.99
       },
       "restImages": [
@@ -838,6 +773,8 @@
         "height": 35,
         "width": 25,
         "amount": 3,
+        "set": "set",
+
         "type": "prints"
       },
       "restImages": [
@@ -866,10 +803,6 @@
       {
         "src": "/exampleImages/imageExampleTwo.jpg",
         "bio": "This is bio about itemTwo"
-      },
-      {
-        "src": "/exampleImages/imageExampleThree.jpg",
-        "bio": "This is bio about itemThree"
       }
     ],
 
@@ -882,11 +815,12 @@
         "price": 19.99,
         "height": 35,
         "width": 25,
-        "amount": 3,
+        "amount": 2,
+        "set": "set",
+
         "type": "prints"
       },
       "restImages": [
-        "/exampleImages/imageExampleThree.jpg",
         "/exampleImages/imageExampleTwo.jpg",
         "/exampleImages/imageExampleOne.jpg",
         "/exampleImages/imageExampleThree.jpg",
