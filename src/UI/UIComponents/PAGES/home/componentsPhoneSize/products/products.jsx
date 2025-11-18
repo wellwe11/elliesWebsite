@@ -1,7 +1,6 @@
 import classes from "./products.module.scss";
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 
-import QuickViewButton from "@fullyComponents/quickView/quickViewButton/quickViewButton.jsx";
 import { useNavigate } from "react-router-dom";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG.jsx";
 import { useMemo } from "react";
@@ -40,14 +39,6 @@ const Product = ({ name, image, category, id, handleNavigate }) => {
           className={classes.img}
           src={image}
           alt=""
-          onClick={() =>
-            handleNavigate(`uniqueImage?category=${category}&id=${id}`)
-          }
-        />
-      </div>
-      <div className={classes.buttonWrapper}>
-        <QuickViewButton
-          text={"Explore"}
           onClick={() =>
             handleNavigate(`uniqueImage?category=${category}&id=${id}`)
           }

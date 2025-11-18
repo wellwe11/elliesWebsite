@@ -40,7 +40,6 @@ const FilterSideBarWrapperComponent = ({ dataKeys, category }) => {
   );
 };
 
-// objects with image and some info and a quick-view option
 const ProductsWrapperComponent = ({ page, filteredData }) => {
   const { updatedData, isLoading } = useProductsLogic(page, filteredData);
 

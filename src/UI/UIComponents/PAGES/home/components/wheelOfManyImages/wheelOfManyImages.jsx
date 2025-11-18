@@ -1,9 +1,8 @@
 import { useMemo, useState } from "react";
 import classes from "./wheelOfManyImages.module.scss";
 
-import NavigationButtons from "./navigationButtons/navigationButtons";
-
-import QuickView from "@fullyComponents/quickView/quickView";
+import NavigationButtons from "./components/navigationButtons/navigationButtons.jsx";
+import QuickView from "./components/quickView/quickView.jsx";
 
 const Images = ({ data }) => {
   // mapped objects using their 'representive-image'

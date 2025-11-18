@@ -4,15 +4,15 @@ import fadeInClass from "@classes/fadeInOnLoad.module.scss";
 import MainPageTopPresentation from "./components/mainPageTopPresentation/mainPageTopPresentation.jsx";
 import waterColorImage from "@assets/blueWhiteWaterColor.avif";
 
-import Prints from "./components/prints/prints.jsx";
-
 import Services from "./components/services/services.jsx";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
-import NewIn from "./components/newIn/newIn.jsx";
 
 import Loading from "../../LOADING/loading.jsx";
 import Products from "./componentsPhoneSize/products/products.jsx";
+import SetOfLatestItem from "./components/setOfLatestItem/setOfLatesItem.jsx";
+import WheelOfManyImages from "./components/wheelOfManyImages/wheelOfManyImages.jsx";
+import ExploreNewIn from "./components/exploreNewIn/exploreNewIn.jsx";
 
 const SectionSeperator = ({ lowMargin = false, withImage = false }) => (
   <div
@@ -25,7 +25,6 @@ const SectionSeperator = ({ lowMargin = false, withImage = false }) => (
 );
 
 const Home = ({ data: { galleryData, servicesData } }) => {
-  console.log(galleryData);
   return (
     <div className={`${classes.home} ${fadeInClass.fade_in_on_load}`}>
       {/* DESKTOP  */}
@@ -34,10 +33,19 @@ const Home = ({ data: { galleryData, servicesData } }) => {
           <MainPageTopPresentation mainImage={waterColorImage} />
         </section>
 
-        <SectionSeperator lowMargin />
+        <section>
+          <SectionSeperator lowMargin />
+          <ExploreNewIn title="Explore" />
+        </section>
 
-        <section className={classes.printSection}>
-          <Prints data={galleryData} />
+        <section>
+          <SectionSeperator lowMargin />
+          <SetOfLatestItem data={galleryData} />
+        </section>
+
+        <section>
+          <SectionSeperator lowMargin />
+          <WheelOfManyImages data={galleryData} />
         </section>
 
         <div className={classes.servicesWrapper}>

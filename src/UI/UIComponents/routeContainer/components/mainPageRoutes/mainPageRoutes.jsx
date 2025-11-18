@@ -17,7 +17,7 @@ import dataHandler from "../../functions/dataHandler.js";
 import PageNotFound from "../../../PAGENOTFOUND/pageNotFound.jsx";
 import Navbar from "../../../NAVBAR/navbar.jsx";
 
-const GalleryRoute = ({ location }) => {
+const GalleryRoute = () => {
   const { category, page } = useGetParams();
 
   const { data } = useData("gallery");
