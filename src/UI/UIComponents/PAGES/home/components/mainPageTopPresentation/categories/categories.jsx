@@ -47,7 +47,7 @@ const Button = ({ text = "Please insert text", onClick }) => {
   );
 };
 
-const Categories = () => {
+const Categories = ({ text = "Text" }) => {
   const navigate = useNavigate();
   const navigateToGallery = () => navigate("./gallery?page=1");
 
@@ -55,10 +55,10 @@ const Categories = () => {
     <div className={classes.categories}>
       <div className={classes.contentWrapper}>
         <div className={classes.textWrapper}>
-          <Text>Explore Art in it's different forms with me</Text>
+          {/* <Text>Explore Art in it's different forms with me</Text> */}
         </div>
         <div className={classes.buttonWrapper}>
-          <Button text="Discover" onClick={navigateToGallery} />
+          <Button text={text} onClick={navigateToGallery} />
         </div>
       </div>
     </div>

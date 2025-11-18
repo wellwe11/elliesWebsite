@@ -1,10 +1,10 @@
 {
   "paintings": [
     {
-      "image": "/serviceImages/collections/mainImageOne.png",
+      "image": "/serviceImages/collections/blue/mainImageOne.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -21,21 +21,21 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageTwo.png",
+      "image": "/serviceImages/collections/blue/mainImageTwo.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -54,22 +54,22 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
 
     {
-      "image": "/serviceImages/collections/mainImageThree.png",
+      "image": "/serviceImages/collections/blue/mainImageThree.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -88,26 +88,26 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png"
         ]
       }
     },
 
     {
-      "image": "/serviceImages/collections/mainImageOne.png",
+      "image": "/serviceImages/collections/blue/mainImageOne.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/serviceImages/collections/mainImageTwo.png",
+          "src": "/serviceImages/collections/blue/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         }
       ],
@@ -126,31 +126,31 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
 
     {
-      "image": "/serviceImages/collections/mainImageThree.png",
+      "image": "/serviceImages/collections/blue/mainImageThree.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/serviceImages/collections/mainImageTwo.png",
+          "src": "/serviceImages/collections/blue/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/serviceImages/collections/mainImageThree.png",
+          "src": "/serviceImages/collections/blue/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
@@ -169,24 +169,24 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
 
     {
-      "image": "/serviceImages/collections/mainImageTwo.png",
+      "image": "/serviceImages/collections/blue/mainImageTwo.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -205,26 +205,26 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
 
     {
-      "image": "/serviceImages/collections/mainImageOne.png",
+      "image": "/serviceImages/collections/blue/mainImageOne.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/serviceImages/collections/mainImageTwo.png",
+          "src": "/serviceImages/collections/blue/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         }
       ],
@@ -243,23 +243,23 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
 
     {
-      "image": "/serviceImages/collections/mainImageTwo.png",
+      "image": "/serviceImages/collections/blue/mainImageTwo.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -278,30 +278,30 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
 
     {
-      "image": "/serviceImages/collections/mainImageTwo.png",
+      "image": "/serviceImages/collections/blue/mainImageTwo.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/serviceImages/collections/mainImageTwo.png",
+          "src": "/serviceImages/collections/blue/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/serviceImages/collections/mainImageThree.png",
+          "src": "/serviceImages/collections/blue/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
@@ -320,32 +320,32 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
 
     {
-      "image": "/serviceImages/collections/mainImageOne.png",
+      "image": "/serviceImages/collections/blue/mainImageOne.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/serviceImages/collections/mainImageTwo.png",
+          "src": "/serviceImages/collections/blue/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/serviceImages/collections/mainImageThree.png",
+          "src": "/serviceImages/collections/blue/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
@@ -364,32 +364,32 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png"
         ]
       }
     },
 
     {
-      "image": "/serviceImages/collections/mainImageThree.png",
+      "image": "/serviceImages/collections/blue/mainImageThree.png",
       "images": [
         {
-          "image": "//serviceImages/collections/mainImageOne.jpg",
+          "image": "//serviceImages/collections/blue/mainImageOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "image": "//serviceImages/collections/mainImageTwo.jpg",
+          "image": "//serviceImages/collections/blue/mainImageTwo.jpg",
           "bio": "This is bio about itemTwo"
         },
         {
-          "image": "//serviceImages/collections/mainImageThree.jpg",
+          "image": "//serviceImages/collections/blue/mainImageThree.jpg",
           "bio": "This is bio about itemThree"
         }
       ],
@@ -408,24 +408,24 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
 
     {
-      "image": "/serviceImages/collections/mainImageTwo.png",
+      "image": "/serviceImages/collections/blue/mainImageTwo.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -444,29 +444,29 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageOne.png",
+      "image": "/serviceImages/collections/blue/mainImageOne.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/serviceImages/collections/mainImageTwo.png",
+          "src": "/serviceImages/collections/blue/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/serviceImages/collections/mainImageThree.png",
+          "src": "/serviceImages/collections/blue/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
@@ -484,23 +484,23 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageTwo.png",
+      "image": "/serviceImages/collections/blue/mainImageTwo.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -519,21 +519,21 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageOne.png",
+      "image": "/serviceImages/collections/blue/mainImageOne.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -551,29 +551,29 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageTwo.png",
+      "image": "/serviceImages/collections/blue/mainImageTwo.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/serviceImages/collections/mainImageTwo.png",
+          "src": "/serviceImages/collections/blue/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/serviceImages/collections/mainImageThree.png",
+          "src": "/serviceImages/collections/blue/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
@@ -592,31 +592,31 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageOne.png",
+      "image": "/serviceImages/collections/blue/mainImageOne.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/serviceImages/collections/mainImageTwo.png",
+          "src": "/serviceImages/collections/blue/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/serviceImages/collections/mainImageThree.png",
+          "src": "/serviceImages/collections/blue/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
@@ -634,23 +634,23 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageTwo.png",
+      "image": "/serviceImages/collections/blue/mainImageTwo.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -669,29 +669,29 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png"
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageOne.png",
+      "image": "/serviceImages/collections/blue/mainImageOne.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/serviceImages/collections/mainImageTwo.png",
+          "src": "/serviceImages/collections/blue/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/serviceImages/collections/mainImageThree.png",
+          "src": "/serviceImages/collections/blue/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
@@ -709,31 +709,31 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageTwo.png",
+      "image": "/serviceImages/collections/blue/mainImageTwo.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/serviceImages/collections/mainImageTwo.png",
+          "src": "/serviceImages/collections/blue/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/serviceImages/collections/mainImageThree.png",
+          "src": "/serviceImages/collections/blue/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
@@ -752,31 +752,31 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageOne.png",
+      "image": "/serviceImages/collections/blue/mainImageOne.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/serviceImages/collections/mainImageTwo.png",
+          "src": "/serviceImages/collections/blue/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/serviceImages/collections/mainImageThree.png",
+          "src": "/serviceImages/collections/blue/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
@@ -794,31 +794,31 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageTwo.png",
+      "image": "/serviceImages/collections/blue/mainImageTwo.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/serviceImages/collections/mainImageTwo.png",
+          "src": "/serviceImages/collections/blue/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/serviceImages/collections/mainImageThree.png",
+          "src": "/serviceImages/collections/blue/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
@@ -835,23 +835,23 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageOne.png",
+      "image": "/serviceImages/collections/blue/mainImageOne.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -869,29 +869,29 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageTwo.png",
+      "image": "/serviceImages/collections/blue/mainImageTwo.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/serviceImages/collections/mainImageTwo.png",
+          "src": "/serviceImages/collections/blue/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/serviceImages/collections/mainImageThree.png",
+          "src": "/serviceImages/collections/blue/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
@@ -910,27 +910,27 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageOne.png",
+      "image": "/serviceImages/collections/blue/mainImageOne.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/serviceImages/collections/mainImageTwo.png",
+          "src": "/serviceImages/collections/blue/mainImageTwo.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
@@ -948,22 +948,22 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageTwo.png",
+      "image": "/serviceImages/collections/blue/mainImageTwo.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -982,29 +982,29 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageOne.png",
+      "image": "/serviceImages/collections/blue/mainImageOne.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/serviceImages/collections/mainImageTwo.png",
+          "src": "/serviceImages/collections/blue/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "src": "/serviceImages/collections/mainImageThree.png",
+          "src": "/serviceImages/collections/blue/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
@@ -1022,23 +1022,23 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     },
     {
-      "image": "/serviceImages/collections/mainImageTwo.png",
+      "image": "/serviceImages/collections/blue/mainImageTwo.png",
       "images": [
         {
-          "src": "/serviceImages/collections/mainImageOne.png",
+          "src": "/serviceImages/collections/blue/mainImageOne.png",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -1057,13 +1057,13 @@
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png"
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageOne.png",
+          "/serviceImages/collections/blue/mainImageTwo.png",
+          "/serviceImages/collections/blue/mainImageTwo.png"
         ]
       }
     }
@@ -1071,11 +1071,11 @@
 
   "prints": [
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
+      "image": "/serviceImages/collections/red/imageExampleOne.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -1095,28 +1095,28 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
 
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg"
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg"
         ]
       }
     },
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
+      "image": "/serviceImages/collections/red/imageExampleOne.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
+          "src": "/serviceImages/collections/red/imageExampleTwo.jpg",
           "bio": "This is bio about itemTwo"
         }
       ],
@@ -1136,33 +1136,33 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
 
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg"
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg"
         ]
       }
     },
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
+      "image": "/serviceImages/collections/red/imageExampleOne.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
+          "src": "/serviceImages/collections/red/imageExampleTwo.jpg",
           "bio": "This is bio about itemTwo"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
+          "src": "/serviceImages/collections/red/imageExampleThree.jpg",
           "bio": "This is bio about itemThree"
         }
       ],
@@ -1182,34 +1182,34 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
 
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg"
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg"
         ]
       }
     },
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
+      "image": "/serviceImages/collections/red/imageExampleOne.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
+          "src": "/serviceImages/collections/red/imageExampleTwo.jpg",
           "bio": "This is bio about itemTwo"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
+          "src": "/serviceImages/collections/red/imageExampleThree.jpg",
           "bio": "This is bio about itemThree"
         }
       ],
@@ -1229,26 +1229,26 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
 
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg"
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg"
         ]
       }
     },
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
+      "image": "/serviceImages/collections/red/imageExampleOne.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -1268,32 +1268,32 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
 
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg"
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg"
         ]
       }
     },
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
+      "image": "/serviceImages/collections/red/imageExampleOne.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
+          "src": "/serviceImages/collections/red/imageExampleTwo.jpg",
           "bio": "This is bio about itemTwo"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
+          "src": "/serviceImages/collections/red/imageExampleThree.jpg",
           "bio": "This is bio about itemThree"
         }
       ],
@@ -1313,26 +1313,26 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
 
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg"
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg"
         ]
       }
     },
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
+      "image": "/serviceImages/collections/red/imageExampleOne.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -1352,28 +1352,28 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
 
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg"
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg"
         ]
       }
     },
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
+      "image": "/serviceImages/collections/red/imageExampleOne.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
+          "src": "/serviceImages/collections/red/imageExampleTwo.jpg",
           "bio": "This is bio about itemTwo"
         }
       ],
@@ -1393,25 +1393,25 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
 
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg"
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg"
         ]
       }
     },
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
+      "image": "/serviceImages/collections/red/imageExampleOne.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -1431,32 +1431,32 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
 
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg"
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg"
         ]
       }
     },
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
+      "image": "/serviceImages/collections/red/imageExampleOne.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
+          "src": "/serviceImages/collections/red/imageExampleTwo.jpg",
           "bio": "This is bio about itemTwo"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
+          "src": "/serviceImages/collections/red/imageExampleThree.jpg",
           "bio": "This is bio about itemThree"
         }
       ],
@@ -1476,27 +1476,27 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
 
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg"
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg"
         ]
       }
     },
 
     {
-      "image": "/exampleImages/imageExampleTwo.jpg",
+      "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -1516,24 +1516,24 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg"
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg"
         ]
       }
     },
 
     {
-      "image": "/exampleImages/imageExampleTwo.jpg",
+      "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -1553,24 +1553,24 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleTwo.jpg"
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg"
         ]
       }
     },
 
     {
-      "image": "/exampleImages/imageExampleThree.jpg",
+      "image": "/serviceImages/collections/red/imageExampleThree.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -1590,32 +1590,32 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg"
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg"
         ]
       }
     },
 
     {
-      "image": "/exampleImages/imageExampleTwo.jpg",
+      "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
+          "src": "/serviceImages/collections/red/imageExampleTwo.jpg",
           "bio": "This is bio about itemTwo"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
+          "src": "/serviceImages/collections/red/imageExampleThree.jpg",
           "bio": "This is bio about itemThree"
         }
       ],
@@ -1635,26 +1635,26 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg"
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg"
         ]
       }
     },
 
     {
-      "image": "/exampleImages/imageExampleThree.jpg",
+      "image": "/serviceImages/collections/red/imageExampleThree.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -1674,32 +1674,32 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleTwo.jpg"
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg"
         ]
       }
     },
 
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
+      "image": "/serviceImages/collections/red/imageExampleOne.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
+          "src": "/serviceImages/collections/red/imageExampleTwo.jpg",
           "bio": "This is bio about itemTwo"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
+          "src": "/serviceImages/collections/red/imageExampleThree.jpg",
           "bio": "This is bio about itemThree"
         }
       ],
@@ -1719,26 +1719,26 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg"
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg"
         ]
       }
     },
 
     {
-      "image": "/exampleImages/imageExampleThree.jpg",
+      "image": "/serviceImages/collections/red/imageExampleThree.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         }
       ],
@@ -1758,31 +1758,31 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg"
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg"
         ]
       }
     },
 
     {
-      "image": "/exampleImages/imageExampleOne.jpg",
+      "image": "/serviceImages/collections/red/imageExampleOne.jpg",
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
+          "src": "/serviceImages/collections/red/imageExampleTwo.jpg",
           "bio": "This is bio about itemTwo"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
+          "src": "/serviceImages/collections/red/imageExampleThree.jpg",
           "bio": "This is bio about itemThree"
         }
       ],
@@ -1802,34 +1802,34 @@
           "price": 19.99
         },
         "restImages": [
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg"
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg"
         ]
       }
     },
 
     {
-      "image": "/exampleImages/imageExampleTwo.jpg",
+      "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
+          "src": "/serviceImages/collections/red/imageExampleTwo.jpg",
           "bio": "This is bio about itemTwo"
         },
         {
-          "src": "/exampleImages/imageExampleThree.jpg",
+          "src": "/serviceImages/collections/red/imageExampleThree.jpg",
           "bio": "This is bio about itemThree"
         }
       ],
@@ -1849,30 +1849,30 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleTwo.jpg"
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg"
         ]
       }
     },
 
     {
-      "image": "/exampleImages/imageExampleTwo.jpg",
+      "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
 
       "images": [
         {
-          "src": "/exampleImages/imageExampleOne.jpg",
+          "src": "/serviceImages/collections/red/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "src": "/exampleImages/imageExampleTwo.jpg",
+          "src": "/serviceImages/collections/red/imageExampleTwo.jpg",
           "bio": "This is bio about itemTwo"
         }
       ],
@@ -1892,15 +1892,15 @@
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleTwo.jpg"
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleOne.jpg",
+          "/serviceImages/collections/red/imageExampleThree.jpg",
+          "/serviceImages/collections/red/imageExampleTwo.jpg"
         ]
       }
     }

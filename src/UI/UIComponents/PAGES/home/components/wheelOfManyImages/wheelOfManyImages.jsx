@@ -56,7 +56,7 @@ const Images = ({ data, canQuickView }) => {
             />
             <div className={classes.bioContainer}>
               <p className={`${classes.bio} ${classes.type}`}>
-                {type} - {set}
+                {type} - <span>{set}</span>
               </p>
 
               <p className={`${classes.bio} ${classes.price}`}>{price} €</p>

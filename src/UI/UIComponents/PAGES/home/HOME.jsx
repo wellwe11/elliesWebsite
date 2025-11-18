@@ -2,6 +2,7 @@ import classes from "./HOME.module.scss";
 import fadeInClass from "@classes/fadeInOnLoad.module.scss";
 
 import MainPageTopPresentation from "./components/mainPageTopPresentation/mainPageTopPresentation.jsx";
+import LogoImageTopPresentation from "/frontPage/logo.png";
 import waterColorImage from "@assets/blueWhiteWaterColor.avif";
 
 import Services from "./components/services/services.jsx";
@@ -24,17 +25,21 @@ const SectionSeperator = ({ lowMargin = false, withImage = false }) => (
 );
 
 const Home = ({ data: { galleryData, servicesData } }) => {
+  console.log(galleryData);
   return (
     <div className={`${classes.home} ${fadeInClass.fade_in_on_load}`}>
       {/* DESKTOP  */}
       <div className={classes.desktop}>
         <section className={classes.topSection}>
-          <MainPageTopPresentation mainImage={waterColorImage} />
+          <MainPageTopPresentation
+            mainImage={waterColorImage}
+            logoImage={LogoImageTopPresentation}
+          />
         </section>
 
         <section className={classes.exploreNewInSection}>
           <SectionSeperator lowMargin />
-          <ExploreNewIn title="Gallery" />
+          <ExploreNewIn title="Studio" linkText={"Gallery"} />
         </section>
 
         <section className={classes.setOfLatestItemSection}>

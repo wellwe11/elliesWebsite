@@ -3,10 +3,10 @@ import classes from "./exploreNewIn.module.scss";
 import placeholderImage from "/frontPage/colorsPlaceholder.jpg";
 
 const placeholderTitle = `Prints`;
-const placeholderText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`;
-const placeholderBio = `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.`;
+const placeholderText = `Here at art & cards. co, we aim to transport you to a world full of happiness, colour and wonder in the form of beautifully Illustrated Wall Art, Homewares and Accessories.`;
+const placeholderBio = `Dive in & explore the world of art with paintings and prints.`;
 
-const ExploreButton = ({ children, link = "/gallery?page=1" }) => {
+const ExploreButton = ({ children = "add text", link = "/gallery?page=1" }) => {
   return (
     <Link className={classes.link} to={link}>
       <h6 className={classes.text}>{children}</h6>
@@ -19,6 +19,7 @@ const ExploreNewIn = ({
   text = placeholderText,
   bio = placeholderBio,
   img = placeholderImage,
+  linkText,
   link,
 }) => {
   return (
@@ -35,7 +36,7 @@ const ExploreNewIn = ({
             <p className={classes.text}>{text}</p>
             <p className={classes.bio}>{bio}</p>
           </div>
-          <ExploreButton link={link}>Explore</ExploreButton>
+          <ExploreButton link={link}>{linkText}</ExploreButton>
         </div>
       </div>
     </div>

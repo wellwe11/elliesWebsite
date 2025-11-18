@@ -16,16 +16,48 @@
     height: 100vh;
     max-height: 950px;
 
-    .mainImageWrapper {
-      animation: pageLoad 2s ease-out 1 forwards;
-      transform: scale(1.4);
-      width: 100%;
-      height: 100%;
+    .logoContainer {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -90%);
+
+      @media screen and (max-height: 475px) {
+        display: none;
+      }
+
+      .iconImage {
+        width: clamp(300px, 25vw, 400px);
+
+        object-fit: contain;
+      }
+
+      .mainImageWrapper {
+        animation: pageLoad 2s ease-out 1 forwards;
+        transform: scale(1.4);
+        width: 100%;
+        height: 100%;
+      }
 
       .mainImage {
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+    }
+
+    .logoTextWrapper {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+
+      transform: translate(-50%, -35%);
+
+      .text {
+        font-variation-settings: "wght" 300;
+        font-family: "Mrs Saint Delafield", cursive;
+        font-size: clamp(40px, 10vw, 60px);
       }
     }
   }
@@ -36,8 +68,8 @@
 
   .categoriesWrapper {
     position: absolute;
-    top: 69%;
-    left: 10%;
+    top: 68%;
+    left: 53%;
     transform: translate(-50%, -50%);
     width: fit-content;
   }
