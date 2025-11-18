@@ -1001,7 +1001,7 @@
         "images": [
           "serviceImages/collections/red/imageExampleOne.jpg",
           "serviceImages/collections/red/imageExampleTwo.jpg",
-          "serviceImages/collections/serviceImages/collections/red/imageExampleThree.jpg"
+          "serviceImages/collections/red/imageExampleThree.jpg"
         ],
         "bio_title": "This is title for this collection",
         "bio_info": "This if information for this collection"
@@ -1023,7 +1023,7 @@
         "images": [
           "serviceImages/collections/red/imageExampleOne.jpg",
           "serviceImages/collections/red/imageExampleTwo.jpg",
-          "serviceImages/collections/serviceImages/collections/red/imageExampleThree.jpg"
+          "serviceImages/collections/red/imageExampleThree.jpg"
         ],
         "bio_title": "This is title for this collection",
         "bio_info": "This if information for this collection"

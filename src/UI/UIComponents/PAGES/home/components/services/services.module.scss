@@ -103,25 +103,39 @@
     width: 15%;
     position: absolute;
 
+    --marginRight: 7%;
+    --marginTop: 27%;
+
     &.image0 {
-      right: 27%;
-      top: 33%;
+      right: calc(var(--marginRight) * 6.5);
+      top: var(--marginTop);
     }
 
     &.image1 {
-      right: 47.5%;
-      top: 33%;
+      right: calc(var(--marginRight) * 3.55);
+      top: var(--marginTop);
     }
 
     &.image2 {
-      right: 7%;
-      top: 33%;
+      right: calc(var(--marginRight) * 0.7);
+      top: var(--marginTop);
     }
 
     .paintImage {
-      height: 100%;
-      width: 100%;
       object-fit: contain;
+
+      height: 14rem;
+      width: 7rem;
+
+      @media screen and (max-width: 1440px) {
+        height: 12.5rem;
+        width: 6.5rem;
+      }
+
+      @media screen and (max-width: 1400px) {
+        height: 12vw;
+        width: 6vw;
+      }
     }
   }
 }
