@@ -8,18 +8,23 @@ const QuickViewImage = ({ src, secondSrc, handleNavigate }) => {
   return (
     <div className={classes.quickViewImageWrapper}>
       <img
-        className={classes.productImage}
+        className={`${classes.productImage} ${
+          secondSrc ? classes.secondImageExists : ""
+        }`}
         src={src}
         alt=""
         onLoad={(e) => e.currentTarget.classList.add(classes.loaded)}
       />
-
-      <img
-        className={classes.productImage}
-        src={secondSrc}
-        alt=""
-        onClick={handleNavigate}
-      />
+      {secondSrc && (
+        <img
+          className={`${classes.productImage} ${
+            secondSrc ? classes.secondImageExists : ""
+          }`}
+          src={secondSrc}
+          alt=""
+          onClick={handleNavigate}
+        />
+      )}
     </div>
   );
 };

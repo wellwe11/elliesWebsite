@@ -1,39 +1,26 @@
 {
   "paintings": [
     {
-      "id": "painting-001",
       "image": "/serviceImages/collections/mainImageOne.png",
       "images": [
         {
-          "id": "painting-001-img-01",
           "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
-        },
-        {
-          "id": "painting-001-img-02",
-          "src": "/serviceImages/collections/mainImageTwo.png",
-          "bio": "This is bio about itemTwoasd"
-        },
-        {
-          "id": "painting-001-img-03",
-          "src": "/serviceImages/collections/mainImageThree.png",
-          "bio": "This is bio about itemThreeqwdf"
         }
       ],
       "_embedded": {
-        "setTitle": "Flower set",
+        "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
           "width": 25,
-          "amount": 3,
+          "amount": 1,
+          "set": "single",
           "type": "paintings"
         },
         "restImages": [
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
           "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageOne.png",
@@ -45,34 +32,140 @@
       }
     },
     {
-      "id": "painting-002",
+      "image": "/serviceImages/collections/mainImageTwo.png",
+      "images": [
+        {
+          "src": "/serviceImages/collections/mainImageOne.png",
+          "bio": "This is bio about itemOne"
+        }
+      ],
+      "_embedded": {
+        "setTitle": "This is a title for this set",
+        "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+        "details": {
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25,
+          "amount": 1,
+          "set": "single",
+
+          "type": "paintings"
+        },
+        "restImages": [
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png"
+        ]
+      }
+    },
+
+    {
       "image": "/serviceImages/collections/mainImageThree.png",
       "images": [
         {
-          "id": "painting-002-img-01",
+          "src": "/serviceImages/collections/mainImageOne.png",
+          "bio": "This is bio about itemOne"
+        }
+      ],
+      "_embedded": {
+        "setTitle": "This is a title for this set",
+        "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+        "details": {
+          "colors": ["Blue", "White"],
+          "price": 24.99,
+          "height": 35,
+          "width": 25,
+          "amount": 1,
+          "set": "single",
+
+          "type": "paintings"
+        },
+        "restImages": [
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png"
+        ]
+      }
+    },
+
+    {
+      "image": "/serviceImages/collections/mainImageOne.png",
+      "images": [
+        {
           "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "id": "painting-002-img-02",
+          "src": "/serviceImages/collections/mainImageTwo.png",
+          "bio": "This is bio about itemTwoasd"
+        }
+      ],
+      "_embedded": {
+        "setTitle": "This is a title for this set",
+        "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+        "details": {
+          "colors": ["Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25,
+          "amount": 2,
+          "set": "set",
+
+          "type": "paintings"
+        },
+        "restImages": [
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png"
+        ]
+      }
+    },
+
+    {
+      "image": "/serviceImages/collections/mainImageThree.png",
+      "images": [
+        {
+          "src": "/serviceImages/collections/mainImageOne.png",
+          "bio": "This is bio about itemOne"
+        },
+        {
           "src": "/serviceImages/collections/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "id": "painting-002-img-03",
           "src": "/serviceImages/collections/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
       "_embedded": {
-        "setTitle": "Flower set",
+        "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
         "details": {
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
           "width": 25,
           "amount": 3,
+          "set": "set",
+
           "type": "paintings"
         },
         "restImages": [
@@ -88,35 +181,142 @@
         ]
       }
     },
+
     {
-      "id": "painting-003",
       "image": "/serviceImages/collections/mainImageTwo.png",
       "images": [
         {
-          "id": "painting-003-img-01",
+          "src": "/serviceImages/collections/mainImageOne.png",
+          "bio": "This is bio about itemOne"
+        }
+      ],
+      "_embedded": {
+        "setTitle": "This is a title for this set",
+        "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+        "details": {
+          "colors": ["Blue", "White"],
+          "price": 24.99,
+          "height": 35,
+          "width": 25,
+          "amount": 1,
+          "set": "single",
+
+          "type": "paintings"
+        },
+        "restImages": [
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png"
+        ]
+      }
+    },
+
+    {
+      "image": "/serviceImages/collections/mainImageOne.png",
+      "images": [
+        {
           "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "id": "painting-003-img-02",
+          "src": "/serviceImages/collections/mainImageTwo.png",
+          "bio": "This is bio about itemTwoasd"
+        }
+      ],
+      "_embedded": {
+        "setTitle": "This is a title for this set",
+        "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+        "details": {
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25,
+          "amount": 2,
+          "set": "set",
+
+          "type": "paintings"
+        },
+        "restImages": [
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png"
+        ]
+      }
+    },
+
+    {
+      "image": "/serviceImages/collections/mainImageTwo.png",
+      "images": [
+        {
+          "src": "/serviceImages/collections/mainImageOne.png",
+          "bio": "This is bio about itemOne"
+        }
+      ],
+      "_embedded": {
+        "setTitle": "This is a title for this set",
+        "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+        "details": {
+          "colors": ["Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25,
+          "amount": 1,
+          "set": "single",
+
+          "type": "paintings"
+        },
+        "restImages": [
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png"
+        ]
+      }
+    },
+
+    {
+      "image": "/serviceImages/collections/mainImageTwo.png",
+      "images": [
+        {
+          "src": "/serviceImages/collections/mainImageOne.png",
+          "bio": "This is bio about itemOne"
+        },
+        {
           "src": "/serviceImages/collections/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "id": "painting-003-img-03",
           "src": "/serviceImages/collections/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
       "_embedded": {
-        "setTitle": "Flower set",
+        "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
         "details": {
           "colors": ["Blue", "White"],
           "price": 24.99,
           "height": 35,
           "width": 25,
           "amount": 3,
+          "set": "set",
+
           "type": "paintings"
         },
         "restImages": [
@@ -132,79 +332,35 @@
         ]
       }
     },
+
     {
-      "id": "painting-004",
-      "image": "/serviceImages/collections/mainImageTwo.png",
-      "images": [
-        {
-          "id": "painting-004-img-01",
-          "src": "/serviceImages/collections/mainImageOne.png",
-          "bio": "This is bio about itemOne"
-        },
-        {
-          "id": "painting-004-img-02",
-          "src": "/serviceImages/collections/mainImageTwo.png",
-          "bio": "This is bio about itemTwoasd"
-        },
-        {
-          "id": "painting-004-img-03",
-          "src": "/serviceImages/collections/mainImageThree.png",
-          "bio": "This is bio about itemThreeqwdf"
-        }
-      ],
-      "_embedded": {
-        "setTitle": "Flower set",
-        "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
-        "details": {
-          "colors": ["Blue", "White"],
-          "price": 14.99,
-          "height": 35,
-          "width": 25,
-          "amount": 3,
-          "type": "paintings"
-        },
-        "restImages": [
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png"
-        ]
-      }
-    },
-    {
-      "id": "painting-005",
       "image": "/serviceImages/collections/mainImageOne.png",
       "images": [
         {
-          "id": "painting-005-img-01",
           "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "id": "painting-005-img-02",
           "src": "/serviceImages/collections/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "id": "painting-005-img-03",
           "src": "/serviceImages/collections/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
       "_embedded": {
-        "setTitle": "Flower set",
+        "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
         "details": {
           "colors": ["Blue", "White"],
-          "price": 14.99,
+          "price": 19.99,
           "height": 35,
           "width": 25,
           "amount": 3,
+          "set": "set",
+
           "type": "paintings"
         },
         "restImages": [
@@ -212,51 +368,85 @@
           "/serviceImages/collections/mainImageOne.png",
           "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png"
+        ]
+      }
+    },
+
+    {
+      "image": "/serviceImages/collections/mainImageThree.png",
+      "images": [
+        {
+          "image": "//serviceImages/collections/mainImageOne.jpg",
+          "bio": "This is bio about itemOne"
+        },
+        {
+          "image": "//serviceImages/collections/mainImageTwo.jpg",
+          "bio": "This is bio about itemTwo"
+        },
+        {
+          "image": "//serviceImages/collections/mainImageThree.jpg",
+          "bio": "This is bio about itemThree"
+        }
+      ],
+      "_embedded": {
+        "setTitle": "This is a title for this set",
+        "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+        "details": {
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25,
+          "amount": 3,
+          "set": "set",
+
+          "type": "paintings"
+        },
+        "restImages": [
+          "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageOne.png",
           "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageTwo.png"
         ]
       }
     },
+
     {
-      "id": "painting-006",
       "image": "/serviceImages/collections/mainImageTwo.png",
       "images": [
         {
-          "id": "painting-006-img-01",
           "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
-        },
-        {
-          "id": "painting-006-img-02",
-          "src": "/serviceImages/collections/mainImageTwo.png",
-          "bio": "This is bio about itemTwoasd"
-        },
-        {
-          "id": "painting-006-img-03",
-          "src": "/serviceImages/collections/mainImageThree.png",
-          "bio": "This is bio about itemThreeqwdf"
         }
       ],
       "_embedded": {
-        "setTitle": "Flower set",
+        "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
         "details": {
           "colors": ["Blue", "White"],
-          "price": 14.99,
+          "price": 19.99,
           "height": 35,
           "width": 25,
-          "amount": 3,
+          "amount": 1,
+          "set": "single",
+
           "type": "paintings"
         },
         "restImages": [
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageOne.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
-          "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageOne.png",
           "/serviceImages/collections/mainImageTwo.png",
@@ -265,27 +455,23 @@
       }
     },
     {
-      "id": "painting-007",
       "image": "/serviceImages/collections/mainImageOne.png",
       "images": [
         {
-          "id": "painting-007-img-01",
           "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "id": "painting-007-img-02",
           "src": "/serviceImages/collections/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "id": "painting-007-img-03",
           "src": "/serviceImages/collections/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
       "_embedded": {
-        "setTitle": "Flower set",
+        "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Blue", "White"],
@@ -293,14 +479,49 @@
           "height": 35,
           "width": 25,
           "amount": 3,
+          "set": "set",
+
           "type": "paintings"
         },
         "restImages": [
           "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageOne.png",
           "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png"
+        ]
+      }
+    },
+    {
+      "image": "/serviceImages/collections/mainImageTwo.png",
+      "images": [
+        {
+          "src": "/serviceImages/collections/mainImageOne.png",
+          "bio": "This is bio about itemOne"
+        }
+      ],
+      "_embedded": {
+        "setTitle": "This is a title for this set",
+        "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+        "details": {
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25,
+          "amount": 1,
+          "set": "single",
+
+          "type": "paintings"
+        },
+        "restImages": [
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
           "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageOne.png",
           "/serviceImages/collections/mainImageTwo.png",
@@ -309,34 +530,65 @@
       }
     },
     {
-      "id": "painting-008",
+      "image": "/serviceImages/collections/mainImageOne.png",
+      "images": [
+        {
+          "src": "/serviceImages/collections/mainImageOne.png",
+          "bio": "This is bio about itemOne"
+        }
+      ],
+      "_embedded": {
+        "setTitle": "This is a title for this set",
+        "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+        "details": {
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25,
+          "amount": 1,
+          "set": "single",
+
+          "type": "paintings"
+        },
+        "restImages": [
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png"
+        ]
+      }
+    },
+    {
       "image": "/serviceImages/collections/mainImageTwo.png",
       "images": [
         {
-          "id": "painting-008-img-01",
           "src": "/serviceImages/collections/mainImageOne.png",
           "bio": "This is bio about itemOne"
         },
         {
-          "id": "painting-008-img-02",
           "src": "/serviceImages/collections/mainImageTwo.png",
           "bio": "This is bio about itemTwoasd"
         },
         {
-          "id": "painting-008-img-03",
           "src": "/serviceImages/collections/mainImageThree.png",
           "bio": "This is bio about itemThreeqwdf"
         }
       ],
       "_embedded": {
-        "setTitle": "Flower set",
+        "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
         "details": {
-          "colors": ["Red", "Blue", "White"],
+          "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
           "width": 25,
           "amount": 3,
+          "set": "set",
+
           "type": "paintings"
         },
         "restImages": [
@@ -344,8 +596,125 @@
           "/serviceImages/collections/mainImageOne.png",
           "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png"
+        ]
+      }
+    },
+    {
+      "image": "/serviceImages/collections/mainImageOne.png",
+      "images": [
+        {
+          "src": "/serviceImages/collections/mainImageOne.png",
+          "bio": "This is bio about itemOne"
+        },
+        {
+          "src": "/serviceImages/collections/mainImageTwo.png",
+          "bio": "This is bio about itemTwoasd"
+        },
+        {
+          "src": "/serviceImages/collections/mainImageThree.png",
+          "bio": "This is bio about itemThreeqwdf"
+        }
+      ],
+      "_embedded": {
+        "setTitle": "This is a title for this set",
+        "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+        "details": {
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25,
+          "amount": 3,
+          "set": "set",
+
+          "type": "paintings"
+        },
+        "restImages": [
+          "/serviceImages/collections/mainImageOne.png",
           "/serviceImages/collections/mainImageOne.png",
           "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png"
+        ]
+      }
+    },
+    {
+      "image": "/serviceImages/collections/mainImageTwo.png",
+      "images": [
+        {
+          "src": "/serviceImages/collections/mainImageOne.png",
+          "bio": "This is bio about itemOne"
+        }
+      ],
+      "_embedded": {
+        "setTitle": "This is a title for this set",
+        "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+        "details": {
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25,
+          "amount": 1,
+          "set": "single",
+
+          "type": "paintings"
+        },
+        "restImages": [
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png"
+        ]
+      }
+    },
+    {
+      "image": "/serviceImages/collections/mainImageOne.png",
+      "images": [
+        {
+          "src": "/serviceImages/collections/mainImageOne.png",
+          "bio": "This is bio about itemOne"
+        },
+        {
+          "src": "/serviceImages/collections/mainImageTwo.png",
+          "bio": "This is bio about itemTwoasd"
+        },
+        {
+          "src": "/serviceImages/collections/mainImageThree.png",
+          "bio": "This is bio about itemThreeqwdf"
+        }
+      ],
+      "_embedded": {
+        "setTitle": "This is a title for this set",
+        "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+        "details": {
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25,
+          "amount": 3,
+          "set": "set",
+
+          "type": "paintings"
+        },
+        "restImages": [
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageTwo.png",
+          "/serviceImages/collections/mainImageOne.png",
           "/serviceImages/collections/mainImageOne.png",
           "/serviceImages/collections/mainImageTwo.png",
           "/serviceImages/collections/mainImageTwo.png"
@@ -355,43 +724,35 @@
   ],
   "prints": [
     {
-      "id": "print-001",
       "image": "/exampleImages/imageExampleOne.jpg",
+
       "images": [
         {
-          "id": "print-001-img-01",
           "src": "/exampleImages/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
-        },
-        {
-          "id": "print-001-img-02",
-          "src": "/exampleImages/imageExampleTwo.jpg",
-          "bio": "This is bio about itemTwo"
-        },
-        {
-          "id": "print-001-img-03",
-          "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "This is bio about itemThree"
         }
       ],
+
       "_embedded": {
-        "setTitle": "Flower set",
+        "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
         "details": {
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
           "width": 25,
-          "amount": 3,
+          "amount": 1,
+          "set": "single",
+
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
           "/exampleImages/imageExampleOne.jpg",
           "/exampleImages/imageExampleTwo.jpg",
           "/exampleImages/imageExampleOne.jpg",
           "/exampleImages/imageExampleThree.jpg",
+
           "/exampleImages/imageExampleTwo.jpg",
           "/exampleImages/imageExampleOne.jpg",
           "/exampleImages/imageExampleTwo.jpg",
@@ -400,43 +761,40 @@
       }
     },
     {
-      "id": "print-002",
       "image": "/exampleImages/imageExampleOne.jpg",
+
       "images": [
         {
-          "id": "print-002-img-01",
           "src": "/exampleImages/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "id": "print-002-img-02",
           "src": "/exampleImages/imageExampleTwo.jpg",
           "bio": "This is bio about itemTwo"
-        },
-        {
-          "id": "print-002-img-03",
-          "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "This is bio about itemThree"
         }
       ],
+
       "_embedded": {
-        "setTitle": "Flower set",
+        "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
         "details": {
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
           "width": 25,
-          "amount": 3,
+          "amount": 2,
+          "set": "set",
+
           "type": "prints"
         },
         "restImages": [
-          "/exampleImages/imageExampleThree.jpg",
           "/exampleImages/imageExampleOne.jpg",
           "/exampleImages/imageExampleOne.jpg",
           "/exampleImages/imageExampleTwo.jpg",
           "/exampleImages/imageExampleOne.jpg",
           "/exampleImages/imageExampleThree.jpg",
+
           "/exampleImages/imageExampleTwo.jpg",
           "/exampleImages/imageExampleOne.jpg",
           "/exampleImages/imageExampleTwo.jpg",
@@ -445,34 +803,35 @@
       }
     },
     {
-      "id": "print-003",
       "image": "/exampleImages/imageExampleOne.jpg",
+
       "images": [
         {
-          "id": "print-003-img-01",
           "src": "/exampleImages/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "id": "print-003-img-02",
           "src": "/exampleImages/imageExampleTwo.jpg",
           "bio": "This is bio about itemTwo"
         },
         {
-          "id": "print-003-img-03",
           "src": "/exampleImages/imageExampleThree.jpg",
           "bio": "This is bio about itemThree"
         }
       ],
+
       "_embedded": {
-        "setTitle": "Flower set",
+        "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
         "details": {
           "colors": ["Red", "Blue", "White"],
           "price": 14.99,
           "height": 35,
           "width": 25,
           "amount": 3,
+          "set": "set",
+
           "type": "prints"
         },
         "restImages": [
@@ -482,6 +841,7 @@
           "/exampleImages/imageExampleTwo.jpg",
           "/exampleImages/imageExampleOne.jpg",
           "/exampleImages/imageExampleThree.jpg",
+
           "/exampleImages/imageExampleTwo.jpg",
           "/exampleImages/imageExampleOne.jpg",
           "/exampleImages/imageExampleTwo.jpg",
@@ -490,137 +850,133 @@
       }
     },
     {
-      "id": "print-004",
-      "image": "/exampleImages/imageExampleTwo.jpg",
+      "image": "/exampleImages/imageExampleOne.jpg",
+
       "images": [
         {
-          "id": "print-004-img-01",
           "src": "/exampleImages/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "id": "print-004-img-02",
           "src": "/exampleImages/imageExampleTwo.jpg",
           "bio": "This is bio about itemTwo"
         },
         {
-          "id": "print-004-img-03",
           "src": "/exampleImages/imageExampleThree.jpg",
           "bio": "This is bio about itemThree"
         }
       ],
+
       "_embedded": {
-        "setTitle": "Flower set",
+        "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
         "details": {
           "colors": ["Red", "Blue", "White"],
-          "price": 19.99,
+          "price": 14.99,
           "height": 35,
           "width": 25,
           "amount": 3,
+          "set": "set",
+
           "type": "prints"
         },
         "restImages": [
           "/exampleImages/imageExampleThree.jpg",
+          "/exampleImages/imageExampleOne.jpg",
+          "/exampleImages/imageExampleOne.jpg",
           "/exampleImages/imageExampleTwo.jpg",
           "/exampleImages/imageExampleOne.jpg",
           "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
+
           "/exampleImages/imageExampleTwo.jpg",
           "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleTwo.jpg"
+          "/exampleImages/imageExampleTwo.jpg",
+          "/exampleImages/imageExampleThree.jpg"
         ]
       }
     },
     {
-      "id": "print-005",
-      "image": "/exampleImages/imageExampleTwo.jpg",
+      "image": "/exampleImages/imageExampleOne.jpg",
+
       "images": [
         {
-          "id": "print-005-img-01",
+          "src": "/exampleImages/imageExampleOne.jpg",
+          "bio": "This is bio about itemOne"
+        }
+      ],
+
+      "_embedded": {
+        "setTitle": "This is a title for this set",
+        "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
+        "details": {
+          "colors": ["Red", "Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25,
+          "amount": 1,
+          "set": "single",
+
+          "type": "prints"
+        },
+        "restImages": [
+          "/exampleImages/imageExampleOne.jpg",
+          "/exampleImages/imageExampleTwo.jpg",
+          "/exampleImages/imageExampleOne.jpg",
+          "/exampleImages/imageExampleThree.jpg",
+
+          "/exampleImages/imageExampleTwo.jpg",
+          "/exampleImages/imageExampleOne.jpg",
+          "/exampleImages/imageExampleTwo.jpg",
+          "/exampleImages/imageExampleThree.jpg"
+        ]
+      }
+    },
+    {
+      "image": "/exampleImages/imageExampleOne.jpg",
+
+      "images": [
+        {
           "src": "/exampleImages/imageExampleOne.jpg",
           "bio": "This is bio about itemOne"
         },
         {
-          "id": "print-005-img-02",
           "src": "/exampleImages/imageExampleTwo.jpg",
           "bio": "This is bio about itemTwo"
         },
         {
-          "id": "print-005-img-03",
           "src": "/exampleImages/imageExampleThree.jpg",
           "bio": "This is bio about itemThree"
         }
       ],
+
       "_embedded": {
-        "setTitle": "Flower set",
+        "setTitle": "This is a title for this set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+
         "details": {
           "colors": ["Red", "Blue", "White"],
-          "price": 19.99,
+          "price": 14.99,
           "height": 35,
           "width": 25,
           "amount": 3,
+          "set": "set",
+
           "type": "prints"
         },
         "restImages": [
           "/exampleImages/imageExampleThree.jpg",
+          "/exampleImages/imageExampleOne.jpg",
+          "/exampleImages/imageExampleOne.jpg",
           "/exampleImages/imageExampleTwo.jpg",
           "/exampleImages/imageExampleOne.jpg",
           "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
+
           "/exampleImages/imageExampleTwo.jpg",
           "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleTwo.jpg"
-        ]
-      }
-    },
-    {
-      "id": "print-006",
-      "image": "/exampleImages/imageExampleTwo.jpg",
-      "images": [
-        {
-          "id": "print-006-img-01",
-          "src": "/exampleImages/imageExampleOne.jpg",
-          "bio": "Red & blue flower"
-        },
-        {
-          "id": "print-006-img-02",
-          "src": "/exampleImages/imageExampleTwo.jpg",
-          "bio": "Postard size"
-        },
-        {
-          "id": "print-006-img-03",
-          "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "Printed set"
-        }
-      ],
-      "_embedded": {
-        "setTitle": "Flower set",
-        "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
-        "details": {
-          "colors": ["Red", "Blue", "White"],
-          "price": 19.99,
-          "height": 35,
-          "width": 25,
-          "amount": 3,
-          "type": "prints"
-        },
-        "restImages": [
-          "/exampleImages/imageExampleThree.jpg",
           "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleTwo.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleOne.jpg",
-          "/exampleImages/imageExampleThree.jpg",
-          "/exampleImages/imageExampleTwo.jpg"
+          "/exampleImages/imageExampleThree.jpg"
         ]
       }
     }

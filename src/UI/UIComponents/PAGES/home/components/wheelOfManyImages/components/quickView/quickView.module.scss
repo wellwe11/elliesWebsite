@@ -1,5 +1,4 @@
 .quickViewImageContainer {
-  border-radius: var(--spacing-1);
   cursor: pointer;
 
   aspect-ratio: 1 / 1; // force images to stay the same size regardless of them being originally different sizes
@@ -23,7 +22,7 @@
       opacity: 1;
     }
 
-    .productImage {
+    .secondImageExists {
       &:nth-of-type(1) {
         opacity: 0 !important;
       }
@@ -45,6 +44,7 @@
     .productImage {
       position: absolute;
       left: 0;
+      opacity: 1;
 
       width: 100%;
       height: 100%;
@@ -53,8 +53,6 @@
       object-position: center;
       align-content: center;
 
-      opacity: 0;
-
       &:nth-of-type(1) {
         transition: opacity 0.3s ease;
       }
@@ -62,6 +60,10 @@
       &:nth-of-type(2) {
         opacity: 0;
         transition: opacity 0.3s ease;
+      }
+
+      .secondImageExists {
+        opacity: 0;
       }
     }
   }

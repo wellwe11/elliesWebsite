@@ -32,6 +32,10 @@
       // for quickViewButton
       position: relative;
 
+      img {
+        background-color: var(--c-grey-100);
+      }
+
       @media screen and (min-width: 1025px) {
         img {
           padding: var(--spacing-3) 0px;
@@ -39,10 +43,9 @@
       }
 
       .bioContainer {
-        padding: 0px var(--spacing-6);
+        padding: var(--spacing-1) 0;
 
         .bio {
-          text-decoration: underline;
           text-underline-offset: calc(var(--spacing-1) / 2);
           text-decoration-thickness: 1px;
         }
