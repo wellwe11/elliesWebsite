@@ -1011,8 +1011,8 @@
         "name": "Ocean collection",
         "images": [
           "serviceImages/collections/blue/mainImageThree.png",
-          "serviceImages/collections/blue/mainImageOne.png",
-          "serviceImages/collections/blue/mainImageTwo.png"
+          "serviceImages/collections/blue/mainImageTwo.png",
+          "serviceImages/collections/blue/mainImageOne.png"
         ],
         "bio_title": "This is title for this collection",
         "bio_info": "This if information for this collection"
@@ -1021,8 +1021,8 @@
         "id": "service-004",
         "name": "Red collection",
         "images": [
-          "serviceImages/collections/red/imageExampleOne.jpg",
           "serviceImages/collections/red/imageExampleTwo.jpg",
+          "serviceImages/collections/red/imageExampleOne.jpg",
           "serviceImages/collections/red/imageExampleThree.jpg"
         ],
         "bio_title": "This is title for this collection",
