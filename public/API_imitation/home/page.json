@@ -939,20 +939,20 @@
       "images": [
         {
           "src": "/exampleImages/imageExampleOne.jpg",
-          "bio": "This is bio about itemOne"
+          "bio": "Blue & red"
         },
         {
           "src": "/exampleImages/imageExampleTwo.jpg",
-          "bio": "This is bio about itemTwo"
+          "bio": "Print"
         },
         {
           "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "This is bio about itemThree"
+          "bio": "Collection"
         }
       ],
 
       "_embedded": {
-        "setTitle": "This is a title for this set",
+        "setTitle": "Flower set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
 
         "details": {
