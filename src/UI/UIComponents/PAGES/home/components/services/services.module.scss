@@ -6,7 +6,8 @@
   position: relative;
 
   .background {
-    background-color: rgb(244, 244, 238);
+    background-color: var(--websiteContainerColor);
+    background-color: rgb(213, 218, 225);
     height: 100%;
     width: var(--pageWidhtNoScrollBar);
 

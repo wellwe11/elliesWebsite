@@ -8,7 +8,6 @@ import Services from "./components/services/services.jsx";
 
 import SectionSeperationImage from "@components/sectionSeperationImage/sectionSeperationImage";
 
-import Loading from "../../LOADING/loading.jsx";
 import Products from "./componentsPhoneSize/products/products.jsx";
 import SetOfLatestItem from "./components/setOfLatestItem/setOfLatesItem.jsx";
 import WheelOfManyImages from "./components/wheelOfManyImages/wheelOfManyImages.jsx";
@@ -35,10 +34,11 @@ const Home = ({ data: { galleryData, servicesData } }) => {
 
         <section className={classes.exploreNewInSection}>
           <SectionSeperator lowMargin />
-          <ExploreNewIn title="Explore" />
+          <ExploreNewIn title="Gallery" />
         </section>
 
         <section className={classes.setOfLatestItemSection}>
+          <SectionSeperator lowMargin />
           <SectionSeperator lowMargin />
 
           <SetOfLatestItem data={galleryData} />
@@ -66,6 +66,7 @@ const Home = ({ data: { galleryData, servicesData } }) => {
       <h1>insta</h1>
       </section> */}
       </div>
+
       {/* MOBILE */}
       <div className={classes.mobile}>
         <Products data={{ galleryData }} />

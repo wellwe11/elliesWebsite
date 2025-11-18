@@ -46,11 +46,11 @@ const SetOfimagesWithText = ({
   return (
     <div className={classes.setOfImagesWithText}>
       <div className={classes.imagesWithTextWrapper}>
-        {imagesMap}
         <div className={classes.imagesTextWrapper}>
           {bioTitle}
           {scrollingText}
         </div>
+        {imagesMap}
       </div>
     </div>
   );

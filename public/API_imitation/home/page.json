@@ -21,7 +21,7 @@
         }
       ],
       "_embedded": {
-        "setTitle": "This is a title for this set",
+        "setTitle": "Flower set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Blue", "White"],
@@ -65,7 +65,7 @@
         }
       ],
       "_embedded": {
-        "setTitle": "This is a title for this set",
+        "setTitle": "Flower set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Blue", "White"],
@@ -109,7 +109,7 @@
         }
       ],
       "_embedded": {
-        "setTitle": "This is a title for this set",
+        "setTitle": "Flower set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Blue", "White"],
@@ -153,7 +153,7 @@
         }
       ],
       "_embedded": {
-        "setTitle": "This is a title for this set",
+        "setTitle": "Flower set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Blue", "White"],
@@ -197,7 +197,7 @@
         }
       ],
       "_embedded": {
-        "setTitle": "This is a title for this set",
+        "setTitle": "Flower set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Blue", "White"],
@@ -241,7 +241,7 @@
         }
       ],
       "_embedded": {
-        "setTitle": "This is a title for this set",
+        "setTitle": "Flower set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Blue", "White"],
@@ -285,7 +285,7 @@
         }
       ],
       "_embedded": {
-        "setTitle": "This is a title for this set",
+        "setTitle": "Flower set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Blue", "White"],
@@ -329,7 +329,7 @@
         }
       ],
       "_embedded": {
-        "setTitle": "This is a title for this set",
+        "setTitle": "Flower set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Red", "Blue", "White"],
@@ -375,7 +375,7 @@
         }
       ],
       "_embedded": {
-        "setTitle": "This is a title for this set",
+        "setTitle": "Flower set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Red", "Blue", "White"],
@@ -420,7 +420,7 @@
         }
       ],
       "_embedded": {
-        "setTitle": "This is a title for this set",
+        "setTitle": "Flower set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Red", "Blue", "White"],
@@ -465,7 +465,7 @@
         }
       ],
       "_embedded": {
-        "setTitle": "This is a title for this set",
+        "setTitle": "Flower set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Red", "Blue", "White"],
@@ -510,7 +510,7 @@
         }
       ],
       "_embedded": {
-        "setTitle": "This is a title for this set",
+        "setTitle": "Flower set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Red", "Blue", "White"],
@@ -555,7 +555,7 @@
         }
       ],
       "_embedded": {
-        "setTitle": "This is a title for this set",
+        "setTitle": "Flower set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Red", "Blue", "White"],
@@ -586,21 +586,21 @@
         {
           "id": "print-006-img-01",
           "src": "/exampleImages/imageExampleOne.jpg",
-          "bio": "This is bio about itemOne"
+          "bio": "Red & blue flower"
         },
         {
           "id": "print-006-img-02",
           "src": "/exampleImages/imageExampleTwo.jpg",
-          "bio": "This is bio about itemTwo"
+          "bio": "Postard size"
         },
         {
           "id": "print-006-img-03",
           "src": "/exampleImages/imageExampleThree.jpg",
-          "bio": "This is bio about itemThree"
+          "bio": "Printed set"
         }
       ],
       "_embedded": {
-        "setTitle": "This is a title for this set",
+        "setTitle": "Flower set",
         "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
         "details": {
           "colors": ["Red", "Blue", "White"],
@@ -626,7 +626,7 @@
     }
   ],
   "services": {
-    "backgroundImage": "serviceImages/background/wall.png",
+    "backgroundImage": "serviceImages/background/wall.jpg",
     "service_collections": [
       {
         "id": "service-001",

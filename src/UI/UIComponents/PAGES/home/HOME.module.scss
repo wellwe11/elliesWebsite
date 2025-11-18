@@ -1,25 +1,27 @@
 .home {
-  .topSection {
-  }
+  .desktop {
+    .topSection {
+    }
 
-  .exploreNewInSection {
-  }
+    .exploreNewInSection {
+    }
 
-  .setOfLatestItemSection {
-  }
+    .setOfLatestItemSection {
+    }
 
-  .wheelOfManyImagesSection {
-  }
+    .wheelOfManyImagesSection {
+    }
 
-  .serviceSection {
-    @media screen and (max-width: 1024px) {
-      /*
-  * disable component for smaller screens *
-  navigation requires mouse for smooth interaction
-  so disabling it will lead to better user-experience for
-  smaller screen
-  */
-      display: none !important;
+    .serviceSection {
+      @media screen and (max-width: 1024px) {
+        /*
+        * disable component for smaller screens *
+        navigation requires mouse for smooth interaction
+        so disabling it will lead to better user-experience for
+        smaller screen
+        */
+        display: none !important;
+      }
     }
   }
 
