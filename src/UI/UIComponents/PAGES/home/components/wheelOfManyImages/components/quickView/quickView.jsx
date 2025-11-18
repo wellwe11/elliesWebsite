@@ -24,7 +24,13 @@ const QuickViewImage = ({ src, secondSrc, handleNavigate }) => {
   );
 };
 
-const QuickView = ({ src, secondSrc, productType, productId }) => {
+const QuickView = ({
+  src,
+  secondSrc,
+  productType,
+  productId,
+  canQuickView = true,
+}) => {
   const navigate = useNavigate();
   const { disableScroll } = bodyNoScroll();
 
@@ -34,9 +40,11 @@ const QuickView = ({ src, secondSrc, productType, productId }) => {
   return (
     <div className={classes.quickViewImageContainer} onClick={handleNavigate}>
       <QuickViewImage src={src} secondSrc={secondSrc} />
-      <div className={classes.quickViewButtonComponentWrapper}>
-        <QuickViewButton text={<p>Preview</p>} onClick={disableScroll} />
-      </div>
+      {canQuickView && (
+        <div className={classes.quickViewButtonComponentWrapper}>
+          <QuickViewButton text={<p>Preview</p>} onClick={disableScroll} />
+        </div>
+      )}
     </div>
   );
 };

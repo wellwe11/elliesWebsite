@@ -33,28 +33,34 @@ const Home = ({ data: { galleryData, servicesData } }) => {
           <MainPageTopPresentation mainImage={waterColorImage} />
         </section>
 
-        <section>
+        <section className={classes.exploreNewInSection}>
           <SectionSeperator lowMargin />
           <ExploreNewIn title="Explore" />
         </section>
 
-        <section>
+        <section className={classes.setOfLatestItemSection}>
           <SectionSeperator lowMargin />
+
           <SetOfLatestItem data={galleryData} />
-        </section>
-
-        <section>
           <SectionSeperator lowMargin />
-          <WheelOfManyImages data={galleryData} />
         </section>
 
-        <div className={classes.servicesWrapper}>
+        <section className={classes.serviceSection}>
           <SectionSeperator withImage />
-          <section className={classes.serviceSection}>
-            <Services data={servicesData} />
-          </section>
+          <SectionSeperator lowMargin />
+          <Services data={servicesData} />
+          <SectionSeperator lowMargin />
           <SectionSeperator withImage />
-        </div>
+        </section>
+
+        <section className={classes.wheelOfManyImagesSection}>
+          <SectionSeperator lowMargin />
+          <SectionSeperator lowMargin />
+          <WheelOfManyImages data={galleryData} canQuickView={false} />
+
+          <SectionSeperator lowMargin />
+          <SectionSeperator withImage />
+        </section>
 
         {/* <section>
       <h1>insta</h1>

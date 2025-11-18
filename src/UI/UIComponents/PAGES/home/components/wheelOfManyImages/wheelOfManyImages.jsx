@@ -4,7 +4,7 @@ import classes from "./wheelOfManyImages.module.scss";
 import NavigationButtons from "./components/navigationButtons/navigationButtons.jsx";
 import QuickView from "./components/quickView/quickView.jsx";
 
-const Images = ({ data }) => {
+const Images = ({ data, canQuickView }) => {
   // mapped objects using their 'representive-image'
 
   const buttonLimit = data.length; // the limit of marginLeft the wheel can go
@@ -48,6 +48,7 @@ const Images = ({ data }) => {
         return (
           <div key={index} className={classes.imageWrapper}>
             <QuickView
+              canQuickView={canQuickView}
               src={image}
               secondSrc={restImages}
               productType={productTypes}
