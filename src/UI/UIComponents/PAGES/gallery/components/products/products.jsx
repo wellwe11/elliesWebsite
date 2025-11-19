@@ -87,17 +87,14 @@ const Product = ({ productRefs, index, product }) => {
       className={classes.productWrapper}
       ref={(e) => setRef(e, productRefs)}
       style={productStyle}
+      onClick={() =>
+        navigate(`./preview?category=${productType}&id=${productId}`, {
+          state: { backgroundLocation: location.pathname },
+        })
+      }
     >
       <div className={classes.productImageWrapper}>
-        <img
-          src={productImage}
-          className={classes.productImage}
-          onClick={() =>
-            navigate(`./preview?category=${productType}&id=${productId}`, {
-              state: { backgroundLocation: location.pathname },
-            })
-          }
-        />
+        <img src={productImage} className={classes.productImage} />
       </div>
       <ProductBio product={product} bioData={bio} />
     </div>
