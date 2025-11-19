@@ -4,17 +4,18 @@ import { lazy, Suspense, useEffect } from "react";
 
 const Home = lazy(() => import("../../../PAGES/home/HOME.jsx"));
 const Gallery = lazy(() => import("../../../PAGES/gallery/GALLERY.jsx"));
+const PageNotFound = lazy(() =>
+  import("../../../PAGENOTFOUND/pageNotFound.jsx")
+);
+const ContactUs = lazy(() => import("../../../PAGES/contactUs/contactUs.jsx"));
 
-import ContactUs from "../../../PAGES/contactUs/contactUs.jsx";
 import Loading from "../../../LOADING/loading.jsx";
 
-import bodyNoScroll from "@functions/bodyNoScroll.js";
 import useGetLocation from "@hooks/useGetLocation.jsx";
 import useGetParams from "@hooks/useGetParams.jsx";
 
 import useData from "@hooks/useData.jsx";
 import dataHandler from "../../functions/dataHandler.js";
-import PageNotFound from "../../../PAGENOTFOUND/pageNotFound.jsx";
 import Navbar from "../../../NAVBAR/navbar.jsx";
 
 const GalleryRoute = () => {
@@ -48,11 +49,6 @@ const HomeRoute = () => {
 
 const MainPagesRoutes = () => {
   const { state, location } = useGetLocation();
-
-  useEffect(() => {
-    const { enableScroll } = bodyNoScroll();
-    enableScroll();
-  }, []);
 
   return (
     <Suspense fallback={<Loading />}>

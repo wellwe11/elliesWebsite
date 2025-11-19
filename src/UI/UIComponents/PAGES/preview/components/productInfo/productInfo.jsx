@@ -1,13 +1,12 @@
 import classes from "./productInfo.module.scss";
 import previewClass from "../../preview.module.scss";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 
 import ProductDescription from "../productInfo/components/productDescription/productDescription.jsx";
 
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 import X_SVG from "@components/SVGS/X_SVG/X_SVG.jsx";
-import bodyNoScroll from "@functions/bodyNoScroll.js";
+
 import AddToCart from "./components/addToCart/addToCart.jsx";
 import CloseButton from "@components/closeButton/closeButton.jsx";
 
@@ -65,11 +64,6 @@ const ProductInfo = ({
   activeImageIndex,
   setActiveImageIndex,
 }) => {
-  useEffect(() => {
-    const { disableScroll } = bodyNoScroll();
-    disableScroll();
-  }, []);
-
   return (
     <div className={classes.infoSection}>
       <div className={classes.closeWrapper}>

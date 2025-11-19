@@ -1,15 +1,13 @@
 import classes from "./preview.module.scss";
-
 import routeClasses from "../../routeContainer/routeContainer.module.scss";
 
-import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import ProductInfo from "./components/productInfo/productInfo.jsx";
 
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
-import bodyNoScroll from "@functions/bodyNoScroll";
 import ExtendedProductInfo from "./components/extendedProductInfo/extendedProductInfo.jsx";
 
 import Footer from "../../FOOTER/footer.jsx";
@@ -83,13 +81,11 @@ const ExtendedInfo = ({ productProps }) => {
 
 const IsLoading = ({ isLoading }) => {
   const navigate = useNavigate(); // navigates to a backgroundLocation
-  const { enableScroll } = bodyNoScroll();
 
   return (
     <div className={classes.preview}>
       <LoadingWrapper
         onClick={() => {
-          enableScroll();
           navigate(-1);
         }}
         condition={isLoading}

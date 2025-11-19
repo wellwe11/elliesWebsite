@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useSetOfExampleCollectionLogic from "./hooks/useSetOfExampleCollectionLogic.jsx";
 import SetOfimagesWithText from "./components/SetOfImagesWithText/setOfImagesWithText.jsx";
 
-// Example section of a collection of prints - 3 images with scrolling text below as bio
+// Example section of a collection of prints - 3 images with scrolling text as bio
 const SetOfLatestItem = ({ data }) => {
   const { bioInfo } = useSetOfExampleCollectionLogic(data);
   const { linkId, linkType, textBioTitle } = bioInfo;

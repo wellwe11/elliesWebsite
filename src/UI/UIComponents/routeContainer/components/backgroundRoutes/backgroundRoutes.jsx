@@ -1,10 +1,12 @@
+import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
+
 import useData from "@hooks/useData.jsx";
 import useGetLocation from "@hooks/useGetLocation.jsx";
 import useGetParams from "@hooks/useGetParams.jsx";
 
-import Preview from "../../../PAGES/preview/preview.jsx";
-import Cart from "../../../PAGES/cart/cart.jsx";
+const Preview = lazy(() => import("../../../PAGES/preview/preview.jsx"));
+const Cart = lazy(() => import("../../../PAGES/cart/cart.jsx"));
 
 const PreviewRoute = () => {
   const { category, id } = useGetParams();

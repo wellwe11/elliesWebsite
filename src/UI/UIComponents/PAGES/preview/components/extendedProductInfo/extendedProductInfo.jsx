@@ -1,7 +1,8 @@
 import classes from "./extendedProductInfo.module.scss";
 import previewClasses from "../../preview.module.scss";
+
 import frameSizesImage from "@assets/sizeGuide.png";
-import { capitalizeFirstLetter } from "../../../../../../abstract/functions/firstLetterCapital.js";
+import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 
 const DescriptionElement = ({ obj }) => {
   const key = obj[0].toUpperCase();
