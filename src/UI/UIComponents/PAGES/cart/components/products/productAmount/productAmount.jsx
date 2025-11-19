@@ -83,9 +83,14 @@ const Input = ({ product, amount }) => {
 
     if (
       input === "" ||
-      (input !== "" && !isNaN(Number(input)) && Number(input) >= 0)
+      (input !== "" &&
+        !isNaN(Number(input)) &&
+        Number(input) >= 0 &&
+        input < 99)
     ) {
       setValue(input);
+    } else if (input > 99) {
+      setValue(99);
     }
 
     return;

@@ -354,11 +354,18 @@ export const storeData = create((set, get) => ({
         return {
           cart: restOfCart,
         };
-      } else {
+      } else if (amount < 100) {
         return {
           cart: {
             ...state.cart,
             [key]: { ...item, quantity: amount },
+          },
+        };
+      } else {
+        return {
+          cart: {
+            ...state.cart,
+            [key]: { ...item, quantity: 99 },
           },
         };
       }
