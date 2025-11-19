@@ -2,8 +2,18 @@ const dataHandler = (data, category) => {
   if (!data) return [];
 
   // if user navigates to category
-  if (category && data[category]) {
-    return data[category];
+  if (category) {
+    const objValues = Object.values(data).flat();
+
+    const filterObjects = objValues.filter((obj) => {
+      const details = obj._embedded.details;
+
+      const detailsValues = Object.values(details);
+
+      return detailsValues.includes(category);
+    });
+
+    return filterObjects;
   }
 
   // if user has no active category

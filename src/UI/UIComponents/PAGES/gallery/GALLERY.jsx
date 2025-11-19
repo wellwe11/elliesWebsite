@@ -67,7 +67,7 @@ const PageWrapperComponent = ({ filteredData }) => {
   );
 };
 
-const Gallery = ({ data: { category, updatedData, page } }) => {
+const Gallery = ({ data: { category, updatedData, page, dataKeys } }) => {
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [category, page]);
@@ -76,7 +76,7 @@ const Gallery = ({ data: { category, updatedData, page } }) => {
     <div className={`${classes.gallery} ${fadeInClass.fade_in_on_load}`}>
       <div className={classes.galleryTop}>
         <FilterSideBarWrapperComponent
-          dataKeys={["prints", "paintings"]} // all dataKeys are Object names, so dataKeys is i.e. paintings, prints etc.
+          dataKeys={dataKeys}
           category={category}
         />
         <ProductsWrapperComponent filteredData={updatedData} page={page} />

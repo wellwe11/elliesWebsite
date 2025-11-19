@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
-import { lazy, Suspense, useEffect } from "react";
+import React, { lazy, Suspense, useEffect, useMemo } from "react";
 
 const Home = lazy(() => import("../../../PAGES/home/HOME.jsx"));
 const Gallery = lazy(() => import("../../../PAGES/gallery/GALLERY.jsx"));
@@ -25,9 +25,35 @@ const GalleryRoute = () => {
 
   const updatedData = dataHandler(data, category);
 
-  if (!updatedData) return <Loading />;
+  const dataKeys = React.useMemo(() => {
+    if (!data) return;
 
-  return <Gallery data={{ category, page, updatedData }} />;
+    const flattedData = Object.values(data).flat();
+
+    // find all filter-types in all objects
+    const dataKeys = flattedData.map((obj) => {
+      const {
+        _embedded: {
+          details: { set, type },
+        },
+      } = obj;
+
+      return { set, type };
+    });
+
+    const filters = dataKeys.map((obj) => Object.values(obj)).flat();
+    const uniqueFilters = [...new Set(filters)].sort().filter((i) => i);
+
+    return uniqueFilters;
+  }, [data]);
+
+  // flat data
+  // find datakeys (categories to filter by)
+  // find each object based on datakeys
+
+  if (!updatedData || !dataKeys) return <Loading />;
+
+  return <Gallery data={{ category, page, updatedData, dataKeys }} />;
 };
 
 const HomeRoute = () => {
