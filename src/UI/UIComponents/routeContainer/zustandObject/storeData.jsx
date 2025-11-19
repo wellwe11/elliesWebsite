@@ -283,9 +283,9 @@ export const storeData = create((set, get) => ({
             [key]: {
               ...objExists,
               quantity:
-                objExists.quantity > 100 ||
-                objExists.quantity + 1 > 100 ||
-                objExists.quantity + amount > 100
+                objExists.quantity > 99 ||
+                objExists.quantity + 1 > 99 ||
+                objExists.quantity + amount > 99
                   ? 99
                   : objExists.quantity + +amount || objExists.quantity + 1,
             },
