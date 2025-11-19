@@ -10,8 +10,11 @@ const SetOfLatestItem = ({ data }) => {
 
   // if user clicks on any image, will navigate to collection
   const navigate = useNavigate();
+
   const handleNavigate = () =>
-    navigate(`uniqueImage?category=${linkType}&id=${linkId}`);
+    navigate(`./preview?category=${linkType}&id=${linkId}`, {
+      state: { backgroundLocation: location.pathname },
+    });
 
   if (bioInfo) {
     const imagesSrc = bioInfo.images,

@@ -2,7 +2,6 @@ import classes from "./quickView.module.scss";
 
 import { useNavigate } from "react-router-dom";
 import QuickViewButton from "./quickViewButton/quickViewButton.jsx";
-import bodyNoScroll from "@functions/bodyNoScroll";
 
 const QuickViewImage = ({ src, secondSrc, handleNavigate }) => {
   return (
@@ -32,17 +31,18 @@ const QuickView = ({
   canQuickView = true,
 }) => {
   const navigate = useNavigate();
-  const { disableScroll } = bodyNoScroll();
 
   const handleNavigate = () =>
-    navigate(`./preview?category=${productType}&id=${productId}`);
+    navigate(`./preview?category=${productType}&id=${productId}`, {
+      state: { backgroundLocation: location.pathname },
+    });
 
   return (
     <div className={classes.quickViewImageContainer} onClick={handleNavigate}>
       <QuickViewImage src={src} secondSrc={secondSrc} />
       {canQuickView && (
         <div className={classes.quickViewButtonComponentWrapper}>
-          <QuickViewButton text={<p>Preview</p>} onClick={disableScroll} />
+          <QuickViewButton text={<p>Preview</p>} />
         </div>
       )}
     </div>
