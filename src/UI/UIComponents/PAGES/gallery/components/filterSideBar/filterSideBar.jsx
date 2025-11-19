@@ -10,7 +10,7 @@ const FilterSideBar = ({ dataKeys, handleFilter, category }) => {
           <li key={key} className={classes.filterLi}>
             <button
               className={`${classes.filterButton} ${
-                category === key ? classes.filterButtonActive : ""
+                category.includes(key) ? classes.filterButtonActive : ""
               }`}
               onClick={() => handleFilter(key)}
             >

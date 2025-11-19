@@ -24,7 +24,7 @@
         border-radius: 40px;
 
         background-color: var(--websiteContainerColor);
-        transition: background-color 0.2s ease, border 0.4s ease;
+        transition: background-color 0.2s ease, border 0.2s ease;
         border: 1px solid var(--c-grey-200);
 
         .text {
@@ -32,6 +32,7 @@
         }
 
         &:hover {
+          transition: border 0.4s ease;
           border: 1px solid var(--c-grey-300);
         }
       }

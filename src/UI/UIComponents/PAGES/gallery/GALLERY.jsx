@@ -12,19 +12,43 @@ import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackgrou
 import useProductsLogic from "./hooks/useProductsLogic.jsx";
 
 // buttons on left to select specific items based on their type
-const FilterSideBarWrapperComponent = ({ dataKeys, category }) => {
-  const [localCategory, setLocalCategory] = useState(() => category);
+const FilterSideBarWrapperComponent = ({ dataKeys, categories }) => {
+  const [localCategory, setLocalCategory] = useState(() =>
+    categories ? [categories] : []
+  );
+
   const navigate = useNavigate();
 
   const handleFilter = (e) => {
-    if (e === category) {
-      setLocalCategory(null);
-
-      navigate(`/gallery?page=1`); // reset navigation when user clicks button over again
-    } else {
-      setLocalCategory(e);
-      navigate(`/gallery?category=${e}&page=1`);
+    if (e === null) {
+      setLocalCategory([]);
+      return navigate(`/gallery?page=1`);
     }
+
+    const localArr = localCategory;
+
+    const handleArray = () => {
+      if (localArr.includes(e)) {
+        const filteredArr = localArr.filter((a) => a !== e);
+        setLocalCategory(filteredArr);
+        return filteredArr;
+      } else {
+        localArr.push(e);
+        setLocalCategory(localArr);
+        return localArr;
+      }
+    };
+
+    const tempArr = handleArray();
+
+    const stringCategories = tempArr
+      .map((c, index) => `${index > 0 ? "&" : ""}category=${c}`)
+      .join("");
+
+    // const link = `/gallery?${localCategory.forEach((c) => )}`
+
+    return navigate(`/gallery?${stringCategories}&page=1`);
+    // }
   };
 
   return (
@@ -67,17 +91,17 @@ const PageWrapperComponent = ({ filteredData }) => {
   );
 };
 
-const Gallery = ({ data: { category, updatedData, page, dataKeys } }) => {
+const Gallery = ({ data: { categories, updatedData, page, dataKeys } }) => {
   useEffect(() => {
     window.scrollTo({ top: 0 });
-  }, [category, page]);
+  }, [categories, page]);
 
   return (
     <div className={`${classes.gallery} ${fadeInClass.fade_in_on_load}`}>
       <div className={classes.galleryTop}>
         <FilterSideBarWrapperComponent
           dataKeys={dataKeys}
-          category={category}
+          categories={categories}
         />
         <ProductsWrapperComponent filteredData={updatedData} page={page} />
       </div>

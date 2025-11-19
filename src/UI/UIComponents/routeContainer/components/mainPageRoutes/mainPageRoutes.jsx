@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useSearchParams } from "react-router-dom";
 
 import React, { lazy, Suspense, useEffect, useMemo } from "react";
 
@@ -19,11 +19,16 @@ import dataHandler from "../../functions/dataHandler.js";
 import Navbar from "../../../NAVBAR/navbar.jsx";
 
 const GalleryRoute = () => {
-  const { category, page } = useGetParams();
+  const [searchParams] = useSearchParams();
+  const categories =
+    searchParams.getAll("category").length > 0
+      ? searchParams.getAll("category")
+      : null;
+  const page = searchParams.get("page");
 
   const { data } = useData("gallery");
 
-  const updatedData = dataHandler(data, category);
+  const updatedData = dataHandler(data, categories);
 
   const dataKeys = React.useMemo(() => {
     if (!data) return;
@@ -53,7 +58,7 @@ const GalleryRoute = () => {
 
   if (!updatedData || !dataKeys) return <Loading />;
 
-  return <Gallery data={{ category, page, updatedData, dataKeys }} />;
+  return <Gallery data={{ categories, page, updatedData, dataKeys }} />;
 };
 
 const HomeRoute = () => {
