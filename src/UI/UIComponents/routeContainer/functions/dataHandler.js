@@ -14,38 +14,23 @@ const dataHandler = (data, categories) => {
       const { type, ...detailsWithoutType } = details;
 
       const detailsValues = Object.values(detailsWithoutType);
-      console.log(detailsWithoutType);
-
-      /**
-       * User clicks one category type (paintings/prints)
-       ** User clicks one filter type
-       ** User clicks several filter types
-       * User clicks several category types
-       ** user clicks one filter type
-       ** user clicks several filter types
-       */
 
       const productMustMatch = categories.every((e) => ObjKeys.includes(e)); // if only category (paintings/prints) is active
       if (productMustMatch) {
-        console.log(1);
         // Only category is active (prints/paintings)
         return categories.includes(objCategory);
       } else {
-        console.log(2);
-        // If filter is active (set, single, etc.)
+        // if filter is active (set, single etc.)
 
-        // if all objKeys are active (paintings, prints)
         if (ObjKeys.every((e) => categories.includes(e))) {
-          console.log(2.1);
+          // If filter && category is active
 
           return (
             categories.some((e) => detailsValues.includes(e)) &&
             categories.includes(objCategory)
           );
-          // if one objKey filter (paintings, prints) is active
+          // if one category & 1 or more filters is active
         } else {
-          console.log(2.2);
-
           return !ObjKeys.some((e) => categories.includes(e))
             ? categories.some((e) => detailsValues.includes(e))
             : categories.some((e) => detailsValues.includes(e)) &&
@@ -54,7 +39,6 @@ const dataHandler = (data, categories) => {
       }
     });
 
-    console.log(filterObjects);
     return filterObjects;
   }
 

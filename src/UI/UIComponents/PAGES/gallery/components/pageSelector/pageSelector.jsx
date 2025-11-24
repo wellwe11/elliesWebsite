@@ -1,7 +1,7 @@
 import ArrowRoundEdgesSVG from "@components/SVGS/arrowRoundEdgesSVG/arrowRoundEdgesSVG";
 import classes from "./pageSelector.module.scss";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import usePageNumbersLogic from "./hooks/usePageNumbersLogic.jsx";
 import useGetParams from "@hooks/useGetParams.jsx";
 
@@ -22,7 +22,7 @@ const NavButton = ({ onClick, disabled, label }) => {
 // change page forward - increment page
 const RightButton = ({ page, maxPage, navigate, category }) => {
   const url = category
-    ? `/gallery?category=${category}&page=${page + 1}`
+    ? `/gallery?${category}&page=${page + 1}`
     : `/gallery?page=${page + 1}`;
 
   const increment = () => {
@@ -48,7 +48,7 @@ const RightButton = ({ page, maxPage, navigate, category }) => {
 // change page backwards - decrement page
 const LeftButton = ({ page, navigate, category }) => {
   const url = category
-    ? `/gallery?category=${category}&page=${page - 1}`
+    ? `/gallery?${category}&page=${page - 1}`
     : `/gallery?page=${page - 1}`;
 
   const decrement = () => {
@@ -92,9 +92,7 @@ const PageNumbers = ({ page, maxPage, navigate, category }) => {
           style={{
             gridColumn: +index + 1,
           }}
-          onClick={() =>
-            navigate(`/gallery?category=${category}&page=${arrNr}`)
-          } // changes current page if you click a number (and not previous/next)
+          onClick={() => navigate(`/gallery?${category}&page=${arrNr}`)} // changes current page if you click a number (and not previous/next)
         >
           <p
             className={classes.btnText}
@@ -116,7 +114,7 @@ const BackToZeroButton = ({ page, maxPage, navigate, category }) => {
   return (
     <div className={classes.backToZeroButtonWrapper} style={backToZeroStyle}>
       <button
-        onClick={() => navigate(`/gallery?category=${category}&page=${1}`)}
+        onClick={() => navigate(`/gallery?${category}&page=${1}`)}
         style={backToZeroStyle}
         className={classes.pageSelectorButton}
       >
@@ -130,28 +128,39 @@ const BackToZeroButton = ({ page, maxPage, navigate, category }) => {
 const PageSelector = ({ maxPage }) => {
   const navigate = useNavigate();
 
-  const { page, category } = useGetParams();
+  const [searchParams] = useSearchParams();
+  const categories =
+    searchParams.getAll("category").length > 0
+      ? searchParams.getAll("category")
+      : null;
+  const page = +searchParams.get("page");
+
+  const stringCategories = categories
+    ? categories
+        .map((c, index) => `${index > 0 ? "&" : ""}category=${c}`)
+        .join("")
+    : "";
 
   return (
     <div className={classes.pageSelector}>
-      <LeftButton page={page} navigate={navigate} category={category} />
+      <LeftButton page={page} navigate={navigate} category={stringCategories} />
       <BackToZeroButton
         page={page}
         maxPage={maxPage}
         navigate={navigate}
-        category={category}
+        category={stringCategories}
       />
       <PageNumbers
         page={page}
         maxPage={maxPage}
         navigate={navigate}
-        category={category}
+        category={stringCategories}
       />
       <RightButton
         page={page}
         maxPage={maxPage}
         navigate={navigate}
-        category={category}
+        category={stringCategories}
       />
     </div>
   );

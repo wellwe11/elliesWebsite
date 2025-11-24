@@ -1,7 +1,7 @@
 import classes from "./GALLERY.module.scss";
 import fadeInClass from "@classes/fadeInOnLoad.module.scss";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import PageSelector from "./components/pageSelector/pageSelector.jsx";
@@ -10,45 +10,49 @@ import Products from "./components/products/products.jsx";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import useProductsLogic from "./hooks/useProductsLogic.jsx";
+import stringToLink from "./functions/stringToLink.js";
+
+const resetFilter = () => {
+  return [];
+};
+
+const removeFilter = (arr, filter) => {
+  return arr.filter((a) => filter !== a);
+};
+
+const addFilter = (arr, filter) => {
+  const localArr = arr;
+  localArr.push(filter);
+
+  return localArr;
+};
+
+const handleArray = (array, e) => {
+  if (array.includes(e)) {
+    return removeFilter(array, e);
+  } else {
+    return addFilter(array, e);
+  }
+};
+
+const handleFilter = (e, arr) => {
+  if (e === null) {
+    return resetFilter;
+  }
+
+  return handleArray(arr, e);
+};
 
 // buttons on left to select specific items based on their type
-const FilterSideBarWrapperComponent = ({ dataKeys, categories }) => {
-  const [localCategory, setLocalCategory] = useState(() =>
-    categories ? [categories] : []
-  );
-
+const FilterSideBarWrapperComponent = ({ categories, dataKeys }) => {
   const navigate = useNavigate();
 
-  const handleFilter = (e) => {
-    if (e === null) {
-      setLocalCategory([]);
-      return navigate(`/gallery?page=1`);
-    }
+  const handleNavigate = (e) => {
+    const activeArr = handleFilter(e, categories || []);
 
-    const localArr = localCategory;
-
-    const handleArray = () => {
-      if (localArr.includes(e)) {
-        const filteredArr = localArr.filter((a) => a !== e);
-        setLocalCategory(filteredArr);
-        return filteredArr;
-      } else {
-        localArr.push(e);
-        setLocalCategory(localArr);
-        return localArr;
-      }
-    };
-
-    const tempArr = handleArray();
-
-    const stringCategories = tempArr
-      .map((c, index) => `${index > 0 ? "&" : ""}category=${c}`)
-      .join("");
-
-    // const link = `/gallery?${localCategory.forEach((c) => )}`
+    const stringCategories = stringToLink(activeArr, "category");
 
     return navigate(`/gallery?${stringCategories}&page=1`);
-    // }
   };
 
   return (
@@ -56,8 +60,8 @@ const FilterSideBarWrapperComponent = ({ dataKeys, categories }) => {
       <div className={classes.filterWrapper}>
         <FilterSideBar
           dataKeys={dataKeys}
-          handleFilter={handleFilter}
-          category={localCategory}
+          handleFilter={handleNavigate}
+          category={categories}
         />
       </div>
     </div>

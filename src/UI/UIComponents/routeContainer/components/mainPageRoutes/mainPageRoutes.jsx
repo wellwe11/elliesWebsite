@@ -1,6 +1,6 @@
 import { Route, Routes, useSearchParams } from "react-router-dom";
 
-import React, { lazy, Suspense, useEffect, useMemo } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 
 const Home = lazy(() => import("../../../PAGES/home/HOME.jsx"));
 const Gallery = lazy(() => import("../../../PAGES/gallery/GALLERY.jsx"));
@@ -12,7 +12,6 @@ const ContactUs = lazy(() => import("../../../PAGES/contactUs/contactUs.jsx"));
 import Loading from "../../../LOADING/loading.jsx";
 
 import useGetLocation from "@hooks/useGetLocation.jsx";
-import useGetParams from "@hooks/useGetParams.jsx";
 
 import useData from "@hooks/useData.jsx";
 import dataHandler from "../../functions/dataHandler.js";
