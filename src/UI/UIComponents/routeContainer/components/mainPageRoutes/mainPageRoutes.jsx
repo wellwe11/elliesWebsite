@@ -23,37 +23,23 @@ const GalleryRoute = () => {
     searchParams.getAll("category").length > 0
       ? searchParams.getAll("category")
       : null;
+
   const page = searchParams.get("page");
 
+  // fetch data from generic gallery object
   const { data } = useData("gallery");
 
+  // flat, sort and add id's to objects
+  // This will contain products
   const updatedData = dataHandler(data, categories);
 
+  // find all filter-types in all objects
+  // This will create filters (based on category)
   const dataKeys = React.useMemo(() => {
     if (!data) return;
 
-    const flattedData = Object.values(data).flat();
-
-    // find all filter-types in all objects
-    const dataKeys = flattedData.map((obj) => {
-      const {
-        _embedded: {
-          details: { set, type },
-        },
-      } = obj;
-
-      return { set, type };
-    });
-
-    const filters = dataKeys.map((obj) => Object.values(obj)).flat();
-    const uniqueFilters = [...new Set(filters)].sort().filter((i) => i);
-
-    return uniqueFilters;
+    return Object.keys(data);
   }, [data]);
-
-  // flat data
-  // find datakeys (categories to filter by)
-  // find each object based on datakeys
 
   if (!updatedData || !dataKeys) return <Loading />;
 

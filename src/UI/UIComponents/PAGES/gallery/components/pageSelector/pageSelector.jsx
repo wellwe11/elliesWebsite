@@ -3,7 +3,6 @@ import classes from "./pageSelector.module.scss";
 
 import { useNavigate, useSearchParams } from "react-router-dom";
 import usePageNumbersLogic from "./hooks/usePageNumbersLogic.jsx";
-import useGetParams from "@hooks/useGetParams.jsx";
 
 // abstract button component which has the same structure & classes for all nav-buttons
 const NavButton = ({ onClick, disabled, label }) => {

@@ -2,21 +2,36 @@ import X_SVG from "@components/SVGS/X_SVG/X_SVG.jsx";
 import classes from "./filterSideBar.module.scss";
 import ButtonWithUnderlineAndUndertext from "@components/buttonWithUnderlineAndUnderText/buttonWithUnderlineAndUndertext";
 
-const FilterSideBar = ({ dataKeys, handleFilter, category }) => {
+const LiEl = ({ category, k, handleFilter }) => {
+  return (
+    <li className={classes.filterLi}>
+      <button
+        className={`${classes.filterButton} ${
+          category?.includes(k) ? classes.filterButtonActive : ""
+        }`}
+        onClick={() => handleFilter(k)}
+      >
+        <p className={classes.text}>{k}</p>
+      </button>
+    </li>
+  );
+};
+
+const SetLi = ({ handleFilter, category }) => {
+  const sets = ["single", "set"];
+
+  return sets.map((type) => (
+    <LiEl key={type} category={category} k={type} handleFilter={handleFilter} />
+  ));
+};
+
+const FilterSideBar = ({ dataKeys, handleFilter, category, Sets }) => {
   return (
     <div className={classes.filterSideBar}>
       <ul className={classes.filterUl}>
-        {dataKeys.map((key) => (
-          <li key={key} className={classes.filterLi}>
-            <button
-              className={`${classes.filterButton} ${
-                category?.includes(key) ? classes.filterButtonActive : ""
-              }`}
-              onClick={() => handleFilter(key)}
-            >
-              <p className={classes.text}>{key}</p>
-            </button>
-          </li>
+        <SetLi Sets={Sets} handleFilter={handleFilter} category={category} />
+        {dataKeys.map((k) => (
+          <LiEl key={k} category={category} k={k} handleFilter={handleFilter} />
         ))}
         {category && (
           <div

@@ -4,25 +4,26 @@ import fadeInClass from "@classes/fadeInOnLoad.module.scss";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import PageSelector from "./components/pageSelector/pageSelector.jsx";
-import FilterSideBar from "./components/filterSideBar/filterSideBar.jsx";
-import Products from "./components/products/products.jsx";
-
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
+
 import useProductsLogic from "./hooks/useProductsLogic.jsx";
 import stringToLink from "./functions/stringToLink.js";
 import handleFilter from "./functions/handleFilter.js";
+
+import PageSelector from "./components/pageSelector/pageSelector.jsx";
+import FilterSideBar from "./components/filterSideBar/filterSideBar.jsx";
+import Products from "./components/products/products.jsx";
 
 // buttons on left to select specific items based on their type
 const FilterSideBarWrapperComponent = ({ categories, dataKeys }) => {
   const navigate = useNavigate();
 
   const handleNavigate = (e) => {
-    const activeArr = handleFilter(e, categories || []);
+    const activeFilters = handleFilter(e, categories || []);
 
-    const stringCategories = stringToLink(activeArr, "category");
-
-    return navigate(`/gallery?${stringCategories}&page=1`);
+    const stringCategories = stringToLink(activeFilters, "category"),
+      link = `/gallery?${stringCategories}&page=1`;
+    return navigate(link);
   };
 
   return (

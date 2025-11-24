@@ -68,14 +68,10 @@ const ProductBio = ({ product, bioData }) => {
 const Product = ({ productRefs, index, product }) => {
   const navigate = useNavigate();
 
-  const {
-      id: productId,
-      image: productImage,
-      _embedded: {
-        details: { type: productType },
-      },
-    } = product,
-    bio = product._embedded;
+  console.log(product);
+
+  const { id: productId, setImages: productImage, type: productType } = product,
+    bio = product.set;
 
   const transitionDelay = `${index * 0.03}s`,
     productStyle = {
@@ -94,14 +90,15 @@ const Product = ({ productRefs, index, product }) => {
       }
     >
       <div className={classes.productImageWrapper}>
-        <img src={productImage} className={classes.productImage} />
+        <img src={productImage[0]} className={classes.productImage} />
       </div>
-      <ProductBio product={product} bioData={bio} />
+      {/* <ProductBio product={product} bioData={bio} /> */}
     </div>
   );
 };
 
 const Products = ({ products }) => {
+  console.log(products);
   const productRefs = useRef([]);
 
   // const { intersect } = useMemo(

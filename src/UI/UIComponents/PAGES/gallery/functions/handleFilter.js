@@ -14,4 +14,4 @@ const handleArray = (array, e) =>
 const handleFilter = (e, arr) =>
   e === null ? resetFilter() : handleArray(arr, e);
 
-export default handleFilter();
+export default handleFilter;
