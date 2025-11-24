@@ -11,37 +11,7 @@ import Products from "./components/products/products.jsx";
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
 import useProductsLogic from "./hooks/useProductsLogic.jsx";
 import stringToLink from "./functions/stringToLink.js";
-
-const resetFilter = () => {
-  return [];
-};
-
-const removeFilter = (arr, filter) => {
-  return arr.filter((a) => filter !== a);
-};
-
-const addFilter = (arr, filter) => {
-  const localArr = arr;
-  localArr.push(filter);
-
-  return localArr;
-};
-
-const handleArray = (array, e) => {
-  if (array.includes(e)) {
-    return removeFilter(array, e);
-  } else {
-    return addFilter(array, e);
-  }
-};
-
-const handleFilter = (e, arr) => {
-  if (e === null) {
-    return resetFilter;
-  }
-
-  return handleArray(arr, e);
-};
+import handleFilter from "./functions/handleFilter.js";
 
 // buttons on left to select specific items based on their type
 const FilterSideBarWrapperComponent = ({ categories, dataKeys }) => {
