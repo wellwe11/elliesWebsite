@@ -1,6 +1,51 @@
 const dataHandler = (data, categories) => {
   if (!data) return [];
 
+  const flattedDataSets = Object.values(data).flat(); // All sets with nested child-elements
+  const flattedIndividualSets = flattedDataSets
+    .map((obj) => {
+      const { setTitle, setDescription, type } = obj;
+
+      obj.setType = obj.set.length > 1 ? "set" : "single";
+      obj.image = obj.setImages[0]; // select a default image
+      obj.price = 0; // add a total price
+
+      // if collection is a single item
+      if (obj.set.length === 1) {
+        const { price, colors, height, width } = obj.set[0].details,
+          image = obj.set[0].image;
+
+        const { set, ...newObj } = obj; // remove set as it is no longer needed
+
+        return {
+          ...newObj,
+          price,
+          image,
+          colors,
+          height,
+          width,
+        };
+      }
+
+      // if collection is a set
+      if (obj.set.length > 1) {
+        return obj.set.map((e, index) => {
+          const productId = +`${obj.id}.${index}`;
+          obj.price += e.details.price; // add to sets total price
+
+          return {
+            ...e,
+            setTitle,
+            setDescription,
+            type,
+            id: productId,
+            setType: "single",
+          };
+        });
+      }
+    })
+    .flat();
+
   // if user navigates to category
   if (categories) {
     const arr = [];
@@ -14,61 +59,19 @@ const dataHandler = (data, categories) => {
     );
 
     if (categories.includes("single")) {
-      const singleItems = objValues.filter((obj) => obj.set.length === 1);
-      arr.push(singleItems);
+      arr.push(flattedIndividualSets);
     }
 
     if (categories.includes("set")) {
-      const setItems = objValues.filter((obj) => obj.set.length > 1);
-      arr.push(setItems);
+      arr.push(flattedDataSets);
     }
 
     arr.push(categoryFilter);
 
     return arr.flat();
-
-    //   const filterObjects = objValues.filter((obj) => {
-    //     const details = obj._embedded.details;
-    //     const objCategory = details.type;
-
-    //     const { type, ...detailsWithoutType } = details;
-
-    //     const detailsValues = Object.values(detailsWithoutType);
-
-    //     const productMustMatch = categories.every((e) => ObjKeys.includes(e)); // if only category (paintings/prints) is active
-    //     if (productMustMatch) {
-    //       // Only category is active (prints/paintings)
-    //       return categories.includes(objCategory);
-    //     } else {
-    //       // if filter is active (set, single etc.)
-
-    //       if (ObjKeys.every((e) => categories.includes(e))) {
-    //         // If filter && category is active
-
-    //         return (
-    //           categories.some((e) => detailsValues.includes(e)) &&
-    //           categories.includes(objCategory)
-    //         );
-    //         // if one category & 1 or more filters is active
-    //       } else {
-    //         return !ObjKeys.some((e) => categories.includes(e))
-    //           ? categories.some((e) => detailsValues.includes(e))
-    //           : categories.some((e) => detailsValues.includes(e)) &&
-    //               categories.includes(objCategory);
-    //       }
-    //     }
-    //   });
-
-    //   return filterObjects;
   }
 
-  // if user has no active category
-  const flattedObjs = Object.values(data) // since fetched data-objects are all stored in varius arrays, we flatten them and sort them based on id
-    .flat()
-    .sort((a, b) => a.id - b.id);
-
-  console.log([flattedObjs, flattedObjs.map((obj) => obj.set).flat()].flat());
-  return [flattedObjs, flattedObjs.map((obj) => obj.set).flat()].flat();
+  return [flattedDataSets, flattedIndividualSets].flat();
 };
 
 export default dataHandler;

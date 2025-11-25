@@ -625,6 +625,7 @@
     {
       "setTitle": "This is a title for this set",
       "setDescription": "this is some text which contains information about tbhis text. For example, this set has a set of 3 images, and they are very nice. Please buy them because I really need money. I would use this money to paint more sets, which is what I love doing, thank",
+      "type": "prints",
       "set": [
         {
           "image": "/serviceImages/collections/red/imageExampleTwo.jpg",

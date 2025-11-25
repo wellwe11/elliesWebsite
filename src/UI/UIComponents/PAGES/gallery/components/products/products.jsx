@@ -8,9 +8,10 @@ import setRef from "@functions/setRefs.js";
 import intersecter from "@functions/interSection.js";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
-const ProductBio = ({ product, bioData }) => {
+const ProductBio = ({ product }) => {
   // I.e. Paintings, Prints etc.
-  const detailsType = bioData.details.type,
+  const detailsType = product.type,
+    setType = product.setType,
     type = capitalizeFirstLetter(detailsType);
 
   const Type = (
@@ -19,7 +20,7 @@ const ProductBio = ({ product, bioData }) => {
     </div>
   );
 
-  const setTitle = bioData.setTitle,
+  const setTitle = product.setTitle,
     titlelength = 20,
     styledName =
       setTitle.length > titlelength
@@ -35,28 +36,13 @@ const ProductBio = ({ product, bioData }) => {
     </div>
   );
 
-  const moreImages = product.images;
-  const moreImagesWrapper = (
-    <div className={classes.moreImagesWrapper}>
-      {moreImages.map((img, index) => (
-        <div
-          key={index}
-          className={classes.imageContainer}
-          style={{ right: `${index * 12}px`, zIndex: -index }}
-        >
-          <img src={img.src} alt="" />
-        </div>
-      ))}
-    </div>
-  );
-
   return (
     <div className={classes.productBioSection}>
       <div className={classes.productBio}>
         <div className={classes.bioTopSection}>
           <div className={classes.nameAndMore}>
             {Name}
-            {moreImagesWrapper}
+            {setType}
           </div>
           <div className={classes.bioInfo}>{Type}</div>
         </div>
@@ -68,10 +54,7 @@ const ProductBio = ({ product, bioData }) => {
 const Product = ({ productRefs, index, product }) => {
   const navigate = useNavigate();
 
-  console.log(product);
-
-  const { id: productId, setImages: productImage, type: productType } = product,
-    bio = product.set;
+  const { id: productId, image, type: productType } = product;
 
   const transitionDelay = `${index * 0.03}s`,
     productStyle = {
@@ -90,9 +73,9 @@ const Product = ({ productRefs, index, product }) => {
       }
     >
       <div className={classes.productImageWrapper}>
-        <img src={productImage[0]} className={classes.productImage} />
+        <img src={image} className={classes.productImage} />
       </div>
-      {/* <ProductBio product={product} bioData={bio} /> */}
+      <ProductBio product={product} />
     </div>
   );
 };
