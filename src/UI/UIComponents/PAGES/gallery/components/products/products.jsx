@@ -11,7 +11,7 @@ import intersecter from "@functions/interSection.js";
 const ProductBio = ({ product }) => {
   // I.e. Paintings, Prints etc.
   const detailsType = product.type,
-    setType = product.setType,
+    setType = product.set,
     type = capitalizeFirstLetter(detailsType);
 
   const Type = (
@@ -81,7 +81,6 @@ const Product = ({ productRefs, index, product }) => {
 };
 
 const Products = ({ products }) => {
-  console.log(products);
   const productRefs = useRef([]);
 
   // const { intersect } = useMemo(
