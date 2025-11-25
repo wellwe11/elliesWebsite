@@ -101,35 +101,6 @@
         display: flex;
         justify-content: space-between;
         padding-bottom: var(--spacing-1);
-
-        .moreImagesWrapper {
-          position: relative;
-          max-height: 25px;
-          width: fit-content;
-
-          .imageContainer {
-            height: 100%;
-            width: max-content;
-
-            overflow: hidden;
-
-            position: absolute;
-            top: 0;
-
-            outline: 1px solid var(--c-grey-200);
-            border-radius: var(--spacing-8);
-            background-color: var(--c-grey-100);
-
-            display: flex;
-            justify-content: center;
-            align-content: center;
-
-            overflow: hidden;
-
-            img {
-            }
-          }
-        }
       }
 
       .bioInfo {
