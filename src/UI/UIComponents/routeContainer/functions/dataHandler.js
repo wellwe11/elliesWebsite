@@ -6,117 +6,89 @@ const CopyData = (data) => {
   return JSON.parse(JSON.stringify(flattedDataSets));
 };
 
-const removeProperty = (obj, propertyToRemove) => {
-  const { [propertyToRemove]: discarded, ...rest } = obj;
+const addIdToChildObjects = (data) => {
+  return data.forEach((obj) => {
+    const totalPrice = obj.collection.reduce(
+      (acc, curr) => acc + curr.price,
+      0
+    );
 
-  return rest;
-};
+    const totalColors = [
+      ...new Set(obj.collection.flatMap((child) => child.colors)),
+    ];
 
-const extractKeys = (obj, ...keysToExtract) => {
-  const extractedDetails = {};
+    obj.set = "set";
+    obj.price = totalPrice;
+    obj.colors = totalColors;
+    obj.width = obj.collection[0].width;
+    obj.height = obj.collection[0].height;
+    obj.image = obj.setImages[0];
 
-  keysToExtract.forEach((key) => {
-    if (obj.hasOwnProperty(key)) {
-      extractedDetails[key] = obj[key];
-    }
-  });
-
-  return extractedDetails;
-};
-
-const extractDetailsFromChildren = (obj) => {
-  const details = obj.collection[0].details;
-  const image = obj.collection[0].image;
-
-  const extractedKeys = extractKeys(
-    details,
-    "price",
-    "colors",
-    "height",
-    "width"
-  );
-
-  const newObj = removeProperty(obj, "collection");
-
-  return {
-    ...newObj,
-    ...extractedKeys,
-    image,
-  };
-};
-
-const extractDetailsFromParent = (obj) => {
-  const extractedKeys = extractKeys(obj, "setTitle", "setDescription", "type");
-
-  return obj.collection.map((e, index) => {
-    const productId = `${obj.id}.${index}`;
-
-    return {
-      ...e,
-      ...extractedKeys,
-      id: productId,
-      set: "single",
-    };
+    return obj.collection.forEach((child, index) => {
+      child.id = +`${obj.id}.${index}`;
+      child.set = "single";
+      child.setTitle = obj.setTitle;
+      child.setDescription = obj.setDescription;
+      child.type = obj.type;
+      return;
+    });
   });
 };
 
-const extractFromCollection = (data) => {
-  // individual nested objects
-  return data
-    .map((obj) => {
-      const isCollection = obj.collection.length > 1;
+const liftUpSingleChildren = (data) => {
+  return data.map((obj) => {
+    if (obj.collection.length < 2) {
+      const objSetItem = obj.collection[0];
+      const { collection, ...rest } = obj;
 
-      const totalPrice = obj.collection.reduce(
-        (acc, item) => acc + item.details.price,
-        0
-      );
-
-      const updatedObj = {
-        ...obj,
-        set: isCollection ? "set" : "single",
-        image: obj.setImages[0],
-        price: totalPrice,
+      const newObj = {
+        ...rest,
+        ...objSetItem,
+        id: +`${obj.id}.${1}`,
       };
 
-      // if obeject is a single item. I.e. item of a collection
-      if (!isCollection) {
-        // extract child-details so parent can display matching information
-        return extractDetailsFromChildren(updatedObj);
-      }
+      return newObj;
+    } else {
+      return obj;
+    }
+  });
+};
 
-      // if obj is a collection
-      if (isCollection) {
-        // apply details from parent-object so children can have matching set-information
-        return extractDetailsFromParent(updatedObj);
-      }
-    })
-    .flat();
+const childElements = (data) => {
+  return data.map((obj) => obj.collection || obj).flat();
+};
+
+const setElements = (data) => {
+  return data.filter((obj) => obj.collection);
 };
 
 const fixObjects = (data) => {
+  // deepcopy data
   const deepCopyDataSets = CopyData(data);
-  const flattedIndividualSets = extractFromCollection(deepCopyDataSets);
 
-  // for tomorrow: need to handle sets:
-  // All objects should be displayable at same time, meaning, they all need individual ids (applied before filtering/using aboive functions)
+  addIdToChildObjects(deepCopyDataSets);
+  const updatedArray = liftUpSingleChildren(deepCopyDataSets);
 
-  const collectionSets = deepCopyDataSets.filter((obj) => obj.set === "set");
+  const childEl = childElements(updatedArray);
+  const setEl = setElements(updatedArray);
 
-  return { collectionSets, flattedIndividualSets };
+  return { childEl, setEl };
 };
 
-const dataHandler = (data, categories) => {
+const dataHandler = (data, filters) => {
   if (!data) return [];
 
-  if (!categories) {
-    const { collectionSets, flattedIndividualSets } = fixObjects(data);
-    return [collectionSets, flattedIndividualSets].flat();
+  // no filter is active
+  if (!filters) {
+    const { childEl, setEl } = fixObjects(data);
+
+    return [childEl, setEl].flat();
   }
 
   const arr = [];
-
+  // if data keys such as paintings, prints is in categories(filters)
   for (const key in data) {
-    if (categories.includes(key)) {
+    if (filters.includes(key)) {
       arr.push(data[key]);
     }
   }
@@ -124,23 +96,21 @@ const dataHandler = (data, categories) => {
   let isFilterActive = arr.flat().length > 0;
 
   // single filter used
-  if (categories.includes("single") && !categories.includes("set")) {
-    const { flattedIndividualSets } = fixObjects(isFilterActive ? arr : data);
+  if (filters.includes("single") && !filters.includes("set")) {
+    const { childEl } = fixObjects(isFilterActive ? arr : data);
 
-    return flattedIndividualSets.flat();
+    return childEl.flat();
   }
 
   // set filter used
-  if (categories.includes("set") && !categories.includes("single")) {
-    const { collectionSets } = fixObjects(isFilterActive ? arr : data);
-    return collectionSets.flat();
+  if (filters.includes("set") && !filters.includes("single")) {
+    const { setEl } = fixObjects(isFilterActive ? arr : data);
+    return setEl.flat();
   }
 
-  const { collectionSets, flattedIndividualSets } = fixObjects(
-    isFilterActive ? arr : data
-  );
+  const { childEl, setEl } = fixObjects(isFilterActive ? arr : data);
 
-  return [collectionSets, flattedIndividualSets].flat();
+  return [childEl, setEl].flat();
 };
 
 export default dataHandler;

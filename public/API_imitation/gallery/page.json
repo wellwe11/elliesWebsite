@@ -7,30 +7,27 @@
       "collection": [
         {
           "image": "/serviceImages/collections/blue/mainImageOne.png",
-          "details": {
-            "colors": ["Blue", "White", "Orange"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White", "Orange"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
-          "details": {
-            "colors": ["Blue", "White", "Green"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White", "Green"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
@@ -54,21 +51,19 @@
       "collection": [
         {
           "image": "/serviceImages/collections/blue/mainImageOne.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 14.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 14.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
@@ -92,30 +87,27 @@
       "collection": [
         {
           "image": "/serviceImages/collections/blue/mainImageOne.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 14.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 14.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 14.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
@@ -139,12 +131,11 @@
       "collection": [
         {
           "image": "/serviceImages/collections/blue/mainImageOne.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 24.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 24.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
@@ -168,30 +159,27 @@
       "collection": [
         {
           "image": "/serviceImages/collections/blue/mainImageOne.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
@@ -215,30 +203,27 @@
       "collection": [
         {
           "image": "/serviceImages/collections/blue/mainImageOne.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 14.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 14.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 14.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 14.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
@@ -262,30 +247,27 @@
       "collection": [
         {
           "image": "/serviceImages/collections/blue/mainImageOne.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
@@ -309,30 +291,27 @@
       "collection": [
         {
           "image": "/serviceImages/collections/blue/mainImageOne.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
-          "details": {
-            "colors": ["Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
@@ -359,12 +338,11 @@
       "collection": [
         {
           "image": "/serviceImages/collections/red/imageExampleOne.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
@@ -389,21 +367,19 @@
       "collection": [
         {
           "image": "/serviceImages/collections/red/imageExampleOne.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
@@ -428,30 +404,27 @@
       "collection": [
         {
           "image": "/serviceImages/collections/red/imageExampleOne.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/red/imageExampleThree.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
@@ -476,21 +449,19 @@
       "collection": [
         {
           "image": "/serviceImages/collections/red/imageExampleOne.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
@@ -515,12 +486,11 @@
       "collection": [
         {
           "image": "/serviceImages/collections/red/imageExampleOne.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
@@ -544,21 +514,19 @@
       "collection": [
         {
           "image": "/serviceImages/collections/red/imageExampleOne.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
@@ -582,30 +550,27 @@
       "collection": [
         {
           "image": "/serviceImages/collections/red/imageExampleOne.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/red/imageExampleThree.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
@@ -629,21 +594,19 @@
       "collection": [
         {
           "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         },
         {
           "image": "/serviceImages/collections/red/imageExampleThree.jpg",
-          "details": {
-            "colors": ["Red", "Blue", "White"],
-            "price": 19.99,
-            "height": 35,
-            "width": 25
-          }
+
+          "colors": ["Red", "Blue", "White"],
+          "price": 19.99,
+          "height": 35,
+          "width": 25
         }
       ],
 
