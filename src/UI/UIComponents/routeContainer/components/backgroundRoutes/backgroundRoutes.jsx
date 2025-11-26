@@ -23,7 +23,6 @@ const PreviewRoute = () => {
   const updatedData = dataHandler(data, category);
 
   const idToFind = otherGet ? `${id}&child=${otherGet}` : id;
-  console.log(updatedData, idToFind);
 
   const foundObj = updatedData.find((a) => a.id === idToFind);
 

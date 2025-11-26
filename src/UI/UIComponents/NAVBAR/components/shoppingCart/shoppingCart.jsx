@@ -22,7 +22,7 @@ const ShoppingCart = () => {
 
     if (location.state) {
       stateObject.tempLocation = location.pathname + location.search;
-      stateObject.backgroundLocation = "/cart";
+      stateObject.backgroundLocation = location.pathname;
     }
 
     const { backgroundLocation, tempLocation } = stateObject;

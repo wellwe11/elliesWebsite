@@ -41,7 +41,6 @@ const AddToCart = ({ obj }) => {
   const addToCart = storeData((state) => state.addToCart);
 
   const handleAddToCart = () => {
-    console.log(obj, addToCartAmount);
     addToCart(obj, +addToCartAmount);
   };
 

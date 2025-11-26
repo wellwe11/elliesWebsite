@@ -1,6 +1,6 @@
 import classes from "./productInfo.module.scss";
 import previewClass from "../../preview.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import ProductDescription from "../productInfo/components/productDescription/productDescription.jsx";
 
@@ -55,12 +55,16 @@ const CurrentlySelectedProduct = ({ activeImageIndex }) => (
 );
 
 const ProductInfo = ({ obj, activeImageIndex, setActiveImageIndex }) => {
+  const location = useLocation();
+  console.log(location);
   const { setTitle, type, setImages, image } = obj;
 
   return (
     <div className={classes.infoSection}>
       <div className={classes.closeWrapper}>
-        <CloseButton />
+        <CloseButton
+          to={location.state?.backgroundLocation === "/cart" ? -3 : -1} // return to actual previous page which is home or gallery
+        />
       </div>
       <div className={classes.productTitleAndBioWrapper}>
         <InfoType type={type} />

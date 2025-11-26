@@ -4,11 +4,11 @@ import X_SVG from "../SVGS/X_SVG/X_SVG.jsx";
 import { Link } from "react-router-dom";
 import bodyNoScroll from "@functions/bodyNoScroll.js";
 
-const CloseButton = () => {
+const CloseButton = ({ to = -1 }) => {
   const { enableScroll } = bodyNoScroll();
 
   return (
-    <Link to={-1} className={classes.closeButton} onClick={enableScroll}>
+    <Link to={to} className={classes.closeButton} onClick={enableScroll}>
       <X_SVG />
     </Link>
   );
