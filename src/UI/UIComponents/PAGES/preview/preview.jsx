@@ -39,11 +39,14 @@ const Info = ({ activeImageIndex, setActiveImageIndex, obj }) => {
 // Element containing product-image and product-info
 const DisplayProductContainer = ({ obj }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0); // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
-  const { setImages } = obj;
+  const { setImages, image } = obj;
 
   return (
     <div className={classes.imageContainer}>
-      <ActiveImage setImages={setImages} activeImageIndex={activeImageIndex} />
+      <ActiveImage
+        setImages={setImages || [image]}
+        activeImageIndex={activeImageIndex}
+      />
       <Info
         obj={obj}
         activeImageIndex={activeImageIndex}

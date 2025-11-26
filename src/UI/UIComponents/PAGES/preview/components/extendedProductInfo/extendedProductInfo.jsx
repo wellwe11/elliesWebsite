@@ -107,7 +107,6 @@ const Guide = ({ description }) => {
 };
 
 const ExtendedProductInfo = ({ props, description }) => {
-  console.log(description);
   return (
     <div className={classes.extendedProductInfo}>
       <div className={classes.extendedSectionOne}>

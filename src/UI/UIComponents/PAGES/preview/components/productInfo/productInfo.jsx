@@ -55,7 +55,8 @@ const CurrentlySelectedProduct = ({ activeImageIndex }) => (
 );
 
 const ProductInfo = ({ obj, activeImageIndex, setActiveImageIndex }) => {
-  const { setTitle, type, setImages } = obj;
+  const { setTitle, type, setImages, image } = obj;
+
   return (
     <div className={classes.infoSection}>
       <div className={classes.closeWrapper}>
@@ -67,7 +68,7 @@ const ProductInfo = ({ obj, activeImageIndex, setActiveImageIndex }) => {
         <div className={previewClass.paddingTop4}>
           <CurrentlySelectedProduct activeImageIndex={activeImageIndex} />
           <QuickViewImageOptions
-            quickViewImages={setImages}
+            quickViewImages={setImages || [image]}
             activeImageIndex={activeImageIndex}
             setActiveImageIndex={setActiveImageIndex}
           />

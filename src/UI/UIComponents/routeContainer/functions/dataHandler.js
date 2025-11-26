@@ -35,7 +35,7 @@ const liftUpSingleChildren = (data) => {
   return data.map((obj) => {
     if (obj.collection.length < 2) {
       const objSetItem = obj.collection[0];
-      const { collection, ...rest } = obj;
+      const { collection, setImages, ...rest } = obj;
 
       const newObj = {
         ...rest,
