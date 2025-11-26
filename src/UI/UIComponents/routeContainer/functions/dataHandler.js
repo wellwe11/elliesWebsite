@@ -22,7 +22,7 @@ const addIdToChildObjects = (data) => {
     obj.image = obj.setImages[0];
 
     obj.collection.forEach((child, index) => {
-      child.id = +`${obj.id}.${index}`;
+      child.id = `${obj.id}&child=${index}`;
       child.set = "single";
       child.setTitle = obj.setTitle;
       child.setDescription = obj.setDescription;
@@ -40,7 +40,7 @@ const liftUpSingleChildren = (data) => {
       const newObj = {
         ...rest,
         ...objSetItem,
-        id: +`${obj.id}.${1}`,
+        id: `${obj.id}&child=${1}`,
       };
 
       return newObj;
@@ -74,7 +74,6 @@ const fixObjects = (data) => {
 
   const childEl = childElements(fullyProcessedArray);
   const setEl = setElements(fullyProcessedArray);
-  console.log(childEl);
 
   return { childEl, setEl };
 };

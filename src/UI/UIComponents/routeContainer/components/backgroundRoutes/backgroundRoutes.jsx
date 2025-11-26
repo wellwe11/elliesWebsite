@@ -4,38 +4,25 @@ import { Route, Routes } from "react-router-dom";
 import useData from "@hooks/useData.jsx";
 import useGetLocation from "@hooks/useGetLocation.jsx";
 import useGetParams from "@hooks/useGetParams.jsx";
+import dataHandler from "../../functions/dataHandler.js";
 
 const Preview = lazy(() => import("../../../PAGES/preview/preview.jsx"));
 const Cart = lazy(() => import("../../../PAGES/cart/cart.jsx"));
 
 const PreviewRoute = () => {
-  const { category, id } = useGetParams();
+  const { category, id, otherGet } = useGetParams("child");
 
   const { data, isLoading } = useData("gallery");
 
   if (!data) return;
 
-  const categoryData = data[category],
-    foundObj = categoryData.find((a) => +a.id === +id); // finds matching obj
+  const updatedData = dataHandler(data, category);
 
-  const uniqueViewEmbedded = foundObj?._embedded,
-    { amount, colors, height, width } = uniqueViewEmbedded.details,
-    productProps = {
-      all: uniqueViewEmbedded,
+  const idToFind = otherGet ? `${id}&child=${otherGet}` : id;
 
-      displayedDetails: {
-        title: uniqueViewEmbedded?.setTitle,
-        price: uniqueViewEmbedded?.details.price,
-        type: uniqueViewEmbedded?.details.type,
-        quickViewImages: foundObj.images.map((img) => img.src),
-      },
+  const foundObj = updatedData.find((a) => a.id === idToFind);
 
-      infoDetails: { amount, colors, height, width },
-    };
-
-  return (
-    <Preview productProps={productProps} isLoading={isLoading} obj={foundObj} />
-  );
+  return <Preview isLoading={isLoading} obj={foundObj} />;
 };
 
 const BackgroundRoutes = () => {

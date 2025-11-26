@@ -54,16 +54,9 @@ const CurrentlySelectedProduct = ({ activeImageIndex }) => (
   <h6 className={previewClass.bioTypeText}>Product: {+activeImageIndex + 1}</h6>
 );
 
-const ProductInfo = ({
-  obj,
-  productProps: {
-    displayedDetails: { title = "Title", price = 19.99, type, quickViewImages },
-    all,
-    infoDetails,
-  },
-  activeImageIndex,
-  setActiveImageIndex,
-}) => {
+const ProductInfo = ({ obj, activeImageIndex, setActiveImageIndex }) => {
+  const { setTitle, type, setImages } = obj;
+
   return (
     <div className={classes.infoSection}>
       <div className={classes.closeWrapper}>
@@ -71,18 +64,18 @@ const ProductInfo = ({
       </div>
       <div className={classes.productTitleAndBioWrapper}>
         <InfoType type={type} />
-        <InfoProductTitle title={title} />
+        <InfoProductTitle title={setTitle} />
         <div className={previewClass.paddingTop4}>
           <CurrentlySelectedProduct activeImageIndex={activeImageIndex} />
           <QuickViewImageOptions
-            quickViewImages={quickViewImages}
+            quickViewImages={setImages}
             activeImageIndex={activeImageIndex}
             setActiveImageIndex={setActiveImageIndex}
           />
         </div>
       </div>
 
-      <ProductDescription all={all} infoDetails={infoDetails} />
+      <ProductDescription obj={obj} />
       <div className={classes.addToCartWrapper}>
         <AddToCart obj={obj} />
       </div>

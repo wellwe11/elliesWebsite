@@ -45,7 +45,14 @@ const Entry = ({ entry, entryWidth, obj }) => {
 };
 
 // Product will have a short description and this button is a boolean to display it or to hide the description
-const ProductDescription = ({ infoDetails }) => {
+const ProductDescription = ({ obj }) => {
+  const { colors, price } = obj;
+  const infoDetails = {
+    amount: obj.collection ? obj.collection.length : 1,
+    colors,
+    price,
+  };
+
   const infoEntries = Object.entries(infoDetails);
   const entryWidth = 100 / infoEntries.length;
 

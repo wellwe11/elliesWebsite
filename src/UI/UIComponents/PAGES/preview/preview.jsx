@@ -12,28 +12,23 @@ import ExtendedProductInfo from "./components/extendedProductInfo/extendedProduc
 
 import Footer from "../../FOOTER/footer.jsx";
 
-const ActiveImage = ({ productProps, activeImageIndex }) => {
-  const {
-    displayedDetails: { quickViewImages },
-  } = productProps;
-
+const ActiveImage = ({ setImages, activeImageIndex }) => {
   return (
     <div className={classes.activeImageWrapper}>
       <img
         className={classes.activeImage}
-        src={quickViewImages?.[activeImageIndex]}
+        src={setImages?.[activeImageIndex]}
         alt=""
       />
     </div>
   );
 };
 
-const Info = ({ productProps, activeImageIndex, setActiveImageIndex, obj }) => {
+const Info = ({ activeImageIndex, setActiveImageIndex, obj }) => {
   return (
     <div className={classes.infoWrapper}>
       <ProductInfo
         obj={obj}
-        productProps={productProps}
         activeImageIndex={activeImageIndex}
         setActiveImageIndex={setActiveImageIndex}
       />
@@ -42,18 +37,15 @@ const Info = ({ productProps, activeImageIndex, setActiveImageIndex, obj }) => {
 };
 
 // Element containing product-image and product-info
-const DisplayProductContainer = ({ productProps, obj }) => {
+const DisplayProductContainer = ({ obj }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0); // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
+  const { setImages } = obj;
 
   return (
     <div className={classes.imageContainer}>
-      <ActiveImage
-        productProps={productProps}
-        activeImageIndex={activeImageIndex}
-      />
+      <ActiveImage setImages={setImages} activeImageIndex={activeImageIndex} />
       <Info
         obj={obj}
-        productProps={productProps}
         activeImageIndex={activeImageIndex}
         setActiveImageIndex={setActiveImageIndex}
       />
@@ -61,16 +53,10 @@ const DisplayProductContainer = ({ productProps, obj }) => {
   );
 };
 
-const ExtendedInfo = ({ productProps }) => {
-  // price, type, width, height, frame, description,
-  const {
-      all: {
-        details: { price, type, height, width, set },
-        setDescription,
-      },
-    } = productProps,
-    props = { price, height, width, type, set },
-    description = setDescription;
+const ExtendedInfo = ({ obj }) => {
+  const { price, height, width, type, set, setDescription } = obj;
+  const props = { price, height, width, type, set };
+  const description = setDescription;
 
   return (
     <div className={classes.extendedInfo}>
@@ -94,7 +80,7 @@ const IsLoading = ({ isLoading }) => {
   );
 };
 
-const Preview = ({ productProps, isLoading, obj }) => {
+const Preview = ({ isLoading, obj }) => {
   const fixedPreviewRef = useRef(null);
   const footerRef = useRef(null);
 
@@ -124,8 +110,8 @@ const Preview = ({ productProps, isLoading, obj }) => {
         <div>
           <div className={classes.backgroundColorWrapper}>
             <div className={routeClasses.contentWrapper}>
-              <DisplayProductContainer productProps={productProps} obj={obj} />
-              <ExtendedInfo productProps={productProps} />
+              <DisplayProductContainer obj={obj} />
+              <ExtendedInfo obj={obj} />
             </div>
           </div>
         </div>
