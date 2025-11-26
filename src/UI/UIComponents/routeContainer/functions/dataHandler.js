@@ -1,6 +1,3 @@
-// fixObjects rebuilds data into more readable and flexible objects.
-// Data that is fetched contains both parent-objects as well as child-objects which needs to be flatted out for user-filtering
-
 const CopyData = (data) => {
   const flattedDataSets = Object.values(data).flat();
   return JSON.parse(JSON.stringify(flattedDataSets));
@@ -24,13 +21,12 @@ const addIdToChildObjects = (data) => {
     obj.height = obj.collection[0].height;
     obj.image = obj.setImages[0];
 
-    return obj.collection.forEach((child, index) => {
+    obj.collection.forEach((child, index) => {
       child.id = +`${obj.id}.${index}`;
       child.set = "single";
       child.setTitle = obj.setTitle;
       child.setDescription = obj.setDescription;
       child.type = obj.type;
-      return;
     });
   });
 };
@@ -55,11 +51,17 @@ const liftUpSingleChildren = (data) => {
 };
 
 const childElements = (data) => {
-  return data.map((obj) => obj.collection || obj).flat();
+  const liftedChildren = data.filter((obj) => obj.set === "single");
+
+  const childEl = data
+    .filter((obj) => obj.collection)
+    .flatMap((obj) => obj.collection.map((child) => child));
+
+  return liftedChildren.concat(childEl);
 };
 
 const setElements = (data) => {
-  return data.filter((obj) => obj.collection);
+  return data.filter((obj) => obj.set === "set");
 };
 
 const fixObjects = (data) => {
@@ -68,9 +70,11 @@ const fixObjects = (data) => {
 
   addIdToChildObjects(deepCopyDataSets);
   const updatedArray = liftUpSingleChildren(deepCopyDataSets);
+  const fullyProcessedArray = [].concat(...updatedArray);
 
-  const childEl = childElements(updatedArray);
-  const setEl = setElements(updatedArray);
+  const childEl = childElements(fullyProcessedArray);
+  const setEl = setElements(fullyProcessedArray);
+  console.log(childEl);
 
   return { childEl, setEl };
 };
