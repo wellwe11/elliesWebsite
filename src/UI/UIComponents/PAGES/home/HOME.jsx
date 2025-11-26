@@ -24,7 +24,7 @@ const SectionSeperator = ({ lowMargin = false, withImage = false }) => (
   </div>
 );
 
-const Home = ({ data: { galleryData, servicesData } }) => {
+const Home = ({ data: { updatedData, servicesData } }) => {
   return (
     <div className={`${classes.home} ${fadeInClass.fade_in_on_load}`}>
       {/* DESKTOP  */}
@@ -45,7 +45,7 @@ const Home = ({ data: { galleryData, servicesData } }) => {
           <SectionSeperator lowMargin />
           <SectionSeperator lowMargin />
 
-          <SetOfLatestItem data={galleryData} />
+          <SetOfLatestItem data={updatedData} />
           <SectionSeperator lowMargin />
         </section>
 
@@ -60,7 +60,7 @@ const Home = ({ data: { galleryData, servicesData } }) => {
         <section className={classes.wheelOfManyImagesSection}>
           <SectionSeperator lowMargin />
           <SectionSeperator lowMargin />
-          <WheelOfManyImages data={galleryData} canQuickView={false} />
+          <WheelOfManyImages data={updatedData} canQuickView={false} />
 
           <SectionSeperator lowMargin />
           <SectionSeperator withImage />
@@ -73,7 +73,7 @@ const Home = ({ data: { galleryData, servicesData } }) => {
 
       {/* MOBILE */}
       <div className={classes.mobile}>
-        <Products data={{ galleryData }} />
+        <Products data={{ updatedData }} />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import useData from "@hooks/useData.jsx";
 import useGetLocation from "@hooks/useGetLocation.jsx";
@@ -11,14 +11,19 @@ const Cart = lazy(() => import("../../../PAGES/cart/cart.jsx"));
 
 const PreviewRoute = () => {
   const { category, id, otherGet } = useGetParams("child");
+  const location = useLocation();
+  const backgroundLocation = location.backgroundLocation;
 
-  const { data, isLoading } = useData("gallery");
+  const { data, isLoading } = useData(
+    backgroundLocation === "/" ? "home" : "gallery"
+  );
 
   if (!data) return;
 
   const updatedData = dataHandler(data, category);
 
   const idToFind = otherGet ? `${id}&child=${otherGet}` : id;
+  console.log(updatedData, idToFind);
 
   const foundObj = updatedData.find((a) => a.id === idToFind);
 

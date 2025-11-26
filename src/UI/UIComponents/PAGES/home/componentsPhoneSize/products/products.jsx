@@ -71,10 +71,10 @@ const Products = ({ data }) => {
         <Category key={index} entry={entry} handleNavigate={handleNavigate}>
           <div className={classes.products}>
             {obj.map((obj, index) => {
-              const name = obj._embedded.setTitle;
+              const name = obj.setTitle;
               const image = obj.image;
               const id = obj.id;
-              const category = obj._embedded.details.type;
+              const category = obj.type;
 
               return (
                 <Product

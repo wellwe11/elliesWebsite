@@ -34,23 +34,16 @@ const Images = React.memo(({ data, canQuickView }) => {
   const mappedImages = useMemo(
     () =>
       data?.map((obj, index) => {
-        const {
-            image,
-            _embedded: {
-              details: { price, set, type },
-            },
-            id,
-          } = obj,
-          { _embedded } = obj;
-        const restImages = _embedded.restImages[1];
-        const productTypes = _embedded.details.type;
+        const { image, price, set, type, id, setImages } = obj;
+        const restImage = setImages[1];
+        const productTypes = type;
 
         return (
           <div key={index} className={classes.imageWrapper}>
             <QuickView
               canQuickView={canQuickView}
               src={image}
-              secondSrc={restImages}
+              secondSrc={restImage}
               productType={productTypes}
               productId={id}
             />

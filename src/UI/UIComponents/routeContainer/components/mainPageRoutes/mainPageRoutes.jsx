@@ -49,18 +49,21 @@ const GalleryRoute = () => {
 const HomeRoute = () => {
   const { data } = useData("home");
 
-  const galleryData = data?.paintings.concat(data?.prints),
-    servicesData = data?.services;
-
-  const canLoad = galleryData && servicesData;
-
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, []);
 
+  if (!data) return;
+
+  const { services, ...restData } = data;
+  const updatedData = dataHandler(restData, "set"),
+    servicesData = data?.services;
+
+  const canLoad = updatedData && servicesData;
+
   if (!canLoad) return <Loading />;
 
-  return <Home data={{ galleryData, servicesData }} />;
+  return <Home data={{ updatedData, servicesData }} />;
 };
 
 const MainPagesRoutes = () => {

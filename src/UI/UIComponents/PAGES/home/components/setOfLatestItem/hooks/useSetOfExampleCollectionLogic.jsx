@@ -2,18 +2,20 @@ import { useMemo } from "react";
 
 // made for PRINTS and PAINTINGS > SetOfExampleCollectionSection
 const useSetOfExampleCollectionLogic = (data) => {
-  // automated data which finds last image. This is because front-page should represent the most recently added collection, to keep it 'fresh' and nicely updated
-  const mostRecentlyAddedSet = data[data.length - 1];
+  const collectionOfThrees = data.filter((obj) => obj.collection.length === 3);
 
-  // navigational information: navigate(`uniqueImage?category=${linkType}&=${linkId}`).
+  const mostRecentlyAddedSet =
+    collectionOfThrees[collectionOfThrees.length - 1];
+
+  console.log(mostRecentlyAddedSet);
 
   const bioInfo = useMemo(() => {
     return {
       linkId: mostRecentlyAddedSet?.id,
-      linkType: mostRecentlyAddedSet?._embedded.details.type,
-      textBioTitle: mostRecentlyAddedSet._embedded.setTitle, // sets title
-      images: mostRecentlyAddedSet?.images.map((image) => image.src),
-      imagesBio: mostRecentlyAddedSet?.images.map((image) => image.bio),
+      linkType: mostRecentlyAddedSet?.type,
+      textBioTitle: mostRecentlyAddedSet.setTitle, // sets title
+      images: mostRecentlyAddedSet?.collection.map((obj) => obj.image),
+      imagesBio: ["text1", "text2", "text3"],
     };
   }, [mostRecentlyAddedSet]);
 
