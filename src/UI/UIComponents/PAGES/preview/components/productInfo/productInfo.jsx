@@ -56,7 +56,6 @@ const CurrentlySelectedProduct = ({ activeImageIndex }) => (
 
 const ProductInfo = ({ obj, activeImageIndex, setActiveImageIndex }) => {
   const { setTitle, type, setImages } = obj;
-
   return (
     <div className={classes.infoSection}>
       <div className={classes.closeWrapper}>

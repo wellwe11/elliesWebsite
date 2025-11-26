@@ -5,13 +5,7 @@ import ProductName from "../productName/productName.jsx";
 import ProductPrice from "../productPrice/productPrice.jsx";
 
 export const Product = ({ product, amount }) => {
-  const {
-    image: image,
-    _embedded: {
-      setTitle: name,
-      details: { price: price },
-    },
-  } = product;
+  const { image: image, setTitle: name, price } = product;
 
   const leftSection = (
     <div className={classes.leftSection}>
