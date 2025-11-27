@@ -171,6 +171,7 @@
 
 .isClosed {
   opacity: 0;
+  pointer-events: none;
 }
 
 @keyframes cartOpen {

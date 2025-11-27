@@ -2,17 +2,15 @@ import { lazy } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 
 import useData from "@hooks/useData.jsx";
-import useGetLocation from "@hooks/useGetLocation.jsx";
 import useGetParams from "@hooks/useGetParams.jsx";
 import dataHandler from "../../functions/dataHandler.js";
 
 const Preview = lazy(() => import("../../../PAGES/preview/preview.jsx"));
-const Cart = lazy(() => import("../../../PAGES/cart/cart.jsx"));
 
 const PreviewRoute = () => {
   const { category, id, otherGet } = useGetParams("child");
   const location = useLocation();
-  const backgroundLocation = location.backgroundLocation;
+  const backgroundLocation = location.state?.backgroundLocation;
 
   const { data, isLoading } = useData(
     backgroundLocation === "/" ? "home" : "gallery"
@@ -30,24 +28,15 @@ const PreviewRoute = () => {
 };
 
 const BackgroundRoutes = () => {
-  const { location } = useGetLocation();
-  const { tempLocation, tempSearch } = location.state || {};
+  const location = useLocation();
+  console.log(location);
+
+  if (!location.state) return;
 
   return (
-    <>
-      {location.pathname.includes("cart") && (
-        <Routes location={location}>
-          <Route path="/:tab?/cart" element={<Cart />} />
-        </Routes>
-      )}
-
-      <Routes location={tempLocation || location}>
-        <Route
-          path="/:tab?/preview/*"
-          element={<PreviewRoute search={tempSearch || location.search} />}
-        />
-      </Routes>
-    </>
+    <Routes location={location}>
+      <Route path="/:tab?/preview/*" element={<PreviewRoute />} />
+    </Routes>
   );
 };
 

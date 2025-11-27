@@ -1,39 +1,15 @@
 import classes from "./shoppingCart.module.scss";
 
-import { useNavigate } from "react-router-dom";
 import { useMemo } from "react";
 
-import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 import storeData from "../../../routeContainer/zustandObject/storeData.jsx";
-import useGetLocation from "@hooks/useGetLocation.jsx";
 
-const ShoppingCart = () => {
-  const navigate = useNavigate();
-  const { location } = useGetLocation();
+import ShoppingBagSVG from "@components/SVGS/shoppingBagSVG/shoppingBagSVG";
 
+const ShoppingCart = ({ setDisplayShoppingCart }) => {
   const { cart, getTotalItems } = storeData();
 
   const totalItemsInCart = useMemo(() => getTotalItems(), [cart]);
-
-  const navigateCart = () => {
-    const stateObject = {
-      backgroundLocation: location.pathname + location.search,
-    };
-
-    if (location.state) {
-      stateObject.tempLocation = location.pathname + location.search;
-      stateObject.backgroundLocation = location.pathname;
-    }
-
-    const { backgroundLocation, tempLocation } = stateObject;
-
-    navigate("/cart", {
-      state: {
-        backgroundLocation,
-        tempLocation,
-      },
-    });
-  };
 
   // Simple text related to shoppingcart. Text is static and will remain the same.
   const shoppingBagText = (
@@ -58,7 +34,10 @@ const ShoppingCart = () => {
   );
 
   return (
-    <div className={classes.shoppingCart} onClick={navigateCart}>
+    <div
+      className={classes.shoppingCart}
+      onClick={() => setDisplayShoppingCart(true)}
+    >
       {shoppingBagText}
       {shoppingBagSvgWrapper}
       {totalItemsInCartWrapper}

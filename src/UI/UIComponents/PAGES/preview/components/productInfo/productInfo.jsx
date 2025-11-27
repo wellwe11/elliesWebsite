@@ -5,10 +5,11 @@ import { Link, useLocation } from "react-router-dom";
 import ProductDescription from "../productInfo/components/productDescription/productDescription.jsx";
 
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
+import bodyNoScroll from "@functions/bodyNoScroll.js";
 import X_SVG from "@components/SVGS/X_SVG/X_SVG.jsx";
+import CloseButton from "@components/closeButton/closeButton.jsx";
 
 import AddToCart from "./components/addToCart/addToCart.jsx";
-import CloseButton from "@components/closeButton/closeButton.jsx";
 
 const InfoProductTitle = ({ title }) => (
   <h1 className={previewClass.titleTypeText}>{title}</h1>
@@ -56,14 +57,15 @@ const CurrentlySelectedProduct = ({ activeImageIndex }) => (
 
 const ProductInfo = ({ obj, activeImageIndex, setActiveImageIndex }) => {
   const location = useLocation();
-  console.log(location);
   const { setTitle, type, setImages, image } = obj;
+  const { enableScroll } = bodyNoScroll();
 
   return (
     <div className={classes.infoSection}>
       <div className={classes.closeWrapper}>
         <CloseButton
-          to={location.state?.backgroundLocation === "/cart" ? -3 : -1} // return to actual previous page which is home or gallery
+          to={-1} // return to actual previous page which is home or gallery
+          onClick={enableScroll}
         />
       </div>
       <div className={classes.productTitleAndBioWrapper}>

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import classes from "./productImage.module.scss";
 import bodyNoScroll from "@functions/bodyNoScroll";
-import useGetLocation from "../../../../../../../abstract/hooks/useGetLocation.jsx";
+import useGetLocation from "../../../../../../abstract/hooks/useGetLocation.jsx";
 
 const ProductImage = ({ image, alt, product }) => {
   const navigate = useNavigate();

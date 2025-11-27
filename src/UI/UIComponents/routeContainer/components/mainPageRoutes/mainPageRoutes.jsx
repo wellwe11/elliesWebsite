@@ -1,4 +1,4 @@
-import { Route, Routes, useSearchParams } from "react-router-dom";
+import { Route, Routes, useLocation, useSearchParams } from "react-router-dom";
 
 import React, { lazy, Suspense, useEffect } from "react";
 
@@ -66,17 +66,12 @@ const HomeRoute = () => {
   return <Home data={{ updatedData, servicesData }} />;
 };
 
-const MainPagesRoutes = () => {
-  const { state, location } = useGetLocation();
-
+const MainPagesRoutes = ({ location, state }) => {
   return (
     <Suspense fallback={<Loading />}>
       <Routes location={state?.backgroundLocation || location}>
+        <Route path="/gallery/:category?/:id?/*" element={<GalleryRoute />} />
         <Route path="/" element={<HomeRoute />} />
-        <Route
-          path="/gallery/:category?/:id?/*"
-          element={<GalleryRoute location={location} />}
-        />
         <Route path="/contact" element={<ContactUs />} />
 
         <Route path="*" element={<PageNotFound />} />

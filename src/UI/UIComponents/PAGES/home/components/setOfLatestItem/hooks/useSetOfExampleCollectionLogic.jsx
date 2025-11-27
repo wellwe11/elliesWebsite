@@ -7,8 +7,6 @@ const useSetOfExampleCollectionLogic = (data) => {
   const mostRecentlyAddedSet =
     collectionOfThrees[collectionOfThrees.length - 1];
 
-  console.log(mostRecentlyAddedSet);
-
   const bioInfo = useMemo(() => {
     return {
       linkId: mostRecentlyAddedSet?.id,

@@ -67,8 +67,14 @@ const Product = ({ productRefs, index, product }) => {
       ref={(e) => setRef(e, productRefs)}
       style={productStyle}
       onClick={() =>
-        navigate(`./preview?category=${productType}&id=${productId}`, {
-          state: { backgroundLocation: location.pathname },
+        navigate(`/preview?category=${productType}&id=${productId}`, {
+          state: {
+            backgroundLocation: {
+              pathname: location.pathname,
+              search: location.search,
+              hash: location.hash,
+            },
+          },
         })
       }
     >
