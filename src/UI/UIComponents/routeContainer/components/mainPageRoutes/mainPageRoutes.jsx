@@ -1,6 +1,6 @@
 import { Route, Routes, useLocation, useSearchParams } from "react-router-dom";
 
-import React, { lazy, Suspense, useEffect } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 
 const Home = lazy(() => import("../../../PAGES/home/HOME.jsx"));
 const Gallery = lazy(() => import("../../../PAGES/gallery/GALLERY.jsx"));
@@ -16,6 +16,7 @@ import useGetLocation from "@hooks/useGetLocation.jsx";
 import useData from "@hooks/useData.jsx";
 import dataHandler from "../../functions/dataHandler.js";
 import Navbar from "../../../NAVBAR/navbar.jsx";
+const Cart = lazy(() => import("../../../cart/cart.jsx"));
 
 const GalleryRoute = () => {
   const [searchParams] = useSearchParams();
@@ -41,7 +42,9 @@ const GalleryRoute = () => {
     return Object.keys(data);
   }, [data]);
 
-  if (!updatedData || !dataKeys) return <Loading />;
+  if (!updatedData || !dataKeys) {
+    return <Loading />;
+  }
 
   return <Gallery data={{ categories, page, updatedData, dataKeys }} />;
 };
@@ -53,17 +56,7 @@ const HomeRoute = () => {
     window.scrollTo({ top: 0 });
   }, []);
 
-  if (!data) return;
-
-  const { services, ...restData } = data;
-  const updatedData = dataHandler(restData, "set"),
-    servicesData = data?.services;
-
-  const canLoad = updatedData && servicesData;
-
-  if (!canLoad) return <Loading />;
-
-  return <Home data={{ updatedData, servicesData }} />;
+  return <Home data={data} />;
 };
 
 const MainPagesRoutes = ({ location, state }) => {
