@@ -11,7 +11,6 @@ const ProductImage = ({ image, alt, product, setDisplayShoppingCart }) => {
 
   const { location } = useGetLocation();
   const backgroundLocation = location.state?.backgroundLocation || null;
-  console.log(backgroundLocation, location);
 
   const handleNavigate = () => {
       bodyNoScroll().enableScroll();

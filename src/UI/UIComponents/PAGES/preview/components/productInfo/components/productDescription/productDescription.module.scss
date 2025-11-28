@@ -32,8 +32,22 @@
 
   .refContainer {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 
     gap: var(--spacing-1);
+
+    width: 100%;
+
+    .ref {
+      max-width: calc(33% - var(--spacing-1));
+    }
+
+    .value {
+      width: 100%;
+      text-align: center;
+    }
   }
 }
 

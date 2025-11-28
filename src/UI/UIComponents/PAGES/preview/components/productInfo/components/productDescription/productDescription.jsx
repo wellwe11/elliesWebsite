@@ -15,11 +15,14 @@ const EntryValue = ({ value }) => {
   const result = valueTypeChecker(value);
 
   if (result === "reference") {
+    const totalWidth = value.length,
+      individualElWidth = 100 / totalWidth;
+
     return value.map((v, index) => (
       <div
         key={v + index}
         className={classes.ref}
-        style={{ backgroundColor: v }}
+        style={{ backgroundColor: v, width: `${individualElWidth}%` }}
       />
     ));
   }
@@ -38,7 +41,9 @@ const Entry = ({ entry, entryWidth, obj }) => {
 
   return (
     <div className={classes.entryContainer} style={{ width: `${entryWidth}%` }}>
-      <div className={classes.refContainer}>{<EntryValue value={obj} />}</div>
+      <div className={classes.refContainer}>
+        <EntryValue value={obj} />
+      </div>
       <p className={previewClass.bioTypeText}>{capitalEntry}</p>
     </div>
   );

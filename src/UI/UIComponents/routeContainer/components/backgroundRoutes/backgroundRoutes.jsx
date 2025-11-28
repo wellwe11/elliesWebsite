@@ -29,7 +29,6 @@ const PreviewRoute = () => {
 
 const BackgroundRoutes = () => {
   const location = useLocation();
-  console.log(location);
 
   if (!location.state) return;
 
