@@ -10,7 +10,8 @@ const ProductImage = ({ image, alt, product, setDisplayShoppingCart }) => {
     productType = product.type;
 
   const { location } = useGetLocation();
-  const backgroundLocation = location.state?.backgroundLocation;
+  const backgroundLocation = location.state?.backgroundLocation || null;
+  console.log(backgroundLocation, location);
 
   const handleNavigate = () => {
       bodyNoScroll().enableScroll();
@@ -18,7 +19,7 @@ const ProductImage = ({ image, alt, product, setDisplayShoppingCart }) => {
         state: {
           backgroundLocation: backgroundLocation
             ? backgroundLocation
-            : location.state,
+            : location,
         },
       });
     },
