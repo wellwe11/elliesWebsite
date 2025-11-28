@@ -45,4 +45,8 @@
   .input:focus ~ .inputTitle {
     color: black;
   }
+
+  .inputTitle {
+    display: block;
+  }
 }

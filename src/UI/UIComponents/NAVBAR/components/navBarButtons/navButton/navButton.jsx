@@ -5,11 +5,7 @@ import ButtonWithContent from "@components/buttonWithContent/BUTTONWITHCONTENT.j
 const NavButton = ({ children, link }) => {
   const navigate = useNavigate();
 
-  const handleNavigate = () => {
-    navigate(link);
-    window.scrollTo({ top: 0 });
-  };
-
+  const handleNavigate = () => navigate(link);
   return (
     <button className={classes.navButton} onClick={handleNavigate}>
       <h6 className={classes.font}>{children}</h6>

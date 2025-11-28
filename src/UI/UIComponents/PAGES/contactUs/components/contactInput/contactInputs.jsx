@@ -7,30 +7,40 @@ const ContactInputs = () => {
     <form className={classes.inputsWrapper}>
       <div className={classes.inputsContainer}>
         <div className={`${classes.firstNameWrapper} ${classes.halfInput}`}>
-          <Input>First name</Input>
+          <Input id="user-name" autoComplete="given-name">
+            First name
+          </Input>
         </div>
         <div className={`${classes.lastNameWrapper} ${classes.halfInput}`}>
-          <Input>Last name</Input>
+          <Input id={"user-lastName"} autoComplete="family-name">
+            Last name
+          </Input>
         </div>
       </div>
 
       <div className={classes.inputsContainer}>
         <div className={`${classes.emailWrapper} ${classes.wholeInput}`}>
-          <Input type="email">Email</Input>
+          <Input type="email" id="userEmail" autoComplete="email">
+            Email
+          </Input>
         </div>
       </div>
 
       <div className={classes.inputsContainer}>
         <div className={`${classes.messageWrapper} ${classes.wholeInput}`}>
-          <TextArea>Message</TextArea>
+          <TextArea autoComplete="off" id="user-message">
+            Message
+          </TextArea>
         </div>
       </div>
       <div className={classes.inputsContainer}>
         <button
           className={`${classes.button} ${classes.wholeInput}`}
           type="submit"
+          id="submitBtn"
+          name="submitButton"
         >
-          <p>Submit</p>
+          Submit
         </button>
       </div>
     </form>

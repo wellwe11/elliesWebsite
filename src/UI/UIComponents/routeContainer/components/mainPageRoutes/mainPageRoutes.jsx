@@ -17,6 +17,14 @@ import Navbar from "../../../NAVBAR/navbar.jsx";
 const Cart = lazy(() => import("../../../CART/cart.jsx"));
 
 const GalleryRoute = () => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0 });
+    }, 0);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const [searchParams] = useSearchParams();
   const rawCategories = searchParams.getAll("category");
 
@@ -65,10 +73,26 @@ const HomeRoute = () => {
   const { data } = useData("home");
 
   useEffect(() => {
-    window.scrollTo({ top: 0 });
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0 });
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return <Home data={data} />;
+};
+
+const ContactRoute = () => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0 });
+    }, 0);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return <ContactUs />;
 };
 
 const MainPagesRoutes = ({ location, state }) => {
@@ -77,7 +101,7 @@ const MainPagesRoutes = ({ location, state }) => {
       <Routes location={state?.backgroundLocation || location}>
         <Route path="/gallery/:category?/:id?/*" element={<GalleryRoute />} />
         <Route path="/" element={<HomeRoute />} />
-        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/contact" element={<ContactRoute />} />
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>
