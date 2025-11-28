@@ -15,7 +15,10 @@ const Copyright = () => {
 
   return (
     <div className={classes.copyrightWrapper}>
-      <PText>{`Copyright © ${year} @wellwe11`}</PText>
+      <div className={classes.contentWrapper}>
+        <PText>{`Copyright © ${year} @wellwe11`}</PText>
+      </div>
+      <div className={classes.backgroundColor} />
     </div>
   );
 };
@@ -41,6 +44,7 @@ const GithubLink = () => {
       >
         {gitHubButtonLinkWrapper}
       </div>
+      <div className={classes.backgroundColor} />
     </div>
   );
 };

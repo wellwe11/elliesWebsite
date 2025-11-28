@@ -1,11 +1,14 @@
 // Footer
 .footer {
   width: 100%;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  position: relative;
 
   .navContent {
     width: 100%;
@@ -16,7 +19,7 @@
   .backgroundColor {
     position: absolute;
 
-    height: 310px;
+    height: 100%;
     width: var(--pageWidhtNoScrollBar);
     z-index: 1;
     background-color: var(--c-grey-100);
@@ -69,20 +72,30 @@
 
 // Copyright
 .copyrightWrapper {
-  border-top: 0.5px solid var(--c-grey-300);
-
   display: flex;
   justify-content: center;
   align-items: center;
 
   padding: var(--spacing-2);
+
+  height: 50px;
+
+  .contentWrapper {
+    z-index: 2;
+  }
+
+  .backgroundColor {
+    height: inherit;
+    width: var(--pageWidhtNoScrollBar);
+
+    background-color: var(--c-grey-200);
+  }
 }
 
 // GithubLink
 .gitHubWrapper {
-  position: absolute;
+  z-index: 300;
   height: 40px;
-  left: 0;
 
   width: 100%;
 
@@ -90,10 +103,15 @@
   justify-content: center;
   align-items: center;
 
-  background-color: var(--c-grey-200);
+  .backgroundColor {
+    height: inherit;
+    width: var(--pageWidhtNoScrollBar);
+    background-color: var(--c-grey-300);
+  }
 
   // gitHubButtonLinkWrapper variable
   .gitHubContentWrapper {
+    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;

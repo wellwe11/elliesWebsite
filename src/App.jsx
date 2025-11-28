@@ -33,6 +33,20 @@ export default App;
  * ** BUGS **
  * ------------------------------------------------
  * ** THINGS TO FIX **
+* For smaller screens:
+ * Footer for smaller screens
+ * preview smaller screens
+ * Gallery smaller screens 
+ * MainPageTopPresentation on smaller screens
+ * WheelOfManyImages smaller screens
+ * 
+*  For bigger screens:
+ * Make MainPageTopPresentation always cover 50% of screen at least (to avoid user seeing elements below load)
+ * Gallery should not be scrollable for too long screens
+ * Footer should always be at bottom of screen (it currently is not on form-page for long screens)
+ * 
+ * 
+ * 
  * ------------------------------------------------
  * ** ADD TO COMPONENTS **
  

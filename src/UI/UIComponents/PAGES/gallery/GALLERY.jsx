@@ -68,7 +68,6 @@ const PageWrapperComponent = ({ filteredData }) => {
 
 const Gallery = ({ data: { categories, updatedData, page, dataKeys } }) => {
   useEffect(() => {
-    console.log(categories, page);
     window.scrollTo({ top: 0 });
   }, [categories, page]);
 
