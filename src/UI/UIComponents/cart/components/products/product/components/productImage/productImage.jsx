@@ -10,11 +10,16 @@ const ProductImage = ({ image, alt, product, setDisplayShoppingCart }) => {
     productType = product.type;
 
   const { location } = useGetLocation();
+  const backgroundLocation = location.state?.backgroundLocation;
 
   const handleNavigate = () => {
       bodyNoScroll().enableScroll();
       navigate(`/preview?category=${productType}&id=${productId}`, {
-        state: { backgroundLocation: location.state?.backgroundLocation },
+        state: {
+          backgroundLocation: backgroundLocation
+            ? backgroundLocation
+            : location.state,
+        },
       });
     },
     productImage = (
