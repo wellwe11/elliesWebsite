@@ -16,7 +16,7 @@ import useGetLocation from "@hooks/useGetLocation.jsx";
 import useData from "@hooks/useData.jsx";
 import dataHandler from "../../functions/dataHandler.js";
 import Navbar from "../../../NAVBAR/navbar.jsx";
-const Cart = lazy(() => import("../../../cart/cart.jsx"));
+const Cart = lazy(() => import("../../../CART/cart.jsx"));
 
 const GalleryRoute = () => {
   const [searchParams] = useSearchParams();

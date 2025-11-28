@@ -126,6 +126,15 @@
   }
 }
 
+.closed {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.cartClosed {
+  pointer-events: none;
+}
+
 .closeButton {
   height: fit-content;
 
@@ -184,44 +193,19 @@
   }
 }
 
-@keyframes opacityUp {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 0.5;
-  }
-}
-
 @media screen and (min-width: 650px) {
   .cart {
-    &::after {
-      content: "";
-      width: 100%;
-      height: 100%;
-
+    .clickBack {
       background-color: var(--c-grey-100);
       opacity: 0.5;
 
-      position: fixed;
-      left: 0;
-      top: 0;
-
-      will-change: opacity;
-      animation: opacityUp 1s ease 1 forwards;
-      opacity: 0;
-      z-index: 9;
-
-      pointer-events: none;
-    }
-
-    .clickBack {
       cursor: pointer;
       height: 100%;
       width: 100%;
       position: fixed;
       left: 0;
+
+      transition: opacity 1s ease;
     }
   }
 }

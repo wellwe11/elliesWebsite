@@ -5,12 +5,13 @@ import { Product } from "./product/product.jsx";
 import CartBottomItem from "../cartBottomItem/cartBottomItem.jsx";
 import storeData from "../../../routeContainer/zustandObject/storeData.jsx";
 
-const Products = () => {
+const Products = ({ setDisplayShoppingCart }) => {
   const { cart, getItemId } = storeData(),
     cartValues = Object.values(cart);
 
   const cartProductsWrapper = cartValues.map((obj) => (
     <Product
+      setDisplayShoppingCart={setDisplayShoppingCart}
       key={getItemId(obj.item)}
       product={obj.item}
       amount={obj.quantity}

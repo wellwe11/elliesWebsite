@@ -56,15 +56,15 @@ const CurrentlySelectedProduct = ({ activeImageIndex }) => (
 );
 
 const ProductInfo = ({ obj, activeImageIndex, setActiveImageIndex }) => {
-  const location = useLocation();
   const { setTitle, type, setImages, image } = obj;
   const { enableScroll } = bodyNoScroll();
+  const location = useLocation();
 
   return (
     <div className={classes.infoSection}>
       <div className={classes.closeWrapper}>
         <CloseButton
-          to={-1} // return to actual previous page which is home or gallery
+          to={location.state.backgroundLocation || -1} // return to actual previous page which is home or gallery
           onClick={enableScroll}
         />
       </div>

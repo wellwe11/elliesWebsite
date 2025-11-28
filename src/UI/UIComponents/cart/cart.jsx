@@ -1,6 +1,6 @@
 import classes from "./cart.module.scss";
-import { useEffect, useRef, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 import X_SVG from "@components/SVGS/X_SVG/X_SVG";
 import bodyNoScroll from "@functions/bodyNoScroll.js";
@@ -69,11 +69,21 @@ const Cart = ({ displayShoppingCart, setDisplayShoppingCart }) => {
   return (
     <div
       className={`${classes.cart} ${
-        displayShoppingCart ? classes.isOpen : classes.isClosed
+        !displayShoppingCart ? classes.cartClosed : ""
       }`}
     >
-      <div className={classes.clickBack} onClick={handleNavigateBack} />
-      <div className={classes.cartWrapper} ref={cartRef}>
+      <div
+        className={`${classes.clickBack} ${
+          !displayShoppingCart ? classes.closed : ""
+        }`}
+        onClick={handleNavigateBack}
+      />
+      <div
+        className={`${classes.cartWrapper} ${
+          displayShoppingCart ? classes.isOpen : classes.isClosed
+        }`}
+        ref={cartRef}
+      >
         <div className={classes.leftSection}>
           <h3 className={classes.title}>SHOPPING CART</h3>
 
@@ -95,7 +105,7 @@ const Cart = ({ displayShoppingCart, setDisplayShoppingCart }) => {
             />
           </div>
           <div className={classes.productsWrapper}>
-            <Products />
+            <Products setDisplayShoppingCart={setDisplayShoppingCart} />
           </div>
         </div>
       </div>

@@ -1,10 +1,10 @@
 import classes from "./product.module.scss";
-import ProductAmount from "../productAmount/productAmount.jsx";
-import ProductImage from "../productImage/productImage.jsx";
-import ProductName from "../productName/productName.jsx";
-import ProductPrice from "../productPrice/productPrice.jsx";
+import ProductAmount from "./components/productAmount/productAmount.jsx";
+import ProductImage from "./components/productImage/productImage.jsx";
+import ProductName from "./components/productName/productName.jsx";
+import ProductPrice from "./components/productPrice/productPrice.jsx";
 
-export const Product = ({ product, amount }) => {
+export const Product = ({ product, amount, setDisplayShoppingCart }) => {
   const { image: image, setTitle: name, price } = product;
 
   const leftSection = (
@@ -22,7 +22,11 @@ export const Product = ({ product, amount }) => {
 
   return (
     <div className={classes.product}>
-      <ProductImage image={image} product={product} />
+      <ProductImage
+        image={image}
+        product={product}
+        setDisplayShoppingCart={setDisplayShoppingCart}
+      />
       {leftSection}
       {rightSection}
     </div>

@@ -1,7 +1,7 @@
 import classes from "./productAmount.module.scss";
 
 import { useEffect, useState } from "react";
-import storeData from "../../../../routeContainer/zustandObject/storeData.jsx";
+import storeData from "../../../../../../routeContainer/zustandObject/storeData.jsx";
 
 // increase number of items
 const PlusButton = ({ product }) => {
