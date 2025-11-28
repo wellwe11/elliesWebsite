@@ -44,6 +44,8 @@
     .title {
       padding: var(--spacing-1);
       pointer-events: none;
+      word-wrap: wrap;
+      overflow-wrap: break-word;
     }
 
     .buttonsContainer {

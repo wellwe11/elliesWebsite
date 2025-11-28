@@ -1,11 +1,16 @@
 import classes from "./products.module.scss";
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ArrowNoBodySVG from "@components/SVGS/arrowNoBodySVG/arrowNoBodySVG.jsx";
 import { useMemo } from "react";
 
-const Category = ({ children, entry, handleNavigate }) => {
+const Category = ({ children, entry }) => {
+  const navigate = useNavigate(),
+    handleNavigate = (link) => {
+      navigate(link);
+    };
+
   return (
     <div className={classes.category}>
       <div
@@ -30,7 +35,10 @@ const Category = ({ children, entry, handleNavigate }) => {
   );
 };
 
-const Product = ({ name, image, category, id, handleNavigate }) => {
+const Product = ({ name, image, category, id }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   return (
     <div className={classes.product}>
       <h5 className={classes.title}>{name}</h5>
@@ -40,7 +48,15 @@ const Product = ({ name, image, category, id, handleNavigate }) => {
           src={image}
           alt=""
           onClick={() =>
-            handleNavigate(`uniqueImage?category=${category}&id=${id}`)
+            navigate(`/preview?category=${category}&id=${id}`, {
+              state: {
+                backgroundLocation: {
+                  pathname: location.pathname,
+                  search: location.search,
+                  hash: location.hash,
+                },
+              },
+            })
           }
         />
       </div>
@@ -60,17 +76,10 @@ const Products = ({ data }) => {
     [data]
   );
 
-  const navigate = useNavigate(),
-    handleNavigate = (link) => {
-      navigate(link);
-    };
-
-  console.log(dataEntries);
-
   return (
     <div className={classes.categories}>
       {dataEntries.map(([entry, obj], index) => (
-        <Category key={index} entry={entry} handleNavigate={handleNavigate}>
+        <Category key={index} entry={entry} h>
           <div className={classes.products}>
             {obj.map((obj, index) => {
               const name = obj.setTitle;
@@ -80,7 +89,6 @@ const Products = ({ data }) => {
 
               return (
                 <Product
-                  handleNavigate={handleNavigate}
                   key={index}
                   name={name}
                   image={image}
