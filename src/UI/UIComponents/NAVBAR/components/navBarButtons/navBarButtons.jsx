@@ -14,13 +14,13 @@ const Buttons = ({
 
   return buttonKeys.map((key, index) => (
     <div
+      className={classes.buttonWrapper}
       key={key}
       onClick={() => {
         setActiveButton(index);
       }}
       onMouseEnter={() => setHoverButton(index)}
       onMouseLeave={() => setHoverButton(activeButton)}
-      className={classes.buttonWrapper}
     >
       <NavButton link={Object.values(buttons)[index]}>
         {capitalizeFirstLetter(key)}

@@ -31,10 +31,15 @@
       }
 
       .navButtonsWrapper {
+        width: 33%;
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @media screen and (min-width: 1024px) {
+          min-width: 400px;
+        }
       }
 
       .shoppingCartWrapper {
@@ -96,5 +101,12 @@
     .pageOptionsWrapper {
       width: 80%;
     }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navbar {
+    position: absolute;
+    top: 0;
   }
 }

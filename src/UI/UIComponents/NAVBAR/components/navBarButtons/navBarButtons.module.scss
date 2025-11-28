@@ -36,11 +36,11 @@
 
 .buttonWrapper {
   height: 100%;
+  width: 100%;
 }
 
 @media screen and (max-width: 1024px) {
   .buttonsWrapper {
-    min-width: 100%;
   }
 
   .buttonUnderline {
@@ -53,5 +53,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .buttonsWrapper {
+    display: flex;
+    flex-direction: column;
+
+    .buttonWrapper {
+      display: flex;
+      justify-content: flex-start;
+
+      border-bottom: 0.5px solid var(--c-grey-300);
+    }
+  }
+
+  .buttonUnderline {
+    display: none;
   }
 }

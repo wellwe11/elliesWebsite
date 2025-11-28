@@ -5,7 +5,7 @@
   border: none;
   cursor: pointer;
 
-  width: 140px;
+  width: 100%;
   height: var(--spacing-8);
 
   display: flex;
@@ -21,11 +21,5 @@
 
   .font {
     color: black;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .button {
-    width: 100%;
   }
 }
