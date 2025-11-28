@@ -1,5 +1,6 @@
 // Products
 .categories {
+  margin-top: 250px;
   .products {
     padding: var(--spacing-2) 0px;
   }
@@ -76,9 +77,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+
+    padding: var(--spacing-2);
+
     .img {
-      padding: var(--spacing-2) var(--spacing-5);
       max-width: 350px;
+      width: 100%;
     }
   }
 }

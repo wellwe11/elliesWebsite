@@ -14,7 +14,7 @@ const Category = ({ children, entry, handleNavigate }) => {
           handleNavigate(`gallery?category=${entry.toLowerCase()}&page=1`)
         }
       >
-        <h3 className={classes.title}>{entry}</h3>
+        <h3 className={classes.title}>Newest items</h3>
         <div className={classes.exploreMoreWrapper}>
           <h6 className={classes.exploreMore}>Explore whole collection</h6>
           <div className={classes.arrowSVG}>
@@ -64,6 +64,8 @@ const Products = ({ data }) => {
     handleNavigate = (link) => {
       navigate(link);
     };
+
+  console.log(dataEntries);
 
   return (
     <div className={classes.categories}>
