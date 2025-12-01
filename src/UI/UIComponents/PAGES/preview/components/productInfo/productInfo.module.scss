@@ -41,8 +41,6 @@
   padding: var(--spacing-1) 0px;
 
   .borderContainer {
-    border-radius: var(--spacing-1);
-
     overflow: hidden;
 
     padding: var(--spacing-1);
@@ -51,7 +49,6 @@
     will-change: border;
 
     .imageExample {
-      border-radius: var(--spacing-1);
       width: var(--spacing-7);
       max-height: var(--spacing-7);
 

@@ -50,11 +50,6 @@ const QuickViewImageOptions = ({
   </div>
 );
 
-// currently only displayed index of active allImagesRelatedToQuickViewImage. In future, will have some bio-info
-const CurrentlySelectedProduct = ({ activeImageIndex }) => (
-  <h6 className={previewClass.bioTypeText}>Product: {+activeImageIndex + 1}</h6>
-);
-
 const ProductInfo = ({ obj, activeImageIndex, setActiveImageIndex }) => {
   const { setTitle, type, setImages, image } = obj;
   const { enableScroll } = bodyNoScroll();
@@ -72,7 +67,6 @@ const ProductInfo = ({ obj, activeImageIndex, setActiveImageIndex }) => {
         <InfoType type={type} />
         <InfoProductTitle title={setTitle} />
         <div className={previewClass.paddingTop4}>
-          <CurrentlySelectedProduct activeImageIndex={activeImageIndex} />
           <QuickViewImageOptions
             quickViewImages={setImages || [image]}
             activeImageIndex={activeImageIndex}

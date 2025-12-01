@@ -8,8 +8,6 @@
   background-color: var(--c-grey-100);
   transition: background-color 0.1s ease;
 
-  border-radius: var(--spacing-1);
-
   padding: var(--spacing-1);
   position: relative;
 
@@ -25,7 +23,6 @@
       background-color: inherit;
 
       padding: var(--spacing-1);
-      border-radius: var(--spacing-1);
     }
 
     input[type="number"] {
@@ -49,8 +46,6 @@
     border: none;
 
     background-color: inherit;
-
-    border-radius: var(--spacing-1);
 
     .text {
     }

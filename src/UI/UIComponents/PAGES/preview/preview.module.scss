@@ -83,7 +83,6 @@
 .activeImageWrapper {
   height: 100%;
   width: 50%;
-  border-radius: var(--spacing-1);
 
   background-color: var(--c-grey-100);
 
@@ -94,7 +93,6 @@
   padding: var(--spacing-3);
 
   .activeImage {
-    border-radius: var(--spacing-1);
     height: 100%;
 
     object-fit: contain;
