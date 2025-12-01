@@ -1,8 +1,5 @@
 // ProductInfo
 .infoSection {
-  padding: 0px var(--spacing-7);
-  padding-right: 0px;
-
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -10,22 +7,26 @@
   width: 100%;
   height: 100%;
 
-  .closeWrapper {
-    padding-top: var(--spacing-1);
-    display: flex;
-    justify-content: flex-end;
-  }
-
   .productTitleAndBioWrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
 
-    padding: var(--spacing-4) 0px;
+    .closeWrapper {
+      padding-top: var(--spacing-1);
+      display: flex;
+      justify-content: flex-end;
+
+      padding-bottom: var(--spacing-7);
+    }
   }
 
   .addToCartWrapper {
   }
+}
+
+.description {
+  border-bottom: 0.5px solid var(--c-grey-300);
+  padding: var(--spacing-1) 0px;
 }
 
 // QuickViewImageOptions

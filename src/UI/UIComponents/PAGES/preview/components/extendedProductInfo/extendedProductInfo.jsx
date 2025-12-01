@@ -22,22 +22,6 @@ const DescriptionElement = ({ obj }) => {
   );
 };
 
-const Description = ({ data }) => {
-  return (
-    <div className={classes.description}>
-      <h5 className={`${classes.infoTitle} ${previewClasses.titleTypeText}`}>
-        BIO
-      </h5>
-
-      <div className={classes.textWrapper}>
-        <h6 className={`${classes.text} ${previewClasses.bioTypeText}`}>
-          {data}
-        </h6>
-      </div>
-    </div>
-  );
-};
-
 const Frame = ({ data }) => {
   const frameInfo = data?.frame || {
     color: "black",
@@ -106,16 +90,61 @@ const Guide = ({ description }) => {
   );
 };
 
-const ExtendedProductInfo = ({ props, description }) => {
+const Images = ({ images }) => {
+  return (
+    <div className={classes.imagesContainer}>
+      {images.map((img, index) => (
+        <div key={index} className={classes.imageWrapper}>
+          <img src={img} alt="" />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const InitialImage = ({ image }) => {
+  return (
+    <div className={classes.imageWrapper}>
+      <img src={image} alt="" />
+    </div>
+  );
+};
+
+const SecondImage = ({ image }) => {
+  return (
+    <div className={classes.imageWrapper}>
+      <img src={image} alt="" />
+    </div>
+  );
+};
+
+const ExtendedProductInfo = ({ props, images }) => {
+  const initialImage = images[0];
+  const secondImage = images[1];
+  const restImages = images.slice(2);
   return (
     <div className={classes.extendedProductInfo}>
       <div className={classes.extendedSectionOne}>
         <Info data={props} />
         <Frame />
-        <Description data={description} />
+      </div>
+      <div
+        className={`${classes.extendedImages} ${classes.initialImageWrapper}`}
+      >
+        <InitialImage image={initialImage} />
       </div>
       <div className={classes.extendedSectionTwo}>
         <Guide description={props} />
+      </div>
+
+      <div
+        className={`${classes.extendedImages} ${classes.secondImageWrapper}`}
+      >
+        <SecondImage image={secondImage} />
+      </div>
+
+      <div className={`${classes.extendedImages} ${classes.restImagesWrapper}`}>
+        <Images images={restImages} />
       </div>
     </div>
   );

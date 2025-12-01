@@ -1,64 +1,51 @@
 // ProductDescription
 .productDescription {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  padding-top: var(--spacing-2);
-  border-bottom: 0.5px solid var(--c-grey-200);
-  border-top: 0.5px solid var(--c-grey-200);
-  padding: var(--spacing-2) 0px;
-
   .info {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+
+    padding: var(--spacing-1) 0px;
   }
 }
 
 // Entry
 .entryContainer {
-  padding: var(--spacing-4) var(--spacing-3);
-  border-left: 0.5px solid var(--c-grey-200);
-
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  gap: var(--spacing-3);
 
-  &:first-of-type {
-    border: none; // because borders are only on left side; last-of-type is not needed
+  padding: calc(var(--spacing-1) / 2) 0px;
+
+  .entry {
+    width: var(--spacing-6);
+    text-wrap: wrap;
   }
 
   .refContainer {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
 
     gap: var(--spacing-1);
 
-    width: 100%;
-
     .ref {
-      max-width: calc(33% - var(--spacing-1));
+      width: 25px;
+      height: 25px;
     }
 
     .value {
-      width: 100%;
-      text-align: center;
     }
   }
 }
 
 // fn: EntryValue
 .value {
-  margin-top: -8px;
 }
 
 // fn: EntryValue
 .ref {
-  border-radius: var(--spacing-1);
+  border-radius: calc(var(--spacing-1) / 2);
   height: 30px;
   width: 30px;
 

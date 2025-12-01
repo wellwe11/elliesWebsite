@@ -1,7 +1,7 @@
 import classes from "./preview.module.scss";
 import routeClasses from "../../routeContainer/routeContainer.module.scss";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import ProductInfo from "./components/productInfo/productInfo.jsx";
@@ -12,58 +12,40 @@ import ExtendedProductInfo from "./components/extendedProductInfo/extendedProduc
 
 import Footer from "../../FOOTER/footer.jsx";
 
-const ActiveImage = ({ setImages, activeImageIndex }) => {
+const MainImage = ({ src }) => {
   return (
     <div className={classes.activeImageWrapper}>
-      <img
-        className={classes.activeImage}
-        src={setImages?.[activeImageIndex]}
-        alt=""
-      />
+      <img className={classes.activeImage} src={src} alt="" />
     </div>
   );
 };
 
-const Info = ({ activeImageIndex, setActiveImageIndex, obj }) => {
+const Info = ({ obj }) => {
   return (
     <div className={classes.infoWrapper}>
-      <ProductInfo
-        obj={obj}
-        activeImageIndex={activeImageIndex}
-        setActiveImageIndex={setActiveImageIndex}
-      />
+      <ProductInfo obj={obj} />
     </div>
   );
 };
 
 // Element containing product-image and product-info
 const DisplayProductContainer = ({ obj }) => {
-  const [activeImageIndex, setActiveImageIndex] = useState(0); // A list of other images related to currently viewed product which are clickable. Clicking one displays it to the side for user to inspect it as a bigger image
-  const { setImages, image } = obj;
-
+  const MainImageSrc = obj.image;
   return (
     <div className={classes.imageContainer}>
-      <ActiveImage
-        setImages={setImages || [image]}
-        activeImageIndex={activeImageIndex}
-      />
-      <Info
-        obj={obj}
-        activeImageIndex={activeImageIndex}
-        setActiveImageIndex={setActiveImageIndex}
-      />
+      <MainImage src={MainImageSrc} />
+      <Info obj={obj} />
     </div>
   );
 };
 
 const ExtendedInfo = ({ obj }) => {
-  const { price, height, width, type, set, setDescription } = obj;
+  const { price, height, width, type, set, setImages } = obj;
   const props = { price, height, width, type, set };
-  const description = setDescription;
 
   return (
     <div className={classes.extendedInfo}>
-      <ExtendedProductInfo props={props} description={description} />
+      <ExtendedProductInfo props={props} images={setImages} />
     </div>
   );
 };

@@ -12,70 +12,49 @@ import CloseButton from "@components/closeButton/closeButton.jsx";
 import AddToCart from "./components/addToCart/addToCart.jsx";
 
 const InfoProductTitle = ({ title }) => (
-  <h1 className={previewClass.titleTypeText}>{title}</h1>
+  <h5 className={previewClass.bioTypeText}>{title}</h5>
 );
 
 const InfoType = ({ type }) => {
   const text = capitalizeFirstLetter(type);
 
-  return <h6 className={previewClass.bioTypeText}>{text}</h6>;
+  return <p className={previewClass.bioTypeText}>{text}</p>;
 };
 
-const QuickViewImageOptions = ({
-  quickViewImages,
-  activeImageIndex,
-  setActiveImageIndex,
-}) => (
-  <div className={classes.allImagesExamples}>
-    {quickViewImages?.map((image, index) => (
-      <div
-        key={index}
-        className={`${classes.borderContainer} ${
-          activeImageIndex === index
-            ? classes.activeBorder
-            : classes.inactiveBorder
-        }`}
-      >
-        <img
-          key={index}
-          className={classes.imageExample}
-          src={image}
-          alt=""
-          onClick={() => {
-            setActiveImageIndex(index);
-          }}
-        />
+const Description = ({ data }) => {
+  const description = data.setDescription;
+  return (
+    <div className={classes.description}>
+      <div className={classes.textWrapper}>
+        <p className={`${classes.text} ${previewClass.bioTypeText}`}>
+          {description}
+        </p>
       </div>
-    ))}
-  </div>
-);
+    </div>
+  );
+};
 
-const ProductInfo = ({ obj, activeImageIndex, setActiveImageIndex }) => {
-  const { setTitle, type, setImages, image } = obj;
+const ProductInfo = ({ obj }) => {
+  const { setTitle, type } = obj;
   const { enableScroll } = bodyNoScroll();
   const location = useLocation();
 
   return (
     <div className={classes.infoSection}>
-      <div className={classes.closeWrapper}>
-        <CloseButton
-          to={location.state.backgroundLocation || -1} // return to actual previous page which is home or gallery
-          onClick={enableScroll}
-        />
-      </div>
       <div className={classes.productTitleAndBioWrapper}>
-        <InfoType type={type} />
-        <InfoProductTitle title={setTitle} />
-        <div className={previewClass.paddingTop4}>
-          <QuickViewImageOptions
-            quickViewImages={setImages || [image]}
-            activeImageIndex={activeImageIndex}
-            setActiveImageIndex={setActiveImageIndex}
+        <div className={classes.closeWrapper}>
+          <CloseButton
+            to={location.state.backgroundLocation || -1} // return to actual previous page which is home or gallery
+            onClick={enableScroll}
           />
         </div>
+        <InfoProductTitle title={setTitle} />
+        <InfoType type={type} />
+        <div className={previewClass.paddingTop1} />
+        <ProductDescription obj={obj} />
+        <div className={previewClass.paddingTop4} />
+        <Description data={obj} />
       </div>
-
-      <ProductDescription obj={obj} />
       <div className={classes.addToCartWrapper}>
         <AddToCart obj={obj} />
       </div>

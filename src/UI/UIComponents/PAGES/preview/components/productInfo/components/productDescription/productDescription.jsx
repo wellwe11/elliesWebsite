@@ -15,57 +15,53 @@ const EntryValue = ({ value }) => {
   const result = valueTypeChecker(value);
 
   if (result === "reference") {
-    const totalWidth = value.length,
-      individualElWidth = 100 / totalWidth;
-
     return value.map((v, index) => (
       <div
         key={v + index}
         className={classes.ref}
-        style={{ backgroundColor: v, width: `${individualElWidth}%` }}
+        style={{ backgroundColor: v }}
       />
     ));
   }
 
   if (result === "primitive") {
     return (
-      <h1 className={`${previewClass.titleTypeText} ${classes.value}`}>
-        {value}
-      </h1>
+      <p className={`${previewClass.bioTypeText} ${classes.value}`}>{value}</p>
     );
   }
 };
 
-const Entry = ({ entry, entryWidth, obj }) => {
+const Entry = ({ entry, obj }) => {
   const capitalEntry = capitalizeFirstLetter(entry);
 
   return (
-    <div className={classes.entryContainer} style={{ width: `${entryWidth}%` }}>
+    <div className={classes.entryContainer}>
+      <p className={`${classes.entry} ${previewClass.bioTypeText}`}>
+        {capitalEntry}
+      </p>
       <div className={classes.refContainer}>
         <EntryValue value={obj} />
       </div>
-      <p className={previewClass.bioTypeText}>{capitalEntry}</p>
     </div>
   );
 };
 
 // Product will have a short description and this button is a boolean to display it or to hide the description
 const ProductDescription = ({ obj }) => {
-  const { colors, price } = obj;
+  const { price, colors } = obj;
   const infoDetails = {
+    price: obj.collection ? `${Math.round(price * 0.85)} € (15% off)` : price,
     amount: obj.collection ? obj.collection.length : 1,
     colors,
-    price,
   };
 
   const infoEntries = Object.entries(infoDetails);
-  const entryWidth = 100 / infoEntries.length;
 
   return (
     <div className={classes.productDescription}>
       <div className={classes.info}>
         {infoEntries.map(([entry, obj], index) => (
-          <Entry key={index} entry={entry} entryWidth={entryWidth} obj={obj} />
+          <Entry key={index} entry={entry} obj={obj} />
         ))}
       </div>
     </div>
