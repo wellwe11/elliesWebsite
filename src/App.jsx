@@ -34,6 +34,7 @@ export default App;
  * ------------------------------------------------
  * ** THINGS TO FIX **
 * For smaller screens:
+
  * preview smaller screens
  * Gallery smaller screens 
  * MainPageTopPresentation on smaller screens
