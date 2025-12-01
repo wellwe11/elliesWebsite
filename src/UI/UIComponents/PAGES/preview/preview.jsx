@@ -50,6 +50,10 @@ const ExtendedInfo = ({ obj }) => {
   );
 };
 
+const IndividualProducts = ({ obj }) => {
+  console.log(obj);
+};
+
 const IsLoading = ({ isLoading }) => {
   const navigate = useNavigate(); // navigates to a backgroundLocation
 
@@ -66,6 +70,16 @@ const IsLoading = ({ isLoading }) => {
 };
 
 const Preview = ({ isLoading, obj }) => {
+  // Check if obj is a set or single
+  // for extendedProductInfo:
+  // if single:
+  // add into data a couple of more images inside of single images and use those
+  // (this will fix bug where currently single-items cannot be clicked)
+
+  // if collection:
+  // use current setup which uses restImages
+  // display IndividualProducts, which is an element that shows all indidivual items if user wants to view those instead
+
   const fixedPreviewRef = useRef(null);
   const footerRef = useRef(null);
 
@@ -99,6 +113,9 @@ const Preview = ({ isLoading, obj }) => {
               <ExtendedInfo obj={obj} />
             </div>
           </div>
+        </div>
+        <div>
+          <IndividualProducts obj={obj} />
         </div>
         <div className={classes.transparentEl} />
       </div>

@@ -58,9 +58,7 @@ const AddToCart = ({ obj }) => {
         />
       </div>
       <button className={classes.addToCartBtn} onClick={handleAddToCart}>
-        <h4 className={`${classes.text} ${previewClass.titleTypeText}`}>
-          Add To Cart
-        </h4>
+        <h6 className={`${classes.text} ${previewClass.titleTypeText}`}>Add</h6>
       </button>
     </div>
   );

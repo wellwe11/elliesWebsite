@@ -16,8 +16,6 @@
 
     position: relative;
 
-    padding-bottom: var(--spacing-8);
-
     .sticky {
       position: sticky;
       top: var(--spacing-4);
@@ -66,6 +64,7 @@
       padding: var(--spacing-8) 0px;
 
       img {
+        padding: 0px var(--spacing-8);
       }
     }
   }
