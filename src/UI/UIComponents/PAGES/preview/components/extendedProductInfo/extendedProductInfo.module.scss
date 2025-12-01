@@ -28,7 +28,8 @@
     grid: 2 / 1;
 
     position: relative;
-    padding-bottom: (var(--spacing-6));
+    padding-bottom: var(--spacing-6);
+    padding-top: calc(var(--spacing-8) * 1.8);
 
     .sticky {
       position: sticky;
@@ -45,14 +46,14 @@
       .imageWrapper {
         width: 50%;
 
-        border-top: 50px solid var(--websiteContainerColor);
+        border-top: 140px solid var(--websiteContainerColor);
 
         &:nth-child(even) {
-          border-left: 25px solid var(--websiteContainerColor);
+          border-left: 70px solid var(--websiteContainerColor);
         }
 
         &:nth-child(odd) {
-          border-right: 25px solid var(--websiteContainerColor);
+          border-right: 70px solid var(--websiteContainerColor);
         }
 
         &:nth-of-type(2) {
@@ -70,13 +71,13 @@
   }
 
   .initialImageWrapper {
-    border-left: 25px solid var(--websiteContainerColor);
+    border-left: 70px solid var(--websiteContainerColor);
     grid: 1 / 2;
   }
 
   .secondImageWrapper {
-    border-top: 50px solid var(--websiteContainerColor);
-    border-left: 25px solid var(--websiteContainerColor);
+    border-top: 140px solid var(--websiteContainerColor);
+    border-left: 70px solid var(--websiteContainerColor);
 
     grid: 2 / 2;
   }

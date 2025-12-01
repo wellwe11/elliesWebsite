@@ -5,7 +5,6 @@
   display: flex;
   align-items: center;
 
-  background-color: var(--c-grey-100);
   transition: background-color 0.1s ease;
 
   padding: var(--spacing-1);
@@ -44,6 +43,8 @@
     transform: translateX(-50%);
     cursor: pointer;
     border: none;
+    border: 1px solid var(--c-grey-200);
+    color: var(--c-grey-500);
 
     background-color: inherit;
 
@@ -52,11 +53,19 @@
   }
 
   &:hover {
-    transition: background-color 0.4s ease;
-    background-color: var(--c-grey-200);
+    // background-color: var(--c-grey-200);
+
+    .addToCartBtn {
+      transition: border 0.4s ease;
+      border: 1px solid var(--c-grey-300);
+    }
+
+    .text {
+      transition: color 0.4s ease;
+      color: black;
+    }
 
     .input {
-      background-color: var(--c-grey-100);
     }
   }
 }
