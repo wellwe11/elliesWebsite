@@ -9,17 +9,31 @@
   .extendedSectionOne {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: var(--spacing-8);
 
     width: 200px;
 
     grid: 1 / 1;
+
+    position: relative;
+
+    padding-bottom: var(--spacing-8);
+
+    .sticky {
+      position: sticky;
+      top: var(--spacing-4);
+    }
   }
 
   .extendedSectionTwo {
-    padding: var(--spacing-7) 0px;
     grid: 2 / 1;
+
+    position: relative;
+    padding-bottom: (var(--spacing-6));
+
+    .sticky {
+      position: sticky;
+      top: var(--spacing-4);
+    }
   }
 
   .extendedImages {
@@ -31,8 +45,17 @@
       .imageWrapper {
         width: 50%;
 
+        border-top: 50px solid var(--websiteContainerColor);
+
+        &:nth-child(even) {
+          border-left: 25px solid var(--websiteContainerColor);
+        }
+
+        &:nth-child(odd) {
+          border-right: 25px solid var(--websiteContainerColor);
+        }
+
         &:nth-of-type(2) {
-          border-top: none;
         }
       }
     }
@@ -41,22 +64,20 @@
       background-color: var(--c-grey-100);
       padding: var(--spacing-8) 0px;
 
-      border: 50px solid var(--websiteContainerColor);
-
       img {
-      }
-
-      &:first-of-type {
-        border-top: none;
       }
     }
   }
 
   .initialImageWrapper {
+    border-left: 25px solid var(--websiteContainerColor);
     grid: 1 / 2;
   }
 
   .secondImageWrapper {
+    border-top: 50px solid var(--websiteContainerColor);
+    border-left: 25px solid var(--websiteContainerColor);
+
     grid: 2 / 2;
   }
 
@@ -69,16 +90,13 @@
 .info {
   display: flex;
   flex-direction: column;
-
-  flex: 1;
+  padding-bottom: var(--spacing-3);
 }
 
 // Frame
 .frame {
   display: flex;
   flex-direction: column;
-
-  flex: 0.7;
 
   .title {
     padding-bottom: var(--spacing-1);
@@ -145,6 +163,10 @@
       position: absolute;
 
       .text {
+        &::first-letter {
+          text-transform: capitalize;
+        }
+
         .span {
           font-style: italic;
         }
@@ -188,14 +210,8 @@
 
 // DescriptionElement
 .elWrapper {
-  border-bottom: 0.5px solid var(--c-grey-200);
-
   display: flex;
   justify-content: space-between;
 
   padding: var(--spacing-1) 0px;
-
-  &:first-of-type {
-    border-top: 0.5px solid var(--c-grey-200);
-  }
 }

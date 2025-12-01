@@ -2,16 +2,15 @@ import classes from "./extendedProductInfo.module.scss";
 import previewClasses from "../../preview.module.scss";
 
 import frameSizesImage from "@assets/sizeGuide.png";
-import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 
 const DescriptionElement = ({ obj }) => {
-  const key = obj[0].toUpperCase();
+  const key = obj[0];
   const value = obj[1];
 
   const Text = ({ children }) => (
-    <h6 className={`${classes.bioText} ${previewClasses.bioTypeText}`}>
+    <p className={`${classes.bioText} ${previewClasses.bioTypeText}`}>
       {children}
-    </h6>
+    </p>
   );
 
   return (
@@ -33,9 +32,9 @@ const Frame = ({ data }) => {
 
   return (
     <div className={classes.frame}>
-      <h5 className={`${previewClasses.titleTypeText} ${classes.title}`}>
+      <p className={`${previewClasses.titleTypeText} ${classes.title}`}>
         FRAME
-      </h5>
+      </p>
       {entries.map(([key, obj], index) => (
         <DescriptionElement obj={[key, obj]} key={index} />
       ))}
@@ -48,9 +47,9 @@ const Info = ({ data }) => {
 
   return (
     <div className={classes.info}>
-      <h5 className={`${previewClasses.titleTypeText} ${classes.infoTitle}`}>
+      <p className={`${previewClasses.titleTypeText} ${classes.infoTitle}`}>
         DETAILS
-      </h5>
+      </p>
       {entries.map(([key, obj], index) => (
         <DescriptionElement obj={[key, obj]} key={index} />
       ))}
@@ -63,25 +62,21 @@ const Guide = ({ description }) => {
 
   return (
     <div className={classes.guide}>
-      <h5 className={`${previewClasses.titleTypeText} ${classes.guideTitle}`}>
-        Guide
-      </h5>
+      <p className={`${previewClasses.titleTypeText} ${classes.guideTitle}`}>
+        GUIDE
+      </p>
       <div className={classes.imageContainer}>
         <img className={classes.frameSizeImage} src={frameSizesImage} alt="" />
         <div className={classes.frameMeasurements} />
         <div className={classes.height}>
           <p className={classes.text}>
-            <span className={classes.span}>
-              {capitalizeFirstLetter(type)} h:{" "}
-            </span>
+            <span className={classes.span}>{type} h: </span>
             {height} cm
           </p>
         </div>
         <div className={classes.width}>
           <p className={classes.text}>
-            <span className={classes.span}>
-              {capitalizeFirstLetter(type)} w:{" "}
-            </span>
+            <span className={classes.span}>{type} w: </span>
             {width} cm
           </p>
         </div>
@@ -125,8 +120,10 @@ const ExtendedProductInfo = ({ props, images }) => {
   return (
     <div className={classes.extendedProductInfo}>
       <div className={classes.extendedSectionOne}>
-        <Info data={props} />
-        <Frame />
+        <div className={classes.sticky}>
+          <Info data={props} />
+          <Frame />
+        </div>
       </div>
       <div
         className={`${classes.extendedImages} ${classes.initialImageWrapper}`}
@@ -134,7 +131,9 @@ const ExtendedProductInfo = ({ props, images }) => {
         <InitialImage image={initialImage} />
       </div>
       <div className={classes.extendedSectionTwo}>
-        <Guide description={props} />
+        <div className={classes.sticky}>
+          <Guide description={props} />
+        </div>
       </div>
 
       <div
