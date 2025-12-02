@@ -154,19 +154,16 @@
       padding: 0px var(--spacing-1);
       position: absolute;
 
-      .elLi {
+      .text {
         list-style: none;
 
         &::first-letter {
           text-transform: capitalize;
         }
+        font-style: italic;
 
-        .text {
-          font-style: italic;
-
-          font-size: clamp(0.8rem, 0.75rem + 0.1vw, 0.85rem);
-          font-variation-settings: "wght" 200;
-        }
+        font-size: clamp(0.8rem, 0.75rem + 0.1vw, 0.85rem);
+        font-variation-settings: "wght" 200;
       }
     }
 
@@ -208,15 +205,29 @@
 // DescriptionElement
 .elWrapper {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 
-  padding: calc(var(--spacing-1) / 5) 0px;
+  padding: var(--spacing-1) 0px;
 
-  .elLi {
-    .text {
-      font-size: clamp(0.8rem, 0.75rem + 0.1vw, 0.85rem);
-      font-variation-settings: "wght" 200;
-      list-style: none;
+  width: 100%;
+
+  .title {
+    font-variation-settings: "wght" 150;
+  }
+
+  .entry {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: clamp(0.8rem, 0.75rem + 0.1vw, 0.85rem);
+    font-variation-settings: "wght" 200;
+    list-style: none;
+
+    padding: calc(var(--spacing-1) / 10) 0px;
+
+    .value {
+      width: 50%;
     }
   }
 }
@@ -230,8 +241,5 @@
   .title {
     font-size: clamp(0.88rem, 0.3rem + 0.1vw, 0.92rem);
     font-variation-settings: "wght" 150;
-  }
-
-  .entryBio {
   }
 }

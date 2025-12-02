@@ -25,9 +25,7 @@ const EntryValue = ({ value }) => {
   }
 
   if (result === "primitive") {
-    return (
-      <p className={`${previewClass.bioTypeText} ${classes.value}`}>{value}</p>
-    );
+    return <li>{value}</li>;
   }
 };
 
@@ -35,14 +33,12 @@ const Entry = ({ entry, obj }) => {
   const capitalEntry = capitalizeFirstLetter(entry);
 
   return (
-    <div className={classes.entryContainer}>
-      <p className={`${classes.entry} ${previewClass.bioTypeText}`}>
-        {capitalEntry}
-      </p>
-      <div className={classes.refContainer}>
+    <li className={classes.entryContainer}>
+      <span className={classes.entry}>{capitalEntry}</span>
+      <ul className={classes.value}>
         <EntryValue value={obj} />
-      </div>
-    </div>
+      </ul>
+    </li>
   );
 };
 
@@ -58,13 +54,11 @@ const ProductDescription = ({ obj }) => {
   const infoEntries = Object.entries(infoDetails);
 
   return (
-    <div className={classes.productDescription}>
-      <div className={classes.info}>
-        {infoEntries.map(([entry, obj], index) => (
-          <Entry key={index} entry={entry} obj={obj} />
-        ))}
-      </div>
-    </div>
+    <ul className={classes.productDescription}>
+      {infoEntries.map(([entry, obj], index) => (
+        <Entry key={index} entry={entry} obj={obj} />
+      ))}
+    </ul>
   );
 };
 

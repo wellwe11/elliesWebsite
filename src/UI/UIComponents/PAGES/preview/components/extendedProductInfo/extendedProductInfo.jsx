@@ -3,37 +3,20 @@ import previewClasses from "../../preview.module.scss";
 
 import frameSizesImage from "@assets/sizeGuide.png";
 
-const DescriptionElement = ({ obj }) => {
-  const key = obj[0];
-  const value = obj[1];
-
-  const Text = ({ children }) => (
-    <li className={classes.elLi}>
-      <span className={`${previewClasses.bioTypeText} ${classes.text}`}>
-        {children}
-      </span>
-    </li>
-  );
-
-  return (
-    <div className={classes.elWrapper}>
-      <Text>{key}</Text>
-      <Text>{value}</Text>
-    </div>
-  );
-};
-
 const List = ({ children, entries }) => {
   return (
-    <li className={classes.list}>
+    <li className={classes.elWrapper}>
       <span className={`${previewClasses.titleTypeText} ${classes.title}`}>
         {children}
       </span>
-      {entries.map(([key, obj], index) => (
-        <ul className={classes.entryBio}>
-          <DescriptionElement obj={[key, obj]} key={index} />
-        </ul>
-      ))}
+      <ul>
+        {entries.map(([key, obj], index) => (
+          <li className={classes.entry} key={index}>
+            {key}
+            <span className={classes.value}>{obj}</span>
+          </li>
+        ))}
+      </ul>
     </li>
   );
 };
@@ -120,12 +103,12 @@ const ExtendedProductInfo = ({ props, images }) => {
   const restImages = images.slice(2);
   return (
     <div className={classes.extendedProductInfo}>
-      <div className={classes.extendedSectionOne}>
+      <ul className={classes.extendedSectionOne}>
         <div className={classes.sticky}>
           <Info data={props} />
           <Frame />
         </div>
-      </div>
+      </ul>
       <div
         className={`${classes.extendedImages} ${classes.initialImageWrapper}`}
       >

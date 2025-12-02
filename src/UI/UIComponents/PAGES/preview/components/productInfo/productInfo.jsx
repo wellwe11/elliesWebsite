@@ -13,6 +13,7 @@ import AddToCart from "./components/addToCart/addToCart.jsx";
 
 const InfoProductTitle = ({ title }) => {
   const upperCaseTitle = title.toUpperCase();
+
   return <h5 className={previewClass.bioTypeText}>{upperCaseTitle}</h5>;
 };
 
@@ -51,7 +52,7 @@ const ProductInfo = ({ obj }) => {
         </div>
         <InfoProductTitle title={setTitle} />
         <InfoType type={type} />
-        <div className={previewClass.paddingTop1} />
+        <div className={previewClass.paddingTop4} />
         <ProductDescription obj={obj} />
         <div className={previewClass.paddingTop4} />
         <Description data={obj} />
