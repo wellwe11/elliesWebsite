@@ -137,7 +137,7 @@ const Preview = ({ isLoading, obj }) => {
 
   useEffect(() => {
     fixedPreviewRef.current.scrollTo({ top: 0 });
-  }, [obj]);
+  }, [obj.id]);
 
   if (isLoading) return <IsLoading isLoading={isLoading} />;
 
