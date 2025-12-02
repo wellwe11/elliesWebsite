@@ -41,7 +41,13 @@ const DisplayProductContainer = ({ obj }) => {
 
 const ExtendedInfo = ({ obj }) => {
   const { price, height, width, type, set, setImages } = obj;
-  const props = { price, height, width, type, set };
+  const props = {
+    price: `${Math.round(price * 0.85)} €`,
+    height: `${height} cm`,
+    width: `${width} cm`,
+    type,
+    set,
+  };
 
   return (
     <div className={classes.extendedInfo}>

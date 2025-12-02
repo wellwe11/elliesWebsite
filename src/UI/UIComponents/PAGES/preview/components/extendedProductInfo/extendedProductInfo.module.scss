@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
 
-    width: 200px;
+    width: 25%;
 
     grid: 1 / 1;
 
@@ -91,16 +91,6 @@
   display: flex;
   flex-direction: column;
   padding-bottom: var(--spacing-3);
-}
-
-// Frame
-.frame {
-  display: flex;
-  flex-direction: column;
-
-  .title {
-    padding-bottom: var(--spacing-1);
-  }
 }
 
 // Guide
@@ -213,5 +203,27 @@
   display: flex;
   justify-content: space-between;
 
-  padding: var(--spacing-1) 0px;
+  padding: calc(var(--spacing-1) / 5) 0px;
+
+  .elLi {
+    .text {
+      font-size: clamp(0.8rem, 0.75rem + 0.1vw, 0.85rem);
+      font-variation-settings: "wght" 200;
+    }
+  }
+}
+
+// Frame
+.list {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--spacing-2);
+
+  .title {
+    font-size: clamp(0.88rem, 0.3rem + 0.1vw, 0.92rem);
+    font-variation-settings: "wght" 150;
+  }
+
+  .entryBio {
+  }
 }

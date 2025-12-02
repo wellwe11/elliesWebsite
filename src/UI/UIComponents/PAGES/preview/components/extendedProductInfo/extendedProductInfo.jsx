@@ -8,9 +8,11 @@ const DescriptionElement = ({ obj }) => {
   const value = obj[1];
 
   const Text = ({ children }) => (
-    <p className={`${classes.bioText} ${previewClasses.bioTypeText}`}>
-      {children}
-    </p>
+    <li className={classes.elLi}>
+      <span className={`${previewClasses.bioTypeText} ${classes.text}`}>
+        {children}
+      </span>
+    </li>
   );
 
   return (
@@ -18,6 +20,21 @@ const DescriptionElement = ({ obj }) => {
       <Text>{key}</Text>
       <Text>{value}</Text>
     </div>
+  );
+};
+
+const List = ({ children, entries }) => {
+  return (
+    <li className={classes.list}>
+      <span className={`${previewClasses.titleTypeText} ${classes.title}`}>
+        {children}
+      </span>
+      {entries.map(([key, obj], index) => (
+        <ul className={classes.entryBio}>
+          <DescriptionElement obj={[key, obj]} key={index} />
+        </ul>
+      ))}
+    </li>
   );
 };
 
@@ -30,31 +47,13 @@ const Frame = ({ data }) => {
 
   const entries = Object.entries(frameInfo);
 
-  return (
-    <div className={classes.frame}>
-      <p className={`${previewClasses.titleTypeText} ${classes.title}`}>
-        FRAME
-      </p>
-      {entries.map(([key, obj], index) => (
-        <DescriptionElement obj={[key, obj]} key={index} />
-      ))}
-    </div>
-  );
+  return <List entries={entries}>FRAME</List>;
 };
 
 const Info = ({ data }) => {
   const entries = Object.entries(data);
 
-  return (
-    <div className={classes.info}>
-      <p className={`${previewClasses.titleTypeText} ${classes.infoTitle}`}>
-        DETAILS
-      </p>
-      {entries.map(([key, obj], index) => (
-        <DescriptionElement obj={[key, obj]} key={index} />
-      ))}
-    </div>
-  );
+  return <List entries={entries}>DETAILS</List>;
 };
 
 const Guide = ({ description }) => {
@@ -62,23 +61,23 @@ const Guide = ({ description }) => {
 
   return (
     <div className={classes.guide}>
-      <p className={`${previewClasses.titleTypeText} ${classes.guideTitle}`}>
+      <span className={`${previewClasses.titleTypeText} ${classes.guideTitle}`}>
         GUIDE
-      </p>
+      </span>
       <div className={classes.imageContainer}>
         <img className={classes.frameSizeImage} src={frameSizesImage} alt="" />
         <div className={classes.frameMeasurements} />
         <div className={classes.height}>
-          <p className={classes.text}>
+          <li className={classes.text}>
             <span className={classes.span}>{type} h: </span>
             {height} cm
-          </p>
+          </li>
         </div>
         <div className={classes.width}>
-          <p className={classes.text}>
+          <li className={classes.text}>
             <span className={classes.span}>{type} w: </span>
             {width} cm
-          </p>
+          </li>
         </div>
       </div>
     </div>
