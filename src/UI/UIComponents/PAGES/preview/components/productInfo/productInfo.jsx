@@ -11,9 +11,10 @@ import CloseButton from "@components/closeButton/closeButton.jsx";
 
 import AddToCart from "./components/addToCart/addToCart.jsx";
 
-const InfoProductTitle = ({ title }) => (
-  <h5 className={previewClass.bioTypeText}>{title}</h5>
-);
+const InfoProductTitle = ({ title }) => {
+  const upperCaseTitle = title.toUpperCase();
+  return <h5 className={previewClass.bioTypeText}>{upperCaseTitle}</h5>;
+};
 
 const InfoType = ({ type }) => {
   const text = capitalizeFirstLetter(type);

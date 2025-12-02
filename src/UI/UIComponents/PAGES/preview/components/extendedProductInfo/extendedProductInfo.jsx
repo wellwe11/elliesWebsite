@@ -61,22 +61,24 @@ const Guide = ({ description }) => {
 
   return (
     <div className={classes.guide}>
-      <span className={`${previewClasses.titleTypeText} ${classes.guideTitle}`}>
-        GUIDE
-      </span>
+      <li className={classes.list}>
+        <span className={`${previewClasses.titleTypeText} ${classes.title}`}>
+          GUIDE
+        </span>
+      </li>
       <div className={classes.imageContainer}>
         <img className={classes.frameSizeImage} src={frameSizesImage} alt="" />
         <div className={classes.frameMeasurements} />
         <div className={classes.height}>
-          <li className={classes.text}>
-            <span className={classes.span}>{type} h: </span>
-            {height} cm
+          <li className={classes.elLi}>
+            <span className={classes.text}>{type} h: </span>
+            <span className={classes.text}>{height}</span>
           </li>
         </div>
         <div className={classes.width}>
-          <li className={classes.text}>
-            <span className={classes.span}>{type} w: </span>
-            {width} cm
+          <li className={classes.elLi}>
+            <span className={classes.text}>{type} w: </span>
+            <span className={classes.text}>{width}</span>
           </li>
         </div>
       </div>
