@@ -43,7 +43,7 @@
     transform: translateX(-50%);
     cursor: pointer;
     border: none;
-    border: 1px solid var(--c-grey-200);
+    border-bottom: 1px solid var(--c-grey-200);
     color: var(--c-grey-500);
 
     background-color: inherit;
@@ -57,7 +57,7 @@
 
     .addToCartBtn {
       transition: border 0.4s ease;
-      border: 1px solid var(--c-grey-300);
+      border-bottom: 1px solid var(--c-grey-300);
     }
 
     .text {

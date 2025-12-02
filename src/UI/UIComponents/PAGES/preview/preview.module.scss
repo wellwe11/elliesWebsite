@@ -20,6 +20,7 @@
 
     .backgroundColorWrapper {
       padding: var(--spacing-3) 0px;
+      padding-bottom: var(--spacing-8);
       background-color: var(--websiteContainerColor);
       pointer-events: auto;
       width: 100vw;
@@ -37,7 +38,7 @@
         padding: 0px var(--spacing-2);
 
         .title {
-          font-variation-settings: "wght" 200;
+          font-variation-settings: "wght" 100;
           padding: var(--spacing-1) 0px;
         }
       }
@@ -113,7 +114,7 @@
 
 .individualProducts {
   display: flex;
-  gap: var(--spacing-3);
+  gap: var(--spacing-4);
 
   width: 50%;
 

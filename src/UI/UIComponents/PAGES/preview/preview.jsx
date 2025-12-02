@@ -57,7 +57,7 @@ const ExtendedInfo = ({ obj }) => {
   );
 };
 
-const IndividualProducts = ({ obj }) => {
+const IndividualProducts = ({ obj, ref }) => {
   const navigate = useNavigate();
   const collection = obj?.collection;
 
@@ -70,15 +70,21 @@ const IndividualProducts = ({ obj }) => {
         <li
           className={classes.product}
           key={index}
-          onClick={() =>
+          onClick={() => {
             navigate(`/preview?category=${obj.type}&id=${obj.id}`, {
               state: {
                 backgroundLocation: backgroundLocation
                   ? backgroundLocation
                   : location,
               },
-            })
-          }
+            });
+
+            if (ref.current && obj) {
+              setTimeout(() => {
+                ref.current.scrollTo({ top: 0 });
+              }, 10);
+            }
+          }}
         >
           <img src={obj.image} alt="" />
           <span className={classes.title}>{obj.setTitle}</span>
@@ -104,16 +110,6 @@ const IsLoading = ({ isLoading }) => {
 };
 
 const Preview = ({ isLoading, obj }) => {
-  // Check if obj is a set or single
-  // for extendedProductInfo:
-  // if single:
-  // add into data a couple of more images inside of single images and use those
-  // (this will fix bug where currently single-items cannot be clicked)
-
-  // if collection:
-  // use current setup which uses restImages
-  // display IndividualProducts, which is an element that shows all indidivual items if user wants to view those instead
-
   const fixedPreviewRef = useRef(null);
   const footerRef = useRef(null);
 
@@ -146,8 +142,8 @@ const Preview = ({ isLoading, obj }) => {
             <ExtendedInfo obj={obj} />
             {obj.collection && (
               <div className={classes.individualWrapper}>
-                <h4 className={classes.title}>SET ITEMS</h4>
-                <IndividualProducts obj={obj} />
+                <h6 className={classes.title}>SET ITEMS</h6>
+                <IndividualProducts obj={obj} ref={fixedPreviewRef} />
               </div>
             )}
           </div>
