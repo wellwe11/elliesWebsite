@@ -12,6 +12,7 @@ import ExtendedProductInfo from "./components/extendedProductInfo/extendedProduc
 
 import Footer from "../../FOOTER/footer.jsx";
 import useGetLocation from "../../../../abstract/hooks/useGetLocation.jsx";
+import bodyNoScroll from "../../../../abstract/functions/bodyNoScroll.js";
 
 const MainImage = ({ src }) => {
   return (
@@ -112,6 +113,14 @@ const IsLoading = ({ isLoading }) => {
 const Preview = ({ isLoading, obj }) => {
   const fixedPreviewRef = useRef(null);
   const footerRef = useRef(null);
+
+  const { enableScroll, disableScroll } = bodyNoScroll();
+
+  useEffect(() => {
+    disableScroll();
+
+    return () => enableScroll();
+  }, [disableScroll, enableScroll]);
 
   useEffect(() => {
     const footerElement = footerRef.current;
