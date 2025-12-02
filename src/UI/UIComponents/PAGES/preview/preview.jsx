@@ -11,6 +11,7 @@ import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackgrou
 import ExtendedProductInfo from "./components/extendedProductInfo/extendedProductInfo.jsx";
 
 import Footer from "../../FOOTER/footer.jsx";
+import useGetLocation from "../../../../abstract/hooks/useGetLocation.jsx";
 
 const MainImage = ({ src }) => {
   return (
@@ -40,7 +41,7 @@ const DisplayProductContainer = ({ obj }) => {
 };
 
 const ExtendedInfo = ({ obj }) => {
-  const { price, height, width, type, set, setImages } = obj;
+  const { price, height, width, type, set, setImages, extraImages } = obj;
   const props = {
     price: `${Math.round(price * 0.85)} €`,
     height: `${height} cm`,
@@ -51,13 +52,40 @@ const ExtendedInfo = ({ obj }) => {
 
   return (
     <div className={classes.extendedInfo}>
-      <ExtendedProductInfo props={props} images={setImages} />
+      <ExtendedProductInfo props={props} images={setImages || extraImages} />
     </div>
   );
 };
 
 const IndividualProducts = ({ obj }) => {
-  console.log(obj);
+  const navigate = useNavigate();
+  const collection = obj?.collection;
+
+  const { location } = useGetLocation();
+  const backgroundLocation = location.state?.backgroundLocation || null;
+
+  return (
+    <ul className={classes.individualProducts}>
+      {collection.map((obj, index) => (
+        <li
+          className={classes.product}
+          key={index}
+          onClick={() =>
+            navigate(`/preview?category=${obj.type}&id=${obj.id}`, {
+              state: {
+                backgroundLocation: backgroundLocation
+                  ? backgroundLocation
+                  : location,
+              },
+            })
+          }
+        >
+          <img src={obj.image} alt="" />
+          <span className={classes.title}>{obj.setTitle}</span>
+        </li>
+      ))}
+    </ul>
+  );
 };
 
 const IsLoading = ({ isLoading }) => {
@@ -112,16 +140,17 @@ const Preview = ({ isLoading, obj }) => {
   return (
     <div className={classes.preview}>
       <div className={classes.fixedPreviewContainer} ref={fixedPreviewRef}>
-        <div>
-          <div className={classes.backgroundColorWrapper}>
-            <div className={routeClasses.contentWrapper}>
-              <DisplayProductContainer obj={obj} />
-              <ExtendedInfo obj={obj} />
-            </div>
+        <div className={classes.backgroundColorWrapper}>
+          <div className={routeClasses.contentWrapper}>
+            <DisplayProductContainer obj={obj} />
+            <ExtendedInfo obj={obj} />
+            {obj.collection && (
+              <div className={classes.individualWrapper}>
+                <h4 className={classes.title}>SET ITEMS</h4>
+                <IndividualProducts obj={obj} />
+              </div>
+            )}
           </div>
-        </div>
-        <div>
-          <IndividualProducts obj={obj} />
         </div>
         <div className={classes.transparentEl} />
       </div>

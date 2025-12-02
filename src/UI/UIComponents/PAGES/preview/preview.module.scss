@@ -30,6 +30,17 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      .individualWrapper {
+        width: 100%;
+
+        padding: 0px var(--spacing-2);
+
+        .title {
+          font-variation-settings: "wght" 200;
+          padding: var(--spacing-1) 0px;
+        }
+      }
     }
 
     .transparentEl {
@@ -99,6 +110,32 @@
     object-fit: contain;
   }
 }
+
+.individualProducts {
+  display: flex;
+  gap: var(--spacing-3);
+
+  width: 50%;
+
+  .product {
+    cursor: pointer;
+    .title {
+      font-variation-settings: "wght" 100;
+      text-wrap: wrap;
+
+      width: 100%;
+    }
+
+    img {
+      padding: var(--spacing-2);
+
+      width: 100%;
+      background-color: var(--c-grey-100);
+    }
+  }
+}
+
+// INDIVIDUAL CLASSES
 
 .extendedInfo {
   width: 100%;

@@ -11,7 +11,13 @@
           "colors": ["Blue", "White", "Orange"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
@@ -19,7 +25,13 @@
           "colors": ["Blue", "White", "Green"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
@@ -27,7 +39,13 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -55,7 +73,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
@@ -63,7 +87,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -91,7 +121,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
@@ -99,7 +135,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
@@ -107,7 +149,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -135,7 +183,13 @@
           "colors": ["Blue", "White"],
           "price": 24.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -163,7 +217,13 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
@@ -171,7 +231,13 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
@@ -179,7 +245,13 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -207,7 +279,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
@@ -215,7 +293,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
@@ -223,7 +307,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -251,7 +341,13 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
@@ -259,7 +355,13 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
@@ -267,7 +369,13 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -295,7 +403,13 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
@@ -303,7 +417,13 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
@@ -311,7 +431,13 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -339,7 +465,13 @@
           "colors": ["Blue", "White", "Orange"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
@@ -347,7 +479,13 @@
           "colors": ["Blue", "White", "Green"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
@@ -355,7 +493,13 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -383,7 +527,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
@@ -391,7 +541,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -419,7 +575,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
@@ -427,7 +589,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
@@ -435,7 +603,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -463,7 +637,13 @@
           "colors": ["Blue", "White"],
           "price": 24.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -491,7 +671,13 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
@@ -499,7 +685,13 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
@@ -507,7 +699,13 @@
           "colors": ["Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -535,7 +733,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageTwo.png",
@@ -543,7 +747,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/blue/mainImageThree.png",
@@ -551,7 +761,13 @@
           "colors": ["Blue", "White"],
           "price": 14.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -582,7 +798,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -611,7 +833,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
@@ -619,7 +847,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -648,7 +882,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
@@ -656,7 +896,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/red/imageExampleThree.jpg",
@@ -664,7 +910,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -693,7 +945,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
@@ -701,7 +959,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -730,7 +994,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -758,7 +1028,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
@@ -766,7 +1042,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -794,7 +1076,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
@@ -802,7 +1090,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/red/imageExampleThree.jpg",
@@ -810,7 +1104,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -838,7 +1138,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/red/imageExampleTwo.jpg",
@@ -846,7 +1152,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 
@@ -874,7 +1186,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         },
         {
           "image": "/serviceImages/collections/red/imageExampleThree.jpg",
@@ -882,7 +1200,13 @@
           "colors": ["Red", "Blue", "White"],
           "price": 19.99,
           "height": 35,
-          "width": 25
+          "width": 25,
+          "extraImages": [
+            "/serviceImages/collections/blue/mainImageOne.png",
+            "/serviceImages/collections/blue/mainImageTwo.png",
+            "/serviceImages/collections/blue/mainImageThree.png",
+            "/serviceImages/collections/blue/mainImageOne.png"
+          ]
         }
       ],
 

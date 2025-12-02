@@ -96,9 +96,10 @@ const SecondImage = ({ image }) => {
 };
 
 const ExtendedProductInfo = ({ props, images }) => {
-  const initialImage = images[0];
-  const secondImage = images[1];
-  const restImages = images.slice(2);
+  const initialImage = images?.[0];
+  const secondImage = images?.[1];
+  const restImages = images?.slice(2);
+
   return (
     <div className={classes.extendedProductInfo}>
       <ul className={classes.extendedSectionOne}>
