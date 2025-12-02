@@ -257,4 +257,20 @@
     .footerWrapper * {
     }
   }
+
+  .imageContainer {
+    .infoWrapper {
+    }
+
+    .activeImageWrapper {
+      padding: 0;
+    }
+  }
+
+  .individualWrapper {
+    .individualProducts {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
 }
