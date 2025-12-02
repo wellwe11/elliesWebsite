@@ -142,7 +142,7 @@ const Preview = ({ isLoading, obj }) => {
             <ExtendedInfo obj={obj} />
             {obj.collection && (
               <div className={classes.individualWrapper}>
-                <h6 className={classes.title}>SET ITEMS</h6>
+                <h6 className={classes.individualSetTitle}>SET ITEMS</h6>
                 <IndividualProducts obj={obj} ref={fixedPreviewRef} />
               </div>
             )}

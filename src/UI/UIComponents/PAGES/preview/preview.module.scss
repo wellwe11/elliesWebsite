@@ -37,7 +37,7 @@
 
         padding: 0px var(--spacing-2);
 
-        .title {
+        .individualSetTitle {
           font-variation-settings: "wght" 100;
           padding: var(--spacing-1) 0px;
         }
@@ -120,6 +120,12 @@
 
   .product {
     cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: calc(var(--spacing-1) * 0.2);
+
     .title {
       font-variation-settings: "wght" 100;
       text-wrap: wrap;
