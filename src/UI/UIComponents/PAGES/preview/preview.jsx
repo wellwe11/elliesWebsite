@@ -58,7 +58,7 @@ const ExtendedInfo = ({ obj }) => {
   );
 };
 
-const IndividualProducts = ({ obj, ref }) => {
+const IndividualProducts = ({ obj }) => {
   const navigate = useNavigate();
   const collection = obj?.collection;
 
@@ -79,12 +79,6 @@ const IndividualProducts = ({ obj, ref }) => {
                   : location,
               },
             });
-
-            if (ref.current && obj) {
-              setTimeout(() => {
-                ref.current.scrollTo({ top: 0 });
-              }, 10);
-            }
           }}
         >
           <img src={obj.image} alt="" />
@@ -123,6 +117,7 @@ const Preview = ({ isLoading, obj }) => {
   }, [disableScroll, enableScroll]);
 
   useEffect(() => {
+    console.log("asd");
     const footerElement = footerRef.current;
     const scrollableElement = fixedPreviewRef.current;
 
@@ -140,7 +135,13 @@ const Preview = ({ isLoading, obj }) => {
     };
   }, []);
 
+  useEffect(() => {
+    fixedPreviewRef.current.scrollTo({ top: 0 });
+  }, [obj]);
+
   if (isLoading) return <IsLoading isLoading={isLoading} />;
+
+  if (!obj) return null;
 
   return (
     <div className={classes.preview}>
@@ -152,7 +153,7 @@ const Preview = ({ isLoading, obj }) => {
             {obj.collection && (
               <div className={classes.individualWrapper}>
                 <h6 className={classes.individualSetTitle}>SET ITEMS</h6>
-                <IndividualProducts obj={obj} ref={fixedPreviewRef} />
+                <IndividualProducts obj={obj} />
               </div>
             )}
           </div>
