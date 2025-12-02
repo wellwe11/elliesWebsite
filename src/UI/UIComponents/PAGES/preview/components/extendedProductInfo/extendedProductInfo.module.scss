@@ -103,6 +103,8 @@
     width: fit-content;
     height: fit-content;
 
+    min-width: 200px;
+
     position: relative;
     left: -4%;
     .frameSizeImage {
@@ -321,25 +323,38 @@
 
 @media screen and (max-width: 650px) {
   .extendedProductInfo {
+    grid-template-columns: 100%;
     .extendedSectionOne {
+      grid-row: 1;
+      grid-column: 1;
       .sticky {
       }
     }
 
     .extendedSectionTwo {
+      grid-row: 2;
+      grid-column: 1;
       .sticky {
       }
     }
 
     .extendedImages {
+      grid-column: 1;
+      grid-row: 5;
       // for mapped images
       .imagesContainer {
+        display: flex;
+        flex-direction: column;
         .imageWrapper {
           border: none;
+          width: 100%;
+
           &:nth-child(even) {
+            border-left: none;
           }
 
           &:nth-child(odd) {
+            border-right: none;
           }
 
           &:nth-of-type(2) {
@@ -353,9 +368,15 @@
     }
 
     .initialImageWrapper {
+      grid-column: 1;
+      grid-row: 3;
+      border-right: none;
     }
 
     .secondImageWrapper {
+      grid-column: 1;
+      grid-row: 4;
+      border-left: none;
     }
 
     .restImagesWrapper {

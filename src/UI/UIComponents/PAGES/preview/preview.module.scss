@@ -237,6 +237,7 @@
 @media screen and (max-width: 450px) {
   .preview {
     .fixedPreviewContainer {
+      width: 100vw;
       .backgroundColorWrapper {
         .individualWrapper {
           .individualSetTitle {
@@ -250,6 +251,7 @@
     }
 
     .footerWrapper {
+      width: 100vw;
     }
 
     .footerWrapper * {
