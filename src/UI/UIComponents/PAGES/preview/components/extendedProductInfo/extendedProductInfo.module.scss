@@ -385,7 +385,18 @@
 }
 
 @media screen and (max-width: 450px) {
+  .extendedSectionOne {
+    height: fit-content !important;
+  }
+
   .extendedSectionTwo {
     display: none;
+  }
+
+  .imageWrapper {
+    padding-bottom: var(--spacing-3) !important;
+    img {
+      padding: 0 !important;
+    }
   }
 }

@@ -68,3 +68,9 @@
     border: 1px solid var(--c-grey-100);
   }
 }
+
+@media screen and (max-width: 200px) {
+  .description {
+    display: none;
+  }
+}

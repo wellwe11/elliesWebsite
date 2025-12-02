@@ -1,5 +1,4 @@
 import classes from "./productDescription.module.scss";
-import previewClass from "../../../../preview.module.scss";
 
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 

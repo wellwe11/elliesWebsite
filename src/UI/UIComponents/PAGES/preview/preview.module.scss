@@ -234,12 +234,17 @@
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 425px) {
   .preview {
     .fixedPreviewContainer {
-      width: 100vw;
       .backgroundColorWrapper {
+        width: 100vw;
         .individualWrapper {
+          .individualProducts {
+            flex-direction: column;
+            width: 100%;
+          }
+
           .individualSetTitle {
           }
         }
@@ -263,14 +268,22 @@
     }
 
     .activeImageWrapper {
+      height: 300px;
       padding: 0;
     }
   }
+}
 
-  .individualWrapper {
-    .individualProducts {
-      flex-direction: column;
-      width: 100%;
+@media screen and (max-width: 300px) {
+  .preview {
+    min-width: 300px;
+    .fixedPreviewContainer {
+      overflow-x: scroll;
+
+      .backgroundColorWrapper {
+        min-width: 300px;
+        overflow: scroll;
+      }
     }
   }
 }
