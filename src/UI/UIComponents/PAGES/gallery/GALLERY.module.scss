@@ -40,11 +40,11 @@
     }
 
     @media screen and (max-width: 650px) {
-      top: 95px;
+      top: 240px;
+      position: absolute;
     }
 
     @media screen and (max-width: 425px) {
-      top: 90px;
     }
   }
 
@@ -71,6 +71,10 @@
       // opacity: 0.8;
       // pointer-events: none;
       // transition: opacity 10s ease;
+    }
+
+    @media screen and (max-width: 650px) {
+      margin-top: 300px;
     }
   }
 

@@ -58,9 +58,13 @@
 
   @media screen and (max-width: 650px) {
     padding: 0px var(--spacing-3);
+
+    .filterUl {
+      flex-wrap: wrap;
+    }
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 425px) {
     padding: 0px var(--spacing-2);
   }
 
