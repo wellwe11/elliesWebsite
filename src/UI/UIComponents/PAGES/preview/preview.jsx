@@ -11,8 +11,8 @@ import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackgrou
 import ExtendedProductInfo from "./components/extendedProductInfo/extendedProductInfo.jsx";
 
 import Footer from "../../FOOTER/footer.jsx";
-import useGetLocation from "../../../../abstract/hooks/useGetLocation.jsx";
-import bodyNoScroll from "../../../../abstract/functions/bodyNoScroll.js";
+import useGetLocation from "@hooks/useGetLocation.jsx";
+import bodyNoScroll from "@functions/bodyNoScroll.js";
 
 const MainImage = ({ src }) => {
   return (
