@@ -44,11 +44,9 @@ const Guide = ({ description }) => {
 
   return (
     <div className={classes.guide}>
-      <li className={classes.list}>
-        <span className={`${previewClasses.titleTypeText} ${classes.title}`}>
-          GUIDE
-        </span>
-      </li>
+      <span className={`${previewClasses.titleTypeText} ${classes.title}`}>
+        GUIDE
+      </span>
       <div className={classes.imageContainer}>
         <img className={classes.frameSizeImage} src={frameSizesImage} alt="" />
         <div className={classes.frameMeasurements} />

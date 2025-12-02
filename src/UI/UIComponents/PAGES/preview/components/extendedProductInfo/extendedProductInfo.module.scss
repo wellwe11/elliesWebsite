@@ -95,6 +95,9 @@
 
 // Guide
 .guide {
+  .title {
+  }
+
   .imageContainer {
     width: fit-content;
     height: fit-content;
@@ -154,9 +157,9 @@
       padding: 0px var(--spacing-1);
       position: absolute;
 
-      .text {
-        list-style: none;
+      list-style: none;
 
+      .text {
         &::first-letter {
           text-transform: capitalize;
         }
@@ -208,12 +211,12 @@
   flex-direction: column;
   justify-content: space-between;
 
-  padding: var(--spacing-1) 0px;
+  padding: var(--spacing-2) 0px;
 
   width: 100%;
 
   .title {
-    font-variation-settings: "wght" 150;
+    padding-bottom: var(--spacing-1);
   }
 
   .entry {
@@ -232,14 +235,13 @@
   }
 }
 
-// Frame
 .list {
   display: flex;
   flex-direction: column;
   padding-bottom: var(--spacing-2);
+}
 
-  .title {
-    font-size: clamp(0.88rem, 0.3rem + 0.1vw, 0.92rem);
-    font-variation-settings: "wght" 150;
-  }
+.title {
+  font-size: clamp(0.88rem, 0.3rem + 0.1vw, 0.92rem);
+  font-variation-settings: "wght" 150;
 }
