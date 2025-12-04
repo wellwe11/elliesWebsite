@@ -1,5 +1,6 @@
-import X_SVG from "@components/SVGS/X_SVG/X_SVG.jsx";
 import classes from "./filterSideBar.module.scss";
+
+import X_SVG from "@components/SVGS/X_SVG/X_SVG.jsx";
 import ButtonWithUnderlineAndUndertext from "@components/buttonWithUnderlineAndUnderText/buttonWithUnderlineAndUndertext";
 
 const LiEl = ({ category, k, handleFilter }) => {
@@ -11,7 +12,9 @@ const LiEl = ({ category, k, handleFilter }) => {
         }`}
         onClick={() => handleFilter(k)}
       >
-        <p className={classes.text}>{k}</p>
+        <div className={classes.textWrapper}>
+          <p className={classes.text}>{k}</p>
+        </div>
       </button>
     </li>
   );

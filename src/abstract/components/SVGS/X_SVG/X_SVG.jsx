@@ -26,7 +26,7 @@ const X_SVG = () => {
 
       <g
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="1.2"
         strokeLinecap="butt"
         strokeLinejoin="miter"
       >
