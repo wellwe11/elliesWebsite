@@ -39,16 +39,12 @@ const Description = ({ data }) => {
 const ProductInfo = ({ obj }) => {
   const { setTitle, type } = obj;
   const { enableScroll } = bodyNoScroll();
-  const location = useLocation();
 
   return (
     <div className={classes.infoSection}>
       <div className={classes.productTitleAndBioWrapper}>
         <div className={classes.closeWrapper}>
-          <CloseButton
-            to={location.state.backgroundLocation || -1} // return to actual previous page which is home or gallery
-            onClick={enableScroll}
-          />
+          <CloseButton to={-1} onClick={enableScroll} />
         </div>
         <InfoProductTitle title={setTitle} />
         <InfoType type={type} />

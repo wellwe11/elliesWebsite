@@ -1,11 +1,10 @@
 import classes from "./products.module.scss";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { capitalizeFirstLetter } from "@functions/firstLetterCapital.js";
 import setRef from "@functions/setRefs.js";
-import intersecter from "@functions/interSection.js";
 
 // element that displays specified information about a product. In this case: The collections name, it's type, and the price.
 const ProductBio = ({ product }) => {
@@ -14,14 +13,8 @@ const ProductBio = ({ product }) => {
     setType = product.set,
     type = capitalizeFirstLetter(detailsType);
 
-  const Type = (
-    <div className={classes.type}>
-      <p className={classes.bioText}>{type}</p>
-    </div>
-  );
-
   const setTitle = product.setTitle,
-    titlelength = 20,
+    titlelength = 30,
     styledName =
       setTitle.length > titlelength
         ? setTitle.slice(
@@ -30,21 +23,19 @@ const ProductBio = ({ product }) => {
           ) + "..."
         : setTitle; // collections/sets name - I.e. spring-collection, pastel-blue bookmarks collection, etc.
 
-  const Name = (
-    <div className={classes.name}>
-      <h5 className={classes.bioText}>{capitalizeFirstLetter(styledName)}</h5>
-    </div>
-  );
-
   return (
     <div className={classes.productBioSection}>
       <div className={classes.productBio}>
         <div className={classes.bioTopSection}>
           <div className={classes.nameAndMore}>
-            {Name}
-            {setType}
+            <p className={classes.bioText}>{styledName}</p>
+            <p className={classes.bioText}>{setType}</p>
           </div>
-          <div className={classes.bioInfo}>{Type}</div>
+          <div className={classes.bioInfo}>
+            <div className={classes.type}>
+              <p className={classes.bioText}>{type}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -88,36 +79,6 @@ const Product = ({ productRefs, index, product }) => {
 
 const Products = ({ products }) => {
   const productRefs = useRef([]);
-
-  // const { intersect } = useMemo(
-  //   () =>
-  //     intersecter({
-  //       style: {
-  //         transitionDelay: "0.03}s",
-  //         opacity: "1",
-  //         transform: "translateY(0)",
-  //         filter: "blur(0)",
-  //       },
-  //       unMount: true,
-  //       treshhold: 0.4,
-  //       rootMargin: "0px 0px 0px 0px",
-  //     }),
-  //   []
-  // );
-
-  // useEffect(() => {
-  //   if (!products || !productRefs.current.length) return;
-
-  //   const observer = productRefs.current.map((el) => {
-  //     const singleRef = { current: el };
-
-  //     return intersect(singleRef);
-  //   });
-
-  //   return () => {
-  //     observer.forEach((obs) => obs.disconnect());
-  //   };
-  // }, [products.length]);
 
   const mappedProductImages = useMemo(
     () => (

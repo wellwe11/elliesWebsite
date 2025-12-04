@@ -43,9 +43,6 @@
       top: 240px;
       position: absolute;
     }
-
-    @media screen and (max-width: 425px) {
-    }
   }
 
   // productsWrapper
@@ -75,6 +72,14 @@
 
     @media screen and (max-width: 650px) {
       margin-top: 300px;
+    }
+
+    @media screen and (max-width: 444px) {
+      margin-top: 400px;
+    }
+
+    @media screen and (max-width: 230px) {
+      margin-top: 450px;
     }
   }
 

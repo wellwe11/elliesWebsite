@@ -10,24 +10,68 @@
     justify-content: space-evenly;
 
     @media screen and (min-width: 1400px) {
-      gap: var(--spacing-3);
-      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-8);
+      grid-template-columns: repeat(3, 1fr);
+
+      .productWrapper {
+        height: clamp(400px, 50vw + 50rem, 600px);
+
+        .productImage {
+          padding: var(--spacing-8);
+        }
+      }
     }
 
-    @media screen and (max-width: 1400px) {
-      gap: var(--spacing-4);
+    @media screen and (min-width: 1024px) and (max-width: 1400px) {
+      gap: var(--spacing-7);
       grid-template-columns: repeat(3, 1fr);
+
+      .productWrapper {
+        height: clamp(200px, 20vw + 10rem, 500px);
+
+        .productImage {
+          padding: 0px var(--spacing-4);
+        }
+      }
     }
 
     @media screen and (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-7);
+
+      .productWrapper {
+        height: clamp(200px, 25vw + 10rem, 400px);
+
+        .productImage {
+          padding: 0px var(--spacing-5);
+        }
+      }
+    }
+
+    @media screen and (max-width: 800px) {
       grid-template-columns: repeat(2, 1fr);
     }
 
     @media screen and (max-width: 650px) {
       grid-template-columns: repeat(1, 1fr);
+
+      .productWrapper {
+        height: clamp(250px, 30vw + 10rem, 450px);
+
+        .productImage {
+          padding: 0px calc(var(--spacing-8) * 1.6);
+        }
+      }
     }
 
     @media screen and (max-width: 425px) {
+      .productWrapper {
+        height: clamp(200px, 20vw + 10rem, 300px);
+
+        .productImage {
+          padding: 0px var(--spacing-8);
+        }
+      }
     }
 
     @media screen and (max-width: 375px) {
@@ -38,8 +82,6 @@
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
-
-      height: clamp(200px, 35vw + 50rem, 450px);
 
       .productImageWrapper {
         overflow: hidden;
@@ -54,13 +96,13 @@
 
         height: 100%;
 
-        border: var(--spacing-4) solid var(--c-grey-100);
-
         .productImage {
           object-fit: contain;
           will-change: transform;
 
           transition: transform 0.1s ease;
+
+          min-width: 200px;
         }
         &:hover {
           .productImage {
@@ -105,14 +147,12 @@
 
       .bioInfo {
         display: flex;
-        flex-direction: column;
+
         gap: var(--spacing-1);
       }
 
-      .name {
-        .bioText {
-          font-variation-settings: "wght" 450;
-        }
+      .bioText {
+        font-variation-settings: "wght" 450;
       }
 
       .type {
