@@ -11,15 +11,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: color 0.3s ease;
 
-  .font {
-    transition: color 0.4s ease;
-    color: var(--fontColor);
-    font-variation-settings: "wght" 450;
+  &:hover {
+    .font {
+      color: black;
+      transition: color 0.3s ease;
+    }
   }
 
   .font {
-    color: black;
+    transition: color 0.4s ease;
+    color: var(--c-grey-400);
+    font-variation-settings: "wght" 450;
+
+    transition: color 0.2s ease;
   }
 }

@@ -16,7 +16,10 @@ const NavLogo = ({ setActiveButton, setHoverButton }) => {
       }}
     >
       <img className={classes.navLogoImage} src={logoImage} alt="" />
-      <h3 className={classes.logo}>art & cards co.</h3>
+      <h1 className={classes.logo}>
+        art & <br />
+        cards co.
+      </h1>
     </div>
   );
 };

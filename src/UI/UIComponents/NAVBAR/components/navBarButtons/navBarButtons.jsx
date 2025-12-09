@@ -29,6 +29,7 @@ const Buttons = ({
   ));
 };
 
+// currently inactive - not sure if I want it anymore but too complex to delete
 const ButtonsUnderline = ({ hoverButton, buttons }) => {
   const { pathname } = useGetLocation();
   // thin line below buttons that displays currently hovered button
@@ -60,7 +61,7 @@ const NavbarButtons = ({
         setActiveButton={setActiveButton}
         setHoverButton={setHoverButton}
       />
-      <ButtonsUnderline hoverButton={hoverButton} buttons={buttons} />
+      {/* <ButtonsUnderline hoverButton={hoverButton} buttons={buttons} /> */}
     </div>
   );
 };

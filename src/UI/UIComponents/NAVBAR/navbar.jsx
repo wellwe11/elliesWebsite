@@ -38,17 +38,19 @@ const Navbar = ({ setDisplayShoppingCart }) => {
               setHoverButton={setHoverButton}
             />
           </div>
-          <div className={classes.navButtonsWrapper}>
-            <NavbarButtons
-              buttons={buttons}
-              activeButton={activeButton}
-              setActiveButton={setActiveButton}
-              hoverButton={hoverButton}
-              setHoverButton={setHoverButton}
-            />
-          </div>
-          <div className={classes.shoppingCartWrapper}>
-            <ShoppingCart setDisplayShoppingCart={setDisplayShoppingCart} />
+          <div className={classes.right}>
+            <div className={classes.navButtonsWrapper}>
+              <NavbarButtons
+                buttons={buttons}
+                activeButton={activeButton}
+                setActiveButton={setActiveButton}
+                hoverButton={hoverButton}
+                setHoverButton={setHoverButton}
+              />
+            </div>
+            <div className={classes.shoppingCartWrapper}>
+              <ShoppingCart setDisplayShoppingCart={setDisplayShoppingCart} />
+            </div>
           </div>
         </div>
       </div>

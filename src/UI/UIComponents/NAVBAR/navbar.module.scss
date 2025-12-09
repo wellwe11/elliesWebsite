@@ -11,43 +11,41 @@
 
   z-index: 9999999;
 
-  border-bottom: 0.5px solid var(--c-grey-200);
-  background-color: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.926);
+  backdrop-filter: blur(2px);
 
   .navContent {
     .navWrapper {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+
       height: 100%;
 
       .navLogoWrapper {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        width: 33%;
+
         height: 100%;
       }
 
-      .navButtonsWrapper {
-        width: 33%;
-        height: 100%;
+      .right {
         display: flex;
         justify-content: center;
         align-items: center;
 
-        @media screen and (min-width: 1024px) {
-          min-width: 400px;
+        .navButtonsWrapper {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
-      }
 
-      .shoppingCartWrapper {
-        width: 33%;
-        height: 100%;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
+        .shoppingCartWrapper {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+        }
       }
     }
   }

@@ -8,7 +8,7 @@ const NavButton = ({ children, link }) => {
   const handleNavigate = () => navigate(link);
   return (
     <button className={classes.navButton} onClick={handleNavigate}>
-      <h6 className={classes.font}>{children}</h6>
+      <p className={classes.font}>{children}</p>
     </button>
   );
 };

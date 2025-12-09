@@ -11,10 +11,10 @@
 
     @media screen and (min-width: 1400px) {
       gap: var(--spacing-8);
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
 
       .productWrapper {
-        height: clamp(400px, 50vw + 50rem, 600px);
+        height: clamp(300px, 50vw + 50rem, 400px);
 
         .productImage {
           padding: clamp(

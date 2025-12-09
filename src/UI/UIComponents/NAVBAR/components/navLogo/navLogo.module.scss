@@ -4,12 +4,16 @@
   cursor: pointer;
 
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: center;
+
+  gap: var(--spacing-3);
+
+  padding: var(--spacing-3);
 
   .navLogoImage {
-    height: clamp(20px, 5vw, 40px);
-    width: clamp(20px, 5vw, 40px);
+    height: clamp(20px, 5vw + 5rem, 60px);
+    width: clamp(20px, 5vw + 5rem, 60px);
     margin-right: 10px;
     transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     will-change: transform;
@@ -19,7 +23,9 @@
     font-family: "Mrs Saint Delafield", cursive;
 
     color: black;
-    margin-left: 5px;
+
+    font-size: 50px;
+    line-height: 50px;
 
     @media screen and (max-width: 425px) {
       display: none;
