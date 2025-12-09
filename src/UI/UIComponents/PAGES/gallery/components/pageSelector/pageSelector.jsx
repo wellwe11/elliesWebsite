@@ -72,12 +72,7 @@ const LeftButton = ({ page, navigate, category }) => {
 };
 
 const PageNumbers = ({ page, maxPage, navigate, category }) => {
-  const activePageUnderline = {
-    // style for when the current page is displayed
-    color: "black",
-  };
-
-  const { pagesArr, pageNumber } = usePageNumbersLogic(page, maxPage); // retrieve relevant page/pages
+  const { pagesArr } = usePageNumbersLogic(page, maxPage); // retrieve relevant page/pages
 
   if (!pagesArr) return;
 
@@ -93,12 +88,7 @@ const PageNumbers = ({ page, maxPage, navigate, category }) => {
           }}
           onClick={() => navigate(`/gallery?${category}&page=${arrNr}`)} // changes current page if you click a number (and not previous/next)
         >
-          <p
-            className={classes.btnText}
-            style={pageNumber === arrNr ? activePageUnderline : {}}
-          >
-            {+arrNr}
-          </p>
+          <p className={classes.btnText}>{+arrNr}</p>
         </button>
       ))}
     </div>
@@ -107,7 +97,7 @@ const PageNumbers = ({ page, maxPage, navigate, category }) => {
 
 const BackToZeroButton = ({ page, maxPage, navigate, category }) => {
   const backToZeroStyle = {
-    opacity: page >= 3 && maxPage > 3 ? "1" : "0",
+    opacity: page >= 3 && maxPage > 3 ? "1" : "0.5",
   };
 
   return (
@@ -115,7 +105,7 @@ const BackToZeroButton = ({ page, maxPage, navigate, category }) => {
       <button
         onClick={() => navigate(`/gallery?${category}&page=${1}`)}
         style={backToZeroStyle}
-        className={`${classes.pageSelectorButton} ${classes.extraButton}`}
+        className={classes.pageSelectorButton}
       >
         <p className={classes.btnText}>1...</p>
       </button>
@@ -149,6 +139,12 @@ const PageSelector = ({ maxPage }) => {
         category={stringCategories}
       />
       <PageNumbers
+        page={page}
+        maxPage={maxPage}
+        navigate={navigate}
+        category={stringCategories}
+      />
+      <RightButton
         page={page}
         maxPage={maxPage}
         navigate={navigate}

@@ -3,6 +3,7 @@
   .filterUl {
     width: 100%;
     display: flex;
+    align-items: center;
 
     @media screen and (max-width: 1024px) {
       top: 110px;
@@ -26,16 +27,12 @@
 
         position: relative;
 
-        width: 70px;
         height: 30px;
+        width: fit-content;
+        padding: 0px var(--spacing-1);
 
         .textWrapper {
           width: 100%;
-
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
 
           .text {
             color: var(--c-grey-500);
@@ -58,7 +55,7 @@
         .textWrapper {
           .text {
             color: black;
-            font-variation-settings: "wght" 500;
+            font-variation-settings: "wght" 400;
           }
         }
       }
@@ -73,6 +70,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 20px;
+      width: 20px;
+      margin-top: 3px;
     }
   }
 

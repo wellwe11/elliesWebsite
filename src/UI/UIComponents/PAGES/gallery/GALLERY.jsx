@@ -50,7 +50,7 @@ const FilterSidebarWrapper = ({ categories, dataKeys }) => {
       </div>
 
       <button onClick={handleDisplayFilters} className={classes.displayButton}>
-        <p className={classes.text}>Filters</p>
+        <p className={classes.text}>filters</p>
       </button>
     </div>
   );
