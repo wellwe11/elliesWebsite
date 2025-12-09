@@ -1,7 +1,7 @@
 import classes from "./GALLERY.module.scss";
 import fadeInClass from "@classes/fadeInOnLoad.module.scss";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import LoadingWrapper from "@components/loadingAnimation/loadingIconWithBackground";
@@ -15,8 +15,9 @@ import FilterSideBar from "./components/filterSideBar/filterSideBar.jsx";
 import Products from "./components/products/products.jsx";
 
 // buttons on left to select specific items based on their type
-const FilterSideBarWrapperComponent = ({ categories, dataKeys }) => {
+const FilterSidebarWrapper = ({ categories, dataKeys }) => {
   const navigate = useNavigate();
+  const [displayFilter, setDisplayFilter] = useState(false);
 
   const handleNavigate = (e) => {
     const activeFilters = handleFilter(e, categories || []);
@@ -26,15 +27,31 @@ const FilterSideBarWrapperComponent = ({ categories, dataKeys }) => {
     return navigate(link);
   };
 
+  const handleDisplayFilters = () => {
+    setTimeout(() => {
+      setDisplayFilter(!displayFilter);
+    }, 100);
+  };
+
   return (
-    <div className={classes.filterSideBarWrapper}>
-      <div className={classes.filterWrapper}>
+    <div className={classes.filterWrapper}>
+      <div
+        className={classes.popUpWrapper}
+        style={{
+          transform: displayFilter ? "translateX(0)" : "translateX(20px)",
+          opacity: displayFilter ? "1" : "0",
+        }}
+      >
         <FilterSideBar
           dataKeys={dataKeys}
           handleFilter={handleNavigate}
           category={categories}
         />
       </div>
+
+      <button onClick={handleDisplayFilters} className={classes.displayButton}>
+        <p className={classes.text}>Filters</p>
+      </button>
     </div>
   );
 };
@@ -74,13 +91,12 @@ const Gallery = ({ data: { categories, updatedData, page, dataKeys } }) => {
   return (
     <div className={`${classes.gallery} ${fadeInClass.fade_in_on_load}`}>
       <div className={classes.galleryTop}>
-        <FilterSideBarWrapperComponent
-          dataKeys={dataKeys}
-          categories={categories}
-        />
+        <div className={classes.extendedNavbarWrapper}>
+          <FilterSidebarWrapper dataKeys={dataKeys} categories={categories} />
+          <PageWrapperComponent filteredData={updatedData} />
+        </div>
         <ProductsWrapperComponent filteredData={updatedData} page={page} />
       </div>
-      <PageWrapperComponent filteredData={updatedData} />
     </div>
   );
 };

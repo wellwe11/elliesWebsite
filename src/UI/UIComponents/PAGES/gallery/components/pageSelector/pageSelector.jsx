@@ -74,7 +74,7 @@ const LeftButton = ({ page, navigate, category }) => {
 const PageNumbers = ({ page, maxPage, navigate, category }) => {
   const activePageUnderline = {
     // style for when the current page is displayed
-    borderBottom: "1px solid var(--c-text-black)",
+    color: "black",
   };
 
   const { pagesArr, pageNumber } = usePageNumbersLogic(page, maxPage); // retrieve relevant page/pages
@@ -107,7 +107,7 @@ const PageNumbers = ({ page, maxPage, navigate, category }) => {
 
 const BackToZeroButton = ({ page, maxPage, navigate, category }) => {
   const backToZeroStyle = {
-    display: page >= 3 && maxPage > 3 ? "block" : "none",
+    opacity: page >= 3 && maxPage > 3 ? "1" : "0",
   };
 
   return (
@@ -115,7 +115,7 @@ const BackToZeroButton = ({ page, maxPage, navigate, category }) => {
       <button
         onClick={() => navigate(`/gallery?${category}&page=${1}`)}
         style={backToZeroStyle}
-        className={classes.pageSelectorButton}
+        className={`${classes.pageSelectorButton} ${classes.extraButton}`}
       >
         <p className={classes.btnText}>1...</p>
       </button>
@@ -142,7 +142,6 @@ const PageSelector = ({ maxPage }) => {
 
   return (
     <div className={classes.pageSelector}>
-      <LeftButton page={page} navigate={navigate} category={stringCategories} />
       <BackToZeroButton
         page={page}
         maxPage={maxPage}
@@ -150,12 +149,6 @@ const PageSelector = ({ maxPage }) => {
         category={stringCategories}
       />
       <PageNumbers
-        page={page}
-        maxPage={maxPage}
-        navigate={navigate}
-        category={stringCategories}
-      />
-      <RightButton
         page={page}
         maxPage={maxPage}
         navigate={navigate}

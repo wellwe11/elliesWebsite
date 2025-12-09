@@ -32,10 +32,6 @@ const FilterSideBar = ({ dataKeys, handleFilter, category, Sets }) => {
   return (
     <div className={classes.filterSideBar}>
       <ul className={classes.filterUl}>
-        <SetLi Sets={Sets} handleFilter={handleFilter} category={category} />
-        {dataKeys.map((k) => (
-          <LiEl key={k} category={category} k={k} handleFilter={handleFilter} />
-        ))}
         {category && (
           <div
             className={classes.closeFilter}
@@ -44,6 +40,12 @@ const FilterSideBar = ({ dataKeys, handleFilter, category, Sets }) => {
             <X_SVG />
           </div>
         )}
+
+        <SetLi Sets={Sets} handleFilter={handleFilter} category={category} />
+
+        {dataKeys.map((k) => (
+          <LiEl key={k} category={category} k={k} handleFilter={handleFilter} />
+        ))}
       </ul>
     </div>
   );

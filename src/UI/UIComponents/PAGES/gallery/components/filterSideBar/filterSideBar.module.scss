@@ -9,8 +9,6 @@
     }
 
     .filterLi {
-      margin: var(--spacing-2) var(--spacing-1);
-
       display: flex;
       align-items: center;
 
@@ -21,11 +19,8 @@
       }
 
       .filterButton {
+        background-color: inherit;
         cursor: pointer;
-        padding: calc(var(--spacing-1) / 2) var(--spacing-2);
-
-        background-color: var(--websiteContainerColor);
-        transition: background-color 0.2s ease, border 0.2s ease;
 
         border: none;
 
