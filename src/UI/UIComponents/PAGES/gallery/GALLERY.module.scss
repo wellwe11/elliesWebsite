@@ -21,21 +21,13 @@
     z-index: 1;
 
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: flex-end;
 
     height: 120px;
 
     background-color: rgba(255, 255, 255, 0.926);
     backdrop-filter: blur(2px);
-
-    .content {
-      display: flex;
-      align-items: flex-end;
-
-      height: 100%;
-      padding-bottom: var(--spacing-2);
-    }
 
     @media screen and (min-width: 1025px) {
       top: 0;
@@ -55,32 +47,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    overflow: hidden;
-
-    .displayButton {
-      cursor: pointer;
-      z-index: 100;
-      background-color: transparent;
-      border: none;
-
-      border-left: 1px solid black;
-      padding: 0px var(--spacing-1);
-
-      display: flex;
-
-      .text {
-      }
-
-      .amountActiveFilters {
-        width: 20px;
-        height: 20px;
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-    }
   }
 
   // productsWrapper

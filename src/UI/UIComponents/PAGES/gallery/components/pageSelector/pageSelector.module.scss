@@ -41,13 +41,17 @@
 
   background-color: inherit;
 
+  width: 23px;
+
   .btnText {
     width: 70%;
     height: 95%;
     color: var(--c-grey-400);
   }
 
-  &:hover {
+  .activeBtnText {
+    font-variation-settings: "wght" 600 !important;
+    color: black;
   }
 }
 

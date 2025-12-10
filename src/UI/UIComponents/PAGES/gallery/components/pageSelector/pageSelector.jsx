@@ -88,7 +88,13 @@ const PageNumbers = ({ page, maxPage, navigate, category }) => {
           }}
           onClick={() => navigate(`/gallery?${category}&page=${arrNr}`)} // changes current page if you click a number (and not previous/next)
         >
-          <p className={classes.btnText}>{+arrNr}</p>
+          <p
+            className={`${classes.btnText} ${
+              page === arrNr ? classes.activeBtnText : ""
+            }`}
+          >
+            {+arrNr}
+          </p>
         </button>
       ))}
     </div>

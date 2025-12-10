@@ -9,7 +9,7 @@
 
   gap: var(--spacing-3);
 
-  padding: var(--spacing-3);
+  padding: var(--spacing-3) 0px;
 
   .navLogoImage {
     height: clamp(20px, 5vw + 5rem, 60px);

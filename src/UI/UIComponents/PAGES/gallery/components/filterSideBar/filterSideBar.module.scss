@@ -1,9 +1,12 @@
 // FilterSideBar
 .filterSideBar {
+  padding: var(--spacing-1) 0px;
+
   .filterUl {
     width: 100%;
     display: flex;
     align-items: center;
+    gap: var(--spacing-2);
 
     @media screen and (max-width: 1024px) {
       top: 110px;
@@ -28,16 +31,28 @@
         position: relative;
 
         height: 30px;
-        width: fit-content;
-        padding: 0px var(--spacing-1);
+
+        padding-bottom: 0px var(--spacing-1);
 
         .textWrapper {
           width: 100%;
 
           .text {
             color: var(--c-grey-500);
+            transition: opacity 0.4s ease;
+            transition-delay: 0.5s;
+          }
 
-            transition: color 0.3s ease, font-variation-settings 5s ease-in-out;
+          .activeText {
+            transition: opacity 0.4s ease;
+            position: absolute;
+
+            top: 4.5px;
+            left: 0px;
+
+            letter-spacing: -0.015rem;
+
+            font-variation-settings: "wght" 500;
           }
         }
 
@@ -49,19 +64,6 @@
             }
           }
         }
-      }
-
-      .filterButtonActive {
-        .textWrapper {
-          .text {
-            color: black;
-            font-variation-settings: "wght" 400;
-          }
-        }
-      }
-
-      // class applied if button is clicked
-      .activeFilter {
       }
     }
 

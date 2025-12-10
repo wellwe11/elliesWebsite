@@ -15,11 +15,8 @@ const NavLogo = ({ setActiveButton, setHoverButton }) => {
         navigate("./");
       }}
     >
-      <img className={classes.navLogoImage} src={logoImage} alt="" />
-      <h1 className={classes.logo}>
-        art & <br />
-        cards co.
-      </h1>
+      {/* <img className={classes.navLogoImage} src={logoImage} alt="" /> */}
+      <h1 className={classes.logo}>art & cards co.</h1>
     </div>
   );
 };

@@ -4,6 +4,8 @@ import X_SVG from "@components/SVGS/X_SVG/X_SVG.jsx";
 import ButtonWithUnderlineAndUndertext from "@components/buttonWithUnderlineAndUnderText/buttonWithUnderlineAndUndertext";
 
 const LiEl = ({ category, k, handleFilter }) => {
+  const activeFilter = category?.includes(k);
+
   return (
     <li className={classes.filterLi}>
       <button
@@ -14,6 +16,12 @@ const LiEl = ({ category, k, handleFilter }) => {
       >
         <div className={classes.textWrapper}>
           <p className={classes.text}>{k}</p>
+          <p
+            className={classes.activeText}
+            style={{ opacity: activeFilter ? "1" : "0" }}
+          >
+            {k}
+          </p>
         </div>
       </button>
     </li>
@@ -32,6 +40,11 @@ const FilterSideBar = ({ dataKeys, handleFilter, category, Sets }) => {
   return (
     <div className={classes.filterSideBar}>
       <ul className={classes.filterUl}>
+        <SetLi Sets={Sets} handleFilter={handleFilter} category={category} />
+
+        {dataKeys.map((k) => (
+          <LiEl key={k} category={category} k={k} handleFilter={handleFilter} />
+        ))}
         {category && (
           <div
             className={classes.closeFilter}
@@ -40,12 +53,6 @@ const FilterSideBar = ({ dataKeys, handleFilter, category, Sets }) => {
             <X_SVG />
           </div>
         )}
-
-        <SetLi Sets={Sets} handleFilter={handleFilter} category={category} />
-
-        {dataKeys.map((k) => (
-          <LiEl key={k} category={category} k={k} handleFilter={handleFilter} />
-        ))}
       </ul>
     </div>
   );
