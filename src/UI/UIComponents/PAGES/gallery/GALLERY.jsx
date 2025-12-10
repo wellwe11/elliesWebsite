@@ -51,6 +51,17 @@ const FilterSidebarWrapper = ({ categories, dataKeys }) => {
 
       <button onClick={handleDisplayFilters} className={classes.displayButton}>
         <p className={classes.text}>filters</p>
+        <p className={`${classes.text} ${classes.amountActiveFilters}`}>
+          {categories?.length > 0 ? (
+            <>
+              {"["}
+              <span>{categories.length}</span>
+              {"]"}
+            </>
+          ) : (
+            ""
+          )}
+        </p>
       </button>
     </div>
   );
@@ -92,8 +103,10 @@ const Gallery = ({ data: { categories, updatedData, page, dataKeys } }) => {
     <div className={`${classes.gallery} ${fadeInClass.fade_in_on_load}`}>
       <div className={classes.galleryTop}>
         <div className={classes.extendedNavbarWrapper}>
-          <FilterSidebarWrapper dataKeys={dataKeys} categories={categories} />
-          <PageWrapperComponent filteredData={updatedData} />
+          <div className={classes.content}>
+            <FilterSidebarWrapper dataKeys={dataKeys} categories={categories} />
+            <PageWrapperComponent filteredData={updatedData} />
+          </div>
         </div>
         <ProductsWrapperComponent filteredData={updatedData} page={page} />
       </div>

@@ -5,8 +5,11 @@
   border: none;
   cursor: pointer;
 
+  padding: var(--spacing-1);
   width: 100%;
-  height: var(--spacing-8);
+  height: var(--spacing-6);
+
+  pointer-events: auto;
 
   display: flex;
   justify-content: center;

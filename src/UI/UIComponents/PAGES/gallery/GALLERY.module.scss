@@ -18,15 +18,27 @@
     overflow: hidden;
     position: sticky;
 
-    z-index: 999999;
+    z-index: 1;
 
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
 
-    height: 75px;
+    height: 120px;
+
+    background-color: rgba(255, 255, 255, 0.926);
+    backdrop-filter: blur(2px);
+
+    .content {
+      display: flex;
+      align-items: flex-end;
+
+      height: 100%;
+      padding-bottom: var(--spacing-2);
+    }
 
     @media screen and (min-width: 1025px) {
-      top: 100px;
+      top: 0;
     }
 
     @media screen and (max-width: 1024px) {
@@ -55,7 +67,18 @@
       border-left: 1px solid black;
       padding: 0px var(--spacing-1);
 
+      display: flex;
+
       .text {
+      }
+
+      .amountActiveFilters {
+        width: 20px;
+        height: 20px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
     }
   }

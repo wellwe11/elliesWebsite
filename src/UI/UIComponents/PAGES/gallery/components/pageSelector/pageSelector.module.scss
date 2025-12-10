@@ -4,9 +4,10 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: var(--spacing-1);
+  padding: 0px var(--spacing-1);
 
   width: clamp(100px, 15vw, 130px);
+  height: 30px;
 
   @media screen and (min-width: 1024px) {
   }
