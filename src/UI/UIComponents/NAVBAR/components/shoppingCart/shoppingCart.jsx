@@ -11,19 +11,37 @@ const ShoppingCart = ({ setDisplayShoppingCart }) => {
 
   const totalItemsInCart = useMemo(() => getTotalItems(), [cart]);
 
-  const totalItemsInCartWrapper = totalItemsInCart > 0 && (
-    <div className={classes.totalItemsInCartWrapper}>
-      <p className={classes.text}>{totalItemsInCart}</p>
-    </div>
-  );
-
   return (
     <button
       className={classes.shoppingCart}
       onClick={() => setDisplayShoppingCart(true)}
+      style={{
+        marginLeft:
+          totalItemsInCart > 99
+            ? "-10px"
+            : totalItemsInCart > 9
+            ? "0px"
+            : "5px",
+      }}
     >
-      cart
-      {totalItemsInCartWrapper}
+      <p className={classes.text}>Cart</p>
+      <p className={classes.text}>
+        {"[ "}
+        <span
+          className={classes.amount}
+          style={{
+            width:
+              totalItemsInCart > 99
+                ? "25px"
+                : totalItemsInCart > 9
+                ? "15px"
+                : "10px",
+          }}
+        >
+          {totalItemsInCart || 0}
+        </span>
+        {" ]"}
+      </p>
     </button>
   );
 };

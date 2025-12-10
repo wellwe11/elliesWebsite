@@ -1,13 +1,10 @@
 // ShoppingCart variable
 .shoppingCart {
-  padding: 0px var(--spacing-2);
+  pointer-events: all;
+
   z-index: 10000;
 
   cursor: pointer;
-
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
 
   position: relative;
 
@@ -16,102 +13,31 @@
   transition: color 0.2s ease;
 
   height: var(--spacing-6);
+
   padding: var(--spacing-1);
 
   border: none;
   background-color: inherit;
+
+  display: flex;
+  align-items: center;
 
   &:hover {
     color: black;
     transition: color 0.3s ease;
   }
 
-  // shoppingBagText variable
-  .shoppingBagText {
-    transition: opacity 0.4s ease, transform 1s ease;
-    opacity: 0;
-
-    position: absolute;
-    right: 180px;
-
-    padding-right: var(--spacing-1);
-    display: flex; // needed for background
-
-    z-index: 1;
-    cursor: pointer;
-
-    background: linear-gradient(
-      90deg,
-      #333 0%,
-      #ddd 30%,
-      #fff 50%,
-      #ddd 70%,
-      #333 100%
-    );
-
-    background-size: 200% 100%;
-    background-position: -50% 0%;
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    animation: highlightMove 3s ease infinite;
-    animation-delay: 2s;
-
-    .cartText {
-      font-weight: 300;
-      white-space: nowrap;
-    }
-    .whiteText {
-      color: white !important;
-      opacity: 0;
-    }
-
-    @keyframes highlightMove {
-      0% {
-        background-position: -260% 0%;
-        -webkit-text-fill-color: black;
-      }
-
-      1% {
-        -webkit-text-fill-color: transparent;
-      }
-
-      45% {
-        background-position: -60% 0%;
-      }
-
-      100% {
-        background-position: -60% 0%;
-      }
-    }
-
-    @media screen and (min-width: 1025px) {
-      transform: translateX(220px);
-    }
-
-    @media screen and (max-width: 1024px) {
-      right: 190px !important;
-      transform: translateX(220px);
-    }
-  }
-
-  // totalItemsInCartWrapper variable
-  .totalItemsInCartWrapper {
-    cursor: pointer;
-    position: absolute;
-    right: 15px;
-    top: 0;
-
-    z-index: 10000;
-    background-color: var(--websiteContainerColor);
-    border: 1px solid var(--c-grey-300);
-
-    border-radius: 100px;
-    padding: 0px 3px;
-
+  .text {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+
+    .amount {
+      width: 20px;
+      padding: 0px calc(var(--spacing-1) / 2);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
