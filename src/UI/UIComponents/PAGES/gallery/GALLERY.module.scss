@@ -15,6 +15,7 @@
   }
 
   .extendedNavbarWrapper {
+    padding: var(--spacing-1) 0px;
     overflow: hidden;
     position: sticky;
 
@@ -24,13 +25,13 @@
     justify-content: space-between;
     align-items: flex-end;
 
-    height: 120px;
+    height: 50px;
 
     background-color: rgba(255, 255, 255, 0.926);
     backdrop-filter: blur(2px);
 
     @media screen and (min-width: 1025px) {
-      top: 0;
+      top: 98px;
     }
 
     @media screen and (max-width: 1024px) {

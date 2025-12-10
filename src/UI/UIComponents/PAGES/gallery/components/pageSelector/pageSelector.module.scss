@@ -67,12 +67,13 @@
 }
 
 .leftButtonWrapper {
-  height: var(--spacing-2);
 }
 
 .rightButtonWrapper {
-  height: var(--spacing-2);
   transform: rotateY(180deg);
+
+  display: flex;
+  margin-top: 1.7px;
 }
 
 // BackToZeroButton
