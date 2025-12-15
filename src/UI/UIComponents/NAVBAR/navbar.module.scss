@@ -18,6 +18,7 @@
     .navWrapper {
       display: flex;
       justify-content: space-between;
+      align-items: center;
 
       height: 100%;
 
@@ -34,7 +35,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-top: var(--spacing-2);
 
         .navButtonsWrapper {
           height: 100%;

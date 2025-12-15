@@ -25,6 +25,7 @@ export default App;
 
 /** TODO LIST
  *
+ * // seperate parts of website into header, main, footer etc. 
  * ** TODO NOW! **
  * Fix code where I am overusing Divs:
  * Add page that has information about Costumer rights & shipping. Clicking button on footer should navigate to that section on the page
