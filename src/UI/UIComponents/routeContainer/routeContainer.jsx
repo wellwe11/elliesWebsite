@@ -7,8 +7,8 @@ import Navbar from "../NAVBAR/navbar.jsx";
 const Cart = lazy(() => import("../CART/cart.jsx"));
 
 import MainPagesRoutes from "./components/mainPageRoutes/mainPageRoutes.jsx";
-const BackgroundRoutes = lazy(() =>
-  import("./components/backgroundRoutes/backgroundRoutes.jsx")
+const BackgroundRoutes = lazy(
+  () => import("./components/backgroundRoutes/backgroundRoutes.jsx"),
 );
 import Loading from "../LOADING/loading.jsx";
 
